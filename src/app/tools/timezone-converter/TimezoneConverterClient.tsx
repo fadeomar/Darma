@@ -133,11 +133,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-lg font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -145,7 +145,7 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -229,7 +229,7 @@ function formatZoneOption(option: TimezoneSelectOption, meta: FormatOptionLabelM
       <span className="flex min-w-0 items-center gap-2">
         <span aria-hidden>{option.flag}</span>
         <span className="truncate font-semibold">{option.city}</span>
-        <span className="truncate font-mono text-[10px] text-[var(--color-text-tertiary)]">{option.zone}</span>
+        <span className="truncate font-mono text-xs text-[var(--color-text-tertiary)]">{option.zone}</span>
       </span>
     );
   }
@@ -238,7 +238,7 @@ function formatZoneOption(option: TimezoneSelectOption, meta: FormatOptionLabelM
       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-base" aria-hidden>{option.flag}</span>
       <span className="min-w-0">
         <span className="block truncate text-sm font-bold">{option.city}</span>
-        <span className="block truncate font-mono text-[10px] text-[var(--color-text-tertiary)]">{option.zone}</span>
+        <span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]">{option.zone}</span>
       </span>
     </span>
   );
@@ -293,9 +293,9 @@ function TimezoneSelect({
 
 function tabButton(active: boolean) {
   return cn(
-    "rounded-[var(--radius-sm)] px-3 py-2 text-[11px] font-bold transition",
+    "rounded-[var(--radius-sm)] px-3 py-2 text-xs font-bold transition",
     active
-      ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]"
+      ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]"
       : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]",
   );
 }
@@ -473,13 +473,13 @@ export default function TimezoneConverterClient() {
       </div>
 
       <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-sm)]">
-        <div className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" /><h2 className="text-xs font-black text-[var(--color-text-primary)]">Practical presets</h2></div>
+        <div className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h2 className="text-xs font-black text-[var(--color-text-primary)]">Practical presets</h2></div>
         <div className="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-6">
           {TIMEZONE_PRESETS.map((preset) => (
             <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 text-left transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-primary-soft)] focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]">
               <span className="text-base" aria-hidden>{preset.icon}</span>
               <span className="mt-1 block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
-              <span className="mt-0.5 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+              <span className="mt-0.5 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
             </button>
           ))}
         </div>
@@ -488,13 +488,13 @@ export default function TimezoneConverterClient() {
       <div className="grid gap-4 xl:grid-cols-[350px_minmax(0,1fr)] xl:items-start">
         <aside className="space-y-4 xl:sticky xl:top-24">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center justify-between gap-2"><div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Source moment</h2><p className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">IANA zones with browser DST rules.</p></div><Button size="sm" variant="secondary" onClick={useNow} leftIcon={<RefreshCw className="h-3.5 w-3.5" />}>Now</Button></div>
+            <div className="flex items-center justify-between gap-2"><div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Source moment</h2><p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">IANA zones with browser DST rules.</p></div><Button size="sm" variant="secondary" onClick={useNow} leftIcon={<RefreshCw className="h-3.5 w-3.5" />}>Now</Button></div>
             <div className="mt-4 grid grid-cols-2 gap-3">
               <PickerField label="Date" type="date" value={dateValue} onChange={setDateValue} ariaInvalid={!resolution.ok} icon={Calendar} />
               <PickerField label="Local time" type="time" value={timeValue} onChange={setTimeValue} ariaInvalid={!resolution.ok} icon={Clock} />
             </div>
             <div className="mt-3"><Field label="Source time zone" hint={browserOption ? `Browser: ${browserOption.city}` : browserZone}><TimezoneSelect inputId="timezone-source" ariaLabel="Source time zone" options={zoneSelectOptions} value={sourceZone} onChange={setSourceZone} /></Field></div>
-            {sourceDisplay ? <div className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs"><div className="font-bold text-[var(--color-text-primary)]">{sourceDisplay.date} · {sourceDisplay.time}</div><div className="mt-1 font-mono text-[10px] text-[var(--color-text-tertiary)]">{sourceDisplay.offset} · {sourceDisplay.abbreviation}</div></div> : null}
+            {sourceDisplay ? <div className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs"><div className="font-bold text-[var(--color-text-primary)]">{sourceDisplay.date} · {sourceDisplay.time}</div><div className="mt-1 font-mono text-xs text-[var(--color-text-tertiary)]">{sourceDisplay.offset} · {sourceDisplay.abbreviation}</div></div> : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
@@ -512,7 +512,7 @@ export default function TimezoneConverterClient() {
             <div className="mt-3 max-h-56 space-y-2 overflow-auto pr-1">
               {targetZones.map((zone) => {
                 const option = TIMEZONE_OPTIONS.find((item) => item.zone === zone);
-                return <div key={zone} className="flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-2"><span aria-hidden>{option?.flag ?? "🌐"}</span><span className="min-w-0 flex-1"><span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{option?.city ?? zone}</span><span className="block truncate font-mono text-[9px] text-[var(--color-text-tertiary)]">{zone}</span></span><Button size="icon" variant="ghost" disabled={targetZones.length <= 1} onClick={() => setTargetZones((current) => current.filter((item) => item !== zone))} leftIcon={<X className="h-3.5 w-3.5" />}>Remove {option?.city ?? zone}</Button></div>;
+                return <div key={zone} className="flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-2"><span aria-hidden>{option?.flag ?? "🌐"}</span><span className="min-w-0 flex-1"><span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{option?.city ?? zone}</span><span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]">{zone}</span></span><Button size="icon" variant="ghost" disabled={targetZones.length <= 1} onClick={() => setTargetZones((current) => current.filter((item) => item !== zone))} leftIcon={<X className="h-3.5 w-3.5" />}>Remove {option?.city ?? zone}</Button></div>;
               })}
             </div>
             <div className="mt-3 space-y-2"><TimezoneSelect inputId="timezone-add" ariaLabel="Time zone to add" options={availableOptions} value={selectedZoneToAdd} onChange={setZoneToAdd} isDisabled={!availableOptions.length} /><Button fullWidth size="sm" variant="secondary" disabled={!availableOptions.length} onClick={addTimezone} leftIcon={<Plus className="h-3.5 w-3.5" />}>Add timezone</Button></div>
@@ -521,7 +521,7 @@ export default function TimezoneConverterClient() {
 
         <section className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] px-4 py-3">
-            <div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Planning workspace</h2><p className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">Compare local times, find better overlap, process schedule rows, and export.</p></div>
+            <div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Planning workspace</h2><p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Compare local times, find better overlap, process schedule rows, and export.</p></div>
             <CopyButton text={copySummary} size="sm" variant="secondary" disabled={!rows.length}>Copy comparison</CopyButton>
           </div>
           <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-1.5"><div className="grid grid-cols-4 gap-1"><button type="button" className={tabButton(activeTab === "comparison")} onClick={() => setActiveTab("comparison")}>Comparison</button><button type="button" className={tabButton(activeTab === "planner")} onClick={() => setActiveTab("planner")}>Best slots</button><button type="button" className={tabButton(activeTab === "batch")} onClick={() => setActiveTab("batch")}>Batch</button><button type="button" className={tabButton(activeTab === "exports")} onClick={() => setActiveTab("exports")}>Exports</button></div></div>
@@ -530,9 +530,9 @@ export default function TimezoneConverterClient() {
             <div className="divide-y divide-[var(--color-border-subtle)]">
               {rows.map((row) => (
                 <div key={row.zone} className="grid gap-3 p-4 sm:grid-cols-[minmax(0,1fr)_minmax(180px,auto)_minmax(160px,auto)] sm:items-center">
-                  <div className="flex min-w-0 items-center gap-3"><span className="text-2xl" aria-hidden>{row.flag}</span><div className="min-w-0"><div className="truncate text-sm font-black text-[var(--color-text-primary)]">{row.city}</div><div className="truncate font-mono text-[10px] text-[var(--color-text-tertiary)]">{row.zone}</div><div className="mt-1 text-[10px] text-[var(--color-text-secondary)]">{row.offsetDifferenceLabel}</div></div></div>
+                  <div className="flex min-w-0 items-center gap-3"><span className="text-2xl" aria-hidden>{row.flag}</span><div className="min-w-0"><div className="truncate text-sm font-black text-[var(--color-text-primary)]">{row.city}</div><div className="truncate font-mono text-xs text-[var(--color-text-tertiary)]">{row.zone}</div><div className="mt-1 text-xs text-[var(--color-text-secondary)]">{row.offsetDifferenceLabel}</div></div></div>
                   <div><div className="text-lg font-black tabular-nums text-[var(--color-text-primary)]">{row.start.time}–{row.end.time}</div><div className="mt-0.5 text-xs text-[var(--color-text-secondary)]">{row.start.date}</div><div className="mt-1 flex flex-wrap gap-1"><Badge variant="outline">{row.start.offset}</Badge><Badge variant="outline">{dayShiftLabel(row.start.dayDiff)}</Badge></div></div>
-                  <div className="sm:text-right"><Badge variant={availabilityVariant(row.availability)}>{row.availabilityLabel}</Badge><div className="mt-2 font-mono text-[10px] text-[var(--color-text-tertiary)]">{row.start.abbreviation}</div></div>
+                  <div className="sm:text-right"><Badge variant={availabilityVariant(row.availability)}>{row.availabilityLabel}</Badge><div className="mt-2 font-mono text-xs text-[var(--color-text-tertiary)]">{row.start.abbreviation}</div></div>
                 </div>
               ))}
               {!rows.length ? <div className="px-4 py-14 text-center text-sm text-[var(--color-text-tertiary)]">Enter a valid source moment to build the comparison.</div> : null}
@@ -541,12 +541,12 @@ export default function TimezoneConverterClient() {
 
           {activeTab === "planner" ? (
             <div className="p-4">
-              <div className="mb-3 flex items-center justify-between gap-2"><div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Best nearby meeting slots</h3><p className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">Ranks half-hour slots within ±5 hours using the configured working-hours window.</p></div><Badge variant="soft">Top {candidateSlots.length}</Badge></div>
+              <div className="mb-3 flex items-center justify-between gap-2"><div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Best nearby meeting slots</h3><p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Ranks half-hour slots within ±5 hours using the configured working-hours window.</p></div><Badge variant="soft">Top {candidateSlots.length}</Badge></div>
               <div className="grid gap-3 md:grid-cols-2">
                 {candidateSlots.map((slot, index) => (
                   <div key={slot.iso} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-                    <div className="flex items-start justify-between gap-2"><div><div className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Option {index + 1}</div><div className="mt-1 text-sm font-black text-[var(--color-text-primary)]">{slot.sourceLabel}</div></div><Badge variant={slot.insideCount === rows.length && rows.length ? "success" : "warning"}>{slot.insideCount}/{slot.rows.length} inside</Badge></div>
-                    <div className="mt-3 flex flex-wrap gap-1.5">{slot.rows.map((row) => <span key={row.zone} className={cn("rounded-full border px-2 py-1 text-[9px] font-bold", row.availability === "inside" ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : row.availability === "partial" ? "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]" : "border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)]")}>{row.city} {row.start.time}</span>)}</div>
+                    <div className="flex items-start justify-between gap-2"><div><div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Option {index + 1}</div><div className="mt-1 text-sm font-black text-[var(--color-text-primary)]">{slot.sourceLabel}</div></div><Badge variant={slot.insideCount === rows.length && rows.length ? "success" : "warning"}>{slot.insideCount}/{slot.rows.length} inside</Badge></div>
+                    <div className="mt-3 flex flex-wrap gap-1.5">{slot.rows.map((row) => <span key={row.zone} className={cn("rounded-full border px-2 py-1 text-xs font-bold", row.availability === "inside" ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : row.availability === "partial" ? "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]" : "border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)]")}>{row.city} {row.start.time}</span>)}</div>
                     <Button className="mt-3" size="sm" variant="secondary" onClick={() => applyCandidate(slot.iso)}>Use this slot</Button>
                   </div>
                 ))}
@@ -558,18 +558,18 @@ export default function TimezoneConverterClient() {
           {activeTab === "batch" ? (
             <div className="space-y-4 p-4">
               <Field label="Batch schedule" hint="Label | YYYY-MM-DD HH:mm Area/City"><Textarea variant="editor" className="min-h-40 font-mono text-xs" value={batchInput} onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setBatchInput(event.target.value)} /></Field>
-              <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]"><table className="w-full min-w-[760px] text-left text-xs"><thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Line</th><th className="px-3 py-2">Event</th><th className="px-3 py-2">Source</th><th className="px-3 py-2">UTC instant</th><th className="px-3 py-2">Targets</th></tr></thead><tbody className="divide-y divide-[var(--color-border-subtle)]">{batchRows.map((row) => <tr key={`${row.line}-${row.raw}`}><td className="px-3 py-2 font-mono">{row.line}</td><td className="px-3 py-2 font-bold text-[var(--color-text-primary)]">{row.label || "—"}</td><td className="px-3 py-2"><div>{row.dateValue} {row.timeValue}</div><div className="font-mono text-[9px] text-[var(--color-text-tertiary)]">{row.sourceZone}</div></td><td className="px-3 py-2 font-mono text-[10px]">{row.ok ? row.iso : <span className="text-[var(--color-danger-text)]">{row.error}</span>}</td><td className="px-3 py-2">{row.ok ? <div className="flex max-w-[380px] flex-wrap gap-1">{row.conversions.slice(0, 5).map((conversion) => <Badge key={conversion.zone} variant="outline">{conversion.city}: {conversion.time}</Badge>)}{row.conversions.length > 5 ? <Badge variant="soft">+{row.conversions.length - 5}</Badge> : null}</div> : "—"}</td></tr>)}</tbody></table></div>
+              <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]"><table className="w-full min-w-[760px] text-left text-xs"><thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Line</th><th className="px-3 py-2">Event</th><th className="px-3 py-2">Source</th><th className="px-3 py-2">UTC instant</th><th className="px-3 py-2">Targets</th></tr></thead><tbody className="divide-y divide-[var(--color-border-subtle)]">{batchRows.map((row) => <tr key={`${row.line}-${row.raw}`}><td className="px-3 py-2 font-mono">{row.line}</td><td className="px-3 py-2 font-bold text-[var(--color-text-primary)]">{row.label || "—"}</td><td className="px-3 py-2"><div>{row.dateValue} {row.timeValue}</div><div className="font-mono text-xs text-[var(--color-text-tertiary)]">{row.sourceZone}</div></td><td className="px-3 py-2 font-mono text-xs">{row.ok ? row.iso : <span className="text-[var(--color-danger-text)]">{row.error}</span>}</td><td className="px-3 py-2">{row.ok ? <div className="flex max-w-[380px] flex-wrap gap-1">{row.conversions.slice(0, 5).map((conversion) => <Badge key={conversion.zone} variant="outline">{conversion.city}: {conversion.time}</Badge>)}{row.conversions.length > 5 ? <Badge variant="soft">+{row.conversions.length - 5}</Badge> : null}</div> : "—"}</td></tr>)}</tbody></table></div>
             </div>
           ) : null}
 
           {activeTab === "exports" ? (
             <div className="grid gap-3 p-4 md:grid-cols-2">
-              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><FileText className="h-4 w-4 text-[var(--color-primary)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Markdown report</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Human-readable source, comparison, and production checks.</p><div className="mt-3 flex gap-2"><CopyButton text={markdown} size="sm" variant="secondary">Copy</CopyButton><Button size="sm" variant="secondary" onClick={() => downloadText("timezone-report.md", markdown, "text/markdown;charset=utf-8")} leftIcon={<Download className="h-3.5 w-3.5" />}>Download</Button></div></div>
-              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><FileJson className="h-4 w-4 text-[var(--color-primary)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">JSON audit</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Machine-readable configuration, zones, slots, batch, and checks.</p><div className="mt-3 flex gap-2"><CopyButton text={reportJson} size="sm" variant="secondary">Copy</CopyButton><Button size="sm" variant="secondary" onClick={() => downloadText("timezone-audit.json", reportJson, "application/json;charset=utf-8")} leftIcon={<Download className="h-3.5 w-3.5" />}>Download</Button></div></div>
-              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><FileSpreadsheet className="h-4 w-4 text-[var(--color-primary)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">CSV exports</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Comparison rows and flattened batch conversions.</p><div className="mt-3 flex flex-wrap gap-2"><Button size="sm" variant="secondary" onClick={() => downloadText("zone-comparison.csv", comparisonCsv, "text/csv;charset=utf-8")}>Comparison CSV</Button><Button size="sm" variant="secondary" onClick={() => downloadText("batch-schedule.csv", batchCsv, "text/csv;charset=utf-8")}>Batch CSV</Button></div></div>
-              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><CalendarClock className="h-4 w-4 text-[var(--color-primary)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Calendar event</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">UTC-based ICS event with the local zone comparison in its description.</p><Button className="mt-3" size="sm" variant="secondary" disabled={!ics} onClick={() => downloadText("meeting.ics", ics, "text/calendar;charset=utf-8")}>Download ICS</Button></div>
-              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><Code2 className="h-4 w-4 text-[var(--color-primary)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">JavaScript Intl starter</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">A small dependency-free example for formatting the selected instant.</p><div className="mt-3 flex gap-2"><CopyButton text={javascript} size="sm" variant="secondary">Copy</CopyButton><Button size="sm" variant="secondary" onClick={() => downloadText("timezone-helper.js", javascript, "text/javascript;charset=utf-8")}>Download</Button></div></div>
-              <div className="rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-3"><PackageCheck className="h-4 w-4 text-[var(--color-primary)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Production pack</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">Markdown, JSON, CSV, ICS, JavaScript, and README in one ZIP.</p><Button className="mt-3" size="sm" loading={zipBusy} onClick={downloadPack} leftIcon={<Download className="h-3.5 w-3.5" />}>Download ZIP</Button></div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><FileText className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Markdown report</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Human-readable source, comparison, and production checks.</p><div className="mt-3 flex gap-2"><CopyButton text={markdown} size="sm" variant="secondary">Copy</CopyButton><Button size="sm" variant="secondary" onClick={() => downloadText("timezone-report.md", markdown, "text/markdown;charset=utf-8")} leftIcon={<Download className="h-3.5 w-3.5" />}>Download</Button></div></div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><FileJson className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">JSON audit</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Machine-readable configuration, zones, slots, batch, and checks.</p><div className="mt-3 flex gap-2"><CopyButton text={reportJson} size="sm" variant="secondary">Copy</CopyButton><Button size="sm" variant="secondary" onClick={() => downloadText("timezone-audit.json", reportJson, "application/json;charset=utf-8")} leftIcon={<Download className="h-3.5 w-3.5" />}>Download</Button></div></div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><FileSpreadsheet className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">CSV exports</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Comparison rows and flattened batch conversions.</p><div className="mt-3 flex flex-wrap gap-2"><Button size="sm" variant="secondary" onClick={() => downloadText("zone-comparison.csv", comparisonCsv, "text/csv;charset=utf-8")}>Comparison CSV</Button><Button size="sm" variant="secondary" onClick={() => downloadText("batch-schedule.csv", batchCsv, "text/csv;charset=utf-8")}>Batch CSV</Button></div></div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><CalendarClock className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Calendar event</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">UTC-based ICS event with the local zone comparison in its description.</p><Button className="mt-3" size="sm" variant="secondary" disabled={!ics} onClick={() => downloadText("meeting.ics", ics, "text/calendar;charset=utf-8")}>Download ICS</Button></div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><Code2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">JavaScript Intl starter</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">A small dependency-free example for formatting the selected instant.</p><div className="mt-3 flex gap-2"><CopyButton text={javascript} size="sm" variant="secondary">Copy</CopyButton><Button size="sm" variant="secondary" onClick={() => downloadText("timezone-helper.js", javascript, "text/javascript;charset=utf-8")}>Download</Button></div></div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-3"><PackageCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h3 className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Production pack</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">Markdown, JSON, CSV, ICS, JavaScript, and README in one ZIP.</p><Button className="mt-3" size="sm" loading={zipBusy} onClick={downloadPack} leftIcon={<Download className="h-3.5 w-3.5" />}>Download ZIP</Button></div>
             </div>
           ) : null}
         </section>

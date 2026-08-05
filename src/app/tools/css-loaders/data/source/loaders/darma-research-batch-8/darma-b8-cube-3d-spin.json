@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-cube-3d-spin",
+  "name": "3D Cube Spin",
+  "category": "creative",
+  "tags": ["cube", "3d", "rotate", "box", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"cube\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; perspective: 600px; }\n.loader .cube { --s: calc(var(--loader-size) * .52); position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: cube-spin calc(var(--loader-speed) * 3) linear infinite; }\n.loader .cube span { position: absolute; inset: 0; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 82%, transparent), color-mix(in srgb, var(--accent-2) 82%, transparent)); border: 1px solid color-mix(in srgb, #fff 30%, transparent); }\n.loader .cube span:nth-child(1) { transform: rotateY(0deg) translateZ(calc(var(--s) / 2)); }\n.loader .cube span:nth-child(2) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }\n.loader .cube span:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }\n.loader .cube span:nth-child(4) { transform: rotateY(270deg) translateZ(calc(var(--s) / 2)); }\n.loader .cube span:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }\n.loader .cube span:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }\n@keyframes cube-spin { 0% { transform: rotateX(-24deg) rotateY(0deg); } 100% { transform: rotateX(-24deg) rotateY(360deg); } }",
+  "defaults": { "color": "#6366f1", "secondaryColor": "#22d3ee", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

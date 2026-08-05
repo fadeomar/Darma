@@ -72,7 +72,7 @@ function JsonNode({
         <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-400 transition group-open:rotate-90" aria-hidden />
         {label ? <span className="text-amber-200">{label}:</span> : null}
         <span className="text-slate-100">{Array.isArray(value) ? "[ ]" : "{ }"}</span>
-        <span className="rounded-full bg-white/8 px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-slate-400">{summary}</span>
+        <span className="rounded-full bg-white/8 px-2 py-0.5 text-xs uppercase tracking-[0.08em] text-slate-400">{summary}</span>
       </summary>
       <div className="pb-1">
         {entries.map(([key, child]) => (

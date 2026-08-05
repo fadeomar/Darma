@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-washing-machine",
+  "name": "Laundry Drum",
+  "category": "fun",
+  "tags": [
+    "washing",
+    "machine",
+    "laundry",
+    "tumble",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"drum\"><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; border-radius: 12%; background: linear-gradient(#f8fafc, #e2e8f0); box-shadow: inset 0 0 0 2px #cbd5e1; }\n.loader::before { content: ''; position: absolute; top: 7%; left: 12%; width: 76%; height: 9%; border-radius: 999px; background: #cbd5e1; }\n.loader .drum { position: relative; width: 62%; height: 62%; margin-top: 10%; overflow: hidden; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 72%, var(--accent-2)) 58%, var(--accent-2)); box-shadow: inset 0 0 0 calc(var(--loader-size) * .045) var(--accent); }\n.loader .drum span { position: absolute; top: 50%; left: 50%; width: 24%; height: 24%; margin: -12% 0 0 -12%; border-radius: 42%; background: var(--accent); animation: tumble calc(var(--loader-speed) * 1.5) linear infinite; }\n.loader .drum span:nth-child(1) { --orbit: -108%; }\n.loader .drum span:nth-child(2) { --orbit: -62%; animation-delay: calc(var(--loader-speed) * -.5); }\n.loader .drum span:nth-child(3) { --orbit: -92%; animation-delay: calc(var(--loader-speed) * -1); }\n@keyframes tumble { from { transform: rotate(0deg) translateY(var(--orbit)); } to { transform: rotate(360deg) translateY(var(--orbit)); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#93c5fd",
+    "size": 96,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

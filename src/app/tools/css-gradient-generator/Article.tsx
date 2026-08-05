@@ -154,7 +154,7 @@ export default function CssGradientGeneratorArticle() {
                 href={tool.href}
                 className="group rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-5 transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-surface-base)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
               >
-                <h3 className="text-sm font-black text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)]">
+                <h3 className="text-sm font-black text-[var(--color-text-primary)] group-hover:text-[var(--color-primary-text-strong)]">
                   {tool.title}
                 </h3>
                 <p className="mt-1.5 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.desc}</p>

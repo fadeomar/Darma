@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { absoluteUrl } from "@/features/tools/seo";
 import { CATEGORY_LABELS, type GameDefinition } from "../domain/game";
 
-export const GAMES_TITLE = "Free Browser Games | Darma";
+export const GAMES_TITLE = "Browser Games | puzzle, arcade, and quick focus breaks | Darma";
 export const GAMES_DESCRIPTION =
-  "Play free lightweight browser games inside Darma. No signup, no downloads, just quick games for fun and focus breaks.";
+  "Open free browser games for puzzles, arcade play, strategy, and short focus breaks. No signup or download, progress stays on your device, and every game sits beside the wider Darma workspace.";
 
 export function buildGamesDirectoryMetadata(): Metadata {
   const url = absoluteUrl("/games");

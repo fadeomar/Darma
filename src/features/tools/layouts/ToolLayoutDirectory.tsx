@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowRight, Search, SlidersHorizontal, X } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
   FaCode,
@@ -18,8 +18,8 @@ import {
 import ToolCardLink from "@/components/analytics/ToolCardLink";
 import { Badge, Button, Card, EmptyState, Input, Select } from "@/components/ui";
 import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
+import { ToolPreviewArtwork } from "@/components/landing";
 import { RecentToolsRail } from "@/features/tools/components/RecentToolsRail";
-import { ToolCoreBridgePanel } from "@/features/tools/components/ToolCoreBridgePanel";
 import type { ToolAudience, ToolDefinition } from "@/features/tools";
 import { useFavoriteTools } from "@/features/tools/hooks/useFavoriteTools";
 import { toolWorkflows } from "@/features/tools/workflows";
@@ -45,6 +45,9 @@ const audienceLabels: Record<string, string> = {
   student: "Student",
   business: "Business",
 };
+
+/** Height of the sticky site header, matching the other in-page sticky bars. */
+const STICKY_TOP = 72;
 
 type ToolSort = "featured" | "recent" | "az" | "category";
 type ToolTypeFilter = "all" | NonNullable<ToolDefinition["layoutType"]>;
@@ -122,170 +125,150 @@ function sortTools(tools: ToolDefinition[], sort: ToolSort) {
 
 function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: boolean }) {
   const Icon = ICONS[tool.icon ?? "code"] ?? FaWandMagicSparkles;
-  const primaryTags = (tool.tags ?? []).slice(0, compact ? 2 : 3);
+  const primaryTags = (tool.tags ?? []).slice(0, 2);
   const privacy = privacyLabel(tool.privacy);
   const category = tool.secondaryCategory?.[0] ?? tool.mainCategory?.[0];
 
   return (
-    <Card as="article" variant="interactive" padding={compact ? "md" : "lg"} className="flex h-full flex-col">
-      <div className="mb-4 flex items-start justify-between gap-3">
-        <ToolCardLink href={tool.href} toolName={tool.title}>
-          <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] sm:h-11 sm:w-11">
-            <Icon className="text-lg" aria-hidden />
-          </span>
-        </ToolCardLink>
-        <div className="flex flex-wrap justify-end gap-2">
-          <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} showLabel={false} />
-          <Badge variant="soft">{layoutLabel(tool.layoutType)}</Badge>
-          {privacy && !compact ? <Badge variant="accent">{privacy}</Badge> : null}
-          {!compact && tool.featured ? <Badge variant="warning">Featured</Badge> : null}
-        </div>
-      </div>
-
+    <Card as="article" variant="interactive" padding="none" className="landing-directory-tool-card flex h-full flex-col overflow-hidden">
       <ToolCardLink href={tool.href} toolName={tool.title}>
-        <div className="flex h-full flex-col">
-          <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-xl">{tool.title}</h3>
-          <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
+        <div className="relative">
+          <ToolPreviewArtwork tool={tool} />
+          <span className="landing-directory-tool-icon">
+            <Icon className="text-base" aria-hidden />
+          </span>
+        </div>
+      </ToolCardLink>
 
-          {!compact && tool.useCases?.length ? (
-            <ul className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
-              {tool.useCases.slice(0, 2).map((useCase) => (
-                <li key={useCase}>{useCase}</li>
+      {/*
+        Tool catalog card body. The regions run in one fixed order — badges and
+        favourite, title, description, tags, CTA — and each is clamped rather
+        than given a reserved height, so a short description no longer leaves a
+        blank band above the CTA. `mt-auto` plus the stretched grid row is what
+        keeps the CTAs of a row on one baseline (F-12). The full title stays
+        available to assistive tech via the link's accessible name and to
+        pointer users via `title`, so the two-line clamp is presentational only.
+      */}
+      <div className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-wrap gap-2">
+            <Badge variant={tool.featured ? "soft" : "outline"}>{tool.featured ? "Featured" : layoutLabel(tool.layoutType)}</Badge>
+            {!compact && privacy ? <Badge variant="accent">{privacy}</Badge> : null}
+          </div>
+          <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} showLabel={false} />
+        </div>
+
+        <ToolCardLink href={tool.href} toolName={tool.title} title={tool.title} className="group flex flex-1 flex-col gap-2">
+          <h3 className="line-clamp-2 text-base font-black leading-snug tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-lg">
+            {tool.title}
+          </h3>
+          <p className="line-clamp-2 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
+
+          {!compact && (tool.useCases ?? []).length > 0 ? (
+            <ul className="grid gap-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
+              {(tool.useCases ?? []).slice(0, 2).map((useCase) => (
+                <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary-text-strong)]" aria-hidden>✦</span><span className="line-clamp-1">{useCase}</span></li>
               ))}
             </ul>
           ) : null}
 
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="flex flex-wrap content-start gap-2">
             {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
             {primaryTags.map((tag) => (
               <Badge key={tag} variant="outline">#{tag}</Badge>
             ))}
           </div>
 
-          <div className="mt-auto pt-5">
-            <span className="inline-flex font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-              Open tool -&gt;
-            </span>
-          </div>
-        </div>
-      </ToolCardLink>
+          <span className="mt-auto inline-flex min-h-10 items-center gap-2 pt-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
+            Open tool <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
+          </span>
+        </ToolCardLink>
+      </div>
     </Card>
   );
 }
 
-function challengeSpotlightLabel(tool: ToolDefinition) {
-  if (tool.id === "mouse-scroll-test") return "Wheel sprint";
-  if (tool.id === "click-speed-test") return "CPS rush";
-  if (tool.id === "spacebar-counter") return "Key rhythm";
-  if (tool.id === "reaction-time-test") return "Reflex rounds";
-  return "Quick challenge";
-}
+/*
+ * The three catalog selects plus "Clear filters". One component, one set of
+ * handlers: the in-page panel, the compact sticky toolbar, and the mobile
+ * drawer all render this, so there is no second copy of the filter logic to
+ * keep in sync. `dense` only changes presentation — visible field labels become
+ * screen-reader labels, and the clear action is hidden until it does something.
+ */
+type ToolFilterControlsProps = {
+  dense?: boolean;
+  toolType: ToolTypeFilter;
+  setToolType: (value: ToolTypeFilter) => void;
+  category: string;
+  setCategory: (value: string) => void;
+  categories: string[];
+  sort: ToolSort;
+  setSort: (value: ToolSort) => void;
+  hasFilters: boolean;
+  clearFilters: () => void;
+};
 
-function ChallengeSpotlight({
-  tools,
-  onExplore,
-}: {
-  tools: ToolDefinition[];
-  onExplore: () => void;
-}) {
-  if (!tools.length) return null;
-
-  const leadTool = tools[0];
+function ToolFilterControls({
+  dense = false,
+  toolType,
+  setToolType,
+  category,
+  setCategory,
+  categories,
+  sort,
+  setSort,
+  hasFilters,
+  clearFilters,
+}: ToolFilterControlsProps) {
+  const fieldClass = dense
+    ? "grid w-[10.5rem] shrink-0 gap-0"
+    : "grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]";
+  const labelClass = dense ? "sr-only" : undefined;
 
   return (
-    <section className="relative mt-8 overflow-hidden rounded-[2rem] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_top_left,var(--color-primary-soft),transparent_34%),radial-gradient(circle_at_bottom_right,var(--color-accent-soft),transparent_32%),linear-gradient(135deg,var(--color-surface-overlay),var(--color-surface-raised))] p-5 shadow-[0_22px_70px_rgba(91,61,31,0.13)] sm:p-6 lg:p-7">
-      <div className="pointer-events-none absolute inset-0 opacity-55 [background-image:linear-gradient(rgba(119,83,45,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(119,83,45,0.07)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-44 w-44 -translate-x-1/2 rounded-full bg-[var(--color-primary-soft)] blur-3xl" />
-      <div className="relative grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch">
-        <div className="flex min-w-0 flex-col justify-between">
-          <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="warning">Fun Tools</Badge>
-              <Badge variant="accent">Interactive challenges</Badge>
-              <Badge variant="outline">{tools.length} live</Badge>
-            </div>
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-[var(--leading-tight)] tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">
-              A soft arcade shelf inside the tools directory.
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
-              Scroll, click, press, and react inside browser-only challenges with focused arena chrome, live status pills, progress rails, local personal bests, and copyable result highlights.
-            </p>
-          </div>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Link
-              href="/tools/fun"
-              className="inline-flex min-h-10 items-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              Open fun hub
-            </Link>
-            <button
-              type="button"
-              onClick={onExplore}
-              className="inline-flex min-h-10 items-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-black text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary-border)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              Filter challenges
-            </button>
-          </div>
-        </div>
-
-        <div className="rounded-[var(--radius-xl)] border border-white/55 bg-white/65 p-3 shadow-[var(--shadow-card)] backdrop-blur dark:border-white/10 dark:bg-white/10">
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_0%_0%,var(--color-primary-soft),transparent_38%),var(--color-surface-base)] p-4">
-            <div className="flex items-center justify-between gap-3">
-              <Badge variant="warning">Featured</Badge>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">No signup</span>
-            </div>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{leadTool.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-              {challengeSpotlightLabel(leadTool)} with live metrics, local history, and instant retry energy.
-            </p>
-            <Link
-              href={leadTool.href}
-              className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-4 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-text)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              Play featured →
-            </Link>
-          </div>
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
-              <p className="text-2xl font-black text-[var(--color-text-primary)]">{tools.length}</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Tools</p>
-            </div>
-            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
-              <p className="text-2xl font-black text-[var(--color-text-primary)]">4</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Modes</p>
-            </div>
-            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
-              <p className="text-2xl font-black text-[var(--color-text-primary)]">0</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Signup</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-        {tools.slice(0, 4).map((tool) => (
-          <Link
-            key={tool.id}
-            href={tool.href}
-            className="group rounded-[var(--radius-lg)] border border-white/55 bg-white/62 p-4 shadow-[var(--shadow-xs)] backdrop-blur transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:bg-white/75 hover:shadow-[var(--shadow-card)] focus:outline-none focus:shadow-[var(--focus-ring)] dark:border-white/10 dark:bg-white/10 motion-reduce:hover:translate-y-0"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <Badge variant="outline">{layoutLabel(tool.layoutType)}</Badge>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)]">Play →</span>
-            </div>
-            <h3 className="mt-3 text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{tool.title}</h3>
-            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">{challengeSpotlightLabel(tool)}</p>
-          </Link>
-        ))}
-      </div>
-    </section>
+    <>
+      <label className={fieldClass}>
+        <span className={labelClass}>Tool type</span>
+        <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
+          {Object.entries(toolTypeLabels).map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
+          ))}
+        </Select>
+      </label>
+      <label className={fieldClass}>
+        <span className={labelClass}>Category</span>
+        <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
+          <option value="all">All categories</option>
+          {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
+        </Select>
+      </label>
+      <label className={fieldClass}>
+        <span className={labelClass}>Sort</span>
+        <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
+          <option value="featured">Featured first</option>
+          <option value="recent">Recently updated</option>
+          <option value="az">A to Z</option>
+          <option value="category">Category</option>
+        </Select>
+      </label>
+      {dense && !hasFilters ? null : (
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={clearFilters}
+          disabled={!hasFilters}
+          leftIcon={hasFilters ? <X className="h-4 w-4" aria-hidden /> : <SlidersHorizontal className="h-4 w-4" aria-hidden />}
+        >
+          Clear filters
+        </Button>
+      )}
+    </>
   );
 }
 
 function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }) {
   return (
-    <Link href={`/tools/workflows/${workflow.id}`} className="block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+    <Link href={`/workflows/${workflow.id}`} className="block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
       <Card as="article" variant="interactive" padding="md" className="flex h-full flex-col">
         <div className="mb-4 flex flex-wrap gap-2">
           {(workflow.audience ?? []).slice(0, 2).map((audience) => (
@@ -297,14 +280,16 @@ function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }
         {workflow.steps?.length ? (
           <ol className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
             {workflow.steps.slice(0, 3).map((step, index) => (
-              <li key={step}>
-                <span className="font-bold text-[var(--color-text-secondary)]">{index + 1}.</span> {step}
+              <li key={step.id}>
+                <span className="font-bold text-[var(--color-text-secondary)]">{index + 1}.</span> {step.title}
               </li>
             ))}
           </ol>
         ) : null}
         <div className="mt-auto pt-5">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{workflow.toolIds.length} linked tools -&gt;</span>
+          <span className="group inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
+            {workflow.steps.length} connected steps <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
+          </span>
         </div>
       </Card>
     </Link>
@@ -318,6 +303,12 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   const [toolType, setToolType] = useState<ToolTypeFilter>("all");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState<ToolSort>("featured");
+  const [visibleCount, setVisibleCount] = useState(18);
+  // Sticky compact toolbar: shown only once the full panel has scrolled past.
+  const [panelPassed, setPanelPassed] = useState(false);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const mobilePanelRef = useRef<HTMLDivElement | null>(null);
 
   const categories = useMemo(() => {
     return Array.from(new Set(tools.flatMap((tool) => tool.secondaryCategory ?? []))).sort();
@@ -333,35 +324,12 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
     [tools],
   );
 
-  const topDailyTools = useMemo(
-    () => [...tools].sort((a, b) => (b.dailyUseScore ?? 0) - (a.dailyUseScore ?? 0) || a.title.localeCompare(b.title)).slice(0, 6),
-    [tools],
-  );
 
   const favoriteTools = useMemo(() => {
     const byId = new Map(tools.map((tool) => [tool.id, tool]));
     return favoriteToolIds.map((id) => byId.get(id)).filter((tool): tool is ToolDefinition => Boolean(tool));
   }, [favoriteToolIds, tools]);
 
-  const audienceSections = useMemo(() => {
-    const sections: Array<{ key: ToolAudience; title: string }> = [
-      { key: "general", title: "Everyday users" },
-      { key: "student", title: "Students" },
-      { key: "creator", title: "Creators" },
-      { key: "designer", title: "Designers" },
-      { key: "developer", title: "Developers" },
-    ];
-
-    return sections
-      .map((section) => ({
-        ...section,
-        tools: sortTools(
-          tools.filter((tool) => (tool.audiences ?? []).includes(section.key)),
-          "featured",
-        ).slice(0, 3),
-      }))
-      .filter((section) => section.tools.length > 0);
-  }, [tools]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -376,8 +344,40 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
     return sortTools(matches, sort);
   }, [audience, category, query, sort, toolType, tools]);
 
+  useEffect(() => {
+    setVisibleCount(18);
+  }, [query, audience, toolType, category, sort]);
+
+  /*
+   * A zero-height sentinel below the full panel drives the compact toolbar. The
+   * toolbar itself is fixed rather than sticky, so switching it on never adds
+   * or removes flow height and the catalog underneath cannot jump.
+   */
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPanelPassed(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { rootMargin: `-${STICKY_TOP}px 0px 0px 0px`, threshold: 0 },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+    mobilePanelRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileFiltersOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileFiltersOpen]);
+
+  const visibleTools = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
   const hasFilters = query.trim().length > 0 || audience !== "all" || toolType !== "all" || category !== "all" || sort !== "featured";
-  const showDashboardSections = !query.trim() && audience === "all" && toolType === "all" && category === "all";
+  const showDashboardSections = !query.trim() && audience === "all" && toolType === "all" && category === "all" && sort === "featured";
 
   const exploreChallenges = () => {
     setQuery("");
@@ -396,45 +396,8 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   };
 
   return (
-    <div className="mx-auto max-w-[var(--container-wide)] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
-        <div className="grid gap-6 p-5 sm:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end lg:p-8">
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="soft">Tools</Badge>
-              <Badge variant="accent">Browser-first</Badge>
-              <Link href="/workflows" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:text-[var(--color-text-primary)]">
-                Browse workflows
-              </Link>
-            </div>
-            <h1 className="mt-4 max-w-4xl text-4xl font-black leading-[var(--leading-tight)] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
-              Fast browser tools for text, images, code, design, and everyday tasks.
-            </h1>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              No signup. Local-first. Copy-ready results.
-            </p>
-          </div>
-
-          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Catalog status</p>
-            <div className="mt-3 grid grid-cols-3 gap-3 text-sm">
-              <div>
-                <p className="text-2xl font-black text-[var(--color-text-primary)]">{tools.length}</p>
-                <p className="text-xs text-[var(--color-text-tertiary)]">Tools</p>
-              </div>
-              <div>
-                <p className="text-2xl font-black text-[var(--color-text-primary)]">{featured.length}</p>
-                <p className="text-xs text-[var(--color-text-tertiary)]">Featured</p>
-              </div>
-              <div>
-                <p className="text-2xl font-black text-[var(--color-text-primary)]">{challengeTools.length}</p>
-                <p className="text-xs text-[var(--color-text-tertiary)]">Challenges</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 sm:p-5">
+    <div className="mx-auto max-w-[var(--container-wide)] px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-14">
+      <section id="tool-directory-filters" aria-label="Tool search and filters" className="mt-4 scroll-mt-24 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-card)] sm:p-5">
           <div className="space-y-4">
             <label className="relative block">
               <span className="sr-only">Search tools</span>
@@ -456,7 +419,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
                   aria-pressed={audience === key}
                   onClick={() => setAudience(key)}
                   className={cn(
-                    "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                    "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
                     audience === key
                       ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
                       : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
@@ -472,9 +435,9 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
                 type="button"
                 onClick={exploreChallenges}
                 className={cn(
-                  "rounded-[var(--radius-full)] border px-3.5 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                  "rounded-[var(--radius-full)] border px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
                   toolType === "interactive-challenge"
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                     : "border-[var(--color-primary-border)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
                 )}
               >
@@ -482,61 +445,131 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               </button>
               <Link
                 href="/tools/fun"
-                className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+                className="group inline-flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
               >
-                Fun hub →
+                Fun hub <ArrowRight className="darma-link-arrow h-3.5 w-3.5" aria-hidden />
               </Link>
             </div>
 
             <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
-              <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                Tool type
-                <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
-                  {Object.entries(toolTypeLabels).map(([value, label]) => (
-                    <option key={value} value={value}>{label}</option>
-                  ))}
-                </Select>
-              </label>
-              <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                Category
-                <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
-                  <option value="all">All categories</option>
-                  {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
-                </Select>
-              </label>
-              <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                Sort
-                <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
-                  <option value="featured">Featured first</option>
-                  <option value="recent">Recently updated</option>
-                  <option value="az">A to Z</option>
-                  <option value="category">Category</option>
-                </Select>
-              </label>
-              <Button variant="secondary" size="sm" onClick={clearFilters} disabled={!hasFilters} leftIcon={hasFilters ? <X className="h-4 w-4" aria-hidden /> : <SlidersHorizontal className="h-4 w-4" aria-hidden />}>
-                Clear filters
-              </Button>
+              <ToolFilterControls
+                toolType={toolType}
+                setToolType={setToolType}
+                category={category}
+                setCategory={setCategory}
+                categories={categories}
+                sort={sort}
+                setSort={setSort}
+                hasFilters={hasFilters}
+                clearFilters={clearFilters}
+              />
+            </div>
+          </div>
+      </section>
+      <div ref={sentinelRef} aria-hidden className="h-px" />
+
+      {/* Compact scrolling state. Fixed, one row on desktop, and reduced to a
+          search field plus a Filters button on small screens. */}
+      <div
+        className={cn(
+          "fixed inset-x-0 z-30 border-b border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)] transition-opacity duration-150",
+          panelPassed ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+        style={{ top: STICKY_TOP }}
+        aria-hidden={!panelPassed}
+      >
+        <div className="mx-auto flex max-w-[var(--container-wide)] flex-wrap items-center gap-2 px-4 py-2 sm:px-6 lg:px-8">
+          <label className="relative block min-w-0 flex-1 md:w-[15rem] md:flex-none">
+            <span className="sr-only">Search tools</span>
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" aria-hidden />
+            <Input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search tools"
+              size="sm"
+              className="pl-9"
+              tabIndex={panelPassed ? undefined : -1}
+            />
+          </label>
+
+          <button
+            type="button"
+            onClick={() => setMobileFiltersOpen(true)}
+            tabIndex={panelPassed ? undefined : -1}
+            className="inline-flex min-h-9 shrink-0 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] md:hidden"
+          >
+            <SlidersHorizontal className="h-4 w-4" aria-hidden />
+            Filters
+            {hasFilters ? <span className="rounded-[var(--radius-full)] bg-[var(--color-primary)] px-1.5 text-xs font-black text-[var(--color-primary-text)]">On</span> : null}
+          </button>
+
+          <div className="hidden flex-wrap items-center gap-2 md:flex">
+            <ToolFilterControls
+              dense
+              toolType={toolType}
+              setToolType={setToolType}
+              category={category}
+              setCategory={setCategory}
+              categories={categories}
+              sort={sort}
+              setSort={setSort}
+              hasFilters={hasFilters}
+              clearFilters={clearFilters}
+            />
+          </div>
+        </div>
+      </div>
+
+      {mobileFiltersOpen ? (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <button type="button" aria-label="Close filters" onClick={() => setMobileFiltersOpen(false)} className="absolute inset-0 bg-[rgba(0,0,0,.45)]" />
+          <div
+            ref={mobilePanelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Tool filters"
+            tabIndex={-1}
+            className="absolute inset-x-0 bottom-0 max-h-[80vh] overflow-y-auto rounded-t-[var(--radius-lg)] border-t border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-lg)] focus:outline-none"
+          >
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h2 className="text-base font-black text-[var(--color-text-primary)]">Filter tools</h2>
+              <button
+                type="button"
+                onClick={() => setMobileFiltersOpen(false)}
+                className="inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] px-3 text-sm font-bold text-[var(--color-text-primary)] focus:outline-none focus-visible:shadow-[var(--focus-ring)]"
+              >
+                <X className="h-4 w-4" aria-hidden /> Close
+              </button>
+            </div>
+            <div className="grid gap-3">
+              <ToolFilterControls
+                toolType={toolType}
+                setToolType={setToolType}
+                category={category}
+                setCategory={setCategory}
+                categories={categories}
+                sort={sort}
+                setSort={setSort}
+                hasFilters={hasFilters}
+                clearFilters={clearFilters}
+              />
             </div>
           </div>
         </div>
-      </section>
-
-      {showDashboardSections ? (
-        <ChallengeSpotlight tools={challengeTools} onExplore={exploreChallenges} />
       ) : null}
+
 
       {showDashboardSections ? <RecentToolsRail tools={tools} /> : null}
 
-      {showDashboardSections ? <ToolCoreBridgePanel tools={tools} /> : null}
 
       {showDashboardSections && favoriteTools.length > 0 ? (
-        <section className="mt-8">
+        <section className="mt-10 lg:mt-14">
           <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
             <div>
               <Badge variant="soft">Favorites</Badge>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Favorite tools</h2>
             </div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Saved locally</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Saved locally</p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {favoriteTools.slice(0, 6).map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
@@ -544,26 +577,14 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
         </section>
       ) : null}
 
-      {showDashboardSections && toolWorkflows.length > 0 ? (
-        <section className="mt-8">
-          <div className="mb-4">
-            <Badge variant="soft">Workflows</Badge>
-            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Popular workflows</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {toolWorkflows.slice(0, 4).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
-          </div>
-        </section>
-      ) : null}
-
       {featured.length > 0 && showDashboardSections ? (
-        <section className="mt-8">
+        <section className="mt-10 lg:mt-14">
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
               <Badge variant="soft">Curated</Badge>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Featured tools</h2>
             </div>
-            <Link href="/workflows" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
+            <Link href="/workflows" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
               Try a workflow
             </Link>
           </div>
@@ -573,56 +594,43 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
         </section>
       ) : null}
 
-      {showDashboardSections && topDailyTools.length > 0 ? (
-        <section className="mt-8">
+
+      {showDashboardSections && toolWorkflows.length > 0 ? (
+        <section className="mt-10 lg:mt-14">
           <div className="mb-4">
-            <Badge variant="soft">Daily-use</Badge>
-            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Useful every day</h2>
+            <Badge variant="soft">Workflows</Badge>
+            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Guided workflows</h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {topDailyTools.map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {toolWorkflows.slice(0, 4).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
           </div>
         </section>
       ) : null}
 
-      {showDashboardSections && audienceSections.length > 0 ? (
-        <section className="mt-8">
-          <div className="mb-4">
-            <Badge variant="outline">By audience</Badge>
-            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Pick tools by task</h2>
-          </div>
-          <div className="grid gap-4 xl:grid-cols-2">
-            {audienceSections.map((section) => (
-              <div key={section.key} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
-                <h3 className="text-lg font-black text-[var(--color-text-primary)]">{section.title}</h3>
-                <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  {section.tools.map((tool) => (
-                    <Link key={tool.id} href={tool.href} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]">
-                      <span className="block text-sm font-black text-[var(--color-text-primary)]">{tool.title}</span>
-                      <span className="mt-1 line-clamp-2 block text-xs leading-5 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
 
-      <section className="mt-8">
+      <section className="mt-10 lg:mt-14">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
           <div>
             <Badge variant="outline">Catalog</Badge>
             <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">All tools</h2>
           </div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]" aria-live="polite">
-            {filtered.length} of {tools.length} tool{filtered.length === 1 ? "" : "s"}
+          <p className="text-sm font-semibold text-[var(--color-text-secondary)]" aria-live="polite">
+            Showing {Math.min(visibleCount, filtered.length)} of {filtered.length} matching tool{filtered.length === 1 ? "" : "s"}
           </p>
         </div>
         {filtered.length > 0 ? (
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {filtered.map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
-          </div>
+          <>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {visibleTools.map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
+            </div>
+            {hasMore ? (
+              <div className="mt-8 flex justify-center">
+                <Button variant="secondary" size="lg" onClick={() => setVisibleCount((count) => count + 18)} rightIcon={<ArrowRight className="h-4 w-4 rotate-90" aria-hidden />}>
+                  Load 18 more tools
+                </Button>
+              </div>
+            ) : null}
+          </>
         ) : (
           <EmptyState title="No tools matched your filters." description="Try clearing filters or searching for a broader keyword such as CSS, JSON, color, SEO, or utility." />
         )}

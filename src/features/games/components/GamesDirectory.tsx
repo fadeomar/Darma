@@ -1,84 +1,43 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, EmptyState } from "@/components/ui";
-import {
-  PLAY_TIME_MINUTES,
-  type GameDefinition,
-} from "../domain/game";
+import type { GameDefinition } from "../domain/game";
 import { filterAndSortGames } from "../lib/filterGames";
 import { GameCard } from "./GameCard";
 import { GameCategoryChips, type GameFilter } from "./GameCategoryChips";
-import { GameCoreBridgePanel } from "./GameCoreBridgePanel";
-import { GameCollectionRail } from "./GameCollectionRail";
-import { GameDiscoveryPanel } from "./GameDiscoveryPanel";
 import { GameHero } from "./GameHero";
-import { GameIdentityBand } from "./GameIdentityBand";
 import { GameMoodBoard } from "./GameMoodBoard";
 import { GamePersonalizationPanel } from "./GamePersonalizationPanel";
-import { GameProductionChecklist } from "./GameProductionChecklist";
-import { GameSpotlight } from "./GameSpotlight";
 import { GameSearchBar } from "./GameSearchBar";
 import { GameSection } from "./GameSection";
 import { GameSortSelect, type GameSort } from "./GameSortSelect";
-import { CollectionFrameworkBanner, CollectionHealthPanel, getCollectionById, getPlannedCollections, toCollectionItems } from "@/features/collections";
 
-export function GamesDirectory({ games }: { games: GameDefinition[] }) {
+const FLAGSHIP_SLUGS = ["neon-core-defense", "reaction-timer", "math-sprint"];
+
+export function GamesDirectory({ games, showHero = true, initialFilter = "all" }: { games: GameDefinition[]; showHero?: boolean; initialFilter?: GameFilter }) {
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<GameFilter>("all");
+  const [filter, setFilter] = useState<GameFilter>(initialFilter);
   const [sort, setSort] = useState<GameSort>("featured");
+
+  useEffect(() => {
+    setFilter(initialFilter);
+  }, [initialFilter]);
 
   const hasFilters = query.trim().length > 0 || filter !== "all";
   const showDashboard = !hasFilters && sort === "featured";
 
-  const featured = useMemo(
-    () => filterAndSortGames(games, "", "featured", "featured").slice(0, 3),
-    [games],
-  );
+  const flagshipGames = useMemo(() => {
+    const bySlug = new Map(games.map((game) => [game.slug, game]));
+    const selected = FLAGSHIP_SLUGS
+      .map((slug) => bySlug.get(slug))
+      .filter((game): game is GameDefinition => Boolean(game));
 
-  const quickBreaks = useMemo(
-    () => filterAndSortGames(games, "", "all", "featured").filter((game) => PLAY_TIME_MINUTES[game.playTime] <= 5),
-    [games],
-  );
+    if (selected.length === FLAGSHIP_SLUGS.length) return selected;
 
-  const classics = useMemo(
-    () => filterAndSortGames(games, "", "classic", "featured"),
-    [games],
-  );
-
-  const recentlyAdded = useMemo(
-    () => [...games].sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? "")).slice(0, 4),
-    [games],
-  );
-
-  const trending = useMemo(
-    () => filterAndSortGames(games, "", "popular", "featured").slice(0, 4),
-    [games],
-  );
-
-  const brainBoosters = useMemo(
-    () => filterAndSortGames(games, "", "brain", "featured").slice(0, 6),
-    [games],
-  );
-
-  const playTogether = useMemo(
-    () => filterAndSortGames(games, "", "2-players", "featured").slice(0, 6),
-    [games],
-  );
-
-  const touchFriendly = useMemo(
-    () => filterAndSortGames(games, "", "mobile-friendly", "featured").slice(0, 6),
-    [games],
-  );
-
-  const surpriseGame = useMemo(
-    () => games.find((game) => game.slug === "reaction-timer") ?? games[0],
-    [games],
-  );
-
-  const gamesCollection = getCollectionById("games");
-  const plannedCollections = getPlannedCollections();
-  const collectionItems = useMemo(() => toCollectionItems(games), [games]);
+    const fallback = filterAndSortGames(games, "", "featured", "featured");
+    return [...selected, ...fallback.filter((game) => !selected.some((item) => item.id === game.id))].slice(0, 3);
+  }, [games]);
 
   const results = useMemo(
     () => filterAndSortGames(games, query, filter, sort),
@@ -96,17 +55,19 @@ export function GamesDirectory({ games }: { games: GameDefinition[] }) {
     : `Showing all ${games.length} games.`;
 
   return (
-    <div className="game-page-shell mx-auto max-w-[var(--container-wide)] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+    <div className="game-page-shell mx-auto max-w-[var(--container-wide)] px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-14">
       <a href="#games-results" className="game-skip-link">
         Skip to games results
       </a>
-      {/* Hero + controls */}
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
-        <div className="p-5 sm:p-7 lg:p-8">
-          <GameHero />
-        </div>
 
-        <div className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 sm:p-5">
+      <section id="games-search" className="scroll-mt-24 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
+        {showHero ? (
+          <div className="p-5 sm:p-7 lg:p-8">
+            <GameHero />
+          </div>
+        ) : null}
+
+        <div className={showHero ? "border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 sm:p-5" : "bg-[var(--color-surface-base)]/70 p-4 sm:p-5"}>
           <div className="space-y-4">
             <GameSearchBar value={query} onChange={setQuery} describedBy="games-result-summary" />
             <GameCategoryChips active={filter} onChange={setFilter} />
@@ -125,80 +86,30 @@ export function GamesDirectory({ games }: { games: GameDefinition[] }) {
         </div>
       </section>
 
-      {/* Curated dashboard sections (only when nothing is filtered) */}
       {showDashboard ? (
         <>
-          {gamesCollection ? (
-            <CollectionFrameworkBanner collection={gamesCollection} siblingCollections={plannedCollections} />
-          ) : null}
-          <GameIdentityBand games={games} />
           <GamePersonalizationPanel games={games} />
-          <GameDiscoveryPanel games={games} surpriseGame={surpriseGame} trendingGame={trending[0]} />
-          <GameSpotlight games={games} />
-          <GameMoodBoard games={games} onSelectFilter={setFilter} />
           <GameSection
-            eyebrow="Curated"
-            title="Featured games"
-            subtitle="Hand-picked games for a quick fun break."
-            games={featured}
+            eyebrow="Darma picks"
+            title="Flagship games"
+            subtitle="Three distinctive Darma experiences chosen for replay value, learning, and product identity."
+            games={flagshipGames}
             featured
           />
-          <GameCollectionRail
-            eyebrow="Trending"
-            title="Trending today"
-            subtitle="Popular picks with strong quick-play energy."
-            games={trending}
-          />
-          <GameCollectionRail
-            eyebrow="Brain"
-            title="Brain boosters"
-            subtitle="Logic, memory, word, and strategy games for focused play."
-            games={brainBoosters}
-          />
-          <GameCollectionRail
-            eyebrow="Together"
-            title="Play together"
-            subtitle="Same-device games that work well with a friend."
-            games={playTogether}
-          />
-          <GameCollectionRail
-            eyebrow="Mobile"
-            title="Touch friendly"
-            subtitle="Games that are comfortable on phones and tablets."
-            games={touchFriendly}
-          />
-          <GameSection
-            eyebrow="Fast"
-            title="Quick breaks"
-            subtitle="Short games you can finish in five minutes or less."
-            games={quickBreaks}
-          />
-          <GameSection
-            eyebrow="New"
-            title="Recently added"
-            subtitle="Fresh game ideas ready for the next playable phase."
-            games={recentlyAdded}
-          />
-          <GameSection
-            eyebrow="Timeless"
-            title="Classics"
-            subtitle="The games everyone already knows how to play."
-            games={classics}
-          />
-          {gamesCollection ? <CollectionHealthPanel collection={gamesCollection} items={collectionItems} /> : null}
-          <GameCoreBridgePanel games={games} />
-          <GameProductionChecklist />
+          <GameMoodBoard games={games} onSelectFilter={setFilter} />
         </>
       ) : null}
 
-      {/* All games / results */}
       <section id="games-results" className="mt-8 scroll-mt-24" aria-labelledby="games-results-title">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-          <h2 id="games-results-title" className="text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
-            {hasFilters ? "Results" : "All games"}
-          </h2>
+          <div>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Catalog</p>
+            <h2 id="games-results-title" className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+              {hasFilters ? "Matching games" : "All games"}
+            </h2>
+          </div>
           <p
-            className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"
+            className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"
             aria-live="polite"
           >
             {results.length} of {games.length} game{results.length === 1 ? "" : "s"}

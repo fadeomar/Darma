@@ -39,7 +39,7 @@ export function PresetGallery({ activePresetId, onApply }: { activePresetId: str
       <div className="hidden max-h-[510px] space-y-4 overflow-y-auto pr-1 sm:block">
         {CATEGORY_ORDER.map((category) => (
           <div key={category}>
-            <h3 className="mb-2 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{CATEGORY_LABELS[category]}</h3>
+            <h3 className="mb-2 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{CATEGORY_LABELS[category]}</h3>
             <div className="grid grid-cols-2 gap-2">
               {CLIP_PATH_PRESETS.filter((preset) => preset.category === category).map((preset) => {
                 const active = preset.id === activePresetId;

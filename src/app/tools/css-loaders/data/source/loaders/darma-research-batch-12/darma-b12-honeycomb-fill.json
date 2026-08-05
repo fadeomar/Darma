@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-honeycomb-fill",
+  "name": "Honeycomb Fill",
+  "category": "creative",
+  "tags": [
+    "honeycomb",
+    "hexagon",
+    "cells",
+    "fill",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .96); position: relative; }\n.loader span { position: absolute; width: 34%; height: 30%; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); background: var(--accent); animation: comb calc(var(--loader-speed) * 1.9) ease-in-out infinite; }\n.loader span:nth-child(1) { left: 33%; top: 35%; background: var(--accent-2); animation-delay: 0s; }\n.loader span:nth-child(2) { left: 33%; top: 5%; animation-delay: calc(var(--loader-speed) * .16); }\n.loader span:nth-child(3) { left: 58%; top: 20%; animation-delay: calc(var(--loader-speed) * .32); }\n.loader span:nth-child(4) { left: 58%; top: 50%; animation-delay: calc(var(--loader-speed) * .48); }\n.loader span:nth-child(5) { left: 33%; top: 65%; animation-delay: calc(var(--loader-speed) * .64); }\n.loader span:nth-child(6) { left: 8%; top: 50%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-child(7) { left: 8%; top: 20%; animation-delay: calc(var(--loader-speed) * .96); }\n@keyframes comb { 0%, 100% { opacity: .16; transform: scale(.84); } 45% { opacity: 1; transform: scale(1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fbbf24",
+    "size": 100,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,2204 @@
+[
+  {
+    "slug": "frontend-developer",
+    "title": "Frontend Developer",
+    "shortTitle": "Frontend developer",
+    "category": "engineering",
+    "focus": "build",
+    "summary": "Builds accessible, responsive, and maintainable user interfaces that turn product and design intent into reliable browser experiences.",
+    "whatTheyDo": "A frontend developer works across HTML, CSS, JavaScript, browser APIs, component systems, accessibility, performance, and integration with backend services. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review product and design context before implementation",
+      "Build or refine interface components and application states",
+      "Integrate APIs and handle loading, empty, error, and success states",
+      "Review code, test behavior, and collaborate on release quality"
+    ],
+    "responsibilities": [
+      "Translate designs into semantic and responsive interfaces",
+      "Maintain component architecture and frontend state",
+      "Protect accessibility, performance, and browser compatibility",
+      "Collaborate on API contracts and product behavior"
+    ],
+    "deliverables": [
+      "Production interface components",
+      "Automated frontend tests",
+      "Accessible responsive pages",
+      "Technical notes or component documentation"
+    ],
+    "skills": {
+      "technical": [
+        "HTML, CSS, and modern JavaScript",
+        "React or another component framework",
+        "Browser APIs, accessibility, testing, and performance"
+      ],
+      "human": [
+        "Visual communication",
+        "Product judgment",
+        "Clear review and collaboration"
+      ]
+    },
+    "tools": [
+      "VS Code",
+      "Browser DevTools",
+      "Git",
+      "React"
+    ],
+    "collaboratesWith": [
+      "product-designer",
+      "backend-developer",
+      "software-qa-engineer",
+      "product-manager"
+    ],
+    "howToStart": [
+      "Master web foundations before a framework",
+      "Build small interfaces from designs and test them across devices",
+      "Learn Git, accessibility, API integration, and component testing"
+    ],
+    "misconceptions": [
+      "Frontend work is not merely making screens look attractive",
+      "Knowing a framework does not replace browser and web-platform fundamentals"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior frontend developer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level frontend developer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior frontend developer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "web-foundations",
+      "frontend-javascript"
+    ],
+    "resourceIds": [
+      "mdn-frontend-curriculum",
+      "react-official-learn",
+      "web-dev-learn",
+      "testing-library-docs"
+    ],
+    "featured": true,
+    "tags": [
+      "frontend",
+      "web",
+      "react",
+      "accessibility"
+    ],
+    "references": [
+      {
+        "name": "O*NET Software Developers",
+        "url": "https://www.onetonline.org/link/summary/15-1252.00"
+      },
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      }
+    ]
+  },
+  {
+    "slug": "backend-developer",
+    "title": "Backend Developer",
+    "shortTitle": "Backend developer",
+    "category": "engineering",
+    "focus": "build",
+    "summary": "Designs and operates server-side systems, APIs, data access, permissions, and business rules that support dependable digital products.",
+    "whatTheyDo": "A backend developer turns business rules into secure services, models data, defines API contracts, integrates external systems, and keeps server-side behavior observable and maintainable. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Clarify data and business-rule requirements",
+      "Implement or review APIs, jobs, and service logic",
+      "Investigate logs, failures, performance, and security concerns",
+      "Coordinate contracts with frontend, QA, and operations"
+    ],
+    "responsibilities": [
+      "Design stable service and API boundaries",
+      "Model and protect application data",
+      "Implement authentication, authorization, and validation",
+      "Maintain reliability, observability, and migration safety"
+    ],
+    "deliverables": [
+      "Versioned APIs or services",
+      "Database schemas and migrations",
+      "Automated service tests",
+      "Operational documentation"
+    ],
+    "skills": {
+      "technical": [
+        "Node.js or another server runtime",
+        "SQL, data modeling, and API design",
+        "Security, testing, queues, caching, and observability"
+      ],
+      "human": [
+        "Systems thinking",
+        "Risk communication",
+        "Collaborative problem solving"
+      ]
+    },
+    "tools": [
+      "Node.js",
+      "PostgreSQL",
+      "Git",
+      "API client"
+    ],
+    "collaboratesWith": [
+      "frontend-developer",
+      "full-stack-developer",
+      "software-qa-engineer",
+      "devops-engineer"
+    ],
+    "howToStart": [
+      "Learn one server language and HTTP deeply",
+      "Build CRUD APIs with validation and a relational database",
+      "Practice authentication, testing, migrations, and deployment"
+    ],
+    "misconceptions": [
+      "Backend work is not only creating endpoints",
+      "A database schema is a product and operational decision, not just storage"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior backend developer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level backend developer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior backend developer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "full-stack-javascript"
+    ],
+    "resourceIds": [
+      "nodejs-official-learn",
+      "postgresql-tutorial",
+      "owasp-web-security-guide",
+      "typescript-handbook"
+    ],
+    "featured": true,
+    "tags": [
+      "backend",
+      "nodejs",
+      "api",
+      "database"
+    ],
+    "references": [
+      {
+        "name": "O*NET Software Developers",
+        "url": "https://www.onetonline.org/link/summary/15-1252.00"
+      },
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      }
+    ]
+  },
+  {
+    "slug": "full-stack-developer",
+    "title": "Full-Stack Developer",
+    "shortTitle": "Full-stack developer",
+    "category": "engineering",
+    "focus": "build",
+    "summary": "Owns product features across browser, server, data, and deployment boundaries while preserving sound specialization and system quality.",
+    "whatTheyDo": "A full-stack developer connects user-facing behavior to APIs, data models, security, testing, and release concerns, often taking end-to-end ownership of a feature or small product area. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Trace a feature through interface, service, and data layers",
+      "Implement the most appropriate part of the stack",
+      "Review integration behavior and test complete user journeys",
+      "Coordinate deployment, monitoring, and follow-up fixes"
+    ],
+    "responsibilities": [
+      "Deliver coherent end-to-end product features",
+      "Make cross-layer trade-offs explicit",
+      "Maintain contracts between UI, services, and data",
+      "Support testing, deployment, and production feedback"
+    ],
+    "deliverables": [
+      "End-to-end product increments",
+      "Integrated automated tests",
+      "Data and API changes",
+      "Deployment-ready documentation"
+    ],
+    "skills": {
+      "technical": [
+        "Frontend web development",
+        "Server-side JavaScript and API design",
+        "Databases, testing, security, and deployment"
+      ],
+      "human": [
+        "Prioritization across layers",
+        "Communication with specialists",
+        "Pragmatic system thinking"
+      ]
+    },
+    "tools": [
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "GitHub"
+    ],
+    "collaboratesWith": [
+      "frontend-developer",
+      "backend-developer",
+      "product-designer",
+      "devops-engineer"
+    ],
+    "howToStart": [
+      "Become competent in web foundations first",
+      "Build a small product with UI, API, database, and authentication",
+      "Learn where specialist review is needed instead of pretending equal depth everywhere"
+    ],
+    "misconceptions": [
+      "Full-stack does not mean expert in every technology",
+      "The role should not become an excuse for one person to carry an entire product alone"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior full-stack developer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level full-stack developer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior full-stack developer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "full-stack-javascript"
+    ],
+    "resourceIds": [
+      "nextjs-official-docs",
+      "nodejs-official-learn",
+      "postgresql-tutorial",
+      "github-actions-docs"
+    ],
+    "featured": true,
+    "tags": [
+      "full-stack",
+      "javascript",
+      "product engineering",
+      "web"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "mobile-developer",
+    "title": "Mobile Developer",
+    "shortTitle": "Mobile developer",
+    "category": "engineering",
+    "focus": "build",
+    "summary": "Builds reliable applications for phones and tablets while accounting for touch interaction, device capabilities, platform conventions, and release stores.",
+    "whatTheyDo": "A mobile developer implements native or cross-platform interfaces, navigation, offline and network behavior, permissions, device integrations, performance, and application release workflows. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Implement screens, navigation, and application state",
+      "Integrate APIs, storage, notifications, or device capabilities",
+      "Test behavior on real devices and varied conditions",
+      "Prepare releases and diagnose platform-specific failures"
+    ],
+    "responsibilities": [
+      "Create platform-appropriate mobile experiences",
+      "Manage device, network, and lifecycle constraints",
+      "Protect performance and accessibility",
+      "Support signed builds, store releases, and telemetry"
+    ],
+    "deliverables": [
+      "Mobile application features",
+      "Device integration code",
+      "Automated and device test evidence",
+      "Release builds and notes"
+    ],
+    "skills": {
+      "technical": [
+        "JavaScript and React for React Native roles",
+        "Mobile navigation, state, storage, and networking",
+        "Platform APIs, performance, testing, and release processes"
+      ],
+      "human": [
+        "User empathy",
+        "Careful edge-case thinking",
+        "Cross-platform communication"
+      ]
+    },
+    "tools": [
+      "React Native",
+      "Expo",
+      "Android Studio",
+      "Xcode"
+    ],
+    "collaboratesWith": [
+      "product-designer",
+      "backend-developer",
+      "software-qa-engineer",
+      "product-manager"
+    ],
+    "howToStart": [
+      "Learn JavaScript and component thinking",
+      "Build a multi-screen app with API and local storage",
+      "Test on devices and understand permissions, lifecycle, and publishing"
+    ],
+    "misconceptions": [
+      "Mobile development is not a smaller version of web development",
+      "Cross-platform tools reduce duplication but do not erase platform differences"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior mobile developer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level mobile developer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior mobile developer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "react-native-mobile"
+    ],
+    "resourceIds": [
+      "react-native-official-docs",
+      "expo-get-started",
+      "react-official-learn",
+      "owasp-web-security-guide"
+    ],
+    "featured": true,
+    "tags": [
+      "mobile",
+      "react native",
+      "apps",
+      "cross-platform"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "data-engineer",
+    "title": "Data Engineer",
+    "shortTitle": "Data engineer",
+    "category": "engineering",
+    "focus": "build",
+    "summary": "Builds trustworthy pipelines, models, and data platforms that make information usable for analytics, operations, products, and machine learning.",
+    "whatTheyDo": "A data engineer moves and transforms data across systems, defines reliable schemas and quality controls, manages orchestration and lineage, and creates interfaces that analysts and applications can depend on. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review source changes and downstream data needs",
+      "Build or monitor ingestion and transformation jobs",
+      "Investigate freshness, quality, lineage, and performance issues",
+      "Coordinate definitions and contracts with data consumers"
+    ],
+    "responsibilities": [
+      "Design resilient data pipelines and models",
+      "Establish data quality and observability controls",
+      "Manage schema evolution and lineage",
+      "Improve platform cost, reliability, and developer experience"
+    ],
+    "deliverables": [
+      "Curated datasets and models",
+      "Scheduled pipelines",
+      "Quality checks and alerts",
+      "Data contracts and runbooks"
+    ],
+    "skills": {
+      "technical": [
+        "SQL and data modeling",
+        "Batch or streaming pipeline design",
+        "Warehouses, orchestration, testing, and observability"
+      ],
+      "human": [
+        "Analytical communication",
+        "Systems thinking",
+        "Stakeholder alignment"
+      ]
+    },
+    "tools": [
+      "PostgreSQL",
+      "dbt",
+      "Airflow",
+      "Cloud data warehouse"
+    ],
+    "collaboratesWith": [
+      "backend-developer",
+      "devops-engineer",
+      "product-manager",
+      "software-qa-engineer"
+    ],
+    "howToStart": [
+      "Learn SQL and relational modeling deeply",
+      "Build a reproducible pipeline from raw data to a tested model",
+      "Practice orchestration, quality checks, lineage, and cost reasoning"
+    ],
+    "misconceptions": [
+      "Data engineering is not simply moving CSV files",
+      "A technically correct pipeline can still fail when definitions and ownership are unclear"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior data engineer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level data engineer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior data engineer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "postgresql-tutorial",
+      "pro-git-book",
+      "github-actions-docs"
+    ],
+    "featured": false,
+    "tags": [
+      "data",
+      "pipelines",
+      "sql",
+      "analytics engineering"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "software-qa-engineer",
+    "title": "Software QA Engineer",
+    "shortTitle": "QA engineer",
+    "category": "quality-security",
+    "focus": "quality",
+    "summary": "Protects product quality by designing risk-based test strategies, improving feedback loops, and making failures reproducible before and after release.",
+    "whatTheyDo": "A software QA engineer studies user and system risks, designs exploratory and automated checks, challenges unclear acceptance criteria, and helps the whole team build quality into delivery. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review requirements and identify risk or ambiguity",
+      "Design exploratory scenarios and automated checks",
+      "Reproduce defects with clear evidence and impact",
+      "Review release confidence and improve team quality practices"
+    ],
+    "responsibilities": [
+      "Create a risk-based quality strategy",
+      "Test functional and non-functional behavior",
+      "Maintain useful automation and test data",
+      "Communicate release risks without becoming a final gatekeeper"
+    ],
+    "deliverables": [
+      "Test plans and risk notes",
+      "Automated test suites",
+      "Actionable defect reports",
+      "Release-quality evidence"
+    ],
+    "skills": {
+      "technical": [
+        "Test design and exploratory testing",
+        "API, UI, and integration automation",
+        "Debugging, data setup, accessibility, and performance awareness"
+      ],
+      "human": [
+        "Curiosity",
+        "Precise communication",
+        "Constructive challenge"
+      ]
+    },
+    "tools": [
+      "Playwright",
+      "Vitest",
+      "API client",
+      "Browser DevTools"
+    ],
+    "collaboratesWith": [
+      "frontend-developer",
+      "backend-developer",
+      "product-manager",
+      "devops-engineer"
+    ],
+    "howToStart": [
+      "Learn how software is built and how users fail",
+      "Practice exploratory testing and high-quality bug reports",
+      "Automate stable high-value journeys instead of every click"
+    ],
+    "misconceptions": [
+      "QA is not the person who owns all quality",
+      "More automated tests do not automatically mean better risk coverage"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior qa engineer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level qa engineer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior qa engineer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "web-foundations",
+      "frontend-javascript"
+    ],
+    "resourceIds": [
+      "playwright-docs",
+      "vitest-guide",
+      "testing-library-docs",
+      "w3c-wai-tutorials"
+    ],
+    "featured": true,
+    "tags": [
+      "quality assurance",
+      "testing",
+      "automation",
+      "risk"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "security-engineer",
+    "title": "Security Engineer",
+    "shortTitle": "Security engineer",
+    "category": "quality-security",
+    "focus": "quality",
+    "summary": "Reduces security risk by improving architecture, code, identity, infrastructure, detection, and response across the software lifecycle.",
+    "whatTheyDo": "A security engineer models threats, reviews systems, builds preventive and detective controls, supports incident response, and teaches teams to make secure decisions without blocking useful delivery. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review threat models, designs, code, or alerts",
+      "Investigate vulnerabilities and prioritize realistic risk",
+      "Build security controls, automation, or guidance",
+      "Coordinate remediation and communicate residual risk"
+    ],
+    "responsibilities": [
+      "Identify and prioritize security threats",
+      "Improve secure development and infrastructure controls",
+      "Support vulnerability and incident response",
+      "Create reusable guidance, guardrails, and evidence"
+    ],
+    "deliverables": [
+      "Threat models",
+      "Security controls and automation",
+      "Risk assessments and remediation plans",
+      "Incident or vulnerability reports"
+    ],
+    "skills": {
+      "technical": [
+        "Application and infrastructure security",
+        "Identity, cryptography, networking, and threat modeling",
+        "Security testing, monitoring, and incident response"
+      ],
+      "human": [
+        "Risk communication",
+        "Calm investigation",
+        "Influence without fear-based messaging"
+      ]
+    },
+    "tools": [
+      "OWASP resources",
+      "Security scanner",
+      "Cloud security tools",
+      "SIEM"
+    ],
+    "collaboratesWith": [
+      "backend-developer",
+      "devops-engineer",
+      "site-reliability-engineer",
+      "engineering-manager"
+    ],
+    "howToStart": [
+      "Build strong software and networking foundations",
+      "Study common vulnerability classes and threat modeling",
+      "Practice secure reviews and labs in authorized environments"
+    ],
+    "misconceptions": [
+      "Security is not only penetration testing",
+      "Security engineers should enable teams with proportionate controls, not reject every risk"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior security engineer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level security engineer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior security engineer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "owasp-web-security-guide",
+      "dora-capabilities",
+      "github-actions-docs"
+    ],
+    "featured": false,
+    "tags": [
+      "security",
+      "appsec",
+      "risk",
+      "threat modeling"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "devops-engineer",
+    "title": "DevOps Engineer",
+    "shortTitle": "DevOps engineer",
+    "category": "quality-security",
+    "focus": "delivery",
+    "summary": "Improves how software moves from change to reliable operation through automation, platform capabilities, observability, and collaboration.",
+    "whatTheyDo": "A DevOps engineer builds delivery pipelines, infrastructure automation, deployment patterns, monitoring, and developer platforms while reducing friction between software delivery and operations. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review delivery or platform health and team friction",
+      "Improve pipelines, infrastructure, environments, or observability",
+      "Investigate failed builds, deployments, or operational issues",
+      "Document and automate repeatable paths for product teams"
+    ],
+    "responsibilities": [
+      "Automate build, test, release, and infrastructure workflows",
+      "Create secure repeatable environments",
+      "Improve observability and incident readiness",
+      "Reduce delivery lead time without sacrificing stability"
+    ],
+    "deliverables": [
+      "CI/CD pipelines",
+      "Infrastructure definitions",
+      "Dashboards and alerts",
+      "Platform documentation and runbooks"
+    ],
+    "skills": {
+      "technical": [
+        "Linux, networking, and scripting",
+        "CI/CD, containers, cloud, and infrastructure as code",
+        "Observability, security, reliability, and incident practices"
+      ],
+      "human": [
+        "Service mindset",
+        "Systems thinking",
+        "Cross-team facilitation"
+      ]
+    },
+    "tools": [
+      "Docker",
+      "GitHub Actions",
+      "Cloud platform",
+      "Terraform"
+    ],
+    "collaboratesWith": [
+      "backend-developer",
+      "site-reliability-engineer",
+      "security-engineer",
+      "engineering-manager"
+    ],
+    "howToStart": [
+      "Learn Linux, networking, Git, and scripting",
+      "Containerize and deploy a small application through CI/CD",
+      "Add monitoring, safe rollback, secrets, and infrastructure automation"
+    ],
+    "misconceptions": [
+      "DevOps is not just a job title or a collection of YAML files",
+      "Automation without shared ownership can reproduce silos faster"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior devops engineer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level devops engineer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior devops engineer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "devops-web-developers"
+    ],
+    "resourceIds": [
+      "docker-get-started",
+      "github-actions-docs",
+      "dora-capabilities",
+      "pro-git-book"
+    ],
+    "featured": true,
+    "tags": [
+      "devops",
+      "ci/cd",
+      "platform",
+      "automation"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "site-reliability-engineer",
+    "title": "Site Reliability Engineer",
+    "shortTitle": "SRE",
+    "category": "quality-security",
+    "focus": "quality",
+    "summary": "Applies software engineering to production reliability using measurable service objectives, automation, capacity planning, and learning from incidents.",
+    "whatTheyDo": "An SRE defines reliability targets with product teams, improves observability and automation, manages operational risk, and turns incidents and repetitive work into engineering opportunities. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review service health, objectives, alerts, and operational load",
+      "Automate repetitive operations and improve resilience",
+      "Participate in incident response and follow-up learning",
+      "Plan capacity, changes, and reliability investments"
+    ],
+    "responsibilities": [
+      "Define and protect service-level objectives",
+      "Reduce toil through engineering",
+      "Improve incident response and observability",
+      "Balance reliability investment with product delivery"
+    ],
+    "deliverables": [
+      "Service objectives and error-budget policies",
+      "Reliability automation",
+      "Incident reviews and runbooks",
+      "Capacity and resilience improvements"
+    ],
+    "skills": {
+      "technical": [
+        "Distributed systems and software engineering",
+        "Observability, incident response, and automation",
+        "Capacity, performance, networking, and reliability modeling"
+      ],
+      "human": [
+        "Calm decision-making",
+        "Blameless learning",
+        "Negotiation around risk and priorities"
+      ]
+    },
+    "tools": [
+      "Monitoring platform",
+      "Incident management tools",
+      "Cloud platform",
+      "Programming language"
+    ],
+    "collaboratesWith": [
+      "devops-engineer",
+      "backend-developer",
+      "security-engineer",
+      "product-manager"
+    ],
+    "howToStart": [
+      "Develop strong programming and systems foundations",
+      "Operate a service and measure its reliability",
+      "Learn objectives, alert design, incident response, and toil reduction"
+    ],
+    "misconceptions": [
+      "SRE is not simply on-call operations with a new title",
+      "One hundred percent uptime is usually neither realistic nor a useful product target"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior sre owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level sre independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior sre shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "devops-web-developers"
+    ],
+    "resourceIds": [
+      "dora-capabilities",
+      "docker-get-started",
+      "github-actions-docs"
+    ],
+    "featured": true,
+    "tags": [
+      "SRE",
+      "reliability",
+      "observability",
+      "incident response"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "product-designer",
+    "title": "Product Designer",
+    "shortTitle": "Product designer",
+    "category": "design-research",
+    "focus": "design",
+    "summary": "Shapes useful, usable, accessible product experiences by connecting user needs, interaction design, visual systems, prototypes, and delivery constraints.",
+    "whatTheyDo": "A product designer moves from problem framing and user flows to interfaces and prototypes, tests assumptions, contributes to design systems, and works closely with engineering through implementation. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Understand the product problem, users, constraints, and evidence",
+      "Create flows, sketches, prototypes, and interface states",
+      "Review work with users and cross-functional teammates",
+      "Support implementation and improve reusable design patterns"
+    ],
+    "responsibilities": [
+      "Frame experience problems and user journeys",
+      "Design complete interaction states and accessible interfaces",
+      "Prototype and validate important assumptions",
+      "Maintain design-system consistency and implementation quality"
+    ],
+    "deliverables": [
+      "User flows and journey maps",
+      "Wireframes and prototypes",
+      "Production-ready interface specifications",
+      "Design-system components and usage notes"
+    ],
+    "skills": {
+      "technical": [
+        "Interaction and visual design",
+        "Prototyping, accessibility, and design systems",
+        "Research interpretation and implementation literacy"
+      ],
+      "human": [
+        "Facilitation",
+        "Feedback and storytelling",
+        "Empathy balanced with evidence"
+      ]
+    },
+    "tools": [
+      "Figma",
+      "FigJam",
+      "Prototype testing tools",
+      "Accessibility tools"
+    ],
+    "collaboratesWith": [
+      "ux-researcher",
+      "product-manager",
+      "frontend-developer",
+      "software-qa-engineer"
+    ],
+    "howToStart": [
+      "Learn typography, layout, interaction, and accessibility fundamentals",
+      "Redesign and test a complete user flow, including edge states",
+      "Build case studies that show decisions and evidence, not only final screens"
+    ],
+    "misconceptions": [
+      "Product design is not decorating a finished requirement",
+      "A polished mockup is incomplete without states, behavior, accessibility, and evidence"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior product designer owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level product designer independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior product designer shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "ui-ux-product-design"
+    ],
+    "resourceIds": [
+      "figma-design-beginners",
+      "w3c-wai-tutorials",
+      "design-council-double-diamond"
+    ],
+    "featured": true,
+    "tags": [
+      "product design",
+      "ui/ux",
+      "interaction",
+      "design systems"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "ux-researcher",
+    "title": "UX Researcher",
+    "shortTitle": "UX researcher",
+    "category": "design-research",
+    "focus": "discovery",
+    "summary": "Generates credible evidence about people, contexts, needs, and product behavior so teams can make better decisions under uncertainty.",
+    "whatTheyDo": "A UX researcher selects appropriate qualitative and quantitative methods, recruits ethically, conducts studies, synthesizes patterns, and communicates evidence with limitations and actionable implications. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Clarify the decision a study needs to inform",
+      "Prepare a method, participant plan, and ethical safeguards",
+      "Conduct interviews, observation, usability sessions, or surveys",
+      "Synthesize evidence and work with the team on implications"
+    ],
+    "responsibilities": [
+      "Define research questions linked to decisions",
+      "Choose and execute suitable methods",
+      "Protect participant consent, privacy, and representation",
+      "Communicate findings, confidence, limitations, and opportunities"
+    ],
+    "deliverables": [
+      "Research plans",
+      "Interview or test protocols",
+      "Evidence repositories and synthesis",
+      "Decision-focused research reports"
+    ],
+    "skills": {
+      "technical": [
+        "Qualitative and quantitative research methods",
+        "Sampling, study design, and usability evaluation",
+        "Analysis, research operations, and ethics"
+      ],
+      "human": [
+        "Active listening",
+        "Neutral facilitation",
+        "Evidence-based storytelling"
+      ]
+    },
+    "tools": [
+      "Research repository",
+      "Video meeting tools",
+      "Survey tools",
+      "FigJam"
+    ],
+    "collaboratesWith": [
+      "product-designer",
+      "product-manager",
+      "technical-marketing"
+    ],
+    "howToStart": [
+      "Learn interviewing, usability testing, and research ethics",
+      "Run small studies with clear research questions",
+      "Practice synthesis that separates observation, interpretation, and recommendation"
+    ],
+    "misconceptions": [
+      "UX research is not asking users what feature to build",
+      "A few quotes do not become evidence without method, context, and analysis"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior ux researcher owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level ux researcher independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior ux researcher shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "ui-ux-product-design"
+    ],
+    "resourceIds": [
+      "design-council-double-diamond",
+      "w3c-wai-tutorials"
+    ],
+    "featured": false,
+    "tags": [
+      "ux research",
+      "discovery",
+      "usability",
+      "evidence"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "product-manager",
+    "title": "Product Manager",
+    "shortTitle": "Product manager",
+    "category": "product-delivery",
+    "focus": "discovery",
+    "summary": "Guides product direction by connecting customer problems, organizational strategy, evidence, sequencing, and measurable outcomes.",
+    "whatTheyDo": "A product manager frames problems, aligns stakeholders on outcomes, shapes strategy and roadmaps, supports discovery and delivery, and learns from released product behavior rather than merely maintaining a feature list. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review evidence, outcomes, risks, and stakeholder context",
+      "Clarify problems and decisions with design and engineering",
+      "Prioritize opportunities and shape near-term work",
+      "Communicate direction and learn from delivery and product results"
+    ],
+    "responsibilities": [
+      "Define product problems, outcomes, and strategic choices",
+      "Prioritize based on evidence, value, risk, and constraints",
+      "Align stakeholders and cross-functional teams",
+      "Measure results and update direction after learning"
+    ],
+    "deliverables": [
+      "Product strategy and outcome measures",
+      "Prioritized opportunity or roadmap views",
+      "Clear problem and decision briefs",
+      "Launch and learning plans"
+    ],
+    "skills": {
+      "technical": [
+        "Product discovery and analytics",
+        "Prioritization, experimentation, and market reasoning",
+        "Technical and design literacy"
+      ],
+      "human": [
+        "Stakeholder alignment",
+        "Decision communication",
+        "Comfort with uncertainty"
+      ]
+    },
+    "tools": [
+      "Product analytics",
+      "Roadmapping tools",
+      "Issue tracker",
+      "Research repository"
+    ],
+    "collaboratesWith": [
+      "product-designer",
+      "tech-lead",
+      "project-manager",
+      "technical-marketing"
+    ],
+    "howToStart": [
+      "Learn to frame problems and outcomes before solutions",
+      "Practice discovery with designers, engineers, and users",
+      "Own a small product area and measure what changed after release"
+    ],
+    "misconceptions": [
+      "A product manager is not the team’s CEO",
+      "The role is not primarily writing tickets or guaranteeing dates"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior product manager owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level product manager independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior product manager shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "gitlab-job-description-library",
+      "design-council-double-diamond",
+      "dora-capabilities"
+    ],
+    "featured": true,
+    "tags": [
+      "product management",
+      "strategy",
+      "discovery",
+      "outcomes"
+    ],
+    "references": [
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      },
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      }
+    ]
+  },
+  {
+    "slug": "project-manager",
+    "title": "Project Manager",
+    "shortTitle": "Project manager",
+    "category": "product-delivery",
+    "focus": "delivery",
+    "summary": "Coordinates scope, schedule, dependencies, communication, risk, and delivery commitments so a defined initiative can reach its intended outcome.",
+    "whatTheyDo": "A project manager creates shared plans, tracks dependencies and decisions, manages risks and stakeholder communication, and helps specialists coordinate work without pretending to own every professional decision. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review plan health, dependencies, risks, and decisions",
+      "Coordinate contributors and unblock cross-team actions",
+      "Update stakeholders with evidence and choices",
+      "Prepare milestones, governance, and delivery follow-through"
+    ],
+    "responsibilities": [
+      "Build and maintain a realistic delivery plan",
+      "Manage dependencies, risks, issues, and decisions",
+      "Coordinate communication and governance",
+      "Protect clarity around scope, ownership, and change"
+    ],
+    "deliverables": [
+      "Project plans and milestone views",
+      "Risk, issue, dependency, and decision logs",
+      "Status communication",
+      "Closure and retrospective records"
+    ],
+    "skills": {
+      "technical": [
+        "Planning and dependency management",
+        "Risk, governance, and change control",
+        "Budget and delivery-tool literacy"
+      ],
+      "human": [
+        "Facilitation",
+        "Expectation management",
+        "Clear written communication"
+      ]
+    },
+    "tools": [
+      "Project tracker",
+      "Calendar",
+      "Documentation platform",
+      "Risk register"
+    ],
+    "collaboratesWith": [
+      "product-manager",
+      "engineering-manager",
+      "operations-manager",
+      "product-designer"
+    ],
+    "howToStart": [
+      "Learn planning, estimation, dependencies, and risk management",
+      "Coordinate a small cross-functional initiative",
+      "Practice transparent status communication and structured change decisions"
+    ],
+    "misconceptions": [
+      "Project manager and product manager are not interchangeable roles",
+      "Good project management is not chasing people for updates all day"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior project manager owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level project manager independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior project manager shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "gitlab-job-description-library",
+      "agile-manifesto",
+      "scrum-guide"
+    ],
+    "featured": true,
+    "tags": [
+      "project management",
+      "delivery",
+      "risk",
+      "coordination"
+    ],
+    "references": [
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      },
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      }
+    ]
+  },
+  {
+    "slug": "scrum-master-agile-facilitator",
+    "title": "Scrum Master / Agile Facilitator",
+    "shortTitle": "Scrum master",
+    "category": "product-delivery",
+    "focus": "delivery",
+    "summary": "Helps teams and organizations use empirical, collaborative ways of working effectively by improving facilitation, flow, learning, and impediment removal.",
+    "whatTheyDo": "A Scrum Master is accountable for establishing Scrum as defined by its guide, while broader agile facilitators may support teams across multiple methods. The work centers on capability and system improvement rather than task assignment. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Facilitate purposeful team events and decisions",
+      "Observe flow, collaboration, and systemic impediments",
+      "Coach team members and stakeholders on the chosen framework",
+      "Help experiments and improvement actions reach completion"
+    ],
+    "responsibilities": [
+      "Improve understanding and application of the working method",
+      "Facilitate productive events without owning every meeting",
+      "Surface and help remove systemic impediments",
+      "Build team capability for inspection and adaptation"
+    ],
+    "deliverables": [
+      "Facilitated decisions and events",
+      "Improvement experiments",
+      "Visible impediment and flow insights",
+      "Coaching and working-agreement outcomes"
+    ],
+    "skills": {
+      "technical": [
+        "Scrum and agile principles",
+        "Facilitation, flow metrics, and retrospectives",
+        "Organizational systems and change techniques"
+      ],
+      "human": [
+        "Neutral facilitation",
+        "Coaching questions",
+        "Conflict navigation"
+      ]
+    },
+    "tools": [
+      "Digital whiteboard",
+      "Issue tracker",
+      "Flow analytics",
+      "Retrospective tools"
+    ],
+    "collaboratesWith": [
+      "product-manager",
+      "project-manager",
+      "tech-lead",
+      "engineering-manager"
+    ],
+    "howToStart": [
+      "Read the Agile Manifesto and official Scrum Guide",
+      "Practice facilitation and retrospective design",
+      "Learn to diagnose system constraints instead of policing ceremonies"
+    ],
+    "misconceptions": [
+      "A Scrum Master is not a project manager renamed",
+      "The role should not become the team secretary or process police"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior scrum master owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level scrum master independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior scrum master shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "agile-manifesto",
+      "scrum-guide",
+      "kanban-guide"
+    ],
+    "featured": true,
+    "tags": [
+      "scrum master",
+      "agile",
+      "facilitation",
+      "continuous improvement"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "tech-lead",
+    "title": "Tech Lead",
+    "shortTitle": "Tech lead",
+    "category": "leadership",
+    "focus": "build",
+    "summary": "Provides technical direction for a team or initiative while remaining close enough to delivery to guide architecture, quality, trade-offs, and engineering collaboration.",
+    "whatTheyDo": "A tech lead creates technical clarity, coordinates important decisions, reduces engineering risk, supports delivery, and grows the team’s capability. The role may be temporary or contextual rather than a permanent management rank. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Clarify architecture and delivery risks with the team",
+      "Review important designs, code, and system behavior",
+      "Coordinate technical decisions across contributors",
+      "Mentor engineers and remove technical ambiguity"
+    ],
+    "responsibilities": [
+      "Set coherent technical direction for a bounded area",
+      "Make and document proportionate architecture decisions",
+      "Raise engineering quality and delivery confidence",
+      "Grow ownership and decision capability across the team"
+    ],
+    "deliverables": [
+      "Architecture decisions",
+      "Technical delivery plans",
+      "Review and quality guidance",
+      "Mentoring and capability improvements"
+    ],
+    "skills": {
+      "technical": [
+        "Software architecture and system design",
+        "Delivery, testing, security, and operational literacy",
+        "Code review and technical decision records"
+      ],
+      "human": [
+        "Technical storytelling",
+        "Mentoring",
+        "Conflict and trade-off facilitation"
+      ]
+    },
+    "tools": [
+      "Architecture diagrams",
+      "Code repository",
+      "Observability tools",
+      "Documentation"
+    ],
+    "collaboratesWith": [
+      "frontend-developer",
+      "backend-developer",
+      "product-manager",
+      "engineering-manager"
+    ],
+    "howToStart": [
+      "Develop depth through owning production systems",
+      "Practice explaining trade-offs and writing decisions",
+      "Lead a bounded initiative while sharing ownership rather than becoming a bottleneck"
+    ],
+    "misconceptions": [
+      "Tech lead does not always mean people manager",
+      "The strongest engineer should not automatically make every decision alone"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior tech lead owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level tech lead independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior tech lead shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [
+      "full-stack-javascript",
+      "devops-web-developers"
+    ],
+    "resourceIds": [
+      "sfia-responsibility-levels",
+      "gitlab-job-description-library",
+      "dora-capabilities"
+    ],
+    "featured": true,
+    "tags": [
+      "tech lead",
+      "architecture",
+      "engineering leadership",
+      "mentoring"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "engineering-manager",
+    "title": "Engineering Manager",
+    "shortTitle": "Engineering manager",
+    "category": "leadership",
+    "focus": "people",
+    "summary": "Builds a healthy engineering system by supporting people, team structure, delivery capability, technical health, and organizational alignment.",
+    "whatTheyDo": "An engineering manager creates conditions in which engineers can succeed: clear expectations, useful feedback, sustainable staffing, healthy collaboration, and balanced attention to product delivery and technical investment. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Coach individuals and review team health",
+      "Align priorities, staffing, risk, and delivery context",
+      "Support technical and cross-functional decisions",
+      "Improve hiring, progression, feedback, and organizational systems"
+    ],
+    "responsibilities": [
+      "Develop engineers through feedback and opportunity",
+      "Build sustainable team capacity and operating clarity",
+      "Partner on product delivery and technical health",
+      "Improve hiring, inclusion, performance, and organizational coordination"
+    ],
+    "deliverables": [
+      "Growth and feedback plans",
+      "Staffing and team-design decisions",
+      "Delivery and engineering-health interventions",
+      "Hiring and progression evidence"
+    ],
+    "skills": {
+      "technical": [
+        "Engineering and delivery literacy",
+        "People management and organizational design",
+        "Hiring, progression, and team-health practices"
+      ],
+      "human": [
+        "Coaching",
+        "Difficult conversations",
+        "Organizational communication"
+      ]
+    },
+    "tools": [
+      "One-to-one notes",
+      "Team metrics",
+      "Planning tools",
+      "Career framework"
+    ],
+    "collaboratesWith": [
+      "tech-lead",
+      "product-manager",
+      "people-operations",
+      "project-manager"
+    ],
+    "howToStart": [
+      "Develop strong engineering and collaboration experience",
+      "Mentor and lead without relying on authority",
+      "Learn coaching, feedback, hiring, performance, and organizational systems"
+    ],
+    "misconceptions": [
+      "Engineering management is not a promotion for the best coder",
+      "Managers should not become status-report relays or quietly keep all decisions"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior engineering manager owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level engineering manager independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior engineering manager shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "sfia-responsibility-levels",
+      "gitlab-job-description-library",
+      "team-topologies-key-concepts"
+    ],
+    "featured": true,
+    "tags": [
+      "engineering management",
+      "people leadership",
+      "team health",
+      "organization"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "people-operations",
+    "title": "People Operations Specialist",
+    "shortTitle": "People operations",
+    "category": "operations-growth",
+    "focus": "people",
+    "summary": "Designs and runs people systems that help employees join, work, grow, receive support, and leave with clarity, fairness, and appropriate care.",
+    "whatTheyDo": "People Operations connects policy, employee experience, compliance, data, and operational delivery. In technology organizations the role partners with managers and teams while protecting privacy and consistent treatment. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Respond to employee lifecycle and policy needs",
+      "Improve onboarding, records, benefits, or people processes",
+      "Support managers with clear and fair procedures",
+      "Review people data, feedback, risk, and compliance"
+    ],
+    "responsibilities": [
+      "Operate reliable employee lifecycle processes",
+      "Maintain clear policy and confidential records",
+      "Improve onboarding, engagement, and employee support",
+      "Enable managers with fair repeatable practices"
+    ],
+    "deliverables": [
+      "Onboarding and lifecycle workflows",
+      "Policies and employee guidance",
+      "People operations records and reports",
+      "Process improvement plans"
+    ],
+    "skills": {
+      "technical": [
+        "People systems and process design",
+        "Employment policy and data privacy awareness",
+        "People analytics and operational documentation"
+      ],
+      "human": [
+        "Discretion",
+        "Empathy with consistency",
+        "Service communication"
+      ]
+    },
+    "tools": [
+      "HR information system",
+      "Documentation tools",
+      "Survey tools",
+      "Calendar"
+    ],
+    "collaboratesWith": [
+      "engineering-manager",
+      "technical-recruiter",
+      "operations-manager"
+    ],
+    "howToStart": [
+      "Learn employee lifecycle and people-operations fundamentals",
+      "Practice confidential, consistent process documentation",
+      "Support onboarding or another bounded people workflow and improve it from feedback"
+    ],
+    "misconceptions": [
+      "People Operations is not only event planning",
+      "Supporting employees does not mean ignoring policy, evidence, or organizational constraints"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior people operations owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level people operations independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior people operations shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "gitlab-job-description-library",
+      "sfia-responsibility-levels"
+    ],
+    "featured": false,
+    "tags": [
+      "people operations",
+      "hr",
+      "employee experience",
+      "operations"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "technical-recruiter",
+    "title": "Technical Recruiter",
+    "shortTitle": "Technical recruiter",
+    "category": "operations-growth",
+    "focus": "people",
+    "summary": "Connects hiring needs with qualified candidates through role discovery, sourcing, structured assessment, communication, and an equitable candidate experience.",
+    "whatTheyDo": "A technical recruiter translates team needs into realistic searches, finds and engages candidates, coordinates structured evaluation, protects candidate communication, and uses funnel evidence to improve hiring. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Clarify role scope and hiring evidence with the team",
+      "Source, screen, and communicate with candidates",
+      "Coordinate interviews and reduce process delays",
+      "Review funnel quality, fairness, and candidate feedback"
+    ],
+    "responsibilities": [
+      "Create evidence-based hiring plans",
+      "Build relevant and diverse candidate pipelines",
+      "Coordinate structured and fair assessment",
+      "Maintain transparent candidate communication and hiring data"
+    ],
+    "deliverables": [
+      "Role briefs and sourcing strategies",
+      "Candidate pipelines",
+      "Interview plans and scorecards",
+      "Hiring-funnel insights"
+    ],
+    "skills": {
+      "technical": [
+        "Technical role literacy",
+        "Sourcing and applicant tracking systems",
+        "Structured interviewing and hiring analytics"
+      ],
+      "human": [
+        "Relationship building",
+        "Bias-aware judgment",
+        "Clear expectation setting"
+      ]
+    },
+    "tools": [
+      "Applicant tracking system",
+      "Professional networks",
+      "Calendar",
+      "Interview scorecards"
+    ],
+    "collaboratesWith": [
+      "engineering-manager",
+      "people-operations",
+      "tech-lead"
+    ],
+    "howToStart": [
+      "Learn how technical teams and roles actually work",
+      "Practice structured screening against explicit evidence",
+      "Study inclusive sourcing, candidate experience, and hiring metrics"
+    ],
+    "misconceptions": [
+      "Recruiters do not need to be engineers, but they need role literacy",
+      "A large pipeline is not useful when the role and assessment are unclear"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior technical recruiter owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level technical recruiter independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior technical recruiter shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "gitlab-job-description-library",
+      "sfia-responsibility-levels"
+    ],
+    "featured": false,
+    "tags": [
+      "technical recruiting",
+      "hiring",
+      "talent",
+      "candidate experience"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "operations-manager",
+    "title": "Operations Manager",
+    "shortTitle": "Operations manager",
+    "category": "operations-growth",
+    "focus": "business",
+    "summary": "Designs and coordinates repeatable business operations so teams can deliver services, manage risk, use resources, and improve cross-functional execution.",
+    "whatTheyDo": "An operations manager maps how work moves across the organization, clarifies ownership and controls, improves service levels, coordinates vendors or budgets, and turns recurring friction into sustainable processes. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Review service health, workload, risks, and operational requests",
+      "Coordinate cross-functional actions and dependencies",
+      "Improve processes, controls, documentation, or vendor work",
+      "Report decisions and operational outcomes"
+    ],
+    "responsibilities": [
+      "Build reliable operating processes and ownership",
+      "Manage service levels, resources, vendors, and controls",
+      "Reduce recurring friction through process improvement",
+      "Maintain operational visibility, continuity, and risk response"
+    ],
+    "deliverables": [
+      "Operating procedures and service definitions",
+      "Capacity and resource plans",
+      "Risk and control records",
+      "Operational performance reports"
+    ],
+    "skills": {
+      "technical": [
+        "Process mapping and service operations",
+        "Budget, vendor, risk, and control literacy",
+        "Operational metrics and continuous improvement"
+      ],
+      "human": [
+        "Cross-functional coordination",
+        "Structured problem solving",
+        "Decision documentation"
+      ]
+    },
+    "tools": [
+      "Operations tracker",
+      "Documentation platform",
+      "Spreadsheets",
+      "Service desk"
+    ],
+    "collaboratesWith": [
+      "people-operations",
+      "project-manager",
+      "technical-marketing",
+      "engineering-manager"
+    ],
+    "howToStart": [
+      "Learn process mapping, service ownership, and operational metrics",
+      "Own and improve one recurring cross-team process",
+      "Practice capacity, risk, vendor, and continuity planning"
+    ],
+    "misconceptions": [
+      "Operations is not miscellaneous work nobody else owns",
+      "Adding more process is not improvement unless it reduces risk or friction"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior operations manager owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level operations manager independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior operations manager shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "lean-thinking-practice",
+      "gitlab-job-description-library",
+      "team-topologies-key-concepts"
+    ],
+    "featured": false,
+    "tags": [
+      "operations",
+      "process",
+      "service management",
+      "continuous improvement"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  },
+  {
+    "slug": "technical-marketing",
+    "title": "Technical Marketing Specialist",
+    "shortTitle": "Technical marketing",
+    "category": "operations-growth",
+    "focus": "business",
+    "summary": "Explains technical products credibly to relevant audiences through education, positioning, demonstrations, campaigns, and feedback loops with product teams.",
+    "whatTheyDo": "Technical marketing combines audience and market understanding with enough product depth to create accurate content, demos, launch materials, developer education, and measurable acquisition or adoption programs. The role is defined by the outcomes it enables, not by a single tool or a fixed list of tickets. Strong practitioners make trade-offs visible, communicate constraints early, and help the team produce work that remains useful after launch.",
+    "typicalDay": [
+      "Research audience questions, product context, and channel evidence",
+      "Create or review technical content, demos, and campaigns",
+      "Coordinate launches with product, design, and engineering",
+      "Measure engagement, quality, conversion, and product feedback"
+    ],
+    "responsibilities": [
+      "Translate technical value into accurate audience language",
+      "Create educational and campaign assets",
+      "Coordinate product launches and community feedback",
+      "Measure and improve acquisition, adoption, and content usefulness"
+    ],
+    "deliverables": [
+      "Technical articles and guides",
+      "Demo or launch materials",
+      "Campaign briefs and assets",
+      "Performance and audience insight reports"
+    ],
+    "skills": {
+      "technical": [
+        "Product and technical literacy",
+        "Content, SEO, analytics, and campaign operations",
+        "Market research and positioning"
+      ],
+      "human": [
+        "Audience empathy",
+        "Clear storytelling",
+        "Cross-functional coordination"
+      ]
+    },
+    "tools": [
+      "Analytics platform",
+      "Content management system",
+      "SEO tools",
+      "Design tools"
+    ],
+    "collaboratesWith": [
+      "product-manager",
+      "product-designer",
+      "ux-researcher",
+      "operations-manager"
+    ],
+    "howToStart": [
+      "Learn the product, audience, and market before choosing channels",
+      "Create accurate educational content from real user questions",
+      "Run small campaigns with measurable outcomes and feedback to product"
+    ],
+    "misconceptions": [
+      "Technical marketing is not adding jargon to generic promotion",
+      "High traffic is not success when the wrong audience arrives or learns nothing"
+    ],
+    "levels": {
+      "junior": {
+        "label": "Junior",
+        "scope": "A junior technical marketing owns clearly bounded tasks with support, asks for context, follows established practices, and demonstrates reliable learning and communication.",
+        "evidence": [
+          "Completes scoped work with appropriate review",
+          "Explains decisions, blockers, and lessons clearly"
+        ]
+      },
+      "mid": {
+        "label": "Mid-level",
+        "scope": "A mid-level technical marketing independently owns complete pieces of work, coordinates with adjacent roles, handles routine ambiguity, and improves the team’s everyday practices.",
+        "evidence": [
+          "Delivers end-to-end outcomes with limited supervision",
+          "Anticipates common risks and supports teammates"
+        ]
+      },
+      "senior": {
+        "label": "Senior",
+        "scope": "A senior technical marketing shapes direction across complex work, raises quality beyond personal output, resolves ambiguity, mentors others, and connects technical or professional decisions to organizational outcomes.",
+        "evidence": [
+          "Leads high-impact work across boundaries",
+          "Creates reusable standards, clarity, and capability for others"
+        ]
+      }
+    },
+    "learningPathSlugs": [],
+    "resourceIds": [
+      "gitlab-job-description-library",
+      "design-council-double-diamond"
+    ],
+    "featured": false,
+    "tags": [
+      "technical marketing",
+      "developer marketing",
+      "content",
+      "growth"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-families/"
+      }
+    ]
+  }
+]

@@ -1985,7 +1985,7 @@ function Overlay({
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/10 px-3 py-2 shadow-lg backdrop-blur-md">
-      <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-white/45">
+      <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/45">
         {label}
       </p>
       {value ? (

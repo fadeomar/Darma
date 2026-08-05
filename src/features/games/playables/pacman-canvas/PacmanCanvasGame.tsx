@@ -989,7 +989,7 @@ function DirectionButton({
 function StatPill({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 shadow-inner">
-      <p className="font-mono text-[9px] font-black uppercase tracking-[0.12em] text-yellow-200/75">
+      <p className="font-mono text-xs font-black uppercase tracking-[0.12em] text-yellow-200/75">
         {label}
       </p>
       <p className="mt-0.5 font-mono text-lg font-black leading-none text-white">
@@ -1362,7 +1362,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
             <ArrowLeft className="h-4 w-4" aria-hidden />
           </button>
           <div className="min-w-0">
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-yellow-200/70">
+            <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-yellow-200/70">
               Darma Arcade
             </p>
             <h2 className="truncate text-base font-black tracking-[-0.02em] text-white sm:text-lg">
@@ -1536,7 +1536,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
               className="h-11 w-11 rounded-2xl bg-yellow-300 p-1"
             />
             <div>
-              <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-yellow-200/70">
+              <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-yellow-200/70">
                 Classic maze
               </p>
               <h3 className="text-lg font-black tracking-[-0.02em]">

@@ -10,9 +10,9 @@ const previewCharacterClass: Record<CharType, string> = {
 
 const legendCharacterClass: Record<CharType, string> = {
   lower: "text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]",
-  upper: "text-[var(--color-primary)]",
+  upper: "text-[var(--color-primary-text-strong)]",
   digit: "text-[var(--color-warning-text)]",
-  symbol: "text-[var(--color-accent)]",
+  symbol: "text-[var(--color-accent-text)]",
 };
 
 const legendItems: Array<{ type: CharType; label: string; example: string }> = [

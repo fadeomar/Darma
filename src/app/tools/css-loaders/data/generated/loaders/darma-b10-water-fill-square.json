@@ -1,0 +1,48 @@
+{
+  "id": "darma-b10-water-fill-square",
+  "name": "Tank Fill",
+  "category": "progress",
+  "sourceId": "darma-research-batch-10",
+  "tags": [
+    "water",
+    "tank",
+    "fill",
+    "level",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b10-water-fill-square tank fill progress darma-research-batch-10 darma research batch 10 water tank fill level progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b10-water-fill-square\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-darma-b10-water-fill-square { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 22%; background: color-mix(in srgb, var(--accent) 12%, transparent); border: calc(var(--loader-size, 76px) * .035) solid color-mix(in srgb, var(--accent) 45%, transparent); position: relative; overflow: hidden; box-sizing: border-box; }\n.darma-loader-darma-b10-water-fill-square span { position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b10-water-fill-square-rise calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite alternate; }\n.darma-loader-darma-b10-water-fill-square span::before, .darma-loader-darma-b10-water-fill-square span::after { content: ''; position: absolute; bottom: 96%; left: -50%; width: 200%; height: calc(var(--loader-size, 76px) * .16); background: inherit; border-radius: 45%; }\n.darma-loader-darma-b10-water-fill-square span::before { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 1.6) linear infinite; opacity: .85; }\n.darma-loader-darma-b10-water-fill-square span::after { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 2.4) linear infinite reverse; }\n@keyframes darma-loader-darma-b10-water-fill-square-rise { 0% { height: 28%; } 100% { height: 80%; } }\n@keyframes darma-loader-darma-b10-water-fill-square-surface { 0% { transform: translateX(0); } 100% { transform: translateX(25%); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#22d3ee",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b10-water-fill-square\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-darma-b10-water-fill-square { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 22%; background: color-mix(in srgb, var(--accent) 12%, transparent); border: calc(var(--loader-size, 76px) * .035) solid color-mix(in srgb, var(--accent) 45%, transparent); position: relative; overflow: hidden; box-sizing: border-box; }\n.darma-loader-darma-b10-water-fill-square span { position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b10-water-fill-square-rise calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite alternate; }\n.darma-loader-darma-b10-water-fill-square span::before, .darma-loader-darma-b10-water-fill-square span::after { content: ''; position: absolute; bottom: 96%; left: -50%; width: 200%; height: calc(var(--loader-size, 76px) * .16); background: inherit; border-radius: 45%; }\n.darma-loader-darma-b10-water-fill-square span::before { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 1.6) linear infinite; opacity: .85; }\n.darma-loader-darma-b10-water-fill-square span::after { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 2.4) linear infinite reverse; }\n@keyframes darma-loader-darma-b10-water-fill-square-rise { 0% { height: 28%; } 100% { height: 80%; } }\n@keyframes darma-loader-darma-b10-water-fill-square-surface { 0% { transform: translateX(0); } 100% { transform: translateX(25%); } }",
+    "react": "export default function DarmaB10WaterFillSquareLoader() {\n  return (\n    <div className=\"darma-loader-darma-b10-water-fill-square\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 10",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

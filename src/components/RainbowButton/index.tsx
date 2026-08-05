@@ -17,7 +17,7 @@ const RainbowButton = ({
       onClick={handleClick}
       className={`group relative mb-2 flex max-h-fit w-full items-center justify-center rounded-[var(--radius-sm)] border p-3 text-xs font-bold uppercase tracking-[0.08em] transition duration-[var(--duration-fast)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] ${
         isActive
-          ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+          ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
           : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]"
       }`}
     >

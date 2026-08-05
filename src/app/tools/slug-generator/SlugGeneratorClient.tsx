@@ -57,11 +57,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-sm)]">
       <div className="flex items-center justify-between gap-2 text-[var(--color-text-tertiary)]">
-        <span className="truncate text-[10px] font-black uppercase tracking-[0.08em]">{label}</span>
+        <span className="truncate text-xs font-black uppercase tracking-[0.08em]">{label}</span>
         {icon}
       </div>
       <div className="mt-1 truncate text-lg font-black text-[var(--color-text-primary)]">{value}</div>
-      <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -72,10 +72,10 @@ function ToggleButton({ active, children, onClick }: { active: boolean; children
 
 function FieldLabel({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
-    <label className="block min-w-0 text-[11px] font-bold text-[var(--color-text-secondary)]">
+    <label className="block min-w-0 text-xs font-bold text-[var(--color-text-secondary)]">
       <span className="block truncate">{label}</span>
       {children}
-      {hint ? <span className="mt-1 block text-[10px] font-normal leading-4 text-[var(--color-text-tertiary)]">{hint}</span> : null}
+      {hint ? <span className="mt-1 block text-xs font-normal leading-4 text-[var(--color-text-tertiary)]">{hint}</span> : null}
     </label>
   );
 }
@@ -173,8 +173,8 @@ export default function SlugGeneratorClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a route workflow and edit it.</p>
+                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</h2>
+                <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Load a route workflow and edit it.</p>
               </div>
               <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RefreshCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
@@ -182,7 +182,7 @@ export default function SlugGeneratorClient() {
               {SLUG_PRESETS.map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -192,7 +192,7 @@ export default function SlugGeneratorClient() {
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Source titles</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Bulk rows may include a tab then the previous path.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Bulk rows may include a tab then the previous path.</p>
               </div>
               <div className="flex gap-1">
                 <ToggleButton active={mode === "single"} onClick={() => setMode("single")}>Single</ToggleButton>
@@ -201,11 +201,11 @@ export default function SlugGeneratorClient() {
             </div>
             <Textarea variant="editor" rows={mode === "bulk" ? 8 : 5} value={input} onChange={(event) => setInput(event.target.value)} placeholder={mode === "bulk" ? "One title per line\nTitle<TAB>/previous-path" : "Enter a page title"} aria-label="Slug source input" />
             {mode === "single" ? <div className="mt-3"><FieldLabel label="Previous path (optional)" hint="Used to generate a redirect when the route changes."><Input className="mt-1" value={previousPath} onChange={(event) => setPreviousPath(event.target.value)} placeholder="/old-page-path" /></FieldLabel></div> : null}
-            <div className="mt-2 flex items-center justify-between gap-2 text-[10px] text-[var(--color-text-tertiary)]"><span>{batch.stats.inputRows} source row{batch.stats.inputRows === 1 ? "" : "s"}</span><span>Longest path: {batch.stats.longestPath} chars</span></div>
+            <div className="mt-2 flex items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]"><span>{batch.stats.inputRows} source row{batch.stats.inputRows === 1 ? "" : "s"}</span><span>Longest path: {batch.stats.longestPath} chars</span></div>
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="mb-3 flex items-center gap-2"><WandSparkles className="h-4 w-4 text-[var(--color-primary)]" /><div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Route policy</h2><p className="text-[11px] text-[var(--color-text-tertiary)]">Control format, collisions, and route scope.</p></div></div>
+            <div className="mb-3 flex items-center gap-2"><WandSparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Route policy</h2><p className="text-xs text-[var(--color-text-tertiary)]">Control format, collisions, and route scope.</p></div></div>
             <div className="grid grid-cols-2 gap-3">
               <FieldLabel label="Path prefix" hint="Applied before every generated slug."><Input className="mt-1" value={pathPrefix} onChange={(event) => setPathPrefix(event.target.value)} placeholder="/blog" /></FieldLabel>
               <FieldLabel label="Collision policy"><Select size="sm" className="mt-1" value={collisionMode} onChange={(event) => setCollisionMode(event.target.value as SlugCollisionMode)}><option value="suffix">Append number</option><option value="error">Block duplicates</option><option value="allow">Allow duplicates</option></Select></FieldLabel>
@@ -229,11 +229,11 @@ export default function SlugGeneratorClient() {
         <main className="min-w-0 space-y-4">
           <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-sm)]">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] px-4 py-3">
-              <div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Generated route workspace</h2><p className="text-[11px] text-[var(--color-text-tertiary)]">Inspect every route before exporting it to a CMS or router.</p></div>
+              <div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Generated route workspace</h2><p className="text-xs text-[var(--color-text-tertiary)]">Inspect every route before exporting it to a CMS or router.</p></div>
               <div className="flex gap-2"><CopyButton text={allPaths} size="sm" variant="secondary" disabled={!allPaths}>Copy paths</CopyButton><Button size="sm" variant="primary" onClick={downloadPack} disabled={!batch.rows.length} leftIcon={<PackageCheck className="h-4 w-4" />}>Download pack</Button></div>
             </div>
             <div className="flex gap-1 overflow-x-auto border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-3 py-2">
-              {tabs.map((tab) => <button key={tab.id} type="button" onClick={() => setActiveTab(tab.id)} className={`whitespace-nowrap rounded-[var(--radius-md)] px-3 py-1.5 text-xs font-bold transition ${activeTab === tab.id ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{tab.label}</button>)}
+              {tabs.map((tab) => <button key={tab.id} type="button" onClick={() => setActiveTab(tab.id)} className={`whitespace-nowrap rounded-[var(--radius-md)] px-3 py-1.5 text-xs font-bold transition ${activeTab === tab.id ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{tab.label}</button>)}
             </div>
 
             {activeTab === "routes" ? (
@@ -241,13 +241,13 @@ export default function SlugGeneratorClient() {
                 {!batch.rows.length ? <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] p-8 text-center text-sm text-[var(--color-text-tertiary)]">Enter at least one title to generate a route manifest.</div> : (
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-xs">
-                      <thead><tr className="text-[10px] uppercase tracking-wide text-[var(--color-text-tertiary)]"><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Source</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Generated route</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Redirect</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Status</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2 text-right">Copy</th></tr></thead>
+                      <thead><tr className="text-xs uppercase tracking-wide text-[var(--color-text-tertiary)]"><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Source</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Generated route</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Redirect</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2">Status</th><th className="border-b border-[var(--color-border-subtle)] px-3 py-2 text-right">Copy</th></tr></thead>
                       <tbody>{batch.rows.map((row) => (
                         <tr key={row.id} className="align-top">
-                          <td className="max-w-[240px] border-b border-[var(--color-border-subtle)] px-3 py-3"><div className="truncate font-bold text-[var(--color-text-primary)]" title={row.title}>{row.title}</div><div className="mt-1 text-[10px] text-[var(--color-text-tertiary)]">Line {row.sourceLine}</div></td>
-                          <td className="border-b border-[var(--color-border-subtle)] px-3 py-3"><code className="break-all rounded bg-[var(--color-code-surface)] px-1.5 py-1 text-[11px] text-[var(--color-code-text)]">{row.path}</code>{row.collisionIndex > 1 ? <div className="mt-1 text-[10px] font-bold text-[var(--color-info-text)]">Collision #{row.collisionIndex}</div> : null}</td>
-                          <td className="border-b border-[var(--color-border-subtle)] px-3 py-3 text-[11px] text-[var(--color-text-secondary)]">{row.redirectFrom ? <code className="break-all">{row.redirectFrom}</code> : "—"}</td>
-                          <td className="border-b border-[var(--color-border-subtle)] px-3 py-3"><span className={`inline-flex rounded-full px-2 py-1 text-[10px] font-black ${row.valid ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]"}`}>{row.valid ? "Ready" : "Blocked"}</span>{row.warnings.length ? <div className="mt-1 max-w-[180px] text-[10px] leading-4 text-[var(--color-text-tertiary)]">{row.warnings.join(", ")}</div> : null}</td>
+                          <td className="max-w-[240px] border-b border-[var(--color-border-subtle)] px-3 py-3"><div className="truncate font-bold text-[var(--color-text-primary)]" title={row.title}>{row.title}</div><div className="mt-1 text-xs text-[var(--color-text-tertiary)]">Line {row.sourceLine}</div></td>
+                          <td className="border-b border-[var(--color-border-subtle)] px-3 py-3"><code className="break-all rounded bg-[var(--color-code-surface)] px-1.5 py-1 text-xs text-[var(--color-code-text)]">{row.path}</code>{row.collisionIndex > 1 ? <div className="mt-1 text-xs font-bold text-[var(--color-info-text)]">Collision #{row.collisionIndex}</div> : null}</td>
+                          <td className="border-b border-[var(--color-border-subtle)] px-3 py-3 text-xs text-[var(--color-text-secondary)]">{row.redirectFrom ? <code className="break-all">{row.redirectFrom}</code> : "—"}</td>
+                          <td className="border-b border-[var(--color-border-subtle)] px-3 py-3"><span className={`inline-flex rounded-full px-2 py-1 text-xs font-black ${row.valid ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]"}`}>{row.valid ? "Ready" : "Blocked"}</span>{row.warnings.length ? <div className="mt-1 max-w-[180px] text-xs leading-4 text-[var(--color-text-tertiary)]">{row.warnings.join(", ")}</div> : null}</td>
                           <td className="border-b border-[var(--color-border-subtle)] px-3 py-3 text-right"><CopyButton text={row.path} size="sm" variant="ghost" aria-label={`Copy ${row.path}`}><Copy className="h-3.5 w-3.5" /></CopyButton></td>
                         </tr>
                       ))}</tbody>
@@ -259,7 +259,7 @@ export default function SlugGeneratorClient() {
 
             {activeTab === "checks" ? (
               <div className="grid gap-3 p-4 md:grid-cols-2">
-                {batch.checks.length ? batch.checks.map((check) => <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}><div className="flex items-start gap-2">{check.level === "success" ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> : <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />}<div><div className="text-xs font-black">{check.title}</div><p className="mt-1 text-[11px] leading-5 opacity-90">{check.message}</p></div></div></div>) : <div className="col-span-full p-8 text-center text-sm text-[var(--color-text-tertiary)]">Generate routes to run production checks.</div>}
+                {batch.checks.length ? batch.checks.map((check) => <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}><div className="flex items-start gap-2">{check.level === "success" ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> : <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />}<div><div className="text-xs font-black">{check.title}</div><p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p></div></div></div>) : <div className="col-span-full p-8 text-center text-sm text-[var(--color-text-tertiary)]">Generate routes to run production checks.</div>}
               </div>
             ) : null}
 
@@ -274,8 +274,8 @@ export default function SlugGeneratorClient() {
                   <Button variant="secondary" disabled={!batch.stats.redirects} onClick={() => downloadText("next.config.redirects.js", nextRedirects, "text/javascript;charset=utf-8")} leftIcon={<Code2 className="h-4 w-4" />}>Next.js redirects</Button>
                 </div>
                 <div className="grid gap-3 lg:grid-cols-2">
-                  <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-surface)] p-3"><div className="mb-2 flex items-center justify-between gap-2"><span className="text-xs font-black text-[var(--color-code-text)]">Route JSON preview</span><CopyButton text={reportJson} size="sm" variant="ghost">Copy</CopyButton></div><pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words text-[10px] leading-5 text-[var(--color-code-text)]">{reportJson}</pre></div>
-                  <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-surface)] p-3"><div className="mb-2 flex items-center justify-between gap-2"><span className="text-xs font-black text-[var(--color-code-text)]">Next.js redirect preview</span><CopyButton text={nextRedirects} size="sm" variant="ghost">Copy</CopyButton></div><pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words text-[10px] leading-5 text-[var(--color-code-text)]">{nextRedirects}</pre></div>
+                  <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-surface)] p-3"><div className="mb-2 flex items-center justify-between gap-2"><span className="text-xs font-black text-[var(--color-code-text)]">Route JSON preview</span><CopyButton text={reportJson} size="sm" variant="ghost">Copy</CopyButton></div><pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words text-xs leading-5 text-[var(--color-code-text)]">{reportJson}</pre></div>
+                  <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-surface)] p-3"><div className="mb-2 flex items-center justify-between gap-2"><span className="text-xs font-black text-[var(--color-code-text)]">Next.js redirect preview</span><CopyButton text={nextRedirects} size="sm" variant="ghost">Copy</CopyButton></div><pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words text-xs leading-5 text-[var(--color-code-text)]">{nextRedirects}</pre></div>
                 </div>
               </div>
             ) : null}

@@ -20,9 +20,9 @@ export function GameCoreBridgePanel({ games }: GameCoreBridgePanelProps) {
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="space-y-4">
           <CoreSectionHeader
-            eyebrow="Core migration bridge"
-            title="Games are now mapped into Darma Core"
-            description="This bridge keeps the polished Games UI intact while exposing the same game data as CoreEntity records for future shared search, discovery, recommendations, and collection pages."
+            eyebrow="Find a game"
+            title="Find a game by name, category, or how long it takes"
+            description="The same games appear in site-wide search, so you can reach them from anywhere in Darma."
           />
           <div className="flex flex-wrap gap-2">
             <Badge variant="success">Non-breaking</Badge>
@@ -37,7 +37,7 @@ export function GameCoreBridgePanel({ games }: GameCoreBridgePanelProps) {
           const Icon = [DatabaseZap, Layers3, SearchCheck, GitBranch][index] ?? DatabaseZap;
           return (
             <div key={item.label} className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
                 <Icon className="h-4 w-4" aria-hidden />
               </div>
               <p className="text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{item.value}</p>
@@ -50,7 +50,7 @@ export function GameCoreBridgePanel({ games }: GameCoreBridgePanelProps) {
       <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         <Card className="h-full bg-[var(--color-surface-base)]">
           <CoreDiscoveryRail
-            title="Core-powered game rail"
+            title="Featured games"
             description="The same rail primitive can now display game entities without touching the existing GameCard experience."
             entities={featuredCoreGames}
             compactCards
@@ -61,7 +61,7 @@ export function GameCoreBridgePanel({ games }: GameCoreBridgePanelProps) {
           <CoreEntityBrowser
             entities={coreGames}
             title="Game entity browser"
-            description="Search and filter game data through the shared CoreEntity browser. This is a migration preview, not a replacement for the handcrafted Games page yet."
+            description="Search and filter the full game list."
             searchPlaceholder="Search core games, tags, devices…"
             allLabel="All game types"
           />

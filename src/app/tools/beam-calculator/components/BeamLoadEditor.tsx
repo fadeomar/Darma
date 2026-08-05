@@ -114,9 +114,9 @@ export function BeamLoadEditor({ loads, length, units, errors, selected, onSelec
                           onClick={() => onUpdate(load.id, { start: roundTo(preset.start, 2), end: roundTo(preset.end, 2) })}
                           aria-pressed={active}
                           className={cn(
-                            "rounded-[var(--radius-sm)] border px-2 py-1 text-[10px] font-bold uppercase tracking-[0.04em] transition",
+                            "rounded-[var(--radius-sm)] border px-2 py-1 text-xs font-bold uppercase tracking-[0.04em] transition",
                             active
-                              ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                              ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                               : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
                           )}
                         >

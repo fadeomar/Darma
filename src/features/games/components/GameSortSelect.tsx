@@ -20,7 +20,7 @@ export function GameSortSelect({
   onChange: (next: GameSort) => void;
 }) {
   return (
-    <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+    <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
       Sort
       <Select value={value} onChange={(event) => onChange(event.target.value as GameSort)} size="sm">
         {SORT_OPTIONS.map((option) => (

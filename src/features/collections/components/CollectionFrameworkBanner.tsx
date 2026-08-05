@@ -51,18 +51,20 @@ export function CollectionFrameworkBanner({
           >
             View tools <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
-          <Link
-            href={collection.primaryAction.href}
-            className="inline-flex min-h-8 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-transparent bg-[var(--color-primary)] px-3 text-xs font-semibold leading-none text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus-visible:shadow-[var(--focus-ring)]"
-          >
-            {collection.primaryAction.label} <Sparkles className="h-4 w-4" aria-hidden />
-          </Link>
+          {collection.primaryAction ? (
+            <Link
+              href={collection.primaryAction.href}
+              className="inline-flex min-h-8 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-transparent bg-[var(--color-primary)] px-3 text-xs font-semibold leading-none text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus-visible:shadow-[var(--focus-ring)]"
+            >
+              {collection.primaryAction.label} <Sparkles className="h-4 w-4" aria-hidden />
+            </Link>
+          ) : null}
         </div>
       </div>
 
       {nextCollections.length > 0 ? (
         <div className="mt-5 border-t border-[var(--color-border-subtle)] pt-4">
-          <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
+          <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
             Future collections using the same foundation
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

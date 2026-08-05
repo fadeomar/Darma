@@ -1,8 +1,22 @@
+import type { Metadata } from "next";
 
 import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
 import { HomeClientPage } from "@/features/elements/ui";
 import { Badge, Card } from "@/components/ui";
+
+
+const EXPLORE_METADATA: Metadata = {
+  title: "Explore front-end projects and reusable code ideas | Darma",
+  description: "Browse Darma HTML, CSS, and JavaScript projects, filter by category, and open practical previews with reusable implementation ideas.",
+  alternates: { canonical: "/explore" },
+};
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }): Promise<Metadata> {
+  const params = await searchParams;
+  const hasFilters = Object.values(params).some((value) => Array.isArray(value) ? value.some(Boolean) : Boolean(value));
+  return { ...EXPLORE_METADATA, robots: hasFilters ? { index: false, follow: true } : { index: true, follow: true } };
+}
 
 function normalizeParam(param: string | string[] | undefined): string[] {
   if (!param) return [];
@@ -39,7 +53,7 @@ export default async function ExplorePage({
   });
 
   return (
-    <main className="px-4 py-8 sm:px-6 lg:px-8">
+    <div className="px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[var(--container-wide)]">
         <Card padding="lg" className="mb-6">
           <Badge variant="soft">Explore</Badge>
@@ -58,6 +72,6 @@ export default async function ExplorePage({
         initialParams={normalizedParams}
         basePath="/explore"
       />
-    </main>
+    </div>
   );
 }

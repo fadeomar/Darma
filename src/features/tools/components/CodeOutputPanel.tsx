@@ -46,7 +46,7 @@ export function CodeOutputPanel({
           <div className="flex flex-wrap items-center gap-2">
             {title ? <h2 className="text-sm font-bold tracking-[-0.01em] text-[var(--color-code-text)]">{title}</h2> : null}
             {currentTab?.language ? (
-              <span className="rounded-[var(--radius-full)] border border-[var(--color-code-border)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-code-muted)]">
+              <span className="rounded-[var(--radius-full)] border border-[var(--color-code-border)] px-2 py-0.5 font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-code-muted)]">
                 {currentTab.language}
               </span>
             ) : null}

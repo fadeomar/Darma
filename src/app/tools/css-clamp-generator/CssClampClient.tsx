@@ -67,7 +67,7 @@ function SummaryCard({ label, value, note, tone = "default" }: { label: string; 
 
   return (
     <div className={`min-w-0 rounded-[var(--radius-md)] border p-3 ${toneClass}`}>
-      <p className="text-[11px] font-black uppercase tracking-[0.08em] text-[var(--color-text-soft)]">{label}</p>
+      <p className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-soft)]">{label}</p>
       <p className="mt-1 truncate font-mono text-sm font-black text-[var(--color-text)]" title={value}>{value}</p>
       {note ? <p className="mt-1 line-clamp-2 text-xs leading-5 text-[var(--color-text-muted)]">{note}</p> : null}
     </div>
@@ -380,7 +380,7 @@ export default function CssClampClient() {
               {sampleValues.map((item) => (
                 <div key={item.viewport} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-2 text-center">
                   <p className="truncate font-mono text-xs font-black text-[var(--color-text)]">{item.value}</p>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-soft)]">{item.viewport}px</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-soft)]">{item.viewport}px</p>
                 </div>
               ))}
             </div>

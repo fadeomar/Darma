@@ -283,7 +283,7 @@ export function ConnectFourGame({ game }: { game: GameDefinition }) {
     >
       <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 sm:px-5">
         <div>
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">
             Strategy pro build
           </p>
           <h2 className="text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">
@@ -329,7 +329,7 @@ export function ConnectFourGame({ game }: { game: GameDefinition }) {
                   }
                   className={`min-h-10 rounded-[var(--radius-sm)] border text-xs font-black transition focus-visible:shadow-[var(--focus-ring)] disabled:opacity-45 ${
                     isHint
-                      ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                       : isWin
                         ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]"
                         : isThreat
@@ -471,7 +471,7 @@ export function ConnectFourGame({ game }: { game: GameDefinition }) {
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
             <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]">
               <Sparkles
-                className="h-4 w-4 text-[var(--color-primary)]"
+                className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                 aria-hidden
               />{" "}
               Game setup
@@ -578,7 +578,7 @@ export function ConnectFourGame({ game }: { game: GameDefinition }) {
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)]">
             <h3 className="flex items-center gap-2 font-black text-[var(--color-text-primary)]">
               <Shield
-                className="h-4 w-4 text-[var(--color-primary)]"
+                className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                 aria-hidden
               />{" "}
               Pro rules
@@ -606,9 +606,9 @@ function StatCard({
 }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]">
-      <div className="flex items-center gap-2 text-[var(--color-primary)]">
+      <div className="flex items-center gap-2 text-[var(--color-primary-text-strong)]">
         {icon}
-        <span className="font-mono text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           {label}
         </span>
       </div>

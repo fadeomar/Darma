@@ -19,7 +19,7 @@ type CoreEntityBrowserProps<TEntity extends CoreEntity = CoreEntity> = {
 export function CoreEntityBrowser<TEntity extends CoreEntity = CoreEntity>({
   entities,
   title = "Browse",
-  description = "Search and filter items using the shared Darma Core UI pattern.",
+  description = "Search and filter to find what you need.",
   searchPlaceholder = "Search Darma…",
   allLabel = "All",
 }: CoreEntityBrowserProps<TEntity>) {
@@ -48,7 +48,7 @@ export function CoreEntityBrowser<TEntity extends CoreEntity = CoreEntity>({
     <section className="space-y-5" aria-labelledby="core-entity-browser-title">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Darma Core</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">Browse</p>
           <h2 id="core-entity-browser-title" className="mt-2 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">
             {title}
           </h2>
@@ -60,7 +60,7 @@ export function CoreEntityBrowser<TEntity extends CoreEntity = CoreEntity>({
       <CoreCategoryChips categories={categories} activeCategory={category} onCategoryChange={setCategory} allLabel={allLabel} />
 
       {filtered.length ? (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="darma-grid-balance grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {filtered.map((entity) => (
             <CoreEntityCard key={entity.id} entity={entity} />
           ))}

@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, CheckCircle2, Droplets, Eye, Layers, Palette, SlidersHorizontal } from "lucide-react";
 import { Badge, Button, CopyButton, Input } from "@/components/ui";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 import { cn } from "@/lib/cn";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, writeColorWorkflowState } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import {
   COLOR_EXAMPLES,
   formatCmyk,
@@ -43,7 +45,7 @@ function ValueCard({
     <section className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">
       <div className="flex min-w-0 items-start justify-between gap-2">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             {label}
           </p>
           <code className="mt-1 block truncate font-mono text-sm font-black leading-6 text-[var(--color-text-primary)]" title={value}>
@@ -69,7 +71,7 @@ function MiniMetric({ label, value, tone = "neutral" }: { label: string; value: 
 
   return (
     <div className={cn("rounded-[var(--radius-md)] border p-3", toneClass)}>
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] opacity-75">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] opacity-75">{label}</p>
       <p className="mt-1 text-lg font-black tracking-[-0.02em]">{value}</p>
     </div>
   );
@@ -80,7 +82,7 @@ function SectionTitle({ icon, title, description }: { icon?: React.ReactNode; ti
     <div className="mb-3 flex items-start justify-between gap-3">
       <div className="min-w-0">
         <div className="flex items-center gap-2">
-          {icon ? <span className="text-[var(--color-primary)]">{icon}</span> : null}
+          {icon ? <span className="text-[var(--color-primary-text-strong)]">{icon}</span> : null}
           <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{title}</h3>
         </div>
         {description ? <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">{description}</p> : null}
@@ -137,7 +139,7 @@ function ColorInputPanel({
       >
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <p className="font-mono text-[11px] font-black uppercase tracking-[0.12em] opacity-80">Preview</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.12em] opacity-80">Preview</p>
             <h3 className="mt-4 break-words text-4xl font-black leading-none tracking-[-0.05em] sm:text-5xl">
               {parsed.ok ? parsed.hex : "Invalid"}
             </h3>
@@ -147,7 +149,7 @@ function ColorInputPanel({
           </div>
           {parsed.ok ? (
             <div className="rounded-[var(--radius-md)] bg-white/18 px-3 py-2 text-right backdrop-blur-sm">
-              <p className="font-mono text-[10px] font-black uppercase tracking-[0.08em] opacity-80">Alpha</p>
+              <p className="font-mono text-xs font-black uppercase tracking-[0.08em] opacity-80">Alpha</p>
               <p className="text-xl font-black">{Math.round(parsed.alpha * 100)}%</p>
             </div>
           ) : null}
@@ -156,7 +158,7 @@ function ColorInputPanel({
 
       <div className="space-y-4 p-5 sm:p-6">
         <label className="block min-w-0">
-          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Color input</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Color input</span>
           <div className="mt-2 flex min-w-0 gap-2">
             <Input
               className="min-w-0 font-mono"
@@ -247,11 +249,11 @@ function OverviewTab({ parsed }: { parsed: Extract<ParsedColorResult, { ok: true
                 title="Click to copy HEX"
               >
                 <div className="h-20 p-3" style={{ background: item.hex, color: text }}>
-                  <p className="font-mono text-[10px] font-black uppercase tracking-[0.08em] opacity-85">{item.label}</p>
+                  <p className="font-mono text-xs font-black uppercase tracking-[0.08em] opacity-85">{item.label}</p>
                 </div>
                 <div className="min-w-0 p-3">
                   <p className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]">{item.hex}</p>
-                  <p className="mt-1 truncate font-mono text-[11px] text-[var(--color-text-tertiary)]">{item.cssHsl}</p>
+                  <p className="mt-1 truncate font-mono text-xs text-[var(--color-text-tertiary)]">{item.cssHsl}</p>
                 </div>
               </button>
             );
@@ -301,12 +303,12 @@ function ScaleTab({ parsed }: { parsed: Extract<ParsedColorResult, { ok: true }>
             title="Click to copy HEX"
           >
             <div className="flex h-24 flex-col justify-between p-3" style={{ background: shade.hex, color: shade.bestTextColor }}>
-              <span className="font-mono text-[11px] font-black">{shade.label}</span>
-              <span className="font-mono text-[11px] font-black">{shade.accessibility}</span>
+              <span className="font-mono text-xs font-black">{shade.label}</span>
+              <span className="font-mono text-xs font-black">{shade.accessibility}</span>
             </div>
             <div className="p-3">
               <p className="truncate font-mono text-xs font-black text-[var(--color-text-primary)]">{shade.hex}</p>
-              <p className="mt-1 text-[11px] font-semibold text-[var(--color-text-tertiary)]">{shade.contrast}:1 contrast</p>
+              <p className="mt-1 text-xs font-semibold text-[var(--color-text-tertiary)]">{shade.contrast}:1 contrast</p>
             </div>
           </button>
         ))}
@@ -360,7 +362,7 @@ function ExportCard({ title, code }: { title: string; code: string }) {
   return (
     <section className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)]">
       <div className="flex items-center justify-between gap-3 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-4 py-3">
-        <h4 className="font-mono text-[11px] font-black uppercase tracking-[0.08em] text-[var(--color-code-text)]">{title}</h4>
+        <h4 className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-code-text)]">{title}</h4>
         <CopyButton text={code} size="sm" variant="secondary">Copy</CopyButton>
       </div>
       <pre className="max-h-72 overflow-auto p-4 text-xs leading-6 text-[var(--color-code-text)]"><code>{code}</code></pre>
@@ -406,8 +408,30 @@ function ResultTabs({ parsed }: { parsed: Extract<ParsedColorResult, { ok: true 
 }
 
 export default function ColorConverterClient() {
+  const workflowId = useActiveWorkflowId();
   const [input, setInput] = useState("#3b82f6");
+  const [workflowReady, setWorkflowReady] = useState(false);
   const parsed = useMemo(() => parseColorInput(input), [input]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) {
+      setWorkflowReady(false);
+      return;
+    }
+    const stored = readColorWorkflowState();
+    if (stored?.primary) setInput(stored.primary);
+    setWorkflowReady(true);
+  }, [workflowId]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID || !workflowReady || !parsed.ok) return;
+    const stored = readColorWorkflowState();
+    writeColorWorkflowState({
+      primary: parsed.hex,
+      secondary: stored?.secondary,
+      palette: stored?.palette,
+    });
+  }, [parsed, workflowId, workflowReady]);
 
   return (
     <div className="space-y-5">

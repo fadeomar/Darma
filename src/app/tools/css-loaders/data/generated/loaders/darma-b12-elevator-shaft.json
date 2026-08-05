@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-elevator-shaft",
+  "name": "Elevator Shaft",
+  "category": "creative",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "elevator",
+    "lift",
+    "shaft",
+    "floors",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-elevator-shaft elevator shaft creative darma-research-batch-12 darma research batch 12 elevator lift shaft floors creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-elevator-shaft\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-elevator-shaft__car\"></div></div>",
+  "previewCss": ".darma-loader-darma-b12-elevator-shaft { --accent: var(--loader-color, #6366f1); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 108px) * .52); height: var(--loader-size, 108px); position: relative; overflow: hidden; border-radius: 8%; background: repeating-linear-gradient(to bottom, #e2e8f0 0 2px, #f1f5f9 2px 32%); box-shadow: inset 0 0 0 2px #cbd5e1; }\n.darma-loader-darma-b12-elevator-shaft .darma-loader-darma-b12-elevator-shaft__car { position: absolute; left: 12%; width: 76%; height: 26%; border-radius: 4px; background: linear-gradient(var(--accent), var(--accent-2)); box-shadow: 0 3px 8px rgba(15, 23, 42, .28); animation: darma-loader-darma-b12-elevator-shaft-ride calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.45, 0, .35, 1) infinite; }\n.darma-loader-darma-b12-elevator-shaft .darma-loader-darma-b12-elevator-shaft__car::after { content: ''; position: absolute; top: 8%; left: calc(50% - 1px); width: 2px; height: 84%; background: rgba(255, 255, 255, .6); }\n@keyframes darma-loader-darma-b12-elevator-shaft-ride { 0%, 10% { top: 68%; } 35%, 45% { top: 36%; } 70%, 82% { top: 4%; } 100% { top: 68%; } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#22d3ee",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-elevator-shaft\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-elevator-shaft__car\"></div></div>",
+    "css": ".darma-loader-darma-b12-elevator-shaft { --accent: var(--loader-color, #6366f1); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 108px) * .52); height: var(--loader-size, 108px); position: relative; overflow: hidden; border-radius: 8%; background: repeating-linear-gradient(to bottom, #e2e8f0 0 2px, #f1f5f9 2px 32%); box-shadow: inset 0 0 0 2px #cbd5e1; }\n.darma-loader-darma-b12-elevator-shaft .darma-loader-darma-b12-elevator-shaft__car { position: absolute; left: 12%; width: 76%; height: 26%; border-radius: 4px; background: linear-gradient(var(--accent), var(--accent-2)); box-shadow: 0 3px 8px rgba(15, 23, 42, .28); animation: darma-loader-darma-b12-elevator-shaft-ride calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.45, 0, .35, 1) infinite; }\n.darma-loader-darma-b12-elevator-shaft .darma-loader-darma-b12-elevator-shaft__car::after { content: ''; position: absolute; top: 8%; left: calc(50% - 1px); width: 2px; height: 84%; background: rgba(255, 255, 255, .6); }\n@keyframes darma-loader-darma-b12-elevator-shaft-ride { 0%, 10% { top: 68%; } 35%, 45% { top: 36%; } 70%, 82% { top: 4%; } 100% { top: 68%; } }",
+    "react": "export default function DarmaB12ElevatorShaftLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-elevator-shaft\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b12-elevator-shaft__car\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

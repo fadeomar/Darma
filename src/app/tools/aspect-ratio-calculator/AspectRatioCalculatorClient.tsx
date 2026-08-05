@@ -319,7 +319,7 @@ export function RatioCard({ src, alt }: RatioCardProps) {
                   title={target.hint}
                 >
                   <span className="block text-xs font-black text-[var(--color-text-primary)]">{target.label}</span>
-                  <span className="mt-1 block truncate font-mono text-[11px] text-[var(--color-text-tertiary)]">{target.width} × {target.height} · {ratioLabel(target.width, target.height)}</span>
+                  <span className="mt-1 block truncate font-mono text-xs text-[var(--color-text-tertiary)]">{target.width} × {target.height} · {ratioLabel(target.width, target.height)}</span>
                 </button>
               ))}
             </div>
@@ -531,7 +531,7 @@ function MetricCard({ label, value, sub }: { label: string; value: string; sub: 
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[inset_0_1px_0_var(--color-border-subtle)]">
       <div className="truncate font-mono text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-xs text-[var(--color-text-secondary)]" title={sub}>{sub}</div>
     </div>
   );
@@ -540,7 +540,7 @@ function MetricCard({ label, value, sub }: { label: string; value: string; sub: 
 function InfoPanel({ title, lines }: { title: string; lines: string[] }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <div className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</div>
+      <div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</div>
       <div className="mt-2 space-y-1 text-sm font-semibold text-[var(--color-text-primary)]">
         {lines.filter(Boolean).map((line) => <p key={line} className="break-words">{line}</p>)}
       </div>
@@ -557,7 +557,7 @@ function PreviewCard({ width, height, ratio, previewMode, overlayMode, cropLoss 
           <h3 className="text-sm font-black text-[var(--color-text-primary)]">{label}</h3>
           <p className="text-xs text-[var(--color-text-tertiary)]">{formatDimensionPair(width, height)} · {pixelCount(width, height)}</p>
         </div>
-        <span className="rounded-[var(--radius-full)] bg-[var(--color-primary-soft)] px-2 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-primary)]">
+        <span className="rounded-[var(--radius-full)] bg-[var(--color-primary-soft)] px-2 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">
           {formatPercent(cropLoss)} crop loss
         </span>
       </div>
@@ -571,7 +571,7 @@ function PreviewCard({ width, height, ratio, previewMode, overlayMode, cropLoss 
           {previewMode === "crop" ? <div className="absolute inset-y-0 left-1/2 w-[55%] -translate-x-1/2 border-x border-white/45 bg-white/5" /> : null}
           <div className="relative z-10 px-3">
             <div className="font-mono text-lg font-black text-[var(--color-text-primary)]">{compactNumber(width)} × {compactNumber(height)}</div>
-            <div className="mt-1 text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{ratioLabel(width, height)}</div>
+            <div className="mt-1 text-xs font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{ratioLabel(width, height)}</div>
           </div>
         </div>
       </div>

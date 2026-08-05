@@ -1,0 +1,47 @@
+{
+  "id": "darma-b7-squash-bounce-ball",
+  "name": "Squash Bounce",
+  "category": "fun",
+  "sourceId": "darma-research-batch-7",
+  "tags": [
+    "ball",
+    "bounce",
+    "squash",
+    "shadow",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b7-squash-bounce-ball squash bounce fun darma-research-batch-7 darma research batch 7 ball bounce squash shadow fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b7-squash-bounce-ball\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-darma-b7-squash-bounce-ball { --accent: var(--loader-color, #f97316); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b7-squash-bounce-ball span { position: absolute; left: 50%; top: 6%; width: calc(var(--loader-size, 76px) * .32); height: calc(var(--loader-size, 76px) * .32); margin-left: calc(var(--loader-size, 76px) * -.16); border-radius: 50%; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent)); transform-origin: center bottom; animation: darma-loader-darma-b7-squash-bounce-ball-bounce calc(var(--loader-speed, 1s) * .9) cubic-bezier(.5, .05, .5, .95) infinite; }\n.darma-loader-darma-b7-squash-bounce-ball::after { content: ''; position: absolute; left: 50%; bottom: 5%; width: 46%; height: 8%; margin-left: -23%; border-radius: 50%; background: color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b7-squash-bounce-ball-shadow calc(var(--loader-speed, 1s) * .9) cubic-bezier(.5, .05, .5, .95) infinite; }\n@keyframes darma-loader-darma-b7-squash-bounce-ball-bounce { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(calc(var(--loader-size, 76px) * .55)) scale(1.18, .8); } }\n@keyframes darma-loader-darma-b7-squash-bounce-ball-shadow { 0%, 100% { transform: scale(.55); opacity: .35; } 50% { transform: scale(1.1); opacity: .7; } }",
+  "defaults": {
+    "color": "#f97316",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b7-squash-bounce-ball\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-darma-b7-squash-bounce-ball { --accent: var(--loader-color, #f97316); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b7-squash-bounce-ball span { position: absolute; left: 50%; top: 6%; width: calc(var(--loader-size, 76px) * .32); height: calc(var(--loader-size, 76px) * .32); margin-left: calc(var(--loader-size, 76px) * -.16); border-radius: 50%; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent)); transform-origin: center bottom; animation: darma-loader-darma-b7-squash-bounce-ball-bounce calc(var(--loader-speed, 1s) * .9) cubic-bezier(.5, .05, .5, .95) infinite; }\n.darma-loader-darma-b7-squash-bounce-ball::after { content: ''; position: absolute; left: 50%; bottom: 5%; width: 46%; height: 8%; margin-left: -23%; border-radius: 50%; background: color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b7-squash-bounce-ball-shadow calc(var(--loader-speed, 1s) * .9) cubic-bezier(.5, .05, .5, .95) infinite; }\n@keyframes darma-loader-darma-b7-squash-bounce-ball-bounce { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(calc(var(--loader-size, 76px) * .55)) scale(1.18, .8); } }\n@keyframes darma-loader-darma-b7-squash-bounce-ball-shadow { 0%, 100% { transform: scale(.55); opacity: .35; } 50% { transform: scale(1.1); opacity: .7; } }",
+    "react": "export default function DarmaB7SquashBounceBallLoader() {\n  return (\n    <div className=\"darma-loader-darma-b7-squash-bounce-ball\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Research Batch 7",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Download, RotateCcw, Wand2 } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select } from "@/components/ui";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -18,6 +18,8 @@ import {
   type CodeOutputTab,
   type WarningMessage,
 } from "@/features/tools/components";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, readableTextColor } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import { buttonPresets, defaultButtonConfig } from "./presets";
 import {
   generateButtonCss,
@@ -152,6 +154,7 @@ function getPreviewBackground(config: ButtonGeneratorConfig): CSSProperties {
 }
 
 export default function ButtonsCssGeneratorClient() {
+  const workflowId = useActiveWorkflowId();
   const [config, setConfig] = useState<ButtonGeneratorConfig>(defaultButtonConfig);
   const [previewState, setPreviewState] = useState<PreviewState>("default");
 
@@ -165,6 +168,23 @@ export default function ButtonsCssGeneratorClient() {
   const tokenJson = useMemo(() => generateButtonTokenJson(previewConfig), [previewConfig]);
   const contrastRatio = useMemo(() => getContrastRatio(previewConfig.textColor, previewConfig.variant === "outline" || previewConfig.variant === "ghost" ? "#ffffff" : previewConfig.background), [previewConfig]);
   const productionMetrics = useMemo(() => getProductionMetrics(previewConfig, contrastRatio), [previewConfig, contrastRatio]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) return;
+    const stored = readColorWorkflowState();
+    if (!stored) return;
+    const palette = stored.palette ?? [];
+    const primary = palette[Math.floor(palette.length / 2)] ?? stored.primary;
+    const secondary = palette.at(-1) ?? stored.secondary ?? primary;
+    setConfig((current) => ({
+      ...current,
+      variant: primary !== secondary ? "gradient" : current.variant,
+      background: primary,
+      background2: secondary,
+      borderColor: primary,
+      textColor: readableTextColor(primary),
+    }));
+  }, [workflowId]);
 
   const tabs = useMemo<CodeOutputTab[]>(() => [
     { id: "css", label: "CSS", language: "css", filename: "button.css", code: css },
@@ -214,7 +234,7 @@ export default function ButtonsCssGeneratorClient() {
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {productionMetrics.map((metric) => (
           <div key={metric.label} className={`rounded-[var(--radius-md)] border px-3 py-2.5 shadow-[var(--shadow-xs)] ${toneClass(metric.tone)}`}>
-            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] opacity-70">{metric.label}</div>
+            <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] opacity-70">{metric.label}</div>
             <div className="mt-1 text-lg font-black tracking-[-0.03em]">{metric.value}</div>
             <p className="mt-1 text-xs leading-5 opacity-80">{metric.detail}</p>
           </div>
@@ -242,11 +262,11 @@ export default function ButtonsCssGeneratorClient() {
           <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-strong)] p-4">
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Checkout</p>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Checkout</p>
                 <h4 className="mt-1 text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Upgrade your workspace</h4>
                 <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">Button fits cards, modals, forms, and compact dashboards.</p>
               </div>
-              <span className="rounded-full border border-[var(--color-border-default)] px-2 py-1 font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">Live</span>
+              <span className="rounded-full border border-[var(--color-border-default)] px-2 py-1 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">Live</span>
             </div>
             <div className="mt-4">
               <button type="button" className={getPreviewButtonClasses(previewConfig, previewState)} disabled={previewState === "disabled" || previewConfig.disabled}>
@@ -256,11 +276,11 @@ export default function ButtonsCssGeneratorClient() {
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="rounded-[var(--radius-sm)] bg-[var(--color-surface-strong)] px-3 py-2">
-              <span className="block font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">Class</span>
+              <span className="block font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">Class</span>
               <span className="mt-1 block truncate font-semibold text-[var(--color-text-primary)]">.{safeClassName(config.className)}</span>
             </div>
             <div className="rounded-[var(--radius-sm)] bg-[var(--color-surface-strong)] px-3 py-2">
-              <span className="block font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">Variant</span>
+              <span className="block font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">Variant</span>
               <span className="mt-1 block truncate font-semibold text-[var(--color-text-primary)]">{config.variant}</span>
             </div>
           </div>

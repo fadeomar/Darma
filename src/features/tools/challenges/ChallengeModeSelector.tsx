@@ -33,7 +33,7 @@ export function ChallengeModeSelector<TMode extends string | number>({
             className={cn(
               "group relative overflow-hidden rounded-[var(--radius-md)] border px-4 py-3 text-left transition duration-[var(--duration-fast)] focus:outline-none focus:shadow-[var(--focus-ring)] disabled:cursor-not-allowed disabled:opacity-50",
               active
-                ? "border-[var(--color-primary)] bg-[linear-gradient(135deg,var(--color-primary-soft),rgba(255,255,255,0.72))] text-[var(--color-primary)] shadow-[0_14px_30px_rgba(160,103,38,0.16)] dark:bg-[linear-gradient(135deg,var(--color-primary-soft),rgba(255,255,255,0.06))]"
+                ? "border-[var(--color-primary)] bg-[linear-gradient(135deg,var(--color-primary-soft),rgba(255,255,255,0.72))] text-[var(--color-primary-text-strong)] shadow-[0_14px_30px_rgba(160,103,38,0.16)] dark:bg-[linear-gradient(135deg,var(--color-primary-soft),rgba(255,255,255,0.06))]"
                 : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:bg-[var(--color-surface-raised)] hover:text-[var(--color-text-primary)] motion-reduce:hover:translate-y-0",
             )}
             aria-pressed={active}

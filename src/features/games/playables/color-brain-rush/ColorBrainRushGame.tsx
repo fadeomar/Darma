@@ -513,7 +513,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
           <StatCard label="Avg. time" value={formatMs(averageReaction)} />
         </div>
         <div className="mt-4 rounded-3xl border border-white/10 bg-white/10 px-5 py-4 shadow-xl backdrop-blur-md">
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] text-white/55">Rating</p>
+          <p className="font-mono text-xs font-black uppercase tracking-[0.12em] text-white/55">Rating</p>
           <p className="mt-1 text-2xl font-black text-white">{ratingForAccuracy(accuracy)}</p>
           <p className="mt-1 text-xs font-bold text-white/60">Best streak: {stats.bestStreak} · Required to win: {config.passAccuracy}%</p>
         </div>
@@ -578,7 +578,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
           <div className="flex items-center justify-center">
             <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/10 p-4 shadow-2xl backdrop-blur-xl">
               <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5 text-center">
-                <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-white/50">Sample round</p>
+                <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-white/50">Sample round</p>
                 <div className="mt-8 rounded-[2rem] border border-white/10 bg-white p-8 shadow-xl">
                   <div className="text-6xl font-black tracking-[-0.08em]" style={{ color: COLORS[1].value, textShadow: "0 2px 0 rgba(15,23,42,.18)" }}>RED</div>
                 </div>
@@ -608,7 +608,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
             </TinyButton>
           </div>
           <div className="mx-auto mt-8 max-w-5xl text-center">
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-cyan-200">Setup</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-cyan-200">Setup</p>
             <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] sm:text-5xl">Choose mode and difficulty</h2>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               <ModeCard active={mode === "kids"} title="Kids Learning" subtitle="No negative score, friendly feedback, spoken color names." icon={<GraduationCap className="h-6 w-6" aria-hidden />} onClick={() => setMode("kids")} />
@@ -697,7 +697,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
           </div>
 
           <div className={`mx-auto mt-5 max-w-3xl rounded-[2rem] border bg-white p-5 text-center shadow-2xl transition ${feedback === "correct" ? "border-emerald-300 ring-4 ring-emerald-300/20" : feedback === "wrong" || feedback === "timeout" ? "animate-[shake_.32s_ease-in-out] border-rose-300 ring-4 ring-rose-300/20" : "border-white/70"}`}>
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">Visible color is the answer</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-slate-400">Visible color is the answer</p>
             <div className="my-6 text-6xl font-black uppercase tracking-[-0.09em] sm:text-8xl" style={{ color: question?.ink.value ?? "#3b82f6", textShadow: question?.ink.id === "yellow" ? "0 3px 0 rgba(15,23,42,.22)" : "0 2px 0 rgba(15,23,42,.10)" }}>
               {question?.word.name ?? "BLUE"}
             </div>
@@ -789,7 +789,7 @@ function ModeCard({ active, title, subtitle, icon, onClick }: { active: boolean;
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-center shadow-xl backdrop-blur-md">
-      <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] text-white/45">{label}</p>
+      <p className="font-mono text-xs font-black uppercase tracking-[0.12em] text-white/45">{label}</p>
       <p className="mt-1 text-xl font-black text-white">{value}</p>
     </div>
   );

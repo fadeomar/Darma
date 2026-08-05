@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-balloon-inflate",
+  "name": "Balloon Inflate",
+  "category": "fun",
+  "tags": ["balloon", "inflate", "party", "float", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader span { width: 52%; height: 62%; border-radius: 50% 50% 50% 50% / 56% 56% 44% 44%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent) 72%, var(--accent-2)); transform-origin: 50% 88%; animation: inflate calc(var(--loader-speed) * 1.8) ease-in-out infinite; position: relative; }\n.loader span::after { content: ''; position: absolute; bottom: -7%; left: 50%; width: 12%; height: 10%; margin-left: -6%; background: var(--accent-2); clip-path: polygon(50% 0, 100% 100%, 0 100%); }\n.loader span::before { content: ''; position: absolute; top: 100%; left: 50%; width: 1px; height: calc(var(--loader-size) * .18); background: color-mix(in srgb, var(--accent) 45%, transparent); }\n@keyframes inflate { 0%, 100% { transform: scale(.58); } 50% { transform: scale(1); } }",
+  "defaults": { "color": "#ef4444", "secondaryColor": "#f59e0b", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

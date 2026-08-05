@@ -11,7 +11,7 @@ export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 const variantClass: Record<TextareaVariant, string> = {
   default: "",
   editor: "font-mono leading-7 tabular-nums",
-  output: "bg-[var(--color-surface-inset)] font-mono leading-7 tabular-nums",
+  output: "border-[var(--color-tool-output-border)] bg-[var(--color-tool-output-bg)] font-mono leading-7 tabular-nums",
 };
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(

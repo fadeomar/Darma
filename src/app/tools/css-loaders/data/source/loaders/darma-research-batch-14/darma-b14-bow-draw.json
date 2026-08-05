@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-bow-draw",
+  "name": "Bow Draw",
+  "category": "fun",
+  "tags": [
+    "bow",
+    "arrow",
+    "archery",
+    "draw",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bow\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .92); position: relative; }\n.loader .bow { position: absolute; left: 10%; top: 4%; width: 28%; height: 92%; border: calc(var(--loader-size) * .05) solid var(--accent); border-right: 0; border-radius: 66% 0 0 66% / 50% 0 0 50%; }\n.loader::before { content: ''; position: absolute; left: 36%; top: 4%; height: 92%; background: #475569; clip-path: polygon(0 0, 100% 49%, 0 100%, 0 96%, 93% 50%, 0 4%); animation: draw calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span { position: absolute; left: 34%; top: calc(50% - var(--loader-size) * .022); width: 46%; height: calc(var(--loader-size) * .044); border-radius: 999px; background: linear-gradient(180deg, #cbd5e1, #64748b); animation: release calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; left: 99%; top: calc(var(--loader-size) * -.032); width: calc(var(--loader-size) * .1); height: calc(var(--loader-size) * .1); background: var(--accent-2); clip-path: polygon(0 0, 100% 50%, 0 100%); }\n.loader span::before { content: ''; position: absolute; right: 97%; top: calc(var(--loader-size) * -.022); width: calc(var(--loader-size) * .08); height: calc(var(--loader-size) * .08); background: color-mix(in srgb, #000 16%, var(--accent-2)); clip-path: polygon(0 0, 100% 50%, 0 100%); }\n@keyframes draw { 0%, 8% { width: 6%; } 44%, 54% { width: 30%; } 62%, 100% { width: 6%; } }\n@keyframes release { 0%, 8% { opacity: 1; transform: translateX(0); } 44%, 54% { transform: translateX(20%); } 68% { opacity: 1; transform: translateX(calc(var(--loader-size) * .24)); } 76%, 100% { opacity: 0; transform: translateX(calc(var(--loader-size) * .3)); } }",
+  "defaults": {
+    "color": "#92400e",
+    "secondaryColor": "#dc2626",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

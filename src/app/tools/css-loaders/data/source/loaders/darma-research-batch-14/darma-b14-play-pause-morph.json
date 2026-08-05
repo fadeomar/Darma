@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-play-pause-morph",
+  "name": "Play Pause Morph",
+  "category": "minimal",
+  "tags": [
+    "play",
+    "pause",
+    "morph",
+    "media",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; top: 19%; width: 24%; height: 62%; background: linear-gradient(var(--accent), var(--accent-2)); }\n.loader span:nth-child(1) { left: 26%; animation: morph-left calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(2) { left: 50%; animation: morph-right calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n@keyframes morph-left { 0%, 18% { clip-path: polygon(0 0, 100% 24%, 100% 76%, 0 100%); transform: translateX(0); } 46%, 72% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: translateX(-16%); } 94%, 100% { clip-path: polygon(0 0, 100% 24%, 100% 76%, 0 100%); transform: translateX(0); } }\n@keyframes morph-right { 0%, 18% { clip-path: polygon(0 24%, 100% 49%, 100% 51%, 0 76%); transform: translateX(0); } 46%, 72% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: translateX(16%); } 94%, 100% { clip-path: polygon(0 24%, 100% 49%, 100% 51%, 0 76%); transform: translateX(0); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#22d3ee",
+    "size": 84,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

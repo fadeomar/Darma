@@ -55,7 +55,7 @@ const ISSUE_LABELS: Record<SentenceIssue, string> = {
 };
 
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
-  return <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]"><div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div><div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div><div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div></div>;
+  return <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]"><div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div><div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div><div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div></div>;
 }
 
 function scoreTone(value: number, target: number, higherIsBetter = false): string {
@@ -148,7 +148,7 @@ export default function ReadabilityClient() {
             placeholder="Paste an article, support page, policy, essay, or documentation draft…"
             className="min-h-[250px] resize-y leading-7"
           />
-          <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+          <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
             <span>{text.length.toLocaleString()} characters · {rawWordCount.toLocaleString()} detected words</span>
             <span>Calculated locally · English formulas</span>
           </div>
@@ -173,7 +173,7 @@ export default function ReadabilityClient() {
               { label: "SMOG", value: result.smogIndex, hint: "Grade" },
               { label: "Coleman-Liau", value: result.colemanLiauIndex, hint: "Grade" },
               { label: "Reading Ease", value: result.fleschReadingEase, hint: "0–100" },
-            ].map((metric) => <div key={metric.label} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-center"><div className="font-mono text-2xl font-black text-[var(--color-text-primary)]">{metric.value.toFixed(1)}</div><div className="mt-1 text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{metric.label}</div><div className="text-[10px] text-[var(--color-text-tertiary)]">{metric.hint}</div></div>)}
+            ].map((metric) => <div key={metric.label} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-center"><div className="font-mono text-2xl font-black text-[var(--color-text-primary)]">{metric.value.toFixed(1)}</div><div className="mt-1 text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{metric.label}</div><div className="text-xs text-[var(--color-text-tertiary)]">{metric.hint}</div></div>)}
           </div>
 
           <div className="grid gap-4 lg:grid-cols-2">
@@ -202,7 +202,7 @@ export default function ReadabilityClient() {
 
           <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
             <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Recommended editing order</div>
-            <ol className="space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">{result.recommendations.map((recommendation, index) => <li key={recommendation} className="flex gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-soft)] font-mono text-[11px] font-bold text-[var(--color-primary)]">{index + 1}</span><span>{recommendation}</span></li>)}</ol>
+            <ol className="space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">{result.recommendations.map((recommendation, index) => <li key={recommendation} className="flex gap-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-soft)] font-mono text-xs font-bold text-[var(--color-primary-text-strong)]">{index + 1}</span><span>{recommendation}</span></li>)}</ol>
           </section>
         </div>}
 
@@ -210,9 +210,9 @@ export default function ReadabilityClient() {
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2"><div><h3 className="font-bold text-[var(--color-text-primary)]">Sentence-level review</h3><p className="text-xs text-[var(--color-text-tertiary)]">Flagged sentences appear first. Threshold: {target.maxSentenceWords} words for {target.label.toLowerCase()}.</p></div><CopyButton text={sentenceCsv} size="sm" variant="secondary">Copy CSV</CopyButton></div>
           <div className="max-h-[620px] space-y-2 overflow-y-auto pr-1">
             {[...result.sentences].sort((a, b) => Number(b.issues.length > 0) - Number(a.issues.length > 0) || b.wordCount - a.wordCount).map((sentence) => <article key={sentence.id} className={`rounded-[var(--radius-md)] border p-3 ${sentence.issues.length > 0 ? "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)]" : "border-[var(--color-border-subtle)]"}`}>
-              <div className="flex flex-wrap items-center justify-between gap-2"><div className="font-mono text-[11px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">Sentence {sentence.index + 1}</div><div className="flex flex-wrap gap-1">{sentence.issues.length > 0 ? sentence.issues.map((issue) => <span key={issue} className="rounded-full border border-current px-2 py-0.5 text-[10px] font-semibold text-[var(--color-warning-text)]">{ISSUE_LABELS[issue]}</span>) : <span className="rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-0.5 text-[10px] font-semibold text-[var(--color-success-text)]">No flag</span>}</div></div>
+              <div className="flex flex-wrap items-center justify-between gap-2"><div className="font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">Sentence {sentence.index + 1}</div><div className="flex flex-wrap gap-1">{sentence.issues.length > 0 ? sentence.issues.map((issue) => <span key={issue} className="rounded-full border border-current px-2 py-0.5 text-xs font-semibold text-[var(--color-warning-text)]">{ISSUE_LABELS[issue]}</span>) : <span className="rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-0.5 text-xs font-semibold text-[var(--color-success-text)]">No flag</span>}</div></div>
               <p className="mt-2 text-sm leading-6 text-[var(--color-text-primary)]">{sentence.text}</p>
-              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] text-[var(--color-text-tertiary)]"><span>{sentence.wordCount} words</span><span>{sentence.complexWordCount} complex</span><span>{sentence.complexWordPercent.toFixed(1)}% complex</span><span>{sentence.syllableCount} syllables</span></div>
+              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-[var(--color-text-tertiary)]"><span>{sentence.wordCount} words</span><span>{sentence.complexWordCount} complex</span><span>{sentence.complexWordPercent.toFixed(1)}% complex</span><span>{sentence.syllableCount} syllables</span></div>
             </article>)}
           </div>
         </div>}
@@ -230,12 +230,12 @@ export default function ReadabilityClient() {
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4" />Audience target</div>
           <label className="text-xs font-semibold text-[var(--color-text-muted)]">Writing profile<Select className="mt-1" value={targetId} onChange={(event) => setTargetId(event.target.value as ReadabilityTargetId)}>{READABILITY_TARGETS.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</Select></label>
           <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">{target.description}</p>
-          <dl className="mt-3 grid grid-cols-2 gap-2 text-center"><div className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2"><dt className="text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">Max grade</dt><dd className="font-mono text-lg font-black text-[var(--color-text-primary)]">{target.maxGrade}</dd></div><div className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2"><dt className="text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">Max sentence</dt><dd className="font-mono text-lg font-black text-[var(--color-text-primary)]">{target.maxSentenceWords}</dd></div></dl>
+          <dl className="mt-3 grid grid-cols-2 gap-2 text-center"><div className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2"><dt className="text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">Max grade</dt><dd className="font-mono text-lg font-black text-[var(--color-text-primary)]">{target.maxGrade}</dd></div><div className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2"><dt className="text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">Max sentence</dt><dd className="font-mono text-lg font-black text-[var(--color-text-primary)]">{target.maxSentenceWords}</dd></div></dl>
         </section>
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><BookOpen className="h-4 w-4" />Practical presets</div>
-          <div className="space-y-2">{READABILITY_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          <div className="space-y-2">{READABILITY_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
         </section>
 
         <section className="space-y-2 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

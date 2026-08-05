@@ -63,8 +63,15 @@ function hasAudience(tool: ToolDefinition, audience: ToolAudience): boolean {
   return (tool.audiences ?? []).includes(audience);
 }
 
-/** Pick up to `limit` tools for a group, featured/pinned first then alphabetical. */
-export function selectGroupTools(tools: ToolDefinition[], group: AudienceGroup, limit = 5): ToolDefinition[] {
+const AUDIENCE_PREFERRED_TOOL_IDS: Record<string, string[]> = {
+  everyday: ["text-cleaner", "word-counter", "unit-converter", "password-generator", "date-difference-calculator"],
+  students: ["gpa-calculator", "pomodoro-timer", "statistics-calculator", "beam-calculator", "readability-score"],
+  creators: ["og-image-generator", "app-screenshot-mockup-generator", "image-compressor-resizer", "qr-code", "meta-tag-generator"],
+  designers: ["color-palette-generator", "css-gradient-generator", "box-shadows-generator", "border-radius-generator", "buttons-css-generator"],
+  developers: ["json-formatter", "jwt-decoder", "regex-tester", "base64-encoder-decoder", "csp-generator"],
+};
+
+function sortGroupTools(tools: ToolDefinition[], group: AudienceGroup): ToolDefinition[] {
   return tools
     .filter(group.match)
     .sort((a, b) => {
@@ -73,8 +80,35 @@ export function selectGroupTools(tools: ToolDefinition[], group: AudienceGroup, 
       const pinnedB = b.pinned ?? Number.POSITIVE_INFINITY;
       if (pinnedA !== pinnedB) return pinnedA - pinnedB;
       return a.title.localeCompare(b.title);
-    })
-    .slice(0, limit);
+    });
+}
+
+/**
+ * Build the About-page audience groups from a curated first choice, then fill
+ * from registry metadata. A tool appears in only one group so the page feels
+ * intentional instead of repeating the same popular items in every card.
+ */
+export function selectAudienceToolGroups(tools: ToolDefinition[], limit = 5) {
+  const byId = new Map(tools.map((tool) => [tool.id, tool]));
+  const used = new Set<string>();
+
+  return AUDIENCE_GROUPS.map((group) => {
+    const preferred = (AUDIENCE_PREFERRED_TOOL_IDS[group.id] ?? [])
+      .map((id) => byId.get(id))
+      .filter((tool): tool is ToolDefinition => Boolean(tool))
+      .filter(group.match);
+    const fallback = sortGroupTools(tools, group);
+    const selected: ToolDefinition[] = [];
+
+    for (const tool of [...preferred, ...fallback]) {
+      if (used.has(tool.id) || selected.some((item) => item.id === tool.id)) continue;
+      selected.push(tool);
+      used.add(tool.id);
+      if (selected.length === limit) break;
+    }
+
+    return { group, tools: selected };
+  }).filter(({ tools: groupTools }) => groupTools.length > 0);
 }
 
 /** Distinct audiences this catalog actually serves, in display order. */
@@ -120,7 +154,7 @@ export const SNIPPETS: DailySnippet[] = [
   {
     title: "Auto-fit responsive grid",
     code: "grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));",
-    note: "Columns that reflow on their own — no breakpoints needed.",
+    note: "Columns that reflow on their own without extra breakpoints.",
   },
   {
     title: "Respect reduced motion",

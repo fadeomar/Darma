@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-ceiling-fan",
+  "name": "Spinning Fan",
+  "category": "fun",
+  "tags": ["fan", "blades", "propeller", "spin", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"fan\"><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader::after { content: ''; position: absolute; top: 50%; left: 50%; width: 14%; height: 14%; transform: translate(-50%, -50%); border-radius: 50%; background: var(--accent); z-index: 2; }\n.loader .fan { position: relative; width: 82%; height: 82%; animation: spin calc(var(--loader-speed) * .55) linear infinite; }\n.loader .fan span { position: absolute; top: 50%; left: 50%; width: 44%; height: 17%; margin-top: -8.5%; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 60%, var(--accent-2)), var(--accent-2)); border-radius: 30% 60% 60% 30%; transform-origin: left center; }\n.loader .fan span:nth-child(1) { transform: rotate(0deg); }\n.loader .fan span:nth-child(2) { transform: rotate(120deg); }\n.loader .fan span:nth-child(3) { transform: rotate(240deg); }\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "defaults": { "color": "#14b8a6", "secondaryColor": "#5eead4", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

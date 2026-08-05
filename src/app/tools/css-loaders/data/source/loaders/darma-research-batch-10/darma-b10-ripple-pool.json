@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-ripple-pool",
+  "name": "Ripple Pool",
+  "category": "creative",
+  "tags": ["ripple", "pool", "water", "surface", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; perspective: 260px; }\n.loader span { position: absolute; width: 60%; height: 60%; border: calc(var(--loader-size) * .028) solid var(--accent); border-radius: 50%; opacity: 0; animation: pool calc(var(--loader-speed) * 2.4) ease-out infinite; }\n.loader span:nth-child(2) { border-color: var(--accent-2); animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * 1.6); }\n@keyframes pool { 0% { transform: rotateX(62deg) scale(.15); opacity: 1; } 100% { transform: rotateX(62deg) scale(1.5); opacity: 0; } }",
+  "defaults": { "color": "#0ea5e9", "secondaryColor": "#67e8f9", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

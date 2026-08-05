@@ -74,7 +74,7 @@ export default function SuggestionsSection() {
                 </div>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {suggestion.bestFor.slice(0, 2).map((useCase) => (
-                    <span key={useCase} className="rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2 py-1 text-[10px] font-bold text-[var(--color-text-secondary)]">
+                    <span key={useCase} className="rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2 py-1 text-xs font-bold text-[var(--color-text-secondary)]">
                       {useCase}
                     </span>
                   ))}

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-snake-track",
+  "name": "Snake Track",
+  "category": "creative",
+  "tags": ["snake", "square", "chase", "trail", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; top: 0; left: 0; width: calc(var(--loader-size) * .18); height: calc(var(--loader-size) * .18); border-radius: 28%; background: var(--accent); animation: lap calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader span:nth-child(1) { background: var(--accent-2); animation-delay: 0s; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -.18); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -.36); }\n.loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * -.54); }\n@keyframes lap { 0% { transform: translate(0, 0); } 25% { transform: translate(calc(var(--loader-size) * .82), 0); } 50% { transform: translate(calc(var(--loader-size) * .82), calc(var(--loader-size) * .82)); } 75% { transform: translate(0, calc(var(--loader-size) * .82)); } 100% { transform: translate(0, 0); } }",
+  "defaults": { "color": "#22d3ee", "secondaryColor": "#f472b6", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

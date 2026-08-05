@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-turnstile-gate",
+  "name": "Turnstile Gate",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "turnstile",
+    "gate",
+    "ratchet",
+    "entry",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-turnstile-gate turnstile gate spinners darma-research-batch-13 darma research batch 13 turnstile gate ratchet entry spinner html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-turnstile-gate\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-turnstile-gate__arms\"><span></span><span></span><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b13-turnstile-gate { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 100px); height: var(--loader-size, 100px); position: relative; display: grid; place-items: center; border-radius: 50%; background: color-mix(in srgb, #fff 66%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 14%, var(--accent-2)); }\n.darma-loader-darma-b13-turnstile-gate::after { content: ''; position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 30%, var(--accent-2)), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms { position: relative; width: 100%; height: 100%; animation: darma-loader-darma-b13-turnstile-gate-ratchet calc(var(--loader-speed, 1s) * 2.7) cubic-bezier(.5, 0, .18, 1) infinite; }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms span { position: absolute; top: 50%; left: 50%; width: 46%; height: 7%; margin-top: -3.5%; border-radius: 999px; transform-origin: left center; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 20%, var(--accent))); }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms span:nth-child(2) { transform: rotate(120deg); }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms span:nth-child(3) { transform: rotate(240deg); }\n@keyframes darma-loader-darma-b13-turnstile-gate-ratchet { 0%, 16% { transform: rotate(0deg); } 33%, 49% { transform: rotate(120deg); } 66%, 82% { transform: rotate(240deg); } 100% { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#475569",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-turnstile-gate\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-turnstile-gate__arms\"><span></span><span></span><span></span></div></div>",
+    "css": ".darma-loader-darma-b13-turnstile-gate { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 100px); height: var(--loader-size, 100px); position: relative; display: grid; place-items: center; border-radius: 50%; background: color-mix(in srgb, #fff 66%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 14%, var(--accent-2)); }\n.darma-loader-darma-b13-turnstile-gate::after { content: ''; position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 30%, var(--accent-2)), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms { position: relative; width: 100%; height: 100%; animation: darma-loader-darma-b13-turnstile-gate-ratchet calc(var(--loader-speed, 1s) * 2.7) cubic-bezier(.5, 0, .18, 1) infinite; }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms span { position: absolute; top: 50%; left: 50%; width: 46%; height: 7%; margin-top: -3.5%; border-radius: 999px; transform-origin: left center; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 20%, var(--accent))); }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms span:nth-child(2) { transform: rotate(120deg); }\n.darma-loader-darma-b13-turnstile-gate .darma-loader-darma-b13-turnstile-gate__arms span:nth-child(3) { transform: rotate(240deg); }\n@keyframes darma-loader-darma-b13-turnstile-gate-ratchet { 0%, 16% { transform: rotate(0deg); } 33%, 49% { transform: rotate(120deg); } 66%, 82% { transform: rotate(240deg); } 100% { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB13TurnstileGateLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-turnstile-gate\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-turnstile-gate__arms\"><span></span><span></span><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

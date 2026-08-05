@@ -1,0 +1,48 @@
+{
+  "id": "darma-b10-slot-reels",
+  "name": "Slot Reels",
+  "category": "fun",
+  "sourceId": "darma-research-batch-10",
+  "tags": [
+    "slot",
+    "reels",
+    "casino",
+    "spin",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b10-slot-reels slot reels fun darma-research-batch-10 darma research batch 10 slot reels casino spin fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b10-slot-reels\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b10-slot-reels { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 92px); height: calc(var(--loader-size, 92px) * .7); display: flex; gap: calc(var(--loader-size, 92px) * .04); background: #1f2937; border-radius: calc(var(--loader-size, 92px) * .08); padding: calc(var(--loader-size, 92px) * .05); box-sizing: border-box; }\n.darma-loader-darma-b10-slot-reels span { flex: 1; overflow: hidden; border-radius: calc(var(--loader-size, 92px) * .04); background: #0f172a; position: relative; }\n.darma-loader-darma-b10-slot-reels span::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 300%; background: repeating-linear-gradient(var(--accent) 0 16.66%, var(--accent-2) 16.66% 33.33%); animation: darma-loader-darma-b10-slot-reels-reel calc(var(--loader-speed, 1s) * .8) linear infinite; }\n.darma-loader-darma-b10-slot-reels span:nth-child(2)::before { animation-duration: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b10-slot-reels span:nth-child(3)::before { animation-duration: calc(var(--loader-speed, 1s) * 1); }\n@keyframes darma-loader-darma-b10-slot-reels-reel { to { transform: translateY(-33.33%); } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#fbbf24",
+    "size": 92,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b10-slot-reels\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b10-slot-reels { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 92px); height: calc(var(--loader-size, 92px) * .7); display: flex; gap: calc(var(--loader-size, 92px) * .04); background: #1f2937; border-radius: calc(var(--loader-size, 92px) * .08); padding: calc(var(--loader-size, 92px) * .05); box-sizing: border-box; }\n.darma-loader-darma-b10-slot-reels span { flex: 1; overflow: hidden; border-radius: calc(var(--loader-size, 92px) * .04); background: #0f172a; position: relative; }\n.darma-loader-darma-b10-slot-reels span::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 300%; background: repeating-linear-gradient(var(--accent) 0 16.66%, var(--accent-2) 16.66% 33.33%); animation: darma-loader-darma-b10-slot-reels-reel calc(var(--loader-speed, 1s) * .8) linear infinite; }\n.darma-loader-darma-b10-slot-reels span:nth-child(2)::before { animation-duration: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b10-slot-reels span:nth-child(3)::before { animation-duration: calc(var(--loader-speed, 1s) * 1); }\n@keyframes darma-loader-darma-b10-slot-reels-reel { to { transform: translateY(-33.33%); } }",
+    "react": "export default function DarmaB10SlotReelsLoader() {\n  return (\n    <div className=\"darma-loader-darma-b10-slot-reels\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 10",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

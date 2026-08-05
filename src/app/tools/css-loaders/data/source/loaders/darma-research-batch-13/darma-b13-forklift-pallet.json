@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-forklift-pallet",
+  "name": "Forklift Pallet",
+  "category": "creative",
+  "tags": [
+    "forklift",
+    "pallet",
+    "warehouse",
+    "hoist",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"mast\"><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .72); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 9%; right: 4%; width: 44%; height: 44%; border-radius: 4px 10px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 24%, var(--accent))); }\n.loader::before { content: ''; position: absolute; bottom: 0; right: 11%; width: 16%; height: calc(var(--loader-size) * .115); border-radius: 50%; background: #334155; box-shadow: calc(var(--loader-size) * -.3) 0 0 #334155; }\n.loader .mast { position: absolute; bottom: 9%; left: 24%; width: 6%; height: 78%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.loader .mast span { position: absolute; left: -240%; width: 300%; height: 9%; border-radius: 2px; background: #94a3b8; animation: hoist-load calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .mast span::after { content: ''; position: absolute; bottom: 100%; left: 6%; width: 62%; height: 300%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 20%, var(--accent-2))); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 34%, var(--accent-2)); }\n@keyframes hoist-load { 0%, 14% { bottom: 2%; } 44%, 64% { bottom: 62%; } 92%, 100% { bottom: 2%; } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#a16207",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

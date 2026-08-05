@@ -1,0 +1,3062 @@
+[
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "web-development-roadmap",
+    "kind": "guide",
+    "title": "Web Development Roadmap: What to Learn and Build in Order",
+    "shortTitle": "Web development roadmap",
+    "summary": "A practical web development roadmap that starts with browser fundamentals, moves through accessible interfaces and JavaScript, and ends with deployment and portfolio evidence.",
+    "description": "Use this roadmap to avoid tutorial hopping. It explains the order in which beginners should learn web development, what can wait, which projects prove each stage, and how to choose a frontend or full-stack direction after the foundations are stable.",
+    "primaryKeyword": "web development roadmap",
+    "secondaryKeywords": [
+      "how to learn web development",
+      "web developer learning path",
+      "frontend basics",
+      "HTML CSS JavaScript roadmap",
+      "beginner web development"
+    ],
+    "searchIntent": "Help a beginner understand the correct learning order, the projects that prove progress, and the decision points between frontend and full-stack development.",
+    "audience": [
+      "Complete beginners",
+      "Self-taught developers",
+      "Students planning a portfolio"
+    ],
+    "readingMinutes": 14,
+    "quickAnswer": "Learn the web in layers: understand browsers and HTTP, write semantic HTML, build responsive CSS layouts, add JavaScript behavior, learn Git and accessibility, then deploy complete projects. Do not begin with a large framework before you can build and debug a small website with the platform itself.",
+    "keyTakeaways": [
+      "HTML, CSS, and JavaScript are complementary foundations rather than competing technologies.",
+      "Every learning stage should end with a visible project and a short explanation of the decisions you made.",
+      "Accessibility, Git, debugging, and deployment belong inside the roadmap, not in a separate advanced phase."
+    ],
+    "sections": [
+      {
+        "id": "foundation",
+        "title": "Start with how the web works",
+        "paragraphs": [
+          "Before writing components, understand what happens when a browser requests a URL, receives HTML, loads CSS and JavaScript, and communicates with an API. This mental model makes later errors easier to diagnose because you can identify whether a problem belongs to the network, document, styling, browser runtime, or server.",
+          "Learn enough command-line navigation and file structure to run a local project, inspect files, and understand relative paths. You do not need deep networking knowledge at the beginning, but you should be able to explain requests, responses, domains, hosting, and the difference between client and server code."
+        ],
+        "bullets": [
+          "URLs, domains, DNS, HTTP requests, and responses",
+          "Browser developer tools and the page lifecycle",
+          "Files, folders, paths, terminals, and local servers"
+        ]
+      },
+      {
+        "id": "html-css",
+        "title": "Build usable pages with HTML and CSS",
+        "paragraphs": [
+          "Semantic HTML gives content meaning before styling begins. Practice headings, landmarks, links, buttons, forms, tables, images, and validation. A page should remain understandable with CSS disabled, keyboard navigation enabled, and images unavailable.",
+          "Then learn CSS as a layout and design system: the cascade, specificity, box model, normal flow, Flexbox, Grid, responsive units, media and container queries, typography, spacing, states, and motion preferences. Rebuild a small design at several viewport sizes instead of memorizing isolated properties."
+        ],
+        "bullets": [
+          "Create a multi-page accessible website",
+          "Reproduce a responsive layout from a reference",
+          "Test keyboard focus, labels, contrast, and reduced motion"
+        ]
+      },
+      {
+        "id": "javascript",
+        "title": "Add behavior with JavaScript",
+        "paragraphs": [
+          "JavaScript should begin with data and control flow rather than a framework. Learn values, variables, functions, arrays, objects, modules, errors, and asynchronous work. Then connect those ideas to the DOM, events, forms, fetch requests, and browser storage.",
+          "Build small features that force you to manage state explicitly: a filterable list, validated form, quiz, timer, or note application. The goal is not the number of projects; it is being able to explain where data lives, what changes it, and how the interface stays synchronized."
+        ],
+        "bullets": [
+          "Language fundamentals and modules",
+          "DOM events and form handling",
+          "Promises, async/await, HTTP, and error states",
+          "Local storage and simple application state"
+        ]
+      },
+      {
+        "id": "professional-basics",
+        "title": "Add the professional basics early",
+        "paragraphs": [
+          "Use Git from the first meaningful project. Make focused commits, create branches, open a pull request, and write a README that explains the problem, setup, decisions, limitations, and next steps. These habits make your learning visible and prepare you for collaborative work.",
+          "Add basic testing, accessibility checks, performance measurement, and deployment before moving to a framework. A project that is online, keyboard-usable, measured, and documented is stronger evidence than another unfinished tutorial clone."
+        ],
+        "bullets": [
+          "Git and GitHub collaboration",
+          "Debugging and browser inspection",
+          "Accessibility and performance checks",
+          "Deployment, environment variables, and basic security"
+        ]
+      },
+      {
+        "id": "choose-direction",
+        "title": "Choose a direction after the foundations",
+        "paragraphs": [
+          "Choose frontend if you enjoy interface behavior, visual systems, accessibility, and browser performance. Choose backend if you prefer data models, APIs, authentication, integrations, and operational concerns. Choose full stack when you can already reason about both sides and want to own a complete product slice.",
+          "A framework such as React, Vue, or Angular becomes useful when component reuse, state coordination, routing, and team conventions create real complexity. Learn one deeply enough to build a complete application; changing frameworks every few weeks usually delays progress."
+        ],
+        "note": "A roadmap is a sequence of capabilities, not a requirement to master every item before building anything. Projects should run alongside the learning stages."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "You want the fastest visible progress",
+        "guidance": "Begin with semantic HTML and responsive CSS, publish a small site, then add JavaScript features one at a time."
+      },
+      {
+        "label": "You want a frontend role",
+        "guidance": "Continue into TypeScript, one component framework, testing, accessibility, performance, and design-system collaboration."
+      },
+      {
+        "label": "You want full-stack ownership",
+        "guidance": "After frontend foundations, add Node.js, APIs, SQL, authentication, security, observability, and deployment."
+      },
+      {
+        "label": "You feel stuck in tutorials",
+        "guidance": "Stop adding courses and build a project with a deadline, written scope, public URL, and retrospective."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How long does it take to learn web development?",
+        "answer": "A focused beginner can build useful websites within weeks, but employable independence usually requires months of deliberate projects, debugging, feedback, and repetition. The useful measure is not elapsed time; it is whether you can scope, build, deploy, explain, and improve a project without copying a complete solution."
+      },
+      {
+        "question": "Should I learn JavaScript before React?",
+        "answer": "Yes. You do not need to master every language feature, but functions, arrays, objects, modules, events, asynchronous work, and state changes should feel familiar. React becomes much easier when you can separate JavaScript problems from framework problems."
+      },
+      {
+        "question": "Do I need computer science before web development?",
+        "answer": "No. You can begin building without a formal computer science background. Add data structures, algorithms, networking, databases, and system design gradually when they help you solve larger problems or prepare for interviews."
+      },
+      {
+        "question": "What should my first portfolio contain?",
+        "answer": "Use two or three complete projects rather than many unfinished demos. Include an accessible content site, an interactive application with data and error states, and a project that communicates with an API or backend. Explain your decisions and tradeoffs."
+      }
+    ],
+    "relatedPathSlugs": [
+      "web-foundations",
+      "frontend-javascript",
+      "full-stack-javascript"
+    ],
+    "relatedCareerSlugs": [
+      "frontend-developer",
+      "backend-developer",
+      "full-stack-developer"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "kanban"
+    ],
+    "resourceIds": [
+      "mdn-learn-web-development",
+      "mdn-frontend-curriculum",
+      "web-dev-learn",
+      "pro-git-book"
+    ],
+    "references": [
+      {
+        "name": "MDN Learn Web Development",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+        "type": "official"
+      },
+      {
+        "name": "MDN Front-end Developer Curriculum",
+        "url": "https://developer.mozilla.org/en-US/curriculum/",
+        "type": "official"
+      },
+      {
+        "name": "web.dev Learn",
+        "url": "https://web.dev/learn",
+        "type": "official"
+      }
+    ],
+    "cta": {
+      "title": "Follow the roadmap as a project sequence",
+      "text": "Open Darma's Web Foundations path for ordered stages, checkpoints, cataloged references, and practical deliverables.",
+      "href": "/learning-paths/web-foundations",
+      "label": "Start Web Foundations"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "frontend-developer-roadmap",
+    "kind": "guide",
+    "title": "Frontend Developer Roadmap: Skills, Projects, and Career Evidence",
+    "shortTitle": "Frontend developer roadmap",
+    "summary": "A frontend developer roadmap covering browser foundations, TypeScript, component architecture, testing, accessibility, performance, design systems, and portfolio evidence.",
+    "description": "This guide explains what a modern frontend developer needs beyond learning a framework. It organizes the skills by dependency, shows what projects demonstrate each capability, and separates core web knowledge from optional ecosystem choices.",
+    "primaryKeyword": "frontend developer roadmap",
+    "secondaryKeywords": [
+      "how to become a frontend developer",
+      "frontend skills",
+      "React roadmap",
+      "frontend portfolio projects",
+      "frontend learning path"
+    ],
+    "searchIntent": "Give aspiring frontend developers a realistic skill sequence and evidence plan for building production-minded interfaces and preparing for junior roles.",
+    "audience": [
+      "Aspiring frontend developers",
+      "JavaScript learners",
+      "Developers preparing for frontend interviews"
+    ],
+    "readingMinutes": 15,
+    "quickAnswer": "A frontend developer needs the web platform first, then JavaScript and TypeScript, one component framework, state and data handling, testing, accessibility, performance, and collaboration with design and backend teams. The strongest portfolio proves you can handle loading, empty, error, responsive, and accessible states—not only the happy-path screen.",
+    "keyTakeaways": [
+      "Framework knowledge cannot replace HTML, CSS, browser, and JavaScript fundamentals.",
+      "TypeScript, testing, accessibility, and performance should appear inside real projects rather than as disconnected tutorials.",
+      "Hiring evidence comes from complete interfaces, clear tradeoffs, collaboration habits, and the ability to debug unfamiliar code."
+    ],
+    "sections": [
+      {
+        "id": "platform",
+        "title": "Master the browser platform",
+        "paragraphs": [
+          "Frontend work starts with semantic HTML, CSS layout, forms, media, responsive behavior, accessibility, and browser APIs. Learn how rendering, events, storage, history, networking, caching, and developer tools affect the user experience.",
+          "Practice building interfaces without a framework so you can recognize what the framework adds. When a component library or build tool fails, platform knowledge is what allows you to isolate the problem rather than searching blindly."
+        ]
+      },
+      {
+        "id": "typescript-framework",
+        "title": "Add TypeScript and one component framework",
+        "paragraphs": [
+          "Learn JavaScript deeply enough to reason about closures, modules, asynchronous work, immutability, and state transitions. Add TypeScript to make contracts explicit at component boundaries, API responses, form models, and reusable utilities.",
+          "Choose React, Vue, or Angular based on the environment you want to join. Build one complete application before comparing every ecosystem. Focus on component responsibility, composition, routing, data fetching, forms, error handling, and predictable state rather than library quantity."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Treat interface quality as engineering",
+        "paragraphs": [
+          "A production interface must work with keyboards, screen readers, slow networks, small screens, large text, missing data, failed requests, and repeated use. Add automated tests around critical behavior while keeping lower-level logic easy to test without a browser.",
+          "Measure performance with real tools, optimize images and bundles, avoid unnecessary client work, and understand how server rendering, caching, and hydration affect the page. Performance work should begin with evidence instead of fashionable micro-optimizations."
+        ],
+        "bullets": [
+          "Semantic structure, focus, labels, contrast, and reduced motion",
+          "Unit tests for logic and component tests for behavior",
+          "End-to-end tests for critical user journeys",
+          "Core Web Vitals, bundle analysis, and rendering strategy"
+        ]
+      },
+      {
+        "id": "systems-collaboration",
+        "title": "Learn systems and collaboration",
+        "paragraphs": [
+          "Reusable interfaces require tokens, components, documented states, and clear ownership. Learn how to consume a design system, identify missing variants, provide implementation feedback, and avoid one-off styling that fragments the product.",
+          "Frontend developers collaborate with product designers, backend developers, QA, product managers, and platform teams. Practice reading API contracts, asking about edge cases, reviewing pull requests, writing release notes, and communicating risk before a deadline."
+        ]
+      },
+      {
+        "id": "portfolio",
+        "title": "Build evidence, not a technology checklist",
+        "paragraphs": [
+          "A strong frontend portfolio includes a responsive content experience, a data-rich application, and a reusable interface system or complex interaction. Each project should include a live URL, source code, accessible states, tests, documentation, and a short case study.",
+          "In interviews, be ready to explain why you chose a state model, how you handled errors, what you measured, how you tested accessibility, and what you would change with more time. The explanation often reveals more maturity than the visual result alone."
+        ]
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "You are new to code",
+        "guidance": "Complete Web Foundations first; then add JavaScript projects before introducing a component framework."
+      },
+      {
+        "label": "You know JavaScript but lack portfolio depth",
+        "guidance": "Build one data-driven application with authentication-like states, forms, tests, accessibility, and deployment."
+      },
+      {
+        "label": "You already use React",
+        "guidance": "Deepen TypeScript, browser behavior, performance, testing strategy, and design-system work instead of adding another framework."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is React required for frontend development?",
+        "answer": "No. React is common, but frontend engineering is broader than any one library. HTML, CSS, JavaScript, accessibility, networking, performance, and browser behavior transfer across React, Vue, Angular, and future tools."
+      },
+      {
+        "question": "Should a frontend developer learn backend development?",
+        "answer": "Learn enough HTTP, APIs, authentication, databases, caching, and deployment to collaborate and debug boundaries. You do not need to become a backend specialist, but understanding how data is produced and secured makes frontend decisions stronger."
+      },
+      {
+        "question": "What projects are best for a frontend portfolio?",
+        "answer": "Choose projects with meaningful state and edge cases: an accessible content platform, a searchable dashboard, a form-heavy workflow, or an application that consumes an API. Avoid portfolios made only of static landing pages or tutorial clones."
+      },
+      {
+        "question": "How important is CSS for frontend jobs?",
+        "answer": "Very important. Even teams with component libraries need developers who understand layout, responsive behavior, cascade, accessibility, and visual debugging. Weak CSS knowledge often produces fragile interfaces and unnecessary JavaScript."
+      }
+    ],
+    "relatedPathSlugs": [
+      "web-foundations",
+      "frontend-javascript"
+    ],
+    "relatedCareerSlugs": [
+      "frontend-developer",
+      "product-designer",
+      "software-qa-engineer"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "kanban",
+      "extreme-programming"
+    ],
+    "resourceIds": [
+      "mdn-frontend-curriculum",
+      "react-official-learn",
+      "typescript-handbook",
+      "playwright-docs",
+      "w3c-wai-tutorials"
+    ],
+    "references": [
+      {
+        "name": "MDN Front-end Developer Curriculum",
+        "url": "https://developer.mozilla.org/en-US/curriculum/",
+        "type": "official"
+      },
+      {
+        "name": "React Learn",
+        "url": "https://react.dev/learn",
+        "type": "official"
+      },
+      {
+        "name": "TypeScript Handbook",
+        "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+        "type": "official"
+      }
+    ],
+    "cta": {
+      "title": "Turn the roadmap into six build stages",
+      "text": "Use the Frontend JavaScript path to connect platform fundamentals, React, testing, performance, and a portfolio project.",
+      "href": "/learning-paths/frontend-javascript",
+      "label": "Open Frontend JavaScript path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "full-stack-javascript-roadmap",
+    "kind": "guide",
+    "title": "Full-Stack JavaScript Roadmap: From Interface to Reliable Deployment",
+    "shortTitle": "Full-stack JavaScript roadmap",
+    "summary": "A full-stack JavaScript roadmap covering frontend foundations, Node.js, APIs, SQL, authentication, testing, security, observability, CI/CD, and deployment.",
+    "description": "This roadmap helps JavaScript developers move from building screens to owning complete product flows. It emphasizes data modeling, contracts, security, failure handling, and operations rather than treating full stack as simply React plus an API route.",
+    "primaryKeyword": "full stack JavaScript roadmap",
+    "secondaryKeywords": [
+      "how to become a full stack developer",
+      "Node.js roadmap",
+      "Next.js full stack roadmap",
+      "backend JavaScript learning path",
+      "full stack portfolio"
+    ],
+    "searchIntent": "Show JavaScript developers the ordered capabilities required to build, secure, test, deploy, and operate a complete web application.",
+    "audience": [
+      "Frontend developers moving full stack",
+      "JavaScript learners",
+      "Developers building independent products"
+    ],
+    "readingMinutes": 16,
+    "quickAnswer": "Begin with strong frontend and JavaScript fundamentals, then learn Node.js runtime behavior, HTTP APIs, SQL data modeling, authentication and authorization, testing, security, deployment, logging, and recovery. A full-stack developer should be able to trace one user action across the interface, network, server, database, and operational logs.",
+    "keyTakeaways": [
+      "Full stack means owning boundaries and failure modes, not knowing every framework.",
+      "SQL, authentication, validation, and security deserve deliberate learning before production data is involved.",
+      "Deployment, observability, backups, and incident learning are part of application development, not a final handoff."
+    ],
+    "sections": [
+      {
+        "id": "frontend-base",
+        "title": "Keep the frontend foundation",
+        "paragraphs": [
+          "Full-stack work still requires accessible interfaces, browser behavior, forms, state, TypeScript, and reliable data fetching. Build a frontend that can communicate loading, empty, success, validation, permission, and server-error states clearly.",
+          "Use shared types carefully, but do not assume that a TypeScript type validates external data. Browser input, API payloads, environment values, and database results still need runtime validation and explicit error handling."
+        ]
+      },
+      {
+        "id": "server-apis",
+        "title": "Learn the server and API boundary",
+        "paragraphs": [
+          "Understand the Node.js event loop, modules, process lifecycle, environment variables, streams, and asynchronous I/O. Then design HTTP endpoints around resources and user outcomes, with consistent status codes, validation, pagination, authorization, and error responses.",
+          "Framework routes can hide server fundamentals. Practice building and testing a small API so you can explain middleware, request parsing, dependency boundaries, caching, idempotency, and what happens when a downstream service times out."
+        ]
+      },
+      {
+        "id": "data-security",
+        "title": "Model data and protect it",
+        "paragraphs": [
+          "Learn relational modeling, keys, constraints, indexes, transactions, migrations, and query plans. Start with SQL before relying entirely on an ORM; the ORM is more useful when you understand the database behavior it generates.",
+          "Separate authentication from authorization. Validate every external boundary, store secrets outside source control, use least privilege, protect sessions and cookies, rate-limit sensitive actions, and understand common web vulnerabilities. Security is a system property, not one middleware package."
+        ]
+      },
+      {
+        "id": "quality-operations",
+        "title": "Test and operate the complete flow",
+        "paragraphs": [
+          "Combine unit tests for logic, integration tests for data and service boundaries, and a small set of end-to-end tests for critical journeys. Use seeded test data and predictable environments so failures are actionable rather than intermittent.",
+          "Deploy through repeatable automation. Add structured logs, health checks, error reporting, metrics, backups, and rollback procedures. Practice diagnosing a failed request from the user-visible symptom to the server trace and database state."
+        ]
+      },
+      {
+        "id": "portfolio",
+        "title": "Build one production-shaped product",
+        "paragraphs": [
+          "A strong full-stack portfolio project includes users or roles, relational data, validation, secure mutations, search or filtering, tests, CI, deployment, monitoring, and clear operational documentation. It does not need many features; it needs coherent ownership of a valuable workflow.",
+          "Document architecture decisions, threat assumptions, migration strategy, failure behavior, and tradeoffs. Reviewers should be able to understand how data moves and how the system is recovered without reading every source file."
+        ]
+      },
+      {
+        "id": "twelve-week-plan",
+        "title": "A practical sequence for the first twelve weeks",
+        "paragraphs": [
+          "Use the roadmap as a sequence of working software rather than a reading plan. In the first weeks, build a small browser interface and connect it to a simple Node.js API. Next, add a relational data model, validation, error states, authentication, and one automated test at each boundary. Finish by deploying the complete product and observing how it behaves outside your laptop.",
+          "Do not split your attention across several frontend frameworks, databases, and cloud providers at once. One complete product teaches more about contracts, state, security, and operations than several disconnected tutorials. Keep a short decision log explaining why each layer exists and what you would change for a larger system."
+        ],
+        "bullets": [
+          "Week 1–3: browser interface, accessibility, and client-side state.",
+          "Week 4–6: Node.js API, validation, and database design.",
+          "Week 7–9: authentication, testing, and failure handling.",
+          "Week 10–12: deployment, monitoring, documentation, and retrospective."
+        ],
+        "note": "The milestone is not “I finished a course.” It is “another developer can run, review, and explain my complete application.”"
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "You are primarily a frontend developer",
+        "guidance": "Add HTTP, Node.js, SQL, authentication, and one deployed API before choosing many backend frameworks."
+      },
+      {
+        "label": "You want to build SaaS or client products",
+        "guidance": "Prioritize data integrity, permissions, email and file integrations, observability, backups, and operational cost."
+      },
+      {
+        "label": "You want backend-specialist roles",
+        "guidance": "Go deeper into databases, distributed systems, queues, caching, security, performance, and service design after the core roadmap."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Next.js enough to become a full-stack developer?",
+        "answer": "Next.js can host interface and server code, but the framework alone does not teach data modeling, authorization, security, testing strategy, operations, or system boundaries. Use it as a delivery environment while learning those independent concepts."
+      },
+      {
+        "question": "Should I learn SQL or MongoDB first?",
+        "answer": "SQL is a strong first choice because relational modeling, constraints, joins, and transactions teach durable data concepts. Learn a document database later when its access patterns and flexibility solve a specific problem."
+      },
+      {
+        "question": "How much DevOps does a full-stack developer need?",
+        "answer": "You should be able to configure environments, automate tests and deployment, read logs, monitor failures, protect secrets, roll back a release, and verify backups. Deeper platform engineering can remain a specialization."
+      },
+      {
+        "question": "What makes a full-stack portfolio project credible?",
+        "answer": "Credibility comes from complete flows and operational evidence: validation, permissions, migrations, tests, deployment, monitoring, documentation, and clear tradeoffs. Feature count matters less than reliable ownership."
+      }
+    ],
+    "relatedPathSlugs": [
+      "frontend-javascript",
+      "full-stack-javascript",
+      "devops-web-developers"
+    ],
+    "relatedCareerSlugs": [
+      "full-stack-developer",
+      "backend-developer",
+      "devops-engineer"
+    ],
+    "relatedWaySlugs": [
+      "devops-lifecycle",
+      "extreme-programming",
+      "kanban"
+    ],
+    "resourceIds": [
+      "nodejs-official-learn",
+      "nextjs-official-docs",
+      "typescript-handbook",
+      "postgresql-tutorial",
+      "github-actions-docs",
+      "docker-get-started"
+    ],
+    "references": [
+      {
+        "name": "Learn Node.js",
+        "url": "https://nodejs.org/en/learn",
+        "type": "official"
+      },
+      {
+        "name": "Next.js Documentation",
+        "url": "https://nextjs.org/docs/app/getting-started",
+        "type": "official"
+      },
+      {
+        "name": "PostgreSQL Tutorial",
+        "url": "https://www.postgresql.org/docs/current/tutorial.html",
+        "type": "official"
+      },
+      {
+        "name": "OWASP Top 10",
+        "url": "https://owasp.org/www-project-top-ten/",
+        "type": "standards"
+      }
+    ],
+    "cta": {
+      "title": "Build the complete product path",
+      "text": "Follow Darma's Full-Stack JavaScript path for staged projects across frontend, APIs, data, security, testing, and delivery.",
+      "href": "/learning-paths/full-stack-javascript",
+      "label": "Open Full-Stack JavaScript path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "mobile-development-roadmap",
+    "kind": "guide",
+    "title": "Mobile Development Roadmap: React Native, Flutter, and Native Foundations",
+    "shortTitle": "Mobile development roadmap",
+    "summary": "A practical mobile development roadmap that explains shared fundamentals, React Native and Flutter choices, device capabilities, testing, performance, and store delivery.",
+    "description": "This guide helps web developers and beginners choose a mobile path without confusing framework syntax with mobile product engineering. It covers interface constraints, navigation, data, offline behavior, device APIs, testing, performance, accessibility, and release work.",
+    "primaryKeyword": "mobile development roadmap",
+    "secondaryKeywords": [
+      "how to become a mobile developer",
+      "React Native roadmap",
+      "Flutter roadmap",
+      "mobile app development path",
+      "cross platform mobile development"
+    ],
+    "searchIntent": "Help learners choose a mobile technology and understand the complete capability path from interface fundamentals to tested store-ready applications.",
+    "audience": [
+      "Web developers moving to mobile",
+      "Aspiring mobile developers",
+      "Teams choosing a cross-platform stack"
+    ],
+    "readingMinutes": 14,
+    "quickAnswer": "Learn programming and interface fundamentals first, then choose React Native if your team is strongest in JavaScript and React, or Flutter if you want Dart and a highly controlled cross-platform UI toolkit. In either path, learn navigation, platform conventions, networking, local persistence, permissions, offline states, performance, accessibility, testing, and release operations.",
+    "keyTakeaways": [
+      "Mobile development includes platform behavior, constraints, permissions, lifecycle, and distribution—not only reusable UI code.",
+      "React Native and Flutter can share product logic across platforms, but each still requires platform-specific testing and design decisions.",
+      "A portfolio app should handle offline, slow-network, error, permission, and lifecycle states."
+    ],
+    "sections": [
+      {
+        "id": "foundations",
+        "title": "Learn the shared mobile foundations",
+        "paragraphs": [
+          "Understand touch targets, navigation patterns, screen sizes, safe areas, keyboards, gestures, accessibility services, notifications, lifecycle changes, background work, and constrained connectivity. Study both iOS and Android conventions so shared code does not produce an unfamiliar experience on either platform.",
+          "Learn HTTP, authentication, local data, synchronization, and state management before adding many device integrations. Mobile applications frequently move between foreground, background, offline, and partially connected states, so persistence and recovery are core design concerns."
+        ]
+      },
+      {
+        "id": "choose-stack",
+        "title": "Choose React Native, Flutter, or native development",
+        "paragraphs": [
+          "React Native fits teams that already know JavaScript, TypeScript, React, and web delivery. Flutter fits teams comfortable adopting Dart and a framework that draws a consistent widget system across platforms. Native Swift and Kotlin offer the closest platform integration and may be preferable for platform-heavy products or specialist teams.",
+          "Choose according to team capability, product constraints, library maturity, required native integrations, long-term maintenance, and hiring—not only benchmark charts. Build a small representative prototype before committing to an architecture."
+        ]
+      },
+      {
+        "id": "build-product",
+        "title": "Build the complete application loop",
+        "paragraphs": [
+          "Create navigation, forms, secure authentication, API calls, loading and error states, local persistence, caching, and offline behavior. Add device capabilities such as camera, location, files, notifications, or biometrics only when the product needs them.",
+          "Separate domain logic from screens and platform adapters so it remains testable. Protect secrets, request permissions at the point of need, explain why access is required, and provide useful behavior when permission is denied."
+        ]
+      },
+      {
+        "id": "quality-release",
+        "title": "Test, measure, and release",
+        "paragraphs": [
+          "Test logic, components, navigation, data synchronization, and the most important end-to-end journeys. Use real devices in addition to simulators, especially for performance, keyboards, permissions, cameras, notifications, and lifecycle behavior.",
+          "Prepare icons, screenshots, privacy details, versioning, signing, release tracks, crash monitoring, analytics choices, and rollback or hotfix procedures. Store review and staged rollout are part of the delivery system."
+        ]
+      },
+      {
+        "id": "portfolio",
+        "title": "Create portfolio evidence that feels mobile",
+        "paragraphs": [
+          "Build an application with real navigation, persistent data, network behavior, accessibility, and at least one platform capability. Demonstrate how the experience behaves during slow requests, offline work, denied permission, empty data, validation failure, and resumed sessions.",
+          "A case study should explain the stack decision, architecture, state and persistence strategy, platform differences, testing devices, performance findings, and release process. This shows mobile reasoning rather than a collection of screenshots."
+        ]
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Your team already uses React and TypeScript",
+        "guidance": "React Native usually offers the shortest learning bridge and enables shared language, tooling, and hiring patterns."
+      },
+      {
+        "label": "You want a unified custom interface across platforms",
+        "guidance": "Evaluate Flutter with a representative prototype, especially when the team accepts Dart and the product has strong custom UI needs."
+      },
+      {
+        "label": "You require deep platform integrations or maximum native convention",
+        "guidance": "Consider Swift and Kotlin, or plan explicit native modules and specialist ownership inside a cross-platform approach."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should I learn web development before React Native?",
+        "answer": "You do not need to master the web, but JavaScript, TypeScript, React component concepts, asynchronous data, Git, and API fundamentals make React Native substantially easier. CSS knowledge helps conceptually, though layout and platform behavior differ."
+      },
+      {
+        "question": "Is Flutter easier than React Native?",
+        "answer": "Ease depends on your background. JavaScript and React developers usually enter React Native faster; developers new to both may appreciate Flutter's cohesive documentation and widget system. Product constraints and team maintenance matter more than a universal difficulty ranking."
+      },
+      {
+        "question": "Can one codebase fully replace platform-specific work?",
+        "answer": "No. Cross-platform frameworks share substantial code, but permissions, build signing, store configuration, device behavior, accessibility, performance, and some integrations still require platform-specific knowledge and testing."
+      },
+      {
+        "question": "What should a junior mobile developer portfolio include?",
+        "answer": "Include one complete app with navigation, API data, local persistence, errors, offline or retry behavior, accessibility, tests, and a documented release build. One polished product is stronger than many tutorial screens."
+      }
+    ],
+    "relatedPathSlugs": [
+      "react-native-mobile"
+    ],
+    "relatedCareerSlugs": [
+      "mobile-developer",
+      "frontend-developer",
+      "software-qa-engineer"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "kanban"
+    ],
+    "resourceIds": [
+      "react-native-official-docs",
+      "flutter-official-docs",
+      "typescript-handbook"
+    ],
+    "references": [
+      {
+        "name": "React Native Documentation",
+        "url": "https://reactnative.dev/docs/getting-started",
+        "type": "official"
+      },
+      {
+        "name": "Flutter Documentation",
+        "url": "https://docs.flutter.dev/get-started/fundamentals",
+        "type": "official"
+      },
+      {
+        "name": "Android Developers",
+        "url": "https://developer.android.com/",
+        "type": "official"
+      },
+      {
+        "name": "Apple Developer Documentation",
+        "url": "https://developer.apple.com/documentation/",
+        "type": "official"
+      }
+    ],
+    "cta": {
+      "title": "Start with a JavaScript-based mobile path",
+      "text": "Use the React Native learning path to connect React knowledge to navigation, device APIs, persistence, testing, and release preparation.",
+      "href": "/learning-paths/react-native-mobile",
+      "label": "Open React Native path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "ui-ux-design-roadmap",
+    "kind": "guide",
+    "title": "UI/UX and Product Design Roadmap: From Research to Design Systems",
+    "shortTitle": "UI/UX design roadmap",
+    "summary": "A UI/UX and product design roadmap covering research, information architecture, interaction design, visual foundations, prototyping, accessibility, testing, and design systems.",
+    "description": "This roadmap explains how to move from attractive screens to evidence-based product design. It connects user research, problem framing, flows, wireframes, interface craft, validation, accessibility, developer collaboration, and portfolio case studies.",
+    "primaryKeyword": "UI UX design roadmap",
+    "secondaryKeywords": [
+      "product design roadmap",
+      "how to become a UX designer",
+      "UI designer learning path",
+      "UX portfolio",
+      "design systems roadmap"
+    ],
+    "searchIntent": "Give aspiring designers a practical sequence for learning product design and building case studies that show reasoning, evidence, and implementation collaboration.",
+    "audience": [
+      "Aspiring UI/UX designers",
+      "Developers moving into design",
+      "Product teams improving design practice"
+    ],
+    "readingMinutes": 15,
+    "quickAnswer": "Begin with user needs, problem framing, information architecture, and interaction flows before detailed visuals. Then learn typography, spacing, color, components, accessibility, prototyping, usability testing, and developer handoff. A strong portfolio shows how evidence changed the design, not only the final screens.",
+    "keyTakeaways": [
+      "UI is one part of product design; research, structure, interaction, and validation determine whether the interface solves the right problem.",
+      "Accessibility and content decisions belong in early design work rather than a final visual checklist.",
+      "Portfolio case studies should show constraints, alternatives, evidence, tradeoffs, and outcomes without inventing research impact."
+    ],
+    "sections": [
+      {
+        "id": "problem-research",
+        "title": "Understand the problem and the people",
+        "paragraphs": [
+          "Learn stakeholder interviews, user interviews, observation, surveys, analytics interpretation, competitive review, and research ethics. Choose methods based on the uncertainty you need to reduce rather than collecting research artifacts for appearance.",
+          "Synthesize evidence into needs, behaviors, constraints, jobs, journey stages, and clear problem statements. Separate what you observed from what you assume, and record where evidence is weak."
+        ]
+      },
+      {
+        "id": "structure-flows",
+        "title": "Design structure before decoration",
+        "paragraphs": [
+          "Map content, objects, tasks, navigation, user flows, and system states. Create low-fidelity wireframes that let the team question sequence and information without becoming attached to visual polish.",
+          "Include loading, empty, error, permission, destructive, and recovery states. Complex products often fail in these transitions, even when the primary screen is visually strong."
+        ]
+      },
+      {
+        "id": "visual-interaction",
+        "title": "Build clear visual and interaction systems",
+        "paragraphs": [
+          "Learn hierarchy, typography, spacing, grids, color, iconography, motion, responsive behavior, and component states. Visual decisions should clarify priority and interaction rather than decorate every surface.",
+          "Prototype at the fidelity needed to answer a question. A clickable flow may be enough for navigation testing; a higher-fidelity prototype may be needed for interaction timing, content density, or stakeholder alignment."
+        ]
+      },
+      {
+        "id": "test-accessibility",
+        "title": "Validate with users and accessibility requirements",
+        "paragraphs": [
+          "Plan usability tasks around the riskiest assumptions, observe behavior without leading participants, and distinguish individual comments from repeated patterns. Document what changed and what remains uncertain.",
+          "Apply accessibility from the start: contrast, text scale, focus order, keyboard behavior, touch targets, labels, error recovery, reduced motion, and content clarity. Collaborate with developers and, when possible, people who use assistive technologies."
+        ]
+      },
+      {
+        "id": "systems-handoff",
+        "title": "Create systems and implementation collaboration",
+        "paragraphs": [
+          "Use design tokens, reusable components, variants, documented behavior, and ownership rules to reduce inconsistency. A design system is a product with users, governance, contribution, and maintenance—not only a Figma library.",
+          "Handoff should include flows, states, content, responsive behavior, accessibility notes, interaction details, and acceptance criteria. Review the implemented result with developers and update the source of truth when reality changes."
+        ]
+      },
+      {
+        "id": "evidence",
+        "title": "Turn each learning stage into evidence",
+        "paragraphs": [
+          "A strong design portfolio should reveal the reasoning behind a result, not only polished screens. For every project, preserve the problem statement, assumptions, research notes, user flow, rejected options, accessibility decisions, prototype feedback, and the changes made after testing. This gives reviewers evidence that you can move from uncertainty to a defensible product decision.",
+          "Use one realistic problem across several stages. Begin with discovery and information architecture, then create low-fidelity flows, a visual system, an interactive prototype, and a handoff package. Reworking the same product makes the relationship between research, structure, interface craft, and implementation much easier to understand."
+        ],
+        "bullets": [
+          "Show the user need and business constraint.",
+          "Explain why the selected flow is preferable to alternatives.",
+          "Document keyboard, contrast, content, and responsive behavior.",
+          "Include what testing changed, not only what users liked.",
+          "Provide components, states, tokens, and implementation notes."
+        ],
+        "note": "The most valuable case study demonstrates judgment and learning; visual polish supports that story but cannot replace it."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "You enjoy research and behavior",
+        "guidance": "Go deeper into UX research, synthesis, service design, experimentation, and evidence quality."
+      },
+      {
+        "label": "You enjoy visual systems and interaction craft",
+        "guidance": "Develop typography, layout, motion, component architecture, accessibility, and design-system implementation knowledge."
+      },
+      {
+        "label": "You want end-to-end product ownership",
+        "guidance": "Build strength across discovery, interaction, visual design, prototyping, validation, product strategy, and engineering collaboration."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the difference between UI, UX, and product design?",
+        "answer": "UI focuses on the visual and interactive interface. UX covers the broader experience of completing goals. Product design often combines research, structure, interaction, visual design, validation, and business or technical constraints across the product lifecycle."
+      },
+      {
+        "question": "Do designers need to know code?",
+        "answer": "Designers do not need to be production developers, but understanding HTML, CSS, responsive behavior, accessibility, data states, and implementation constraints improves collaboration and helps them design feasible systems."
+      },
+      {
+        "question": "How many case studies should a design portfolio include?",
+        "answer": "Two or three strong case studies are usually enough when they show different problem types and clear reasoning. Each should explain your role, constraints, evidence, decisions, alternatives, collaboration, outcome, and honest limitations."
+      },
+      {
+        "question": "Is Figma enough to become a UX designer?",
+        "answer": "No. Figma is a design and collaboration tool. UX work requires research, problem framing, information architecture, interaction thinking, content, accessibility, testing, and communication. Tool speed cannot replace those capabilities."
+      }
+    ],
+    "relatedPathSlugs": [
+      "ui-ux-product-design"
+    ],
+    "relatedCareerSlugs": [
+      "product-designer",
+      "ux-researcher",
+      "frontend-developer"
+    ],
+    "relatedWaySlugs": [
+      "double-diamond",
+      "lean",
+      "agile"
+    ],
+    "resourceIds": [
+      "figma-design-beginners",
+      "design-council-double-diamond",
+      "w3c-wai-tutorials",
+      "web-dev-learn"
+    ],
+    "references": [
+      {
+        "name": "Figma Design for Beginners",
+        "url": "https://help.figma.com/hc/en-us/sections/30880632542743-Figma-Design-for-beginners",
+        "type": "official"
+      },
+      {
+        "name": "Design Council Double Diamond",
+        "url": "https://www.designcouncil.org.uk/our-resources/the-double-diamond/",
+        "type": "official"
+      },
+      {
+        "name": "W3C Web Accessibility Tutorials",
+        "url": "https://www.w3.org/WAI/tutorials/",
+        "type": "standards"
+      }
+    ],
+    "cta": {
+      "title": "Practice the complete product design cycle",
+      "text": "Follow Darma's UI/UX and Product Design path from visual foundations and research through testing, systems, and developer handoff.",
+      "href": "/learning-paths/ui-ux-product-design",
+      "label": "Open the design path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "devops-roadmap",
+    "kind": "guide",
+    "title": "DevOps Roadmap for Web Developers: Delivery, Reliability, and Operations",
+    "shortTitle": "DevOps roadmap",
+    "summary": "A DevOps roadmap for web developers covering Linux, networking, Git, CI/CD, containers, cloud delivery, observability, security, reliability, and incident learning.",
+    "description": "This guide organizes DevOps around outcomes rather than tool collecting. It explains how developers can learn repeatable delivery, safe infrastructure changes, monitoring, recovery, and collaboration before specializing in platform or reliability engineering.",
+    "primaryKeyword": "DevOps roadmap",
+    "secondaryKeywords": [
+      "DevOps roadmap for beginners",
+      "DevOps for web developers",
+      "CI CD learning path",
+      "Docker roadmap",
+      "how to become a DevOps engineer"
+    ],
+    "searchIntent": "Provide a practical learning order for developers who want to automate delivery and understand how software is operated reliably in real environments.",
+    "audience": [
+      "Web developers learning delivery",
+      "Aspiring DevOps engineers",
+      "Small teams improving release reliability"
+    ],
+    "readingMinutes": 16,
+    "quickAnswer": "Start with Linux, networking, Git, scripting, and how your application runs. Automate build and tests, learn containers and environment configuration, deploy through CI/CD, then add observability, security, backups, rollback, incident response, and reliability measurement. Tools matter, but repeatability and feedback are the goal.",
+    "keyTakeaways": [
+      "DevOps is a shared operating model for faster, safer delivery—not a person who owns every infrastructure task.",
+      "Learn one complete delivery path before collecting cloud and orchestration certifications.",
+      "Monitoring, recovery, security, and incident learning are equal to deployment automation."
+    ],
+    "sections": [
+      {
+        "id": "systems",
+        "title": "Understand the operating environment",
+        "paragraphs": [
+          "Learn Linux processes, files, permissions, services, logs, package management, shells, and basic scripting. Add networking fundamentals such as DNS, ports, TLS, proxies, firewalls, HTTP, and the path between a user request and the application process.",
+          "Run a web application manually on a clean environment. Document dependencies, configuration, startup, health, shutdown, logs, and failure behavior. Automation is more meaningful after you understand the steps it replaces."
+        ]
+      },
+      {
+        "id": "automation",
+        "title": "Automate changes through version control and CI",
+        "paragraphs": [
+          "Use Git branches and pull requests, then create a pipeline that installs dependencies reproducibly, checks formatting and types, runs tests, builds artifacts, and reports failures clearly. Protect secrets and use least-privilege credentials.",
+          "Keep the pipeline fast enough to provide useful feedback. Separate deterministic quality checks from flaky external checks, and make failed jobs explain what the contributor should do next."
+        ]
+      },
+      {
+        "id": "containers-cloud",
+        "title": "Create repeatable runtime environments",
+        "paragraphs": [
+          "Learn images, containers, registries, volumes, networks, health checks, and resource limits. Use containers to package an application and its runtime, not to hide an undocumented local setup.",
+          "Deploy to one cloud or platform and understand its compute, storage, networking, identity, logging, scaling, and cost model. Infrastructure as code becomes useful when environments must be repeatable, reviewed, and recovered."
+        ]
+      },
+      {
+        "id": "reliability-security",
+        "title": "Operate for reliability and security",
+        "paragraphs": [
+          "Collect structured logs, metrics, traces, and user-visible error reports. Define service indicators and alerts around user impact, not every technical fluctuation. Practice rollback, backup restoration, dependency failure, and incident communication.",
+          "Patch dependencies, manage secrets, scan artifacts, restrict permissions, document data handling, and include security checks in delivery. Reliability includes safe change, capacity, recovery, and learning after failure."
+        ]
+      },
+      {
+        "id": "portfolio",
+        "title": "Demonstrate a complete delivery system",
+        "paragraphs": [
+          "Use a small application to show local setup, container build, automated tests, CI, deployment, environment promotion, health checks, monitoring, alerting, rollback, and backup verification. The application can be simple; the delivery and operating evidence should be clear.",
+          "Write a runbook and an incident exercise. Explain what would wake someone, how they diagnose the problem, how they reduce impact, and what evidence drives a follow-up improvement."
+        ]
+      },
+      {
+        "id": "pipeline",
+        "title": "Build one observable delivery pipeline",
+        "paragraphs": [
+          "The fastest way to connect DevOps concepts is to operate one small service from commit to recovery. Place it in version control, run tests in continuous integration, create a repeatable build artifact, deploy it to a controlled environment, and collect logs and basic service indicators. Then deliberately introduce a safe failure and practice rollback or recovery.",
+          "Record the pipeline as code and explain each control. A reviewer should be able to see how secrets are handled, how a failed test blocks release, how environments differ, who can approve a deployment, and how an incident would be detected. This converts a list of tools into an operating system that supports developers and users."
+        ],
+        "bullets": [
+          "Automate build, test, and deployment steps.",
+          "Keep credentials outside the repository.",
+          "Define one availability or latency objective.",
+          "Create a rollback and incident note.",
+          "Measure lead time, deployment frequency, recovery time, and change failure rate where practical."
+        ],
+        "note": "Choose tools after defining the delivery and reliability problem; a large toolchain is not evidence of a mature operating model."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "You are a web developer",
+        "guidance": "Automate the application you already understand, then learn containers, cloud delivery, logs, metrics, rollback, and backups around it."
+      },
+      {
+        "label": "You want a DevOps role",
+        "guidance": "Add infrastructure as code, cloud identity and networking, platform design, security, cost management, and internal developer experience."
+      },
+      {
+        "label": "You want SRE specialization",
+        "guidance": "Go deeper into service-level objectives, error budgets, capacity, incident response, distributed systems, and toil reduction."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need Kubernetes to learn DevOps?",
+        "answer": "No. Learn operating systems, networking, containers, CI/CD, cloud fundamentals, monitoring, and recovery first. Kubernetes is valuable when orchestration complexity justifies it, but it can distract from basic delivery and reliability skills."
+      },
+      {
+        "question": "Which cloud should a beginner learn?",
+        "answer": "Choose one platform that lets you deploy a representative application and understand compute, networking, storage, identity, logs, and cost. The concepts transfer; learning several consoles superficially is less useful than operating one system end to end."
+      },
+      {
+        "question": "Is DevOps a job or a culture?",
+        "answer": "DevOps describes principles and practices for collaboration, automation, feedback, and shared operational responsibility. Companies also use DevOps Engineer as a job title, often for delivery platforms, infrastructure, automation, and reliability work."
+      },
+      {
+        "question": "What project proves DevOps skills?",
+        "answer": "A small application with reproducible setup, tests, CI, container packaging, automated deployment, health checks, observability, secret handling, rollback, backup verification, and a runbook demonstrates more than a list of tools."
+      }
+    ],
+    "relatedPathSlugs": [
+      "devops-web-developers",
+      "full-stack-javascript"
+    ],
+    "relatedCareerSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer",
+      "security-engineer"
+    ],
+    "relatedWaySlugs": [
+      "devops-lifecycle",
+      "kanban",
+      "lean"
+    ],
+    "resourceIds": [
+      "pro-git-book",
+      "github-actions-docs",
+      "docker-get-started",
+      "dora-capabilities"
+    ],
+    "references": [
+      {
+        "name": "GitHub Actions Documentation",
+        "url": "https://docs.github.com/en/actions",
+        "type": "official"
+      },
+      {
+        "name": "Docker Get Started",
+        "url": "https://docs.docker.com/get-started/",
+        "type": "official"
+      },
+      {
+        "name": "DORA Capabilities",
+        "url": "https://dora.dev/capabilities/",
+        "type": "research"
+      }
+    ],
+    "cta": {
+      "title": "Build a delivery system around a real web app",
+      "text": "Use the DevOps for Web Developers path to practice automation, containers, deployment, observability, security, and reliability in order.",
+      "href": "/learning-paths/devops-web-developers",
+      "label": "Open the DevOps path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "technology-careers-guide",
+    "kind": "guide",
+    "title": "Technology Careers Guide: Roles, Levels, and How Teams Work Together",
+    "shortTitle": "Technology careers guide",
+    "summary": "A practical guide to technology careers across engineering, design, product, delivery, quality, security, operations, and leadership.",
+    "description": "Use this guide to understand what common technology roles actually produce, how they collaborate, what junior and senior scope means, and how to choose a direction based on the work you want to do rather than job-title fashion.",
+    "primaryKeyword": "technology careers guide",
+    "secondaryKeywords": [
+      "jobs in tech",
+      "technology job roles",
+      "software careers",
+      "IT career paths",
+      "tech company roles"
+    ],
+    "searchIntent": "Help beginners and career changers understand technology-company roles, responsibilities, collaboration, levels, and realistic entry paths.",
+    "audience": [
+      "Students and career changers",
+      "Junior technology professionals",
+      "Non-technical teammates joining a tech company"
+    ],
+    "readingMinutes": 13,
+    "quickAnswer": "Technology companies need more than developers. Engineering builds and operates systems; design and research shape usable experiences; product and delivery coordinate outcomes and work; quality and security reduce risk; people, operations, marketing, and leadership support the organization. Choose a role by the problems and outputs you enjoy, then build evidence through relevant projects.",
+    "keyTakeaways": [
+      "Job title, seniority level, and team responsibility are different dimensions and should not be treated as synonyms.",
+      "The same title can vary between companies, so responsibilities and outputs matter more than the label.",
+      "A credible career choice comes from trying representative work, speaking with practitioners, and building evidence—not only taking a personality quiz."
+    ],
+    "sections": [
+      {
+        "id": "families",
+        "title": "Understand the main role families",
+        "paragraphs": [
+          "Engineering roles build interfaces, services, data systems, mobile applications, infrastructure, security controls, and reliability. Design and research roles investigate needs and shape interactions. Product and delivery roles clarify outcomes, priorities, coordination, and feedback.",
+          "Quality, operations, people, recruiting, marketing, customer success, finance, and leadership roles help the product and organization function. Smaller companies combine responsibilities; larger companies often create narrower specialties."
+        ]
+      },
+      {
+        "id": "titles-levels",
+        "title": "Separate titles from levels and responsibilities",
+        "paragraphs": [
+          "Frontend Developer is a discipline, Senior is a responsibility level, and Tech Lead is a team responsibility that may be temporary or permanent. A manager focuses on people and organizational systems, while a senior individual contributor may lead technically without managing performance.",
+          "Use evidence of autonomy, influence, complexity, and business impact when discussing levels. Years of experience can be a signal, but they do not prove the scope someone can handle."
+        ]
+      },
+      {
+        "id": "choose",
+        "title": "Choose by daily work and outputs",
+        "paragraphs": [
+          "Read several job descriptions and identify repeated activities: building, analyzing, interviewing, facilitating, writing, designing, reviewing, operating, selling, or coaching. Then try a small simulation of the work before committing to a long course.",
+          "For example, a product-design experiment might include a short interview, flow, prototype, and usability test. A QA experiment might include risk analysis, test cases, exploratory testing, and one automated check. The experience is more informative than the role name alone."
+        ]
+      },
+      {
+        "id": "entry",
+        "title": "Build evidence for an entry role",
+        "paragraphs": [
+          "Translate the role into observable outputs. Developers need working software and code collaboration; designers need case studies; product roles need problem framing and prioritization evidence; DevOps roles need delivery and operational systems; recruiters need sourcing and candidate-process evidence.",
+          "Use volunteer, open-source, freelance, school, or self-directed projects honestly. State your role, constraints, decisions, and outcomes without presenting a solo exercise as enterprise experience."
+        ]
+      },
+      {
+        "id": "companies",
+        "title": "Read the company context",
+        "paragraphs": [
+          "An agency, startup, enterprise, cooperative, and product company may use the same title differently. Ask who owns decisions, how work enters the team, what success measures, which skills are available, and where handoffs occur.",
+          "During interviews, request examples of a normal week, recent deliverables, junior support, review practices, and how the team responds when priorities change. This reveals the real operating environment behind the title."
+        ]
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "You enjoy building and debugging systems",
+        "guidance": "Explore frontend, backend, full-stack, mobile, data, DevOps, security, or reliability roles."
+      },
+      {
+        "label": "You enjoy understanding people and shaping experiences",
+        "guidance": "Explore product design, UX research, content design, or product management."
+      },
+      {
+        "label": "You enjoy coordination and making work flow",
+        "guidance": "Explore project management, delivery management, Scrum facilitation, operations, or product operations."
+      },
+      {
+        "label": "You enjoy growing teams and organizations",
+        "guidance": "Explore engineering management, people operations, recruiting, technical marketing, and leadership paths."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the best technology career for beginners?",
+        "answer": "There is no universal best role. Frontend development and product design provide visible beginner projects, while QA, support, data, operations, and project coordination may match different strengths. Test representative work and choose based on sustained interest and available opportunities."
+      },
+      {
+        "question": "What is the difference between junior, mid-level, and senior?",
+        "answer": "The main difference is scope of responsibility: how independently someone handles ambiguity, complexity, risk, collaboration, and impact. Titles vary between companies, so evaluate expectations and evidence rather than years alone."
+      },
+      {
+        "question": "Can I work in tech without coding?",
+        "answer": "Yes. Product management, project management, UX research, design, recruiting, people operations, marketing, customer success, sales, finance, and operations are important technology-company roles. Technical literacy still improves collaboration."
+      },
+      {
+        "question": "How do I change from one tech role to another?",
+        "answer": "Identify transferable skills, study the target role's actual outputs, complete a small project that fills the largest gap, seek adjacent responsibilities in your current team, and document evidence. Internal transitions can be easier because domain knowledge already transfers."
+      }
+    ],
+    "relatedPathSlugs": [
+      "web-foundations",
+      "ui-ux-product-design",
+      "devops-web-developers"
+    ],
+    "relatedCareerSlugs": [
+      "frontend-developer",
+      "product-designer",
+      "product-manager",
+      "project-manager",
+      "devops-engineer"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "scrum",
+      "kanban"
+    ],
+    "resourceIds": [
+      "sfia-responsibility-levels",
+      "onet-software-developers",
+      "gitlab-job-description-library"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities",
+        "type": "standards"
+      },
+      {
+        "name": "O*NET Software Developers",
+        "url": "https://www.onetonline.org/link/summary/15-1252.00",
+        "type": "standards"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-description-library/",
+        "type": "community"
+      }
+    ],
+    "cta": {
+      "title": "Explore the roles in detail",
+      "text": "Open the Darma career atlas to compare responsibilities, daily work, skills, levels, collaborators, and practical entry steps.",
+      "href": "/tech-careers",
+      "label": "Browse technology careers"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "software-development-methodologies",
+    "kind": "guide",
+    "title": "Software Development Methodologies: How to Choose a Way of Working",
+    "shortTitle": "Development methodologies",
+    "summary": "A practical guide to Agile, Scrum, Kanban, Waterfall, Scrumban, Lean, XP, DevOps, Double Diamond, and Shape Up.",
+    "description": "This guide explains what each methodology or framework is designed to solve, how work flows, when it fits, and why copying ceremonies without understanding the problem often creates more process rather than better outcomes.",
+    "primaryKeyword": "software development methodologies",
+    "secondaryKeywords": [
+      "Agile Scrum Kanban Waterfall",
+      "software development process",
+      "project management methodologies",
+      "ways of working",
+      "Scrum vs Kanban"
+    ],
+    "searchIntent": "Help teams and beginners understand major development approaches and select practices according to uncertainty, flow, risk, feedback, and organizational constraints.",
+    "audience": [
+      "Developers joining a team",
+      "Project and product professionals",
+      "Teams reviewing their delivery process"
+    ],
+    "readingMinutes": 15,
+    "quickAnswer": "Choose a way of working based on the shape of the work. Scrum supports a team learning through short goal-oriented cycles; Kanban manages continuous flow and work-in-progress; Waterfall coordinates predictable staged work; Double Diamond supports discovery and design; DevOps connects delivery with operation. Most teams adapt several practices rather than following one label perfectly.",
+    "keyTakeaways": [
+      "Agile is a set of values and principles; Scrum is one framework that can support agile work.",
+      "The best process makes risk and feedback visible while reducing queues, confusion, and unnecessary handoffs.",
+      "Healthy adoption is measured by outcomes and behavior, not by the number of ceremonies or tools configured."
+    ],
+    "sections": [
+      {
+        "id": "problem",
+        "title": "Start with the operating problem",
+        "paragraphs": [
+          "Ask whether demand arrives continuously or in planned initiatives, how stable requirements are, how expensive changes become, which feedback is missing, where work waits, and what risks require formal approval. A methodology should address these conditions.",
+          "Avoid selecting a branded framework because another company uses it. The same practice can help one team and create overhead for another depending on team boundaries, product maturity, regulation, and access to users."
+        ]
+      },
+      {
+        "id": "adaptive",
+        "title": "Use adaptive approaches for uncertainty",
+        "paragraphs": [
+          "Agile principles emphasize collaboration, working software, customer interaction, and response to change. Scrum organizes work around a Product Goal, Sprint Goal, accountabilities, events, and artifacts. Shape Up uses shaped pitches, fixed appetite, betting, and focused cycles.",
+          "These approaches can help when the team needs regular learning, but short cycles do not automatically create agility. The team must be able to test assumptions, release or demonstrate meaningful increments, and change direction based on evidence."
+        ]
+      },
+      {
+        "id": "flow",
+        "title": "Use flow approaches for continuous demand",
+        "paragraphs": [
+          "Kanban visualizes work, limits work in progress, manages flow, makes policies explicit, and improves the system through feedback. Scrumban combines elements of Scrum cadence with flow controls when teams need both planning rhythm and continuous intake.",
+          "Flow metrics such as cycle time, throughput, work item age, and work in progress can reveal queues and variability. Metrics should improve the system, not rank individuals or encourage work splitting that hides real value."
+        ]
+      },
+      {
+        "id": "staged-discovery",
+        "title": "Use staged and discovery approaches deliberately",
+        "paragraphs": [
+          "Waterfall-style staged coordination can be appropriate when scope is stable, approvals are formal, dependencies are expensive, or physical and regulatory constraints dominate. The risk is delaying feedback until change becomes costly.",
+          "Double Diamond separates discovering and defining the problem from developing and delivering solutions. Lean emphasizes value, flow, waste reduction, quality, and learning. These models often complement engineering delivery rather than replace it."
+        ]
+      },
+      {
+        "id": "evolve",
+        "title": "Evolve the system through evidence",
+        "paragraphs": [
+          "Map how work actually moves, including waiting and rework. Choose a small process change, define the expected effect, observe outcomes, and review it. A team can keep useful practices while removing rituals that no longer solve a problem.",
+          "Document decision rights, intake rules, definitions of ready and done, quality expectations, release ownership, and escalation paths. Clarity around these policies often matters more than the methodology name."
+        ]
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Work arrives continuously with unpredictable priority",
+        "guidance": "Start with Kanban practices: visualize demand, limit work in progress, define policies, and measure flow."
+      },
+      {
+        "label": "A stable cross-functional team needs a shared short-term goal",
+        "guidance": "Evaluate Scrum, especially when the team can create and review a meaningful increment each Sprint."
+      },
+      {
+        "label": "Requirements and approvals are highly stable and sequential",
+        "guidance": "Use staged planning deliberately, with early validation points to reduce late discovery risk."
+      },
+      {
+        "label": "The main uncertainty is whether the team is solving the right problem",
+        "guidance": "Use discovery methods such as Double Diamond alongside an appropriate delivery flow."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Agile the same as Scrum?",
+        "answer": "No. Agile refers to values and principles for adaptive software development. Scrum is a specific framework with accountabilities, events, artifacts, and commitments. A team can be agile without Scrum and can perform Scrum ceremonies without behaving agilely."
+      },
+      {
+        "question": "Is Waterfall always bad for software projects?",
+        "answer": "No. Staged planning can fit stable, regulated, contract-driven, or dependency-heavy work. The danger is assuming uncertain requirements are fixed and delaying user or technical feedback until changes become expensive."
+      },
+      {
+        "question": "Can a team combine Scrum and Kanban?",
+        "answer": "Yes. Teams often retain a planning and review cadence while visualizing flow and limiting work in progress. The combination should solve explicit problems rather than accumulating every ceremony and metric."
+      },
+      {
+        "question": "How do we know whether our process is healthy?",
+        "answer": "Look for clear priorities, manageable work in progress, short feedback loops, improving quality, predictable enough delivery, psychological safety, visible risks, and the ability to change the process when evidence shows a problem."
+      }
+    ],
+    "relatedPathSlugs": [
+      "devops-web-developers"
+    ],
+    "relatedCareerSlugs": [
+      "product-manager",
+      "project-manager",
+      "scrum-master-agile-facilitator",
+      "engineering-manager"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "scrum",
+      "kanban",
+      "waterfall",
+      "double-diamond",
+      "devops-lifecycle"
+    ],
+    "resourceIds": [
+      "agile-manifesto",
+      "scrum-guide",
+      "kanban-guide",
+      "design-council-double-diamond",
+      "dora-capabilities"
+    ],
+    "references": [
+      {
+        "name": "Manifesto for Agile Software Development",
+        "url": "https://agilemanifesto.org/",
+        "type": "standards"
+      },
+      {
+        "name": "The Scrum Guide",
+        "url": "https://scrumguides.org/",
+        "type": "standards"
+      },
+      {
+        "name": "The Kanban Guide",
+        "url": "https://kanbanguides.org/",
+        "type": "standards"
+      },
+      {
+        "name": "Design Council Double Diamond",
+        "url": "https://www.designcouncil.org.uk/our-resources/the-double-diamond/",
+        "type": "official"
+      }
+    ],
+    "cta": {
+      "title": "Compare each operating model in detail",
+      "text": "Open Darma's Ways of Working atlas for flows, roles, artifacts, strengths, risks, healthy signals, and direct comparisons.",
+      "href": "/ways-of-working",
+      "label": "Browse ways of working"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "frontend-vs-backend-vs-full-stack",
+    "kind": "comparison",
+    "title": "Frontend vs Backend vs Full Stack: Roles, Skills, and Which Path Fits",
+    "shortTitle": "Frontend vs backend vs full stack",
+    "summary": "Compare frontend, backend, and full-stack development by daily work, skills, outputs, debugging focus, portfolio evidence, and career tradeoffs.",
+    "description": "This comparison helps beginners choose a development direction without treating one path as superior. It explains where each role works in the system, what problems it owns, how the roles collaborate, and how to test your preference with a small project.",
+    "primaryKeyword": "frontend vs backend vs full stack",
+    "secondaryKeywords": [
+      "frontend or backend",
+      "full stack vs frontend",
+      "developer career paths",
+      "frontend backend difference",
+      "which developer path"
+    ],
+    "searchIntent": "Help learners compare three common developer paths and choose an initial direction based on work preference and project evidence.",
+    "audience": [
+      "Programming beginners",
+      "Career changers",
+      "Developers choosing a specialization"
+    ],
+    "readingMinutes": 11,
+    "quickAnswer": "Frontend developers own the browser experience, backend developers own server-side data and services, and full-stack developers connect both sides across a product flow. Start with frontend if you enjoy interfaces and user behavior, backend if you enjoy data and systems, and full stack if you want broad product ownership and accept a wider learning scope.",
+    "keyTakeaways": [
+      "All three paths require programming, debugging, Git, HTTP, security awareness, and collaboration.",
+      "Full stack is broad ownership, not expert-level mastery of every frontend and backend specialty.",
+      "The best first path is the one whose daily problems keep you practicing long enough to build complete evidence."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "Frontend",
+        "Backend",
+        "Full stack"
+      ],
+      "rows": [
+        {
+          "label": "Primary surface",
+          "values": [
+            "Browser and user interface",
+            "Servers, APIs, and data",
+            "End-to-end product flow"
+          ]
+        },
+        {
+          "label": "Common languages",
+          "values": [
+            "HTML, CSS, JavaScript, TypeScript",
+            "JavaScript/TypeScript, Python, Java, Go, C#, and SQL",
+            "Often JavaScript/TypeScript across both sides, plus SQL"
+          ]
+        },
+        {
+          "label": "Core concerns",
+          "values": [
+            "Accessibility, interaction, responsive design, performance",
+            "Data integrity, security, scalability, integrations",
+            "Boundaries, delivery speed, consistency, complete features"
+          ]
+        },
+        {
+          "label": "Typical evidence",
+          "values": [
+            "Accessible deployed interfaces and component systems",
+            "APIs, data models, tests, performance, and operations",
+            "A complete secure deployed application with observability"
+          ]
+        },
+        {
+          "label": "Common challenge",
+          "values": [
+            "Browser and design complexity",
+            "Distributed state and operational risk",
+            "Maintaining depth while covering a wide scope"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "frontend",
+        "title": "What frontend developers own",
+        "paragraphs": [
+          "Frontend developers translate product and design intent into accessible, responsive, interactive interfaces. They work with browser APIs, component systems, state, data fetching, forms, performance, and the many user-visible states around success and failure.",
+          "The work is not only visual styling. It includes architecture, testing, security boundaries, analytics choices, internationalization, design-system collaboration, and debugging across browsers and devices."
+        ]
+      },
+      {
+        "id": "backend",
+        "title": "What backend developers own",
+        "paragraphs": [
+          "Backend developers design APIs, data models, permissions, integrations, jobs, caching, and services that keep product data consistent and available. They often work closer to databases, infrastructure, security, performance, and operational failure.",
+          "A backend feature is successful when it protects data, handles concurrency and errors, exposes a clear contract, performs under expected load, and can be monitored and recovered."
+        ]
+      },
+      {
+        "id": "full-stack",
+        "title": "What full-stack developers own",
+        "paragraphs": [
+          "Full-stack developers work across interface, server, and data boundaries to deliver a complete product slice. They are especially useful in small teams, prototypes, internal tools, agencies, and product areas where reducing handoffs improves speed.",
+          "The risk is shallow knowledge or overloaded responsibility. Strong full-stack developers know when a problem requires specialist design, security, data, accessibility, or platform support."
+        ]
+      },
+      {
+        "id": "choose",
+        "title": "How to choose your first direction",
+        "paragraphs": [
+          "Try one small feature end to end: design a form, build the accessible interface, create the API, store the data, validate permissions, deploy it, and inspect failures. Notice which part makes you curious rather than only which part feels easy.",
+          "You can begin with one direction and move later. Frontend knowledge helps backend developers understand consumers; backend knowledge helps frontend developers design realistic states; full-stack experience can reveal the specialty you want to deepen."
+        ]
+      },
+      {
+        "id": "try-it",
+        "title": "Try the same feature from all three perspectives",
+        "paragraphs": [
+          "A useful way to choose is to build one small feature end to end. Create a form and responsive result view, design an API that validates the request, store the data, and expose useful error states. Notice which part keeps your attention: interaction and browser behavior, data and server rules, or the coordination of the complete flow.",
+          "Your first title does not permanently define your career. Frontend developers often deepen API and performance knowledge, backend developers learn enough interface behavior to collaborate effectively, and full-stack developers frequently develop a stronger specialty over time. Choose the first environment in which you can practice consistently and receive feedback."
+        ],
+        "bullets": [
+          "Choose frontend if interface behavior and user feedback energize you.",
+          "Choose backend if data integrity, APIs, and system rules energize you.",
+          "Choose full stack if connecting boundaries energizes you and you accept a broader learning surface.",
+          "In every case, learn Git, testing, accessibility, security basics, and clear communication."
+        ],
+        "note": "The best first path is the one that helps you ship credible work, not the title that sounds broadest."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Choose frontend",
+        "guidance": "You enjoy interaction, visual systems, accessibility, browser behavior, and collaborating closely with design."
+      },
+      {
+        "label": "Choose backend",
+        "guidance": "You enjoy data models, rules, APIs, performance, integrations, security, and operational systems."
+      },
+      {
+        "label": "Choose full stack",
+        "guidance": "You enjoy connecting layers, building complete products, and balancing breadth with deliberate specialist help."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which path is easiest for beginners?",
+        "answer": "Frontend often provides the fastest visual feedback, while backend can suit learners who prefer logic and data. Neither remains easy at professional depth. Choose the feedback loop that keeps you building consistently."
+      },
+      {
+        "question": "Do full-stack developers earn more?",
+        "answer": "Compensation depends on market, company, scope, level, and impact rather than the title alone. A specialist with deep responsibility may earn more than a broad generalist, and the reverse can also be true."
+      },
+      {
+        "question": "Can I switch from frontend to backend later?",
+        "answer": "Yes. JavaScript, Git, HTTP, testing, debugging, and product knowledge transfer. Add server runtime, SQL, authentication, security, and operations through one complete project."
+      },
+      {
+        "question": "Does backend development include DevOps?",
+        "answer": "Backend developers need operational awareness, but platform and DevOps roles often own deeper delivery systems, infrastructure, reliability, observability, and internal developer tooling."
+      }
+    ],
+    "relatedPathSlugs": [
+      "frontend-javascript",
+      "full-stack-javascript"
+    ],
+    "relatedCareerSlugs": [
+      "frontend-developer",
+      "backend-developer",
+      "full-stack-developer"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "devops-lifecycle"
+    ],
+    "resourceIds": [
+      "mdn-frontend-curriculum",
+      "nodejs-official-learn",
+      "postgresql-tutorial"
+    ],
+    "references": [
+      {
+        "name": "MDN Front-end Developer Curriculum",
+        "url": "https://developer.mozilla.org/en-US/curriculum/",
+        "type": "official"
+      },
+      {
+        "name": "Learn Node.js",
+        "url": "https://nodejs.org/en/learn",
+        "type": "official"
+      },
+      {
+        "name": "O*NET Software Developers",
+        "url": "https://www.onetonline.org/link/summary/15-1252.00",
+        "type": "standards"
+      }
+    ],
+    "cta": {
+      "title": "Compare the actual role guides",
+      "text": "Open Darma's career guides to inspect responsibilities, daily work, levels, outputs, collaborators, and entry steps for each path.",
+      "href": "/tech-careers",
+      "label": "Explore developer careers"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "react-vs-vue-vs-angular",
+    "kind": "comparison",
+    "title": "React vs Vue vs Angular: How to Choose a Frontend Framework",
+    "shortTitle": "React vs Vue vs Angular",
+    "summary": "Compare React, Vue, and Angular by learning model, architecture, ecosystem, team conventions, TypeScript, application scale, and maintenance tradeoffs.",
+    "description": "This comparison avoids declaring one universal winner. It explains what each technology provides, the decisions it leaves to the team, and how your existing skills, product constraints, hiring environment, and maintenance needs should shape the choice.",
+    "primaryKeyword": "React vs Vue vs Angular",
+    "secondaryKeywords": [
+      "best frontend framework",
+      "React or Vue",
+      "React or Angular",
+      "Vue vs Angular",
+      "frontend framework comparison"
+    ],
+    "searchIntent": "Help developers and teams choose a frontend framework using product and organizational constraints instead of popularity alone.",
+    "audience": [
+      "Frontend learners",
+      "Technical leads",
+      "Teams starting a web application"
+    ],
+    "readingMinutes": 12,
+    "quickAnswer": "Choose React when you want a flexible component library with a large ecosystem and your team can make architecture decisions. Choose Vue when you want an approachable progressive framework with cohesive official guidance. Choose Angular when you want a comprehensive TypeScript-first framework with strong conventions for large structured applications.",
+    "keyTakeaways": [
+      "The framework choice matters less than team skill, architecture discipline, testing, accessibility, and maintenance ownership.",
+      "React offers flexibility, Vue offers progressive cohesion, and Angular offers a broad opinionated platform.",
+      "Prototype a representative feature and evaluate build, testing, forms, routing, performance, accessibility, and upgrade experience."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "React",
+        "Vue",
+        "Angular"
+      ],
+      "rows": [
+        {
+          "label": "What it is",
+          "values": [
+            "A UI library used with an ecosystem",
+            "A progressive framework",
+            "A comprehensive application framework"
+          ]
+        },
+        {
+          "label": "Primary language",
+          "values": [
+            "JavaScript or TypeScript with JSX",
+            "JavaScript or TypeScript with templates or JSX",
+            "TypeScript with templates"
+          ]
+        },
+        {
+          "label": "Conventions",
+          "values": [
+            "Flexible; team chooses many supporting tools",
+            "Moderate; cohesive official ecosystem",
+            "Strong; routing, DI, forms, and tooling are integrated"
+          ]
+        },
+        {
+          "label": "Learning entry",
+          "values": [
+            "Simple components, then ecosystem decisions",
+            "Approachable templates and reactivity",
+            "More concepts and structure at the start"
+          ]
+        },
+        {
+          "label": "Good fit",
+          "values": [
+            "Teams valuing flexibility and broad ecosystem",
+            "Teams wanting progressive adoption and cohesion",
+            "Large teams wanting standardized architecture"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "react",
+        "title": "React emphasizes components and composition",
+        "paragraphs": [
+          "React focuses on rendering interfaces from components and state. It is commonly paired with frameworks such as Next.js and with separate choices for routing, data, forms, and testing. This flexibility supports many product shapes but requires architectural judgment.",
+          "React is a strong fit when the team already uses JavaScript or TypeScript, needs a large hiring ecosystem, or wants to share mental models with React Native. The team must still define conventions to avoid inconsistent state and dependency choices."
+        ]
+      },
+      {
+        "id": "vue",
+        "title": "Vue emphasizes progressive adoption",
+        "paragraphs": [
+          "Vue combines templates, reactivity, components, and an approachable official ecosystem. Teams can add it incrementally or use it for complete applications, and its single-file components keep template, behavior, and styling close.",
+          "Vue is often comfortable for developers coming from HTML and JavaScript. Evaluate local hiring, long-term ownership, framework integration, and the specific libraries your product requires."
+        ]
+      },
+      {
+        "id": "angular",
+        "title": "Angular emphasizes a complete structured platform",
+        "paragraphs": [
+          "Angular provides a TypeScript-first framework with dependency injection, routing, forms, HTTP utilities, testing patterns, and command-line tooling. Its conventions can help large teams align, though the initial conceptual and framework surface is broader.",
+          "Angular suits organizations that value standardized architecture, long-lived enterprise applications, and strong framework-level patterns. Teams should still protect performance, accessibility, simplicity, and upgrade health."
+        ]
+      },
+      {
+        "id": "evaluate",
+        "title": "Run a representative framework evaluation",
+        "paragraphs": [
+          "Build the same small feature: routed pages, a validated form, server data, loading and error states, authentication-like permission behavior, tests, accessibility, and production build analysis. Record how much custom architecture is required and how clearly new team members can follow it.",
+          "Include ecosystem health, release policy, migration cost, design-system fit, observability, server rendering, deployment, security, and the skills already available in the team. Avoid choosing from a synthetic benchmark alone."
+        ]
+      },
+      {
+        "id": "evaluation-project",
+        "title": "Use a small, repeatable evaluation project",
+        "paragraphs": [
+          "Marketing pages and “hello world” demos hide the tradeoffs that matter. Implement the same compact product slice in each serious candidate: routing, a validated form, asynchronous data, loading and error states, one reusable component pattern, one test, and a production build. Record the amount of convention, configuration, third-party selection, and framework-specific knowledge required.",
+          "Evaluate the ecosystem around the framework as well as syntax. Consider the skills already present in the team, hiring market, accessibility practices, upgrade policy, documentation quality, server-rendering needs, design-system integration, and the expected lifetime of the product. The best choice is contextual rather than universally superior."
+        ],
+        "bullets": [
+          "Score developer onboarding and code clarity.",
+          "Compare official guidance and long-term maintenance.",
+          "Measure bundle and runtime behavior for your use case.",
+          "Review testing, routing, forms, and state conventions.",
+          "Write a short architecture decision record before committing."
+        ],
+        "note": "A framework comparison should end with a decision for a specific team and product, not a global winner."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Choose React",
+        "guidance": "Your team values ecosystem flexibility, already knows React, needs Next.js or React Native alignment, and can enforce architecture conventions."
+      },
+      {
+        "label": "Choose Vue",
+        "guidance": "You want progressive adoption, readable templates, cohesive official tooling, and a gentle path for web developers."
+      },
+      {
+        "label": "Choose Angular",
+        "guidance": "You need a TypeScript-first comprehensive framework and strong conventions across a large or enterprise team."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which framework is best for beginners?",
+        "answer": "Vue often feels approachable to developers with HTML and JavaScript experience, while React has abundant learning material and Angular provides a structured environment. The best beginner choice is the one supported by your target projects, mentors, and local opportunities."
+      },
+      {
+        "question": "Is React a framework?",
+        "answer": "React describes itself as a library for user interfaces. In production it is commonly used within a framework or a larger stack that supplies routing, data, build, and deployment conventions."
+      },
+      {
+        "question": "Which framework is fastest?",
+        "answer": "Performance depends on application architecture, rendering strategy, bundle size, data work, device, and developer decisions. All three can deliver fast products. Measure a representative application rather than relying on one benchmark."
+      },
+      {
+        "question": "Can a company migrate between these frameworks?",
+        "answer": "Yes, but migration can be expensive because components, state, routing, forms, testing, and team knowledge differ. Incremental boundaries and stable APIs reduce risk, but a migration needs a business reason beyond developer preference."
+      }
+    ],
+    "relatedPathSlugs": [
+      "frontend-javascript"
+    ],
+    "relatedCareerSlugs": [
+      "frontend-developer",
+      "tech-lead"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "extreme-programming"
+    ],
+    "resourceIds": [
+      "react-official-learn",
+      "vue-official-guide",
+      "angular-official-docs",
+      "typescript-handbook"
+    ],
+    "references": [
+      {
+        "name": "React Learn",
+        "url": "https://react.dev/learn",
+        "type": "official"
+      },
+      {
+        "name": "Vue.js Guide",
+        "url": "https://vuejs.org/guide/introduction.html",
+        "type": "official"
+      },
+      {
+        "name": "Angular Overview",
+        "url": "https://angular.dev/overview",
+        "type": "official"
+      }
+    ],
+    "cta": {
+      "title": "Learn the transferable foundation first",
+      "text": "Darma's Frontend JavaScript path teaches the browser, JavaScript, TypeScript, components, testing, and performance before framework specialization.",
+      "href": "/learning-paths/frontend-javascript",
+      "label": "Open Frontend JavaScript path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "react-native-vs-flutter",
+    "kind": "comparison",
+    "title": "React Native vs Flutter: Which Cross-Platform Mobile Stack Fits?",
+    "shortTitle": "React Native vs Flutter",
+    "summary": "Compare React Native and Flutter by language, rendering model, ecosystem, platform integration, team skills, UI consistency, performance, and maintenance.",
+    "description": "This guide helps teams choose a cross-platform mobile approach based on product requirements and team capability. It highlights shared-code benefits and the platform-specific work that remains in either stack.",
+    "primaryKeyword": "React Native vs Flutter",
+    "secondaryKeywords": [
+      "Flutter or React Native",
+      "best cross platform framework",
+      "React Native comparison",
+      "Flutter comparison",
+      "mobile app framework"
+    ],
+    "searchIntent": "Help developers and teams choose between React Native and Flutter using team, product, platform, and maintenance constraints.",
+    "audience": [
+      "Web developers moving to mobile",
+      "Mobile product teams",
+      "Technical decision makers"
+    ],
+    "readingMinutes": 11,
+    "quickAnswer": "Choose React Native when the team already knows JavaScript, TypeScript, and React or wants alignment with a React web stack. Choose Flutter when the team accepts Dart and values a cohesive widget toolkit with highly consistent custom UI. Both require real-device testing, platform configuration, native integrations, accessibility work, and store operations.",
+    "keyTakeaways": [
+      "Neither framework removes iOS and Android knowledge.",
+      "Existing team skills and required native integrations usually matter more than abstract framework popularity.",
+      "Evaluate a representative feature with navigation, data, permissions, performance, accessibility, testing, and build pipelines."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "React Native",
+        "Flutter"
+      ],
+      "rows": [
+        {
+          "label": "Language",
+          "values": [
+            "JavaScript or TypeScript",
+            "Dart"
+          ]
+        },
+        {
+          "label": "UI approach",
+          "values": [
+            "React components mapped through native platform capabilities",
+            "Flutter widget and rendering system"
+          ]
+        },
+        {
+          "label": "Team advantage",
+          "values": [
+            "Strong fit for React and JavaScript teams",
+            "Strong fit for teams adopting a cohesive mobile toolkit"
+          ]
+        },
+        {
+          "label": "Web alignment",
+          "values": [
+            "Shares React mental models and some logic",
+            "Flutter also targets web, but with a different ecosystem"
+          ]
+        },
+        {
+          "label": "Platform work",
+          "values": [
+            "Native modules, builds, permissions, stores, and testing remain",
+            "Plugins, builds, permissions, stores, and testing remain"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "react-native",
+        "title": "React Native builds on React skills",
+        "paragraphs": [
+          "React Native uses React's component and state model with mobile primitives and platform tooling. JavaScript and TypeScript teams can transfer language, testing, package, and some architecture knowledge from web products.",
+          "The application still needs native build configuration, platform permissions, device testing, performance analysis, and occasional native modules. Web CSS and DOM assumptions do not transfer directly."
+        ]
+      },
+      {
+        "id": "flutter",
+        "title": "Flutter provides a cohesive widget system",
+        "paragraphs": [
+          "Flutter uses Dart and a broad widget framework to create cross-platform interfaces. It gives teams strong control over visual consistency and provides integrated tooling and documentation for many application concerns.",
+          "Adopting Flutter means adopting Dart, Flutter-specific architecture, and its ecosystem. Native platform configuration, plugins, accessibility, build signing, and store delivery remain part of the work."
+        ]
+      },
+      {
+        "id": "product-fit",
+        "title": "Evaluate product fit",
+        "paragraphs": [
+          "List the platform capabilities, background behavior, maps, media, Bluetooth, payments, accessibility, animation, offline data, and device performance the product needs. Verify library maturity and maintenance for the hardest integrations.",
+          "Consider whether the interface should closely follow each platform or maintain a highly custom shared visual system. Include app size, startup, memory, scrolling, and low-end devices in representative testing."
+        ]
+      },
+      {
+        "id": "team-fit",
+        "title": "Evaluate team and maintenance fit",
+        "paragraphs": [
+          "Compare current language skills, hiring market, code ownership, native expertise, CI infrastructure, release process, and upgrade tolerance. A technology that the team can review and debug safely is usually better than a theoretical benchmark winner.",
+          "Build a short prototype of the riskiest feature, not a simple counter application. Document setup, architecture, tests, build time, platform differences, and unresolved risks before deciding."
+        ]
+      },
+      {
+        "id": "prototype",
+        "title": "Prototype the highest-risk mobile capability",
+        "paragraphs": [
+          "Do not choose from screenshots alone. Identify the product capability most likely to expose platform tradeoffs—camera access, background work, maps, animations, offline synchronization, notifications, or an existing native SDK—and prototype that capability in both candidates when the decision is consequential. A simple content screen rarely reveals integration and maintenance cost.",
+          "Include the entire delivery environment in the evaluation. Compare existing team skills, access to native expertise, package quality, platform release cadence, debugging, automated testing, application size, accessibility, CI pipelines, and store-release ownership. Also decide how much visual consistency versus platform-native behavior the product requires."
+        ],
+        "bullets": [
+          "Test on real iOS and Android devices.",
+          "Inspect package maintenance and native escape hatches.",
+          "Measure startup and interaction behavior for the target feature.",
+          "Estimate onboarding and long-term upgrade cost.",
+          "Document why the selected option fits this product and team."
+        ],
+        "note": "The correct decision may differ for a JavaScript product team, a Dart-specialist team, and a product with substantial existing native code."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Choose React Native",
+        "guidance": "The team is strong in React and TypeScript, wants ecosystem alignment, and the required native libraries are healthy."
+      },
+      {
+        "label": "Choose Flutter",
+        "guidance": "The team accepts Dart, wants a cohesive cross-platform UI toolkit, and values consistent custom visuals."
+      },
+      {
+        "label": "Choose native development",
+        "guidance": "The product depends heavily on platform-specific behavior, newest APIs, maximum native convention, or specialist performance work."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Flutter faster than React Native?",
+        "answer": "There is no universal answer. Performance depends on the feature, rendering workload, architecture, device, libraries, and implementation. Prototype the product's demanding interactions on representative devices."
+      },
+      {
+        "question": "Can React Native reuse React web components?",
+        "answer": "Business logic, types, state patterns, and some hooks may transfer, but DOM-based components and CSS usually do not. Mobile uses different primitives, navigation, layout details, and interaction conventions."
+      },
+      {
+        "question": "Which has better job opportunities?",
+        "answer": "Opportunities vary by country, industry, and company stack. React Native benefits from the wider JavaScript and React ecosystem, while Flutter has dedicated adoption in many mobile teams. Research your target market rather than assuming global trends apply locally."
+      },
+      {
+        "question": "Do both frameworks support iOS and Android?",
+        "answer": "Yes, but support does not mean identical behavior. Each platform still has build systems, permissions, accessibility services, store rules, device differences, and native integration requirements."
+      }
+    ],
+    "relatedPathSlugs": [
+      "react-native-mobile"
+    ],
+    "relatedCareerSlugs": [
+      "mobile-developer",
+      "frontend-developer"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "kanban"
+    ],
+    "resourceIds": [
+      "react-native-official-docs",
+      "flutter-official-docs"
+    ],
+    "references": [
+      {
+        "name": "React Native Documentation",
+        "url": "https://reactnative.dev/docs/getting-started",
+        "type": "official"
+      },
+      {
+        "name": "Flutter Documentation",
+        "url": "https://docs.flutter.dev/get-started/fundamentals",
+        "type": "official"
+      }
+    ],
+    "cta": {
+      "title": "Build the shared mobile fundamentals",
+      "text": "Use the React Native path to practice navigation, data, persistence, device APIs, testing, and release work before comparing more libraries.",
+      "href": "/learning-paths/react-native-mobile",
+      "label": "Open React Native path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "ui-vs-ux-vs-product-design",
+    "kind": "comparison",
+    "title": "UI vs UX vs Product Design: Responsibilities, Skills, and Outputs",
+    "shortTitle": "UI vs UX vs product design",
+    "summary": "Compare UI design, UX design, and product design by scope, daily activities, artifacts, research responsibility, visual craft, and product collaboration.",
+    "description": "This comparison explains overlapping design titles without pretending every company uses them identically. It focuses on the work performed, decisions owned, and evidence expected from each role.",
+    "primaryKeyword": "UI vs UX vs product design",
+    "secondaryKeywords": [
+      "UI designer vs UX designer",
+      "product designer vs UX designer",
+      "difference between UI and UX",
+      "design career roles",
+      "what does a product designer do"
+    ],
+    "searchIntent": "Help aspiring designers and hiring teams understand the practical scope and overlap between common digital design titles.",
+    "audience": [
+      "Aspiring designers",
+      "Developers working with design",
+      "Hiring and product teams"
+    ],
+    "readingMinutes": 10,
+    "quickAnswer": "UI design concentrates on visual hierarchy, components, states, and interface craft. UX design concentrates on how people understand and complete goals across a journey. Product design often combines research, UX, UI, prototyping, validation, and product constraints end to end. Company size determines how much these responsibilities overlap.",
+    "keyTakeaways": [
+      "Titles vary; inspect responsibilities, outputs, and team structure.",
+      "Good UI supports UX, but an attractive screen cannot fix the wrong flow or problem.",
+      "Product designers often own broader decisions, while specialist UI and UX roles can provide deeper craft or research capability."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "UI design",
+        "UX design",
+        "Product design"
+      ],
+      "rows": [
+        {
+          "label": "Primary focus",
+          "values": [
+            "Visual and interactive interface quality",
+            "End-to-end usability and experience",
+            "Product problem and solution across the lifecycle"
+          ]
+        },
+        {
+          "label": "Common activities",
+          "values": [
+            "Visual systems, components, states, prototypes",
+            "Research, flows, architecture, usability testing",
+            "Discovery, UX, UI, validation, strategy collaboration"
+          ]
+        },
+        {
+          "label": "Typical outputs",
+          "values": [
+            "High-fidelity screens, tokens, component specs",
+            "Research findings, journeys, flows, wireframes, test results",
+            "Problem framing, flows, prototypes, systems, outcome evidence"
+          ]
+        },
+        {
+          "label": "Main collaborators",
+          "values": [
+            "Product designers and frontend developers",
+            "Researchers, product, design, engineering",
+            "Product management, engineering, research, data, stakeholders"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "ui",
+        "title": "UI design focuses on interface craft",
+        "paragraphs": [
+          "UI designers shape hierarchy, typography, spacing, color, icons, components, responsive behavior, motion, and detailed interaction states. They make a product understandable and coherent at the screen and system level.",
+          "Strong UI work includes accessibility, content density, platform patterns, reusable components, and implementation collaboration—not only visual decoration."
+        ]
+      },
+      {
+        "id": "ux",
+        "title": "UX design focuses on goals and journeys",
+        "paragraphs": [
+          "UX designers investigate how people understand information, move through tasks, recover from errors, and experience a service across touchpoints. Work may include research, flows, information architecture, wireframes, prototypes, and usability testing.",
+          "UX is not a layer added after UI. Decisions about navigation, content, sequence, permissions, and feedback shape the experience before visual polish begins."
+        ]
+      },
+      {
+        "id": "product",
+        "title": "Product design connects the lifecycle",
+        "paragraphs": [
+          "Product designers often work end to end: problem discovery, user and business context, interaction and visual design, validation, delivery collaboration, and iteration after release. In smaller teams, the title may include UI and UX responsibilities.",
+          "The role requires balancing user needs, technical constraints, product strategy, operational reality, and quality. Breadth should not become a reason to skip evidence or craft."
+        ]
+      },
+      {
+        "id": "job-description",
+        "title": "Read the job description, not only the title",
+        "paragraphs": [
+          "A UI Designer role may include UX research; a UX Designer role may require high-fidelity systems; a Product Designer role may be mostly delivery. Ask about team composition, research access, design-system ownership, decision authority, and expected deliverables.",
+          "Portfolio evidence should match the role. UI specialists need excellent system craft, UX specialists need credible research and structure, and product designers need connected reasoning from problem through outcome."
+        ]
+      },
+      {
+        "id": "artifacts",
+        "title": "Compare the work artifacts, not only the labels",
+        "paragraphs": [
+          "Job titles vary widely between organizations, so inspect what the person is expected to produce and influence. A UI-heavy role may emphasize visual systems, responsive states, motion, and component quality. A UX-heavy role may emphasize research, information architecture, task flows, testing, and service behavior. Product design often spans discovery through delivery and requires continuous collaboration with product and engineering.",
+          "When assessing a role, ask who owns research, who defines product direction, who maintains the design system, how success is measured, and whether the designer remains involved after handoff. These answers reveal the actual scope more reliably than the title."
+        ],
+        "bullets": [
+          "Review the expected portfolio evidence.",
+          "Ask which decisions the role can make independently.",
+          "Identify the balance of research, interaction, visual craft, and systems work.",
+          "Check collaboration with engineering and product.",
+          "Clarify whether the role serves one product, many clients, or a shared platform."
+        ],
+        "note": "A broad title is not automatically more senior; scope, ambiguity, influence, and quality of judgment matter more."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Choose UI specialization",
+        "guidance": "You enjoy visual hierarchy, component systems, interaction detail, typography, motion, and close frontend collaboration."
+      },
+      {
+        "label": "Choose UX specialization",
+        "guidance": "You enjoy research, information architecture, flows, usability, content, and understanding behavior."
+      },
+      {
+        "label": "Choose product design",
+        "guidance": "You want broad ownership from discovery through interface delivery and iteration, and can balance evidence with craft."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is UI part of UX?",
+        "answer": "UI strongly affects UX, but UX also includes structure, content, process, service, expectations, and outcomes beyond visual screens. Teams may separate or combine the disciplines."
+      },
+      {
+        "question": "Which role requires the most research?",
+        "answer": "UX researchers specialize in research depth. UX and product designers often conduct evaluative or lightweight generative research, while UI specialists may focus more on interface systems. The exact division depends on the team."
+      },
+      {
+        "question": "Can a graphic designer move into UI or product design?",
+        "answer": "Yes. Visual craft transfers, but digital product work adds interaction states, responsive systems, accessibility, usability, research, content, data behavior, and developer collaboration."
+      },
+      {
+        "question": "Which portfolio should I build?",
+        "answer": "Match the intended role. Show detailed interface systems for UI, evidence and flow decisions for UX, and an end-to-end problem-to-outcome narrative for product design. Be honest about your role and evidence."
+      }
+    ],
+    "relatedPathSlugs": [
+      "ui-ux-product-design"
+    ],
+    "relatedCareerSlugs": [
+      "product-designer",
+      "ux-researcher",
+      "frontend-developer"
+    ],
+    "relatedWaySlugs": [
+      "double-diamond",
+      "lean"
+    ],
+    "resourceIds": [
+      "figma-design-beginners",
+      "design-council-double-diamond",
+      "w3c-wai-tutorials"
+    ],
+    "references": [
+      {
+        "name": "Design Council Double Diamond",
+        "url": "https://www.designcouncil.org.uk/our-resources/the-double-diamond/",
+        "type": "official"
+      },
+      {
+        "name": "W3C Web Accessibility Tutorials",
+        "url": "https://www.w3.org/WAI/tutorials/",
+        "type": "standards"
+      }
+    ],
+    "cta": {
+      "title": "Explore the design roles and learning path",
+      "text": "Compare Darma's Product Designer and UX Researcher guides, then follow the product design path to build evidence.",
+      "href": "/learning-paths/ui-ux-product-design",
+      "label": "Open the design path"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "product-manager-vs-project-manager",
+    "kind": "comparison",
+    "title": "Product Manager vs Project Manager: Outcomes, Scope, and Daily Work",
+    "shortTitle": "Product manager vs project manager",
+    "summary": "Compare product management and project management by goals, decisions, planning horizon, stakeholders, artifacts, success measures, and team collaboration.",
+    "description": "This guide explains why product and project management overlap but are not interchangeable. It focuses on whether the role owns product outcomes and direction, or coordinates a defined initiative through scope, schedule, dependencies, and delivery.",
+    "primaryKeyword": "product manager vs project manager",
+    "secondaryKeywords": [
+      "product management vs project management",
+      "PM roles difference",
+      "what does a product manager do",
+      "what does a project manager do",
+      "tech management careers"
+    ],
+    "searchIntent": "Help learners and organizations distinguish two commonly confused roles and choose the right responsibility model for their work.",
+    "audience": [
+      "Career changers",
+      "Technology teams",
+      "Hiring managers and stakeholders"
+    ],
+    "readingMinutes": 10,
+    "quickAnswer": "A product manager primarily owns product direction and outcomes: which problem to solve, for whom, why now, and how success is measured. A project manager primarily coordinates an initiative: scope, schedule, dependencies, risk, communication, and completion. Some organizations combine the roles, but the underlying accountabilities remain different.",
+    "keyTakeaways": [
+      "Product management is continuous and outcome-oriented; project management is often initiative-oriented and delivery-coordination focused.",
+      "Both roles need communication, prioritization, risk awareness, and stakeholder management.",
+      "Confusion creates gaps when nobody owns product discovery or nobody owns delivery coordination."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "Product manager",
+        "Project manager"
+      ],
+      "rows": [
+        {
+          "label": "Primary question",
+          "values": [
+            "What problem and outcome should the product pursue?",
+            "How will this defined initiative be coordinated and completed?"
+          ]
+        },
+        {
+          "label": "Planning horizon",
+          "values": [
+            "Continuous product lifecycle and strategic direction",
+            "Project start, plan, execution, closure, and transition"
+          ]
+        },
+        {
+          "label": "Common outputs",
+          "values": [
+            "Product strategy, goals, priorities, discovery decisions, outcome measures",
+            "Project plan, schedule, dependency map, risk log, status communication"
+          ]
+        },
+        {
+          "label": "Success",
+          "values": [
+            "User and business outcomes, learning, product health",
+            "Delivery objectives, managed risk, coordination, time and scope expectations"
+          ]
+        },
+        {
+          "label": "Core collaborators",
+          "values": [
+            "Users, design, engineering, data, business stakeholders",
+            "Delivery team, sponsors, vendors, operations, cross-team dependencies"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "product",
+        "title": "Product managers shape direction and outcomes",
+        "paragraphs": [
+          "Product managers synthesize user needs, business context, technical constraints, data, and strategy to choose problems and outcomes. They coordinate discovery, define goals, prioritize opportunities, and learn from releases.",
+          "They should not simply write tickets or dictate implementation. Healthy product management creates context and decisions while enabling design and engineering expertise."
+        ]
+      },
+      {
+        "id": "project",
+        "title": "Project managers coordinate defined work",
+        "paragraphs": [
+          "Project managers structure scope, schedule, resources, dependencies, risk, governance, communication, and delivery. They help multiple contributors and stakeholders maintain a shared plan and address issues before they become surprises.",
+          "They may work across software, operations, client delivery, migrations, events, construction, or other initiatives. The role can be especially valuable where dependencies, contracts, and formal reporting are significant."
+        ]
+      },
+      {
+        "id": "overlap",
+        "title": "Where the roles overlap",
+        "paragraphs": [
+          "Both facilitate decisions, communicate with stakeholders, surface risk, clarify priorities, and support delivery. In a small organization one person may perform both, but they should still make the two kinds of decision visible.",
+          "A product can have ongoing outcome ownership while individual projects deliver migrations, launches, compliance work, or major integrations around it."
+        ]
+      },
+      {
+        "id": "team-design",
+        "title": "Design the responsibility model explicitly",
+        "paragraphs": [
+          "Write down who owns product vision, user evidence, prioritization, scope changes, schedule, dependency resolution, budget, quality, release, and outcome measurement. The correct titles matter less than preventing missing or competing accountability.",
+          "Review the model when the work changes. A discovery-heavy product initiative, a fixed client contract, and an infrastructure migration may need different coordination."
+        ]
+      },
+      {
+        "id": "ownership",
+        "title": "Clarify ownership before work begins",
+        "paragraphs": [
+          "Teams struggle when both roles are present but decision rights remain implicit. Write down who owns the product problem, outcome metrics, roadmap tradeoffs, delivery plan, dependencies, budget, risk communication, and stakeholder updates. Some organizations combine several of these responsibilities, while others divide them among product, project, delivery, and program roles.",
+          "Use a real initiative to test the model. When evidence suggests the feature should change, who decides? When a dependency threatens the deadline, who coordinates the response? When stakeholders disagree about success, who resolves the product outcome? Clear answers reduce duplicated meetings and prevent important decisions from falling between roles."
+        ],
+        "bullets": [
+          "Product management usually protects value, users, and strategic outcomes.",
+          "Project management usually protects coordination, constraints, and delivery visibility.",
+          "Both require communication, prioritization, and risk awareness.",
+          "Neither role should become a substitute for engineering or design judgment.",
+          "Document the model because titles alone are unreliable."
+        ],
+        "note": "The goal is not to defend a universal boundary; it is to make accountability visible in the organization you actually have."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Choose product management",
+        "guidance": "You enjoy discovering problems, balancing user and business outcomes, making prioritization decisions, and learning continuously from product evidence."
+      },
+      {
+        "label": "Choose project management",
+        "guidance": "You enjoy planning initiatives, coordinating people and dependencies, managing risk, communicating status, and bringing defined work to completion."
+      },
+      {
+        "label": "Combine responsibilities carefully",
+        "guidance": "In a small team, name when you are making a product decision versus a project coordination decision and protect time for both."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can a product manager also be a project manager?",
+        "answer": "Yes, especially in small teams, but the person must handle two different responsibility sets. Product discovery and outcome ownership should not disappear under schedule coordination, and delivery risk should not disappear under strategy work."
+      },
+      {
+        "question": "Does a product manager manage developers?",
+        "answer": "Usually no. Product managers influence priorities and outcomes but do not typically manage engineering performance. Engineering managers and technical leads own different people and technical responsibilities."
+      },
+      {
+        "question": "Which role is more strategic?",
+        "answer": "Product management often has a longer product-strategy horizon, while project management can also be strategic when coordinating major organizational change. The distinction is more about the object of ownership than seniority."
+      },
+      {
+        "question": "Which certifications are required?",
+        "answer": "Certifications can provide vocabulary and structure, but employers usually need evidence of judgment, communication, planning, discovery, risk management, and outcomes. Requirements vary by industry and regulation."
+      }
+    ],
+    "relatedPathSlugs": [],
+    "relatedCareerSlugs": [
+      "product-manager",
+      "project-manager",
+      "scrum-master-agile-facilitator"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "scrum",
+      "waterfall",
+      "kanban"
+    ],
+    "resourceIds": [
+      "gitlab-job-description-library",
+      "sfia-responsibility-levels"
+    ],
+    "references": [
+      {
+        "name": "Atlassian Product Management Guide",
+        "url": "https://www.atlassian.com/agile/product-management",
+        "type": "community"
+      },
+      {
+        "name": "Project Management Institute",
+        "url": "https://www.pmi.org/about/learn-about-pmi/what-is-project-management",
+        "type": "standards"
+      }
+    ],
+    "cta": {
+      "title": "Inspect both career guides",
+      "text": "Compare the daily work, responsibilities, levels, outputs, collaborators, and starting steps for both roles in the Darma career atlas.",
+      "href": "/tech-careers",
+      "label": "Open technology careers"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "devops-vs-sre",
+    "kind": "comparison",
+    "title": "DevOps vs SRE: Principles, Roles, Reliability, and Team Design",
+    "shortTitle": "DevOps vs SRE",
+    "summary": "Compare DevOps and Site Reliability Engineering by purpose, practices, metrics, responsibilities, automation, reliability, and organizational design.",
+    "description": "This comparison explains why DevOps and SRE overlap but are not synonyms. It distinguishes a broad operating philosophy from a reliability-focused engineering discipline and shows how the two can support each other.",
+    "primaryKeyword": "DevOps vs SRE",
+    "secondaryKeywords": [
+      "site reliability engineering vs DevOps",
+      "SRE role",
+      "DevOps engineer vs SRE",
+      "reliability engineering",
+      "DevOps careers"
+    ],
+    "searchIntent": "Help developers, teams, and career changers understand the relationship and practical differences between DevOps and SRE.",
+    "audience": [
+      "Developers learning operations",
+      "Aspiring DevOps and SRE professionals",
+      "Engineering leaders designing teams"
+    ],
+    "readingMinutes": 11,
+    "quickAnswer": "DevOps is a broad set of principles and practices that improves collaboration, automation, feedback, and shared responsibility across development and operations. SRE is an engineering discipline that applies software methods to reliability using service-level objectives, error budgets, automation, incident response, and toil reduction. SRE can be one concrete implementation of DevOps principles.",
+    "keyTakeaways": [
+      "DevOps is not only a job title or a CI/CD toolchain.",
+      "SRE introduces explicit reliability objectives and mechanisms for balancing feature change with service risk.",
+      "Both require collaboration, automation, observability, secure delivery, and learning from incidents."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "DevOps",
+        "SRE"
+      ],
+      "rows": [
+        {
+          "label": "Nature",
+          "values": [
+            "Principles, culture, and practices across delivery and operation",
+            "Engineering discipline focused on service reliability"
+          ]
+        },
+        {
+          "label": "Primary outcomes",
+          "values": [
+            "Faster, safer flow and shared operational ownership",
+            "Reliable services within explicit objectives and managed risk"
+          ]
+        },
+        {
+          "label": "Common mechanisms",
+          "values": [
+            "CI/CD, automation, collaboration, infrastructure as code, feedback",
+            "SLIs, SLOs, error budgets, incident response, toil reduction, capacity"
+          ]
+        },
+        {
+          "label": "Typical team shape",
+          "values": [
+            "Embedded practices, platform teams, DevOps engineers, shared ownership",
+            "Dedicated or embedded reliability engineers with service partnerships"
+          ]
+        },
+        {
+          "label": "Risk",
+          "values": [
+            "Becoming a renamed operations silo or tool list",
+            "Becoming a ticket queue or enforcing reliability without product context"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "devops",
+        "title": "DevOps improves the delivery and operating system",
+        "paragraphs": [
+          "DevOps emerged to reduce the separation between software development and operations. It emphasizes collaboration, automation, continuous feedback, small changes, reliable delivery, infrastructure practices, security, and responsibility for production outcomes.",
+          "Organizations implement DevOps through team design, CI/CD, platform capabilities, observability, shared on-call, blameless learning, and many other practices. There is no single required DevOps role or framework."
+        ]
+      },
+      {
+        "id": "sre",
+        "title": "SRE engineers reliability explicitly",
+        "paragraphs": [
+          "Site Reliability Engineering treats operations as a software problem and uses measurable service objectives to manage reliability. Teams define service-level indicators and objectives, use error budgets to balance change and risk, automate repetitive work, and improve incident response.",
+          "SRE also considers capacity, performance, availability, dependencies, change management, disaster recovery, and sustainable on-call. The discipline needs product context so reliability investment matches user impact."
+        ]
+      },
+      {
+        "id": "together",
+        "title": "How DevOps and SRE work together",
+        "paragraphs": [
+          "DevOps provides the broader organizational direction toward collaboration and shared flow. SRE provides specific reliability practices and a role model for services whose operational scale or criticality needs dedicated engineering.",
+          "A platform team may improve developer experience and deployment safety, product teams may own service behavior, and SREs may partner on objectives, incidents, and systemic reliability risks."
+        ]
+      },
+      {
+        "id": "career",
+        "title": "Choosing between the career paths",
+        "paragraphs": [
+          "DevOps Engineer titles often involve CI/CD, cloud infrastructure, containers, automation, observability, and platform work. SRE roles typically expect deeper production systems, coding, reliability measurement, incident response, and distributed-system reasoning.",
+          "Read the job description carefully because titles vary. Ask about on-call, service ownership, infrastructure coding, platform products, reliability objectives, and how success is measured."
+        ]
+      },
+      {
+        "id": "operating-problem",
+        "title": "Read the operating problem behind the title",
+        "paragraphs": [
+          "A DevOps-oriented role may focus on improving the path from code to production through platform capabilities, automation, developer experience, security controls, and shared operational ownership. An SRE role is usually more explicitly centered on measurable reliability, service-level objectives, error budgets, incident response, capacity, and reducing operational toil through engineering.",
+          "In smaller organizations one team may perform both sets of work. In larger environments, platform, DevOps, cloud, infrastructure, and SRE groups may have distinct boundaries. Evaluate the services owned, on-call expectations, authority over reliability decisions, internal customers, and success metrics rather than assuming the title has a universal definition."
+        ],
+        "bullets": [
+          "Choose a DevOps/platform direction if delivery systems and developer enablement interest you.",
+          "Choose SRE if reliability modeling, production behavior, and incident learning interest you.",
+          "Build software and systems skills for both paths.",
+          "Ask whether the role operates a product, builds a platform, advises teams, or combines these responsibilities."
+        ],
+        "note": "SRE can be one concrete implementation of DevOps principles, but organizations use both terms inconsistently."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Choose a DevOps or platform path",
+        "guidance": "You enjoy delivery automation, cloud platforms, infrastructure, developer experience, and improving how many teams ship software."
+      },
+      {
+        "label": "Choose an SRE path",
+        "guidance": "You enjoy production systems, reliability measurement, incident response, performance, capacity, and automating operational work."
+      },
+      {
+        "label": "Apply both in a small team",
+        "guidance": "Use DevOps collaboration and automation principles, then adopt SRE practices such as service indicators, incident reviews, and toil reduction as the product grows."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is SRE better than DevOps?",
+        "answer": "No. They address related but different levels. DevOps is a broad approach to delivery and operation; SRE is a reliability discipline that can implement many DevOps goals. The needed model depends on product scale and organization."
+      },
+      {
+        "question": "Do SREs write code?",
+        "answer": "Yes. SRE roles generally use software engineering to automate operations, build reliability tooling, improve services, analyze systems, and reduce toil. The depth and languages vary by organization."
+      },
+      {
+        "question": "Does every company need an SRE team?",
+        "answer": "No. Small or early products can apply reliability practices within product and platform teams. Dedicated SRE investment becomes more useful as service criticality, scale, dependencies, and operational complexity grow."
+      },
+      {
+        "question": "Are DevOps engineers just operations engineers?",
+        "answer": "Not necessarily. Healthy DevOps roles often build delivery platforms, infrastructure automation, observability, security controls, and developer experience. A role that only receives deployment tickets may preserve the silo DevOps is meant to reduce."
+      }
+    ],
+    "relatedPathSlugs": [
+      "devops-web-developers"
+    ],
+    "relatedCareerSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer",
+      "security-engineer"
+    ],
+    "relatedWaySlugs": [
+      "devops-lifecycle",
+      "kanban",
+      "lean"
+    ],
+    "resourceIds": [
+      "dora-capabilities",
+      "team-topologies-key-concepts",
+      "docker-get-started"
+    ],
+    "references": [
+      {
+        "name": "DORA Capabilities",
+        "url": "https://dora.dev/capabilities/",
+        "type": "research"
+      },
+      {
+        "name": "Google SRE Books",
+        "url": "https://sre.google/books/",
+        "type": "official"
+      },
+      {
+        "name": "Team Topologies Key Concepts",
+        "url": "https://teamtopologies.com/key-concepts",
+        "type": "community"
+      }
+    ],
+    "cta": {
+      "title": "Compare the role guides",
+      "text": "See how Darma describes the daily work, levels, outputs, skills, and collaboration patterns of DevOps Engineers and SREs.",
+      "href": "/tech-careers",
+      "label": "Explore DevOps and SRE careers"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "junior-vs-mid-vs-senior-developer",
+    "kind": "comparison",
+    "title": "Junior vs Mid-Level vs Senior Developer: Scope, Evidence, and Growth",
+    "shortTitle": "Junior vs mid vs senior developer",
+    "summary": "Compare junior, mid-level, and senior developers by autonomy, ambiguity, system scope, collaboration, risk, evidence, and organizational impact.",
+    "description": "This guide replaces years-only definitions with responsibility and evidence. It explains how developer scope grows, what healthy support looks like, and how to plan progress without turning levels into a checklist of technologies.",
+    "primaryKeyword": "junior vs mid vs senior developer",
+    "secondaryKeywords": [
+      "developer levels",
+      "junior developer responsibilities",
+      "senior developer skills",
+      "mid level developer",
+      "software engineer career progression"
+    ],
+    "searchIntent": "Help developers and managers understand career levels through responsibility, autonomy, complexity, and impact rather than arbitrary years.",
+    "audience": [
+      "Junior and mid-level developers",
+      "Engineering managers",
+      "Mentors and hiring teams"
+    ],
+    "readingMinutes": 12,
+    "quickAnswer": "Junior developers deliver bounded work with guidance and are learning team systems. Mid-level developers independently own normal product changes and collaborate across boundaries. Senior developers handle ambiguous high-risk problems, improve systems and decision quality, and increase the effectiveness of others. The level depends on consistent evidence in context, not a universal number of years.",
+    "keyTakeaways": [
+      "Seniority is not the number of frameworks someone knows.",
+      "The scope, ambiguity, risk, influence, and consistency of outcomes distinguish levels more reliably than tenure alone.",
+      "A healthy career framework describes expected evidence while preserving multiple technical and leadership paths."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "Junior",
+        "Mid-level",
+        "Senior"
+      ],
+      "rows": [
+        {
+          "label": "Work scope",
+          "values": [
+            "Bounded tasks and small features",
+            "Complete normal features and services",
+            "Ambiguous cross-cutting or high-risk problems"
+          ]
+        },
+        {
+          "label": "Support",
+          "values": [
+            "Regular guidance and review",
+            "Independent with targeted consultation",
+            "Creates clarity and support for others"
+          ]
+        },
+        {
+          "label": "Decision impact",
+          "values": [
+            "Local implementation decisions",
+            "Feature and component tradeoffs",
+            "System, team, and long-term tradeoffs"
+          ]
+        },
+        {
+          "label": "Collaboration",
+          "values": [
+            "Learns team communication and feedback",
+            "Coordinates effectively across immediate partners",
+            "Aligns groups, mentors, and improves decision systems"
+          ]
+        },
+        {
+          "label": "Evidence",
+          "values": [
+            "Reliable learning and delivery in clear scope",
+            "Consistent ownership of production work",
+            "Repeated impact under ambiguity and organizational constraints"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "junior",
+        "title": "Junior scope emphasizes supported learning",
+        "paragraphs": [
+          "Junior developers should receive clear context, manageable tasks, review, pairing, documentation, and safe opportunities to debug. They are expected to ask questions, apply feedback, test their work, communicate blockers, and gradually handle larger slices.",
+          "A junior is not an inexpensive senior. Teams that provide no support often create avoidable mistakes and then mislabel the result as individual weakness."
+        ]
+      },
+      {
+        "id": "mid",
+        "title": "Mid-level scope emphasizes independent delivery",
+        "paragraphs": [
+          "Mid-level developers can usually take a well-understood product problem from clarification through implementation, testing, review, release, and follow-up. They make sound local tradeoffs and collaborate with design, product, QA, backend, or platform peers.",
+          "They recognize when a problem exceeds their context and seek help early. Growth toward senior scope often requires stronger ambiguity handling, system reasoning, risk management, and leverage beyond personal output."
+        ]
+      },
+      {
+        "id": "senior",
+        "title": "Senior scope emphasizes ambiguity and leverage",
+        "paragraphs": [
+          "Senior developers identify hidden constraints, frame problems, evaluate alternatives, protect quality, manage technical risk, and align people around sustainable decisions. They improve architecture, delivery, observability, review, mentoring, and team learning.",
+          "Seniority does not require management. A senior individual contributor can create broad impact through technical leadership, while managers own people and organizational systems."
+        ]
+      },
+      {
+        "id": "growth",
+        "title": "Plan growth through evidence",
+        "paragraphs": [
+          "Choose a responsibility one level above your current consistent scope, agree on the expected evidence, and take it with support. Examples include leading a feature discovery, improving a release process, resolving a cross-team dependency, mentoring, or designing a migration.",
+          "Keep a record of context, decisions, outcomes, feedback, and what changed because of your work. Promotion cases are stronger when they show repeated impact rather than one heroic event."
+        ]
+      },
+      {
+        "id": "evidence",
+        "title": "Collect evidence across five dimensions",
+        "paragraphs": [
+          "Seniority is easier to discuss when it is separated into observable dimensions: complexity of problems, independence, quality and risk ownership, collaboration, and impact beyond the immediate task. A developer can be advanced in one dimension and still need support in another, especially after moving to a new domain or organization.",
+          "Keep a growth log based on work evidence. Record ambiguous problems you clarified, incidents you helped resolve, tradeoffs you documented, feedback you gave, systems you improved, and outcomes that continued after your direct involvement. Review the log with a manager or mentor and select the next responsibility that expands scope without removing appropriate support."
+        ],
+        "bullets": [
+          "Junior: delivers bounded work with active guidance and learns team standards.",
+          "Mid-level: independently delivers familiar work and coordinates normal dependencies.",
+          "Senior: leads ambiguous work, manages risk, and increases the effectiveness of others.",
+          "Staff-plus and management paths require different kinds of organizational leverage."
+        ],
+        "note": "Years of experience can provide opportunity, but demonstrated responsibility and sustained impact are stronger evidence of level."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Growing from junior to mid-level",
+        "guidance": "Build reliable independent ownership of normal features, testing, debugging, communication, release, and follow-up."
+      },
+      {
+        "label": "Growing from mid-level to senior",
+        "guidance": "Take on ambiguity, cross-boundary risk, system design, mentoring, and improvements that make the team more effective."
+      },
+      {
+        "label": "Evaluating a title change",
+        "guidance": "Compare actual expectations, authority, support, and evidence across the company rather than relying on the title alone."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many years does it take to become a senior developer?",
+        "answer": "There is no universal number. Experience provides opportunities, but senior level requires consistent evidence of handling ambiguity, risk, systems, collaboration, and leverage in a relevant environment."
+      },
+      {
+        "question": "Does a senior developer need to manage people?",
+        "answer": "No. Senior individual contributors mentor and lead technically, while engineering managers own performance, growth, staffing, and organizational systems. Some people move between the paths."
+      },
+      {
+        "question": "Can someone be senior in one company and mid-level in another?",
+        "answer": "Yes. Product complexity, scale, regulation, team size, and career frameworks differ. A title should be interpreted through the expected scope and evidence in that organization."
+      },
+      {
+        "question": "What should a junior developer focus on first?",
+        "answer": "Focus on reliable fundamentals: understand requirements, communicate, write readable code, test behavior, use version control, respond to review, debug systematically, and complete small work safely."
+      }
+    ],
+    "relatedPathSlugs": [
+      "web-foundations",
+      "frontend-javascript",
+      "full-stack-javascript"
+    ],
+    "relatedCareerSlugs": [
+      "frontend-developer",
+      "backend-developer",
+      "full-stack-developer",
+      "tech-lead",
+      "engineering-manager"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "extreme-programming"
+    ],
+    "resourceIds": [
+      "sfia-responsibility-levels",
+      "gitlab-job-description-library"
+    ],
+    "references": [
+      {
+        "name": "SFIA Levels of Responsibility",
+        "url": "https://sfia-online.org/en/sfia-9/responsibilities",
+        "type": "standards"
+      },
+      {
+        "name": "GitLab Job Description Library",
+        "url": "https://handbook.gitlab.com/job-description-library/",
+        "type": "community"
+      }
+    ],
+    "cta": {
+      "title": "See levels inside each career guide",
+      "text": "Darma describes junior, mid-level, and senior evidence separately for frontend, backend, full stack, mobile, QA, DevOps, design, product, and leadership roles.",
+      "href": "/tech-careers",
+      "label": "Browse career levels"
+    }
+  },
+  {
+    "publishedAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z",
+    "author": {
+      "name": "Darma Editorial Team",
+      "role": "Open-source technology education maintainers",
+      "href": "/about#maintainers"
+    },
+    "reviewer": {
+      "name": "Darma Technical Review",
+      "role": "Source, structure, and cross-reference review",
+      "href": "/editorial-policy"
+    },
+    "featured": true,
+    "slug": "agile-vs-scrum-vs-kanban-vs-waterfall",
+    "kind": "comparison",
+    "title": "Agile vs Scrum vs Kanban vs Waterfall: What Each One Actually Means",
+    "shortTitle": "Agile vs Scrum vs Kanban vs Waterfall",
+    "summary": "Compare Agile, Scrum, Kanban, and Waterfall by purpose, planning, flow, feedback, roles, metrics, and suitable project conditions.",
+    "description": "This comparison separates values, frameworks, flow methods, and staged delivery. It helps teams select practices based on uncertainty, demand, feedback, dependencies, and governance instead of treating the four terms as equivalent options.",
+    "primaryKeyword": "Agile vs Scrum vs Kanban vs Waterfall",
+    "secondaryKeywords": [
+      "Scrum vs Kanban",
+      "Agile vs Waterfall",
+      "software methodologies comparison",
+      "project management methods",
+      "Scrum Kanban Waterfall"
+    ],
+    "searchIntent": "Help readers understand four commonly confused ways of working and choose an approach based on the nature of the work.",
+    "audience": [
+      "Software teams",
+      "Project and product professionals",
+      "Students learning delivery methods"
+    ],
+    "readingMinutes": 13,
+    "quickAnswer": "Agile is a set of values and principles for adaptive development. Scrum is a framework using goals, accountabilities, events, and artifacts in Sprints. Kanban is a method for managing flow and work in progress. Waterfall describes staged sequential planning and delivery. Teams should choose practices according to uncertainty, feedback needs, demand shape, and governance.",
+    "keyTakeaways": [
+      "Agile is not a process template and Scrum is not a synonym for Agile.",
+      "Kanban can be used with Scrum or other processes because it focuses on improving flow.",
+      "Waterfall can be appropriate for stable staged work, but delayed feedback is risky when requirements are uncertain."
+    ],
+    "comparisonTable": {
+      "columns": [
+        "Agile",
+        "Scrum",
+        "Kanban",
+        "Waterfall"
+      ],
+      "rows": [
+        {
+          "label": "Type",
+          "values": [
+            "Values and principles",
+            "Framework",
+            "Flow-management method",
+            "Staged lifecycle model"
+          ]
+        },
+        {
+          "label": "Planning",
+          "values": [
+            "Adaptive and context-dependent",
+            "Product and Sprint goals with iterative planning",
+            "Continuous replenishment and explicit policies",
+            "Detailed phase and dependency planning"
+          ]
+        },
+        {
+          "label": "Work flow",
+          "values": [
+            "Frequent value and feedback",
+            "Timeboxed Sprints",
+            "Continuous pull with WIP limits",
+            "Sequential phases and handoffs"
+          ]
+        },
+        {
+          "label": "Roles",
+          "values": [
+            "No required roles",
+            "Product Owner, Scrum Master, Developers",
+            "No required named roles",
+            "Defined by organization and project governance"
+          ]
+        },
+        {
+          "label": "Good fit",
+          "values": [
+            "Uncertain product work needing learning",
+            "Stable cross-functional product team",
+            "Continuous service or mixed-priority demand",
+            "Stable requirements and formal staged dependencies"
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "agile",
+        "title": "Agile provides guiding values",
+        "paragraphs": [
+          "The Agile Manifesto prioritizes people and interactions, working software, customer collaboration, and response to change while recognizing value in processes, documentation, contracts, and plans. It does not prescribe meetings, roles, or iteration length.",
+          "A team behaves agilely when it delivers and learns in small steps, collaborates across specialties, and changes plans based on evidence. Renaming a project plan as a backlog does not create agility."
+        ]
+      },
+      {
+        "id": "scrum",
+        "title": "Scrum provides a goal-oriented framework",
+        "paragraphs": [
+          "Scrum uses a Product Goal, Sprint Goal, Product Backlog, Sprint Backlog, Increment, defined accountabilities, and events for inspection and adaptation. It assumes a team capable of creating meaningful value within Sprints.",
+          "Scrum can expose organizational problems, but adding Scrum events without product focus, team autonomy, or usable increments often creates ceremony without learning."
+        ]
+      },
+      {
+        "id": "kanban",
+        "title": "Kanban improves flow",
+        "paragraphs": [
+          "Kanban visualizes work, limits work in progress, manages flow, makes policies explicit, and uses feedback to improve. It can begin with the current process and does not require Sprints or specific roles.",
+          "It is useful for support, platform, maintenance, operational, and product environments where demand arrives continuously. WIP limits only help when the team responds to blocked and aging work."
+        ]
+      },
+      {
+        "id": "waterfall",
+        "title": "Waterfall coordinates staged work",
+        "paragraphs": [
+          "Waterfall-style models plan phases such as requirements, design, implementation, verification, and release in sequence. This can support formal approvals, contracts, hardware dependencies, or stable repeatable work.",
+          "For uncertain software products, the danger is discovering user, design, and technical mistakes late. Staged work can still include prototypes, reviews, and early testing to reduce that risk."
+        ]
+      },
+      {
+        "id": "choose",
+        "title": "Choose and adapt with evidence",
+        "paragraphs": [
+          "Map uncertainty, demand, dependencies, regulatory constraints, team stability, release capability, and feedback access. Select the minimum practices that improve visibility, coordination, quality, and learning.",
+          "Review whether work finishes faster, risks surface earlier, quality improves, and users receive better outcomes. If the method creates queues or meetings without those benefits, change it."
+        ]
+      },
+      {
+        "id": "diagnose",
+        "title": "Diagnose the work before selecting the method",
+        "paragraphs": [
+          "Start by mapping demand, uncertainty, dependencies, release constraints, and feedback speed. Product discovery with uncertain requirements needs frequent learning. Support and operational work benefits from visible flow and work-in-progress limits. A regulated or physical dependency may require explicit stage gates and evidence. One organization may legitimately use different approaches in different parts of the same delivery system.",
+          "Run a time-boxed experiment and measure whether the chosen method improves outcomes. Track blocked work, lead time, predictability, quality, stakeholder understanding, and the team’s ability to change direction. Retain useful practices, remove ceremonies that do not solve a problem, and avoid renaming the existing process “Agile” without changing how decisions and feedback work."
+        ],
+        "bullets": [
+          "Use Agile values to guide adaptation and feedback.",
+          "Use Scrum when a stable team can pursue a product goal through short learning cycles.",
+          "Use Kanban when continuous flow and capacity management dominate.",
+          "Use staged planning when dependencies and approvals genuinely require it.",
+          "Combine methods only when each practice has an explicit purpose."
+        ],
+        "note": "A healthy operating model makes work, decisions, feedback, and constraints clearer; the label is secondary."
+      }
+    ],
+    "decisionFramework": [
+      {
+        "label": "Use Scrum",
+        "guidance": "A stable cross-functional team benefits from a shared Product Goal, short-term Sprint Goals, and regular inspection of a usable increment."
+      },
+      {
+        "label": "Use Kanban",
+        "guidance": "Demand is continuous or unpredictable and the main need is visibility, WIP control, and faster flow."
+      },
+      {
+        "label": "Use staged planning",
+        "guidance": "Requirements and dependencies are genuinely stable, approvals are formal, and phase coordination outweighs the cost of change."
+      },
+      {
+        "label": "Use Agile principles across any model",
+        "guidance": "Increase collaboration, working outcomes, customer feedback, and response to evidence without treating one framework as the goal."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can Scrum teams use Kanban?",
+        "answer": "Yes. Scrum teams can visualize flow, limit work in progress, and use flow metrics while retaining Scrum accountabilities, goals, events, and artifacts. The practices should support the Sprint Goal rather than create a separate system."
+      },
+      {
+        "question": "Is Kanban more agile than Scrum?",
+        "answer": "Neither is automatically more agile. Agility depends on behavior, feedback, delivery capability, and adaptation. Scrum and Kanban provide different structures that can support or fail those goals."
+      },
+      {
+        "question": "Does Waterfall mean no changes are allowed?",
+        "answer": "Not necessarily, but changes usually pass through more formal control because phases, contracts, or dependencies were planned in advance. The model becomes risky when uncertainty is high and feedback is delayed."
+      },
+      {
+        "question": "Which method is best for startups?",
+        "answer": "Startups need rapid evidence and constrained work in progress, but the exact method depends on team size and demand. A lightweight flow with clear goals, frequent user feedback, and disciplined quality is often more useful than heavy ceremony."
+      }
+    ],
+    "relatedPathSlugs": [
+      "devops-web-developers"
+    ],
+    "relatedCareerSlugs": [
+      "product-manager",
+      "project-manager",
+      "scrum-master-agile-facilitator",
+      "engineering-manager"
+    ],
+    "relatedWaySlugs": [
+      "agile",
+      "scrum",
+      "kanban",
+      "waterfall",
+      "scrumban"
+    ],
+    "resourceIds": [
+      "agile-manifesto",
+      "scrum-guide",
+      "kanban-guide"
+    ],
+    "references": [
+      {
+        "name": "Manifesto for Agile Software Development",
+        "url": "https://agilemanifesto.org/",
+        "type": "standards"
+      },
+      {
+        "name": "The Scrum Guide",
+        "url": "https://scrumguides.org/",
+        "type": "standards"
+      },
+      {
+        "name": "The Kanban Guide",
+        "url": "https://kanbanguides.org/",
+        "type": "standards"
+      }
+    ],
+    "cta": {
+      "title": "Inspect each method's complete workflow",
+      "text": "Darma's Ways of Working guides show roles, stages, artifacts, strengths, risks, healthy signals, and direct alternatives.",
+      "href": "/ways-of-working",
+      "label": "Explore ways of working"
+    }
+  }
+]

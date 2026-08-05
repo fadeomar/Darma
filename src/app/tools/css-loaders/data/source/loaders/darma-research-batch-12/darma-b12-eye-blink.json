@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-eye-blink",
+  "name": "Eye Blink",
+  "category": "fun",
+  "tags": [
+    "eye",
+    "blink",
+    "iris",
+    "watching",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"eye\"><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .56); display: grid; place-items: center; }\n.loader .eye { position: relative; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: #f8fafc; box-shadow: inset 0 0 0 3px var(--accent-2), inset 0 -6px 10px rgba(15, 23, 42, .12); }\n.loader .eye span { width: 36%; height: 64%; border-radius: 50%; background: radial-gradient(circle at 50% 50%, #0f172a 32%, var(--accent) 34%, var(--accent-2)); animation: gaze calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .eye::after { content: ''; position: absolute; z-index: 2; inset: 0; border-radius: 50%; transform-origin: center top; background: var(--accent); animation: blink calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n@keyframes gaze { 0%, 100% { transform: translateX(-38%); } 50% { transform: translateX(38%); } }\n@keyframes blink { 0%, 38% { transform: scaleY(0); } 48%, 54% { transform: scaleY(1); } 64%, 100% { transform: scaleY(0); } }",
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#22d3ee",
+    "size": 104,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

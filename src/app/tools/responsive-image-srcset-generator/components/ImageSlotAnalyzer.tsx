@@ -11,5 +11,5 @@ export function ImageSlotAnalyzer({ state }: { state: ResponsiveImageState }) {
     ["3", "Browser pick", candidate ? `${candidate.width}w at ${state.previewDpr}x DPR` : "No matching candidate"],
     ["4", "Markup", state.mode === "picture" ? "picture output" : state.mode === "next-image" ? "Next.js Image output" : "img output"],
   ];
-  return <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">{steps.map(([num, title, body]) => <div key={num} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3"><span className="text-[10px] font-black uppercase tracking-wide text-[var(--color-accent)]">Step {num}</span><h3 className="mt-1 text-sm font-bold text-[var(--color-text)]">{title}</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-soft)]">{body}</p></div>)}</div>;
+  return <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">{steps.map(([num, title, body]) => <div key={num} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3"><span className="text-xs font-black uppercase tracking-wide text-[var(--color-accent-text)]">Step {num}</span><h3 className="mt-1 text-sm font-bold text-[var(--color-text)]">{title}</h3><p className="mt-1 text-xs leading-5 text-[var(--color-text-soft)]">{body}</p></div>)}</div>;
 }

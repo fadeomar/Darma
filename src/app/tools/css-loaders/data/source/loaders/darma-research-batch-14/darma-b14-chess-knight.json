@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-chess-knight",
+  "name": "Chess Knight",
+  "category": "creative",
+  "tags": [
+    "chess",
+    "knight",
+    "board",
+    "move",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; border-radius: 4px; background-color: color-mix(in srgb, #fff 72%, var(--accent-2)); background-image: linear-gradient(45deg, var(--accent-2) 25%, transparent 25% 75%, var(--accent-2) 75%), linear-gradient(45deg, var(--accent-2) 25%, transparent 25% 75%, var(--accent-2) 75%); background-size: calc(var(--loader-size) / 3) calc(var(--loader-size) / 3); background-position: 0 0, calc(var(--loader-size) / 6) calc(var(--loader-size) / 6); }\n.loader span { position: absolute; width: 30%; height: 32%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 34%, var(--accent))); filter: drop-shadow(0 1px 1px rgba(15, 23, 42, .35)); clip-path: polygon(14% 100%, 86% 100%, 80% 88%, 62% 76%, 72% 52%, 88% 34%, 74% 10%, 52% 2%, 44% 14%, 26% 4%, 32% 28%, 10% 46%, 24% 56%, 32% 76%); animation: knight-tour calc(var(--loader-speed) * 6) ease-in-out infinite; }\n@keyframes knight-tour { 0%, 8% { left: 4%; top: 2%; } 12.5%, 20.5% { left: 70%; top: 35%; } 25%, 33% { left: 4%; top: 68%; } 37.5%, 45.5% { left: 37%; top: 2%; } 50%, 58% { left: 70%; top: 68%; } 62.5%, 70.5% { left: 4%; top: 35%; } 75%, 83% { left: 70%; top: 2%; } 87.5%, 95.5% { left: 37%; top: 68%; } 100% { left: 4%; top: 2%; } }",
+  "defaults": {
+    "color": "#0f172a",
+    "secondaryColor": "#a16207",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

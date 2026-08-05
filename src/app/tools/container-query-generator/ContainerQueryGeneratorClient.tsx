@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import {
@@ -48,6 +48,12 @@ export default function ContainerQueryGeneratorClient() {
     severity: message.type === "error" ? "danger" : message.type === "warning" ? "warning" : message.type === "success" ? "success" : "info",
     message: message.message,
   })), [normalized]);
+
+  useEffect(() => {
+    const presetId = new URLSearchParams(window.location.search).get("preset");
+    const preset = CONTAINER_QUERY_PRESETS.find((item) => item.id === presetId);
+    if (preset) setState(normalizeContainerQueryState(preset.state));
+  }, []);
 
   function patchState(patch: Partial<ContainerQueryState>) {
     setState((current) => normalizeContainerQueryState({ ...current, ...patch }));

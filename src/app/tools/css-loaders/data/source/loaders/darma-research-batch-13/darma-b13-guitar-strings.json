@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-guitar-strings",
+  "name": "Guitar Strings",
+  "category": "fun",
+  "tags": [
+    "guitar",
+    "strings",
+    "strum",
+    "music",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .56); position: relative; display: flex; flex-direction: column; justify-content: space-evenly; overflow: hidden; border-radius: 5px; background: linear-gradient(90deg, color-mix(in srgb, #000 52%, var(--accent-2)), color-mix(in srgb, #000 24%, var(--accent-2))); }\n.loader::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 21%, rgba(255, 255, 255, .26) 21% 23.5%); }\n.loader span { position: relative; z-index: 2; border-radius: 2px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #fff 48%, var(--accent))); animation: vibrate calc(var(--loader-speed) * .9) ease-in-out infinite; }\n.loader span:nth-child(1) { height: 7%; }\n.loader span:nth-child(2) { height: 6%; animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-child(3) { height: 5%; animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(4) { height: 4%; animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(5) { height: 3.4%; animation-delay: calc(var(--loader-speed) * .4); }\n@keyframes vibrate { 0%, 100% { transform: scaleY(1); filter: blur(0); } 30% { transform: scaleY(2.8); filter: blur(1px); } 60% { transform: scaleY(1.2); filter: blur(0); } }",
+  "defaults": {
+    "color": "#fbbf24",
+    "secondaryColor": "#7c2d12",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

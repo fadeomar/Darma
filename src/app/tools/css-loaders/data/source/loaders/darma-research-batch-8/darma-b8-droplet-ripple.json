@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-droplet-ripple",
+  "name": "Droplet Ripple",
+  "category": "pulse",
+  "tags": ["droplet", "water", "ripple", "splash", "pulse"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; left: 50%; top: 0; width: calc(var(--loader-size) * .16); height: calc(var(--loader-size) * .16); margin-left: calc(var(--loader-size) * -.08); border-radius: 50% 50% 50% 0; background: linear-gradient(135deg, var(--accent), var(--accent-2)); animation: drip calc(var(--loader-speed) * 1.8) ease-in infinite; }\n.loader::before, .loader::after { content: ''; position: absolute; left: 50%; bottom: 8%; width: calc(var(--loader-size) * .24); height: calc(var(--loader-size) * .1); margin-left: calc(var(--loader-size) * -.12); border: 2px solid var(--accent-2); border-radius: 50%; opacity: 0; animation: ripple calc(var(--loader-speed) * 1.8) ease-out infinite; }\n.loader::after { animation-delay: calc(var(--loader-speed) * .28); }\n@keyframes drip { 0% { transform: translateY(0) rotate(45deg) scale(1); } 55% { transform: translateY(calc(var(--loader-size) * .72)) rotate(45deg) scale(1); opacity: 1; } 62% { transform: translateY(calc(var(--loader-size) * .72)) rotate(45deg) scale(.2); opacity: .3; } 63%, 100% { opacity: 0; } }\n@keyframes ripple { 0%, 55% { transform: scale(.3); opacity: 0; } 62% { opacity: .85; } 100% { transform: scale(1.6); opacity: 0; } }",
+  "defaults": { "color": "#38bdf8", "secondaryColor": "#0284c7", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

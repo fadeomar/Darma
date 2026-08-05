@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-slot-reels",
+  "name": "Slot Reels",
+  "category": "fun",
+  "tags": ["slot", "reels", "casino", "spin", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .7); display: flex; gap: calc(var(--loader-size) * .04); background: #1f2937; border-radius: calc(var(--loader-size) * .08); padding: calc(var(--loader-size) * .05); box-sizing: border-box; }\n.loader span { flex: 1; overflow: hidden; border-radius: calc(var(--loader-size) * .04); background: #0f172a; position: relative; }\n.loader span::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 300%; background: repeating-linear-gradient(var(--accent) 0 16.66%, var(--accent-2) 16.66% 33.33%); animation: reel calc(var(--loader-speed) * .8) linear infinite; }\n.loader span:nth-child(2)::before { animation-duration: calc(var(--loader-speed) * .6); }\n.loader span:nth-child(3)::before { animation-duration: calc(var(--loader-speed) * 1); }\n@keyframes reel { to { transform: translateY(-33.33%); } }",
+  "defaults": { "color": "#f43f5e", "secondaryColor": "#fbbf24", "size": 92, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

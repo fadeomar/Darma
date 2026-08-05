@@ -74,6 +74,99 @@
     }
   },
   {
+    "id": "darma-b12-barber-pole",
+    "name": "Barber Pole Helix",
+    "category": "progress",
+    "sourceId": "darma-research-batch-12",
+    "tags": [
+      "barber",
+      "pole",
+      "stripes",
+      "helix",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b12-barber-pole barber pole helix progress darma-research-batch-12 darma research batch 12 barber pole stripes helix progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b12-barber-pole\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-barber-pole__pole\"></div></div>",
+    "previewCss": ".darma-loader-darma-b12-barber-pole { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #2563eb); width: calc(var(--loader-size, 116px) * .34); height: var(--loader-size, 116px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b12-barber-pole::before, .darma-loader-darma-b12-barber-pole::after { content: ''; position: absolute; left: -8%; width: 116%; height: 6%; border-radius: 3px; background: linear-gradient(#e2e8f0, #94a3b8); }\n.darma-loader-darma-b12-barber-pole::before { top: 0; }\n.darma-loader-darma-b12-barber-pole::after { bottom: 0; }\n.darma-loader-darma-b12-barber-pole .darma-loader-darma-b12-barber-pole__pole { position: relative; width: 100%; height: 88%; overflow: hidden; border-radius: 999px; background: #f8fafc; box-shadow: inset calc(var(--loader-size, 116px) * -.06) 0 calc(var(--loader-size, 116px) * .09) rgba(15, 23, 42, .22), inset calc(var(--loader-size, 116px) * .05) 0 calc(var(--loader-size, 116px) * .08) rgba(255, 255, 255, .5); }\n.darma-loader-darma-b12-barber-pole .darma-loader-darma-b12-barber-pole__pole::after { content: ''; position: absolute; left: -30%; top: -100%; width: 160%; height: 300%; background: repeating-linear-gradient(45deg, var(--accent) 0 calc(var(--loader-size, 116px) * .04), transparent calc(var(--loader-size, 116px) * .04) calc(var(--loader-size, 116px) * .08), var(--accent-2) calc(var(--loader-size, 116px) * .08) calc(var(--loader-size, 116px) * .12), transparent calc(var(--loader-size, 116px) * .12) calc(var(--loader-size, 116px) * .16)); animation: darma-loader-darma-b12-barber-pole-barber calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n@keyframes darma-loader-darma-b12-barber-pole-barber { from { transform: translateY(0); } to { transform: translateY(calc(var(--loader-size, 116px) * .2263)); } }",
+    "defaults": {
+      "color": "#dc2626",
+      "secondaryColor": "#2563eb",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b14-baton-pass",
+    "name": "Baton Pass",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "baton",
+      "relay",
+      "handoff",
+      "race",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-baton-pass baton pass progress darma-research-batch-14 darma research batch 14 baton relay handoff race progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-baton-pass\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"darma-loader-darma-b14-baton-pass__baton\"></div></div>",
+    "previewCss": ".darma-loader-darma-b14-baton-pass { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #1d4ed8); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .42); position: relative; }\n.darma-loader-darma-b14-baton-pass::after { content: ''; position: absolute; bottom: 16%; left: 0; width: 100%; height: 8%; border-radius: 999px; background: color-mix(in srgb, #000 18%, var(--accent-2)); }\n.darma-loader-darma-b14-baton-pass span { position: absolute; bottom: 10%; width: 14%; height: 54%; border-radius: 40% 40% 7px 7px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); animation: darma-loader-darma-b14-baton-pass-handoff calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b14-baton-pass span::after { content: ''; position: absolute; bottom: 96%; left: 14%; width: 72%; height: calc(var(--loader-size, 128px) * .075); border-radius: 50%; background: color-mix(in srgb, #fff 16%, var(--accent-2)); }\n.darma-loader-darma-b14-baton-pass span:nth-child(1) { left: 3%; }\n.darma-loader-darma-b14-baton-pass span:nth-child(2) { left: 43%; animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b14-baton-pass span:nth-child(3) { left: 83%; animation-delay: calc(var(--loader-speed, 1s) * 1.8); }\n.darma-loader-darma-b14-baton-pass .darma-loader-darma-b14-baton-pass__baton { position: absolute; bottom: 40%; width: 20%; height: 13%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #fff 42%, var(--accent))); animation: darma-loader-darma-b14-baton-pass-pass calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b14-baton-pass-pass { 0%, 8% { left: 4%; } 30%, 38% { left: 44%; } 60%, 68% { left: 82%; } 92%, 100% { left: 4%; } }\n@keyframes darma-loader-darma-b14-baton-pass-handoff { 0%, 14% { transform: scaleY(1); filter: brightness(1); } 22% { transform: scaleY(1.14); filter: brightness(1.4); } 34%, 100% { transform: scaleY(1); filter: brightness(1); } }",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#1d4ed8",
+      "size": 128,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b9-battery-charging",
+    "name": "Battery Charging",
+    "category": "progress",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "battery",
+      "charge",
+      "power",
+      "energy",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-battery-charging battery charging progress darma-research-batch-9 darma research batch 9 battery charge power energy progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-battery-charging\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-battery-charging { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #86efac); width: calc(var(--loader-size, 84px) * .95); height: calc(var(--loader-size, 84px) * .5); border: calc(var(--loader-size, 84px) * .04) solid var(--accent); border-radius: calc(var(--loader-size, 84px) * .07); position: relative; box-sizing: border-box; }\n.darma-loader-darma-b9-battery-charging::after { content: ''; position: absolute; right: calc(var(--loader-size, 84px) * -.07); top: 30%; width: calc(var(--loader-size, 84px) * .05); height: 40%; border-radius: 0 3px 3px 0; background: var(--accent); }\n.darma-loader-darma-b9-battery-charging span { position: absolute; inset: 14%; border-radius: calc(var(--loader-size, 84px) * .03); background: linear-gradient(90deg, var(--accent-2), var(--accent)); transform-origin: left center; animation: darma-loader-darma-b9-battery-charging-charge calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b9-battery-charging span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 30%; height: 60%; transform: translate(-50%, -50%); background: #fff; clip-path: polygon(52% 0, 20% 55%, 48% 55%, 40% 100%, 82% 42%, 52% 42%); opacity: .9; }\n@keyframes darma-loader-darma-b9-battery-charging-charge { 0% { transform: scaleX(.05); } 80%, 100% { transform: scaleX(1); } }",
+    "defaults": {
+      "color": "#16a34a",
+      "secondaryColor": "#86efac",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-041",
     "name": "Battery Charging Steps",
     "category": "progress",
@@ -107,6 +200,37 @@
       "size": 80,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b13-boom-barrier",
+    "name": "Boom Barrier",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "barrier",
+      "gate",
+      "boom",
+      "checkpoint",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-boom-barrier boom barrier progress darma-research-batch-13 darma research batch 13 barrier gate boom checkpoint progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-boom-barrier\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-boom-barrier__arm\"></div></div>",
+    "previewCss": ".darma-loader-darma-b13-boom-barrier { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 124px); height: var(--loader-size, 124px); position: relative; }\n.darma-loader-darma-b13-boom-barrier::before { content: ''; position: absolute; bottom: 6%; left: 5%; width: 8%; height: 44%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b13-boom-barrier::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 6%; background: repeating-linear-gradient(90deg, #94a3b8 0 9%, transparent 9% 18%); }\n.darma-loader-darma-b13-boom-barrier .darma-loader-darma-b13-boom-barrier__arm { position: absolute; bottom: 36%; left: 11%; width: 52%; height: 7%; border-radius: 2px; transform-origin: left center; background: repeating-linear-gradient(90deg, var(--accent) 0 11%, #f8fafc 11% 22%); animation: darma-loader-darma-b13-boom-barrier-gate calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-boom-barrier-gate { 0%, 12% { transform: rotate(-78deg); } 38%, 62% { transform: rotate(0deg); } 88%, 100% { transform: rotate(-78deg); } }",
+    "defaults": {
+      "color": "#dc2626",
+      "secondaryColor": "#facc15",
+      "size": 124,
+      "speed": 1
     }
   },
   {
@@ -1401,6 +1525,37 @@
     }
   },
   {
+    "id": "darma-b13-database-stack",
+    "name": "Database Stack",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "database",
+      "stack",
+      "query",
+      "server",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-database-stack database stack progress darma-research-batch-13 darma research batch 13 database stack query server progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-database-stack\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-database-stack { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #5eead4); width: calc(var(--loader-size, 100px) * .82); height: calc(var(--loader-size, 100px) * .84); display: flex; flex-direction: column; justify-content: space-between; }\n.darma-loader-darma-b13-database-stack span { position: relative; height: 30%; border-radius: 50% / 26%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 26%, var(--accent))); animation: darma-loader-darma-b13-database-stack-query calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b13-database-stack span::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 36%; border-radius: 50%; background: color-mix(in srgb, #fff 28%, var(--accent-2)); }\n.darma-loader-darma-b13-database-stack span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b13-database-stack span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-darma-b13-database-stack-query { 0%, 100% { box-shadow: 0 0 0 0 transparent; filter: brightness(1); } 45% { box-shadow: 0 0 calc(var(--loader-size, 100px) * .08) var(--accent-2); filter: brightness(1.22); } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#5eead4",
+      "size": 100,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-222",
     "name": "Diagonal Stripe Rail",
     "category": "progress",
@@ -1439,6 +1594,37 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b14-diff-lines",
+    "name": "Diff Lines",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "diff",
+      "code",
+      "review",
+      "changes",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-diff-lines diff lines progress darma-research-batch-14 darma research batch 14 diff code review changes progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-diff-lines\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b14-diff-lines { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .8); display: flex; flex-direction: column; justify-content: space-between; padding: 7%; border-radius: 5px; background: #0b1220; box-shadow: inset 0 0 0 2px #24334d; }\n.darma-loader-darma-b14-diff-lines span { position: relative; height: 11%; border-radius: 2px; animation: darma-loader-darma-b14-diff-lines-diff-in calc(var(--loader-speed, 1s) * 2.8) ease-out infinite; }\n.darma-loader-darma-b14-diff-lines span:nth-child(odd) { background: var(--accent); }\n.darma-loader-darma-b14-diff-lines span:nth-child(even) { background: var(--accent-2); }\n.darma-loader-darma-b14-diff-lines span::before { content: ''; position: absolute; top: 22%; left: -6%; width: 3.5%; height: 56%; border-radius: 1px; background: rgba(255, 255, 255, .45); }\n.darma-loader-darma-b14-diff-lines span:nth-child(1) { --w: 84%; }\n.darma-loader-darma-b14-diff-lines span:nth-child(2) { --w: 62%; animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b14-diff-lines span:nth-child(3) { --w: 94%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b14-diff-lines span:nth-child(4) { --w: 48%; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b14-diff-lines span:nth-child(5) { --w: 76%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b14-diff-lines span:nth-child(6) { --w: 58%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b14-diff-lines-diff-in { 0% { opacity: 0; width: 0; } 12% { opacity: 1; } 36% { width: var(--w); } 84% { width: var(--w); } 96%, 100% { opacity: 0; width: 0; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#ef4444",
+      "size": 116,
+      "speed": 1
     }
   },
   {
@@ -1744,6 +1930,68 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b13-file-drawer",
+    "name": "File Drawer",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "drawer",
+      "cabinet",
+      "folder",
+      "archive",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-file-drawer file drawer progress darma-research-batch-13 darma research batch 13 drawer cabinet folder archive progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-file-drawer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-file-drawer__drawer\"><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b13-file-drawer { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .82); position: relative; overflow: hidden; border-radius: 6%; background: linear-gradient(#e2e8f0, #94a3b8); box-shadow: inset 0 0 0 2px #64748b; }\n.darma-loader-darma-b13-file-drawer::before { content: ''; position: absolute; top: 7%; left: 8%; width: 84%; height: 22%; border-radius: 3px; background: rgba(255, 255, 255, .42); box-shadow: 0 calc(var(--loader-size, 112px) * .245) 0 rgba(255, 255, 255, .42); }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer { position: absolute; bottom: 6%; left: 8%; width: 84%; height: 26%; animation: darma-loader-darma-b13-file-drawer-pull-out calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer::after { content: ''; position: absolute; z-index: 2; inset: 0; border-radius: 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 26%, var(--accent))); box-shadow: inset 0 2px 0 rgba(255, 255, 255, .3); }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer span { position: absolute; bottom: 56%; left: 16%; width: 42%; height: 92%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: darma-loader-darma-b13-file-drawer-file-up calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-file-drawer-pull-out { 0%, 14% { transform: translateX(0); } 44%, 64% { transform: translateX(24%); } 92%, 100% { transform: translateX(0); } }\n@keyframes darma-loader-darma-b13-file-drawer-file-up { 0%, 22% { transform: translateY(72%); } 50%, 60% { transform: translateY(-8%); } 88%, 100% { transform: translateY(72%); } }",
+    "defaults": {
+      "color": "#334155",
+      "secondaryColor": "#f59e0b",
+      "size": 112,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b13-fingerprint-scan",
+    "name": "Fingerprint Scan",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "fingerprint",
+      "scan",
+      "biometric",
+      "security",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-fingerprint-scan fingerprint scan progress darma-research-batch-13 darma research batch 13 fingerprint scan biometric security progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-fingerprint-scan\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-fingerprint-scan { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #334155); width: calc(var(--loader-size, 116px) * .74); height: calc(var(--loader-size, 116px) * .88); position: relative; overflow: hidden; border-radius: 46% 46% 40% 40%; background: repeating-radial-gradient(circle at 50% 64%, transparent 0 6.5%, var(--accent-2) 6.5% 9%); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 14%, var(--accent-2)); }\n.darma-loader-darma-b13-fingerprint-scan::after { content: ''; position: absolute; inset: 0; background: var(--accent); animation: darma-loader-darma-b13-fingerprint-scan-verify calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b13-fingerprint-scan span { position: absolute; z-index: 2; left: 0; width: 100%; height: 9%; background: linear-gradient(transparent, var(--accent), transparent); box-shadow: 0 0 calc(var(--loader-size, 116px) * .09) var(--accent); animation: darma-loader-darma-b13-fingerprint-scan-fscan calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-fingerprint-scan-fscan { 0% { top: -9%; } 50% { top: 100%; } 100% { top: -9%; } }\n@keyframes darma-loader-darma-b13-fingerprint-scan-verify { 0%, 42% { opacity: 0; } 52% { opacity: .3; } 68%, 100% { opacity: 0; } }",
+    "defaults": {
+      "color": "#22d3ee",
+      "secondaryColor": "#334155",
+      "size": 116,
+      "speed": 1
     }
   },
   {
@@ -2063,6 +2311,68 @@
     }
   },
   {
+    "id": "darma-b14-hydraulic-press",
+    "name": "Hydraulic Press",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "hydraulic",
+      "press",
+      "crush",
+      "industrial",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-hydraulic-press hydraulic press progress darma-research-batch-14 darma research batch 14 hydraulic press crush industrial progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-hydraulic-press\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-hydraulic-press__platen\"></div><span></span></div>",
+    "previewCss": ".darma-loader-darma-b14-hydraulic-press { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .88); position: relative; }\n.darma-loader-darma-b14-hydraulic-press::before { content: ''; position: absolute; z-index: 3; top: 0; left: 0; width: 100%; height: 13%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 18%, var(--accent-2)), color-mix(in srgb, #000 38%, var(--accent-2))); }\n.darma-loader-darma-b14-hydraulic-press::after { content: ''; position: absolute; z-index: 3; bottom: 0; left: 0; width: 100%; height: 10%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 38%, var(--accent-2)), color-mix(in srgb, #000 18%, var(--accent-2))); }\n.darma-loader-darma-b14-hydraulic-press .darma-loader-darma-b14-hydraulic-press__platen { position: absolute; z-index: 2; left: 15%; width: 70%; height: 13%; border-radius: 2px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: darma-loader-darma-b14-hydraulic-press-press-down calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b14-hydraulic-press .darma-loader-darma-b14-hydraulic-press__platen::after { content: ''; position: absolute; bottom: 100%; left: 44%; width: 12%; height: 340%; background: linear-gradient(90deg, #94a3b8, #e2e8f0, #94a3b8); }\n.darma-loader-darma-b14-hydraulic-press span { position: absolute; bottom: 10%; left: 34%; width: 32%; height: 26%; border-radius: 2px; transform-origin: bottom center; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); animation: darma-loader-darma-b14-hydraulic-press-crush calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes darma-loader-darma-b14-hydraulic-press-press-down { 0%, 12% { top: 13%; } 44%, 56% { top: 66%; } 88%, 100% { top: 13%; } }\n@keyframes darma-loader-darma-b14-hydraulic-press-crush { 0%, 26% { transform: scale(1, 1); } 46%, 56% { transform: scale(1.28, .42); } 80%, 100% { transform: scale(1, 1); } }",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#475569",
+      "size": 112,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b9-indeterminate-bar",
+    "name": "Indeterminate Bar",
+    "category": "progress",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "progress",
+      "bar",
+      "loading",
+      "material",
+      "indeterminate"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-indeterminate-bar indeterminate bar progress darma-research-batch-9 darma research batch 9 progress bar loading material indeterminate html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-indeterminate-bar\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-indeterminate-bar { --accent: var(--loader-color, #3b82f6); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .16); border-radius: calc(var(--loader-size, 120px) * .08); background: color-mix(in srgb, var(--accent) 20%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b9-indeterminate-bar span { position: absolute; top: 0; height: 100%; width: 40%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b9-indeterminate-bar-slide calc(var(--loader-speed, 1s) * 1.6) cubic-bezier(.65, .05, .35, 1) infinite; }\n@keyframes darma-loader-darma-b9-indeterminate-bar-slide { 0% { left: -45%; } 100% { left: 105%; } }",
+    "defaults": {
+      "color": "#3b82f6",
+      "secondaryColor": "#22d3ee",
+      "size": 120,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-066",
     "name": "Isometric Belt Progress",
     "category": "progress",
@@ -2171,6 +2481,37 @@
       "size": 90,
       "speed": 1.5,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b14-iv-drip",
+    "name": "IV Drip",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "iv",
+      "drip",
+      "medical",
+      "infusion",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-iv-drip iv drip progress darma-research-batch-14 darma research batch 14 iv drip medical infusion progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-iv-drip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-iv-drip__bag\"></div><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b14-iv-drip { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #94a3b8); width: calc(var(--loader-size, 116px) * .6); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b14-iv-drip::before { content: ''; position: absolute; top: 44%; left: 47%; width: 5%; height: 56%; border-radius: 2px; background: color-mix(in srgb, #fff 46%, var(--accent-2)); }\n.darma-loader-darma-b14-iv-drip .darma-loader-darma-b14-iv-drip__bag { position: absolute; top: 0; left: 13%; width: 74%; height: 44%; overflow: hidden; border-radius: 6px 6px 42% 42%; background: color-mix(in srgb, #fff 60%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 16%, var(--accent-2)); }\n.darma-loader-darma-b14-iv-drip .darma-loader-darma-b14-iv-drip__bag::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b14-iv-drip-drain calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b14-iv-drip span { position: absolute; top: 48%; left: 46%; width: 7%; height: 9%; border-radius: 50% 50% 62% 62%; background: var(--accent); animation: darma-loader-darma-b14-iv-drip-drop-fall calc(var(--loader-speed, 1s) * 1.4) ease-in infinite; }\n.darma-loader-darma-b14-iv-drip span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .7); }\n@keyframes darma-loader-darma-b14-iv-drip-drain { 0% { height: 88%; } 100% { height: 22%; } }\n@keyframes darma-loader-darma-b14-iv-drip-drop-fall { 0% { opacity: 0; transform: translateY(0) scaleY(.6); } 16% { opacity: 1; } 72% { transform: translateY(200%) scaleY(1.1); } 100% { opacity: 0; transform: translateY(250%) scaleY(.5); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#94a3b8",
+      "size": 116,
+      "speed": 1
     }
   },
   {
@@ -2301,6 +2642,37 @@
       "color": "#06b6d4",
       "secondaryColor": "#a855f7",
       "size": 70,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b7-liquid-wave-fill",
+    "name": "Liquid Wave Fill",
+    "category": "progress",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "liquid",
+      "wave",
+      "water",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-liquid-wave-fill liquid wave fill progress darma-research-batch-7 darma research batch 7 liquid wave water fill progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-liquid-wave-fill\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b7-liquid-wave-fill { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #1d4ed8); width: var(--loader-size, 72px); height: var(--loader-size, 72px); border-radius: 50%; border: calc(var(--loader-size, 72px) * .05) solid color-mix(in srgb, var(--accent) 40%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-liquid-wave-fill span { position: absolute; left: 50%; top: 45%; width: 170%; height: 170%; margin-left: -85%; background: linear-gradient(var(--accent), var(--accent-2)); border-radius: 42% 45% 41% 47%; animation: darma-loader-darma-b7-liquid-wave-fill-wave-spin calc(var(--loader-speed, 1s) * 3) linear infinite, darma-loader-darma-b7-liquid-wave-fill-wave-rise calc(var(--loader-speed, 1s) * 4) ease-in-out infinite alternate; }\n@keyframes darma-loader-darma-b7-liquid-wave-fill-wave-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b7-liquid-wave-fill-wave-rise { 0% { top: 60%; } 100% { top: 22%; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#1d4ed8",
+      "size": 72,
       "speed": 1
     }
   },
@@ -4655,6 +5027,37 @@
     }
   },
   {
+    "id": "darma-b7-pie-clock-fill",
+    "name": "Pie Clock",
+    "category": "progress",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "pie",
+      "clock",
+      "sweep",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-pie-clock-fill pie clock progress darma-research-batch-7 darma research batch 7 pie clock sweep fill progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-pie-clock-fill\" aria-label=\"Loading\"></div>",
+    "previewCss": ".darma-loader-darma-b7-pie-clock-fill { --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #0e7490); width: var(--loader-size, 72px); height: var(--loader-size, 72px); border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 22%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-pie-clock-fill::before, .darma-loader-darma-b7-pie-clock-fill::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 100%; background: var(--accent); transform-origin: left center; }\n.darma-loader-darma-b7-pie-clock-fill::before { animation: darma-loader-darma-b7-pie-clock-fill-pie-a calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b7-pie-clock-fill::after { animation: darma-loader-darma-b7-pie-clock-fill-pie-b calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-a { 0% { transform: rotate(0deg); } 50%, 100% { transform: rotate(180deg); } }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-b { 0%, 50% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#0e7490",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-research-prism-marquee-loader",
     "name": "Prism Marquee Loader",
     "category": "progress",
@@ -4824,6 +5227,37 @@
     }
   },
   {
+    "id": "darma-b14-rolling-pin",
+    "name": "Rolling Pin",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "rollingpin",
+      "dough",
+      "bake",
+      "flatten",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-rolling-pin rolling pin progress darma-research-batch-14 darma research batch 14 rollingpin dough bake flatten progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-rolling-pin\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-rolling-pin__pin\"></div><span></span></div>",
+    "previewCss": ".darma-loader-darma-b14-rolling-pin { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fcd34d); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .56); position: relative; }\n.darma-loader-darma-b14-rolling-pin::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: calc(var(--loader-size, 124px) * .04); border-radius: 999px; background: color-mix(in srgb, #000 42%, var(--accent-2)); }\n.darma-loader-darma-b14-rolling-pin span { position: absolute; bottom: calc(var(--loader-size, 124px) * .04); left: 7%; border-radius: 46%; background: linear-gradient(color-mix(in srgb, #fff 58%, var(--accent-2)), color-mix(in srgb, #fff 24%, var(--accent-2))); animation: darma-loader-darma-b14-rolling-pin-flatten calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b14-rolling-pin .darma-loader-darma-b14-rolling-pin__pin { position: absolute; left: 3%; width: 50%; height: calc(var(--loader-size, 124px) * .13); border-radius: 999px; background: repeating-linear-gradient(90deg, color-mix(in srgb, #fff 34%, var(--accent)) 0 calc(var(--loader-size, 124px) * .028), var(--accent) calc(var(--loader-size, 124px) * .028) calc(var(--loader-size, 124px) * .056)); background-size: calc(var(--loader-size, 124px) * .056) 100%; box-shadow: inset 0 calc(var(--loader-size, 124px) * -.022) calc(var(--loader-size, 124px) * .03) rgba(15, 23, 42, .3), inset 0 calc(var(--loader-size, 124px) * .014) calc(var(--loader-size, 124px) * .02) rgba(255, 255, 255, .35); animation: darma-loader-darma-b14-rolling-pin-roll-pin calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite, darma-loader-darma-b14-rolling-pin-pin-surface calc(var(--loader-speed, 1s) * .45) linear infinite; }\n.darma-loader-darma-b14-rolling-pin .darma-loader-darma-b14-rolling-pin__pin::before, .darma-loader-darma-b14-rolling-pin .darma-loader-darma-b14-rolling-pin__pin::after { content: ''; position: absolute; top: 26%; width: calc(var(--loader-size, 124px) * .07); height: 48%; border-radius: 999px; background: color-mix(in srgb, #000 30%, var(--accent)); }\n.darma-loader-darma-b14-rolling-pin .darma-loader-darma-b14-rolling-pin__pin::before { left: calc(var(--loader-size, 124px) * -.055); }\n.darma-loader-darma-b14-rolling-pin .darma-loader-darma-b14-rolling-pin__pin::after { right: calc(var(--loader-size, 124px) * -.055); }\n@keyframes darma-loader-darma-b14-rolling-pin-flatten { 0%, 10% { width: 28%; height: calc(var(--loader-size, 124px) * .14); } 60% { width: 76%; height: calc(var(--loader-size, 124px) * .055); } 88%, 100% { width: 28%; height: calc(var(--loader-size, 124px) * .14); } }\n@keyframes darma-loader-darma-b14-rolling-pin-roll-pin { 0%, 10% { bottom: calc(var(--loader-size, 124px) * .19); transform: translateX(0); } 60% { bottom: calc(var(--loader-size, 124px) * .1); transform: translateX(calc(var(--loader-size, 124px) * .42)); } 88%, 100% { bottom: calc(var(--loader-size, 124px) * .19); transform: translateX(0); } }\n@keyframes darma-loader-darma-b14-rolling-pin-pin-surface { to { background-position: calc(var(--loader-size, 124px) * .056) 0; } }",
+    "defaults": {
+      "color": "#a16207",
+      "secondaryColor": "#fcd34d",
+      "size": 124,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-022",
     "name": "Rounded Dot Track",
     "category": "progress",
@@ -4893,6 +5327,37 @@
       "size": 120,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b13-rubber-stamp",
+    "name": "Rubber Stamp",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "stamp",
+      "approve",
+      "ink",
+      "press",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-rubber-stamp rubber stamp progress darma-research-batch-13 darma research batch 13 stamp approve ink press progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-rubber-stamp\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-rubber-stamp__stamp\"></div><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-rubber-stamp { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #16a34a); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .76); position: relative; }\n.darma-loader-darma-b13-rubber-stamp::before { content: ''; position: absolute; bottom: 0; left: 11%; width: 78%; height: 32%; border-radius: 3px; background: #f8fafc; box-shadow: 0 2px 6px rgba(15, 23, 42, .2); }\n.darma-loader-darma-b13-rubber-stamp .darma-loader-darma-b13-rubber-stamp__stamp { position: absolute; top: 14%; left: 27%; width: 46%; height: 44%; border-radius: 6px 6px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: darma-loader-darma-b13-rubber-stamp-press calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b13-rubber-stamp .darma-loader-darma-b13-rubber-stamp__stamp::after { content: ''; position: absolute; bottom: 100%; left: 24%; width: 52%; height: 62%; border-radius: 7px 7px 2px 2px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b13-rubber-stamp span { position: absolute; bottom: 6%; left: 24%; width: 52%; height: 20%; border-radius: 3px; box-shadow: inset 0 0 0 3px var(--accent-2); animation: darma-loader-darma-b13-rubber-stamp-ink calc(var(--loader-speed, 1s) * 2.4) ease-out infinite; }\n@keyframes darma-loader-darma-b13-rubber-stamp-press { 0%, 18% { transform: translateY(0); } 42%, 52% { transform: translateY(40%); } 76%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b13-rubber-stamp-ink { 0%, 38% { opacity: 0; transform: scale(.84); } 48% { opacity: 1; transform: scale(1); } 86% { opacity: 1; } 100% { opacity: 0; } }",
+    "defaults": {
+      "color": "#7c3aed",
+      "secondaryColor": "#16a34a",
+      "size": 116,
+      "speed": 1
     }
   },
   {
@@ -4972,6 +5437,37 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b12-scanner-bed",
+    "name": "Scanner Bed",
+    "category": "progress",
+    "sourceId": "darma-research-batch-12",
+    "tags": [
+      "scanner",
+      "scan",
+      "document",
+      "beam",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b12-scanner-bed scanner bed progress darma-research-batch-12 darma research batch 12 scanner scan document beam progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b12-scanner-bed\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-scanner-bed__bar\"></div></div>",
+    "previewCss": ".darma-loader-darma-b12-scanner-bed { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .74); position: relative; overflow: hidden; border-radius: 7%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 calc(var(--loader-size, 112px) * .028) #334155; }\n.darma-loader-darma-b12-scanner-bed::before { content: ''; position: absolute; inset: 14% 15%; border-radius: 3px; background: repeating-linear-gradient(to bottom, color-mix(in srgb, #fff 24%, transparent) 0 7%, transparent 7% 20%); }\n.darma-loader-darma-b12-scanner-bed::after { content: ''; position: absolute; top: -20%; left: -30%; width: 55%; height: 150%; transform: rotate(18deg); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent); }\n.darma-loader-darma-b12-scanner-bed .darma-loader-darma-b12-scanner-bed__bar { position: absolute; left: 0; width: 100%; height: 11%; background: linear-gradient(var(--accent), var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size, 112px) * .1) var(--accent); animation: darma-loader-darma-b12-scanner-bed-scan calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b12-scanner-bed-scan { 0% { top: -11%; } 50% { top: 100%; } 100% { top: -11%; } }",
+    "defaults": {
+      "color": "#22d3ee",
+      "secondaryColor": "#3b82f6",
+      "size": 112,
+      "speed": 1
     }
   },
   {
@@ -5752,6 +6248,37 @@
     }
   },
   {
+    "id": "darma-b13-star-rating",
+    "name": "Star Rating",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "star",
+      "rating",
+      "review",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-star-rating star rating progress darma-research-batch-13 darma research batch 13 star rating review fill progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-star-rating\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-star-rating { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #94a3b8); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .2); display: flex; gap: 4%; }\n.darma-loader-darma-b13-star-rating span { position: relative; flex: 1; overflow: hidden; background: color-mix(in srgb, #000 14%, var(--accent-2)); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }\n.darma-loader-darma-b13-star-rating span::after { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%; background: var(--accent); animation: darma-loader-darma-b13-star-rating-rate calc(var(--loader-speed, 1s) * 2.6) ease-out infinite; }\n.darma-loader-darma-b13-star-rating span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b13-star-rating span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b13-star-rating span:nth-child(4)::after { animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b13-star-rating span:nth-child(5)::after { animation-delay: calc(var(--loader-speed, 1s) * .72); }\n@keyframes darma-loader-darma-b13-star-rating-rate { 0% { width: 0; } 22% { width: 100%; } 82% { width: 100%; } 92%, 100% { width: 0; } }",
+    "defaults": {
+      "color": "#facc15",
+      "secondaryColor": "#94a3b8",
+      "size": 128,
+      "speed": 1
+    }
+  },
+  {
     "id": "stepped-progress",
     "name": "Stepped Progress",
     "category": "progress",
@@ -5845,6 +6372,130 @@
       "color": "#f97316",
       "secondaryColor": "#facc15",
       "size": 80,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b14-syringe-plunger",
+    "name": "Syringe Plunger",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "syringe",
+      "plunger",
+      "inject",
+      "dose",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-syringe-plunger syringe plunger progress darma-research-batch-14 darma research batch 14 syringe plunger inject dose progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-syringe-plunger\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-syringe-plunger__plunger\"></div><span></span></div>",
+    "previewCss": ".darma-loader-darma-b14-syringe-plunger { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #5eead4); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .42); position: relative; }\n.darma-loader-darma-b14-syringe-plunger::before { content: ''; position: absolute; left: 12%; top: 16%; width: 62%; height: 68%; border-radius: 3px; background: rgba(255, 255, 255, .45); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, var(--accent-2)); }\n.darma-loader-darma-b14-syringe-plunger::after { content: ''; position: absolute; left: 0; top: 44%; width: 13%; height: 8%; border-radius: 999px 0 0 999px; background: #94a3b8; }\n.darma-loader-darma-b14-syringe-plunger span { position: absolute; left: 13%; top: 20%; height: 60%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b14-syringe-plunger-inject calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b14-syringe-plunger .darma-loader-darma-b14-syringe-plunger__plunger { position: absolute; top: 30%; width: 30%; height: 40%; border-radius: 2px; background: linear-gradient(#f1f5f9, #94a3b8); animation: darma-loader-darma-b14-syringe-plunger-push calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b14-syringe-plunger .darma-loader-darma-b14-syringe-plunger__plunger::after { content: ''; position: absolute; left: 96%; top: -60%; width: 14%; height: 220%; border-radius: 2px; background: #cbd5e1; }\n@keyframes darma-loader-darma-b14-syringe-plunger-inject { 0%, 12% { width: 60%; } 56%, 70% { width: 5%; } 94%, 100% { width: 60%; } }\n@keyframes darma-loader-darma-b14-syringe-plunger-push { 0%, 12% { right: 2%; } 56%, 70% { right: 57%; } 94%, 100% { right: 2%; } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#5eead4",
+      "size": 128,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b10-water-fill-square",
+    "name": "Tank Fill",
+    "category": "progress",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "water",
+      "tank",
+      "fill",
+      "level",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-water-fill-square tank fill progress darma-research-batch-10 darma research batch 10 water tank fill level progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-water-fill-square\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-water-fill-square { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 22%; background: color-mix(in srgb, var(--accent) 12%, transparent); border: calc(var(--loader-size, 76px) * .035) solid color-mix(in srgb, var(--accent) 45%, transparent); position: relative; overflow: hidden; box-sizing: border-box; }\n.darma-loader-darma-b10-water-fill-square span { position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b10-water-fill-square-rise calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite alternate; }\n.darma-loader-darma-b10-water-fill-square span::before, .darma-loader-darma-b10-water-fill-square span::after { content: ''; position: absolute; bottom: 96%; left: -50%; width: 200%; height: calc(var(--loader-size, 76px) * .16); background: inherit; border-radius: 45%; }\n.darma-loader-darma-b10-water-fill-square span::before { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 1.6) linear infinite; opacity: .85; }\n.darma-loader-darma-b10-water-fill-square span::after { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 2.4) linear infinite reverse; }\n@keyframes darma-loader-darma-b10-water-fill-square-rise { 0% { height: 28%; } 100% { height: 80%; } }\n@keyframes darma-loader-darma-b10-water-fill-square-surface { 0% { transform: translateX(0); } 100% { transform: translateX(25%); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#22d3ee",
+      "size": 76,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b14-tape-dispenser",
+    "name": "Tape Dispenser",
+    "category": "progress",
+    "sourceId": "darma-research-batch-14",
+    "tags": [
+      "tape",
+      "dispenser",
+      "roll",
+      "sticky",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b14-tape-dispenser tape dispenser progress darma-research-batch-14 darma research batch 14 tape dispenser roll sticky progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b14-tape-dispenser\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-tape-dispenser__roll\"></div><span></span></div>",
+    "previewCss": ".darma-loader-darma-b14-tape-dispenser { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .7); position: relative; }\n.darma-loader-darma-b14-tape-dispenser::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 22%; border-radius: 4px 22% 4px 4px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 32%, var(--accent-2))); }\n.darma-loader-darma-b14-tape-dispenser::before { content: ''; position: absolute; z-index: 2; bottom: 20%; right: 3%; width: 22%; height: 9%; background: color-mix(in srgb, #000 40%, var(--accent-2)); clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 36%, 80% 100%, 70% 36%, 60% 100%, 50% 36%, 40% 100%, 30% 36%, 20% 100%, 10% 36%, 0 100%); }\n.darma-loader-darma-b14-tape-dispenser .darma-loader-darma-b14-tape-dispenser__roll { position: absolute; bottom: 20%; left: 7%; width: 44%; height: 62%; border-radius: 50%; background: conic-gradient(from 0deg, var(--accent) 0 47%, color-mix(in srgb, #000 26%, var(--accent)) 47% 50%, var(--accent) 50% 97%, color-mix(in srgb, #000 26%, var(--accent)) 97% 100%); box-shadow: inset 0 0 0 calc(var(--loader-size, 120px) * .075) color-mix(in srgb, #fff 66%, var(--accent-2)); animation: darma-loader-darma-b14-tape-dispenser-roll-spin calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b14-tape-dispenser .darma-loader-darma-b14-tape-dispenser__roll::after { content: ''; position: absolute; inset: 34%; border-radius: 50%; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.darma-loader-darma-b14-tape-dispenser span { position: absolute; bottom: 27%; left: 47%; height: 5%; border-radius: 1px; background: color-mix(in srgb, #fff 58%, var(--accent)); animation: darma-loader-darma-b14-tape-dispenser-pull-tape calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b14-tape-dispenser-roll-spin { to { transform: rotate(-360deg); } }\n@keyframes darma-loader-darma-b14-tape-dispenser-pull-tape { 0% { width: 4%; } 66% { width: 44%; } 100% { width: 4%; } }",
+    "defaults": {
+      "color": "#facc15",
+      "secondaryColor": "#475569",
+      "size": 120,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-thermometer",
+    "name": "Thermometer",
+    "category": "progress",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "thermometer",
+      "temperature",
+      "mercury",
+      "heat",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-thermometer thermometer progress darma-research-batch-11 darma research batch 11 thermometer temperature mercury heat progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-thermometer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-thermometer__tube\"></div></div>",
+    "previewCss": ".darma-loader-darma-b11-thermometer { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #ef4444); width: calc(var(--loader-size, 108px) * .34); height: var(--loader-size, 108px); position: relative; display: grid; place-items: start center; }\n.darma-loader-darma-b11-thermometer .darma-loader-darma-b11-thermometer__tube { position: relative; width: 40%; height: 74%; margin-top: 4%; background: #e2e8f0; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 0 2px #cbd5e1; }\n.darma-loader-darma-b11-thermometer .darma-loader-darma-b11-thermometer__tube::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; background: linear-gradient(var(--accent), var(--accent-2)); animation: darma-loader-darma-b11-thermometer-mercury calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b11-thermometer::after { content: ''; position: absolute; bottom: 2%; left: 50%; width: calc(var(--loader-size, 108px) * .28); height: calc(var(--loader-size, 108px) * .28); margin-left: calc(var(--loader-size, 108px) * -.14); border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 0 0 2px #cbd5e1; }\n@keyframes darma-loader-darma-b11-thermometer-mercury { 0% { height: 8%; } 50% { height: 100%; } 100% { height: 8%; } }",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#ef4444",
+      "size": 108,
       "speed": 1
     }
   },
@@ -6199,6 +6850,37 @@
     }
   },
   {
+    "id": "darma-b13-train-doors",
+    "name": "Train Doors",
+    "category": "progress",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "train",
+      "doors",
+      "sliding",
+      "transit",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-train-doors train doors progress darma-research-batch-13 darma research batch 13 train doors sliding transit progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-train-doors\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-train-doors { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 108px); height: calc(var(--loader-size, 108px) * .82); position: relative; overflow: hidden; border-radius: 5%; background: #0b1220; box-shadow: inset 0 0 0 3px #475569; }\n.darma-loader-darma-b13-train-doors::before { content: ''; position: absolute; inset: 7%; border-radius: 3px; background: radial-gradient(circle at 50% 38%, color-mix(in srgb, #fff 55%, var(--accent-2)), color-mix(in srgb, #000 36%, var(--accent-2))); }\n.darma-loader-darma-b13-train-doors span { position: absolute; top: 5%; width: 47%; height: 90%; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 22%, var(--accent))); }\n.darma-loader-darma-b13-train-doors span:nth-child(1) { left: 3%; animation: darma-loader-darma-b13-train-doors-door-left calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b13-train-doors span:nth-child(2) { right: 3%; animation: darma-loader-darma-b13-train-doors-door-right calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b13-train-doors span::after { content: ''; position: absolute; top: 9%; left: 14%; width: 72%; height: 44%; border-radius: 3px; background: rgba(255, 255, 255, .2); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .25); }\n@keyframes darma-loader-darma-b13-train-doors-door-left { 0%, 16% { transform: translateX(0); } 44%, 62% { transform: translateX(-98%); } 90%, 100% { transform: translateX(0); } }\n@keyframes darma-loader-darma-b13-train-doors-door-right { 0%, 16% { transform: translateX(0); } 44%, 62% { transform: translateX(98%); } 90%, 100% { transform: translateX(0); } }",
+    "defaults": {
+      "color": "#0284c7",
+      "secondaryColor": "#fbbf24",
+      "size": 108,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-026",
     "name": "Triple Track Sweep",
     "category": "progress",
@@ -6354,6 +7036,37 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b12-typewriter-carriage",
+    "name": "Typewriter Carriage",
+    "category": "progress",
+    "sourceId": "darma-research-batch-12",
+    "tags": [
+      "typewriter",
+      "carriage",
+      "typing",
+      "paper",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b12-typewriter-carriage typewriter carriage progress darma-research-batch-12 darma research batch 12 typewriter carriage typing paper progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b12-typewriter-carriage\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-typewriter-carriage__paper\"><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b12-typewriter-carriage { --accent: var(--loader-color, #475569); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .66); position: relative; }\n.darma-loader-darma-b12-typewriter-carriage .darma-loader-darma-b12-typewriter-carriage__paper { position: absolute; z-index: 2; top: 0; left: 13%; width: 74%; height: 58%; background: #f8fafc; border-radius: 3px; box-shadow: 0 2px 6px rgba(15, 23, 42, .18); overflow: hidden; }\n.darma-loader-darma-b12-typewriter-carriage .darma-loader-darma-b12-typewriter-carriage__paper span { position: absolute; left: 10%; top: 34%; height: 9%; width: 0; border-radius: 2px; background: var(--accent-2); animation: darma-loader-darma-b12-typewriter-carriage-type calc(var(--loader-speed, 1s) * 2.6) steps(12, end) infinite; }\n.darma-loader-darma-b12-typewriter-carriage::after { content: ''; position: absolute; z-index: 1; bottom: 0; left: 0; width: 100%; height: 34%; border-radius: 8px 8px 12px 12px; background: linear-gradient(var(--accent), var(--accent-2)); }\n.darma-loader-darma-b12-typewriter-carriage::before { content: ''; position: absolute; z-index: 3; bottom: 30%; left: 12%; width: 16%; height: 10%; border-radius: 2px; background: #1e293b; animation: darma-loader-darma-b12-typewriter-carriage-carriage calc(var(--loader-speed, 1s) * 2.6) steps(12, end) infinite; }\n@keyframes darma-loader-darma-b12-typewriter-carriage-type { 0% { width: 0; } 62% { width: 66%; } 78% { width: 66%; } 100% { width: 0; } }\n@keyframes darma-loader-darma-b12-typewriter-carriage-carriage { 0% { transform: translateX(0); } 62% { transform: translateX(calc(var(--loader-size, 112px) * .48)); } 78% { transform: translateX(calc(var(--loader-size, 112px) * .48)); } 100% { transform: translateX(0); } }",
+    "defaults": {
+      "color": "#475569",
+      "secondaryColor": "#ef4444",
+      "size": 112,
+      "speed": 1
     }
   },
   {
@@ -6827,6 +7540,37 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b12-zipper-pull",
+    "name": "Zipper Pull",
+    "category": "progress",
+    "sourceId": "darma-research-batch-12",
+    "tags": [
+      "zipper",
+      "zip",
+      "teeth",
+      "slider",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b12-zipper-pull zipper pull progress darma-research-batch-12 darma research batch 12 zipper zip teeth slider progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b12-zipper-pull\" aria-label=\"Loading\"><span></span><div class=\"darma-loader-darma-b12-zipper-pull__slider\"></div></div>",
+    "previewCss": ".darma-loader-darma-b12-zipper-pull { --accent: var(--loader-color, #e11d48); --accent-2: var(--loader-secondary-color, #fb7185); --tooth: calc(var(--loader-size, 120px) * .032); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .34); position: relative; }\n.darma-loader-darma-b12-zipper-pull::before, .darma-loader-darma-b12-zipper-pull::after { content: ''; position: absolute; right: 0; width: 94%; height: 26%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent-2) 0 var(--tooth), color-mix(in srgb, #fff 45%, var(--accent-2)) var(--tooth) calc(var(--tooth) * 2)); animation: darma-loader-darma-b12-zipper-pull-unzip calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b12-zipper-pull::before { top: 4%; }\n.darma-loader-darma-b12-zipper-pull::after { bottom: 4%; }\n.darma-loader-darma-b12-zipper-pull span { position: absolute; left: 0; top: 30%; height: 40%; width: 6%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent) 0 var(--tooth), var(--accent-2) var(--tooth) calc(var(--tooth) * 2)); animation: darma-loader-darma-b12-zipper-pull-zip calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b12-zipper-pull .darma-loader-darma-b12-zipper-pull__slider { position: absolute; z-index: 3; left: 0; top: 14%; width: 13%; height: 72%; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); box-shadow: 0 2px 5px rgba(15, 23, 42, .28); animation: darma-loader-darma-b12-zipper-pull-pull calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b12-zipper-pull .darma-loader-darma-b12-zipper-pull__slider::after { content: ''; position: absolute; top: 90%; left: 28%; width: 44%; height: 58%; border-radius: 0 0 5px 5px; background: var(--accent); }\n@keyframes darma-loader-darma-b12-zipper-pull-zip { 0% { width: 6%; } 58% { width: 100%; } 100% { width: 6%; } }\n@keyframes darma-loader-darma-b12-zipper-pull-unzip { 0% { width: 94%; } 58% { width: 0%; } 100% { width: 94%; } }\n@keyframes darma-loader-darma-b12-zipper-pull-pull { 0% { left: 0%; } 58% { left: 87%; } 100% { left: 0%; } }",
+    "defaults": {
+      "color": "#e11d48",
+      "secondaryColor": "#fb7185",
+      "size": 120,
+      "speed": 1
     }
   }
 ]

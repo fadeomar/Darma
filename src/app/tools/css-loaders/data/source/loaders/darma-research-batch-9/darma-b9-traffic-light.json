@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-traffic-light",
+  "name": "Traffic Light",
+  "category": "fun",
+  "tags": ["traffic", "light", "signal", "stop", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { width: calc(var(--loader-size) * .4); height: var(--loader-size); border-radius: calc(var(--loader-size) * .12); background: #1f2937; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: calc(var(--loader-size) * .06) 0; box-sizing: border-box; }\n.loader span { width: 62%; aspect-ratio: 1; border-radius: 50%; }\n.loader span:nth-child(1) { background: #ef4444; animation: tl-a calc(var(--loader-speed) * 3) infinite; }\n.loader span:nth-child(2) { background: #f59e0b; animation: tl-b calc(var(--loader-speed) * 3) infinite; }\n.loader span:nth-child(3) { background: #22c55e; animation: tl-c calc(var(--loader-speed) * 3) infinite; }\n@keyframes tl-a { 0%, 30% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size) * .1) #ef4444; } 31%, 100% { opacity: .18; box-shadow: none; } }\n@keyframes tl-b { 0%, 30% { opacity: .18; } 31%, 63% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size) * .1) #f59e0b; } 64%, 100% { opacity: .18; } }\n@keyframes tl-c { 0%, 63% { opacity: .18; } 64%, 100% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size) * .1) #22c55e; } }",
+  "defaults": { "size": 96, "speed": 1 },
+  "controls": { "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

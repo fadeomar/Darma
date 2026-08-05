@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-train-doors",
+  "name": "Train Doors",
+  "category": "progress",
+  "tags": [
+    "train",
+    "doors",
+    "sliding",
+    "transit",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .82); position: relative; overflow: hidden; border-radius: 5%; background: #0b1220; box-shadow: inset 0 0 0 3px #475569; }\n.loader::before { content: ''; position: absolute; inset: 7%; border-radius: 3px; background: radial-gradient(circle at 50% 38%, color-mix(in srgb, #fff 55%, var(--accent-2)), color-mix(in srgb, #000 36%, var(--accent-2))); }\n.loader span { position: absolute; top: 5%; width: 47%; height: 90%; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 22%, var(--accent))); }\n.loader span:nth-child(1) { left: 3%; animation: door-left calc(var(--loader-speed) * 3.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader span:nth-child(2) { right: 3%; animation: door-right calc(var(--loader-speed) * 3.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader span::after { content: ''; position: absolute; top: 9%; left: 14%; width: 72%; height: 44%; border-radius: 3px; background: rgba(255, 255, 255, .2); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .25); }\n@keyframes door-left { 0%, 16% { transform: translateX(0); } 44%, 62% { transform: translateX(-98%); } 90%, 100% { transform: translateX(0); } }\n@keyframes door-right { 0%, 16% { transform: translateX(0); } 44%, 62% { transform: translateX(98%); } 90%, 100% { transform: translateX(0); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#fbbf24",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

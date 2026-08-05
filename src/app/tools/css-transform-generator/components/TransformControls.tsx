@@ -16,7 +16,7 @@ function ToggleRow({ label, checked, onChange, hint }: { label: string; checked:
     <label className="flex cursor-pointer items-start justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 shadow-[var(--shadow-xs)]">
       <span className="min-w-0">
         <span className="block text-xs font-semibold text-[var(--color-text-primary)]">{label}</span>
-        {hint ? <span className="mt-0.5 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{hint}</span> : null}
+        {hint ? <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
       <input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="mt-0.5 h-4 w-4 accent-[var(--color-primary)]" />
     </label>

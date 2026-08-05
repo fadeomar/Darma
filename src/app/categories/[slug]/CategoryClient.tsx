@@ -103,7 +103,7 @@ export default function CategoryClient({
                 onClick={() => toggleCategory(category)}
                 className={`rounded-[var(--radius-full)] border px-4 py-2 text-sm font-semibold transition ${
                   active
-                    ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                     : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -117,7 +117,7 @@ export default function CategoryClient({
       <section className="mt-8">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Results</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Results</p>
             <h2 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Published items</h2>
           </div>
           <Badge variant="outline">{serverTotal} result{serverTotal === 1 ? "" : "s"}</Badge>

@@ -109,7 +109,7 @@ function SummaryCard({
 }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)]">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
       <div
@@ -118,7 +118,7 @@ function SummaryCard({
       >
         {value}
       </div>
-      <div className="mt-1 line-clamp-2 text-[11px] leading-4 text-[var(--color-text-secondary)]">
+      <div className="mt-1 line-clamp-2 text-xs leading-4 text-[var(--color-text-secondary)]">
         {detail}
       </div>
     </div>
@@ -574,7 +574,7 @@ export default function BeamCalculatorClient() {
               key={fix.label}
               type="button"
               onClick={fix.run}
-              className="rounded-[var(--radius-sm)] border border-current bg-[var(--color-surface-base)]/40 px-2 py-0.5 text-[11px] font-bold transition hover:bg-[var(--color-surface-base)]/70"
+              className="rounded-[var(--radius-sm)] border border-current bg-[var(--color-surface-base)]/40 px-2 py-0.5 text-xs font-bold transition hover:bg-[var(--color-surface-base)]/70"
             >
               {fix.label}
             </button>
@@ -865,7 +865,7 @@ export default function BeamCalculatorClient() {
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
                 Beam preview
               </h2>
-              <p className="text-[11px] text-[var(--color-text-tertiary)]">
+              <p className="text-xs text-[var(--color-text-tertiary)]">
                 Drag the orange handles, or select an item and click the beam to
                 place it.
               </p>
@@ -888,7 +888,7 @@ export default function BeamCalculatorClient() {
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-start gap-3">
-              <span className="grid size-9 shrink-0 place-items-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+              <span className="grid size-9 shrink-0 place-items-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
                 <ShieldCheck className="h-4 w-4" />
               </span>
               <div>

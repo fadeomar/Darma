@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-gear-mesh",
+  "name": "Meshing Gears",
+  "category": "creative",
+  "tags": ["gear", "cog", "mesh", "machine", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .64); position: relative; }\n.loader span { position: absolute; top: 50%; border-radius: 50%; -webkit-mask: radial-gradient(transparent 38%, #000 39%); mask: radial-gradient(transparent 38%, #000 39%); }\n.loader span:nth-child(1) { left: 0; width: calc(var(--loader-size) * .58); height: calc(var(--loader-size) * .58); margin-top: calc(var(--loader-size) * -.29); background: repeating-conic-gradient(var(--accent) 0deg 20deg, transparent 20deg 40deg); animation: gear-cw calc(var(--loader-speed) * 3) linear infinite; }\n.loader span:nth-child(2) { right: 0; width: calc(var(--loader-size) * .42); height: calc(var(--loader-size) * .42); margin-top: calc(var(--loader-size) * -.21); background: repeating-conic-gradient(var(--accent-2) 0deg 20deg, transparent 20deg 40deg); animation: gear-ccw calc(var(--loader-speed) * 3) linear infinite; }\n@keyframes gear-cw { to { transform: rotate(360deg); } }\n@keyframes gear-ccw { to { transform: rotate(-360deg); } }",
+  "defaults": { "color": "#0284c7", "secondaryColor": "#d97706", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-drawbridge",
+  "name": "Drawbridge",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "drawbridge",
+    "bridge",
+    "boat",
+    "lift",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-drawbridge drawbridge creative darma-research-batch-13 darma research batch 13 drawbridge bridge boat lift creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-drawbridge\" aria-label=\"Loading\"><span></span><span></span><div class=\"darma-loader-darma-b13-drawbridge__boat\"></div></div>",
+  "previewCss": ".darma-loader-darma-b13-drawbridge { --accent: var(--loader-color, #0f766e); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .62); position: relative; overflow: hidden; }\n.darma-loader-darma-b13-drawbridge::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: linear-gradient(color-mix(in srgb, #fff 34%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b13-drawbridge::before { content: ''; position: absolute; bottom: 30%; left: 5%; width: 8%; height: 54%; border-radius: 2px 2px 0 0; background: color-mix(in srgb, #000 28%, var(--accent)); box-shadow: calc(var(--loader-size, 120px) * .74) 0 0 color-mix(in srgb, #000 28%, var(--accent)); }\n.darma-loader-darma-b13-drawbridge span { position: absolute; bottom: 44%; width: 33%; height: 7%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 18%, var(--accent))); }\n.darma-loader-darma-b13-drawbridge span:nth-child(1) { left: 13%; transform-origin: left center; animation: darma-loader-darma-b13-drawbridge-raise-left calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b13-drawbridge span:nth-child(2) { right: 13%; transform-origin: right center; animation: darma-loader-darma-b13-drawbridge-raise-right calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b13-drawbridge .darma-loader-darma-b13-drawbridge__boat { position: absolute; z-index: 2; bottom: 20%; left: -18%; width: 22%; height: 13%; background: color-mix(in srgb, #000 12%, var(--accent)); clip-path: polygon(0 0, 100% 0, 84% 100%, 16% 100%); animation: darma-loader-darma-b13-drawbridge-sail calc(var(--loader-speed, 1s) * 3.4) linear infinite; }\n@keyframes darma-loader-darma-b13-drawbridge-raise-left { 0%, 18% { transform: rotate(0deg); } 38%, 62% { transform: rotate(-64deg); } 84%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b13-drawbridge-raise-right { 0%, 18% { transform: rotate(0deg); } 38%, 62% { transform: rotate(64deg); } 84%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b13-drawbridge-sail { 0%, 16% { transform: translateX(0); } 58% { transform: translateX(calc(var(--loader-size, 120px) * .64)); } 100% { transform: translateX(calc(var(--loader-size, 120px) * 1.3)); } }",
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#38bdf8",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-drawbridge\" aria-label=\"Loading\"><span></span><span></span><div class=\"darma-loader-darma-b13-drawbridge__boat\"></div></div>",
+    "css": ".darma-loader-darma-b13-drawbridge { --accent: var(--loader-color, #0f766e); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .62); position: relative; overflow: hidden; }\n.darma-loader-darma-b13-drawbridge::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: linear-gradient(color-mix(in srgb, #fff 34%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b13-drawbridge::before { content: ''; position: absolute; bottom: 30%; left: 5%; width: 8%; height: 54%; border-radius: 2px 2px 0 0; background: color-mix(in srgb, #000 28%, var(--accent)); box-shadow: calc(var(--loader-size, 120px) * .74) 0 0 color-mix(in srgb, #000 28%, var(--accent)); }\n.darma-loader-darma-b13-drawbridge span { position: absolute; bottom: 44%; width: 33%; height: 7%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 18%, var(--accent))); }\n.darma-loader-darma-b13-drawbridge span:nth-child(1) { left: 13%; transform-origin: left center; animation: darma-loader-darma-b13-drawbridge-raise-left calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b13-drawbridge span:nth-child(2) { right: 13%; transform-origin: right center; animation: darma-loader-darma-b13-drawbridge-raise-right calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b13-drawbridge .darma-loader-darma-b13-drawbridge__boat { position: absolute; z-index: 2; bottom: 20%; left: -18%; width: 22%; height: 13%; background: color-mix(in srgb, #000 12%, var(--accent)); clip-path: polygon(0 0, 100% 0, 84% 100%, 16% 100%); animation: darma-loader-darma-b13-drawbridge-sail calc(var(--loader-speed, 1s) * 3.4) linear infinite; }\n@keyframes darma-loader-darma-b13-drawbridge-raise-left { 0%, 18% { transform: rotate(0deg); } 38%, 62% { transform: rotate(-64deg); } 84%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b13-drawbridge-raise-right { 0%, 18% { transform: rotate(0deg); } 38%, 62% { transform: rotate(64deg); } 84%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b13-drawbridge-sail { 0%, 16% { transform: translateX(0); } 58% { transform: translateX(calc(var(--loader-size, 120px) * .64)); } 100% { transform: translateX(calc(var(--loader-size, 120px) * 1.3)); } }",
+    "react": "export default function DarmaB13DrawbridgeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-drawbridge\" aria-label=\"Loading\"><span></span><span></span><div className=\"darma-loader-darma-b13-drawbridge__boat\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -3,6 +3,7 @@ import { CheckCircle2, Expand, Gamepad2, Play, ShieldCheck } from "lucide-react"
 import { Badge } from "@/components/ui";
 import type { GameDefinition } from "../domain/game";
 import { GameThumbnail } from "./GameThumbnail";
+import { GameExperienceFrame } from "../engine/GameExperienceFrame";
 import { ReactionTimerPro } from "../playables/reaction-timer";
 import { TetrisGame } from "../playables/tetris";
 import { ChessMiniGame } from "../playables/chess-mini";
@@ -27,7 +28,7 @@ import { NeonCoreDefenseGame } from "../playables/neon-core-defense";
  * Polished player area. Real game components can be lazy-loaded later and passed
  * as `children`; until then this shell still feels intentional and useful.
  */
-export function GamePlayerShell({
+function GamePlayerContent({
   game,
   children,
 }: {
@@ -150,7 +151,7 @@ export function GamePlayerShell({
     <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-4 py-3 sm:px-5">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             Browser player
           </p>
           <h2 className="truncate text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
@@ -199,18 +200,33 @@ export function GamePlayerShell({
 
       <div className="grid gap-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 text-xs font-semibold text-[var(--color-text-secondary)] sm:grid-cols-3 sm:px-5">
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           No account required
         </span>
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           Lightweight by default
         </span>
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           Playable shell ready
         </span>
       </div>
     </div>
+  );
+}
+
+
+export function GamePlayerShell({
+  game,
+  children,
+}: {
+  game: GameDefinition;
+  children?: ReactNode;
+}) {
+  return (
+    <GameExperienceFrame game={game}>
+      <GamePlayerContent game={game}>{children}</GamePlayerContent>
+    </GameExperienceFrame>
   );
 }

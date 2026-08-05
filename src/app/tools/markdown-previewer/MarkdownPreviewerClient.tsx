@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { Button, CopyButton, Tabs, Textarea } from "@/components/ui";
 import { downloadText } from "../_shared/clientUtils";
+import { ToolMobileActions } from "@/features/tools/components/ToolMobileActions";
 import {
   analyzeMarkdown,
   buildMarkdownReport,
@@ -74,9 +75,9 @@ function SummaryCard({ label, value, hint, tone = "neutral" }: { label: string; 
 
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className={`mt-1 truncate text-xl font-black tracking-tight ${valueClass}`}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -241,49 +242,14 @@ export default function MarkdownPreviewerClient() {
 
   return (
     <div className="space-y-4">
-      <section className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label="Markdown summary">
-        <SummaryCard label="Quality" value={`${analysis.score}/100`} hint={`${qualityLabel} · ${problemCount} review item${problemCount === 1 ? "" : "s"}`} tone={qualityTone(analysis.score)} />
-        <SummaryCard label="Document" value={`${analysis.stats.words.toLocaleString()} words`} hint={`${analysis.stats.readingTimeMinutes} min read · ${analysis.stats.lines} lines`} />
-        <SummaryCard label="Structure" value={`${analysis.stats.headings} headings`} hint={`${analysis.stats.listItems} list items · ${analysis.stats.tables} tables`} />
-        <SummaryCard label="Assets" value={`${analysis.stats.links} links`} hint={`${analysis.stats.codeBlocks} code blocks · ${analysis.stats.images} images`} />
-      </section>
-
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical document presets</h2>
-            </div>
-            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start with a real README, API reference, release note, runbook, article, or meeting format.</p>
-          </div>
-          <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
-        </div>
-        <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {MARKDOWN_PRESETS.map((preset) => (
-            <button
-              key={preset.id}
-              type="button"
-              aria-pressed={selectedPreset === preset.id}
-              onClick={() => applyPreset(preset)}
-              className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === preset.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
-            >
-              <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
-              <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
-              <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] xl:items-stretch">
-        <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-          <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+        <section data-tool-region="input" className="order-1 flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-input-border)] bg-[var(--color-tool-input-bg)] shadow-[var(--shadow-tool-controls)] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
+          <div className="flex flex-col gap-3 border-b border-[var(--color-tool-input-border)] bg-[var(--color-tool-input-header)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <FileText className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+                <FileText className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
                 <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Markdown source</h2>
-                <span className={`rounded-full border px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] ${options.livePreview ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] text-[var(--color-text-tertiary)]"}`}>{options.livePreview ? "Live" : "Manual"}</span>
+                <span className={`rounded-full border px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] ${options.livePreview ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] text-[var(--color-text-tertiary)]"}`}>{options.livePreview ? "Live" : "Manual"}</span>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Edit locally. Press Ctrl/⌘ + Enter to refresh the preview.</p>
             </div>
@@ -305,9 +271,9 @@ export default function MarkdownPreviewerClient() {
               spellCheck={false}
               placeholder="# Start your document"
               aria-invalid={Boolean(fileError) || undefined}
-              className="min-h-[430px] flex-1 resize-y"
+              className="min-h-[340px] flex-1 resize-y lg:min-h-[390px]"
             />
-            <div className="flex flex-col gap-2 text-[11px] text-[var(--color-text-tertiary)] sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-2 text-xs text-[var(--color-text-tertiary)] sm:flex-row sm:items-center sm:justify-between">
               <span className="font-mono">{input.length.toLocaleString()} / {MARKDOWN_INPUT_LIMIT.toLocaleString()} chars · {analysis.stats.words.toLocaleString()} words</span>
               {previewStale ? <span className="font-semibold text-[var(--color-warning-text)]">Preview has unpublished edits</span> : <span>Preview is synchronized</span>}
             </div>
@@ -315,12 +281,12 @@ export default function MarkdownPreviewerClient() {
 
             <div className="border-t border-[var(--color-border-subtle)] pt-3">
               <div className="mb-2 flex items-center justify-between gap-2">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Quick syntax</span>
-                <span className="text-[10px] text-[var(--color-text-tertiary)]">Insert at cursor</span>
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Quick syntax</span>
+                <span className="text-xs text-[var(--color-text-tertiary)]">Insert at cursor</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {QUICK_EXAMPLES.map((example) => (
-                  <button key={example.label} type="button" title={example.description} onClick={() => insertSyntax(example.syntax)} className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 py-1 text-[11px] font-semibold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]">
+                  <button key={example.label} type="button" title={example.description} onClick={() => insertSyntax(example.syntax)} className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 py-1 text-xs font-semibold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]">
                     {example.label}
                   </button>
                 ))}
@@ -329,13 +295,13 @@ export default function MarkdownPreviewerClient() {
           </div>
         </section>
 
-        <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-          <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+        <section id="markdown-result" data-tool-region="preview" className="order-2 flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-preview-border)] bg-[var(--color-tool-preview-bg)] shadow-[var(--shadow-tool-preview)]">
+          <div className="flex flex-col gap-3 border-b border-[var(--color-tool-preview-border)] bg-[var(--color-tool-preview-header)] px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <Eye className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+                <Eye className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
                 <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Document preview</h2>
-                {previewStale ? <span className="rounded-full border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-[var(--color-warning-text)]">Stale</span> : null}
+                {previewStale ? <span className="rounded-full border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-warning-text)]">Stale</span> : null}
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Always sanitized before rendering. Raw HTML never executes.</p>
             </div>
@@ -367,9 +333,9 @@ export default function MarkdownPreviewerClient() {
             </div>
           </div>
 
-          <div className="min-h-[530px] flex-1 overflow-auto bg-[var(--color-preview-bg)] p-3 sm:p-4">
+          <div className="min-h-[420px] flex-1 overflow-auto bg-[var(--color-tool-preview-bg)] p-3 sm:p-4">
             {tab === "preview" ? (
-              <div className={`min-h-[490px] rounded-[var(--radius-md)] border border-[var(--color-preview-border)] bg-[var(--color-surface-base)] p-5 shadow-[var(--shadow-xs)] sm:p-7 ${PREVIEW_WIDTH_CLASSES[previewWidth]}`}>
+              <div className={`min-h-[380px] rounded-[var(--radius-md)] border border-[var(--color-preview-border)] bg-[var(--color-surface-base)] p-5 shadow-[var(--shadow-xs)] sm:p-7 ${PREVIEW_WIDTH_CLASSES[previewWidth]}`}>
                 {rendered.warnings.length ? (
                   <div className="mb-4 space-y-2">
                     {rendered.warnings.map((warning) => <div key={warning} className="rounded-[var(--radius-sm)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] px-3 py-2 text-xs text-[var(--color-warning-text)]">{warning}</div>)}
@@ -378,27 +344,67 @@ export default function MarkdownPreviewerClient() {
                 {committedInput.trim() ? (
                   <div className={PREVIEW_THEME_CLASSES[options.previewTheme]} dangerouslySetInnerHTML={{ __html: rendered.sanitizedHtml }} />
                 ) : (
-                  <div className="flex min-h-[420px] items-center justify-center text-center text-sm text-[var(--color-text-tertiary)]">Add Markdown to see a sanitized preview.</div>
+                  <div className="flex min-h-[330px] items-center justify-center text-center text-sm text-[var(--color-text-tertiary)]">Add Markdown to see a sanitized preview.</div>
                 )}
               </div>
             ) : (
-              <div className="min-h-[490px] overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)]">
+              <div className="min-h-[380px] overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)]">
                 <div className="flex items-center justify-between gap-2 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-3 py-2.5">
                   <span className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-code-text)]">{tab === "html" ? <Code2 className="h-3.5 w-3.5" /> : <FileText className="h-3.5 w-3.5" />}{tab === "html" ? "Sanitized HTML fragment" : "Previewed Markdown source"}</span>
                   <CopyButton text={tab === "html" ? rendered.sanitizedHtml : committedInput} size="sm" variant="soft">Copy</CopyButton>
                 </div>
-                <pre className="max-h-[500px] min-h-[445px] overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-xs leading-6 text-[var(--color-code-text)]"><code>{tab === "html" ? rendered.sanitizedHtml : committedInput}</code></pre>
+                <pre className="max-h-[460px] min-h-[335px] overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-xs leading-6 text-[var(--color-code-text)]"><code>{tab === "html" ? rendered.sanitizedHtml : committedInput}</code></pre>
               </div>
             )}
           </div>
         </section>
       </div>
 
+      <ToolMobileActions
+        primary={<a href="#markdown-result" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 text-sm font-bold text-[var(--color-text-inverse)]">View preview</a>}
+        secondary={!options.livePreview ? <Button size="sm" variant="secondary" onClick={renderNow}>Render</Button> : <CopyButton text={rendered.sanitizedHtml} size="sm" variant="secondary">Copy HTML</CopyButton>}
+      />
+
+      <section className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label="Markdown summary">
+        <SummaryCard label="Quality" value={`${analysis.score}/100`} hint={`${qualityLabel} · ${problemCount} review item${problemCount === 1 ? "" : "s"}`} tone={qualityTone(analysis.score)} />
+        <SummaryCard label="Document" value={`${analysis.stats.words.toLocaleString()} words`} hint={`${analysis.stats.readingTimeMinutes} min read · ${analysis.stats.lines} lines`} />
+        <SummaryCard label="Structure" value={`${analysis.stats.headings} headings`} hint={`${analysis.stats.listItems} list items · ${analysis.stats.tables} tables`} />
+        <SummaryCard label="Assets" value={`${analysis.stats.links} links`} hint={`${analysis.stats.codeBlocks} code blocks · ${analysis.stats.images} images`} />
+      </section>
+
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
         <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <Gauge className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical document presets</h2>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start with a real README, API reference, release note, runbook, article, or meeting format.</p>
+          </div>
+          <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
+        </div>
+        <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {MARKDOWN_PRESETS.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              aria-pressed={selectedPreset === preset.id}
+              onClick={() => applyPreset(preset)}
+              className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === preset.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
+            >
+              <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
+              <span className="mt-1 block truncate font-mono text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
+              <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <Gauge className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Workflow controls and exports</h2>
             </div>
             <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Control refresh behavior, link output, and downloadable deliverables.</p>
@@ -413,15 +419,15 @@ export default function MarkdownPreviewerClient() {
             <div className="grid gap-2 sm:grid-cols-3">
               <button type="button" aria-pressed={options.livePreview} onClick={() => toggleOption("livePreview")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.livePreview ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
                 <span className="block text-xs font-bold text-[var(--color-text-primary)]">Live preview</span>
-                <span className="mt-1 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{options.livePreview ? "Refreshes while typing" : "Refresh only on command"}</span>
+                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.livePreview ? "Refreshes while typing" : "Refresh only on command"}</span>
               </button>
               <button type="button" aria-pressed={options.githubLineBreaks} onClick={() => toggleOption("githubLineBreaks")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.githubLineBreaks ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
                 <span className="block text-xs font-bold text-[var(--color-text-primary)]">GitHub line breaks</span>
-                <span className="mt-1 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{options.githubLineBreaks ? "Single newlines render" : "Paragraphs wrap normally"}</span>
+                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.githubLineBreaks ? "Single newlines render" : "Paragraphs wrap normally"}</span>
               </button>
               <button type="button" aria-pressed={options.openLinksInNewTab} onClick={() => toggleOption("openLinksInNewTab")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.openLinksInNewTab ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
                 <span className="block text-xs font-bold text-[var(--color-text-primary)]">External link tabs</span>
-                <span className="mt-1 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{options.openLinksInNewTab ? "Adds noopener + noreferrer" : "Links use the same tab"}</span>
+                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.openLinksInNewTab ? "Adds noopener + noreferrer" : "Links use the same tab"}</span>
               </button>
             </div>
 
@@ -435,17 +441,17 @@ export default function MarkdownPreviewerClient() {
           <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <ListTree className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+                <ListTree className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
                 <h3 className="text-xs font-bold text-[var(--color-text-primary)]">Document outline</h3>
               </div>
-              <span className="text-[10px] text-[var(--color-text-tertiary)]">{previewAnalysis.headings.length} sections</span>
+              <span className="text-xs text-[var(--color-text-tertiary)]">{previewAnalysis.headings.length} sections</span>
             </div>
             <div className="mt-3 max-h-44 space-y-1 overflow-auto pr-1">
               {previewAnalysis.headings.length ? previewAnalysis.headings.map((item) => (
                 <button key={`${item.slug}-${item.line}`} type="button" onClick={() => document.getElementById(item.slug)?.scrollIntoView({ behavior: "smooth", block: "start" })} className="flex w-full min-w-0 items-center gap-2 rounded-[var(--radius-sm)] px-2 py-1.5 text-left text-xs text-[var(--color-text-secondary)] transition hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)] focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]" style={{ paddingInlineStart: `${Math.min(item.level, 4) * 0.5}rem` }}>
                   <Heading className="h-3 w-3 shrink-0" aria-hidden />
                   <span className="truncate">{item.text}</span>
-                  <span className="ml-auto shrink-0 font-mono text-[9px] text-[var(--color-text-tertiary)]">H{item.level}</span>
+                  <span className="ml-auto shrink-0 font-mono text-xs text-[var(--color-text-tertiary)]">H{item.level}</span>
                 </button>
               )) : <p className="py-5 text-center text-xs text-[var(--color-text-tertiary)]">Add headings to create a navigable outline.</p>}
             </div>
@@ -456,7 +462,7 @@ export default function MarkdownPreviewerClient() {
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+            <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2>
           </div>
           <span className="text-xs text-[var(--color-text-tertiary)]">Structure, safety, portability, links, accessibility, and editor size.</span>

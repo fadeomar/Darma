@@ -1,0 +1,128 @@
+/*
+ * Darma typography foundation.
+ *
+ * Text roles and their sizes. Everything a visitor is meant to READ sits at
+ * 12px or above; the only things allowed below that floor are non-semantic
+ * decorative marks (simulated app chrome inside preview artwork), which are
+ * always `aria-hidden` and are never load-bearing for meaning.
+ *
+ *   role              size                     token
+ *   ----------------- ------------------------ ------------------------------
+ *   Display           clamp(2.9rem … 6.35rem)  set per hero
+ *   Hero title        2.25–3rem                --text-4xl / --text-5xl
+ *   Section title     1.5–1.875rem             --text-2xl / --text-3xl
+ *   Card title        1.05–1.25rem             --text-lg / --text-xl
+ *   Body              1rem      (16px)         --text-base
+ *   Supporting body   0.875rem  (14px)         --text-sm
+ *   Metadata          0.75rem   (12px)         --text-meta
+ *   Badge             0.75rem   (12px)         --text-badge
+ *   Navigation        0.875rem  (14px)         --text-sm
+ *   CTA               0.875rem  (14px)         --text-sm
+ *   Diagram label     0.75rem   (12px) rendered
+ *
+ * Micro-labels stay uppercase in places, but they never stack all four
+ * legibility penalties at once (small + uppercase + wide tracking + low
+ * contrast). The `.darma-eyebrow` utility below is the sanctioned form: 12px,
+ * moderate tracking, and a text-safe colour token.
+ */
+
+:root {
+  /* Readable floor. Nothing a visitor reads may go below this. */
+  --text-floor: 0.75rem;
+  --text-meta: 0.75rem;
+  --text-badge: 0.75rem;
+  --text-eyebrow: 0.75rem;
+
+  --leading-meta: 1.45;
+  --tracking-eyebrow: 0.1em;
+  --tracking-badge: 0.05em;
+}
+
+/*
+ * Eyebrow / kicker: the small uppercase mono label above a heading.
+ * Replaces the ad-hoc `font-mono text-[10px] font-bold uppercase
+ * tracking-[0.18em]` pattern, which combined every legibility penalty.
+ */
+.darma-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  font-weight: 800;
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: var(--leading-meta);
+  text-transform: uppercase;
+}
+
+/* Brand-coloured eyebrow. Uses the text-safe primary, never the fill value. */
+.darma-eyebrow-brand {
+  color: var(--color-primary-text-strong);
+}
+
+/* Eyebrow sitting on a permanently dark (ink) surface. */
+.darma-eyebrow-on-ink {
+  color: var(--color-on-ink-primary);
+}
+
+/* Metadata line: dates, counts, source hosts, difficulty, durations. */
+.darma-metadata {
+  color: var(--color-text-tertiary);
+  font-size: var(--text-meta);
+  line-height: var(--leading-meta);
+}
+
+/*
+ * In-diagram labels. SVG text does not scale with browser text settings, so
+ * anything meaningful inside an illustration uses this and is sized in the
+ * SVG's own user units such that it renders at 12px or more.
+ */
+.darma-diagram-label {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   Layout rhythm
+   ========================================================================== */
+
+/*
+ * Section rhythm helpers. Use these when a section's vertical spacing is set in
+ * CSS; in JSX prefer the Tailwind scale, which maps onto the same steps.
+ */
+.darma-section-sm { padding-block: var(--space-section-sm); }
+.darma-section-md { padding-block: var(--space-section-md); }
+.darma-section-lg { padding-block: var(--space-section-lg); }
+
+/*
+ * Grid children must be able to shrink. Grid and flex items default to
+ * `min-width: auto`, which is what lets a long token, a `<select>`'s widest
+ * option, or a non-shrinking button push a whole row past the viewport.
+ */
+.darma-grid-balance > * {
+  min-width: 0;
+}
+
+/*
+ * Orphan-row balance for fixed-count card grids.
+ *
+ * A 10-item set in a three-column grid lays out 3 / 3 / 3 / 1, leaving one card
+ * alone in a third-width slot. Where the item count is known and small (the
+ * Atlas doorways, the working methods, the collection registry) the final card
+ * stretches across the columns it would otherwise leave empty, so the last row
+ * reads as deliberate.
+ *
+ * Deliberately NOT applied to the large filtered catalogues: their item count
+ * changes with the active filter, so an orphan there is not an avoidable
+ * column choice, and a sudden full-width card among many uniform ones would
+ * read as a bug.
+ */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .darma-grid-balance > :last-child:nth-child(2n + 1) { grid-column: span 2; }
+}
+@media (min-width: 1280px) {
+  .darma-grid-balance > :last-child:nth-child(3n + 1) { grid-column: span 3; }
+  .darma-grid-balance > :last-child:nth-child(3n + 2) { grid-column: span 2; }
+}

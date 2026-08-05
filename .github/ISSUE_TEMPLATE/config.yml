@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Darma Tech Atlas
+    url: https://darma-lake.vercel.app/tech-atlas
+    about: Explore the current resources, paths, careers, workflows, teams, and glossary before suggesting a duplicate.
+  - name: Security report
+    url: https://github.com/fadeomar/Darma/security/advisories/new
+    about: Privately report a security vulnerability instead of opening a public issue.

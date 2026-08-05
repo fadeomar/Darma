@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-disco-ball",
+  "name": "Disco Ball",
+  "category": "fun",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "disco",
+    "ball",
+    "mirror",
+    "party",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-disco-ball disco ball fun darma-research-batch-14 darma research batch 14 disco ball mirror party fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-disco-ball\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-disco-ball__ball\"></div><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-disco-ball { --accent: var(--loader-color, #c084fc); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b14-disco-ball::before { content: ''; position: absolute; top: 0; left: 49%; width: 2%; height: 16%; background: #94a3b8; }\n.darma-loader-darma-b14-disco-ball .darma-loader-darma-b14-disco-ball__ball { position: relative; z-index: 2; width: 64%; height: 64%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, transparent 0 8deg, rgba(15, 23, 42, .4) 8deg 9.2deg), repeating-radial-gradient(circle, transparent 0 10%, rgba(15, 23, 42, .4) 10% 11.4%), radial-gradient(circle at 34% 28%, color-mix(in srgb, #fff 72%, var(--accent-2)) 0 12%, color-mix(in srgb, #fff 20%, var(--accent-2)) 46%, color-mix(in srgb, #000 42%, var(--accent-2))); animation: darma-loader-darma-b14-disco-ball-ball-spin calc(var(--loader-speed, 1s) * 3.2) linear infinite; }\n.darma-loader-darma-b14-disco-ball span { position: absolute; top: 48%; left: 50%; width: 52%; height: 9%; transform-origin: left center; background: linear-gradient(90deg, color-mix(in srgb, #fff 30%, var(--accent)), color-mix(in srgb, var(--accent) 45%, transparent) 55%, transparent); animation: darma-loader-darma-b14-disco-ball-beam calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b14-disco-ball span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b14-disco-ball-ball-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b14-disco-ball-beam { 0% { opacity: 0; transform: rotate(-40deg); } 20% { opacity: .9; } 80% { opacity: .9; } 100% { opacity: 0; transform: rotate(220deg); } }",
+  "defaults": {
+    "color": "#c084fc",
+    "secondaryColor": "#cbd5e1",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-disco-ball\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-disco-ball__ball\"></div><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b14-disco-ball { --accent: var(--loader-color, #c084fc); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b14-disco-ball::before { content: ''; position: absolute; top: 0; left: 49%; width: 2%; height: 16%; background: #94a3b8; }\n.darma-loader-darma-b14-disco-ball .darma-loader-darma-b14-disco-ball__ball { position: relative; z-index: 2; width: 64%; height: 64%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, transparent 0 8deg, rgba(15, 23, 42, .4) 8deg 9.2deg), repeating-radial-gradient(circle, transparent 0 10%, rgba(15, 23, 42, .4) 10% 11.4%), radial-gradient(circle at 34% 28%, color-mix(in srgb, #fff 72%, var(--accent-2)) 0 12%, color-mix(in srgb, #fff 20%, var(--accent-2)) 46%, color-mix(in srgb, #000 42%, var(--accent-2))); animation: darma-loader-darma-b14-disco-ball-ball-spin calc(var(--loader-speed, 1s) * 3.2) linear infinite; }\n.darma-loader-darma-b14-disco-ball span { position: absolute; top: 48%; left: 50%; width: 52%; height: 9%; transform-origin: left center; background: linear-gradient(90deg, color-mix(in srgb, #fff 30%, var(--accent)), color-mix(in srgb, var(--accent) 45%, transparent) 55%, transparent); animation: darma-loader-darma-b14-disco-ball-beam calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b14-disco-ball span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b14-disco-ball-ball-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b14-disco-ball-beam { 0% { opacity: 0; transform: rotate(-40deg); } 20% { opacity: .9; } 80% { opacity: .9; } 100% { opacity: 0; transform: rotate(220deg); } }",
+    "react": "export default function DarmaB14DiscoBallLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-disco-ball\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b14-disco-ball__ball\"></div><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

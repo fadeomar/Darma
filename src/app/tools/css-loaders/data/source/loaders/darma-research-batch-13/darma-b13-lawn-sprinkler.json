@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-lawn-sprinkler",
+  "name": "Lawn Sprinkler",
+  "category": "fun",
+  "tags": [
+    "sprinkler",
+    "water",
+    "garden",
+    "spray",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .64); position: relative; }\n.loader::before { content: ''; position: absolute; bottom: 0; left: 44%; width: 12%; height: 30%; border-radius: 4px 4px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 25%, var(--accent-2))); }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 20%; width: 60%; height: 5%; border-radius: 999px; background: color-mix(in srgb, #000 20%, var(--accent-2)); }\n.loader span { position: absolute; bottom: 28%; left: 47%; width: 6%; height: 6%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 60%, var(--accent)), var(--accent)); animation: spray calc(var(--loader-speed) * 1.6) ease-out infinite; }\n.loader span:nth-child(1) { --dir: -1; --reach: .2; }\n.loader span:nth-child(2) { --dir: 1; --reach: .2; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-child(3) { --dir: -1; --reach: .38; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-child(4) { --dir: 1; --reach: .38; animation-delay: calc(var(--loader-speed) * 1.2); }\n@keyframes spray { 0% { opacity: 0; transform: translate(0, 0) scale(.5); } 12% { opacity: 1; } 50% { transform: translate(calc(var(--loader-size) * var(--reach) * var(--dir) * .55), calc(var(--loader-size) * -.26)) scale(1); } 100% { opacity: 0; transform: translate(calc(var(--loader-size) * var(--reach) * var(--dir)), calc(var(--loader-size) * .22)) scale(.7); } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#16a34a",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

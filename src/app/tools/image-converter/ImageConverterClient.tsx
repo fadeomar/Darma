@@ -344,7 +344,7 @@ export default function ImageConverterClient() {
                 <Button className="mt-4" onClick={() => inputRef.current?.click()} leftIcon={<ImageIcon className="h-4 w-4" aria-hidden />}>
                   Choose images
                 </Button>
-                <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <p className="mt-3 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   Up to {formatBytes(MAX_IMAGE_FILE_SIZE_BYTES)} each
                 </p>
               </div>

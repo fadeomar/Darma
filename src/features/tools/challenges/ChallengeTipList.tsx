@@ -15,7 +15,7 @@ export function ChallengeTipList({
 }) {
   return (
     <ChallengeCard className="p-5 sm:p-5">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
       <div className="mt-4 space-y-3 text-sm leading-6 text-[var(--color-text-secondary)]">
         {tips.map((tip, index) => (
           <p key={index} className="flex gap-3">

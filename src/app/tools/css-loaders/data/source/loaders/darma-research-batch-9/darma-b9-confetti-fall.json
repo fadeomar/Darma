@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-confetti-fall",
+  "name": "Confetti Fall",
+  "category": "fun",
+  "tags": ["confetti", "fall", "party", "celebrate", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader span { position: absolute; top: -12%; width: calc(var(--loader-size) * .06); height: calc(var(--loader-size) * .11); border-radius: 2px; background: var(--accent); animation: fall calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader span:nth-child(even) { background: var(--accent-2); }\n.loader span:nth-child(1) { left: 12%; animation-delay: 0s; }\n.loader span:nth-child(2) { left: 30%; animation-delay: calc(var(--loader-speed) * .5); }\n.loader span:nth-child(3) { left: 48%; animation-delay: calc(var(--loader-speed) * 1); }\n.loader span:nth-child(4) { left: 64%; animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(5) { left: 80%; animation-delay: calc(var(--loader-speed) * 1.3); }\n.loader span:nth-child(6) { left: 90%; animation-delay: calc(var(--loader-speed) * .8); }\n@keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { transform: translateY(calc(var(--loader-size) * 1.15)) rotate(400deg); opacity: 0; } }",
+  "defaults": { "color": "#f472b6", "secondaryColor": "#38bdf8", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

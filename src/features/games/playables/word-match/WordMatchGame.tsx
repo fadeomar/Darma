@@ -106,7 +106,7 @@ export function WordMatchGame({ game }: { game: GameDefinition }) {
       <div className="border-b border-[var(--color-border-subtle)] bg-gradient-to-br from-[var(--color-surface-raised)] to-[var(--color-surface-base)] p-4 sm:p-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Vocabulary puzzle</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Vocabulary puzzle</p>
             <h2 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{game.title}</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Tap a word, then tap its matching meaning, opposite, category, or Arabic translation. Build streaks and learn from missed pairs.</p>
           </div>
@@ -141,7 +141,7 @@ export function WordMatchGame({ game }: { game: GameDefinition }) {
           </div>
 
           <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4">
-            <div className="flex items-start gap-3"><BookOpen className="mt-0.5 h-5 w-5 text-[var(--color-primary)]" /><div><p className="font-bold text-[var(--color-text-primary)]">{round.lastFeedback}</p><p className="mt-1 text-sm text-[var(--color-text-secondary)]">Tap-to-match is used instead of drag-and-drop so the game stays comfortable on phones and tablets.</p></div></div>
+            <div className="flex items-start gap-3"><BookOpen className="mt-0.5 h-5 w-5 text-[var(--color-primary-text-strong)]" /><div><p className="font-bold text-[var(--color-text-primary)]">{round.lastFeedback}</p><p className="mt-1 text-sm text-[var(--color-text-secondary)]">Tap-to-match is used instead of drag-and-drop so the game stays comfortable on phones and tablets.</p></div></div>
           </div>
 
           {round.status === "won" ? (
@@ -176,7 +176,7 @@ export function WordMatchGame({ game }: { game: GameDefinition }) {
 }
 
 function CardColumn({ title, cards, selectedId, onChoose }: { title: string; cards: WordMatchCard[]; selectedId: string | null; onChoose: (id: string) => void }) {
-  return <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3"><h3 className="mb-3 text-sm font-black text-[var(--color-text-primary)]">{title}</h3><div className="grid gap-2">{cards.map((card) => <button key={card.id} type="button" disabled={card.matched} onClick={() => onChoose(card.id)} className={["min-h-12 rounded-[var(--radius-sm)] border px-3 text-left text-base font-black transition focus-visible:shadow-[var(--focus-ring)]", card.matched ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)] opacity-75" : selectedId === card.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] shadow-[var(--focus-ring)]" : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]"].join(" ")}>{card.text}</button>)}</div></div>;
+  return <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3"><h3 className="mb-3 text-sm font-black text-[var(--color-text-primary)]">{title}</h3><div className="grid gap-2">{cards.map((card) => <button key={card.id} type="button" disabled={card.matched} onClick={() => onChoose(card.id)} className={["min-h-12 rounded-[var(--radius-sm)] border px-3 text-left text-base font-black transition focus-visible:shadow-[var(--focus-ring)]", card.matched ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)] opacity-75" : selectedId === card.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] shadow-[var(--focus-ring)]" : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]"].join(" ")}>{card.text}</button>)}</div></div>;
 }
 
 function Metric({ icon, label, value }: { icon: ReactNode; label: string; value: ReactNode }) {

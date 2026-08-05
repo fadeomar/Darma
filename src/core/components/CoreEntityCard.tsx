@@ -67,7 +67,7 @@ export function CoreEntityCard<TEntity extends CoreEntity = CoreEntity>({
       <div className="relative flex h-full w-full flex-col p-5">
         <div className="mb-4 flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
               {eyebrow ?? entity.kind}
             </p>
             <h3 className="mt-2 line-clamp-2 text-lg font-black leading-tight tracking-[-0.03em] text-[var(--color-text-primary)]">
@@ -96,7 +96,7 @@ export function CoreEntityCard<TEntity extends CoreEntity = CoreEntity>({
             {visibleTags.map((tag) => (
               <span
                 key={`${entity.id}-${tag}`}
-                className="relative z-10 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 py-1 text-[11px] font-bold text-[var(--color-text-secondary)]"
+                className="relative z-10 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 py-1 text-xs font-bold text-[var(--color-text-secondary)]"
               >
                 {tag}
               </span>
@@ -110,13 +110,13 @@ export function CoreEntityCard<TEntity extends CoreEntity = CoreEntity>({
               {entity.metrics.slice(0, 2).map((metric) => (
                 <div key={metric.label} className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-2.5">
                   <p className="text-xs font-bold text-[var(--color-text-primary)]">{metric.value}</p>
-                  <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">{metric.label}</p>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">{metric.label}</p>
                 </div>
               ))}
             </div>
           ) : null}
 
-          <div className="flex items-center justify-between gap-3 text-sm font-bold text-[var(--color-primary)]">
+          <div className="flex items-center justify-between gap-3 text-sm font-bold text-[var(--color-primary-text-strong)]">
             <span className="inline-flex items-center gap-2">
               <Sparkles className="h-4 w-4" aria-hidden />
               {entity.primaryAction?.label ?? "Open"}

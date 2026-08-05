@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-marble-run",
+  "name": "Marble Run",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "marble",
+    "run",
+    "ramps",
+    "gravity",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-marble-run marble run creative darma-research-batch-13 darma research batch 13 marble run ramps gravity creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-marble-run\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-marble-run__ramp\"></div><div class=\"darma-loader-darma-b13-marble-run__ramp\"></div><div class=\"darma-loader-darma-b13-marble-run__ramp\"></div><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-marble-run { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #0ea5e9); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; overflow: hidden; }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp { position: absolute; left: 5%; width: 90%; height: 4.5%; border-radius: 999px; background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp:nth-child(1) { top: 24%; transform: rotate(8deg); }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp:nth-child(2) { top: 54%; transform: rotate(-8deg); }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp:nth-child(3) { top: 84%; transform: rotate(8deg); }\n.darma-loader-darma-b13-marble-run span { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 52%, var(--accent)), var(--accent)); animation: darma-loader-darma-b13-marble-run-descend calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b13-marble-run span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n@keyframes darma-loader-darma-b13-marble-run-descend { 0% { opacity: 0; left: 3%; top: 8%; } 8% { opacity: 1; } 26% { left: 79%; top: 20%; } 34% { left: 81%; top: 44%; } 56% { left: 5%; top: 52%; } 64% { left: 3%; top: 74%; } 86% { left: 79%; top: 82%; } 96% { opacity: 1; left: 81%; top: 96%; } 100% { opacity: 0; left: 81%; top: 100%; } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#0ea5e9",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-marble-run\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-marble-run__ramp\"></div><div class=\"darma-loader-darma-b13-marble-run__ramp\"></div><div class=\"darma-loader-darma-b13-marble-run__ramp\"></div><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-marble-run { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #0ea5e9); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; overflow: hidden; }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp { position: absolute; left: 5%; width: 90%; height: 4.5%; border-radius: 999px; background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp:nth-child(1) { top: 24%; transform: rotate(8deg); }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp:nth-child(2) { top: 54%; transform: rotate(-8deg); }\n.darma-loader-darma-b13-marble-run .darma-loader-darma-b13-marble-run__ramp:nth-child(3) { top: 84%; transform: rotate(8deg); }\n.darma-loader-darma-b13-marble-run span { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 52%, var(--accent)), var(--accent)); animation: darma-loader-darma-b13-marble-run-descend calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b13-marble-run span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n@keyframes darma-loader-darma-b13-marble-run-descend { 0% { opacity: 0; left: 3%; top: 8%; } 8% { opacity: 1; } 26% { left: 79%; top: 20%; } 34% { left: 81%; top: 44%; } 56% { left: 5%; top: 52%; } 64% { left: 3%; top: 74%; } 86% { left: 79%; top: 82%; } 96% { opacity: 1; left: 81%; top: 96%; } 100% { opacity: 0; left: 81%; top: 100%; } }",
+    "react": "export default function DarmaB13MarbleRunLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-marble-run\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-marble-run__ramp\"></div><div className=\"darma-loader-darma-b13-marble-run__ramp\"></div><div className=\"darma-loader-darma-b13-marble-run__ramp\"></div><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

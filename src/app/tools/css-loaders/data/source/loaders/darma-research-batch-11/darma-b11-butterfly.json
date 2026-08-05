@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-butterfly",
+  "name": "Butterfly",
+  "category": "fun",
+  "tags": ["butterfly", "wings", "flap", "insect", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader span { position: absolute; width: 40%; height: 58%; background: radial-gradient(circle at 50% 38%, color-mix(in srgb, #fff 25%, var(--accent-2)), var(--accent)); border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; }\n.loader span:nth-child(1) { left: 8%; transform-origin: right center; animation: flap-l calc(var(--loader-speed) * .6) ease-in-out infinite; }\n.loader span:nth-child(2) { right: 8%; transform-origin: left center; animation: flap-r calc(var(--loader-speed) * .6) ease-in-out infinite; }\n.loader::after { content: ''; position: absolute; left: 50%; top: 22%; width: calc(var(--loader-size) * .045); height: 56%; margin-left: calc(var(--loader-size) * -.0225); background: #1e293b; border-radius: 4px; z-index: 2; }\n@keyframes flap-l { 0%, 100% { transform: perspective(220px) rotateY(0deg); } 50% { transform: perspective(220px) rotateY(72deg); } }\n@keyframes flap-r { 0%, 100% { transform: perspective(220px) rotateY(0deg); } 50% { transform: perspective(220px) rotateY(-72deg); } }",
+  "defaults": { "color": "#8b5cf6", "secondaryColor": "#f0abfc", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-cassette-reels",
+  "name": "Cassette Deck",
+  "category": "fun",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "cassette",
+    "tape",
+    "reels",
+    "retro",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-cassette-reels cassette deck fun darma-research-batch-12 darma research batch 12 cassette tape reels retro fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-cassette-reels\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b12-cassette-reels { --accent: var(--loader-color, #f8fafc); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .64); position: relative; display: flex; align-items: center; justify-content: space-evenly; border-radius: 8%; background: linear-gradient(#334155, #0f172a); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .12); }\n.darma-loader-darma-b12-cassette-reels::before { content: ''; position: absolute; inset: 12% 8% 34%; border-radius: 6px; background: rgba(255, 255, 255, .08); }\n.darma-loader-darma-b12-cassette-reels::after { content: ''; position: absolute; top: 46%; left: 22%; width: 56%; height: 3%; border-radius: 999px; background: var(--accent); }\n.darma-loader-darma-b12-cassette-reels span { position: relative; z-index: 2; width: 30%; height: calc(var(--loader-size, 112px) * .3); border-radius: 50%; box-shadow: inset 0 0 0 calc(var(--loader-size, 112px) * .04) var(--accent); background: conic-gradient(from 0deg, var(--accent-2) 0 7%, transparent 7% 25%, var(--accent-2) 25% 32%, transparent 32% 50%, var(--accent-2) 50% 57%, transparent 57% 75%, var(--accent-2) 75% 82%, transparent 82% 100%); animation: darma-loader-darma-b12-cassette-reels-reel calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n.darma-loader-darma-b12-cassette-reels span:nth-child(2) { animation-duration: calc(var(--loader-speed, 1s) * 2.1); }\n@keyframes darma-loader-darma-b12-cassette-reels-reel { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#f8fafc",
+    "secondaryColor": "#38bdf8",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-cassette-reels\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b12-cassette-reels { --accent: var(--loader-color, #f8fafc); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .64); position: relative; display: flex; align-items: center; justify-content: space-evenly; border-radius: 8%; background: linear-gradient(#334155, #0f172a); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .12); }\n.darma-loader-darma-b12-cassette-reels::before { content: ''; position: absolute; inset: 12% 8% 34%; border-radius: 6px; background: rgba(255, 255, 255, .08); }\n.darma-loader-darma-b12-cassette-reels::after { content: ''; position: absolute; top: 46%; left: 22%; width: 56%; height: 3%; border-radius: 999px; background: var(--accent); }\n.darma-loader-darma-b12-cassette-reels span { position: relative; z-index: 2; width: 30%; height: calc(var(--loader-size, 112px) * .3); border-radius: 50%; box-shadow: inset 0 0 0 calc(var(--loader-size, 112px) * .04) var(--accent); background: conic-gradient(from 0deg, var(--accent-2) 0 7%, transparent 7% 25%, var(--accent-2) 25% 32%, transparent 32% 50%, var(--accent-2) 50% 57%, transparent 57% 75%, var(--accent-2) 75% 82%, transparent 82% 100%); animation: darma-loader-darma-b12-cassette-reels-reel calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n.darma-loader-darma-b12-cassette-reels span:nth-child(2) { animation-duration: calc(var(--loader-speed, 1s) * 2.1); }\n@keyframes darma-loader-darma-b12-cassette-reels-reel { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB12CassetteReelsLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-cassette-reels\" aria-label=\"Loading\"><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

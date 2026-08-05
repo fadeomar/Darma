@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-vending-drop",
+  "name": "Vending Drop",
+  "category": "fun",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "vending",
+    "machine",
+    "snack",
+    "drop",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-vending-drop vending drop fun darma-research-batch-13 darma research batch 13 vending machine snack drop fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-vending-drop\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-vending-drop { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 112px) * .72); height: var(--loader-size, 112px); position: relative; overflow: hidden; border-radius: 8%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 2px #334155; }\n.darma-loader-darma-b13-vending-drop::before { content: ''; position: absolute; top: 8%; left: 8%; width: 84%; height: 56%; background: repeating-linear-gradient(to bottom, transparent 0 26%, rgba(255, 255, 255, .16) 26% 30%); }\n.darma-loader-darma-b13-vending-drop::after { content: ''; position: absolute; bottom: 6%; left: 10%; width: 80%; height: 18%; border-radius: 4px; background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .22); }\n.darma-loader-darma-b13-vending-drop span { position: absolute; top: 12%; width: 18%; height: 12%; border-radius: 3px; background: var(--accent); animation: darma-loader-darma-b13-vending-drop-vend calc(var(--loader-speed, 1s) * 2.6) ease-in infinite; }\n.darma-loader-darma-b13-vending-drop span:nth-child(1) { left: 13%; }\n.darma-loader-darma-b13-vending-drop span:nth-child(2) { left: 41%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .87); }\n.darma-loader-darma-b13-vending-drop span:nth-child(3) { left: 69%; animation-delay: calc(var(--loader-speed, 1s) * 1.74); }\n@keyframes darma-loader-darma-b13-vending-drop-vend { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 10% { opacity: 1; } 52% { transform: translate(0, calc(var(--loader-size, 112px) * .62)) rotate(148deg); } 72% { opacity: 1; transform: translate(0, calc(var(--loader-size, 112px) * .62)) rotate(160deg); } 100% { opacity: 0; transform: translate(0, calc(var(--loader-size, 112px) * .62)) rotate(160deg); } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#22d3ee",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-vending-drop\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-vending-drop { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 112px) * .72); height: var(--loader-size, 112px); position: relative; overflow: hidden; border-radius: 8%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 2px #334155; }\n.darma-loader-darma-b13-vending-drop::before { content: ''; position: absolute; top: 8%; left: 8%; width: 84%; height: 56%; background: repeating-linear-gradient(to bottom, transparent 0 26%, rgba(255, 255, 255, .16) 26% 30%); }\n.darma-loader-darma-b13-vending-drop::after { content: ''; position: absolute; bottom: 6%; left: 10%; width: 80%; height: 18%; border-radius: 4px; background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .22); }\n.darma-loader-darma-b13-vending-drop span { position: absolute; top: 12%; width: 18%; height: 12%; border-radius: 3px; background: var(--accent); animation: darma-loader-darma-b13-vending-drop-vend calc(var(--loader-speed, 1s) * 2.6) ease-in infinite; }\n.darma-loader-darma-b13-vending-drop span:nth-child(1) { left: 13%; }\n.darma-loader-darma-b13-vending-drop span:nth-child(2) { left: 41%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .87); }\n.darma-loader-darma-b13-vending-drop span:nth-child(3) { left: 69%; animation-delay: calc(var(--loader-speed, 1s) * 1.74); }\n@keyframes darma-loader-darma-b13-vending-drop-vend { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 10% { opacity: 1; } 52% { transform: translate(0, calc(var(--loader-size, 112px) * .62)) rotate(148deg); } 72% { opacity: 1; transform: translate(0, calc(var(--loader-size, 112px) * .62)) rotate(160deg); } 100% { opacity: 0; transform: translate(0, calc(var(--loader-size, 112px) * .62)) rotate(160deg); } }",
+    "react": "export default function DarmaB13VendingDropLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-vending-drop\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-slinky-spring",
+  "name": "Coil Spring",
+  "category": "fun",
+  "tags": ["spring", "coil", "slinky", "compress", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); width: calc(var(--loader-size) * .6); height: var(--loader-size); display: flex; flex-direction: column; align-items: center; justify-content: center; }\n.loader span { width: 100%; height: calc(var(--loader-size) * .08); border: calc(var(--loader-size) * .028) solid var(--accent); border-radius: 50%; margin: calc(var(--loader-size) * .012) 0; animation: coil calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n.loader span:nth-child(1) { animation-delay: 0s; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(5) { animation-delay: calc(var(--loader-speed) * .4); }\n@keyframes coil { 0%, 100% { transform: scaleX(.5); opacity: .4; } 50% { transform: scaleX(1); opacity: 1; } }",
+  "defaults": { "color": "#d946ef", "size": 80, "speed": 1 },
+  "controls": { "color": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -52,6 +52,7 @@ import {
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
+import { useGameExperience, useGameExperienceControls } from "../../engine/GameExperienceProvider";
 import {
   accuracyPercent,
   activeThreats,
@@ -285,6 +286,16 @@ function dangerForWave(wave: number): string | null {
 
 export function NeonCoreDefenseGame({ game }: { game: GameDefinition }) {
   const router = useRouter();
+  const {
+    hydrated: sharedExperienceHydrated,
+    preferences: sharedPreferences,
+    updatePreference: updateSharedPreference,
+    startSession: startSharedSession,
+    pauseSession: pauseSharedSession,
+    resumeSession: resumeSharedSession,
+    completeSession: completeSharedSession,
+    abandonSession: abandonSharedSession,
+  } = useGameExperience();
 
   const [phase, setPhase] = useState<NeonCorePhase>("intro");
   const [hud, setHud] = useState<HudSnapshot>(EMPTY_HUD);
@@ -451,13 +462,19 @@ export function NeonCoreDefenseGame({ game }: { game: GameDefinition }) {
       progressRef.current = next;
       applyRuntimeSettings(next.settings);
       setProgress(next);
+      if ("music" in patch || "sfx" in patch) {
+        updateSharedPreference("muted", !next.settings.music && !next.settings.sfx);
+      }
+      if ("reducedMotion" in patch) {
+        updateSharedPreference("reducedMotion", next.settings.reducedMotion);
+      }
       if (persistTimerRef.current) window.clearTimeout(persistTimerRef.current);
       persistTimerRef.current = window.setTimeout(() => {
         writeProgress(progressRef.current);
         persistTimerRef.current = null;
       }, 400);
     },
-    [applyRuntimeSettings],
+    [applyRuntimeSettings, updateSharedPreference],
   );
 
   /** Flush any pending debounced settings write immediately. */
@@ -468,6 +485,22 @@ export function NeonCoreDefenseGame({ game }: { game: GameDefinition }) {
       writeProgress(progressRef.current);
     }
   }, []);
+
+  // The shared Darma preference remains the cross-game source of truth.
+  useEffect(() => {
+    if (!hydrated || !sharedExperienceHydrated) return;
+    const patch: Partial<GameSettings> = {};
+    const locallyMuted = !progress.settings.music && !progress.settings.sfx;
+    if (locallyMuted !== sharedPreferences.muted) {
+      patch.music = !sharedPreferences.muted;
+      patch.sfx = !sharedPreferences.muted;
+    }
+    if (progress.settings.reducedMotion !== sharedPreferences.reducedMotion) {
+      patch.reducedMotion = sharedPreferences.reducedMotion;
+      if (sharedPreferences.reducedMotion) patch.screenShake = false;
+    }
+    if (Object.keys(patch).length > 0) handleSettingsChange(patch);
+  }, [handleSettingsChange, hydrated, progress.settings.music, progress.settings.reducedMotion, progress.settings.sfx, sharedExperienceHydrated, sharedPreferences.muted, sharedPreferences.reducedMotion]);
 
   const toggleFullscreen = useCallback(() => {
     const el = shellRef.current;
@@ -530,10 +563,25 @@ export function NeonCoreDefenseGame({ game }: { game: GameDefinition }) {
     for (const daily of runRewards.dailiesCompleted) notify("reward", `daily:${daily.key}`, "Daily challenge complete!", 3200);
     if (runRewards.leveledUp) notify("reward", `lvl:${runRewards.levelAfter}`, `Level ${runRewards.levelAfter} reached!`, 3200);
 
+    completeSharedSession({
+      score: finished.score,
+      scoreLabel: `Wave ${finished.waveReached} · ${finished.accuracy}% accuracy`,
+      summary: `${finished.score} points across ${finished.waveReached} waves.`,
+      outcome: "lost",
+      stats: {
+        Wave: finished.waveReached,
+        Accuracy: `${finished.accuracy}%`,
+        Destroyed: finished.enemiesDestroyed,
+        "Best combo": `${finished.highestCombo}×`,
+        Survived: `${Math.round(finished.survivalTime)}s`,
+      },
+      trackBestScore: true,
+    });
+
     // Drop live effects, drops, and in-flight rounds so nothing survives the run.
     endRun(model);
     syncHud();
-  }, [syncHud, commitProgress, playSfx, haptic, notify]);
+  }, [syncHud, commitProgress, playSfx, haptic, notify, completeSharedSession]);
 
   const startGame = useCallback(() => {
     const model = modelRef.current;
@@ -558,9 +606,11 @@ export function NeonCoreDefenseGame({ game }: { game: GameDefinition }) {
     // Drop the stale timestamp so the first frame of a new run gets dt = 0
     // instead of a huge jump that would teleport enemies into the core.
     lastTimeRef.current = null;
+    if (phaseRef.current === "playing" || phaseRef.current === "paused") abandonSharedSession();
     phaseRef.current = "playing";
     setPhase("playing");
-  }, [syncHud, applyRuntimeSettings]);
+    startSharedSession({ mode: "defense-run" });
+  }, [syncHud, applyRuntimeSettings, abandonSharedSession, startSharedSession]);
 
   const togglePause = useCallback(() => {
     setPhase((current) => {
@@ -582,6 +632,20 @@ export function NeonCoreDefenseGame({ game }: { game: GameDefinition }) {
       return current;
     });
   }, []);
+
+  useEffect(() => {
+    if (phase === "paused") pauseSharedSession();
+    else if (phase === "playing") resumeSharedSession();
+  }, [pauseSharedSession, phase, resumeSharedSession]);
+
+  useGameExperienceControls({
+    pause: togglePause,
+    resume: togglePause,
+    restart: startGame,
+    canPause: phase === "playing",
+    canResume: phase === "paused",
+    canRestart: phase === "over" || phase === "paused",
+  });
 
   const chooseWeapon = useCallback(
     (weapon: WeaponId) => {

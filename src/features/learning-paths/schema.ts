@@ -1,0 +1,10 @@
+import { z } from "zod";
+export const learningPathTrackSchema = z.enum(["web", "mobile", "design", "devops"]);
+export const learningPathDifficultySchema = z.enum(["beginner", "intermediate"]);
+export const learningPathStageSchema = z.object({ id:z.string().min(1), title:z.string().min(1), summary:z.string().min(30), whyItMatters:z.string().min(30), topics:z.array(z.string().min(1)).min(2), resourceIds:z.array(z.string().min(1)).min(1), checkpoint:z.string().min(20), project:z.object({title:z.string().min(1),brief:z.string().min(30),deliverables:z.array(z.string().min(1)).min(1)}) });
+export const learningPathSchema = z.object({ slug:z.string().min(1), title:z.string().min(1), shortTitle:z.string().min(1), summary:z.string().min(50), description:z.string().min(100), track:learningPathTrackSchema, difficulty:learningPathDifficultySchema, estimatedWeeks:z.string().min(1), weeklyCommitment:z.string().min(1), audience:z.array(z.string()).min(1), prerequisites:z.array(z.string()), outcomes:z.array(z.string()).min(3), stages:z.array(learningPathStageSchema).min(4), finalProject:z.object({title:z.string(),brief:z.string().min(50),deliverables:z.array(z.string()).min(2)}), recommendedNext:z.array(z.string()), featured:z.boolean(), tags:z.array(z.string()).min(2), references:z.array(z.object({name:z.string(),url:z.string().url()})).min(1) });
+export const learningPathCatalogSchema = z.array(learningPathSchema);
+export type LearningPath=z.infer<typeof learningPathSchema>;
+export type LearningPathStage=z.infer<typeof learningPathStageSchema>;
+export type LearningPathTrack=z.infer<typeof learningPathTrackSchema>;
+export type LearningPathDifficulty=z.infer<typeof learningPathDifficultySchema>;

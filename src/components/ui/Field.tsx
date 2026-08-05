@@ -46,19 +46,19 @@ export function Field({
               {label ? (
                 <div
                   className={cn(
-                    "font-mono text-[10px] font-bold uppercase leading-4 tracking-[0.08em] text-[var(--color-text-tertiary)]",
-                    !isCompact && "text-[11px]",
+                    "font-mono text-xs font-bold uppercase leading-4 tracking-[0.08em] text-[var(--color-text-tertiary)]",
+                    !isCompact && "text-xs",
                   )}
                 >
                   {label}
                   {required ? <span className="ml-1 text-[var(--color-danger)]" aria-hidden>*</span> : null}
                 </div>
               ) : null}
-              {valueMeta ? <div className="font-mono text-[10px] font-semibold text-[var(--color-text-tertiary)]">{valueMeta}</div> : null}
+              {valueMeta ? <div className="font-mono text-xs font-semibold text-[var(--color-text-tertiary)]">{valueMeta}</div> : null}
             </div>
           ) : null}
           {description ? (
-            <p id={descriptionId} className={cn(isCompact ? "text-[11px] leading-4" : "text-xs leading-5", "text-[var(--color-text-tertiary)]")}>
+            <p id={descriptionId} className={cn(isCompact ? "text-xs leading-4" : "text-xs leading-5", "text-[var(--color-text-tertiary)]")}>
               {description}
             </p>
           ) : null}

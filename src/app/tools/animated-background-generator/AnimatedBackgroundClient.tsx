@@ -26,7 +26,7 @@ function SummaryCards({ cards }: { cards: ReturnType<typeof buildAnimatedBackgro
     <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Animated background summary">
       {cards.map((card) => (
         <div key={card.label} className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)]">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{card.label}</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{card.label}</p>
           <p className="mt-1 truncate text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{card.value}</p>
           <p className="mt-2 truncate text-xs text-[var(--color-text-tertiary)]" title={card.detail}>{card.detail}</p>
         </div>

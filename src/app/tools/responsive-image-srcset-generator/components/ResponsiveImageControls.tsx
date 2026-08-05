@@ -8,7 +8,7 @@ function ToggleRow({ checked, label, description, onChange }: { checked: boolean
   return (
     <label className="flex cursor-pointer items-start gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
       <input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="mt-0.5 h-4 w-4 accent-[var(--color-primary)]" />
-      <span className="min-w-0"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{label}</span><span className="mt-1 block text-[11px] leading-5 text-[var(--color-text-tertiary)]">{description}</span></span>
+      <span className="min-w-0"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{label}</span><span className="mt-1 block text-xs leading-5 text-[var(--color-text-tertiary)]">{description}</span></span>
     </label>
   );
 }
@@ -68,10 +68,10 @@ export function ResponsiveImageControls({
 
       <ControlSection title="Browser loading hints">
         <ControlGrid columns={2}>
-          <label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Loading<Select size="sm" value={state.attributes.loading} onChange={(event) => onPatch({ attributes: { ...state.attributes, loading: event.target.value as ResponsiveImageState["attributes"]["loading"] } })}><option value="lazy">lazy</option><option value="eager">eager</option></Select></label>
-          <label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Decoding<Select size="sm" value={state.attributes.decoding} onChange={(event) => onPatch({ attributes: { ...state.attributes, decoding: event.target.value as ResponsiveImageState["attributes"]["decoding"] } })}><option value="async">async</option><option value="auto">auto</option><option value="sync">sync</option></Select></label>
-          <label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Fetch priority<Select size="sm" value={state.attributes.fetchPriority} onChange={(event) => onPatch({ attributes: { ...state.attributes, fetchPriority: event.target.value as ResponsiveImageState["attributes"]["fetchPriority"] } })}><option value="auto">auto</option><option value="high">high</option><option value="low">low</option></Select></label>
-          <label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Object fit<Select size="sm" value={state.attributes.objectFit} onChange={(event) => onPatch({ attributes: { ...state.attributes, objectFit: event.target.value as ResponsiveImageState["attributes"]["objectFit"] } })}><option value="cover">cover</option><option value="contain">contain</option><option value="fill">fill</option><option value="none">none</option><option value="scale-down">scale-down</option></Select></label>
+          <label className="space-y-1 text-xs font-bold text-[var(--color-text-tertiary)]">Loading<Select size="sm" value={state.attributes.loading} onChange={(event) => onPatch({ attributes: { ...state.attributes, loading: event.target.value as ResponsiveImageState["attributes"]["loading"] } })}><option value="lazy">lazy</option><option value="eager">eager</option></Select></label>
+          <label className="space-y-1 text-xs font-bold text-[var(--color-text-tertiary)]">Decoding<Select size="sm" value={state.attributes.decoding} onChange={(event) => onPatch({ attributes: { ...state.attributes, decoding: event.target.value as ResponsiveImageState["attributes"]["decoding"] } })}><option value="async">async</option><option value="auto">auto</option><option value="sync">sync</option></Select></label>
+          <label className="space-y-1 text-xs font-bold text-[var(--color-text-tertiary)]">Fetch priority<Select size="sm" value={state.attributes.fetchPriority} onChange={(event) => onPatch({ attributes: { ...state.attributes, fetchPriority: event.target.value as ResponsiveImageState["attributes"]["fetchPriority"] } })}><option value="auto">auto</option><option value="high">high</option><option value="low">low</option></Select></label>
+          <label className="space-y-1 text-xs font-bold text-[var(--color-text-tertiary)]">Object fit<Select size="sm" value={state.attributes.objectFit} onChange={(event) => onPatch({ attributes: { ...state.attributes, objectFit: event.target.value as ResponsiveImageState["attributes"]["objectFit"] } })}><option value="cover">cover</option><option value="contain">contain</option><option value="fill">fill</option><option value="none">none</option><option value="scale-down">scale-down</option></Select></label>
         </ControlGrid>
       </ControlSection>
 
@@ -82,7 +82,7 @@ export function ResponsiveImageControls({
 
       <ControlSection title="Sizes rules" meta={`${state.sizes.length}/8`} action={<Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" aria-hidden />} onClick={onAddSizeRule}>Add</Button>}>
         <div className="space-y-2">{state.sizes.map((rule) => <SizeRuleRow key={rule.id} rule={rule} onUpdate={(patch) => onUpdateSizeRule(rule.id, patch)} onRemove={() => onRemoveSizeRule(rule.id)} />)}</div>
-        <label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Default slot size<Input size="sm" value={state.defaultSlotSize} onChange={(event) => onPatch({ defaultSlotSize: event.target.value })} aria-label="Default slot size" placeholder="33vw" /></label>
+        <label className="space-y-1 text-xs font-bold text-[var(--color-text-tertiary)]">Default slot size<Input size="sm" value={state.defaultSlotSize} onChange={(event) => onPatch({ defaultSlotSize: event.target.value })} aria-label="Default slot size" placeholder="33vw" /></label>
       </ControlSection>
 
       {state.mode === "picture" ? (
@@ -114,7 +114,7 @@ function CandidateRow({ candidate, canRemove, onUpdate, onRemove }: { candidate:
   return (
     <div className="space-y-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5">
       <div className="flex gap-2"><Input size="sm" value={candidate.url} onChange={(event) => onUpdate({ url: event.target.value })} aria-label={`Candidate ${candidate.width} URL`} /><Button size="icon" variant="ghost" disabled={!canRemove} onClick={onRemove} leftIcon={<Trash2 className="h-4 w-4" aria-hidden />}>Remove candidate</Button></div>
-      <div className="grid grid-cols-[minmax(0,1fr)_7rem] gap-2"><NumberField label="Width" value={candidate.width} min={16} max={8000} unit="w" onChange={(width) => onUpdate({ width })} /><label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Format<Select size="sm" value={candidate.format} onChange={(event) => onUpdate({ format: event.target.value as ImageCandidate["format"] })}><option value="jpg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option><option value="avif">AVIF</option><option value="custom">Custom</option></Select></label></div>
+      <div className="grid grid-cols-[minmax(0,1fr)_7rem] gap-2"><NumberField label="Width" value={candidate.width} min={16} max={8000} unit="w" onChange={(width) => onUpdate({ width })} /><label className="space-y-1 text-xs font-bold text-[var(--color-text-tertiary)]">Format<Select size="sm" value={candidate.format} onChange={(event) => onUpdate({ format: event.target.value as ImageCandidate["format"] })}><option value="jpg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option><option value="avif">AVIF</option><option value="custom">Custom</option></Select></label></div>
     </div>
   );
 }
@@ -137,7 +137,7 @@ function PictureSourceRow({ source, onUpdate, onRemove, onRegenerate }: { source
         <Input size="sm" value={source.media} onChange={(event) => onUpdate({ media: event.target.value })} aria-label="Picture source media condition" placeholder="Optional media condition" />
       </div>
       <Input size="sm" value={source.urlPattern} onChange={(event) => onUpdate({ urlPattern: event.target.value })} aria-label="Picture source URL pattern" placeholder="/images/card-{width}.webp" />
-      <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]"><span>{source.candidates.length} candidate{source.candidates.length === 1 ? "" : "s"}</span><div className="flex gap-2"><Button size="sm" variant="ghost" leftIcon={<RefreshCw className="h-3.5 w-3.5" aria-hidden />} onClick={onRegenerate}>Regenerate</Button><Button size="sm" variant="ghost" leftIcon={<Trash2 className="h-3.5 w-3.5" aria-hidden />} onClick={onRemove}>Remove</Button></div></div>
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]"><span>{source.candidates.length} candidate{source.candidates.length === 1 ? "" : "s"}</span><div className="flex gap-2"><Button size="sm" variant="ghost" leftIcon={<RefreshCw className="h-3.5 w-3.5" aria-hidden />} onClick={onRegenerate}>Regenerate</Button><Button size="sm" variant="ghost" leftIcon={<Trash2 className="h-3.5 w-3.5" aria-hidden />} onClick={onRemove}>Remove</Button></div></div>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-heartbeat",
+  "name": "Heartbeat",
+  "category": "fun",
+  "tags": ["heart", "beat", "love", "pulse", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; animation: beat calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n.loader span { position: absolute; top: 32%; left: 50%; width: 42%; height: 42%; transform: translateX(-50%) rotate(-45deg); background: linear-gradient(45deg, var(--accent-2), var(--accent)); box-shadow: 0 0 calc(var(--loader-size) * .18) color-mix(in srgb, var(--accent) 55%, transparent); }\n.loader span::before, .loader span::after { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: inherit; }\n.loader span::before { top: -50%; left: 0; }\n.loader span::after { top: 0; left: 50%; }\n@keyframes beat { 0%, 100% { transform: scale(.82); } 15% { transform: scale(1.05); } 30% { transform: scale(.9); } 45% { transform: scale(1); } 60% { transform: scale(.82); } }",
+  "defaults": { "color": "#e11d48", "secondaryColor": "#fb7185", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

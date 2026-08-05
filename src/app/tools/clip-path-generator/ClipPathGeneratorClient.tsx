@@ -104,7 +104,7 @@ const MOBILE_PANEL_ITEMS: { value: MobilePanel; label: string }[] = [
 function StatTile({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <div className="truncate text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-base font-black text-[var(--color-text-primary)]">{value}</div>
     </div>
   );

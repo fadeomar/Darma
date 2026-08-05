@@ -641,9 +641,9 @@
 
 .rtp-eyebrow {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.66);
 }
@@ -861,7 +861,7 @@
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
@@ -908,7 +908,7 @@
 
 .rtp-lobby-stat-label {
   display: block;
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -965,7 +965,7 @@
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   color: #0b0f1a;
-  font-size: 0.7rem;
+  font-size: .75rem;
 }
 
 .rtp-result-tip {
@@ -1091,7 +1091,7 @@
 }
 
 .rtp-summary-stat-label {
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1107,7 +1107,7 @@
 
 .rtp-summary-stat-hint {
   margin-top: 0.2rem;
-  font-size: 0.68rem;
+  font-size: .75rem;
   color: rgba(255, 255, 255, 0.62);
 }
 
@@ -1440,7 +1440,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1569,7 +1569,7 @@
 }
 
 .rtp-achievement-desc {
-  font-size: 0.7rem;
+  font-size: .75rem;
   line-height: 1.4;
   color: var(--color-text-secondary);
 }
@@ -1699,7 +1699,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1866,9 +1866,9 @@
 
 .dt-eyebrow {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
 }
@@ -1988,9 +1988,9 @@
 .dt-stat-label {
   display: block;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -2070,9 +2070,9 @@
 
 .dt-overlay-eyebrow {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #c4b5fd;
 }
@@ -2192,7 +2192,7 @@
   border: 1px solid var(--color-border-default);
   background: var(--color-surface-overlay);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 700;
   color: var(--color-text-primary);
 }
@@ -2369,7 +2369,7 @@
 .rtp-chart-caption {
   display: block;
   margin-top: 0.5rem;
-  font-size: 0.72rem;
+  font-size: .75rem;
   color: var(--color-text-tertiary);
 }
 
@@ -2469,14 +2469,14 @@
 }
 
 .rtp-ach-desc {
-  font-size: 0.74rem;
+  font-size: .75rem;
   line-height: 1.4;
   color: var(--color-text-secondary);
 }
 
 .rtp-ach-status {
   margin-top: 0.1rem;
-  font-size: 0.64rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2494,7 +2494,7 @@
   padding: 0.05rem 0.45rem;
   border-radius: 999px;
   border: 1px solid var(--color-border-default);
-  font-size: 0.6rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2530,7 +2530,7 @@
 }
 
 .rtp-ach-progress-text {
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 700;
   color: var(--color-text-tertiary);
   font-variant-numeric: tabular-nums;
@@ -2542,7 +2542,7 @@
   padding: 0.05rem 0.4rem;
   border-radius: 999px;
   border: 1px solid #10b981;
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2551,14 +2551,14 @@
 
 .rtp-history-date {
   display: block;
-  font-size: 0.7rem;
+  font-size: .75rem;
   color: var(--color-text-tertiary);
 }
 
 /* Accuracy disclaimer */
 .rtp-accuracy-note {
   margin-top: 1rem;
-  font-size: 0.74rem;
+  font-size: .75rem;
   line-height: 1.5;
   color: var(--color-text-tertiary);
 }
@@ -2578,7 +2578,7 @@
 }
 
 .rtp-toast-desc {
-  font-size: 0.72rem;
+  font-size: .75rem;
   line-height: 1.3;
   color: var(--color-text-secondary);
 }
@@ -2699,7 +2699,7 @@
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2929,7 +2929,7 @@
 }
 
 .rtp-th-hud-label {
-  font-size: 0.6rem;
+  font-size: .75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.6);
@@ -3098,7 +3098,7 @@
 }
 
 .rtp-lc-goal-label {
-  font-size: 0.62rem;
+  font-size: .75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.72);
@@ -3204,7 +3204,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
-  font-size: 0.62rem;
+  font-size: .75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 0.1rem 0.4rem;
@@ -3226,13 +3226,13 @@
 }
 
 .rtp-lc-card-goal {
-  font-size: 0.72rem;
+  font-size: .75rem;
   line-height: 1.25;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .rtp-lc-card-best {
-  font-size: 0.68rem;
+  font-size: .75rem;
   color: rgba(45, 212, 160, 0.9);
   font-weight: 700;
 }
@@ -3319,7 +3319,7 @@
 }
 
 .rtp-lc-progress-num {
-  font-size: 0.7rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--color-text-muted, #64748b);
@@ -3334,14 +3334,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
-  font-size: 0.66rem;
+  font-size: .75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-muted, #64748b);
 }
 
 .rtp-lc-progress-best {
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 700;
   color: var(--color-primary, #6d5cf6);
 }
@@ -4157,7 +4157,7 @@
   display: block;
   margin-bottom: 0.3rem;
   color: var(--color-muted-foreground);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4416,7 +4416,7 @@ html.rtp-gameplay-active body {
   padding: 0.25rem 0.55rem;
   background: color-mix(in srgb, var(--color-primary) 10%, transparent);
   color: var(--color-muted-foreground);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
@@ -4633,7 +4633,7 @@ html.rtp-gameplay-active body {
   background: rgba(251, 191, 36, 0.18);
   border: 1px solid rgba(251, 191, 36, 0.36);
   color: #fde68a;
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -4657,7 +4657,7 @@ html.rtp-gameplay-active body {
 .rtp-modecard-meta dt,
 .rtp-modecard-meta dd {
   margin: 0;
-  font-size: 0.68rem;
+  font-size: .75rem;
   line-height: 1.25;
 }
 
@@ -4695,7 +4695,7 @@ html.rtp-gameplay-active body {
   background: rgba(16, 185, 129, 0.16);
   border: 1px solid rgba(16, 185, 129, 0.3);
   color: #6ee7b7;
-  font-size: 0.65rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -4798,7 +4798,7 @@ html.rtp-gameplay-active body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -4934,7 +4934,7 @@ html.rtp-gameplay-active body {
 
 .rtp-progression-eyebrow {
   display: inline-flex;
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -5016,7 +5016,7 @@ html.rtp-gameplay-active body {
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.07);
   color: rgba(255, 255, 255, 0.68);
-  font-size: 0.74rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -5069,7 +5069,7 @@ html.rtp-gameplay-active body {
 
 .rtp-progression-event-detail {
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.74rem;
+  font-size: .75rem;
   font-weight: 800;
   text-align: right;
 }
@@ -5295,7 +5295,7 @@ html.rtp-gameplay-active body {
   border: 1px solid rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.22);
   background: rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.09);
   color: var(--color-text-secondary);
-  font-size: 0.74rem;
+  font-size: .75rem;
   font-weight: 900;
 }
 
@@ -5399,7 +5399,7 @@ html.rtp-gameplay-active body {
   border-radius: 999px;
   background: rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.12);
   color: var(--color-text-primary);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -5733,7 +5733,7 @@ html.rtp-gameplay-active body {
 
 .rtp-edgecases-log li span {
   color: var(--color-text-tertiary);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -5975,9 +5975,9 @@ html.rtp-gameplay-active body {
 
 .dc-eyebrow {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
 }
@@ -6273,7 +6273,7 @@ html.rtp-gameplay-active body {
   grid-column: span 1;
   text-align: center;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.65rem;
+  font-size: .75rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.58);
 }
@@ -6293,7 +6293,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.65rem;
+  font-size: .75rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.58);
 }
@@ -6323,7 +6323,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.64rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -6361,7 +6361,7 @@ html.rtp-gameplay-active body {
 .dc-stat-card span {
   display: block;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -6408,7 +6408,7 @@ html.rtp-gameplay-active body {
   border-radius: 0.6rem;
   background: rgba(255, 255, 255, 0.05);
   padding: 0.45rem 0.5rem;
-  font-size: 0.72rem;
+  font-size: .75rem;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -6523,7 +6523,7 @@ html.rtp-gameplay-active body {
   background: var(--color-surface-base);
   padding: 0.28rem 0.45rem;
   color: var(--color-text-secondary);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -6562,7 +6562,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   gap: 0.38rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.64rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6673,7 +6673,7 @@ html.rtp-gameplay-active body {
   background: rgba(255, 255, 255, 0.08);
   padding: 0.55rem 0.35rem;
   color: #fff;
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 900;
   text-transform: capitalize;
   cursor: pointer;
@@ -6727,7 +6727,7 @@ html.rtp-gameplay-active body {
 
   .dc-promotion-button {
     padding: 0.45rem 0.25rem;
-    font-size: 0.6rem;
+    font-size: .75rem;
   }
 
   .dc-special-tag {
@@ -6841,7 +6841,7 @@ html.rtp-gameplay-active body {
 }
 
 .dc-difficulty-option span {
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 700;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.58);
@@ -7021,7 +7021,7 @@ html.rtp-gameplay-active body {
 
 .dc-thinking-copy span {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 700;
   color: rgba(20, 184, 166, 0.92);
   font-variant-numeric: tabular-nums;
@@ -7049,7 +7049,7 @@ html.rtp-gameplay-active body {
 .dc-think-live {
   margin-top: 0.4rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.7rem;
+  font-size: .75rem;
   font-weight: 800;
   color: rgba(20, 184, 166, 0.92) !important;
   font-variant-numeric: tabular-nums;
@@ -7165,7 +7165,7 @@ html.rtp-gameplay-active body {
 .dfb-eyebrow {
   display: block;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -7339,7 +7339,7 @@ html.rtp-gameplay-active body {
 .dfb-score-card span {
   display: block;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.61rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -7363,7 +7363,7 @@ html.rtp-gameplay-active body {
 
 .dfb-help-card h3 {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 950;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -7395,7 +7395,7 @@ html.rtp-gameplay-active body {
   padding: 0.18rem 0.45rem;
   color: #fff;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.7rem;
+  font-size: .75rem;
   font-weight: 900;
   text-align: center;
 }
@@ -7407,7 +7407,7 @@ html.rtp-gameplay-active body {
 
 .dfb-side-actions p {
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.74rem;
+  font-size: .75rem;
   line-height: 1.45;
 }
 
@@ -7569,9 +7569,9 @@ html.rtp-gameplay-active body {
 
 .dmsp-eyebrow {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
 }
@@ -7605,7 +7605,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -7689,7 +7689,7 @@ html.rtp-gameplay-active body {
 }
 
 .dmsp-mode-blurb {
-  font-size: 0.74rem;
+  font-size: .75rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.62);
 }
@@ -7712,7 +7712,7 @@ html.rtp-gameplay-active body {
 }
 
 .dmsp-ops-note {
-  font-size: 0.72rem;
+  font-size: .75rem;
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -7779,7 +7779,7 @@ html.rtp-gameplay-active body {
 }
 
 .dmsp-op-example {
-  font-size: 0.68rem;
+  font-size: .75rem;
   color: rgba(255, 255, 255, 0.55);
   font-variant-numeric: tabular-nums;
 }
@@ -8036,7 +8036,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   gap: 0.3rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.58rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -8075,7 +8075,7 @@ html.rtp-gameplay-active body {
   background: rgba(168, 85, 247, 0.18);
   border: 1px solid rgba(168, 85, 247, 0.4);
   color: #e9d5ff;
-  font-size: 0.7rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -8482,9 +8482,9 @@ html.rtp-gameplay-active body {
 
 .dncd-eyebrow {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-tertiary);
 }
@@ -8580,7 +8580,7 @@ html.rtp-gameplay-active body {
 
 .dncd-hud-combo {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   color: #fde68a;
@@ -8626,7 +8626,7 @@ html.rtp-gameplay-active body {
 
 .dncd-hud-health-value {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -8657,7 +8657,7 @@ html.rtp-gameplay-active body {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.64rem;
+  font-size: .75rem;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -8733,7 +8733,7 @@ html.rtp-gameplay-active body {
 
 .dncd-wave-banner-sub {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -8772,7 +8772,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -8802,7 +8802,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-overlay-hint {
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -8815,7 +8815,7 @@ html.rtp-gameplay-active body {
   border-radius: var(--radius-full);
   border: 1px solid rgba(250, 204, 21, 0.5);
   background: rgba(250, 204, 21, 0.14);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 800;
   color: #fde68a;
 }
@@ -8914,7 +8914,7 @@ html.rtp-gameplay-active body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.6rem;
+  font-size: .75rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -8939,7 +8939,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-upgrade-blurb {
-  font-size: 0.72rem;
+  font-size: .75rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.68);
 }
@@ -8948,7 +8948,7 @@ html.rtp-gameplay-active body {
   margin-top: auto;
   padding-top: 0.3rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.6rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   color: rgba(125, 211, 252, 0.9);
@@ -8997,7 +8997,7 @@ html.rtp-gameplay-active body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
 }
 
@@ -9015,7 +9015,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-weapon-blurb {
-  font-size: 0.64rem;
+  font-size: .75rem;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.55);
 }
@@ -9078,7 +9078,7 @@ html.rtp-gameplay-active body {
 
 .dncd-stat-label {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.58rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -9109,7 +9109,7 @@ html.rtp-gameplay-active body {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -9127,7 +9127,7 @@ html.rtp-gameplay-active body {
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.74rem;
+  font-size: .75rem;
   font-weight: 700;
 }
 
@@ -9203,7 +9203,7 @@ html.rtp-gameplay-active body {
   display: flex;
   flex-direction: column;
   gap: 0.05rem;
-  font-size: 0.72rem;
+  font-size: .75rem;
   line-height: 1.35;
 }
 
@@ -9216,7 +9216,7 @@ html.rtp-gameplay-active body {
   margin-left: auto;
   flex-shrink: 0;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.6rem;
+  font-size: .75rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -9240,7 +9240,7 @@ html.rtp-gameplay-active body {
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.08);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.66rem;
+  font-size: .75rem;
   font-weight: 800;
   text-align: center;
   color: rgba(255, 255, 255, 0.85);
@@ -9335,7 +9335,7 @@ html.rtp-gameplay-active body {
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.06);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 800;
   color: #fff;
 }
@@ -9347,7 +9347,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-reward-line {
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.78);
 }
@@ -9430,7 +9430,7 @@ html.rtp-gameplay-active body {
 
 .dncd-prog-xp-label {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem;
+  font-size: .75rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -9509,7 +9509,7 @@ html.rtp-gameplay-active body {
 
 .dncd-prog-count {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 800;
   color: rgba(125, 211, 252, 0.9);
 }
@@ -9594,7 +9594,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-prog-row-copy span {
-  font-size: 0.72rem;
+  font-size: .75rem;
   color: rgba(255, 255, 255, 0.62);
 }
 
@@ -9618,7 +9618,7 @@ html.rtp-gameplay-active body {
 
 .dncd-prog-bar-label {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.62rem !important;
+  font-size: .75rem !important;
   color: rgba(255, 255, 255, 0.55) !important;
 }
 
@@ -9628,7 +9628,7 @@ html.rtp-gameplay-active body {
   gap: 0.25rem;
   flex-shrink: 0;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.72rem;
+  font-size: .75rem;
   font-weight: 800;
   color: #fde68a;
 }
@@ -9642,7 +9642,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-prog-claimed {
-  font-size: 0.68rem;
+  font-size: .75rem;
   font-weight: 800;
   color: #4ade80;
 }
@@ -9684,7 +9684,7 @@ html.rtp-gameplay-active body {
 
 .dncd-store-blurb {
   flex: 1;
-  font-size: 0.72rem;
+  font-size: .75rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.65);
 }
@@ -9697,7 +9697,7 @@ html.rtp-gameplay-active body {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(0, 0, 0, 0.35);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.7rem;
+  font-size: .75rem;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -9710,13 +9710,13 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-prog-ok {
-  font-size: 0.74rem;
+  font-size: .75rem;
   font-weight: 700;
   color: #4ade80;
 }
 
 .dncd-prog-error {
-  font-size: 0.74rem;
+  font-size: .75rem;
   font-weight: 700;
   color: #fb7185;
 }
@@ -9892,7 +9892,7 @@ html.rtp-gameplay-active body {
 .dncd-settings-legend {
   padding: 0;
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.64rem;
+  font-size: .75rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -9988,7 +9988,7 @@ html.rtp-gameplay-active body {
 }
 
 .dncd-settings-toggle-copy span {
-  font-size: 0.7rem;
+  font-size: .75rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -9998,7 +9998,7 @@ html.rtp-gameplay-active body {
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.2);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.64rem;
+  font-size: .75rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -10036,5 +10036,566 @@ html.rtp-gameplay-active body {
   /* Keep the arena the focus; the reference panels move below it. */
   .dncd-layout {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Shared Game Experience Foundation ======================================= */
+.darma-game-experience-root {
+  min-width: 0;
+}
+
+.darma-game-experience-root:fullscreen {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--color-surface-base);
+}
+
+.darma-game-experience {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-surface-overlay);
+  box-shadow: var(--shadow-card);
+}
+
+.darma-game-experience__toolbar {
+  position: relative;
+  z-index: 35;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-surface-raised) 94%, transparent);
+  padding: 0.7rem 0.85rem;
+  backdrop-filter: blur(18px);
+}
+
+.darma-game-experience--fullscreen .darma-game-experience__toolbar {
+  position: sticky;
+  top: 0;
+}
+
+.darma-game-experience__identity,
+.darma-game-experience__actions,
+.darma-game-experience__result,
+.darma-game-experience__history,
+.darma-game-experience__result-meta,
+.darma-game-experience__panel-footer,
+.darma-game-onboarding__facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.darma-game-experience__identity > span:nth-child(2) {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.darma-game-experience__identity small,
+.darma-game-experience__panel-head small,
+.darma-game-experience__result small,
+.darma-game-onboarding > .darma-game-onboarding__card > small:first-of-type {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.darma-game-experience__identity strong {
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.darma-game-experience__icon,
+.darma-game-experience__result-icon,
+.darma-game-onboarding__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-primary-border);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.darma-game-experience__icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.8rem;
+}
+
+.darma-game-experience__panel {
+  position: relative;
+  z-index: 30;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 32%),
+    var(--color-surface-raised);
+  padding: 1rem;
+}
+
+.darma-game-experience__panel-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.darma-game-experience__panel-head h3 {
+  margin: 0.2rem 0 0;
+  color: var(--color-text-primary);
+  font-size: 1.05rem;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.darma-game-experience__guide-grid,
+.darma-game-preferences-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.darma-game-experience__guide-grid > div,
+.darma-game-preference {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface-base) 86%, transparent);
+  padding: 0.85rem;
+}
+
+.darma-game-experience__guide-grid strong,
+.darma-game-preference strong {
+  color: var(--color-text-primary);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.darma-game-experience__guide-grid p,
+.darma-game-experience__guide-grid li,
+.darma-game-preference small {
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.darma-game-experience__guide-grid p {
+  margin: 0.35rem 0 0;
+}
+
+.darma-game-experience__guide-grid ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+}
+
+.darma-game-preferences-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.darma-game-preference {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  cursor: pointer;
+}
+
+.darma-game-preference > span {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.darma-game-preference input {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  accent-color: var(--color-primary);
+}
+
+.darma-game-experience__panel-footer {
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.darma-game-experience__panel-footer > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.darma-game-experience__player {
+  position: relative;
+  min-width: 0;
+  outline: none;
+}
+
+.darma-game-onboarding {
+  position: absolute;
+  z-index: 28;
+  inset: 0;
+  display: grid;
+  min-height: 100%;
+  place-items: center;
+  overflow: auto;
+  background: color-mix(in srgb, #07111f 78%, transparent);
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+}
+
+.darma-game-onboarding__card {
+  width: min(100%, 38rem);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 35%, rgba(255,255,255,0.18));
+  border-radius: 1.35rem;
+  background: var(--color-surface-raised);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+  padding: clamp(1.1rem, 3vw, 1.7rem);
+  text-align: center;
+}
+
+.darma-game-onboarding__icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.75rem;
+  border-radius: 1rem;
+}
+
+.darma-game-onboarding__card h3 {
+  margin: 0.3rem 0 0;
+  color: var(--color-text-primary);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.darma-game-onboarding__card > p {
+  max-width: 32rem;
+  margin: 0.65rem auto 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.darma-game-onboarding__facts {
+  justify-content: center;
+  margin: 0.9rem 0;
+}
+
+.darma-game-onboarding__facts span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  background: var(--color-surface-base);
+  padding: 0.4rem 0.65rem;
+  color: var(--color-text-secondary);
+  font-size: .75rem;
+  font-weight: 750;
+}
+
+.darma-game-onboarding__controls {
+  margin: 0.9rem 0;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-base);
+  padding: 0.8rem;
+  text-align: left;
+}
+
+.darma-game-onboarding__controls strong {
+  color: var(--color-text-primary);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.darma-game-onboarding__controls p {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.darma-game-onboarding__shortcut {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--color-text-tertiary);
+}
+
+.darma-game-experience__result,
+.darma-game-experience__history {
+  border-top: 1px solid var(--color-border-subtle);
+  background: var(--color-surface-raised);
+  padding: 0.75rem 0.9rem;
+}
+
+.darma-game-experience__result > span:nth-child(2) {
+  display: grid;
+  min-width: min(100%, 14rem);
+  flex: 1;
+  gap: 0.1rem;
+}
+
+.darma-game-experience__result strong {
+  color: var(--color-text-primary);
+  font-size: 0.82rem;
+}
+
+.darma-game-experience__result-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+}
+
+.darma-game-experience__history {
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.darma-game-experience--high-contrast {
+  border-color: var(--color-text-primary);
+}
+
+.darma-game-experience--high-contrast .darma-game-experience__toolbar,
+.darma-game-experience--high-contrast .darma-game-experience__panel,
+.darma-game-experience--high-contrast .darma-game-preference,
+.darma-game-experience--high-contrast .darma-game-experience__guide-grid > div {
+  border-color: color-mix(in srgb, var(--color-text-primary) 55%, var(--color-border-default));
+}
+
+.darma-game-experience--large-controls .darma-game-experience__actions button,
+.darma-game-experience--large-controls .darma-game-experience__panel button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+.darma-game-experience--reduced-motion *,
+.darma-game-experience--reduced-motion *::before,
+.darma-game-experience--reduced-motion *::after {
+  scroll-behavior: auto !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.darma-game-experience--fullscreen {
+  min-height: 100dvh;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.darma-game-experience--fullscreen .darma-game-experience__player {
+  min-height: calc(100dvh - 4rem);
+}
+
+/* Math Sprint shared pause integration */
+.dmsp-play-wrap {
+  position: relative;
+}
+
+.dmsp-pause-overlay {
+  position: absolute;
+  z-index: 25;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-height: 24rem;
+  background: color-mix(in srgb, var(--color-surface-overlay) 90%, transparent);
+  padding: 1.25rem;
+  text-align: center;
+  backdrop-filter: blur(12px);
+}
+
+.dmsp-pause-overlay h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 1.45rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.dmsp-pause-overlay p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .darma-game-experience__guide-grid,
+  .darma-game-preferences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .darma-game-experience__toolbar {
+    align-items: flex-start;
+  }
+
+  .darma-game-experience__identity {
+    width: 100%;
+  }
+
+  .darma-game-experience__actions {
+    width: 100%;
+  }
+
+  .darma-game-experience__actions > button:not([aria-label]) {
+    flex: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .darma-game-experience__toolbar,
+  .darma-game-experience__panel,
+  .darma-game-experience__result,
+  .darma-game-experience__history {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .darma-game-experience__identity .inline-flex[class*="Badge"] {
+    display: none;
+  }
+
+  .darma-game-onboarding {
+    align-items: start;
+    padding: 0.65rem;
+  }
+
+  .darma-game-onboarding__card {
+    margin-top: 0.5rem;
+    border-radius: 1rem;
+  }
+}
+
+/* Keep shared actions thumb-friendly and reachable during mobile play. */
+@media (pointer: coarse) {
+  .darma-game-experience__toolbar {
+    position: sticky;
+    top: 0;
+  }
+
+  .darma-game-experience__actions button,
+  .darma-game-preference {
+    min-height: 2.75rem;
+  }
+
+  .darma-game-experience__actions button {
+    min-width: 2.75rem;
+  }
+}
+
+/* Visual completion: original Darma vector symbols replace emoji-only hero tiles. */
+.game-hero-vector-orbit {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 190px;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 1px dashed var(--color-primary-border);
+  border-radius: 999px;
+  opacity: .72;
+}
+.game-hero-vector-orbit::before,
+.game-hero-vector-orbit::after {
+  position: absolute;
+  content: "";
+  border-radius: inherit;
+  border: 1px solid var(--color-border-subtle);
+}
+.game-hero-vector-orbit::before { inset: 19%; }
+.game-hero-vector-orbit::after { inset: 38%; background: color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.game-hero-vector-orbit span { position: absolute; width: 8px; height: 8px; border-radius: 999px; background: var(--color-primary); box-shadow: 0 0 0 5px var(--color-primary-soft); }
+.game-hero-vector-orbit span:nth-child(1) { left: 16px; top: 47%; }.game-hero-vector-orbit span:nth-child(2) { right: 26px; top: 12px; background: var(--color-accent); box-shadow: 0 0 0 5px var(--color-accent-soft); }.game-hero-vector-orbit span:nth-child(3) { right: 8px; bottom: 42px; }
+.game-float-symbol { flex-direction: column; gap: .2rem; color: var(--color-text-primary); }
+.game-float-symbol svg { color: currentColor; }
+.game-float-symbol > span { font-family: var(--font-mono); font-size: .75rem; font-weight: 950; letter-spacing: .05em; text-transform: uppercase; }
+
+/* Endless Runner P2: player-first detail layout ---------------------------------- */
+.runner-detail-hero {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-surface-overlay) 94%, #fff7ed), var(--color-surface-overlay)),
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, #f59e0b 18%, transparent), transparent 36%);
+}
+
+.runner-detail-hero::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--color-primary) 11%, transparent), transparent 30%),
+    radial-gradient(circle at 92% 78%, color-mix(in srgb, #14b8a6 10%, transparent), transparent 32%);
+  opacity: 0.9;
+}
+
+.runner-detail-grid {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-border-subtle) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-border-subtle) 60%, transparent) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(90deg, transparent, black 54%, black);
+}
+
+.runner-detail-preview::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.runner-guide-card {
+  height: auto;
+}
+
+.runner-more-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.runner-more-details[open] .runner-details-chevron {
+  transform: rotate(90deg);
+}
+
+.runner-details-chevron {
+  transition: transform 180ms ease;
+}
+
+:root[data-mode="dark"] .runner-detail-hero {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-surface-overlay) 96%, #1c1208), var(--color-surface-overlay)),
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, #f59e0b 11%, transparent), transparent 36%);
+}
+
+@media (max-width: 640px) {
+  .runner-detail-grid {
+    opacity: 0.14;
+    background-size: 24px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runner-details-chevron {
+    transition: none;
   }
 }

@@ -57,7 +57,7 @@ function BoardCard({ task, subCount }: { task: Task; subCount: { total: number; 
         <TaskDueBadge dueAt={task.dueAt} completed={task.completed} />
         <TaskPriorityBadge priority={task.priority} />
         {subCount.total > 0 && (
-          <span className="text-[10px] todo-muted">
+          <span className="text-xs todo-muted">
             {subCount.done}/{subCount.total} subtasks
           </span>
         )}
@@ -65,7 +65,7 @@ function BoardCard({ task, subCount }: { task: Task; subCount: { total: number; 
       {task.tags.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1">
           {task.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="todo-chip text-[10px]">
+            <span key={tag} className="todo-chip text-xs">
               #{tag}
             </span>
           ))}

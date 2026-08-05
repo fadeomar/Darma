@@ -37,7 +37,12 @@ export type CollectionDefinition = {
   icon: LucideIcon;
   badges: string[];
   metrics: CollectionMetric[];
-  primaryAction: CollectionAction;
+  /**
+   * Navigable call to action. Only define this for collections whose `href`
+   * resolves to a real route: planned collections must omit it so a roadmap
+   * entry can never render as a dead link.
+   */
+  primaryAction?: CollectionAction;
   secondaryAction?: CollectionAction;
   searchPlaceholder: string;
   sections: string[];

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-popcorn-pop",
+  "name": "Popcorn Pop",
+  "category": "fun",
+  "tags": [
+    "popcorn",
+    "pop",
+    "cinema",
+    "kernels",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"tub\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .tub { position: absolute; bottom: 2%; left: 19%; width: 62%; height: 44%; clip-path: polygon(5% 0%, 95% 0%, 84% 100%, 16% 100%); background: repeating-linear-gradient(90deg, var(--accent) 0 16%, #f8fafc 16% 32%); }\n.loader span { position: absolute; bottom: 42%; width: 15%; height: 15%; border-radius: 44% 56% 48% 52% / 52% 46% 54% 48%; background: radial-gradient(circle at 38% 34%, #fff, color-mix(in srgb, #fff 52%, var(--accent-2))); animation: pop calc(var(--loader-speed) * 1.9) ease-out infinite; }\n.loader span:nth-child(1) { left: 22%; --drift: -58%; animation-delay: 0s; }\n.loader span:nth-child(2) { left: 37%; --drift: -18%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-child(3) { left: 51%; --drift: 20%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-child(4) { left: 64%; --drift: 60%; animation-delay: calc(var(--loader-speed) * 1.2); }\n@keyframes pop { 0% { opacity: 0; transform: translate(0, 20%) scale(.35) rotate(0deg); } 18% { opacity: 1; } 52% { transform: translate(var(--drift), -132%) scale(1) rotate(170deg); } 100% { opacity: 0; transform: translate(calc(var(--drift) * 1.5), 34%) scale(1) rotate(320deg); } }",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fbbf24",
+    "size": 100,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -85,7 +85,7 @@ function BatchRow({
         <p className="truncate text-xs font-bold text-[var(--color-text-primary)]">
           {item.name}
         </p>
-        <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+        <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">
           {item.width && item.height ? <span>{item.width} × {item.height}</span> : null}
           <span>{formatBytes(item.size)}</span>
           {item.output && (
@@ -101,7 +101,7 @@ function BatchRow({
           )}
         </p>
         {item.error && (
-          <p className="mt-0.5 text-[11px] text-red-600 dark:text-red-400">
+          <p className="mt-0.5 text-xs text-red-600 dark:text-red-400">
             {item.error}
           </p>
         )}
@@ -111,7 +111,7 @@ function BatchRow({
       {/* Actions */}
       <div className="flex shrink-0 items-center gap-1">
         <span
-          className={`hidden rounded-[var(--radius-full)] border px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.05em] md:inline-block ${className}`}
+          className={`hidden rounded-[var(--radius-full)] border px-2 py-0.5 text-xs font-bold uppercase tracking-[0.05em] md:inline-block ${className}`}
         >
           {label}
         </span>
@@ -120,7 +120,7 @@ function BatchRow({
           onClick={onDownload}
           disabled={item.status !== "done" || disabled}
           title={item.status === "done" ? "Download" : "Not ready yet"}
-          className="flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-30 focus:outline-none focus:shadow-[var(--focus-ring)]"
+          className="flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary-text-strong)] disabled:cursor-not-allowed disabled:opacity-30 focus:outline-none focus:shadow-[var(--focus-ring)]"
         >
           <Download className="h-3.5 w-3.5" aria-hidden />
           <span className="sr-only">Download {item.name}</span>

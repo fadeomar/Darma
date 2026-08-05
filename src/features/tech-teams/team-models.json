@@ -1,0 +1,188 @@
+[
+  {
+    "slug": "functional-departments",
+    "title": "Functional Departments",
+    "summary": "People are grouped by professional discipline such as engineering, design, marketing, operations, or people, usually under specialist leadership.",
+    "description": "Functional structures build deep craft communities, reusable standards, and clear professional management. Product or client work crosses departments through requests, projects, or shared planning, so the quality of coordination and decision rights determines whether expertise becomes an advantage or a handoff queue.",
+    "usefulWhen": [
+      "Specialist capability and professional standards need strong stewardship",
+      "People require mentoring and progression within a clear discipline",
+      "Work can be coordinated without constant cross-functional real-time decisions"
+    ],
+    "watchOutFor": [
+      "Product outcomes may fragment across departmental goals",
+      "Queues and approval handoffs can slow customer feedback",
+      "No single team may own the complete delivered experience"
+    ],
+    "typicalRoleSlugs": [
+      "frontend-developer",
+      "backend-developer",
+      "product-designer",
+      "engineering-manager",
+      "operations-manager"
+    ],
+    "decisionPattern": "Discipline leaders own craft and staffing decisions while cross-functional priorities require explicit coordination or governance.",
+    "communicationPattern": "Information moves within departments efficiently, but cross-department work needs shared briefs, forums, owners, and escalation paths.",
+    "example": "Engineering, design, marketing, and operations each report through separate leaders and contribute specialists to a website initiative managed across departments.",
+    "tags": [
+      "functional organization",
+      "departments",
+      "specialists"
+    ]
+  },
+  {
+    "slug": "cross-functional-product-team",
+    "title": "Cross-Functional Product Team",
+    "summary": "A durable team combines complementary product, design, engineering, and quality capabilities around a customer problem or product outcome.",
+    "description": "Cross-functional product teams reduce routine handoffs by placing the skills and authority needed for discovery, delivery, and learning close together. They still depend on specialist communities, platforms, governance, and shared services, but the team owns an integrated outcome rather than only one phase.",
+    "usefulWhen": [
+      "A product area needs continuous discovery and delivery",
+      "Rapid feedback across product, design, and engineering matters",
+      "The organization can give the team meaningful outcome ownership"
+    ],
+    "watchOutFor": [
+      "Every team may reinvent standards without enabling platforms or communities",
+      "Specialists can become isolated inside small teams",
+      "Nominal autonomy fails when external approvals control every decision"
+    ],
+    "typicalRoleSlugs": [
+      "product-manager",
+      "product-designer",
+      "frontend-developer",
+      "backend-developer",
+      "software-qa-engineer"
+    ],
+    "decisionPattern": "The team makes most product and delivery decisions within clear strategic, technical, security, and operational boundaries.",
+    "communicationPattern": "Daily collaboration happens inside the team, with intentional synchronization through communities of practice, platform interfaces, and stakeholder reviews.",
+    "example": "One stable team owns member onboarding from research and design through APIs, testing, release, analytics, and follow-up improvement.",
+    "tags": [
+      "product team",
+      "cross-functional",
+      "outcome ownership"
+    ]
+  },
+  {
+    "slug": "project-based-team",
+    "title": "Project-Based Team",
+    "summary": "People are assembled temporarily to deliver a defined initiative, scope, client engagement, or transformation and may return to other groups afterward.",
+    "description": "Project teams are useful when work has a clear beginning, end, funding boundary, or contractual objective. Their temporary nature requires deliberate onboarding, knowledge transfer, operational ownership, and closure so delivery does not leave an unsupported product or fragmented decisions.",
+    "usefulWhen": [
+      "A bounded client or transformation initiative needs focused coordination",
+      "Funding and governance are organized around projects",
+      "Specialists must collaborate intensively for a defined period"
+    ],
+    "watchOutFor": [
+      "The team may optimize project completion instead of long-term product health",
+      "Knowledge and ownership can disappear after handover",
+      "Temporary staffing can create repeated forming and coordination cost"
+    ],
+    "typicalRoleSlugs": [
+      "project-manager",
+      "tech-lead",
+      "product-designer",
+      "full-stack-developer",
+      "software-qa-engineer"
+    ],
+    "decisionPattern": "The project charter, sponsor, plan, and governance define decisions, while professional leads own specialist quality and operational owners accept handover.",
+    "communicationPattern": "Structured plans, dependency reviews, status communication, decision logs, and stakeholder checkpoints coordinate the temporary group.",
+    "example": "A six-month client website project brings together a project manager, designer, developers, QA engineer, and operations support before handover.",
+    "tags": [
+      "project team",
+      "temporary team",
+      "client delivery"
+    ]
+  },
+  {
+    "slug": "matrix-organization",
+    "title": "Matrix Organization",
+    "summary": "People have more than one organizational relationship, often combining a functional manager with product, project, client, or geographic leadership.",
+    "description": "Matrix structures share scarce expertise and preserve functional development while allocating people to cross-functional work. They require explicit priority, feedback, and decision mechanisms because competing leaders can otherwise create overload, ambiguous accountability, and constant context switching.",
+    "usefulWhen": [
+      "Scarce specialists need to support multiple products or clients",
+      "Functional development and delivery allocation must coexist",
+      "The organization works across several dimensions such as region, client, and discipline"
+    ],
+    "watchOutFor": [
+      "People receive conflicting priorities from multiple leaders",
+      "Allocation fragments attention across too many initiatives",
+      "Performance feedback and decision authority become unclear"
+    ],
+    "typicalRoleSlugs": [
+      "engineering-manager",
+      "project-manager",
+      "tech-lead",
+      "product-manager",
+      "security-engineer"
+    ],
+    "decisionPattern": "Functional leaders usually own people and craft decisions while product or project leaders own delivery priorities, with conflicts resolved through explicit portfolio governance.",
+    "communicationPattern": "Allocation plans, shared goals, role charters, regular manager alignment, and transparent capacity decisions are essential to prevent hidden overload.",
+    "example": "A security engineer belongs to the security function but is allocated part-time to two product teams, with priorities agreed by both managers.",
+    "tags": [
+      "matrix",
+      "resource allocation",
+      "dual reporting"
+    ]
+  },
+  {
+    "slug": "circles-cooperative",
+    "title": "Circles and Cooperative Model",
+    "summary": "Authority and responsibilities are distributed across purpose-led circles or working groups, with members participating in governance as well as delivery.",
+    "description": "Circle-based and cooperative organizations can increase participation, transparency, and shared ownership. The exact model varies widely, so purpose, membership, delegated authority, consent or voting rules, and links between circles must be documented rather than assumed from the label.",
+    "usefulWhen": [
+      "Members are expected to participate in organizational governance",
+      "Purpose-led groups need delegated authority within shared principles",
+      "Transparency and distributed ownership are explicit organizational values"
+    ],
+    "watchOutFor": [
+      "Consensus expectations can slow routine delegated decisions",
+      "Informal influence may replace visible accountability",
+      "Members can become overloaded by governance and delivery responsibilities"
+    ],
+    "typicalRoleSlugs": [
+      "operations-manager",
+      "people-operations",
+      "engineering-manager",
+      "product-manager",
+      "tech-lead"
+    ],
+    "decisionPattern": "Circles receive defined domains and authority from shared governance, then use documented consent, advice, delegation, or voting rules for different decisions.",
+    "communicationPattern": "Circle records, proposals, cross-circle representatives, open decisions, and explicit coordination agreements connect distributed groups.",
+    "example": "A technology cooperative has engineering, client delivery, operations, people, and marketing circles with delegated budgets and shared governance meetings.",
+    "tags": [
+      "cooperative",
+      "circles",
+      "distributed governance"
+    ]
+  },
+  {
+    "slug": "team-topologies-inspired",
+    "title": "Flow-Oriented Team Topology",
+    "summary": "Teams are designed around fast value flow using stream-aligned, platform, enabling, and complicated-subsystem responsibilities with explicit interaction modes.",
+    "description": "A flow-oriented topology treats organizational design as part of the software system. Stream-aligned teams own outcomes, platform teams provide internal products, enabling teams grow capability, and specialist subsystem teams manage areas requiring concentrated expertise. Boundaries evolve as cognitive load and flow change.",
+    "usefulWhen": [
+      "Many software teams depend on shared technical capabilities",
+      "Cognitive load and cross-team dependencies constrain delivery",
+      "The organization can treat internal platforms and team interfaces as products"
+    ],
+    "watchOutFor": [
+      "Renaming existing departments does not change interaction or ownership",
+      "Platform teams can become ticket queues instead of self-service products",
+      "Team boundaries can become rigid while architecture and demand evolve"
+    ],
+    "typicalRoleSlugs": [
+      "engineering-manager",
+      "tech-lead",
+      "devops-engineer",
+      "site-reliability-engineer",
+      "product-manager"
+    ],
+    "decisionPattern": "Teams receive clear ownership boundaries and choose among collaboration, facilitation, and service consumption according to the work and desired flow.",
+    "communicationPattern": "Team APIs, platform documentation, bounded collaboration periods, enabling engagements, and architecture aligned to team ownership reduce constant coordination.",
+    "example": "A membership product team uses a self-service deployment platform, collaborates temporarily with security, and owns its application from discovery through operation.",
+    "tags": [
+      "team topologies",
+      "platform team",
+      "value stream"
+    ]
+  }
+]

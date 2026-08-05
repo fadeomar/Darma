@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-torus-ring-3d",
+  "name": "Tilted Halo",
+  "category": "creative",
+  "tags": ["torus", "halo", "ring", "3d", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; perspective: 500px; }\n.loader span { width: 80%; height: 80%; border-radius: 50%; background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent)); -webkit-mask: radial-gradient(transparent 56%, #000 58%); mask: radial-gradient(transparent 56%, #000 58%); animation: torus calc(var(--loader-speed) * 2.4) linear infinite; }\n@keyframes torus { 0% { transform: rotateX(66deg) rotate(0deg); } 100% { transform: rotateX(66deg) rotate(360deg); } }",
+  "defaults": { "color": "#7c3aed", "secondaryColor": "#2dd4bf", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

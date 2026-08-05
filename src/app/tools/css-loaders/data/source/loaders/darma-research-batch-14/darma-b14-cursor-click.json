@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-cursor-click",
+  "name": "Cursor Click",
+  "category": "minimal",
+  "tags": [
+    "cursor",
+    "click",
+    "pointer",
+    "tap",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader::after { content: ''; position: absolute; z-index: 2; top: 22%; left: 28%; width: 36%; height: 48%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); clip-path: polygon(0 0, 0 84%, 24% 62%, 44% 100%, 62% 90%, 40% 54%, 76% 50%); animation: click-press calc(var(--loader-speed) * 1.8) ease-out infinite; }\n.loader span { position: absolute; top: 58%; left: 38%; width: 22%; height: 22%; border-radius: 50%; border: calc(var(--loader-size) * .03) solid var(--accent-2); animation: click-ring calc(var(--loader-speed) * 1.8) ease-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .18); }\n@keyframes click-press { 0%, 48% { transform: translate(0, 0); } 58% { transform: translate(6%, 8%) scale(.93); } 72%, 100% { transform: translate(0, 0); } }\n@keyframes click-ring { 0%, 50% { opacity: 0; transform: scale(.3); } 60% { opacity: 1; } 100% { opacity: 0; transform: scale(2.1); } }",
+  "defaults": {
+    "color": "#1e293b",
+    "secondaryColor": "#0ea5e9",
+    "size": 84,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

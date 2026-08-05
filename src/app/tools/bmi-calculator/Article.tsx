@@ -78,7 +78,7 @@ export default function BmiCalculatorArticle() {
         <ul className="mt-3 list-inside list-disc space-y-2">
           <li>
             <a
-              className="font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
+              className="font-semibold text-[var(--color-primary-text-strong)] underline-offset-4 hover:underline"
               href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
               target="_blank"
               rel="noreferrer"
@@ -88,7 +88,7 @@ export default function BmiCalculatorArticle() {
           </li>
           <li>
             <a
-              className="font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
+              className="font-semibold text-[var(--color-primary-text-strong)] underline-offset-4 hover:underline"
               href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight"
               target="_blank"
               rel="noreferrer"
@@ -98,7 +98,7 @@ export default function BmiCalculatorArticle() {
           </li>
           <li>
             <a
-              className="font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
+              className="font-semibold text-[var(--color-primary-text-strong)] underline-offset-4 hover:underline"
               href="https://www.nhs.uk/health-assessment-tools/calculate-your-waist-to-height-ratio"
               target="_blank"
               rel="noreferrer"

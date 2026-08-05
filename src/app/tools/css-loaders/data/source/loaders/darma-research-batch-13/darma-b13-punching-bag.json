@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-punching-bag",
+  "name": "Punching Bag",
+  "category": "fun",
+  "tags": [
+    "punching",
+    "bag",
+    "boxing",
+    "swing",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bag\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .72); height: var(--loader-size); position: relative; }\n.loader::before { content: ''; position: absolute; top: 0; left: 47%; width: 6%; height: 22%; background: repeating-linear-gradient(to bottom, #94a3b8 0 24%, transparent 24% 36%); }\n.loader .bag { position: absolute; top: 18%; left: 26%; width: 48%; height: 64%; border-radius: 26% 26% 34% 34%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 30%, var(--accent))); box-shadow: inset calc(var(--loader-size) * .04) 0 calc(var(--loader-size) * .06) rgba(255, 255, 255, .22); transform-origin: top center; animation: swing calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader .bag::after { content: ''; position: absolute; top: 34%; left: 0; width: 100%; height: 9%; background: color-mix(in srgb, #fff 70%, var(--accent)); }\n.loader span { position: absolute; top: 38%; right: 0; width: 26%; height: 22%; background: var(--accent-2); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); animation: impact calc(var(--loader-speed) * 1.8) ease-out infinite; }\n@keyframes swing { 0%, 100% { transform: rotate(-14deg); } 50% { transform: rotate(14deg); } }\n@keyframes impact { 0%, 74% { opacity: 0; transform: scale(.4); } 82% { opacity: 1; transform: scale(1.15); } 92%, 100% { opacity: 0; transform: scale(.6); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#fbbf24",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import {
@@ -18,6 +18,7 @@ import {
   validateGridState,
 } from "./grid";
 import type { GridGeneratorState, GridItem, GridPreset } from "./types";
+import { GRID_PRESETS } from "./presets";
 import { GridPreview } from "./components/GridPreview";
 import { GridControls } from "./components/GridControls";
 import { GridCodeOutput } from "./components/GridCodeOutput";
@@ -35,6 +36,14 @@ export default function CssGridGeneratorClient() {
   const tokens = useMemo(() => generateGridTokenJson(normalized), [normalized]);
   const areaMap = useMemo(() => generateGridAreaMap(normalized), [normalized]);
   const messages = useMemo<WarningMessage[]>(() => validateGridState(normalized).map((message, index) => ({ id: `${message.type}-${index}`, severity: message.type === "error" ? "danger" : message.type === "warning" ? "warning" : "info", message: message.message })), [normalized]);
+
+  useEffect(() => {
+    const presetId = new URLSearchParams(window.location.search).get("preset");
+    const preset = GRID_PRESETS.find((item) => item.id === presetId);
+    if (!preset) return;
+    setState(normalizeGridState(preset.state));
+    setActivePreset(preset.id);
+  }, []);
 
   function patchState(patch: Partial<GridGeneratorState>) {
     setState((current) => normalizeGridState({ ...current, ...patch }));

@@ -1,0 +1,1373 @@
+[
+  {
+    "slug": "web-foundations",
+    "title": "Web Development Foundations",
+    "shortTitle": "Web Foundations",
+    "summary": "Build a durable foundation in how the web works, semantic HTML, modern CSS, accessibility, responsive design, Git, and JavaScript fundamentals.",
+    "description": "The recommended starting point for people entering web development or strengthening missing fundamentals. It prioritizes standards, accessibility, practical projects, and clear mental models before frameworks so later tools are easier to understand and evaluate.",
+    "track": "web",
+    "difficulty": "beginner",
+    "estimatedWeeks": "6–8 weeks",
+    "weeklyCommitment": "6–8 hours",
+    "audience": [
+      "Complete beginners",
+      "Designers moving into code",
+      "Self-taught developers with knowledge gaps"
+    ],
+    "prerequisites": [
+      "Basic computer and browser use",
+      "No programming experience required"
+    ],
+    "outcomes": [
+      "Create semantic multi-page websites",
+      "Build responsive layouts with modern CSS",
+      "Add useful JavaScript interactions",
+      "Use Git and GitHub",
+      "Test basic accessibility"
+    ],
+    "stages": [
+      {
+        "id": "web-and-tools",
+        "title": "Understand the web and set up tools",
+        "summary": "Learn how browsers, servers, URLs, files, editors, terminals, and developer tools fit together.",
+        "whyItMatters": "A clear mental model makes errors easier to diagnose and prevents the browser, terminal, hosting platform, and source files from feeling unrelated.",
+        "topics": [
+          "How the web works",
+          "Files and folders",
+          "Editors",
+          "Developer tools"
+        ],
+        "resourceIds": [
+          "mdn-learn-web-development",
+          "mdn-frontend-curriculum"
+        ],
+        "checkpoint": "Explain what happens between entering a URL and seeing a rendered page, then create a local project folder.",
+        "project": {
+          "title": "First local webpage",
+          "brief": "Create a small local website, inspect it with browser developer tools, and document how the files, browser, URL, and server would connect when the site is published.",
+          "deliverables": [
+            "index.html",
+            "assets folder",
+            "README"
+          ]
+        }
+      },
+      {
+        "id": "semantic-html",
+        "title": "Structure content with semantic HTML",
+        "summary": "Use landmarks, headings, links, lists, media, tables, and forms to describe content accurately.",
+        "whyItMatters": "Semantic HTML improves accessibility, maintainability, search visibility, keyboard use, and machine understanding.",
+        "topics": [
+          "Document structure",
+          "Landmarks",
+          "Forms and labels",
+          "Validation"
+        ],
+        "resourceIds": [
+          "mdn-learn-web-development",
+          "web-dev-learn",
+          "w3c-wai-tutorials"
+        ],
+        "checkpoint": "Build a page that remains understandable without styles and gives every form control an associated label.",
+        "project": {
+          "title": "Accessible profile page",
+          "brief": "Build a content-rich profile page whose structure remains clear without CSS, including meaningful landmarks, a logical heading outline, media, links, and a correctly labeled form.",
+          "deliverables": [
+            "Semantic page",
+            "Labeled form",
+            "Content outline"
+          ]
+        }
+      },
+      {
+        "id": "css-layout",
+        "title": "Style and lay out interfaces with CSS",
+        "summary": "Learn the cascade, box model, typography, spacing, Flexbox, Grid, variables, and reusable styles.",
+        "whyItMatters": "CSS becomes predictable when layout systems and the cascade replace one-off offsets and fixed dimensions.",
+        "topics": [
+          "Cascade",
+          "Box model",
+          "Flexbox",
+          "Grid",
+          "Custom properties"
+        ],
+        "resourceIds": [
+          "mdn-learn-web-development",
+          "web-dev-learn",
+          "caniuse-com"
+        ],
+        "checkpoint": "Rebuild one layout with Flexbox and Grid, then explain which model better represents the relationship.",
+        "project": {
+          "title": "Responsive landing page",
+          "brief": "Turn a static content brief into a responsive landing page using reusable spacing and typography tokens, then verify that it remains readable without horizontal overflow.",
+          "deliverables": [
+            "Responsive layout",
+            "Design tokens",
+            "No overflow"
+          ]
+        }
+      },
+      {
+        "id": "responsive-accessible",
+        "title": "Build responsive and accessible experiences",
+        "summary": "Design for screen sizes, input methods, contrast needs, text scaling, motion preferences, and assistive technology.",
+        "whyItMatters": "Accessibility and responsive behavior expose structural product problems and should be quality requirements from the start.",
+        "topics": [
+          "Mobile-first design",
+          "Keyboard navigation",
+          "Focus",
+          "Contrast",
+          "Reduced motion"
+        ],
+        "resourceIds": [
+          "w3c-wai-tutorials",
+          "web-dev-learn",
+          "accessibilityinsights-io"
+        ],
+        "checkpoint": "Complete the main flow using only a keyboard at narrow and wide sizes with visible focus.",
+        "project": {
+          "title": "Accessibility repair pass",
+          "brief": "Audit an existing page and repair its keyboard flow, focus states, contrast, text scaling, responsive media, and reduced-motion behavior, recording each issue and fix.",
+          "deliverables": [
+            "Audit notes",
+            "Keyboard-complete UI",
+            "Responsive media"
+          ]
+        }
+      },
+      {
+        "id": "javascript-basics",
+        "title": "Add behavior with JavaScript",
+        "summary": "Learn values, functions, arrays, objects, conditions, modules, DOM events, and simple asynchronous work.",
+        "whyItMatters": "Strong language fundamentals make frameworks easier and help JavaScript enhance a sound document instead of replacing structure.",
+        "topics": [
+          "Functions",
+          "Arrays and objects",
+          "DOM",
+          "Events",
+          "Fetch basics"
+        ],
+        "resourceIds": [
+          "mdn-learn-web-development",
+          "web-dev-learn",
+          "javascript-info"
+        ],
+        "checkpoint": "Build an interaction from a written state model and explain which data changes after each action.",
+        "project": {
+          "title": "Interactive task board",
+          "brief": "Build a task board that supports creating, completing, filtering, and persisting items, with clear empty, loading, and error states driven by an explicit state model.",
+          "deliverables": [
+            "DOM interactions",
+            "Local persistence",
+            "Empty states"
+          ]
+        }
+      },
+      {
+        "id": "git-and-publish",
+        "title": "Version and publish your work",
+        "summary": "Use Git snapshots, branches, focused commits, GitHub repositories, pull requests, documentation, and deployment.",
+        "whyItMatters": "Version control protects work, makes experiments reversible, and introduces the collaboration flow used by software teams.",
+        "topics": [
+          "Commits",
+          "Branches",
+          "Merge conflicts",
+          "Pull requests",
+          "README files"
+        ],
+        "resourceIds": [
+          "pro-git-book",
+          "github-get-started"
+        ],
+        "checkpoint": "Create a branch, make focused commits, merge through a pull request, and recover an earlier file version.",
+        "project": {
+          "title": "Published portfolio starter",
+          "brief": "Place your portfolio starter in a public repository, develop one improvement on a branch, review it through a pull request, document the project, and publish the result.",
+          "deliverables": [
+            "Public repository",
+            "README",
+            "Deployed URL"
+          ]
+        }
+      }
+    ],
+    "finalProject": {
+      "title": "Accessible multi-page portfolio",
+      "brief": "Design, build, test, version, and publish a small site demonstrating semantic structure, responsive CSS, accessible interactions, and clean project documentation.",
+      "deliverables": [
+        "Three meaningful pages",
+        "Responsive design",
+        "Accessible interaction",
+        "Git history",
+        "Published site"
+      ]
+    },
+    "recommendedNext": [
+      "frontend-javascript",
+      "ui-ux-product-design"
+    ],
+    "featured": true,
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Git",
+      "accessibility"
+    ],
+    "references": [
+      {
+        "name": "MDN Learn Web Development",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+      },
+      {
+        "name": "MDN Curriculum",
+        "url": "https://developer.mozilla.org/en-US/curriculum/"
+      },
+      {
+        "name": "web.dev Learn",
+        "url": "https://web.dev/learn"
+      }
+    ]
+  },
+  {
+    "slug": "frontend-javascript",
+    "title": "Frontend JavaScript Developer",
+    "shortTitle": "Frontend JavaScript",
+    "summary": "Move from strong browser fundamentals into TypeScript, React, application state, data fetching, testing, accessibility, performance, and deployment.",
+    "description": "For learners who can already build responsive websites and write basic JavaScript. The path develops maintainable frontend applications while keeping React grounded in browser, JavaScript, accessibility, and software design fundamentals.",
+    "track": "web",
+    "difficulty": "intermediate",
+    "estimatedWeeks": "10–12 weeks",
+    "weeklyCommitment": "8–10 hours",
+    "audience": [
+      "Junior frontend developers",
+      "Web foundations graduates",
+      "Developers moving from sites to applications"
+    ],
+    "prerequisites": [
+      "Semantic HTML and responsive CSS",
+      "JavaScript functions, arrays, objects, modules, and DOM events",
+      "Basic Git and GitHub"
+    ],
+    "outcomes": [
+      "Build component-based React applications",
+      "Model state and asynchronous data clearly",
+      "Use TypeScript for safer boundaries",
+      "Write behavior-focused tests",
+      "Ship accessible performant frontend work"
+    ],
+    "stages": [
+      {
+        "id": "modern-javascript",
+        "title": "Strengthen modern JavaScript",
+        "summary": "Deepen scope, closures, modules, immutable updates, promises, async functions, errors, and browser APIs.",
+        "whyItMatters": "Framework bugs are often JavaScript misunderstandings in disguise, so language fluency simplifies code and debugging.",
+        "topics": [
+          "Scope and closures",
+          "Modules",
+          "Promises",
+          "Errors",
+          "Browser APIs"
+        ],
+        "resourceIds": [
+          "developer-mozilla-org",
+          "javascript-info",
+          "web-dev-learn"
+        ],
+        "checkpoint": "Refactor a script into modules with explicit inputs, outputs, loading states, and recoverable errors.",
+        "project": {
+          "title": "Data dashboard without a framework",
+          "brief": "Build a framework-free dashboard that loads remote data through small modules, transforms it predictably, handles failures, and exposes useful loading and empty states.",
+          "deliverables": [
+            "Modular code",
+            "Async data flow",
+            "Accessible status"
+          ]
+        }
+      },
+      {
+        "id": "typescript",
+        "title": "Model data with TypeScript",
+        "summary": "Use inference, unions, interfaces, generics, narrowing, utility types, and strict compiler settings.",
+        "whyItMatters": "TypeScript is most useful when it documents valid states and catches boundary mistakes rather than hiding uncertainty.",
+        "topics": [
+          "Inference",
+          "Unions",
+          "Narrowing",
+          "Generics",
+          "Strict configuration"
+        ],
+        "resourceIds": [
+          "typescript-handbook"
+        ],
+        "checkpoint": "Replace an impossible boolean-state combination with a discriminated union and handle every case.",
+        "project": {
+          "title": "Typed data client",
+          "brief": "Create a strict TypeScript client around an external data source, validating unknown input at the boundary and keeping application code free from unsafe any casts.",
+          "deliverables": [
+            "Strict setup",
+            "Typed boundaries",
+            "No unsafe any"
+          ]
+        }
+      },
+      {
+        "id": "react-foundations",
+        "title": "Think in React components",
+        "summary": "Learn component boundaries, props, rendering, events, state, composition, forms, effects, and reusable behavior.",
+        "whyItMatters": "Good React code begins with a clear component and state model rather than duplicated state or unnecessary effects.",
+        "topics": [
+          "Components",
+          "Props",
+          "State",
+          "Forms",
+          "Effects"
+        ],
+        "resourceIds": [
+          "react-official-learn"
+        ],
+        "checkpoint": "Break a design into components, identify minimal state, and explain which component should own it.",
+        "project": {
+          "title": "Searchable product explorer",
+          "brief": "Build a searchable product explorer from reusable React components, keeping state close to its owner and making every control understandable by keyboard and screen reader.",
+          "deliverables": [
+            "Component map",
+            "Predictable state",
+            "Accessible controls"
+          ]
+        }
+      },
+      {
+        "id": "application-data",
+        "title": "Manage application data and state",
+        "summary": "Separate server data, URL state, form state, and local interface state while handling synchronization deliberately.",
+        "whyItMatters": "Treating every value as global state creates unnecessary complexity and unreliable navigation or refresh behavior.",
+        "topics": [
+          "State categories",
+          "URL parameters",
+          "Data fetching",
+          "Forms",
+          "Optimistic updates"
+        ],
+        "resourceIds": [
+          "react-official-learn",
+          "nextjs-official-docs"
+        ],
+        "checkpoint": "Classify every state value and remove state that can be derived from props, URLs, or fetched data.",
+        "project": {
+          "title": "Persistent explorer state",
+          "brief": "Extend the explorer so filters are shareable through the URL, favorites persist locally, server data has explicit loading and error handling, and each state category has a documented owner.",
+          "deliverables": [
+            "Shareable URLs",
+            "State boundary map",
+            "Error handling"
+          ]
+        }
+      },
+      {
+        "id": "testing-quality",
+        "title": "Test behavior and accessibility",
+        "summary": "Write focused unit, component, and end-to-end tests around visible behavior, accessible names, and critical flows.",
+        "whyItMatters": "Tests create confidence when they protect important behavior without depending on implementation details.",
+        "topics": [
+          "Test strategy",
+          "Accessible queries",
+          "User events",
+          "End-to-end flows"
+        ],
+        "resourceIds": [
+          "testing-library-docs",
+          "vitest-guide",
+          "playwright-docs",
+          "w3c-wai-tutorials"
+        ],
+        "checkpoint": "Refactor internal component structure while keeping behavior tests passing unchanged.",
+        "project": {
+          "title": "Quality gate",
+          "brief": "Protect one critical user journey with focused unit, component, accessibility, and end-to-end tests that assert visible behavior rather than implementation details.",
+          "deliverables": [
+            "Component tests",
+            "End-to-end flow",
+            "Accessibility checks"
+          ]
+        }
+      },
+      {
+        "id": "performance-deployment",
+        "title": "Measure, optimize, and deploy",
+        "summary": "Learn production builds, performance measurement, bundle awareness, images, deployment previews, and release checks.",
+        "whyItMatters": "Users experience network and deployment conditions, so working locally is not the end of frontend delivery.",
+        "topics": [
+          "Production builds",
+          "Performance",
+          "Code splitting",
+          "Deployment previews"
+        ],
+        "resourceIds": [
+          "web-dev-learn",
+          "caniuse-com",
+          "github-actions-docs"
+        ],
+        "checkpoint": "Measure before and after one optimization and document the user-facing improvement.",
+        "project": {
+          "title": "Production release",
+          "brief": "Prepare the application for release by measuring its main performance costs, improving the largest issues, automating quality checks, and documenting the deployed result.",
+          "deliverables": [
+            "Deployment",
+            "Automated checks",
+            "Performance notes"
+          ]
+        }
+      }
+    ],
+    "finalProject": {
+      "title": "Production-ready frontend application",
+      "brief": "Deliver a typed React application that consumes data, supports shareable search, handles every view state, includes behavior tests, and passes accessibility and performance review.",
+      "deliverables": [
+        "React and TypeScript app",
+        "State architecture note",
+        "Test suite",
+        "Accessible UI",
+        "Deployed release"
+      ]
+    },
+    "recommendedNext": [
+      "full-stack-javascript",
+      "react-native-mobile",
+      "devops-web-developers"
+    ],
+    "featured": true,
+    "tags": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "testing",
+      "performance"
+    ],
+    "references": [
+      {
+        "name": "React Learn",
+        "url": "https://react.dev/learn"
+      },
+      {
+        "name": "TypeScript Handbook",
+        "url": "https://www.typescriptlang.org/docs/handbook/intro.html"
+      },
+      {
+        "name": "MDN Curriculum",
+        "url": "https://developer.mozilla.org/en-US/curriculum/"
+      }
+    ]
+  },
+  {
+    "slug": "full-stack-javascript",
+    "title": "Full-Stack JavaScript Developer",
+    "shortTitle": "Full-Stack JavaScript",
+    "summary": "Extend frontend skills into Node.js, HTTP APIs, SQL, data modeling, authentication, security, Next.js full-stack patterns, testing, and delivery.",
+    "description": "A JavaScript-first path that treats backend work as data ownership, validation, authorization, transactions, failure handling, security, testing, and deployment rather than only route handlers.",
+    "track": "web",
+    "difficulty": "intermediate",
+    "estimatedWeeks": "12–16 weeks",
+    "weeklyCommitment": "8–12 hours",
+    "audience": [
+      "Frontend developers moving into backend work",
+      "JavaScript developers building complete products",
+      "Junior full-stack developers"
+    ],
+    "prerequisites": [
+      "Modern JavaScript or TypeScript",
+      "React application experience",
+      "Git and command-line basics",
+      "Basic HTTP understanding"
+    ],
+    "outcomes": [
+      "Design maintainable APIs",
+      "Model relational data and migrations",
+      "Build secure authorization flows",
+      "Use Next.js server and client boundaries",
+      "Test and deploy complete applications"
+    ],
+    "stages": [
+      {
+        "id": "node-runtime",
+        "title": "Understand Node.js and server execution",
+        "summary": "Learn the runtime, modules, packages, configuration, asynchronous I/O, processes, files, and logging.",
+        "whyItMatters": "Backend code runs under different constraints from browser code, so runtime understanding prevents blocking and configuration failures.",
+        "topics": [
+          "Node runtime",
+          "Modules",
+          "Environment variables",
+          "Async I/O",
+          "Logging"
+        ],
+        "resourceIds": [
+          "nodejs-official-learn"
+        ],
+        "checkpoint": "Explain event-loop blocking, configuration entry points, and startup failure reporting.",
+        "project": {
+          "title": "Node service starter",
+          "brief": "Create a small Node.js service with validated environment configuration, a health endpoint, structured logs, graceful error handling, and scripts for local development and production.",
+          "deliverables": [
+            "Validated config",
+            "Health route",
+            "Structured logs"
+          ]
+        }
+      },
+      {
+        "id": "http-api-design",
+        "title": "Design HTTP APIs and boundaries",
+        "summary": "Use methods, status codes, validation, pagination, filters, errors, and contracts for predictable APIs.",
+        "whyItMatters": "An API is a contract used by people and code, so stable semantics matter more than rapidly adding endpoints.",
+        "topics": [
+          "HTTP semantics",
+          "Route design",
+          "Validation",
+          "Error contracts",
+          "Pagination"
+        ],
+        "resourceIds": [
+          "nodejs-official-learn",
+          "nextjs-official-docs"
+        ],
+        "checkpoint": "Document valid, invalid, unauthorized, and not-found behavior for one endpoint.",
+        "project": {
+          "title": "Resource catalog API",
+          "brief": "Design and implement a resource catalog API with a written contract, validated inputs, consistent errors, filtering, sorting, and cursor or page-based pagination.",
+          "deliverables": [
+            "API contract",
+            "Validated endpoints",
+            "Pagination"
+          ]
+        }
+      },
+      {
+        "id": "data-sql",
+        "title": "Model data with SQL and migrations",
+        "summary": "Learn tables, keys, relations, constraints, queries, indexes, transactions, migrations, and type-safe access.",
+        "whyItMatters": "Reliable systems depend on database constraints and transaction boundaries, not only current application checks.",
+        "topics": [
+          "Relational modeling",
+          "SQL",
+          "Relations",
+          "Indexes",
+          "Transactions"
+        ],
+        "resourceIds": [
+          "postgresql-tutorial",
+          "prisma-orm-docs"
+        ],
+        "checkpoint": "Model a many-to-many relation and enforce one important invariant in the database.",
+        "project": {
+          "title": "Persistent catalog",
+          "brief": "Persist the catalog in PostgreSQL using a documented relational schema, repeatable migrations, seed data, constraints, useful indexes, and transaction-safe write operations.",
+          "deliverables": [
+            "Schema diagram",
+            "Migrations",
+            "Seed command"
+          ]
+        }
+      },
+      {
+        "id": "auth-security",
+        "title": "Implement authentication and authorization",
+        "summary": "Separate identity from permission while learning sessions, password handling, role checks, secrets, and common attacks.",
+        "whyItMatters": "A successful login does not prove permission, and missing server authorization is a common security failure.",
+        "topics": [
+          "Sessions",
+          "Password storage",
+          "Authorization",
+          "CSRF and XSS",
+          "Secrets"
+        ],
+        "resourceIds": [
+          "owasp-web-security-guide",
+          "nextjs-official-docs"
+        ],
+        "checkpoint": "Write an authorization matrix and prove client-side role changes cannot grant server permission.",
+        "project": {
+          "title": "Role-aware catalog",
+          "brief": "Add authentication and role-based authorization to the catalog, documenting which role may perform each action and proving that protected operations fail safely.",
+          "deliverables": [
+            "Authorization matrix",
+            "Protected actions",
+            "Security notes"
+          ]
+        }
+      },
+      {
+        "id": "next-full-stack",
+        "title": "Compose a full-stack Next.js application",
+        "summary": "Use layouts, server and client components, route handlers, mutations, caching, validation, and error boundaries deliberately.",
+        "whyItMatters": "Next.js helps when server and client responsibilities and cache behavior are explicit rather than accidental.",
+        "topics": [
+          "App Router",
+          "Server components",
+          "Route handlers",
+          "Mutations",
+          "Caching"
+        ],
+        "resourceIds": [
+          "nextjs-official-docs",
+          "react-official-learn",
+          "typescript-handbook"
+        ],
+        "checkpoint": "Explain every client boundary and identify data that can stay on the server.",
+        "project": {
+          "title": "Integrated catalog product",
+          "brief": "Combine the catalog into a Next.js product with deliberate server and client boundaries, validated mutations, protected actions, cache decisions, and resilient loading and error states.",
+          "deliverables": [
+            "Boundary map",
+            "Protected mutations",
+            "Error states"
+          ]
+        }
+      },
+      {
+        "id": "test-deliver-operate",
+        "title": "Test, deliver, and operate the system",
+        "summary": "Cover integration, database, and end-to-end behavior, then automate checks, deploy, monitor, and rehearse recovery.",
+        "whyItMatters": "Full-stack responsibility includes migrations, configuration, visibility, deployment order, and recovery.",
+        "topics": [
+          "Integration tests",
+          "Database tests",
+          "CI/CD",
+          "Containers",
+          "Recovery"
+        ],
+        "resourceIds": [
+          "vitest-guide",
+          "playwright-docs",
+          "github-actions-docs",
+          "docker-get-started"
+        ],
+        "checkpoint": "Deploy a compatible migration, verify the critical flow, and document failure recovery.",
+        "project": {
+          "title": "Release pipeline",
+          "brief": "Create a release pipeline that runs integration and end-to-end tests, builds a deployable artifact, applies database changes safely, and includes a concise rollback and recovery runbook.",
+          "deliverables": [
+            "CI workflow",
+            "Integration tests",
+            "Recovery runbook"
+          ]
+        }
+      }
+    ],
+    "finalProject": {
+      "title": "Team-ready full-stack product",
+      "brief": "Deliver a complete resource product with typed boundaries, relational data, protected operations, resilient errors, automated tests, migrations, and repeatable deployment.",
+      "deliverables": [
+        "Next.js product",
+        "Database schema",
+        "Authorization",
+        "Test pipeline",
+        "Deployment docs"
+      ]
+    },
+    "recommendedNext": [
+      "devops-web-developers"
+    ],
+    "featured": true,
+    "tags": [
+      "Node.js",
+      "Next.js",
+      "PostgreSQL",
+      "APIs",
+      "security"
+    ],
+    "references": [
+      {
+        "name": "Learn Node.js",
+        "url": "https://nodejs.org/en/learn"
+      },
+      {
+        "name": "Next.js Docs",
+        "url": "https://nextjs.org/docs/app/getting-started"
+      },
+      {
+        "name": "PostgreSQL Tutorial",
+        "url": "https://www.postgresql.org/docs/current/tutorial.html"
+      }
+    ]
+  },
+  {
+    "slug": "react-native-mobile",
+    "title": "React Native Mobile Developer",
+    "shortTitle": "React Native Mobile",
+    "summary": "Translate React and JavaScript experience into native mobile interfaces, navigation, device APIs, offline behavior, testing, performance, and release preparation.",
+    "description": "For JavaScript and React developers entering mobile work. The path emphasizes native platform conventions, device constraints, permissions, navigation, lifecycle, and release processes that differ from the browser.",
+    "track": "mobile",
+    "difficulty": "intermediate",
+    "estimatedWeeks": "10–12 weeks",
+    "weeklyCommitment": "8–10 hours",
+    "audience": [
+      "React developers moving to mobile",
+      "JavaScript developers building Android and iOS apps",
+      "Web teams expanding to mobile"
+    ],
+    "prerequisites": [
+      "Modern JavaScript",
+      "React components, state, and hooks",
+      "Basic TypeScript recommended",
+      "Git basics"
+    ],
+    "outcomes": [
+      "Build platform-aware interfaces",
+      "Manage mobile navigation and state",
+      "Integrate device capabilities",
+      "Handle offline and permission states",
+      "Test on real devices"
+    ],
+    "stages": [
+      {
+        "id": "mobile-mental-model",
+        "title": "Adopt the mobile mental model",
+        "summary": "Understand native rendering, platform conventions, touch input, safe areas, lifecycle, permissions, and tooling.",
+        "whyItMatters": "A mobile app is not a website in a smaller viewport, and platform behavior shapes the product experience.",
+        "topics": [
+          "Native components",
+          "Platform conventions",
+          "Touch",
+          "Safe areas",
+          "Lifecycle"
+        ],
+        "resourceIds": [
+          "react-native-official-docs",
+          "expo-get-started"
+        ],
+        "checkpoint": "Explain which behavior comes from React, the native platform, and the application lifecycle.",
+        "project": {
+          "title": "Device-ready starter",
+          "brief": "Create a typed React Native starter that runs on a physical device, respects safe areas and platform conventions, and documents the differences from a browser-based React application.",
+          "deliverables": [
+            "Physical-device build",
+            "Typed setup",
+            "Safe layout"
+          ]
+        }
+      },
+      {
+        "id": "native-ui",
+        "title": "Build reusable native interfaces",
+        "summary": "Use core components, styling, lists, images, forms, keyboard handling, accessibility, and device layouts.",
+        "whyItMatters": "Mobile interfaces must remain usable under touch, keyboard, text scaling, and different device sizes.",
+        "topics": [
+          "Core components",
+          "Lists",
+          "Forms",
+          "Keyboard",
+          "Accessibility"
+        ],
+        "resourceIds": [
+          "react-native-official-docs",
+          "w3c-wai-tutorials"
+        ],
+        "checkpoint": "Use a screen reader, large text, keyboard input, and long content without hiding controls.",
+        "project": {
+          "title": "Mobile resource browser",
+          "brief": "Build a mobile resource browser with reusable controls, a virtualized list, keyboard-aware forms, responsive layouts, and accessibility labels tested on a real device.",
+          "deliverables": [
+            "Reusable UI",
+            "Virtualized list",
+            "Accessible controls"
+          ]
+        }
+      },
+      {
+        "id": "navigation-state",
+        "title": "Design navigation and application state",
+        "summary": "Model stacks, tabs, deep links, route parameters, persisted preferences, and server data separately.",
+        "whyItMatters": "Users expect predictable back behavior, deep links, restored state, and tab history after suspension.",
+        "topics": [
+          "Stacks and tabs",
+          "Deep links",
+          "Route parameters",
+          "Persistence"
+        ],
+        "resourceIds": [
+          "react-native-official-docs",
+          "expo-get-started",
+          "react-official-learn"
+        ],
+        "checkpoint": "Open a detail screen from a deep link and restore saved filters after restart.",
+        "project": {
+          "title": "Navigable catalog",
+          "brief": "Add stack and tab navigation, deep links into resource details, typed route parameters, and persisted favorites while keeping navigation, local, and server state separate.",
+          "deliverables": [
+            "Navigation map",
+            "Deep links",
+            "Persisted favorites"
+          ]
+        }
+      },
+      {
+        "id": "device-data",
+        "title": "Integrate APIs and device capabilities",
+        "summary": "Work with network requests, local storage, media, permissions, secure values, and offline-friendly behavior.",
+        "whyItMatters": "Device capabilities are asynchronous and permission-controlled while mobile networks are intermittent.",
+        "topics": [
+          "Remote APIs",
+          "Storage",
+          "Permissions",
+          "Media",
+          "Offline states"
+        ],
+        "resourceIds": [
+          "expo-get-started",
+          "react-native-official-docs"
+        ],
+        "checkpoint": "Demonstrate granted, denied, unavailable, offline, loading, and failed states.",
+        "project": {
+          "title": "Offline collection",
+          "brief": "Build an offline-friendly saved-resource collection that caches useful data, explains permission requests, protects sensitive values, and recovers clearly from failed network operations.",
+          "deliverables": [
+            "Offline cache",
+            "Permission UI",
+            "Retry behavior"
+          ]
+        }
+      },
+      {
+        "id": "mobile-quality",
+        "title": "Test and improve mobile quality",
+        "summary": "Use component tests, device checks, performance profiling, accessibility review, and representative network conditions.",
+        "whyItMatters": "Mobile bugs often depend on device, operating system, lifecycle, permission, network, or build configuration.",
+        "topics": [
+          "Component tests",
+          "Device testing",
+          "Performance",
+          "Accessibility"
+        ],
+        "resourceIds": [
+          "testing-library-docs",
+          "react-native-official-docs"
+        ],
+        "checkpoint": "Test the critical journey on a real device with large text, slow network, and denied permission.",
+        "project": {
+          "title": "Mobile quality pass",
+          "brief": "Test the main mobile flow across representative devices and network conditions, add automated coverage for critical behavior, and record accessibility and performance findings.",
+          "deliverables": [
+            "Automated tests",
+            "Device matrix",
+            "Quality notes"
+          ]
+        }
+      },
+      {
+        "id": "release-mobile",
+        "title": "Prepare production builds and releases",
+        "summary": "Understand identifiers, configuration, signing, build profiles, store assets, privacy declarations, and staged releases.",
+        "whyItMatters": "A development build is only one part of mobile delivery; signed artifacts and store requirements need planning.",
+        "topics": [
+          "Build profiles",
+          "Signing",
+          "Configuration",
+          "Versioning",
+          "Store preparation"
+        ],
+        "resourceIds": [
+          "expo-get-started",
+          "react-native-official-docs",
+          "github-actions-docs"
+        ],
+        "checkpoint": "Produce a reproducible preview build and document every requirement before store submission.",
+        "project": {
+          "title": "Release candidate",
+          "brief": "Produce a signed preview build with environment-specific configuration, release notes, privacy information, store assets, and a checklist for staged distribution and rollback.",
+          "deliverables": [
+            "Preview build",
+            "Release notes",
+            "Store checklist"
+          ]
+        }
+      }
+    ],
+    "finalProject": {
+      "title": "Cross-platform mobile companion",
+      "brief": "Build a polished Android and iOS resource companion with native navigation, API data, offline favorites, one device capability, accessible states, and a reproducible preview release.",
+      "deliverables": [
+        "React Native app",
+        "Android and iOS checks",
+        "Offline behavior",
+        "Tests",
+        "Preview build"
+      ]
+    },
+    "recommendedNext": [
+      "devops-web-developers"
+    ],
+    "featured": true,
+    "tags": [
+      "React Native",
+      "Expo",
+      "mobile",
+      "Android",
+      "iOS"
+    ],
+    "references": [
+      {
+        "name": "React Native Docs",
+        "url": "https://reactnative.dev/docs/getting-started"
+      },
+      {
+        "name": "Expo Get Started",
+        "url": "https://docs.expo.dev/get-started/introduction/"
+      }
+    ]
+  },
+  {
+    "slug": "ui-ux-product-design",
+    "title": "UI/UX and Product Design",
+    "shortTitle": "UI/UX Product Design",
+    "summary": "Learn visual foundations, user research, information architecture, flows, wireframes, interface design, prototypes, systems, accessibility, and handoff.",
+    "description": "This path treats product design as problem solving rather than only visual styling. Learners move from evidence and content structure to tested flows, coherent interfaces, reusable systems, and implementation-ready collaboration.",
+    "track": "design",
+    "difficulty": "beginner",
+    "estimatedWeeks": "8–10 weeks",
+    "weeklyCommitment": "6–8 hours",
+    "audience": [
+      "Beginning UI/UX designers",
+      "Developers improving product design",
+      "Visual designers moving into digital products"
+    ],
+    "prerequisites": [
+      "No coding experience required",
+      "Comfort with common desktop applications",
+      "Willingness to observe users"
+    ],
+    "outcomes": [
+      "Frame product problems",
+      "Create clear flows",
+      "Design responsive accessible interfaces",
+      "Build Figma components and prototypes",
+      "Prepare developer handoff"
+    ],
+    "stages": [
+      {
+        "id": "visual-foundations",
+        "title": "Build visual design foundations",
+        "summary": "Learn hierarchy, typography, spacing, color, contrast, grids, composition, and consistency.",
+        "whyItMatters": "Every visual decision should make relationships, priority, and available actions easier to understand.",
+        "topics": [
+          "Hierarchy",
+          "Typography",
+          "Spacing",
+          "Color",
+          "Grid"
+        ],
+        "resourceIds": [
+          "figma-design-beginners",
+          "figma-com",
+          "w3c-wai-tutorials"
+        ],
+        "checkpoint": "Explain screen hierarchy without color alone and verify a repeatable spacing and type system.",
+        "project": {
+          "title": "Interface reconstruction",
+          "brief": "Reconstruct a polished interface from a reference while documenting its hierarchy, type scale, spacing system, grid, color roles, and contrast decisions instead of copying isolated pixels.",
+          "deliverables": [
+            "Recreated screen",
+            "Visual specification",
+            "Contrast review"
+          ]
+        }
+      },
+      {
+        "id": "research-problem",
+        "title": "Research users and frame the problem",
+        "summary": "Turn assumptions into questions, observe users, identify patterns, and separate evidence from opinion.",
+        "whyItMatters": "Teams can build a beautiful answer to the wrong problem when needs and constraints are not understood first.",
+        "topics": [
+          "Research questions",
+          "Interviews",
+          "Observation",
+          "Problem statements"
+        ],
+        "resourceIds": [
+          "figma-design-beginners"
+        ],
+        "checkpoint": "Support the problem statement with concrete observations and identify untested assumptions.",
+        "project": {
+          "title": "Small research study",
+          "brief": "Plan and run a small research study around a real user problem, then synthesize observations into evidence-backed themes without presenting assumptions as findings.",
+          "deliverables": [
+            "Research plan",
+            "Notes",
+            "Insight themes"
+          ]
+        }
+      },
+      {
+        "id": "structure-flows",
+        "title": "Create information architecture and flows",
+        "summary": "Organize content, define navigation, model journeys, map decisions, identify edge cases, and limit scope.",
+        "whyItMatters": "Clear structure gives screens a shared logic before visual details make changes more expensive.",
+        "topics": [
+          "Content inventory",
+          "Navigation",
+          "User journeys",
+          "Task flows",
+          "Edge cases"
+        ],
+        "resourceIds": [
+          "figma-design-beginners"
+        ],
+        "checkpoint": "A new user can identify the start, complete the primary task, recover, and see the next step.",
+        "project": {
+          "title": "Resource discovery flow",
+          "brief": "Design the information architecture and primary task flow for discovering a technical resource, including alternate routes, empty states, errors, and recovery points.",
+          "deliverables": [
+            "Sitemap",
+            "Task flow",
+            "Edge-state map"
+          ]
+        }
+      },
+      {
+        "id": "wireframe-prototype",
+        "title": "Wireframe and prototype interactions",
+        "summary": "Explore multiple low-fidelity solutions, responsive wireframes, interface content, and usability tests.",
+        "whyItMatters": "Low-fidelity exploration makes structural changes inexpensive and reveals unclear labels early.",
+        "topics": [
+          "Sketching",
+          "Wireframes",
+          "Responsive behavior",
+          "Prototypes",
+          "Usability tests"
+        ],
+        "resourceIds": [
+          "figma-design-beginners",
+          "w3c-wai-tutorials"
+        ],
+        "checkpoint": "A participant completes the primary task and predicts major actions before selecting them.",
+        "project": {
+          "title": "Testable path prototype",
+          "brief": "Explore several low-fidelity solutions, turn the strongest direction into a responsive interactive prototype, test it with users, and record the changes supported by evidence.",
+          "deliverables": [
+            "Sketches",
+            "Prototype",
+            "Findings"
+          ]
+        }
+      },
+      {
+        "id": "systems-accessibility",
+        "title": "Design reusable and accessible systems",
+        "summary": "Create tokens, components, variants, states, patterns, keyboard behavior, errors, and documentation.",
+        "whyItMatters": "A design system helps teams make consistent accessible decisions rather than only storing polished frames.",
+        "topics": [
+          "Tokens",
+          "Components",
+          "States",
+          "Accessibility notes",
+          "Documentation"
+        ],
+        "resourceIds": [
+          "figma-design-beginners",
+          "w3c-wai-tutorials",
+          "web-dev-learn"
+        ],
+        "checkpoint": "Document one component so implementation requires no guessing about behavior or states.",
+        "project": {
+          "title": "Mini design system",
+          "brief": "Create a compact design system with tokens, reusable components, variants, interaction states, keyboard behavior, validation patterns, and guidance for correct use.",
+          "deliverables": [
+            "Tokens",
+            "Component library",
+            "State docs"
+          ]
+        }
+      },
+      {
+        "id": "handoff-case-study",
+        "title": "Collaborate, hand off, and communicate decisions",
+        "summary": "Prepare responsive specifications, acceptance criteria, design QA, change notes, and an evidence-led case study.",
+        "whyItMatters": "Design creates value when a team can build and evaluate it, so decision clarity matters as much as screens.",
+        "topics": [
+          "Developer handoff",
+          "Acceptance criteria",
+          "Design QA",
+          "Case studies"
+        ],
+        "resourceIds": [
+          "figma-design-beginners",
+          "github-get-started"
+        ],
+        "checkpoint": "A developer can identify responsive behavior, reuse, content rules, and acceptance criteria.",
+        "project": {
+          "title": "Implementation handoff",
+          "brief": "Prepare an implementation-ready handoff with responsive behavior, acceptance criteria, edge cases, change notes, and a case study that connects decisions to research and outcomes.",
+          "deliverables": [
+            "Organized file",
+            "Implementation notes",
+            "Case study"
+          ]
+        }
+      }
+    ],
+    "finalProject": {
+      "title": "Evidence-led learning platform concept",
+      "brief": "Research, structure, prototype, test, systematize, and hand off an experience that helps a beginner choose a technical learning path and understand the next action.",
+      "deliverables": [
+        "Research synthesis",
+        "Flows",
+        "Tested prototype",
+        "Design system",
+        "Handoff",
+        "Case study"
+      ]
+    },
+    "recommendedNext": [
+      "web-foundations",
+      "frontend-javascript"
+    ],
+    "featured": true,
+    "tags": [
+      "UI design",
+      "UX research",
+      "Figma",
+      "accessibility",
+      "design systems"
+    ],
+    "references": [
+      {
+        "name": "Figma Design for Beginners",
+        "url": "https://help.figma.com/hc/en-us/sections/30880632542743-Figma-Design-for-beginners"
+      },
+      {
+        "name": "W3C Accessibility Tutorials",
+        "url": "https://www.w3.org/WAI/tutorials/"
+      }
+    ]
+  },
+  {
+    "slug": "devops-web-developers",
+    "title": "DevOps for Web Developers",
+    "shortTitle": "DevOps for Web Developers",
+    "summary": "Learn the delivery and reliability skills around web applications: environments, CI/CD, containers, deployment, observability, security, incidents, and improvement.",
+    "description": "This path gives web developers enough operational knowledge to ship safely, diagnose failures, collaborate with platform teams, and design applications that can be configured, monitored, recovered, and improved in real environments.",
+    "track": "devops",
+    "difficulty": "intermediate",
+    "estimatedWeeks": "10–12 weeks",
+    "weeklyCommitment": "6–10 hours",
+    "audience": [
+      "Web developers owning deployments",
+      "Full-stack developers strengthening operations",
+      "Teams without a dedicated platform engineer"
+    ],
+    "prerequisites": [
+      "Git and GitHub basics",
+      "Experience running a web application locally",
+      "Command-line familiarity",
+      "Basic HTTP understanding"
+    ],
+    "outcomes": [
+      "Create repeatable builds",
+      "Automate delivery checks",
+      "Containerize intentionally",
+      "Add health and monitoring signals",
+      "Respond to failures"
+    ],
+    "stages": [
+      {
+        "id": "systems-networking",
+        "title": "Understand systems, processes, and networking",
+        "summary": "Learn processes, ports, files, permissions, environment variables, DNS, HTTP, TLS, and proxies.",
+        "whyItMatters": "Deployment failures are hard to diagnose when operating system, network, runtime, and application are one black box.",
+        "topics": [
+          "Processes",
+          "Ports",
+          "Permissions",
+          "DNS",
+          "HTTP and TLS"
+        ],
+        "resourceIds": [
+          "nodejs-official-learn",
+          "mdn-learn-web-development"
+        ],
+        "checkpoint": "Trace one request from DNS through TLS and a proxy to the application process.",
+        "project": {
+          "title": "Request-path diagram",
+          "brief": "Map a web request from browser to application and database, identify every port and configuration boundary, and document the likely symptoms when each dependency fails.",
+          "deliverables": [
+            "Architecture diagram",
+            "Configuration inventory",
+            "Failure list"
+          ]
+        }
+      },
+      {
+        "id": "build-environments",
+        "title": "Create repeatable builds and environments",
+        "summary": "Separate source, dependencies, builds, runtime configuration, development, previews, staging, and production.",
+        "whyItMatters": "Reliable releases come from reproducible inputs and explicit configuration rather than undocumented machine state.",
+        "topics": [
+          "Dependency locks",
+          "Build artifacts",
+          "Configuration",
+          "Environments",
+          "Secrets"
+        ],
+        "resourceIds": [
+          "nodejs-official-learn",
+          "nextjs-official-docs",
+          "github-get-started"
+        ],
+        "checkpoint": "Build the same commit in clean environments and document build-time and runtime values.",
+        "project": {
+          "title": "Environment contract",
+          "brief": "Define a reproducible environment contract that separates source, dependencies, build output, runtime configuration, and secrets across development, preview, and production.",
+          "deliverables": [
+            "Configuration schema",
+            "Example env",
+            "Build command"
+          ]
+        }
+      },
+      {
+        "id": "continuous-integration",
+        "title": "Automate continuous integration",
+        "summary": "Run type checks, tests, builds, security checks, and artifacts automatically on focused repository events.",
+        "whyItMatters": "CI moves important verification from personal memory into a visible repeatable workflow.",
+        "topics": [
+          "Triggers",
+          "Quality gates",
+          "Caching",
+          "Artifacts",
+          "Branch protection"
+        ],
+        "resourceIds": [
+          "github-actions-docs",
+          "github-get-started",
+          "vitest-guide",
+          "playwright-docs"
+        ],
+        "checkpoint": "Open a failing pull request, locate the failed step, repair it, and confirm deployment waits.",
+        "project": {
+          "title": "CI quality pipeline",
+          "brief": "Build a CI workflow that runs only on meaningful repository events, caches dependencies safely, executes required quality checks, and publishes a readable build result.",
+          "deliverables": [
+            "Workflow",
+            "Required checks",
+            "Build report"
+          ]
+        }
+      },
+      {
+        "id": "containers",
+        "title": "Use containers where they add value",
+        "summary": "Learn images, layers, Dockerfiles, containers, volumes, networks, registries, Compose, and health checks.",
+        "whyItMatters": "Containers should solve environment and delivery needs rather than becoming an unexplained extra layer.",
+        "topics": [
+          "Images",
+          "Dockerfiles",
+          "Volumes",
+          "Networks",
+          "Compose"
+        ],
+        "resourceIds": [
+          "docker-get-started"
+        ],
+        "checkpoint": "Rebuild from a clean cache, run with documented configuration, and explain persistence.",
+        "project": {
+          "title": "Containerized application",
+          "brief": "Package an application with a small repeatable image, non-root execution, health checks, persistent data where needed, and a Compose setup for its local dependencies.",
+          "deliverables": [
+            "Dockerfile",
+            "Compose file",
+            "Health checks"
+          ]
+        }
+      },
+      {
+        "id": "deploy-observe",
+        "title": "Deploy safely and observe behavior",
+        "summary": "Use previews, release ordering, migration discipline, health checks, structured logs, metrics, and alerts.",
+        "whyItMatters": "A successful deploy command does not prove a healthy product; independent signals must confirm real behavior.",
+        "topics": [
+          "Preview deployments",
+          "Migrations",
+          "Health checks",
+          "Logs",
+          "Alerts"
+        ],
+        "resourceIds": [
+          "nextjs-official-docs",
+          "github-actions-docs",
+          "docker-get-started"
+        ],
+        "checkpoint": "Deploy a change, verify health independently, and distinguish app, network, and dependency errors.",
+        "project": {
+          "title": "Observable deployment",
+          "brief": "Design a deployment flow with ordered migrations, health verification, structured logs, actionable metrics, alert thresholds, and a checklist for confirming the release.",
+          "deliverables": [
+            "Deployment flow",
+            "Health endpoint",
+            "Verification checklist"
+          ]
+        }
+      },
+      {
+        "id": "security-incidents",
+        "title": "Improve security, reliability, and incident response",
+        "summary": "Apply least privilege, secret rotation, dependency review, backups, recovery objectives, incident roles, and learning.",
+        "whyItMatters": "Failures cannot be eliminated completely, so systems must limit impact, restore service, and convert incidents into improvements.",
+        "topics": [
+          "Least privilege",
+          "Secrets",
+          "Backups",
+          "Recovery",
+          "Incident response"
+        ],
+        "resourceIds": [
+          "owasp-web-security-guide",
+          "github-actions-docs",
+          "docker-get-started"
+        ],
+        "checkpoint": "Run a tabletop incident and document detection, ownership, communication, and recovery.",
+        "project": {
+          "title": "Operational readiness pack",
+          "brief": "Create an operational readiness pack covering least privilege, secret rotation, dependency review, backups, recovery objectives, incident ownership, communication, and post-incident learning.",
+          "deliverables": [
+            "Access review",
+            "Recovery check",
+            "Incident runbook"
+          ]
+        }
+      }
+    ],
+    "finalProject": {
+      "title": "Reliable delivery system",
+      "brief": "Take an application from local-only operation to a documented, reproducible, automatically checked, container-ready, observable deployment with a tested recovery process.",
+      "deliverables": [
+        "Architecture docs",
+        "CI/CD",
+        "Containers",
+        "Health signals",
+        "Recovery runbook"
+      ]
+    },
+    "recommendedNext": [],
+    "featured": true,
+    "tags": [
+      "CI/CD",
+      "Docker",
+      "deployment",
+      "observability",
+      "reliability"
+    ],
+    "references": [
+      {
+        "name": "GitHub Actions Docs",
+        "url": "https://docs.github.com/en/actions"
+      },
+      {
+        "name": "Docker Get Started",
+        "url": "https://docs.docker.com/get-started/"
+      },
+      {
+        "name": "OWASP Guide",
+        "url": "https://owasp.org/www-project-web-security-testing-guide/"
+      }
+    ]
+  }
+]

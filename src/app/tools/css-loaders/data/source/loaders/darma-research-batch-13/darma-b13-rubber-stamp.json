@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-rubber-stamp",
+  "name": "Rubber Stamp",
+  "category": "progress",
+  "tags": [
+    "stamp",
+    "approve",
+    "ink",
+    "press",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"stamp\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .76); position: relative; }\n.loader::before { content: ''; position: absolute; bottom: 0; left: 11%; width: 78%; height: 32%; border-radius: 3px; background: #f8fafc; box-shadow: 0 2px 6px rgba(15, 23, 42, .2); }\n.loader .stamp { position: absolute; top: 14%; left: 27%; width: 46%; height: 44%; border-radius: 6px 6px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: press calc(var(--loader-speed) * 2.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader .stamp::after { content: ''; position: absolute; bottom: 100%; left: 24%; width: 52%; height: 62%; border-radius: 7px 7px 2px 2px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); }\n.loader span { position: absolute; bottom: 6%; left: 24%; width: 52%; height: 20%; border-radius: 3px; box-shadow: inset 0 0 0 3px var(--accent-2); animation: ink calc(var(--loader-speed) * 2.4) ease-out infinite; }\n@keyframes press { 0%, 18% { transform: translateY(0); } 42%, 52% { transform: translateY(40%); } 76%, 100% { transform: translateY(0); } }\n@keyframes ink { 0%, 38% { opacity: 0; transform: scale(.84); } 48% { opacity: 1; transform: scale(1); } 86% { opacity: 1; } 100% { opacity: 0; } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#16a34a",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

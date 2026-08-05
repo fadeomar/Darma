@@ -1,0 +1,48 @@
+{
+  "id": "darma-b8-nested-hexagons",
+  "name": "Nested Hexagons",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "hexagon",
+    "nested",
+    "geometric",
+    "polygon",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-nested-hexagons nested hexagons spinners darma-research-batch-8 darma research batch 8 hexagon nested geometric polygon spinner html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-nested-hexagons\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b8-nested-hexagons { --accent: var(--loader-color, #8b5cf6); --accent-2: var(--loader-secondary-color, #ec4899); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b8-nested-hexagons span { position: absolute; inset: 0; margin: auto; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }\n.darma-loader-darma-b8-nested-hexagons span:nth-child(1) { background: var(--accent); animation: darma-loader-darma-b8-nested-hexagons-spin-cw calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n.darma-loader-darma-b8-nested-hexagons span:nth-child(2) { inset: 22%; background: var(--accent-2); animation: darma-loader-darma-b8-nested-hexagons-spin-ccw calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b8-nested-hexagons span:nth-child(3) { inset: 44%; background: color-mix(in srgb, #fff 35%, var(--accent)); animation: darma-loader-darma-b8-nested-hexagons-spin-cw calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n@keyframes darma-loader-darma-b8-nested-hexagons-spin-cw { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b8-nested-hexagons-spin-ccw { to { transform: rotate(-360deg); } }",
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#ec4899",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-nested-hexagons\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b8-nested-hexagons { --accent: var(--loader-color, #8b5cf6); --accent-2: var(--loader-secondary-color, #ec4899); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b8-nested-hexagons span { position: absolute; inset: 0; margin: auto; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }\n.darma-loader-darma-b8-nested-hexagons span:nth-child(1) { background: var(--accent); animation: darma-loader-darma-b8-nested-hexagons-spin-cw calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n.darma-loader-darma-b8-nested-hexagons span:nth-child(2) { inset: 22%; background: var(--accent-2); animation: darma-loader-darma-b8-nested-hexagons-spin-ccw calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b8-nested-hexagons span:nth-child(3) { inset: 44%; background: color-mix(in srgb, #fff 35%, var(--accent)); animation: darma-loader-darma-b8-nested-hexagons-spin-cw calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n@keyframes darma-loader-darma-b8-nested-hexagons-spin-cw { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b8-nested-hexagons-spin-ccw { to { transform: rotate(-360deg); } }",
+    "react": "export default function DarmaB8NestedHexagonsLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-nested-hexagons\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

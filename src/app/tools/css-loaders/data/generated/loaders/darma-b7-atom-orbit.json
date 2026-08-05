@@ -1,0 +1,49 @@
+{
+  "id": "darma-b7-atom-orbit",
+  "name": "Atom Orbit",
+  "category": "creative",
+  "sourceId": "darma-research-batch-7",
+  "tags": [
+    "atom",
+    "orbit",
+    "electron",
+    "science",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b7-atom-orbit atom orbit creative darma-research-batch-7 darma research batch 7 atom orbit electron science creative html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b7-atom-orbit\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b7-atom-orbit { --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b7-atom-orbit::before { content: ''; position: absolute; left: 50%; top: 50%; width: 16%; height: 16%; margin: -8% 0 0 -8%; border-radius: 50%; background: var(--accent); box-shadow: 0 0 calc(var(--loader-size, 84px) * .14) var(--accent); }\n.darma-loader-darma-b7-atom-orbit span { position: absolute; left: 8%; right: 8%; top: 35%; bottom: 35%; border: calc(var(--loader-size, 84px) * .025) solid color-mix(in srgb, var(--accent-2) 40%, transparent); border-radius: 50%; }\n.darma-loader-darma-b7-atom-orbit span::after { content: ''; position: absolute; top: 50%; left: 0; width: calc(var(--loader-size, 84px) * .12); height: calc(var(--loader-size, 84px) * .12); margin-top: calc(var(--loader-size, 84px) * -.06); border-radius: 50%; background: var(--accent-2); }\n.darma-loader-darma-b7-atom-orbit span:nth-child(1) { animation: darma-loader-darma-b7-atom-orbit-orbit-a calc(var(--loader-speed, 1s) * 1.8) linear infinite; }\n.darma-loader-darma-b7-atom-orbit span:nth-child(2) { animation: darma-loader-darma-b7-atom-orbit-orbit-b calc(var(--loader-speed, 1s) * 2.2) linear infinite; }\n.darma-loader-darma-b7-atom-orbit span:nth-child(3) { animation: darma-loader-darma-b7-atom-orbit-orbit-c calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n@keyframes darma-loader-darma-b7-atom-orbit-orbit-a { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b7-atom-orbit-orbit-b { from { rotate: 120deg; } to { rotate: 480deg; } }\n@keyframes darma-loader-darma-b7-atom-orbit-orbit-c { from { rotate: 240deg; } to { rotate: 600deg; } }",
+  "defaults": {
+    "color": "#f472b6",
+    "secondaryColor": "#38bdf8",
+    "size": 84,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b7-atom-orbit\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b7-atom-orbit { --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b7-atom-orbit::before { content: ''; position: absolute; left: 50%; top: 50%; width: 16%; height: 16%; margin: -8% 0 0 -8%; border-radius: 50%; background: var(--accent); box-shadow: 0 0 calc(var(--loader-size, 84px) * .14) var(--accent); }\n.darma-loader-darma-b7-atom-orbit span { position: absolute; left: 8%; right: 8%; top: 35%; bottom: 35%; border: calc(var(--loader-size, 84px) * .025) solid color-mix(in srgb, var(--accent-2) 40%, transparent); border-radius: 50%; }\n.darma-loader-darma-b7-atom-orbit span::after { content: ''; position: absolute; top: 50%; left: 0; width: calc(var(--loader-size, 84px) * .12); height: calc(var(--loader-size, 84px) * .12); margin-top: calc(var(--loader-size, 84px) * -.06); border-radius: 50%; background: var(--accent-2); }\n.darma-loader-darma-b7-atom-orbit span:nth-child(1) { animation: darma-loader-darma-b7-atom-orbit-orbit-a calc(var(--loader-speed, 1s) * 1.8) linear infinite; }\n.darma-loader-darma-b7-atom-orbit span:nth-child(2) { animation: darma-loader-darma-b7-atom-orbit-orbit-b calc(var(--loader-speed, 1s) * 2.2) linear infinite; }\n.darma-loader-darma-b7-atom-orbit span:nth-child(3) { animation: darma-loader-darma-b7-atom-orbit-orbit-c calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n@keyframes darma-loader-darma-b7-atom-orbit-orbit-a { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b7-atom-orbit-orbit-b { from { rotate: 120deg; } to { rotate: 480deg; } }\n@keyframes darma-loader-darma-b7-atom-orbit-orbit-c { from { rotate: 240deg; } to { rotate: 600deg; } }",
+    "react": "export default function DarmaB7AtomOrbitLoader() {\n  return (\n    <div className=\"darma-loader-darma-b7-atom-orbit\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 7",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

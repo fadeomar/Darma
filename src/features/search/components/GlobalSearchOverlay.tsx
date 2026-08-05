@@ -54,7 +54,7 @@ const KIND_ICONS: Record<CoreEntityKind, typeof Search> = {
   learning: Sparkles,
 };
 
-const FEATURED_QUERIES = ["image", "css", "puzzle", "calculator", "color", "classic"];
+const FEATURED_QUERIES = ["react", "career", "agile", "accessibility", "image", "calculator"];
 
 function readJsonArray<T>(key: string): T[] {
   if (typeof window === "undefined") return [];
@@ -125,9 +125,9 @@ function GlobalSearchResult({ entity, active, onSelect }: { entity: CoreEntity; 
           {entity.isNew ? <Badge variant="soft">New</Badge> : null}
         </span>
         <span className="mt-1 line-clamp-1 text-xs font-semibold text-[var(--color-text-tertiary)]">{entity.description}</span>
-        <span className="mt-1 block text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{getEntitySubtitle(entity)}</span>
+        <span className="mt-1 block text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{getEntitySubtitle(entity)}</span>
       </span>
-      <ArrowRight className="h-4 w-4 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:translate-x-0.5 group-hover:text-[var(--color-primary)] motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
+      <ArrowRight className="h-4 w-4 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:translate-x-0.5 group-hover:text-[var(--color-primary-text-strong)] motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
     </button>
   );
 }
@@ -287,7 +287,7 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
             >
               <div className="flex items-start justify-between gap-4 border-b border-[var(--color-border-subtle)] p-4 sm:p-5">
                 <div>
-                  <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                  <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                     <Command className="h-3.5 w-3.5" aria-hidden /> Darma command palette
                   </p>
                   <h2 id="global-search-title" className="mt-1 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-2xl">
@@ -375,8 +375,8 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
               </div>
 
               <div className="flex flex-col gap-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-4 py-3 text-xs font-semibold text-[var(--color-text-tertiary)] sm:flex-row sm:items-center sm:justify-between sm:px-5">
-                <span>Powered by Darma Core unified registry.</span>
-                <button type="button" onClick={() => { close(); router.push(`/search${query.trim() ? `?q=${encodeURIComponent(query.trim())}` : ""}`); }} className="self-start font-bold text-[var(--color-primary)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
+                <span>Searches tools, games, resources, paths, and careers.</span>
+                <button type="button" onClick={() => { close(); router.push(`/search${query.trim() ? `?q=${encodeURIComponent(query.trim())}` : ""}`); }} className="self-start font-bold text-[var(--color-primary-text-strong)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
                   Open full search page
                 </button>
               </div>
@@ -396,7 +396,15 @@ export function useGlobalSearch() {
   return context;
 }
 
-export function GlobalSearchButton({ className, compact = false }: { className?: string; compact?: boolean }) {
+export function GlobalSearchButton({
+  className,
+  compact = false,
+  showShortcut = !compact,
+}: {
+  className?: string;
+  compact?: boolean;
+  showShortcut?: boolean;
+}) {
   const { open } = useGlobalSearch();
   const shortcutLabel = useMemo(() => getShortcutLabel(), []);
 
@@ -412,7 +420,9 @@ export function GlobalSearchButton({ className, compact = false }: { className?:
     >
       <Search className="h-4 w-4" aria-hidden />
       <span>{compact ? "Search" : "Search Darma"}</span>
-      {!compact ? <span className="rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2 py-0.5 text-[11px] text-[var(--color-text-tertiary)]">{shortcutLabel}</span> : null}
+      {showShortcut ? (
+        <span className={`${compact ? "hidden xl:inline-flex" : "inline-flex"} rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2 py-0.5 text-xs text-[var(--color-text-tertiary)]`}>{shortcutLabel}</span>
+      ) : null}
     </button>
   );
 }

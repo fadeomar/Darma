@@ -67,9 +67,9 @@ const CHECK_STYLES: Record<Base64CheckLevel, string> = {
 
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-    <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+    <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
     <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-    <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+    <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
   </div>;
 }
 
@@ -336,7 +336,7 @@ export default function Base64Client() {
           {mode === "encode" && sourceKind === "file" ? <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-subtle)] p-5 text-center">
             <input ref={rawFileInputRef} type="file" className="hidden" onChange={(event) => void importRawFile(event.target.files?.[0])} />
             {fileState ? <div className="mx-auto max-w-lg">
-              <FileText className="mx-auto h-8 w-8 text-[var(--color-accent)]" />
+              <FileText className="mx-auto h-8 w-8 text-[var(--color-accent-text)]" />
               <div className="mt-2 break-all font-bold text-[var(--color-text-primary)]">{fileState.name}</div>
               <div className="mt-1 text-xs text-[var(--color-text-tertiary)]">{formatBytes(fileState.size)} · {fileState.type}</div>
               <div className="mt-3 flex flex-wrap justify-center gap-2">
@@ -359,7 +359,7 @@ export default function Base64Client() {
             placeholder={mode === "encode" ? "Type or paste UTF-8 text..." : "Paste Base64, Base64URL, MIME-wrapped content, or a data: URL..."}
           />}
           <input ref={textFileInputRef} type="file" accept=".txt,.b64,.base64,text/plain" className="hidden" onChange={(event) => void importBase64Text(event.target.files?.[0])} />
-          <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+          <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
             <span>{mode === "encode" && sourceKind === "file" ? (fileState ? `${fileState.size.toLocaleString()} raw bytes` : "No file selected") : `${input.length.toLocaleString()} characters · ${formatBytes(new TextEncoder().encode(input).length)}`}</span>
             {mode === "decode" && decodeResult?.error ? <span className="font-semibold text-[var(--color-danger-text)]">{decodeResult.error.message}</span> : null}
           </div>
@@ -388,7 +388,7 @@ export default function Base64Client() {
               <div className="flex items-center gap-2 font-bold"><Binary className="h-5 w-5" />Binary payload</div>
               <p className="mt-1 text-xs leading-5">These {formatBytes(decodedBytes)} are not valid UTF-8 text. Use the hex view for inspection or download the detected <code className="font-mono">{decodeResult?.fileName}</code> file.</p>
             </div> : <Textarea value={mode === "encode" ? encodeResult?.output ?? "" : decodeResult?.text ?? ""} readOnly rows={14} variant="output" placeholder="Transformed output will appear here." />}
-            <div className="flex flex-wrap justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+            <div className="flex flex-wrap justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
               <span>{mode === "encode" ? `${stats.encodedCharacters.toLocaleString()} payload characters · ${stats.lineCount.toLocaleString()} line(s)` : `${formatBytes(decodedBytes)} · ${decodeResult?.mimeType ?? "unknown type"}`}</span>
               <span>{stats.paddingCharacters} padding character(s) · {stats.overheadPercent}% overhead</span>
             </div>
@@ -409,8 +409,8 @@ export default function Base64Client() {
         <Card>
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Practical presets</div>
           <div className="space-y-2">{BASE64_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]">
-            <div className="flex items-center justify-between gap-2"><span className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-[9px] uppercase text-[var(--color-text-tertiary)]">{preset.mode}</span></div>
-            <div className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div>
+            <div className="flex items-center justify-between gap-2"><span className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-xs uppercase text-[var(--color-text-tertiary)]">{preset.mode}</span></div>
+            <div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div>
           </button>)}</div>
         </Card>
 
@@ -426,7 +426,7 @@ export default function Base64Client() {
           </div> : <div className="space-y-3">
             <label className="block text-xs font-semibold text-[var(--color-text-muted)]">Expected alphabet<Select size="sm" className="mt-1" value={decodeOptions.alphabet} onChange={(event) => setDecodeOptions((current) => ({ ...current, alphabet: event.target.value as Base64DecodeAlphabet }))}><option value="auto">Auto detect</option><option value="standard">Standard (+ /)</option><option value="url-safe">URL-safe (- _)</option></Select></label>
             <Button className="w-full" size="sm" variant={decodeOptions.strict ? "primary" : "secondary"} onClick={() => setDecodeOptions((current) => ({ ...current, strict: !current.strict }))}>{decodeOptions.strict ? "Strict validation on" : "Normalize whitespace and padding"}</Button>
-            <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">Strict mode rejects wrapped input, omitted padding, and an alphabet that does not match the selected profile.</p>
+            <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">Strict mode rejects wrapped input, omitted padding, and an alphabet that does not match the selected profile.</p>
           </div>}
         </Card>
 

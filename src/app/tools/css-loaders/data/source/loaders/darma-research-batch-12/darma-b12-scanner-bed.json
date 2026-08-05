@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-scanner-bed",
+  "name": "Scanner Bed",
+  "category": "progress",
+  "tags": [
+    "scanner",
+    "scan",
+    "document",
+    "beam",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bar\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .74); position: relative; overflow: hidden; border-radius: 7%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 calc(var(--loader-size) * .028) #334155; }\n.loader::before { content: ''; position: absolute; inset: 14% 15%; border-radius: 3px; background: repeating-linear-gradient(to bottom, color-mix(in srgb, #fff 24%, transparent) 0 7%, transparent 7% 20%); }\n.loader::after { content: ''; position: absolute; top: -20%; left: -30%; width: 55%; height: 150%; transform: rotate(18deg); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent); }\n.loader .bar { position: absolute; left: 0; width: 100%; height: 11%; background: linear-gradient(var(--accent), var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size) * .1) var(--accent); animation: scan calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n@keyframes scan { 0% { top: -11%; } 50% { top: 100%; } 100% { top: -11%; } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#3b82f6",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

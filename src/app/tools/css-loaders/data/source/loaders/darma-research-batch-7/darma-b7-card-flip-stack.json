@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-card-flip-stack",
+  "name": "Flip Cards",
+  "category": "creative",
+  "tags": ["card", "flip", "3d", "stack", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .8); height: var(--loader-size); position: relative; perspective: 500px; }\n.loader span { position: absolute; inset: 0; border-radius: 14%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transform-origin: center top; animation: flip calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .28); opacity: .78; }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .56); opacity: .55; }\n@keyframes flip { 0%, 55%, 100% { transform: rotateX(0deg); } 28% { transform: rotateX(-172deg); } }",
+  "defaults": { "color": "#f43f5e", "secondaryColor": "#fb923c", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

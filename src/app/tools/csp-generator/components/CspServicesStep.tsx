@@ -66,7 +66,7 @@ export function CspServicesStep({
                 tabIndex={active ? 0 : -1}
                 onClick={() => setCategory(item.id)}
                 className={cn(
-                  "rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition",
+                  "rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] transition",
                   active
                     ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
                     : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
@@ -125,12 +125,12 @@ export function CspServicesStep({
       {notes.length ? (
         <div className="grid gap-1.5 sm:grid-cols-2">
           {notes.slice(0, 4).map((service) => (
-            <p key={service.id} className="rounded-[var(--radius-sm)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] px-2.5 py-1.5 text-[11px] leading-4 text-[var(--color-info-text)]">
+            <p key={service.id} className="rounded-[var(--radius-sm)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] px-2.5 py-1.5 text-xs leading-4 text-[var(--color-info-text)]">
               <span className="font-bold">{service.label}:</span> {service.note}
             </p>
           ))}
           {notes.length > 4 ? (
-            <p className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-1.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+            <p className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-1.5 text-xs leading-4 text-[var(--color-text-tertiary)]">
               +{notes.length - 4} more service note{notes.length - 4 === 1 ? "" : "s"} hidden to keep this step compact.
             </p>
           ) : null}

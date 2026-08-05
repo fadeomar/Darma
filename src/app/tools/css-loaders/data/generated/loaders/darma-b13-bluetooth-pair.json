@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-bluetooth-pair",
+  "name": "Bluetooth Pair",
+  "category": "minimal",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "bluetooth",
+    "pair",
+    "connect",
+    "signal",
+    "minimal"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-bluetooth-pair bluetooth pair minimal darma-research-batch-13 darma research batch 13 bluetooth pair connect signal minimal html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-bluetooth-pair\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-bluetooth-pair { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #60a5fa); width: calc(var(--loader-size, 92px) * .78); height: var(--loader-size, 92px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b13-bluetooth-pair::after { content: ''; position: absolute; left: 4%; width: 52%; height: 86%; clip-path: polygon(42% 0, 82% 26%, 54% 50%, 82% 74%, 42% 100%, 42% 62%, 16% 82%, 11% 74%, 38% 54%, 38% 46%, 11% 26%, 16% 18%, 42% 38%); background: linear-gradient(var(--accent), color-mix(in srgb, #000 20%, var(--accent))); }\n.darma-loader-darma-b13-bluetooth-pair span { position: absolute; right: 2%; top: 50%; width: 30%; height: 30%; margin-top: -15%; border-radius: 50%; border: calc(var(--loader-size, 92px) * .035) solid transparent; border-right-color: var(--accent-2); animation: darma-loader-darma-b13-bluetooth-pair-ping-out calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b13-bluetooth-pair span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b13-bluetooth-pair-ping-out { 0% { opacity: 0; transform: scale(.35); } 26% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 92,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-bluetooth-pair\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-bluetooth-pair { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #60a5fa); width: calc(var(--loader-size, 92px) * .78); height: var(--loader-size, 92px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b13-bluetooth-pair::after { content: ''; position: absolute; left: 4%; width: 52%; height: 86%; clip-path: polygon(42% 0, 82% 26%, 54% 50%, 82% 74%, 42% 100%, 42% 62%, 16% 82%, 11% 74%, 38% 54%, 38% 46%, 11% 26%, 16% 18%, 42% 38%); background: linear-gradient(var(--accent), color-mix(in srgb, #000 20%, var(--accent))); }\n.darma-loader-darma-b13-bluetooth-pair span { position: absolute; right: 2%; top: 50%; width: 30%; height: 30%; margin-top: -15%; border-radius: 50%; border: calc(var(--loader-size, 92px) * .035) solid transparent; border-right-color: var(--accent-2); animation: darma-loader-darma-b13-bluetooth-pair-ping-out calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b13-bluetooth-pair span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b13-bluetooth-pair-ping-out { 0% { opacity: 0; transform: scale(.35); } 26% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5); } }",
+    "react": "export default function DarmaB13BluetoothPairLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-bluetooth-pair\" aria-label=\"Loading\"><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -179,7 +179,7 @@ function PrecisionStatsPanel({ precision }: { precision: PrecisionStats }) {
   return (
     <Card variant="default" padding="lg" className="rtp-precision-stats">
       <div className="rtp-panel-head">
-        <Timer className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <Timer className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
         <h3 className="rtp-panel-title">Precision Timer</h3>
       </div>
       <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
@@ -225,7 +225,7 @@ function TargetHunterStatsPanel({ targetHunter }: { targetHunter: TargetHunterSt
   return (
     <Card variant="default" padding="lg" className="rtp-th-stats">
       <div className="rtp-panel-head">
-        <Crosshair className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <Crosshair className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
         <h3 className="rtp-panel-title">Target Hunter</h3>
       </div>
       <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
@@ -268,7 +268,7 @@ function LevelChallengeStatsPanel({ lc }: { lc: LevelChallengeStats }) {
   return (
     <Card variant="default" padding="lg" className="rtp-lc-stats">
       <div className="rtp-panel-head">
-        <Layers className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <Layers className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
         <h3 className="rtp-panel-title">Level Challenge</h3>
       </div>
       <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
@@ -334,7 +334,7 @@ function DailyChallengeStatsPanel({ daily }: { daily: DailyChallengeStats }) {
   return (
     <Card variant="default" padding="lg" className="rtp-daily-stats">
       <div className="rtp-panel-head">
-        <CalendarClock className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <CalendarClock className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
         <h3 className="rtp-panel-title">Daily Challenge</h3>
       </div>
       <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
@@ -396,7 +396,7 @@ function ShareStatsPanel({ stats }: { stats: ReactionStorageV2["share"] }) {
   return (
     <Card variant="default" padding="lg" className="rtp-share-stats">
       <div className="rtp-panel-head">
-        <Share2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <Share2 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
         <h3 className="rtp-panel-title">Share Cards</h3>
       </div>
       <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
@@ -417,7 +417,7 @@ function LocalBattleStatsPanel({ battle }: { battle: LocalBattleStats }) {
   return (
     <Card variant="default" padding="lg" className="rtp-battle-stats">
       <div className="rtp-panel-head">
-        <Swords className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <Swords className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
         <h3 className="rtp-panel-title">Local Battle</h3>
       </div>
       <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
@@ -496,7 +496,7 @@ export function ReactionStatsStrip({
         <div className="rtp-insights">
           {insights.map((text) => (
             <p key={text} className="rtp-insight">
-              <Lightbulb className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <Lightbulb className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
               {text}
             </p>
           ))}
@@ -505,7 +505,7 @@ export function ReactionStatsStrip({
 
       <Card variant="default" padding="lg" className="rtp-chart-card">
         <div className="rtp-panel-head">
-          <Gauge className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <Gauge className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <h3 className="rtp-panel-title">Last reactions</h3>
         </div>
         {hydrated ? (
@@ -541,7 +541,7 @@ export function ReactionStatsStrip({
       <div className="rtp-stats-panels">
         <Card variant="default" padding="lg">
           <div className="rtp-panel-head">
-            <BarChart3 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <BarChart3 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h3 className="rtp-panel-title">Recent runs</h3>
           </div>
           {hydrated && stats.lastResults.length ? (
@@ -571,7 +571,7 @@ export function ReactionStatsStrip({
         <Card variant="default" padding="lg">
           <div className="rtp-panel-head rtp-panel-head--split">
             <span className="rtp-panel-head-left">
-              <Trophy className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+              <Trophy className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h3 className="rtp-panel-title">Achievements</h3>
             </span>
             <span className="rtp-ach-count">

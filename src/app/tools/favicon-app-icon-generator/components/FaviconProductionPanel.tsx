@@ -13,7 +13,7 @@ import {
 } from "../studio";
 
 function MiniLabel({ children }: { children: ReactNode }) {
-  return <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
+  return <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
 }
 
 function mapChecks(input: FaviconInput, assets: GeneratedAsset[], generatedFingerprint?: string): WarningMessage[] {
@@ -61,7 +61,7 @@ export function FaviconProjectControls({
           event.target.value = "";
         }}
       />
-      <p className="text-[11px] leading-5 text-[var(--color-text-tertiary)]">
+      <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">
         Project imports are capped at {Math.round(MAX_FAVICON_PROJECT_BYTES / 1024 / 1024)} MB. Uploaded images are excluded; safe SVG markup is included only below 256 KB.
       </p>
       {message ? <p role="status" className="text-xs font-medium text-[var(--color-text-secondary)]">{message}</p> : null}
@@ -91,7 +91,7 @@ export function FaviconProductionSummary({
         <div key={card.label} className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">
           <MiniLabel>{card.label}</MiniLabel>
           <div className="mt-1 truncate text-base font-black text-[var(--color-text-primary)]" title={card.value}>{card.value}</div>
-          <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{card.detail}</div>
+          <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{card.detail}</div>
         </div>
       ))}
     </div>

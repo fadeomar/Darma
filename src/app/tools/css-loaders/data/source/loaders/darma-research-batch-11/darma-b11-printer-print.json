@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-printer-print",
+  "name": "Printer",
+  "category": "fun",
+  "tags": ["printer", "print", "paper", "office", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"paper\"></div><div class=\"body\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .body { position: absolute; left: 14%; bottom: 20%; width: 72%; height: 38%; background: linear-gradient(#94a3b8, #475569); border-radius: 8px 8px 10px 10px; z-index: 2; }\n.loader .body::after { content: ''; position: absolute; bottom: 22%; left: 12%; width: 30%; height: 14%; border-radius: 3px; background: var(--accent-2); box-shadow: 0 0 calc(var(--loader-size) * .06) var(--accent-2); }\n.loader .paper { position: absolute; left: 28%; bottom: 57%; width: 44%; height: 0; background: #fff; border: 1px solid #cbd5e1; overflow: hidden; animation: print calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .paper::before { content: ''; position: absolute; inset: 14% 12%; background: repeating-linear-gradient(var(--accent) 0 12%, transparent 12% 30%); }\n@keyframes print { 0% { height: 0; } 45%, 100% { height: 46%; } }",
+  "defaults": { "color": "#3b82f6", "secondaryColor": "#22d3ee", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

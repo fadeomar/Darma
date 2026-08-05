@@ -28,6 +28,7 @@ import { GamePlayerShell } from "./GamePlayerShell";
 import { GamePlayLink } from "./GamePlayLink";
 import { GameThumbnail } from "./GameThumbnail";
 import { RelatedGames } from "./RelatedGames";
+import { EndlessRunnerDetail } from "./EndlessRunnerDetail";
 
 type DetailRowProps = {
   label: string;
@@ -37,7 +38,7 @@ type DetailRowProps = {
 function DetailRow({ label, value }: DetailRowProps) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] py-3 last:border-0">
-      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </span>
       <span className="text-right text-sm font-semibold text-[var(--color-text-primary)]">{value}</span>
@@ -48,7 +49,7 @@ function DetailRow({ label, value }: DetailRowProps) {
 function FeaturePill({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
   return (
     <span className="inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 text-xs font-bold text-[var(--color-text-secondary)]">
-      <Icon className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+      <Icon className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
       {label}
     </span>
   );
@@ -66,7 +67,7 @@ function InfoCard({
   return (
     <Card variant="default" padding="lg" className="game-detail-info-card h-full">
       <div className="flex items-start gap-3">
-        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-primary)]">
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)]">
           <Icon className="h-5 w-5" aria-hidden />
         </span>
         <div>
@@ -93,7 +94,7 @@ function getGameFeatures(game: GameDefinition) {
   return Array.from(new Set(features)).slice(0, 6);
 }
 
-function getTips(game: GameDefinition) {
+function getFallbackTips(game: GameDefinition) {
   const tips = [
     "Start with a short round to learn the rhythm before chasing high scores.",
     "Use the controls slowly at first, then increase speed once the pattern feels natural.",
@@ -113,13 +114,17 @@ function getTips(game: GameDefinition) {
 }
 
 export function GameDetail({ game, allGames }: { game: GameDefinition; allGames: GameDefinition[] }) {
+  if (game.slug === "endless-runner") {
+    return <EndlessRunnerDetail game={game} allGames={allGames} />;
+  }
+
   const features = getGameFeatures(game);
-  const tips = getTips(game);
+  const tips = game.tips?.length ? game.tips.slice(0, 3) : getFallbackTips(game);
 
   return (
     <div className="game-page-shell game-page-shell-wide mx-auto max-w-[1680px] px-3 py-7 sm:px-5 sm:py-9 lg:px-6 xl:px-8">
       <nav aria-label="Breadcrumb" className="mb-5">
-        <ol className="flex flex-wrap items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        <ol className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           <li>
             <Link href="/games" className="rounded-[var(--radius-sm)] transition hover:text-[var(--color-text-primary)] focus:outline-none focus-visible:shadow-[var(--focus-ring)]">
               Games
@@ -185,13 +190,13 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
 
           <div className="game-detail-preview group relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)]">
             <GameThumbnail game={game} aspect="4/3" size="lg" priority />
-            <div className="absolute inset-x-4 bottom-4 rounded-[var(--radius-md)] border border-white/20 bg-black/35 p-3 text-white backdrop-blur-md">
+            <div className="absolute inset-x-4 bottom-4 rounded-[var(--radius-md)] border border-white/20 bg-black/65 p-3 text-white backdrop-blur-md">
               <div className="flex items-center justify-between gap-3">
                 <span className="inline-flex items-center gap-2 text-sm font-black">
                   <Gamepad2 className="h-4 w-4" aria-hidden />
                   Quick browser game
                 </span>
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-white/75">
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-white/90">
                   {game.playTime}
                 </span>
               </div>
@@ -203,7 +208,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
       <section id="player" className="game-player-focus mt-7 scroll-mt-24">
         <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] text-[var(--color-primary)]">Playable area</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.12em] text-[var(--color-primary-text-strong)]">Playable area</p>
             <h2 className="mt-1 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Play {game.title}</h2>
           </div>
           <p className="max-w-xl text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -217,7 +222,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <Trophy className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+              <Trophy className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Game details</h2>
             </div>
             <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -233,7 +238,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
         </div>
         <div className="mt-5 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
           <div className="flex items-start gap-3">
-            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" aria-hidden />
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />
             <p className="text-sm leading-6 text-[var(--color-text-secondary)]">{game.privacyNote}</p>
           </div>
         </div>
@@ -263,7 +268,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
                   href={game.credits.authorUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="font-bold text-[var(--color-primary)] underline underline-offset-2"
+                  className="font-bold text-[var(--color-primary-text-strong)] underline underline-offset-2"
                 >
                   {game.credits.author}
                 </a>
@@ -286,7 +291,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
                   href={game.credits.licenseUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="font-bold text-[var(--color-primary)] underline underline-offset-2"
+                  className="font-bold text-[var(--color-primary-text-strong)] underline underline-offset-2"
                 >
                   {game.credits.license}
                 </a>
@@ -302,13 +307,13 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_0.9fr]">
         <Card variant="default" padding="lg">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <CheckCircle2 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Why you’ll like it</h2>
           </div>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {features.map((feature) => (
               <li key={feature} className="flex items-start gap-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />
                 {feature}
               </li>
             ))}
@@ -317,10 +322,10 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
 
         <Card variant="default" padding="lg">
           <div className="flex items-center gap-2">
-            <Lightbulb className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <Lightbulb className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Quick tips</h2>
           </div>
-          <ol className="mt-4 space-y-3">
+          <ol className="mt-4 list-none space-y-3 pl-0">
             {tips.map((tip, index) => (
               <li key={tip} className="flex gap-3 text-sm leading-6 text-[var(--color-text-secondary)]">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-primary)] text-xs font-black text-[var(--color-primary-text)]">
@@ -336,9 +341,9 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
       <section className="game-detail-brand-note mt-8 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">Darma Games</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Darma Games</p>
             <h2 className="mt-2 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Playful, private, and lightweight.</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">This page uses the same Darma product system with a softer game identity layer, so the experience feels fun without becoming noisy or disconnected.</p>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Games share the same layout and controls as the rest of Darma, so the page stays easy to read while the game itself gets the space.</p>
           </div>
           <Link
             href="/games"

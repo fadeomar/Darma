@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-thermometer",
+  "name": "Thermometer",
+  "category": "progress",
+  "tags": ["thermometer", "temperature", "mercury", "heat", "progress"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"tube\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .34); height: var(--loader-size); position: relative; display: grid; place-items: start center; }\n.loader .tube { position: relative; width: 40%; height: 74%; margin-top: 4%; background: #e2e8f0; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 0 2px #cbd5e1; }\n.loader .tube::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; background: linear-gradient(var(--accent), var(--accent-2)); animation: mercury calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader::after { content: ''; position: absolute; bottom: 2%; left: 50%; width: calc(var(--loader-size) * .28); height: calc(var(--loader-size) * .28); margin-left: calc(var(--loader-size) * -.14); border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 0 0 2px #cbd5e1; }\n@keyframes mercury { 0% { height: 8%; } 50% { height: 100%; } 100% { height: 8%; } }",
+  "defaults": { "color": "#f97316", "secondaryColor": "#ef4444", "size": 108, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

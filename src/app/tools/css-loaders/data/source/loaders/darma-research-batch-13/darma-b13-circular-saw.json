@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-circular-saw",
+  "name": "Circular Saw",
+  "category": "spinners",
+  "tags": [
+    "saw",
+    "blade",
+    "teeth",
+    "sparks",
+    "spinner"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"blade\"></div><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader .blade { position: relative; width: 88%; height: 88%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 22%, var(--accent-2)) 0 57%, transparent 58%), repeating-conic-gradient(from 0deg, var(--accent) 0 7deg, transparent 7deg 18deg); animation: saw calc(var(--loader-speed) * .7) linear infinite; }\n.loader .blade::after { content: ''; position: absolute; inset: 40%; border-radius: 50%; background: #f8fafc; box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 24%, var(--accent-2)); }\n.loader span { position: absolute; bottom: 13%; right: 7%; width: 9%; height: 3%; border-radius: 999px; background: var(--accent); animation: spark calc(var(--loader-speed) * 1.1) ease-out infinite; }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .55); }\n@keyframes saw { to { transform: rotate(360deg); } }\n@keyframes spark { 0% { opacity: 0; transform: translate(0, 0) scaleX(.4); } 22% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(var(--loader-size) * .24), calc(var(--loader-size) * .1)) scaleX(1.7); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#64748b",
+    "size": 100,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

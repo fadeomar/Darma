@@ -91,9 +91,9 @@ export function GridPreview({
 function PreviewStat({ label, value, helper, tone = "default" }: { label: string; value: string; helper: string; tone?: "default" | "success" | "warning" | "danger" }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3">
-      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-soft)]">{label}</p>
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-soft)]">{label}</p>
       <p className={cn("mt-1 truncate text-sm font-black text-[var(--color-text)]", tone === "success" && "text-[var(--color-success-text)]", tone === "warning" && "text-[var(--color-warning-text)]", tone === "danger" && "text-[var(--color-danger-text)]")}>{value}</p>
-      <p className="mt-1 truncate text-[11px] text-[var(--color-text-soft)]">{helper}</p>
+      <p className="mt-1 truncate text-xs text-[var(--color-text-soft)]">{helper}</p>
     </div>
   );
 }
@@ -127,7 +127,7 @@ function GridPreviewItem({ item, selected, showAreaNames, onSelect }: { item: Gr
 
 function GridLineLabels({ columns, rows }: { columns: number; rows: number }) {
   return (
-    <div className="pointer-events-none absolute inset-0 z-10 text-[10px] font-bold text-[var(--color-accent)]/70">
+    <div className="pointer-events-none absolute inset-0 z-10 text-xs font-bold text-[var(--color-accent-text)]/70">
       {Array.from({ length: columns + 1 }).map((_, index) => (
         <span key={`c-${index}`} className="absolute -top-2" style={{ left: `${(index / columns) * 100}%` }}>{index + 1}</span>
       ))}

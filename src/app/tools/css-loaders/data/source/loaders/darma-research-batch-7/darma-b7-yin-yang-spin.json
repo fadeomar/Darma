@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-yin-yang-spin",
+  "name": "Tai Chi Spin",
+  "category": "minimal",
+  "tags": ["yin-yang", "tai-chi", "balance", "rotate", "minimal"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; background: linear-gradient(to bottom, var(--accent-2) 50%, var(--accent) 50%); position: relative; animation: taichi calc(var(--loader-speed) * 1.8) linear infinite; }\n.loader::before, .loader::after { content: ''; position: absolute; left: 25%; width: 50%; height: 50%; border-radius: 50%; box-sizing: border-box; }\n.loader::before { top: 0; background: var(--accent); }\n.loader::after { top: 50%; background: var(--accent-2); }\n@keyframes taichi { to { transform: rotate(360deg); } }",
+  "defaults": { "color": "#0f172a", "secondaryColor": "#e2e8f0", "size": 68, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

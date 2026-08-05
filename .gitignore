@@ -36,6 +36,11 @@ yarn-error.log*
 
 # local source archive / backup artifacts
 src.zip
+src.backup-*/
+
+# scratch verification pages produced while building tools/loaders
+tmp-*.html
+public/tmp-*.html
 
 # vercel
 .vercel
@@ -57,3 +62,7 @@ prisma/migrations_backup/
 *.backup
 *.pgpass
 SHA256SUMS
+
+# generated external link-health reports
+/ATLAS_LINK_HEALTH*.md
+/ATLAS_LINK_HEALTH*.json

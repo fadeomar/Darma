@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-paper-clip-chain",
+  "name": "Paper Clip Chain",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "paperclip",
+    "chain",
+    "dangle",
+    "office",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-paper-clip-chain paper clip chain creative darma-research-batch-13 darma research batch 13 paperclip chain dangle office creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-paper-clip-chain\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-paper-clip-chain { --accent: var(--loader-color, #94a3b8); --accent-2: var(--loader-secondary-color, #f43f5e); width: calc(var(--loader-size, 116px) * .5); height: var(--loader-size, 116px); position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 8%; }\n.darma-loader-darma-b13-paper-clip-chain::before { content: ''; position: absolute; top: 0; left: 40%; width: 20%; height: 9%; border: calc(var(--loader-size, 116px) * .028) solid var(--loader-color, #94a3b8); border-top: 0; border-radius: 0 0 999px 999px; }\n.darma-loader-darma-b13-paper-clip-chain span { width: 52%; height: 30%; border: calc(var(--loader-size, 116px) * .045) solid var(--accent); border-radius: 999px; transform-origin: top center; animation: darma-loader-darma-b13-paper-clip-chain-dangle calc(var(--loader-speed, 1s) * 1.9) ease-in-out infinite; }\n.darma-loader-darma-b13-paper-clip-chain span:nth-child(2) { margin-top: -9%; border-color: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .14); }\n.darma-loader-darma-b13-paper-clip-chain span:nth-child(3) { margin-top: -9%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n@keyframes darma-loader-darma-b13-paper-clip-chain-dangle { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }",
+  "defaults": {
+    "color": "#94a3b8",
+    "secondaryColor": "#f43f5e",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-paper-clip-chain\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-paper-clip-chain { --accent: var(--loader-color, #94a3b8); --accent-2: var(--loader-secondary-color, #f43f5e); width: calc(var(--loader-size, 116px) * .5); height: var(--loader-size, 116px); position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 8%; }\n.darma-loader-darma-b13-paper-clip-chain::before { content: ''; position: absolute; top: 0; left: 40%; width: 20%; height: 9%; border: calc(var(--loader-size, 116px) * .028) solid var(--loader-color, #94a3b8); border-top: 0; border-radius: 0 0 999px 999px; }\n.darma-loader-darma-b13-paper-clip-chain span { width: 52%; height: 30%; border: calc(var(--loader-size, 116px) * .045) solid var(--accent); border-radius: 999px; transform-origin: top center; animation: darma-loader-darma-b13-paper-clip-chain-dangle calc(var(--loader-speed, 1s) * 1.9) ease-in-out infinite; }\n.darma-loader-darma-b13-paper-clip-chain span:nth-child(2) { margin-top: -9%; border-color: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .14); }\n.darma-loader-darma-b13-paper-clip-chain span:nth-child(3) { margin-top: -9%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n@keyframes darma-loader-darma-b13-paper-clip-chain-dangle { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }",
+    "react": "export default function DarmaB13PaperClipChainLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-paper-clip-chain\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

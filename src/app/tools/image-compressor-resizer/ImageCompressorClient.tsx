@@ -764,11 +764,11 @@ export default function ImageCompressorClient() {
               <span className="block text-xs font-black text-[var(--color-text-primary)]">
                 {preset.label}
               </span>
-              <span className="mt-0.5 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+              <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">
                 {preset.description}
               </span>
               {preset.note && (
-                <span className="mt-1 block text-[10px] leading-4 text-[var(--color-accent)] opacity-80">
+                <span className="mt-1 block text-xs leading-4 text-[var(--color-accent-text)] opacity-80">
                   {preset.note}
                 </span>
               )}
@@ -799,7 +799,7 @@ export default function ImageCompressorClient() {
                 <span className="block text-xs font-black text-[var(--color-text-primary)]">
                   {preset.label}
                 </span>
-                <span className="mt-0.5 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+                <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">
                   {preset.description}
                 </span>
               </button>
@@ -863,7 +863,7 @@ export default function ImageCompressorClient() {
                     onClick={() => patch({ targetFileSizeKB: value })}
                     className={`rounded-[var(--radius-full)] border px-3 py-1 text-xs font-bold transition focus:outline-none focus:shadow-[var(--focus-ring)] ${
                       settings.targetFileSizeKB === value
-                        ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                        ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                         : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
                     }`}
                   >
@@ -900,7 +900,7 @@ export default function ImageCompressorClient() {
             </Field>
           </ControlGrid>
           {isBatchMode && (
-            <p className="mt-2 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+            <p className="mt-2 text-xs leading-4 text-[var(--color-text-tertiary)]">
               Applies to all images. Each is resized independently.
             </p>
           )}
@@ -1281,11 +1281,11 @@ function UploadDropzone({
             key={step}
             className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3"
           >
-            <span className="font-mono text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-accent)]">
+            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-accent-text)]">
               Step {step}
             </span>
             <p className="mt-1 text-xs font-black text-[var(--color-text-primary)]">{title}</p>
-            <p className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+            <p className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">
               {description}
             </p>
           </div>
@@ -1312,7 +1312,7 @@ function UploadDropzone({
         {["Browser-only", "No upload to server", "No watermark", "No signup"].map((label) => (
           <span
             key={label}
-            className="inline-flex items-center gap-1 rounded-[var(--radius-full)] border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-[var(--color-accent)]"
+            className="inline-flex items-center gap-1 rounded-[var(--radius-full)] border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-accent-text)]"
           >
             <Shield className="h-3 w-3" aria-hidden />
             {label}
@@ -1342,14 +1342,14 @@ function SummaryCards({
                 : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"
           }`}
         >
-          <p className="truncate text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <p className="truncate text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             {card.label}
           </p>
           <p className="mt-1 truncate text-sm font-black text-[var(--color-text-primary)]" title={card.value}>
             {card.value}
           </p>
           {card.description && (
-            <p className="mt-0.5 line-clamp-2 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+            <p className="mt-0.5 line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">
               {card.description}
             </p>
           )}

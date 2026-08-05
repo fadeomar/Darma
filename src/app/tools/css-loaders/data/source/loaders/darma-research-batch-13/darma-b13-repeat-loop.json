@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-repeat-loop",
+  "name": "Repeat Loop",
+  "category": "spinners",
+  "tags": [
+    "repeat",
+    "loop",
+    "refresh",
+    "arrows",
+    "spinner"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; animation: cycle calc(var(--loader-speed) * 1.9) cubic-bezier(.6, 0, .3, 1) infinite; }\n.loader span { position: absolute; inset: 0; border-radius: 50%; border: calc(var(--loader-size) * .1) solid transparent; }\n.loader span:nth-child(1) { border-top-color: var(--accent); border-right-color: var(--accent); }\n.loader span:nth-child(2) { border-bottom-color: var(--accent-2); border-left-color: var(--accent-2); }\n.loader span::after { content: ''; position: absolute; width: 46%; height: 30%; }\n.loader span:nth-child(1)::after { top: 34%; right: -30%; clip-path: polygon(0 0, 100% 0, 50% 100%); background: var(--accent); }\n.loader span:nth-child(2)::after { bottom: 34%; left: -30%; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: var(--accent-2); }\n@keyframes cycle { 0% { transform: rotate(0deg); } 44% { transform: rotate(196deg); } 56% { transform: rotate(196deg); } 100% { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#22d3ee",
+    "size": 88,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

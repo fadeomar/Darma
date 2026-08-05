@@ -35,7 +35,7 @@ const weakPatterns = ["123456", "password", "qwerty", "name + birthday", "phone 
 function SectionIntro({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">{eyebrow}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">{eyebrow}</p>
       <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">{title}</h2>
       <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)] sm:text-base sm:leading-7">{text}</p>
     </div>
@@ -54,7 +54,7 @@ export function PasswordSecuritySections() {
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {howToCards.map((card) => (
             <article key={card.title} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-5 shadow-[var(--shadow-xs)]">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] font-mono text-sm font-black text-[var(--color-primary)]">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] font-mono text-sm font-black text-[var(--color-primary-text-strong)]">
                 {card.icon}
               </span>
               <h3 className="mt-4 text-lg font-black text-[var(--color-text-primary)]">{card.title}</h3>
@@ -67,7 +67,7 @@ export function PasswordSecuritySections() {
       <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-7">
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Best practices</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Best practices</p>
             <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">
               Password security best practices
             </h2>
@@ -87,7 +87,7 @@ export function PasswordSecuritySections() {
           <div className="grid gap-3 sm:grid-cols-2">
             {bestPractices.map(([title, text], index) => (
               <article key={title} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-accent-border)] bg-[var(--color-accent-soft)] font-mono text-[11px] font-black text-[var(--color-accent)]">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-accent-border)] bg-[var(--color-accent-soft)] font-mono text-xs font-black text-[var(--color-accent-text)]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 font-black text-[var(--color-text-primary)]">{title}</h3>
@@ -102,7 +102,7 @@ export function PasswordSecuritySections() {
         <article className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-7">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <Badge variant="soft">Best for managers</Badge>
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Random password</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Random password</span>
           </div>
           <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Dense, random, and hard to guess</h2>
           <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -117,7 +117,7 @@ export function PasswordSecuritySections() {
         <article className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-7">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <Badge variant="accent">Best for typing</Badge>
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Memorable passphrase</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Memorable passphrase</span>
           </div>
           <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Longer, readable, and easier to enter</h2>
           <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -133,7 +133,7 @@ export function PasswordSecuritySections() {
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
         <div className="grid gap-6 p-5 sm:p-7 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-center">
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Privacy by design</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Privacy by design</p>
             <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">
               Generated locally in your browser
             </h2>
@@ -164,7 +164,7 @@ export function PasswordSecuritySections() {
             />
           </div>
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-danger-text)]">Weak patterns</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-danger-text)]">Weak patterns</p>
             <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">Avoid weak password patterns</h2>
             <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)] sm:text-base sm:leading-7">
               These examples are intentionally weak. They are common, predictable, or tied to personal information, so attackers try them early.

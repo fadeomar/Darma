@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-dart-throw",
+  "name": "Dart Throw",
+  "category": "fun",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "dart",
+    "dartboard",
+    "throw",
+    "bullseye",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-dart-throw dart throw fun darma-research-batch-13 darma research batch 13 dart dartboard throw bullseye fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-dart-throw\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-dart-throw__dart\"></div></div>",
+  "previewCss": ".darma-loader-darma-b13-dart-throw { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #dc2626); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .82); position: relative; }\n.darma-loader-darma-b13-dart-throw::before { content: ''; position: absolute; right: 0; top: 6%; width: 68%; height: 88%; border-radius: 50%; background: repeating-radial-gradient(circle, var(--accent) 0 9%, var(--accent-2) 9% 18%); }\n.darma-loader-darma-b13-dart-throw::after { content: ''; position: absolute; right: 29%; top: 43%; width: 10%; height: 13%; border-radius: 50%; background: #f8fafc; box-shadow: 0 0 0 calc(var(--loader-size, 116px) * .014) color-mix(in srgb, #000 30%, var(--accent)); }\n.darma-loader-darma-b13-dart-throw .darma-loader-darma-b13-dart-throw__dart { position: absolute; left: 0; top: 46%; width: 40%; height: 5%; border-radius: 999px; background: linear-gradient(90deg, #64748b, #e2e8f0 72%, #f8fafc); animation: darma-loader-darma-b13-dart-throw-throw calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.3, 0, .2, 1) infinite; }\n.darma-loader-darma-b13-dart-throw .darma-loader-darma-b13-dart-throw__dart::after { content: ''; position: absolute; left: -4%; top: -180%; width: 26%; height: 460%; background: var(--accent-2); clip-path: polygon(0 0, 100% 32%, 100% 68%, 0 100%); }\n@keyframes darma-loader-darma-b13-dart-throw-throw { 0% { opacity: 0; transform: translate(-34%, -46%); } 14% { opacity: 1; } 52% { transform: translate(40%, 0); } 84% { opacity: 1; transform: translate(40%, 0); } 100% { opacity: 0; transform: translate(40%, 0); } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#dc2626",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-dart-throw\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-dart-throw__dart\"></div></div>",
+    "css": ".darma-loader-darma-b13-dart-throw { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #dc2626); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .82); position: relative; }\n.darma-loader-darma-b13-dart-throw::before { content: ''; position: absolute; right: 0; top: 6%; width: 68%; height: 88%; border-radius: 50%; background: repeating-radial-gradient(circle, var(--accent) 0 9%, var(--accent-2) 9% 18%); }\n.darma-loader-darma-b13-dart-throw::after { content: ''; position: absolute; right: 29%; top: 43%; width: 10%; height: 13%; border-radius: 50%; background: #f8fafc; box-shadow: 0 0 0 calc(var(--loader-size, 116px) * .014) color-mix(in srgb, #000 30%, var(--accent)); }\n.darma-loader-darma-b13-dart-throw .darma-loader-darma-b13-dart-throw__dart { position: absolute; left: 0; top: 46%; width: 40%; height: 5%; border-radius: 999px; background: linear-gradient(90deg, #64748b, #e2e8f0 72%, #f8fafc); animation: darma-loader-darma-b13-dart-throw-throw calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.3, 0, .2, 1) infinite; }\n.darma-loader-darma-b13-dart-throw .darma-loader-darma-b13-dart-throw__dart::after { content: ''; position: absolute; left: -4%; top: -180%; width: 26%; height: 460%; background: var(--accent-2); clip-path: polygon(0 0, 100% 32%, 100% 68%, 0 100%); }\n@keyframes darma-loader-darma-b13-dart-throw-throw { 0% { opacity: 0; transform: translate(-34%, -46%); } 14% { opacity: 1; } 52% { transform: translate(40%, 0); } 84% { opacity: 1; transform: translate(40%, 0); } 100% { opacity: 0; transform: translate(40%, 0); } }",
+    "react": "export default function DarmaB13DartThrowLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-dart-throw\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-dart-throw__dart\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-oil-pump-jack",
+  "name": "Oil Pump Jack",
+  "category": "creative",
+  "tags": [
+    "oil",
+    "pump",
+    "derrick",
+    "rocking",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"beam\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .64); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5%; border-radius: 2px; background: color-mix(in srgb, #000 25%, var(--accent-2)); }\n.loader::before { content: ''; position: absolute; bottom: 5%; left: 40%; width: 14%; height: 46%; clip-path: polygon(34% 0, 66% 0, 100% 100%, 0 100%); background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.loader .beam { position: absolute; bottom: 48%; left: 10%; width: 74%; height: 8%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 58% center; animation: rock calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n.loader .beam::after { content: ''; position: absolute; left: -3%; top: -46%; width: 15%; height: 180%; border-radius: 45% 8% 8% 45%; background: var(--accent); }\n.loader span { position: absolute; bottom: 22%; right: 4%; width: calc(var(--loader-size) * .17); height: calc(var(--loader-size) * .17); border-radius: 50%; background: conic-gradient(from 0deg, var(--accent-2), var(--accent) 42%, var(--accent-2) 62%, var(--accent)); box-shadow: inset 0 0 0 calc(var(--loader-size) * .022) color-mix(in srgb, #000 30%, var(--accent-2)); animation: crank calc(var(--loader-speed) * 2.2) linear infinite; }\n@keyframes rock { 0%, 100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }\n@keyframes crank { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#334155",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -69,7 +69,7 @@ export function NumberField({
           onChange={(event) => handleChange(event.target.value)}
           className={cn("font-mono tabular-nums", inputClassName)}
         />
-        {unit ? <span className="shrink-0 font-mono text-[11px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{unit}</span> : null}
+        {unit ? <span className="shrink-0 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{unit}</span> : null}
       </div>
     </CompactField>
   );

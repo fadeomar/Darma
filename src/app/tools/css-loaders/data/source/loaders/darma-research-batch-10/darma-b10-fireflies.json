@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-fireflies",
+  "name": "Fireflies",
+  "category": "fun",
+  "tags": ["fireflies", "glow", "drift", "night", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; width: calc(var(--loader-size) * .1); height: calc(var(--loader-size) * .1); border-radius: 50%; background: radial-gradient(circle, #fff, var(--accent)); box-shadow: 0 0 calc(var(--loader-size) * .14) var(--accent); }\n.loader span:nth-child(odd) { background: radial-gradient(circle, #fff, var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size) * .14) var(--accent-2); }\n.loader span:nth-child(1) { left: 8%; top: 20%; animation: fly-a calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span:nth-child(2) { left: 60%; top: 12%; animation: fly-b calc(var(--loader-speed) * 3.4) ease-in-out infinite; }\n.loader span:nth-child(3) { left: 30%; top: 60%; animation: fly-a calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(4) { left: 72%; top: 64%; animation: fly-b calc(var(--loader-speed) * 3.8) ease-in-out infinite; }\n.loader span:nth-child(5) { left: 46%; top: 38%; animation: fly-a calc(var(--loader-speed) * 3.2) ease-in-out infinite; }\n@keyframes fly-a { 0%, 100% { transform: translate(0, 0); opacity: .3; } 25% { transform: translate(55%, 25%); opacity: 1; } 50% { transform: translate(20%, 60%); opacity: .5; } 75% { transform: translate(-25%, 35%); opacity: 1; } }\n@keyframes fly-b { 0%, 100% { transform: translate(0, 0); opacity: 1; } 30% { transform: translate(-45%, 30%); opacity: .4; } 60% { transform: translate(-15%, -35%); opacity: 1; } 80% { transform: translate(30%, -20%); opacity: .6; } }",
+  "defaults": { "color": "#fde047", "secondaryColor": "#a3e635", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

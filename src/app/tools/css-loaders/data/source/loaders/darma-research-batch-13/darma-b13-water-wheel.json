@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-water-wheel",
+  "name": "Water Wheel",
+  "category": "creative",
+  "tags": [
+    "water",
+    "wheel",
+    "mill",
+    "paddles",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"wheel\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader::after { content: ''; position: absolute; bottom: 4%; left: 0; width: 100%; height: 15%; border-radius: 4px; background: linear-gradient(90deg, var(--accent-2) 0 50%, color-mix(in srgb, #fff 42%, var(--accent-2)) 50% 100%); background-size: calc(var(--loader-size) * .24) 100%; animation: current calc(var(--loader-speed) * 1.2) linear infinite; }\n.loader .wheel { position: relative; width: 66%; height: 66%; border-radius: 50%; box-shadow: 0 0 0 calc(var(--loader-size) * .035) var(--accent); animation: churn calc(var(--loader-speed) * 3) linear infinite; }\n.loader .wheel span { position: absolute; top: 50%; left: 50%; width: 46%; height: 11%; margin-top: -5.5%; border-radius: 2px; transform-origin: left center; background: linear-gradient(90deg, color-mix(in srgb, #000 22%, var(--accent-2)), var(--accent-2)); }\n.loader .wheel span:nth-child(2) { transform: rotate(60deg); }\n.loader .wheel span:nth-child(3) { transform: rotate(120deg); }\n.loader .wheel span:nth-child(4) { transform: rotate(180deg); }\n.loader .wheel span:nth-child(5) { transform: rotate(240deg); }\n.loader .wheel span:nth-child(6) { transform: rotate(300deg); }\n@keyframes churn { to { transform: rotate(360deg); } }\n@keyframes current { to { background-position: calc(var(--loader-size) * .24) 0; } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#0ea5e9",
+    "size": 104,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

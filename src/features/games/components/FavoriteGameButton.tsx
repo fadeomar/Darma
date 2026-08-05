@@ -21,8 +21,8 @@ export function FavoriteGameButton({
     <button
       type="button"
       className={cn(
-        "game-favorite-button relative z-10 inline-flex min-h-10 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-primary)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none",
-        active && "border-[var(--color-primary)] text-[var(--color-primary)]",
+        "game-favorite-button relative z-10 inline-flex min-h-10 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-primary-text-strong)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none",
+        active && "border-[var(--color-primary)] text-[var(--color-primary-text-strong)]",
         className,
       )}
       aria-pressed={active}

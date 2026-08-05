@@ -35,7 +35,7 @@ function FieldGroup({ children, className }: { children: ReactNode; className?: 
 }
 
 function MiniLabel({ children }: { children: ReactNode }) {
-  return <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
+  return <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
 }
 
 function mapWarnings(warnings: OgWarning[]): WarningMessage[] {
@@ -75,7 +75,7 @@ function PreviewTile({ title, children, meta }: { title: string; children: React
     <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">
       <div className="mb-2 flex items-center justify-between gap-2">
         <MiniLabel>{title}</MiniLabel>
-        {meta ? <span className="text-[11px] text-[var(--color-text-tertiary)]">{meta}</span> : null}
+        {meta ? <span className="text-xs text-[var(--color-text-tertiary)]">{meta}</span> : null}
       </div>
       {children}
     </div>
@@ -94,7 +94,7 @@ function QuickPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAct
             className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
           >
             <span className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               {preset.title}
             </span>
             <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
@@ -108,9 +108,9 @@ function QuickPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAct
 function UploadBox({ label, hint, accept, onChange, previewUrl }: { label: string; hint: string; accept: string; onChange: (file: File) => void; previewUrl?: string }) {
   return (
     <label className="flex min-h-28 cursor-pointer flex-col items-center justify-center gap-2 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-3 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
-      {previewUrl ? <img src={previewUrl} alt="Uploaded preview" className="h-14 w-20 rounded-[var(--radius-sm)] object-cover shadow-[var(--shadow-xs)]" /> : <UploadCloud className="h-6 w-6 text-[var(--color-primary)]" />}
+      {previewUrl ? <img src={previewUrl} alt="Uploaded preview" className="h-14 w-20 rounded-[var(--radius-sm)] object-cover shadow-[var(--shadow-xs)]" /> : <UploadCloud className="h-6 w-6 text-[var(--color-primary-text-strong)]" />}
       <span className="text-xs font-bold text-[var(--color-text-primary)]">{label}</span>
-      <span className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{hint}</span>
+      <span className="text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</span>
       <input
         type="file"
         accept={accept}
@@ -300,7 +300,7 @@ function ProjectControls({
           event.target.value = "";
         }}
       />
-      <p className="text-[11px] leading-5 text-[var(--color-text-tertiary)]">
+      <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">
         Settings projects are capped at 1 MB. Uploaded images stay on your device and must be reattached after import.
       </p>
       {message ? <p role="status" className="text-xs font-medium text-[var(--color-text-secondary)]">{message}</p> : null}
@@ -330,7 +330,7 @@ function ProductionSummary({
         <div key={card.label} className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">
           <MiniLabel>{card.label}</MiniLabel>
           <div className="mt-1 truncate text-base font-black text-[var(--color-text-primary)]" title={card.value}>{card.value}</div>
-          <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{card.detail}</div>
+          <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{card.detail}</div>
         </div>
       ))}
     </div>
@@ -342,7 +342,7 @@ function MainPreview({ previewUrl, status, input }: { previewUrl?: string; statu
     <div className="flex min-h-[520px] flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Live canvas preview</div>
+          <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Live canvas preview</div>
           <h3 className="mt-1 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{input.title || "Social preview image"}</h3>
         </div>
         <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">1200×630</span>
@@ -377,7 +377,7 @@ function PlatformPreview({ previewUrl, input }: { previewUrl?: string; input: Og
       </PreviewTile>
       <PreviewTile title="Discord / Slack" meta="chat unfurl">
         <div className="rounded-[var(--radius-md)] border-l-4 border-[var(--color-primary)] bg-[var(--color-surface-base)] p-3">
-          <p className="text-xs font-bold text-[var(--color-primary)]">{input.domain}</p>
+          <p className="text-xs font-bold text-[var(--color-primary-text-strong)]">{input.domain}</p>
           <p className="mt-1 text-sm font-bold text-[var(--color-text-primary)]">{input.title}</p>
           <p className="mt-1 line-clamp-2 text-xs text-[var(--color-text-secondary)]">{input.subtitle}</p>
           {previewUrl ? <img src={previewUrl} alt="Chat preview" className="mt-3 rounded-[var(--radius-sm)]" /> : null}
@@ -399,7 +399,7 @@ function ReadinessPanel({ input, assets }: { input: OgImageInput; assets: OgGene
         {checks.map((check) => (
           <div key={check.id} className="flex gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5">
             <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", check.passed ? "text-[var(--color-success-text)]" : "text-[var(--color-warning-text)]")} />
-            <div className="min-w-0"><p className="text-xs font-bold text-[var(--color-text-primary)]">{check.label}</p><p className="text-[11px] leading-4 text-[var(--color-text-secondary)]">{check.detail}</p></div>
+            <div className="min-w-0"><p className="text-xs font-bold text-[var(--color-text-primary)]">{check.label}</p><p className="text-xs leading-4 text-[var(--color-text-secondary)]">{check.detail}</p></div>
           </div>
         ))}
       </div>
@@ -590,7 +590,7 @@ function LocalMetaChecker({ generatedHtmlSnippet }: { generatedHtmlSnippet: stri
 
       {/* stat chips */}
       {total > 0 && (
-        <div className="mb-3 flex flex-wrap gap-3 text-[11px] font-semibold">
+        <div className="mb-3 flex flex-wrap gap-3 text-xs font-semibold">
           <span className="text-[var(--color-success-text)]">✓ {passed}/{total} passed</span>
           {warns > 0 && <span className="text-[var(--color-warning-text)]">⚠ {warns} warning{warns !== 1 ? "s" : ""}</span>}
           {critical > 0 && <span className="text-[var(--color-danger-text)]">✕ {critical} critical</span>}
@@ -625,7 +625,7 @@ function LocalMetaChecker({ generatedHtmlSnippet }: { generatedHtmlSnippet: stri
       {/* priority fixes */}
       {priorityFixes.length > 0 && (
         <div className="mt-3">
-          <p className="mb-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Priority fixes</p>
+          <p className="mb-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Priority fixes</p>
           <div className="grid gap-1.5">
             {priorityFixes.map((check) => (
               <div
@@ -641,8 +641,8 @@ function LocalMetaChecker({ generatedHtmlSnippet }: { generatedHtmlSnippet: stri
                   ? <XCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-danger-text)]" />
                   : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-warning-text)]" />}
                 <div className="min-w-0">
-                  <span className="font-mono text-[11px] font-bold text-[var(--color-text-primary)]">{check.tag}</span>
-                  <span className="ml-2 text-[11px] text-[var(--color-text-secondary)]">{check.detail}</span>
+                  <span className="font-mono text-xs font-bold text-[var(--color-text-primary)]">{check.tag}</span>
+                  <span className="ml-2 text-xs text-[var(--color-text-secondary)]">{check.detail}</span>
                 </div>
               </div>
             ))}
@@ -671,8 +671,8 @@ function LocalMetaChecker({ generatedHtmlSnippet }: { generatedHtmlSnippet: stri
                 ? <XCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-danger-text)]" />
                 : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-warning-text)]" />}
               <div className="min-w-0">
-                <p className="truncate font-mono text-[10px] font-bold text-[var(--color-text-primary)]">{check.tag}</p>
-                <p className="break-all text-[10px] leading-4 text-[var(--color-text-secondary)]">{check.detail}</p>
+                <p className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]">{check.tag}</p>
+                <p className="break-all text-xs leading-4 text-[var(--color-text-secondary)]">{check.detail}</p>
               </div>
             </div>
           ))}

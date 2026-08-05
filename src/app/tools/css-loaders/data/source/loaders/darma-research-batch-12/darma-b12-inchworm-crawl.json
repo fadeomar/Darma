@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-inchworm-crawl",
+  "name": "Inchworm Crawl",
+  "category": "fun",
+  "tags": [
+    "inchworm",
+    "crawl",
+    "stretch",
+    "worm",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"worm\"></div><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .38); position: relative; }\n.loader::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 6%; border-radius: 999px; background: #cbd5e1; }\n.loader .worm { position: absolute; bottom: 6%; border-radius: 999px 999px 40% 40%; background: linear-gradient(var(--accent-2), var(--accent)); animation: arch calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span { position: absolute; bottom: 4%; width: 12%; height: calc(var(--loader-size) * .12); border-radius: 50%; background: var(--accent); animation: foot-back calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span:nth-child(3) { animation-name: foot-front; }\n@keyframes arch { 0% { left: 6%; width: 24%; height: 62%; } 25% { left: 6%; width: 58%; height: 30%; } 50% { left: 40%; width: 24%; height: 62%; } 75% { left: 6%; width: 58%; height: 30%; } 100% { left: 6%; width: 24%; height: 62%; } }\n@keyframes foot-back { 0%, 25% { left: 4%; } 50% { left: 38%; } 75%, 100% { left: 4%; } }\n@keyframes foot-front { 0% { left: 22%; } 25%, 75% { left: 56%; } 100% { left: 22%; } }",
+  "defaults": {
+    "color": "#65a30d",
+    "secondaryColor": "#a3e635",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

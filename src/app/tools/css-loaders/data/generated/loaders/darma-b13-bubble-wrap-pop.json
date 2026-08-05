@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-bubble-wrap-pop",
+  "name": "Bubble Wrap Pop",
+  "category": "fun",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "bubble",
+    "wrap",
+    "pop",
+    "satisfying",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-bubble-wrap-pop bubble wrap pop fun darma-research-batch-13 darma research batch 13 bubble wrap pop satisfying fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-bubble-wrap-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-bubble-wrap-pop { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 104px); height: var(--loader-size, 104px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; padding: 5%; border-radius: 9%; background: color-mix(in srgb, #fff 74%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 12%, var(--accent-2)); }\n.darma-loader-darma-b13-bubble-wrap-pop span { border-radius: 50%; background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .95), color-mix(in srgb, #fff 52%, var(--accent))); box-shadow: inset 0 calc(var(--loader-size, 104px) * -.015) calc(var(--loader-size, 104px) * .03) rgba(15, 23, 42, .18); animation: darma-loader-darma-b13-bubble-wrap-pop-deflate calc(var(--loader-speed, 1s) * 2.7) ease-in-out infinite; }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * 1.5); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(6) { animation-delay: calc(var(--loader-speed, 1s) * 2.1); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(8) { animation-delay: calc(var(--loader-speed, 1s) * 2.4); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(9) { animation-delay: calc(var(--loader-speed, 1s) * 1.8); }\n@keyframes darma-loader-darma-b13-bubble-wrap-pop-deflate { 0%, 38% { transform: scale(1); } 44% { transform: scale(1.18); } 52% { transform: scale(.68); } 60%, 100% { transform: scale(1); } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#cbd5e1",
+    "size": 104,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-bubble-wrap-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-bubble-wrap-pop { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 104px); height: var(--loader-size, 104px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; padding: 5%; border-radius: 9%; background: color-mix(in srgb, #fff 74%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 12%, var(--accent-2)); }\n.darma-loader-darma-b13-bubble-wrap-pop span { border-radius: 50%; background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .95), color-mix(in srgb, #fff 52%, var(--accent))); box-shadow: inset 0 calc(var(--loader-size, 104px) * -.015) calc(var(--loader-size, 104px) * .03) rgba(15, 23, 42, .18); animation: darma-loader-darma-b13-bubble-wrap-pop-deflate calc(var(--loader-speed, 1s) * 2.7) ease-in-out infinite; }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * 1.5); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(6) { animation-delay: calc(var(--loader-speed, 1s) * 2.1); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(8) { animation-delay: calc(var(--loader-speed, 1s) * 2.4); }\n.darma-loader-darma-b13-bubble-wrap-pop span:nth-child(9) { animation-delay: calc(var(--loader-speed, 1s) * 1.8); }\n@keyframes darma-loader-darma-b13-bubble-wrap-pop-deflate { 0%, 38% { transform: scale(1); } 44% { transform: scale(1.18); } 52% { transform: scale(.68); } 60%, 100% { transform: scale(1); } }",
+    "react": "export default function DarmaB13BubbleWrapPopLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-bubble-wrap-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

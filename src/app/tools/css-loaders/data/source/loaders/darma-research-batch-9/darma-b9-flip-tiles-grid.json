@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-flip-tiles-grid",
+  "name": "Flip Tiles",
+  "category": "creative",
+  "tags": ["tiles", "flip", "grid", "3d", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; grid-template-columns: repeat(3, 1fr); gap: 9%; perspective: 600px; }\n.loader span { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 16%; animation: flip calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader span:nth-child(1) { animation-delay: 0s; }\n.loader span:nth-child(2), .loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * .14); }\n.loader span:nth-child(3), .loader span:nth-child(5), .loader span:nth-child(7) { animation-delay: calc(var(--loader-speed) * .28); }\n.loader span:nth-child(6), .loader span:nth-child(8) { animation-delay: calc(var(--loader-speed) * .42); }\n.loader span:nth-child(9) { animation-delay: calc(var(--loader-speed) * .56); }\n@keyframes flip { 0%, 100% { transform: rotateY(0deg); } 50% { transform: rotateY(180deg); } }",
+  "defaults": { "color": "#8b5cf6", "secondaryColor": "#ec4899", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

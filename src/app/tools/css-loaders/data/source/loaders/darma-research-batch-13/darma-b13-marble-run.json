@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-marble-run",
+  "name": "Marble Run",
+  "category": "creative",
+  "tags": [
+    "marble",
+    "run",
+    "ramps",
+    "gravity",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"ramp\"></div><div class=\"ramp\"></div><div class=\"ramp\"></div><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader .ramp { position: absolute; left: 5%; width: 90%; height: 4.5%; border-radius: 999px; background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); }\n.loader .ramp:nth-child(1) { top: 24%; transform: rotate(8deg); }\n.loader .ramp:nth-child(2) { top: 54%; transform: rotate(-8deg); }\n.loader .ramp:nth-child(3) { top: 84%; transform: rotate(8deg); }\n.loader span { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 52%, var(--accent)), var(--accent)); animation: descend calc(var(--loader-speed) * 3) linear infinite; }\n.loader span:nth-child(5) { animation-delay: calc(var(--loader-speed) * -1.5); }\n@keyframes descend { 0% { opacity: 0; left: 3%; top: 8%; } 8% { opacity: 1; } 26% { left: 79%; top: 20%; } 34% { left: 81%; top: 44%; } 56% { left: 5%; top: 52%; } 64% { left: 3%; top: 74%; } 86% { left: 79%; top: 82%; } 96% { opacity: 1; left: 81%; top: 96%; } 100% { opacity: 0; left: 81%; top: 100%; } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#0ea5e9",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

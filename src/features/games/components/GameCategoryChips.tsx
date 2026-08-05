@@ -47,7 +47,7 @@ export function GameCategoryChips({
             aria-pressed={isActive}
             onClick={() => onChange(chip.value)}
             className={cn(
-              "min-h-9 shrink-0 whitespace-nowrap rounded-[var(--radius-full)] border px-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none",
+              "min-h-9 shrink-0 whitespace-nowrap rounded-[var(--radius-full)] border px-3.5 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none",
               isActive
                 ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
                 : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",

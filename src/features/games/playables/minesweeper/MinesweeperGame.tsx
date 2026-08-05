@@ -77,7 +77,7 @@ function classicInsetStyle(extra?: CSSProperties): CSSProperties {
 function ClassicDisplay({ label, value, wide = false }: { label: string; value: string; wide?: boolean }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-[9px] font-black uppercase leading-none text-[#333]" style={{ fontFamily: CLASSIC_FONT }}>
+      <span className="text-xs font-black uppercase leading-none text-[#333]" style={{ fontFamily: CLASSIC_FONT }}>
         {label}
       </span>
       <span
@@ -434,7 +434,7 @@ function ResultOverlay({
           onClick={onClose}
           aria-label="Close and view the board"
           title="View the board"
-          className="absolute right-1 top-1 z-10 flex h-[20px] w-[20px] items-center justify-center text-[11px] font-black leading-none text-black outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+          className="absolute right-1 top-1 z-10 flex h-[20px] w-[20px] items-center justify-center text-xs font-black leading-none text-black outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
           style={classicOutsetStyle({ fontFamily: CLASSIC_FONT })}
         >
           ✕
@@ -446,7 +446,7 @@ function ResultOverlay({
             </div>
             <h3 className="text-base font-black leading-none text-black">{won ? "YOU WIN!" : "GAME OVER"}</h3>
           </div>
-          <div className="mt-2 grid grid-cols-3 gap-1 text-[10px] font-bold leading-none text-black">
+          <div className="mt-2 grid grid-cols-3 gap-1 text-xs font-bold leading-none text-black">
             <div className="p-1" style={classicInsetStyle()}>
               <div className="text-[#333]">Score</div>
               <div className="mt-1 text-sm text-[#ea3323]">{formatDigitalNumber(score, 5)}</div>

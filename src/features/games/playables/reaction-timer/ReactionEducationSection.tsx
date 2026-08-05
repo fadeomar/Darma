@@ -24,7 +24,7 @@ export function ReactionEducationSection({ stats, lastInputMethod }: { stats: Re
     <section className="rtp-education" aria-labelledby="rtp-education-title">
       <Card variant="default" padding="lg" className="rtp-education-card">
         <div className="rtp-panel-head">
-          <BookOpen className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <BookOpen className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <div>
             <h3 id="rtp-education-title" className="rtp-panel-title">Learn about reaction time</h3>
             <p className="rtp-education-sub">Friendly explanations, device notes, and practical coaching for Reaction Timer Pro.</p>

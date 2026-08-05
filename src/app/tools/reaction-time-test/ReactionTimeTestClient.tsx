@@ -653,10 +653,10 @@ export default function ReactionTimeTestClient() {
                   aria-live="assertive"
                 >
                   <div className="text-center">
-                    <p className="font-mono text-[11px] font-black uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
+                    <p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
                       Get ready
                     </p>
-                    <div className="mt-4 text-8xl font-black tracking-[-0.08em] text-[var(--color-primary)] motion-safe:animate-ping sm:text-9xl">
+                    <div className="mt-4 text-8xl font-black tracking-[-0.08em] text-[var(--color-primary-text-strong)] motion-safe:animate-ping sm:text-9xl">
                       {countdown}
                     </div>
                     <p className="mt-4 text-sm font-bold text-[var(--color-text-secondary)]">
@@ -734,7 +734,7 @@ export default function ReactionTimeTestClient() {
                     <span className="absolute inset-4 rounded-[1.65rem] border border-[var(--color-primary-border)]" />
                     <Zap
                       className={cn(
-                        "h-16 w-16 text-[var(--color-primary)] sm:h-20 sm:w-20",
+                        "h-16 w-16 text-[var(--color-primary-text-strong)] sm:h-20 sm:w-20",
                         status === "ready" && "text-[rgb(24,150,108)]",
                         status === "false-start" && "text-[rgb(220,80,65)]",
                       )}
@@ -742,7 +742,7 @@ export default function ReactionTimeTestClient() {
                     />
                   </div>
 
-                  <p className="mt-6 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                  <p className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                     {status === "waiting"
                       ? "Wait for green"
                       : status === "ready"
@@ -793,7 +793,7 @@ export default function ReactionTimeTestClient() {
                       }
                       icon={
                         <Trophy
-                          className="h-4 w-4 text-[var(--color-primary)]"
+                          className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                           aria-hidden
                         />
                       }
@@ -988,7 +988,7 @@ export default function ReactionTimeTestClient() {
               title="Best average"
               icon={
                 <Crown
-                  className="h-4 w-4 text-[var(--color-primary)]"
+                  className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                   aria-hidden
                 />
               }
@@ -1009,7 +1009,7 @@ export default function ReactionTimeTestClient() {
             >
               {personalBest ? (
                 <div className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-4">
-                  <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary)]">
+                  <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary-text-strong)]">
                     {formatNumber(personalBest.stats.averageReactionMs)} ms
                   </p>
                   <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
@@ -1026,7 +1026,7 @@ export default function ReactionTimeTestClient() {
               title="Last 10 runs"
               icon={
                 <History
-                  className="h-4 w-4 text-[var(--color-primary)]"
+                  className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                   aria-hidden
                 />
               }
@@ -1068,7 +1068,7 @@ export default function ReactionTimeTestClient() {
               {
                 icon: (
                   <Medal
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -1077,7 +1077,7 @@ export default function ReactionTimeTestClient() {
               {
                 icon: (
                   <Timer
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -1086,7 +1086,7 @@ export default function ReactionTimeTestClient() {
               {
                 icon: (
                   <Zap
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -1095,7 +1095,7 @@ export default function ReactionTimeTestClient() {
               {
                 icon: (
                   <ShieldCheck
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -1104,7 +1104,7 @@ export default function ReactionTimeTestClient() {
               {
                 icon: (
                   <Info
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -1113,7 +1113,7 @@ export default function ReactionTimeTestClient() {
               {
                 icon: (
                   <Sparkles
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),

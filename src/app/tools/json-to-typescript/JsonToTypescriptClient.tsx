@@ -51,7 +51,7 @@ const ARTIFACTS: Array<{ id: GeneratedArtifactId; label: string; language: strin
 ];
 
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
-  return <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]"><div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div><div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div><div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div></div>;
+  return <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]"><div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div><div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div><div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div></div>;
 }
 
 function artifactCode(id: GeneratedArtifactId, artifacts: ReturnType<typeof generateArtifacts> | null): string {
@@ -188,7 +188,7 @@ export default function JsonToTypescriptClient() {
       <aside className="space-y-3">
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Practical presets</div>
-          <div className="space-y-2">{JSON_EXAMPLES.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          <div className="space-y-2">{JSON_EXAMPLES.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
         </section>
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
@@ -229,7 +229,7 @@ export default function JsonToTypescriptClient() {
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
           <div className="text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Inference guidance</div>
-          <div className="mt-2 space-y-2">{OPTION_HELP.map((item) => <div key={item.title}><div className="text-xs font-bold text-[var(--color-text-primary)]">{item.title}</div><p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{item.description}</p></div>)}</div>
+          <div className="mt-2 space-y-2">{OPTION_HELP.map((item) => <div key={item.title}><div className="text-xs font-bold text-[var(--color-text-primary)]">{item.title}</div><p className="text-xs leading-4 text-[var(--color-text-tertiary)]">{item.description}</p></div>)}</div>
         </section>
       </aside>
     </div>

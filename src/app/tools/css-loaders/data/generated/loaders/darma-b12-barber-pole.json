@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-barber-pole",
+  "name": "Barber Pole Helix",
+  "category": "progress",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "barber",
+    "pole",
+    "stripes",
+    "helix",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-barber-pole barber pole helix progress darma-research-batch-12 darma research batch 12 barber pole stripes helix progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-barber-pole\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-barber-pole__pole\"></div></div>",
+  "previewCss": ".darma-loader-darma-b12-barber-pole { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #2563eb); width: calc(var(--loader-size, 116px) * .34); height: var(--loader-size, 116px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b12-barber-pole::before, .darma-loader-darma-b12-barber-pole::after { content: ''; position: absolute; left: -8%; width: 116%; height: 6%; border-radius: 3px; background: linear-gradient(#e2e8f0, #94a3b8); }\n.darma-loader-darma-b12-barber-pole::before { top: 0; }\n.darma-loader-darma-b12-barber-pole::after { bottom: 0; }\n.darma-loader-darma-b12-barber-pole .darma-loader-darma-b12-barber-pole__pole { position: relative; width: 100%; height: 88%; overflow: hidden; border-radius: 999px; background: #f8fafc; box-shadow: inset calc(var(--loader-size, 116px) * -.06) 0 calc(var(--loader-size, 116px) * .09) rgba(15, 23, 42, .22), inset calc(var(--loader-size, 116px) * .05) 0 calc(var(--loader-size, 116px) * .08) rgba(255, 255, 255, .5); }\n.darma-loader-darma-b12-barber-pole .darma-loader-darma-b12-barber-pole__pole::after { content: ''; position: absolute; left: -30%; top: -100%; width: 160%; height: 300%; background: repeating-linear-gradient(45deg, var(--accent) 0 calc(var(--loader-size, 116px) * .04), transparent calc(var(--loader-size, 116px) * .04) calc(var(--loader-size, 116px) * .08), var(--accent-2) calc(var(--loader-size, 116px) * .08) calc(var(--loader-size, 116px) * .12), transparent calc(var(--loader-size, 116px) * .12) calc(var(--loader-size, 116px) * .16)); animation: darma-loader-darma-b12-barber-pole-barber calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n@keyframes darma-loader-darma-b12-barber-pole-barber { from { transform: translateY(0); } to { transform: translateY(calc(var(--loader-size, 116px) * .2263)); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#2563eb",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-barber-pole\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-barber-pole__pole\"></div></div>",
+    "css": ".darma-loader-darma-b12-barber-pole { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #2563eb); width: calc(var(--loader-size, 116px) * .34); height: var(--loader-size, 116px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b12-barber-pole::before, .darma-loader-darma-b12-barber-pole::after { content: ''; position: absolute; left: -8%; width: 116%; height: 6%; border-radius: 3px; background: linear-gradient(#e2e8f0, #94a3b8); }\n.darma-loader-darma-b12-barber-pole::before { top: 0; }\n.darma-loader-darma-b12-barber-pole::after { bottom: 0; }\n.darma-loader-darma-b12-barber-pole .darma-loader-darma-b12-barber-pole__pole { position: relative; width: 100%; height: 88%; overflow: hidden; border-radius: 999px; background: #f8fafc; box-shadow: inset calc(var(--loader-size, 116px) * -.06) 0 calc(var(--loader-size, 116px) * .09) rgba(15, 23, 42, .22), inset calc(var(--loader-size, 116px) * .05) 0 calc(var(--loader-size, 116px) * .08) rgba(255, 255, 255, .5); }\n.darma-loader-darma-b12-barber-pole .darma-loader-darma-b12-barber-pole__pole::after { content: ''; position: absolute; left: -30%; top: -100%; width: 160%; height: 300%; background: repeating-linear-gradient(45deg, var(--accent) 0 calc(var(--loader-size, 116px) * .04), transparent calc(var(--loader-size, 116px) * .04) calc(var(--loader-size, 116px) * .08), var(--accent-2) calc(var(--loader-size, 116px) * .08) calc(var(--loader-size, 116px) * .12), transparent calc(var(--loader-size, 116px) * .12) calc(var(--loader-size, 116px) * .16)); animation: darma-loader-darma-b12-barber-pole-barber calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n@keyframes darma-loader-darma-b12-barber-pole-barber { from { transform: translateY(0); } to { transform: translateY(calc(var(--loader-size, 116px) * .2263)); } }",
+    "react": "export default function DarmaB12BarberPoleLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-barber-pole\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b12-barber-pole__pole\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

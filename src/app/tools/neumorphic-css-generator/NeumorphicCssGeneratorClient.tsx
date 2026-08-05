@@ -323,9 +323,9 @@ function validateState(state: NeumoState): WarningMessage[] {
 function MetricCard({ metric }: { metric: ProductionMetric }) {
   return (
     <div className={`min-w-0 rounded-[var(--radius-md)] border px-3 py-2.5 shadow-[var(--shadow-xs)] ${toneClass(metric.tone)}`}>
-      <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] opacity-70">{metric.label}</p>
+      <p className="font-mono text-xs font-black uppercase tracking-[0.12em] opacity-70">{metric.label}</p>
       <p className="mt-1 truncate text-sm font-black" title={metric.value}>{metric.value}</p>
-      <p className="mt-1 line-clamp-2 text-[11px] leading-4 opacity-75">{metric.detail}</p>
+      <p className="mt-1 line-clamp-2 text-xs leading-4 opacity-75">{metric.detail}</p>
     </div>
   );
 }
@@ -333,7 +333,7 @@ function MetricCard({ metric }: { metric: ProductionMetric }) {
 function InfoPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white/65 px-3 py-2 shadow-sm backdrop-blur dark:bg-[var(--color-code-surface)]/70">
-      <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-1 truncate text-xs font-bold text-[var(--color-text-primary)]" title={value}>{value}</p>
     </div>
   );
@@ -437,7 +437,7 @@ export default function NeumorphicCssGeneratorClient() {
             {state.previewMode === "dashboard" ? (
               <div className="grid w-full max-w-[620px] gap-4 sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                 <section className="min-w-0 space-y-4 p-5" style={previewStyle}>
-                  <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] opacity-70">Dashboard card</p>
+                  <p className="font-mono text-xs font-black uppercase tracking-[0.14em] opacity-70">Dashboard card</p>
                   <h3 className="text-2xl font-black">{state.label}</h3>
                   <p className="text-sm font-semibold opacity-75">Soft depth works best for calm admin surfaces and low-density controls.</p>
                   <div className="h-2 rounded-full bg-black/10"><div className="h-2 w-2/3 rounded-full bg-current opacity-50" /></div>
@@ -451,7 +451,7 @@ export default function NeumorphicCssGeneratorClient() {
               <button type="button" className="cursor-default text-center text-sm font-black" style={previewStyle}>{state.label}</button>
             ) : (
               <article className="flex flex-col items-center justify-center gap-3 text-center text-sm font-black" style={previewStyle}>
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] opacity-70">Soft UI</span>
+                <span className="font-mono text-xs uppercase tracking-[0.14em] opacity-70">Soft UI</span>
                 <span className="text-2xl">{state.label}</span>
                 <span className="max-w-[18rem] text-xs font-semibold leading-5 opacity-70">Raised and inset shadows are generated from the surface color.</span>
               </article>

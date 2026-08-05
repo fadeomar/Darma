@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import {
@@ -18,6 +18,7 @@ import {
   validateFlexState,
 } from "./flexbox";
 import type { FlexGeneratorState, FlexItem, FlexPreset } from "./types";
+import { FLEX_PRESETS } from "./presets";
 import { FlexPreview } from "./components/FlexPreview";
 import { FlexControls } from "./components/FlexControls";
 import { FlexCodeOutput } from "./components/FlexCodeOutput";
@@ -44,6 +45,14 @@ export default function FlexboxGeneratorClient() {
       })),
     [normalized],
   );
+
+  useEffect(() => {
+    const presetId = new URLSearchParams(window.location.search).get("preset");
+    const preset = FLEX_PRESETS.find((item) => item.id === presetId);
+    if (!preset) return;
+    setState(normalizeFlexState(preset.state));
+    setActivePreset(preset.id);
+  }, []);
 
   function patchState(patch: Partial<FlexGeneratorState>) {
     setState((current) => normalizeFlexState({ ...current, ...patch }));

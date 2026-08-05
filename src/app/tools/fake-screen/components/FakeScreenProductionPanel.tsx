@@ -55,7 +55,7 @@ export function FakeScreenSummaryGrid({ cards }: { cards: FakeScreenSummaryCard[
           key={card.label}
           className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]"
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
             {card.label}
           </p>
           <p className="mt-2 truncate text-base font-black text-[var(--color-text-primary)]" title={card.value}>
@@ -127,7 +127,7 @@ export function FakeScreenProductionPanel({
                     <p className="text-xs font-black">{check.title}</p>
                     <Badge variant={meta.badge}>{meta.label}</Badge>
                   </div>
-                  <p className="mt-1 text-[11px] leading-5 opacity-90">{check.message}</p>
+                  <p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ export function FakeScreenProductionPanel({
 
       <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-4">
         <div className="flex items-center gap-2">
-          <Download className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <Download className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           <p className="text-sm font-black text-[var(--color-text-primary)]">Configuration and exports</p>
         </div>
         <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">

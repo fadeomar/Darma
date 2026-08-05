@@ -30,7 +30,7 @@ export function ToolGrid({ tools }: { tools: ToolDefinition[] }) {
               </div>
               <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{tool.title}</h3>
               <p className="mt-2 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.description}</p>
-              <p className="mt-auto pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Open tool →</p>
+              <p className="mt-auto pt-5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Open tool →</p>
             </Card>
           </Link>
         );

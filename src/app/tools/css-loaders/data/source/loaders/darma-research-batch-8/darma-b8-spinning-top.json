@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-spinning-top",
+  "name": "Spinning Top",
+  "category": "fun",
+  "tags": ["top", "spin", "toy", "wobble", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; transform-origin: 50% 92%; animation: wobble calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader span { position: absolute; left: 50%; top: 16%; width: 56%; height: 68%; margin-left: -28%; background: conic-gradient(var(--accent) 0deg 90deg, var(--accent-2) 90deg 180deg, var(--accent) 180deg 270deg, var(--accent-2) 270deg 360deg); clip-path: polygon(0 0, 100% 0, 50% 100%); animation: spin calc(var(--loader-speed) * .35) linear infinite; }\n.loader::after { content: ''; position: absolute; left: 50%; top: 9%; width: 56%; height: 15%; margin-left: -28%; border-radius: 50%; background: var(--accent-2); }\n@keyframes spin { to { transform: rotate(360deg); } }\n@keyframes wobble { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }",
+  "defaults": { "color": "#e11d48", "secondaryColor": "#fbbf24", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

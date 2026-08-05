@@ -111,7 +111,7 @@ export function Tabs<T extends string>({
             className={cn(
               // `shrink-0` and `whitespace-nowrap` stop labels collapsing into
               // vertical character columns once the strip is scrollable.
-              "min-h-[38px] shrink-0 snap-start whitespace-nowrap rounded-[var(--radius-full)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-secondary)] transition disabled:opacity-45",
+              "min-h-[38px] shrink-0 snap-start whitespace-nowrap rounded-[var(--radius-full)] px-3 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-text-secondary)] transition disabled:opacity-45",
               fullWidth && "flex-1 basis-0 text-center",
               selected
                 ? "bg-[var(--color-surface-raised)] text-[var(--color-text-primary)]"

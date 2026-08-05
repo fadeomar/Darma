@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-radar-sweep",
+  "name": "Radar Sweep",
+  "category": "spinners",
+  "tags": ["radar", "sweep", "scan", "conic", "spinner"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; border: calc(var(--loader-size) * .03) solid color-mix(in srgb, var(--accent-2) 40%, transparent); position: relative; overflow: hidden; }\n.loader::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--accent) 65%, transparent) 55deg, transparent 70deg); animation: radar calc(var(--loader-speed) * 1.6) linear infinite; }\n.loader::after { content: ''; position: absolute; left: 50%; top: 50%; width: 9%; height: 9%; margin: -4.5% 0 0 -4.5%; border-radius: 50%; background: var(--accent); }\n@keyframes radar { to { transform: rotate(360deg); } }",
+  "defaults": { "color": "#10b981", "secondaryColor": "#065f46", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

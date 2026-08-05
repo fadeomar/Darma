@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-ufo-beam",
+  "name": "UFO Beam",
+  "category": "fun",
+  "tags": ["ufo", "alien", "beam", "space", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"ufo\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader .ufo { position: absolute; top: 24%; left: 50%; width: 56%; height: 18%; margin-left: -28%; background: linear-gradient(#e2e8f0, #64748b); border-radius: 50%; animation: hover calc(var(--loader-speed) * 2.2) ease-in-out infinite; z-index: 2; }\n.loader .ufo::before { content: ''; position: absolute; left: 50%; top: -55%; width: 44%; height: 105%; margin-left: -22%; background: radial-gradient(circle at 50% 40%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent)); border-radius: 50% 50% 0 0; }\n.loader .ufo::after { content: ''; position: absolute; left: 50%; top: 90%; width: 74%; height: calc(var(--loader-size) * .5); margin-left: -37%; background: linear-gradient(var(--accent-2), transparent); clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%); animation: beam calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n@keyframes hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12%); } }\n@keyframes beam { 0%, 100% { opacity: .3; } 50% { opacity: .75; } }",
+  "defaults": { "color": "#22c55e", "secondaryColor": "#bbf7d0", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

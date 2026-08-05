@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-centrifuge-spin",
+  "name": "Centrifuge Spin",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "centrifuge",
+    "rotor",
+    "lab",
+    "tubes",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-centrifuge-spin centrifuge spin spinners darma-research-batch-14 darma research batch 14 centrifuge rotor lab tubes spinner html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-centrifuge-spin\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-centrifuge-spin { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 44%, var(--accent-2)) 0 20%, color-mix(in srgb, #000 12%, var(--accent-2)) 22% 100%); box-shadow: inset 0 0 0 calc(var(--loader-size, 96px) * .04) color-mix(in srgb, #000 36%, var(--accent-2)); animation: darma-loader-darma-b14-centrifuge-spin-centrifuge calc(var(--loader-speed, 1s) * .6) linear infinite; }\n.darma-loader-darma-b14-centrifuge-spin::after { content: ''; position: absolute; top: 42%; left: 42%; width: 16%; height: 16%; border-radius: 50%; background: color-mix(in srgb, #000 40%, var(--accent-2)); }\n.darma-loader-darma-b14-centrifuge-spin span { position: absolute; top: 50%; left: 50%; width: 36%; height: 13%; margin-top: -6.5%; border-radius: 2px 4px 4px 2px; transform-origin: left center; background: linear-gradient(180deg, color-mix(in srgb, #fff 44%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b14-centrifuge-spin span::after { content: ''; position: absolute; left: 92%; top: -18%; width: 26%; height: 136%; border-radius: 2px; background: color-mix(in srgb, #000 34%, var(--accent)); }\n.darma-loader-darma-b14-centrifuge-spin span:nth-child(2) { transform: rotate(90deg); }\n.darma-loader-darma-b14-centrifuge-spin span:nth-child(3) { transform: rotate(180deg); }\n.darma-loader-darma-b14-centrifuge-spin span:nth-child(4) { transform: rotate(270deg); }\n@keyframes darma-loader-darma-b14-centrifuge-spin-centrifuge { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#a855f7",
+    "secondaryColor": "#cbd5e1",
+    "size": 96,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-centrifuge-spin\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b14-centrifuge-spin { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 44%, var(--accent-2)) 0 20%, color-mix(in srgb, #000 12%, var(--accent-2)) 22% 100%); box-shadow: inset 0 0 0 calc(var(--loader-size, 96px) * .04) color-mix(in srgb, #000 36%, var(--accent-2)); animation: darma-loader-darma-b14-centrifuge-spin-centrifuge calc(var(--loader-speed, 1s) * .6) linear infinite; }\n.darma-loader-darma-b14-centrifuge-spin::after { content: ''; position: absolute; top: 42%; left: 42%; width: 16%; height: 16%; border-radius: 50%; background: color-mix(in srgb, #000 40%, var(--accent-2)); }\n.darma-loader-darma-b14-centrifuge-spin span { position: absolute; top: 50%; left: 50%; width: 36%; height: 13%; margin-top: -6.5%; border-radius: 2px 4px 4px 2px; transform-origin: left center; background: linear-gradient(180deg, color-mix(in srgb, #fff 44%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b14-centrifuge-spin span::after { content: ''; position: absolute; left: 92%; top: -18%; width: 26%; height: 136%; border-radius: 2px; background: color-mix(in srgb, #000 34%, var(--accent)); }\n.darma-loader-darma-b14-centrifuge-spin span:nth-child(2) { transform: rotate(90deg); }\n.darma-loader-darma-b14-centrifuge-spin span:nth-child(3) { transform: rotate(180deg); }\n.darma-loader-darma-b14-centrifuge-spin span:nth-child(4) { transform: rotate(270deg); }\n@keyframes darma-loader-darma-b14-centrifuge-spin-centrifuge { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB14CentrifugeSpinLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-centrifuge-spin\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

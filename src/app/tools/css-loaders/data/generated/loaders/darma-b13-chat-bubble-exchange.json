@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-chat-bubble-exchange",
+  "name": "Chat Bubble Exchange",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "chat",
+    "bubble",
+    "message",
+    "reply",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-chat-bubble-exchange chat bubble exchange creative darma-research-batch-13 darma research batch 13 chat bubble message reply creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-chat-bubble-exchange\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-chat-bubble-exchange { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #22c55e); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .7); position: relative; }\n.darma-loader-darma-b13-chat-bubble-exchange span { position: absolute; width: 62%; height: 42%; border-radius: 14px; animation: darma-loader-darma-b13-chat-bubble-exchange-bubble-in calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.35, 1.5, .5, 1) infinite; }\n.darma-loader-darma-b13-chat-bubble-exchange span:nth-child(1) { left: 0; top: 0; transform-origin: bottom left; border-bottom-left-radius: 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 16%, var(--accent))); }\n.darma-loader-darma-b13-chat-bubble-exchange span:nth-child(2) { right: 0; bottom: 0; transform-origin: bottom right; border-bottom-right-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 16%, var(--accent-2))); animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b13-chat-bubble-exchange span::after { content: ''; position: absolute; top: 40%; left: 22%; width: 9%; height: 21%; border-radius: 50%; background: rgba(255, 255, 255, .92); box-shadow: 200% 0 0 rgba(255, 255, 255, .92), 400% 0 0 rgba(255, 255, 255, .92); }\n@keyframes darma-loader-darma-b13-chat-bubble-exchange-bubble-in { 0% { opacity: 0; transform: scale(0); } 14% { opacity: 1; transform: scale(1.06); } 22%, 52% { transform: scale(1); } 68%, 100% { opacity: .22; transform: scale(1); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#22c55e",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-chat-bubble-exchange\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-chat-bubble-exchange { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #22c55e); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .7); position: relative; }\n.darma-loader-darma-b13-chat-bubble-exchange span { position: absolute; width: 62%; height: 42%; border-radius: 14px; animation: darma-loader-darma-b13-chat-bubble-exchange-bubble-in calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.35, 1.5, .5, 1) infinite; }\n.darma-loader-darma-b13-chat-bubble-exchange span:nth-child(1) { left: 0; top: 0; transform-origin: bottom left; border-bottom-left-radius: 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 16%, var(--accent))); }\n.darma-loader-darma-b13-chat-bubble-exchange span:nth-child(2) { right: 0; bottom: 0; transform-origin: bottom right; border-bottom-right-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 16%, var(--accent-2))); animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b13-chat-bubble-exchange span::after { content: ''; position: absolute; top: 40%; left: 22%; width: 9%; height: 21%; border-radius: 50%; background: rgba(255, 255, 255, .92); box-shadow: 200% 0 0 rgba(255, 255, 255, .92), 400% 0 0 rgba(255, 255, 255, .92); }\n@keyframes darma-loader-darma-b13-chat-bubble-exchange-bubble-in { 0% { opacity: 0; transform: scale(0); } 14% { opacity: 1; transform: scale(1.06); } 22%, 52% { transform: scale(1); } 68%, 100% { opacity: .22; transform: scale(1); } }",
+    "react": "export default function DarmaB13ChatBubbleExchangeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-chat-bubble-exchange\" aria-label=\"Loading\"><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

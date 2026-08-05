@@ -1,0 +1,49 @@
+{
+  "id": "darma-b7-radar-sweep",
+  "name": "Radar Sweep",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-7",
+  "tags": [
+    "radar",
+    "sweep",
+    "scan",
+    "conic",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b7-radar-sweep radar sweep spinners darma-research-batch-7 darma research batch 7 radar sweep scan conic spinner html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b7-radar-sweep\" aria-label=\"Loading\"></div>",
+  "previewCss": ".darma-loader-darma-b7-radar-sweep { --accent: var(--loader-color, #10b981); --accent-2: var(--loader-secondary-color, #065f46); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 50%; border: calc(var(--loader-size, 76px) * .03) solid color-mix(in srgb, var(--accent-2) 40%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-radar-sweep::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--accent) 65%, transparent) 55deg, transparent 70deg); animation: darma-loader-darma-b7-radar-sweep-radar calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n.darma-loader-darma-b7-radar-sweep::after { content: ''; position: absolute; left: 50%; top: 50%; width: 9%; height: 9%; margin: -4.5% 0 0 -4.5%; border-radius: 50%; background: var(--accent); }\n@keyframes darma-loader-darma-b7-radar-sweep-radar { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#10b981",
+    "secondaryColor": "#065f46",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b7-radar-sweep\" aria-label=\"Loading\"></div>",
+    "css": ".darma-loader-darma-b7-radar-sweep { --accent: var(--loader-color, #10b981); --accent-2: var(--loader-secondary-color, #065f46); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 50%; border: calc(var(--loader-size, 76px) * .03) solid color-mix(in srgb, var(--accent-2) 40%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-radar-sweep::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--accent) 65%, transparent) 55deg, transparent 70deg); animation: darma-loader-darma-b7-radar-sweep-radar calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n.darma-loader-darma-b7-radar-sweep::after { content: ''; position: absolute; left: 50%; top: 50%; width: 9%; height: 9%; margin: -4.5% 0 0 -4.5%; border-radius: 50%; background: var(--accent); }\n@keyframes darma-loader-darma-b7-radar-sweep-radar { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB7RadarSweepLoader() {\n  return (\n    <div className=\"darma-loader-darma-b7-radar-sweep\" aria-label=\"Loading\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 7",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

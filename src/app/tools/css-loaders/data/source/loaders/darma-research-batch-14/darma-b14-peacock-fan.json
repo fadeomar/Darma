@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-peacock-fan",
+  "name": "Peacock Fan",
+  "category": "creative",
+  "tags": [
+    "peacock",
+    "feathers",
+    "fan",
+    "tail",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .74); position: relative; }\n.loader::after { content: ''; position: absolute; z-index: 3; bottom: 0; left: 40%; width: 20%; height: 32%; border-radius: 46% 46% 40% 40%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 34%, var(--accent-2))); }\n.loader::before { content: ''; position: absolute; z-index: 4; bottom: 26%; left: 45%; width: 10%; height: 22%; border-radius: 50% 50% 36% 36%; background: radial-gradient(circle at 38% 30%, color-mix(in srgb, #fff 26%, var(--accent-2)), color-mix(in srgb, #000 18%, var(--accent-2))); }\n.loader span { position: absolute; bottom: 10%; left: 47.5%; width: 5%; height: 62%; border-radius: 999px 999px 40% 40%; transform-origin: bottom center; background: linear-gradient(var(--accent), color-mix(in srgb, #000 22%, var(--accent-2))); animation: fan-out calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; top: calc(var(--loader-size) * -.055); left: 50%; width: calc(var(--loader-size) * .125); height: calc(var(--loader-size) * .125); margin-left: calc(var(--loader-size) * -.0625); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #000 40%, var(--accent-2)) 0 24%, color-mix(in srgb, #fff 62%, var(--accent)) 26% 50%, var(--accent-2) 52% 76%, color-mix(in srgb, #fff 30%, var(--accent)) 78% 100%); }\n.loader span:nth-child(1) { --a: -66deg; }\n.loader span:nth-child(2) { --a: -44deg; animation-delay: calc(var(--loader-speed) * .05); }\n.loader span:nth-child(3) { --a: -22deg; animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-child(4) { --a: 0deg; animation-delay: calc(var(--loader-speed) * .15); }\n.loader span:nth-child(5) { --a: 22deg; animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(6) { --a: 44deg; animation-delay: calc(var(--loader-speed) * .25); }\n.loader span:nth-child(7) { --a: 66deg; animation-delay: calc(var(--loader-speed) * .3); }\n@keyframes fan-out { 0%, 12% { transform: rotate(calc(var(--a) * .3)) scaleY(.78); } 44%, 68% { transform: rotate(var(--a)) scaleY(1); } 92%, 100% { transform: rotate(calc(var(--a) * .3)) scaleY(.78); } }",
+  "defaults": {
+    "color": "#0d9488",
+    "secondaryColor": "#4338ca",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

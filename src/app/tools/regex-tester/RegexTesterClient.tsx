@@ -76,9 +76,9 @@ function downloadBlob(filename: string, blob: Blob) {
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -243,7 +243,7 @@ export default function RegexTesterClient() {
         <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical presets</h2>
             </div>
             <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start from a real extraction, cleanup, validation, or transform pattern.</p>
@@ -260,8 +260,8 @@ export default function RegexTesterClient() {
               className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === preset.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
             >
               <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
-              <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
-              <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
+              <span className="mt-1 block truncate font-mono text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
+              <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
             </button>
           ))}
         </div>
@@ -271,7 +271,7 @@ export default function RegexTesterClient() {
         <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <FileArchive className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <FileArchive className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Project and production handoff</h2>
             </div>
             <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Reopen the exact pattern later or export code, evidence, and audit files together.</p>
@@ -321,7 +321,7 @@ export default function RegexTesterClient() {
 
           <div className="flex flex-1 flex-col gap-4 p-4">
             <div className="space-y-2">
-              <label htmlFor="regex-pattern" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Pattern</label>
+              <label htmlFor="regex-pattern" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Pattern</label>
               <div className="flex min-w-0 items-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] shadow-[var(--shadow-xs)] focus-within:border-[var(--color-primary)] focus-within:shadow-[var(--focus-ring)]">
                 <span className="shrink-0 px-3 font-mono text-sm font-bold text-[var(--color-text-tertiary)]">/</span>
                 <input
@@ -340,8 +340,8 @@ export default function RegexTesterClient() {
 
             <div className="space-y-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Flags</span>
-                <span className="text-[11px] text-[var(--color-text-tertiary)]">Click a flag to toggle it</span>
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Flags</span>
+                <span className="text-xs text-[var(--color-text-tertiary)]">Click a flag to toggle it</span>
               </div>
               <div className="flex flex-wrap gap-2" role="group" aria-label="Regular expression flags">
                 {FLAG_OPTIONS.map((option) => (
@@ -352,7 +352,7 @@ export default function RegexTesterClient() {
                     aria-label={`${option.label}: ${option.description}`}
                     aria-pressed={flags.includes(option.flag)}
                     onClick={() => toggleFlag(option.flag)}
-                    className={`h-9 min-w-9 rounded-[var(--radius-sm)] border px-2 font-mono text-xs font-black transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${flags.includes(option.flag) ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"}`}
+                    className={`h-9 min-w-9 rounded-[var(--radius-sm)] border px-2 font-mono text-xs font-black transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${flags.includes(option.flag) ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"}`}
                   >
                     {option.label}
                   </button>
@@ -361,14 +361,14 @@ export default function RegexTesterClient() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="regex-replacement" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Replacement</label>
+              <label htmlFor="regex-replacement" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Replacement</label>
               <Input id="regex-replacement" value={replacement} onChange={(event) => updateReplacement(event.target.value)} className="font-mono" placeholder="Use $&, $1, or $<name>" />
             </div>
 
             <div className="flex min-h-0 flex-1 flex-col space-y-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <label htmlFor="regex-test-text" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Test text</label>
-                <div className="flex items-center gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+                <label htmlFor="regex-test-text" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Test text</label>
+                <div className="flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
                   <span>{countLines(text)} line(s)</span>
                   <span aria-hidden>·</span>
                   <span className={text.length > REGEX_INPUT_LIMIT ? "font-bold text-[var(--color-danger-text)]" : ""}>{text.length.toLocaleString()} / {REGEX_INPUT_LIMIT.toLocaleString()}</span>
@@ -392,8 +392,8 @@ export default function RegexTesterClient() {
               <summary className="cursor-pointer text-xs font-bold text-[var(--color-text-primary)]">Regex quick reference</summary>
               <div className="mt-3 grid gap-x-4 gap-y-2 sm:grid-cols-2">
                 {CHEATSHEET.map((item) => (
-                  <div key={item.token} className="flex min-w-0 gap-2 text-[11px] leading-5">
-                    <code className="shrink-0 font-bold text-[var(--color-primary)]">{item.token}</code>
+                  <div key={item.token} className="flex min-w-0 gap-2 text-xs leading-5">
+                    <code className="shrink-0 font-bold text-[var(--color-primary-text-strong)]">{item.token}</code>
                     <span className="text-[var(--color-text-secondary)]">{item.meaning}</span>
                   </div>
                 ))}
@@ -461,7 +461,7 @@ export default function RegexTesterClient() {
                 {activeMatch ? (
                   <div className="grid gap-2 rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-surface)] p-3 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-center">
                     <div className="min-w-0">
-                      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-code-muted)]">Selected match #{(matches.indexOf(activeMatch) + 1).toLocaleString()}</div>
+                      <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-code-muted)]">Selected match #{(matches.indexOf(activeMatch) + 1).toLocaleString()}</div>
                       <code className="mt-1 block truncate text-xs font-bold text-[var(--color-code-text)]">{activeMatch.match || "Zero-length match"}</code>
                     </div>
                     <div className="text-xs text-[var(--color-code-muted)]">Line {activeMatch.line}, column {activeMatch.column}</div>
@@ -483,14 +483,14 @@ export default function RegexTesterClient() {
                         className="w-full min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-code-border)] bg-[var(--color-code-surface)] p-3 text-left transition hover:border-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
                       >
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-code-muted)]">Match #{index + 1}</span>
-                          <span className="font-mono text-[10px] text-[var(--color-code-muted)]">L{match.line}:C{match.column} · {match.index}–{match.endIndex}</span>
+                          <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-code-muted)]">Match #{index + 1}</span>
+                          <span className="font-mono text-xs text-[var(--color-code-muted)]">L{match.line}:C{match.column} · {match.index}–{match.endIndex}</span>
                         </div>
                         <code className="mt-2 block break-all text-xs font-bold leading-5 text-[var(--color-code-text)]">{match.match || "Zero-length match"}</code>
                         {match.captures.length || match.namedGroups.length ? (
                           <div className="mt-2 flex flex-wrap gap-1.5">
-                            {match.captures.map((capture) => <span key={`capture-${capture.index}`} className="rounded-full border border-[var(--color-code-border)] px-2 py-0.5 font-mono text-[10px] text-[var(--color-code-muted)]">${capture.index}: {capture.value ?? "undefined"}</span>)}
-                            {match.namedGroups.map((group) => <span key={`named-${group.name}`} className="rounded-full border border-[var(--color-primary)] px-2 py-0.5 font-mono text-[10px] text-[var(--color-code-text)]">{group.name}: {group.value ?? "undefined"}</span>)}
+                            {match.captures.map((capture) => <span key={`capture-${capture.index}`} className="rounded-full border border-[var(--color-code-border)] px-2 py-0.5 font-mono text-xs text-[var(--color-code-muted)]">${capture.index}: {capture.value ?? "undefined"}</span>)}
+                            {match.namedGroups.map((group) => <span key={`named-${group.name}`} className="rounded-full border border-[var(--color-primary)] px-2 py-0.5 font-mono text-xs text-[var(--color-code-text)]">{group.name}: {group.value ?? "undefined"}</span>)}
                           </div>
                         ) : null}
                       </button>
@@ -540,7 +540,7 @@ export default function RegexTesterClient() {
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+            <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2>
           </div>
           <span className="text-xs text-[var(--color-text-tertiary)]">Heuristics supplement tests; they do not prove a regex is ReDoS-safe.</span>

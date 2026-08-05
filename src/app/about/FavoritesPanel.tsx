@@ -14,7 +14,7 @@ export type FavoritePanelTool = {
 };
 
 const sectionClass = "mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8";
-const eyebrowClass = "font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]";
+const eyebrowClass = "font-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]";
 
 export function FavoritesPanel({ tools }: { tools: FavoritePanelTool[] }) {
   const { favoriteToolIds } = useFavoriteTools();
@@ -35,11 +35,11 @@ export function FavoritesPanel({ tools }: { tools: FavoritePanelTool[] }) {
       <div className="mb-6 max-w-3xl">
         <p className={eyebrowClass}>Your favorites</p>
         <h2 className="mt-2 flex items-center gap-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
-          <Star className="h-6 w-6 fill-current text-[var(--color-primary)]" aria-hidden />
+          <Star className="h-6 w-6 fill-current text-[var(--color-primary-text-strong)]" aria-hidden />
           Your pinned tools.
         </h2>
         <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
-          Star a tool from its page to keep it here — saved only on this browser.
+          Star a tool from its page to keep it here. Favorites stay in this browser.
         </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -52,10 +52,10 @@ export function FavoritesPanel({ tools }: { tools: FavoritePanelTool[] }) {
             <p className="mt-2 flex-1 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.description}</p>
             <Link
               href={tool.href}
-              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-hover)]"
+              className="group mt-4 inline-flex min-h-10 items-center gap-2 self-start text-sm font-bold text-[var(--color-primary-text-strong)] transition hover:text-[var(--color-primary-hover)]"
             >
               Open {tool.title}
-              <ArrowRight className="h-4 w-4" aria-hidden />
+              <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
             </Link>
           </Card>
         ))}

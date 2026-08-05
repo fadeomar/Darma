@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-flag-wave",
+  "name": "Waving Flag",
+  "category": "fun",
+  "tags": ["flag", "wave", "pole", "banner", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><i class=\"pole\"></i><i class=\"flag\"></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .pole { position: absolute; left: 24%; top: 8%; width: calc(var(--loader-size) * .04); height: 84%; background: linear-gradient(#cbd5e1, #64748b); border-radius: 3px; }\n.loader .flag { position: absolute; left: 26%; top: 12%; width: 50%; height: 32%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 0 4px 4px 0; transform-origin: left center; animation: wave calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n@keyframes wave { 0%, 100% { transform: rotate(-1.5deg) skewY(4deg); border-radius: 0 4px 30% 4px; } 25% { transform: rotate(1.5deg) skewY(-5deg); border-radius: 0 4px 4px 30%; } 50% { transform: rotate(-1.5deg) skewY(4deg); border-radius: 0 30% 4px 4px; } 75% { transform: rotate(1deg) skewY(-3deg); } }",
+  "defaults": { "color": "#1d4ed8", "secondaryColor": "#38bdf8", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

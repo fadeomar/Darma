@@ -10,8 +10,8 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
 };
 
 const sizeClass: Record<InputSize, string> = {
-  sm: "min-h-8 px-2 text-xs",
-  md: "min-h-[38px] px-3 text-sm",
+  sm: "min-h-10 px-3 text-sm",
+  md: "min-h-11 px-3.5 text-sm",
   lg: "min-h-11 px-4 text-base",
 };
 

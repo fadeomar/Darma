@@ -34,14 +34,14 @@ export default function CodeTabs({
   return (
     <section className={["overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] shadow-[var(--shadow-card)]", className].join(" ")}>
       <div className="flex items-center justify-between border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-3 py-2">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-code-muted)]">Source editor</p>
+        <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-code-muted)]">Source editor</p>
         <div className="inline-flex rounded-[var(--radius-full)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-1">
           {tabs.map((tab) => (
             <button
               key={tab}
               type="button"
               onClick={() => setActiveTab(tab)}
-              className={`rounded-[var(--radius-full)] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition ${
+              className={`rounded-[var(--radius-full)] px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] transition ${
                 activeTab === tab
                   ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]"
                   : "text-[var(--color-code-muted)] hover:text-[var(--color-code-text)]"

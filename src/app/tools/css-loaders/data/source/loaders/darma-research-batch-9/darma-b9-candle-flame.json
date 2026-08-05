@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-candle-flame",
+  "name": "Candle Flame",
+  "category": "fun",
+  "tags": ["candle", "flame", "fire", "flicker", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader span { width: 46%; height: 46%; background: radial-gradient(ellipse at 50% 68%, #fff 0%, var(--accent-2) 34%, var(--accent) 78%); border-radius: 0 50% 50% 50%; transform-origin: 50% 78%; box-shadow: 0 0 calc(var(--loader-size) * .22) color-mix(in srgb, var(--accent) 60%, transparent); animation: flame calc(var(--loader-speed) * .5) ease-in-out infinite alternate; }\n.loader::after { content: ''; position: absolute; bottom: 16%; left: 50%; width: 6%; height: 12%; margin-left: -3%; border-radius: 2px; background: color-mix(in srgb, #94a3b8 80%, var(--accent)); }\n@keyframes flame { 0% { transform: rotate(45deg) scale(1, 1); } 100% { transform: rotate(45deg) scale(.9, 1.14); } }",
+  "defaults": { "color": "#f97316", "secondaryColor": "#fde047", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

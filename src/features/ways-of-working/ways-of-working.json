@@ -1,0 +1,1481 @@
+[
+  {
+    "slug": "agile",
+    "title": "Agile Principles",
+    "shortTitle": "Agile",
+    "kind": "principles",
+    "summary": "Values and principles for developing software through collaboration, working outcomes, customer partnership, and adaptation instead of rigid prediction.",
+    "description": "Agile is not a prescribed process, job title, or meeting schedule. It is a value system for making better software decisions under uncertainty. Teams still need an explicit method, technical discipline, product judgment, and organizational support to turn those values into useful delivery.",
+    "bestFor": [
+      "Product or software work where learning changes the plan",
+      "Cross-functional teams able to collaborate frequently",
+      "Environments where useful increments and feedback can be delivered"
+    ],
+    "avoidWhen": [
+      "Work whose scope and sequence are legally or physically fixed",
+      "Organizations using the label only to demand more output without autonomy"
+    ],
+    "coreIdeas": [
+      "Prefer people and interactions while still using useful processes and tools",
+      "Deliver working software as the primary progress signal",
+      "Collaborate with customers throughout the work",
+      "Respond to evidence and change instead of protecting an obsolete plan"
+    ],
+    "flow": [
+      {
+        "id": "frame",
+        "title": "Frame the outcome",
+        "description": "Agree on the user or business outcome, current evidence, constraints, and the smallest useful learning target.",
+        "participants": [
+          "Product",
+          "Design",
+          "Engineering"
+        ],
+        "outputs": [
+          "Outcome statement",
+          "Initial assumptions"
+        ]
+      },
+      {
+        "id": "build",
+        "title": "Build a useful increment",
+        "description": "Collaborate across disciplines to produce a small working slice rather than completing disconnected functional phases.",
+        "participants": [
+          "Engineering",
+          "Design",
+          "Quality"
+        ],
+        "outputs": [
+          "Working increment",
+          "Test evidence"
+        ]
+      },
+      {
+        "id": "feedback",
+        "title": "Seek feedback",
+        "description": "Review the working result with users, stakeholders, telemetry, and operational evidence instead of relying on plan completion.",
+        "participants": [
+          "Team",
+          "Users",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Feedback",
+          "Observed outcomes"
+        ]
+      },
+      {
+        "id": "adapt",
+        "title": "Adapt direction and practice",
+        "description": "Update priorities, design, implementation, or team practices according to what was learned and the remaining risks.",
+        "participants": [
+          "Cross-functional team"
+        ],
+        "outputs": [
+          "Updated decisions",
+          "Improvement action"
+        ]
+      }
+    ],
+    "roles": [
+      "No mandatory roles are prescribed by Agile itself",
+      "Product, design, engineering, quality, and stakeholder roles collaborate according to the context"
+    ],
+    "cadence": [
+      "Frequent collaboration and delivery",
+      "Regular reflection and adaptation"
+    ],
+    "artifacts": [
+      "Working software",
+      "Outcome evidence",
+      "Visible priorities"
+    ],
+    "strengths": [
+      "Makes learning and customer value central",
+      "Supports adaptation before large investments are locked in",
+      "Encourages cross-functional ownership"
+    ],
+    "risks": [
+      "Can become a vague label with no operating rules",
+      "May be misused to avoid planning, documentation, or accountability",
+      "Local team agility cannot overcome every organizational dependency"
+    ],
+    "healthySignals": [
+      "Useful software reaches users regularly",
+      "Plans change when evidence changes",
+      "Teams improve both product and process"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "product-designer",
+      "tech-lead",
+      "scrum-master-agile-facilitator"
+    ],
+    "relatedTerms": [
+      "agile",
+      "increment",
+      "stakeholder",
+      "retrospective"
+    ],
+    "compareWith": [
+      "scrum",
+      "kanban",
+      "waterfall"
+    ],
+    "resourceIds": [
+      "agile-manifesto"
+    ],
+    "featured": true,
+    "tags": [
+      "agile",
+      "principles",
+      "adaptive delivery",
+      "collaboration"
+    ],
+    "references": [
+      {
+        "name": "Manifesto for Agile Software Development",
+        "url": "https://agilemanifesto.org/"
+      }
+    ]
+  },
+  {
+    "slug": "scrum",
+    "title": "Scrum Framework",
+    "shortTitle": "Scrum",
+    "kind": "framework",
+    "summary": "A lightweight framework for complex product work using a Product Goal, ordered Product Backlog, timeboxed Sprints, defined accountabilities, and empirical inspection.",
+    "description": "Scrum provides a minimal container rather than a complete delivery system. Product Owner, Scrum Master, and Developers collaborate around a Product Goal; each Sprint creates a valuable usable Increment and opportunities to inspect and adapt. Engineering practices, discovery, organizational design, and release strategy still need deliberate choices.",
+    "bestFor": [
+      "Complex product work benefiting from a stable cross-functional team",
+      "Teams able to pursue a coherent Product Goal",
+      "Organizations willing to inspect evidence and change plans"
+    ],
+    "avoidWhen": [
+      "Work is passed between functional silos with no shared ownership",
+      "Events are required but teams lack authority to improve the system"
+    ],
+    "coreIdeas": [
+      "Empiricism through transparency, inspection, and adaptation",
+      "A small self-managing Scrum Team owns the work",
+      "Each Sprint pursues a Sprint Goal and produces a usable Increment",
+      "Artifacts carry commitments: Product Goal, Sprint Goal, and Definition of Done"
+    ],
+    "flow": [
+      {
+        "id": "product-goal",
+        "title": "Set Product Goal",
+        "description": "The Product Owner and team maintain a long-term objective that gives the Product Backlog direction and coherence.",
+        "participants": [
+          "Product Owner",
+          "Developers",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Product Goal",
+          "Ordered Product Backlog"
+        ]
+      },
+      {
+        "id": "sprint-planning",
+        "title": "Sprint Planning",
+        "description": "The Scrum Team selects a valuable Sprint objective, forecasts work, and creates a plan for delivering a usable Increment.",
+        "participants": [
+          "Product Owner",
+          "Scrum Master",
+          "Developers"
+        ],
+        "outputs": [
+          "Sprint Goal",
+          "Sprint Backlog"
+        ]
+      },
+      {
+        "id": "daily-work",
+        "title": "Daily progress and adaptation",
+        "description": "Developers inspect progress toward the Sprint Goal every day and adapt the plan while doing design, development, testing, and integration.",
+        "participants": [
+          "Developers"
+        ],
+        "outputs": [
+          "Adapted work plan",
+          "Integrated product work"
+        ]
+      },
+      {
+        "id": "review",
+        "title": "Sprint Review",
+        "description": "The Scrum Team and stakeholders inspect the outcome, discuss environmental changes, and adapt the Product Backlog.",
+        "participants": [
+          "Scrum Team",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Feedback",
+          "Backlog adaptations"
+        ]
+      },
+      {
+        "id": "retrospective",
+        "title": "Sprint Retrospective",
+        "description": "The Scrum Team inspects how it worked and plans a concrete improvement to increase quality and effectiveness.",
+        "participants": [
+          "Scrum Team"
+        ],
+        "outputs": [
+          "Improvement action"
+        ]
+      }
+    ],
+    "roles": [
+      "Product Owner",
+      "Scrum Master",
+      "Developers"
+    ],
+    "cadence": [
+      "Sprints of one month or less",
+      "Daily Scrum",
+      "Sprint Review and Sprint Retrospective every Sprint"
+    ],
+    "artifacts": [
+      "Product Backlog",
+      "Sprint Backlog",
+      "Increment",
+      "Definition of Done"
+    ],
+    "strengths": [
+      "Creates a regular inspect-and-adapt rhythm",
+      "Clarifies product, facilitation, and delivery accountabilities",
+      "Keeps a stable goal while allowing the plan to change"
+    ],
+    "risks": [
+      "Can degrade into ceremony compliance",
+      "Separate component teams can produce incomplete increments",
+      "Sprint commitments may be mistaken for fixed scope guarantees"
+    ],
+    "healthySignals": [
+      "Each Sprint produces a usable Increment",
+      "Sprint Goals guide decisions during change",
+      "Retrospectives create completed improvements"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "scrum-master-agile-facilitator",
+      "tech-lead",
+      "software-qa-engineer"
+    ],
+    "relatedTerms": [
+      "scrum",
+      "sprint",
+      "product-backlog",
+      "sprint-goal",
+      "definition-of-done",
+      "increment"
+    ],
+    "compareWith": [
+      "kanban",
+      "scrumban",
+      "agile"
+    ],
+    "resourceIds": [
+      "scrum-guide",
+      "agile-manifesto"
+    ],
+    "featured": true,
+    "tags": [
+      "scrum",
+      "sprint",
+      "empiricism",
+      "product development"
+    ],
+    "references": [
+      {
+        "name": "The Scrum Guide",
+        "url": "https://scrumguides.org/"
+      },
+      {
+        "name": "Manifesto for Agile Software Development",
+        "url": "https://agilemanifesto.org/"
+      }
+    ]
+  },
+  {
+    "slug": "kanban",
+    "title": "Kanban Method",
+    "shortTitle": "Kanban",
+    "kind": "method",
+    "summary": "A flow-based method that makes work visible, controls work in progress, actively manages items, and improves a service through evidence and experiments.",
+    "description": "Kanban begins with the current workflow rather than requiring a new set of roles or iterations. Teams define workflow states and policies, limit work in progress, measure flow, and evolve the service. It can support product development, operations, support, recruitment, or any knowledge-work system.",
+    "bestFor": [
+      "Teams with continuously arriving work",
+      "Services where flow time and predictability matter",
+      "Existing processes that need evolutionary improvement"
+    ],
+    "avoidWhen": [
+      "Leaders refuse to respect work-in-progress limits",
+      "The board is treated as a task display without flow policies or metrics"
+    ],
+    "coreIdeas": [
+      "Define and visualize the workflow explicitly",
+      "Control work in progress to protect flow",
+      "Manage work items actively rather than only managing people",
+      "Use flow measures and feedback to improve predictability"
+    ],
+    "flow": [
+      {
+        "id": "define-workflow",
+        "title": "Define the workflow",
+        "description": "Map how a work item moves from commitment to delivery, including states, policies, classes of service, and completion rules.",
+        "participants": [
+          "Service team",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Definition of Workflow",
+          "Visual board"
+        ]
+      },
+      {
+        "id": "pull",
+        "title": "Pull within limits",
+        "description": "Start new work only when capacity exists under explicit work-in-progress controls instead of maximizing individual utilization.",
+        "participants": [
+          "Service team"
+        ],
+        "outputs": [
+          "Controlled WIP",
+          "Visible blocked work"
+        ]
+      },
+      {
+        "id": "manage",
+        "title": "Manage active items",
+        "description": "Review aging, blockage, dependencies, and service expectations so items finish rather than merely move between people.",
+        "participants": [
+          "Service team"
+        ],
+        "outputs": [
+          "Flow decisions",
+          "Resolved impediments"
+        ]
+      },
+      {
+        "id": "review",
+        "title": "Review flow and improve",
+        "description": "Use throughput, work-item age, cycle time, and service-level expectations to run safe process experiments.",
+        "participants": [
+          "Team",
+          "Service stakeholders"
+        ],
+        "outputs": [
+          "Flow insights",
+          "Improvement experiment"
+        ]
+      }
+    ],
+    "roles": [
+      "No prescribed roles are required to begin using Kanban",
+      "Existing service delivery and organizational roles operate and improve the workflow"
+    ],
+    "cadence": [
+      "Continuous pull",
+      "Daily or frequent flow review",
+      "Periodic service delivery and operations review"
+    ],
+    "artifacts": [
+      "Kanban board",
+      "Definition of Workflow",
+      "WIP limits",
+      "Service-level expectation"
+    ],
+    "strengths": [
+      "Fits continuous and unpredictable demand",
+      "Makes bottlenecks and aging visible",
+      "Allows gradual change without reorganizing roles first"
+    ],
+    "risks": [
+      "A board alone creates no flow discipline",
+      "Too many exceptions can defeat work-in-progress controls",
+      "Optimizing one board may shift delay elsewhere"
+    ],
+    "healthySignals": [
+      "Work finishes faster and more predictably",
+      "Blocked and aging items trigger action",
+      "Policies and limits are understood and respected"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "operations-manager",
+      "software-qa-engineer",
+      "scrum-master-agile-facilitator"
+    ],
+    "relatedTerms": [
+      "kanban",
+      "work-in-progress",
+      "cycle-time",
+      "throughput",
+      "service-level-expectation"
+    ],
+    "compareWith": [
+      "scrum",
+      "scrumban",
+      "lean"
+    ],
+    "resourceIds": [
+      "kanban-guide",
+      "lean-thinking-practice"
+    ],
+    "featured": true,
+    "tags": [
+      "kanban",
+      "flow",
+      "WIP",
+      "continuous delivery"
+    ],
+    "references": [
+      {
+        "name": "The Kanban Guide",
+        "url": "https://kanbanguides.org/"
+      },
+      {
+        "name": "Lean Enterprise Institute: What is Lean Thinking?",
+        "url": "https://www.lean.org/explore-lean/what-is-lean-thinking/"
+      }
+    ]
+  },
+  {
+    "slug": "waterfall",
+    "title": "Waterfall Delivery Model",
+    "shortTitle": "Waterfall",
+    "kind": "predictive-model",
+    "summary": "A sequential delivery model that progresses through substantially completed analysis, design, implementation, verification, and release phases.",
+    "description": "Waterfall seeks predictability by defining requirements and plans early, then moving work through controlled phases. It can be appropriate where change is unusually expensive, evidence must be approved at formal gates, or physical and regulatory dependencies dominate. It becomes risky when early assumptions cannot be validated until late.",
+    "bestFor": [
+      "Stable requirements with costly downstream change",
+      "Regulated or contractual environments requiring formal phase evidence",
+      "Projects dominated by physical procurement or sequential dependencies"
+    ],
+    "avoidWhen": [
+      "User needs and technical feasibility are highly uncertain",
+      "Value can be tested through small working increments much earlier"
+    ],
+    "coreIdeas": [
+      "Define scope and acceptance before major implementation",
+      "Complete and approve phase outputs at explicit gates",
+      "Manage change through formal impact assessment",
+      "Use traceability from requirements through verification"
+    ],
+    "flow": [
+      {
+        "id": "requirements",
+        "title": "Requirements",
+        "description": "Document intended scope, constraints, acceptance conditions, dependencies, and governance before detailed solution work.",
+        "participants": [
+          "Business analysts",
+          "Project manager",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Requirements baseline",
+          "Project plan"
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Solution design",
+        "description": "Produce architecture, interaction, data, integration, and operational designs that satisfy the approved requirement baseline.",
+        "participants": [
+          "Designers",
+          "Architects",
+          "Engineers"
+        ],
+        "outputs": [
+          "Solution design",
+          "Test strategy"
+        ]
+      },
+      {
+        "id": "implementation",
+        "title": "Implementation",
+        "description": "Build the approved solution according to the design and controlled change process.",
+        "participants": [
+          "Engineering team"
+        ],
+        "outputs": [
+          "Implemented system"
+        ]
+      },
+      {
+        "id": "verification",
+        "title": "Verification",
+        "description": "Test the complete system against traced requirements and resolve deviations before release approval.",
+        "participants": [
+          "Quality team",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Verification evidence",
+          "Release approval"
+        ]
+      },
+      {
+        "id": "release",
+        "title": "Release and maintenance",
+        "description": "Deploy or hand over the approved solution, operate it, and manage subsequent changes through maintenance processes.",
+        "participants": [
+          "Operations",
+          "Support",
+          "Project stakeholders"
+        ],
+        "outputs": [
+          "Released system",
+          "Maintenance records"
+        ]
+      }
+    ],
+    "roles": [
+      "Project Manager",
+      "Business Analyst",
+      "Specialist functional teams",
+      "Approvers"
+    ],
+    "cadence": [
+      "Phase milestones and governance gates",
+      "Formal status and change reviews"
+    ],
+    "artifacts": [
+      "Requirements specification",
+      "Design documents",
+      "Project plan",
+      "Verification and acceptance records"
+    ],
+    "strengths": [
+      "Supports formal traceability and approvals",
+      "Can coordinate expensive sequential dependencies",
+      "Creates explicit scope and governance baselines"
+    ],
+    "risks": [
+      "Important feedback arrives late",
+      "Phase handoffs can fragment ownership",
+      "Formal change control may protect a flawed original assumption"
+    ],
+    "healthySignals": [
+      "Requirements are genuinely stable and testable",
+      "Phase evidence is reviewed rather than rubber-stamped",
+      "Risks and changes are surfaced transparently"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "software-qa-engineer",
+      "operations-manager"
+    ],
+    "relatedTerms": [
+      "waterfall",
+      "requirements",
+      "milestone",
+      "change-control",
+      "acceptance-criteria"
+    ],
+    "compareWith": [
+      "agile",
+      "scrum",
+      "double-diamond"
+    ],
+    "resourceIds": [],
+    "featured": false,
+    "tags": [
+      "waterfall",
+      "predictive planning",
+      "governance",
+      "sequential delivery"
+    ],
+    "references": [
+      {
+        "name": "NASA Systems Engineering Handbook",
+        "url": "https://www.nasa.gov/reference/systems-engineering-handbook/"
+      }
+    ]
+  },
+  {
+    "slug": "scrumban",
+    "title": "Scrumban Hybrid",
+    "shortTitle": "Scrumban",
+    "kind": "hybrid",
+    "summary": "A pragmatic hybrid that retains useful Scrum cadences or goals while applying Kanban flow visualization, work-in-progress limits, and pull policies.",
+    "description": "Scrumban is not a single official framework. Teams commonly use it when Sprint-based planning is helpful but demand, support work, or bottlenecks require stronger flow management. The operating rules must be written explicitly so the hybrid does not become an arbitrary mixture of ceremonies.",
+    "bestFor": [
+      "Scrum teams struggling with carryover and excessive concurrent work",
+      "Teams mixing planned product work with urgent service demand",
+      "Organizations transitioning gradually from iterations toward flow"
+    ],
+    "avoidWhen": [
+      "The team cannot explain which Scrum or Kanban rules it follows",
+      "The hybrid is used to avoid clear goals, policies, or accountability"
+    ],
+    "coreIdeas": [
+      "Keep only cadences that provide useful feedback",
+      "Visualize the actual workflow rather than a generic to-do list",
+      "Use explicit pull and work-in-progress policies",
+      "Review both goal progress and flow evidence"
+    ],
+    "flow": [
+      {
+        "id": "set-policies",
+        "title": "Set goal and flow policies",
+        "description": "Agree which Sprint or planning commitments remain and define workflow states, WIP limits, expedite rules, and completion criteria.",
+        "participants": [
+          "Cross-functional team"
+        ],
+        "outputs": [
+          "Goal policy",
+          "Definition of Workflow"
+        ]
+      },
+      {
+        "id": "replenish",
+        "title": "Replenish ready work",
+        "description": "Select work according to product priority and available capacity instead of filling every person or promising a fixed item count.",
+        "participants": [
+          "Product",
+          "Delivery team"
+        ],
+        "outputs": [
+          "Ready queue",
+          "Current goal"
+        ]
+      },
+      {
+        "id": "pull-manage",
+        "title": "Pull and manage flow",
+        "description": "Team members pull work, swarm on aging or blocked items, and protect the current goal while handling explicit service classes.",
+        "participants": [
+          "Delivery team"
+        ],
+        "outputs": [
+          "Finished work",
+          "Flow decisions"
+        ]
+      },
+      {
+        "id": "review-adapt",
+        "title": "Review outcomes and flow",
+        "description": "Inspect delivered value, goal achievement, cycle time, throughput, and policy effectiveness; then adapt the system.",
+        "participants": [
+          "Team",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Outcome feedback",
+          "Policy improvement"
+        ]
+      }
+    ],
+    "roles": [
+      "Existing product and delivery roles remain in place",
+      "A flow facilitator or service owner may support policies, replenishment, and reviews"
+    ],
+    "cadence": [
+      "Optional Sprint or goal cadence",
+      "Frequent flow review",
+      "Periodic replenishment and retrospective"
+    ],
+    "artifacts": [
+      "Visual workflow",
+      "WIP limits",
+      "Goal or Sprint policy",
+      "Flow metrics"
+    ],
+    "strengths": [
+      "Can reduce Scrum carryover and multitasking",
+      "Handles planned and unplanned work more transparently",
+      "Supports gradual process evolution"
+    ],
+    "risks": [
+      "May inherit the weaknesses of both systems",
+      "Ambiguous rules make forecasting and accountability worse",
+      "Teams may retain ceremonies that no longer serve a purpose"
+    ],
+    "healthySignals": [
+      "The team can explain every cadence and policy",
+      "Work-in-progress limits change behavior",
+      "Goals and service demand are balanced explicitly"
+    ],
+    "relatedRoleSlugs": [
+      "scrum-master-agile-facilitator",
+      "product-manager",
+      "project-manager",
+      "software-qa-engineer"
+    ],
+    "relatedTerms": [
+      "scrumban",
+      "work-in-progress",
+      "sprint",
+      "cycle-time"
+    ],
+    "compareWith": [
+      "scrum",
+      "kanban"
+    ],
+    "resourceIds": [
+      "scrum-guide",
+      "kanban-guide"
+    ],
+    "featured": false,
+    "tags": [
+      "scrumban",
+      "hybrid",
+      "flow",
+      "sprint"
+    ],
+    "references": [
+      {
+        "name": "The Scrum Guide",
+        "url": "https://scrumguides.org/"
+      },
+      {
+        "name": "The Kanban Guide",
+        "url": "https://kanbanguides.org/"
+      }
+    ]
+  },
+  {
+    "slug": "lean",
+    "title": "Lean Product and Delivery",
+    "shortTitle": "Lean",
+    "kind": "method",
+    "summary": "A management approach that improves value by understanding the full value stream, creating flow and pull, reducing waste, and continuously improving the system.",
+    "description": "Lean asks teams to define value from the customer perspective and optimize the whole path by which that value is created. It is not simply cost cutting. In digital work it influences small batches, quality at the source, fast feedback, value-stream analysis, and respect for the people closest to the work.",
+    "bestFor": [
+      "Organizations with delay and handoff across an end-to-end service",
+      "Teams able to study demand, value, quality, and flow together",
+      "Products that benefit from smaller batches and rapid learning"
+    ],
+    "avoidWhen": [
+      "Leadership treats lean only as headcount or cost reduction",
+      "Local utilization targets prevent improvement of the whole value stream"
+    ],
+    "coreIdeas": [
+      "Specify customer value precisely",
+      "Map the end-to-end value stream",
+      "Create smooth flow and use pull instead of excess inventory",
+      "Pursue perfection through continuous learning and respect for people"
+    ],
+    "flow": [
+      {
+        "id": "value",
+        "title": "Define value",
+        "description": "Identify the customer, the outcome they value, and the quality and timing conditions that make the service useful.",
+        "participants": [
+          "Customers",
+          "Product",
+          "Service team"
+        ],
+        "outputs": [
+          "Value definition",
+          "Demand evidence"
+        ]
+      },
+      {
+        "id": "map",
+        "title": "Map the value stream",
+        "description": "Visualize every meaningful step, delay, handoff, rework loop, and information dependency from demand to delivered value.",
+        "participants": [
+          "Cross-functional contributors"
+        ],
+        "outputs": [
+          "Value-stream map",
+          "Waste and delay insights"
+        ]
+      },
+      {
+        "id": "flow-pull",
+        "title": "Improve flow and pull",
+        "description": "Reduce batch size, queues, rework, and unnecessary handoffs while starting work according to actual demand and capacity.",
+        "participants": [
+          "Service team",
+          "Operations"
+        ],
+        "outputs": [
+          "Improved workflow",
+          "Pull policies"
+        ]
+      },
+      {
+        "id": "learn",
+        "title": "Learn toward perfection",
+        "description": "Use repeated experiments, quality feedback, and frontline knowledge to improve the entire system rather than blame individuals.",
+        "participants": [
+          "Team",
+          "Leadership"
+        ],
+        "outputs": [
+          "Improvement experiments",
+          "Standardized learning"
+        ]
+      }
+    ],
+    "roles": [
+      "No mandatory roles are prescribed by Lean thinking",
+      "Leadership and frontline contributors jointly improve the value stream and remove waste"
+    ],
+    "cadence": [
+      "Continuous improvement",
+      "Regular value-stream and operational reviews"
+    ],
+    "artifacts": [
+      "Value-stream map",
+      "Improvement experiments",
+      "Standard work where useful"
+    ],
+    "strengths": [
+      "Optimizes the whole service rather than one department",
+      "Makes queues, rework, and non-value work visible",
+      "Connects quality and learning to everyday operations"
+    ],
+    "risks": [
+      "Can be reduced to efficiency theater",
+      "Waste language may be applied carelessly to people or necessary resilience",
+      "Local optimization can damage customer value"
+    ],
+    "healthySignals": [
+      "Lead time and rework improve with maintained quality",
+      "People closest to work shape improvements",
+      "Customer value guides trade-offs"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "engineering-manager",
+      "devops-engineer",
+      "product-manager"
+    ],
+    "relatedTerms": [
+      "lean",
+      "value-stream",
+      "flow",
+      "pull-system",
+      "continuous-improvement"
+    ],
+    "compareWith": [
+      "kanban",
+      "devops-lifecycle",
+      "shape-up"
+    ],
+    "resourceIds": [
+      "lean-thinking-practice",
+      "dora-capabilities"
+    ],
+    "featured": false,
+    "tags": [
+      "lean",
+      "value stream",
+      "flow",
+      "continuous improvement"
+    ],
+    "references": [
+      {
+        "name": "Lean Enterprise Institute: What is Lean Thinking?",
+        "url": "https://www.lean.org/explore-lean/what-is-lean-thinking/"
+      }
+    ]
+  },
+  {
+    "slug": "extreme-programming",
+    "title": "Extreme Programming",
+    "shortTitle": "XP",
+    "kind": "method",
+    "summary": "An agile software-development method that combines short feedback cycles with disciplined engineering practices such as test-first development, pairing, refactoring, and continuous integration.",
+    "description": "Extreme Programming addresses a gap that process conversations often miss: the technical ability to change software safely. Practices reinforce one another, so adopting only a daily meeting or isolated test technique does not create XP. Teams tailor responsibly while preserving rapid feedback and shared code quality.",
+    "bestFor": [
+      "Software products with changing requirements and frequent delivery",
+      "Teams able to collaborate closely with users and one another",
+      "Codebases where automated feedback and design improvement are valuable"
+    ],
+    "avoidWhen": [
+      "Management demands rapid scope change but rejects engineering investment",
+      "Pairing, testing, and integration are imposed mechanically without team understanding"
+    ],
+    "coreIdeas": [
+      "Take valuable work in very small steps",
+      "Use automated tests and continuous integration for rapid feedback",
+      "Improve design continuously through refactoring",
+      "Share knowledge through pairing, collective ownership, and close customer communication"
+    ],
+    "flow": [
+      {
+        "id": "story",
+        "title": "Select a small valuable story",
+        "description": "Clarify a user-facing slice and acceptance examples small enough to design, implement, and validate quickly.",
+        "participants": [
+          "Customer or product",
+          "Developers",
+          "Tester"
+        ],
+        "outputs": [
+          "User story",
+          "Acceptance examples"
+        ]
+      },
+      {
+        "id": "test-design",
+        "title": "Test and design collaboratively",
+        "description": "Use tests, simple design, pairing, and shared discussion to make intended behavior and technical choices explicit before overbuilding.",
+        "participants": [
+          "Developers",
+          "Tester"
+        ],
+        "outputs": [
+          "Automated tests",
+          "Simple design"
+        ]
+      },
+      {
+        "id": "integrate",
+        "title": "Integrate continuously",
+        "description": "Commit small changes frequently, keep the build healthy, and resolve integration problems immediately.",
+        "participants": [
+          "Development team"
+        ],
+        "outputs": [
+          "Integrated working software"
+        ]
+      },
+      {
+        "id": "feedback-refactor",
+        "title": "Get feedback and refactor",
+        "description": "Review behavior with the customer, improve code structure without changing behavior, and use learning to select the next small story.",
+        "participants": [
+          "Customer",
+          "Development team"
+        ],
+        "outputs": [
+          "Feedback",
+          "Improved design",
+          "Next story"
+        ]
+      }
+    ],
+    "roles": [
+      "Customer representative",
+      "Developers",
+      "Coach",
+      "Tester roles may be present"
+    ],
+    "cadence": [
+      "Daily collaboration",
+      "Very frequent integration",
+      "Small releases and planning feedback"
+    ],
+    "artifacts": [
+      "User stories",
+      "Automated tests",
+      "Working software",
+      "Shared coding standards"
+    ],
+    "strengths": [
+      "Builds technical capacity for safe change",
+      "Spreads code ownership and knowledge",
+      "Makes quality feedback immediate"
+    ],
+    "risks": [
+      "Practices can be copied without their reinforcing system",
+      "Pairing can fail without safety and skill",
+      "Insufficient product access weakens fast feedback"
+    ],
+    "healthySignals": [
+      "The main branch remains releasable",
+      "Refactoring and tests keep change cost manageable",
+      "Knowledge is shared rather than concentrated"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer",
+      "full-stack-developer",
+      "software-qa-engineer"
+    ],
+    "relatedTerms": [
+      "extreme-programming",
+      "test-driven-development",
+      "pair-programming",
+      "continuous-integration",
+      "refactoring"
+    ],
+    "compareWith": [
+      "scrum",
+      "devops-lifecycle",
+      "agile"
+    ],
+    "resourceIds": [
+      "agile-manifesto",
+      "testing-library-docs",
+      "vitest-guide"
+    ],
+    "featured": false,
+    "tags": [
+      "XP",
+      "engineering practices",
+      "TDD",
+      "pair programming"
+    ],
+    "references": [
+      {
+        "name": "Manifesto for Agile Software Development",
+        "url": "https://agilemanifesto.org/"
+      },
+      {
+        "name": "Extreme Programming: A Gentle Introduction",
+        "url": "http://www.extremeprogramming.org/"
+      }
+    ]
+  },
+  {
+    "slug": "devops-lifecycle",
+    "title": "DevOps Lifecycle",
+    "shortTitle": "DevOps",
+    "kind": "lifecycle",
+    "summary": "A continuous product and operational lifecycle that joins planning, building, testing, delivery, operation, observation, and improvement through shared ownership and automation.",
+    "description": "DevOps is a socio-technical approach rather than a handoff from developers to a tool-owning team. Effective implementations improve both delivery performance and operational outcomes through version control, continuous integration, deployment automation, observability, security, learning, and healthy collaboration.",
+    "bestFor": [
+      "Digital products requiring frequent safe change",
+      "Teams willing to share delivery and operational feedback",
+      "Organizations investing in platforms, automation, and learning"
+    ],
+    "avoidWhen": [
+      "A separate DevOps team is expected to absorb every operational responsibility",
+      "Speed is pursued without quality, security, resilience, or user outcomes"
+    ],
+    "coreIdeas": [
+      "Share responsibility from product idea through operation",
+      "Automate repeatable build, test, infrastructure, and deployment work",
+      "Use small batches and continuous feedback",
+      "Learn from telemetry and incidents without blame"
+    ],
+    "flow": [
+      {
+        "id": "plan",
+        "title": "Plan and design",
+        "description": "Frame outcomes, risks, architecture, operational needs, and a small releasable change with cross-functional input.",
+        "participants": [
+          "Product",
+          "Design",
+          "Engineering",
+          "Operations"
+        ],
+        "outputs": [
+          "Delivery intent",
+          "Operational requirements"
+        ]
+      },
+      {
+        "id": "build-test",
+        "title": "Build and verify continuously",
+        "description": "Use version control, automated builds, tests, security checks, and review to keep changes integrated and releasable.",
+        "participants": [
+          "Engineering",
+          "Quality",
+          "Security"
+        ],
+        "outputs": [
+          "Verified artifact",
+          "Traceable change"
+        ]
+      },
+      {
+        "id": "deliver",
+        "title": "Release safely",
+        "description": "Promote repeatable artifacts through environments using automated controls, progressive strategies, approvals where needed, and rollback readiness.",
+        "participants": [
+          "Engineering",
+          "Platform",
+          "Operations"
+        ],
+        "outputs": [
+          "Deployed change",
+          "Release evidence"
+        ]
+      },
+      {
+        "id": "operate-observe",
+        "title": "Operate and observe",
+        "description": "Monitor technical and user outcomes, respond to incidents, and compare real behavior with expectations and service objectives.",
+        "participants": [
+          "Product team",
+          "SRE or Operations",
+          "Support"
+        ],
+        "outputs": [
+          "Telemetry",
+          "Incident and user feedback"
+        ]
+      },
+      {
+        "id": "improve",
+        "title": "Improve the system",
+        "description": "Turn delivery metrics, incidents, user evidence, and developer friction into prioritized product, platform, and process improvements.",
+        "participants": [
+          "Cross-functional team",
+          "Leadership"
+        ],
+        "outputs": [
+          "Improvement backlog",
+          "Completed capability changes"
+        ]
+      }
+    ],
+    "roles": [
+      "Cross-functional product teams",
+      "Platform or DevOps engineers",
+      "SRE and operations",
+      "Security"
+    ],
+    "cadence": [
+      "Continuous integration",
+      "Frequent delivery",
+      "Operational and improvement reviews"
+    ],
+    "artifacts": [
+      "Version-controlled code and infrastructure",
+      "Delivery pipelines",
+      "Telemetry and runbooks",
+      "Incident learning"
+    ],
+    "strengths": [
+      "Shortens feedback from change to real operation",
+      "Improves repeatability and shared ownership",
+      "Connects product delivery with reliability and security"
+    ],
+    "risks": [
+      "Tool adoption may be mistaken for culture and capability",
+      "Automation can accelerate unsafe designs",
+      "Unmanaged cognitive load can overwhelm product teams"
+    ],
+    "healthySignals": [
+      "Changes move in small safe batches",
+      "Recovery and learning improve alongside delivery frequency",
+      "Teams can observe and own their services"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer",
+      "security-engineer",
+      "backend-developer"
+    ],
+    "relatedTerms": [
+      "devops",
+      "continuous-integration",
+      "continuous-delivery",
+      "observability",
+      "incident"
+    ],
+    "compareWith": [
+      "extreme-programming",
+      "lean",
+      "kanban"
+    ],
+    "resourceIds": [
+      "dora-capabilities",
+      "docker-get-started",
+      "github-actions-docs"
+    ],
+    "featured": true,
+    "tags": [
+      "devops",
+      "CI/CD",
+      "operations",
+      "continuous delivery"
+    ],
+    "references": [
+      {
+        "name": "DORA Capabilities",
+        "url": "https://dora.dev/capabilities/"
+      }
+    ]
+  },
+  {
+    "slug": "double-diamond",
+    "title": "Double Diamond Design Process",
+    "shortTitle": "Double Diamond",
+    "kind": "design-process",
+    "summary": "A design process that separates discovering the right problem from defining it, then exploring possible solutions before converging on delivery.",
+    "description": "The Double Diamond makes divergent and convergent thinking visible across Discover, Define, Develop, and Deliver. It is not necessarily a rigid linear sequence; teams revisit evidence and decisions. Its value is protecting problem understanding and alternative exploration from premature commitment to a polished solution.",
+    "bestFor": [
+      "Unclear user problems or service opportunities",
+      "Cross-functional discovery and design work",
+      "Teams needing a shared map from evidence to delivery"
+    ],
+    "avoidWhen": [
+      "The process is treated as four mandatory handoff departments",
+      "Research is performed but cannot influence the brief or solution"
+    ],
+    "coreIdeas": [
+      "Diverge before converging on a problem definition",
+      "Base the brief on evidence from people and context",
+      "Explore multiple solution directions before selecting",
+      "Test, deliver, and learn rather than treating launch as the end"
+    ],
+    "flow": [
+      {
+        "id": "discover",
+        "title": "Discover",
+        "description": "Explore people, context, systems, existing evidence, constraints, and opportunities broadly before deciding what the problem is.",
+        "participants": [
+          "Research",
+          "Design",
+          "Product",
+          "Stakeholders"
+        ],
+        "outputs": [
+          "Research evidence",
+          "Opportunity landscape"
+        ]
+      },
+      {
+        "id": "define",
+        "title": "Define",
+        "description": "Synthesize findings into a focused problem, outcome, audience, constraints, and decision brief that the team can act on.",
+        "participants": [
+          "Cross-functional team"
+        ],
+        "outputs": [
+          "Problem definition",
+          "Design brief"
+        ]
+      },
+      {
+        "id": "develop",
+        "title": "Develop",
+        "description": "Generate and prototype multiple approaches, test assumptions, and combine useful ideas without converging too early.",
+        "participants": [
+          "Design",
+          "Engineering",
+          "Product",
+          "Users"
+        ],
+        "outputs": [
+          "Concepts",
+          "Prototypes",
+          "Test evidence"
+        ]
+      },
+      {
+        "id": "deliver",
+        "title": "Deliver",
+        "description": "Refine, implement, validate, launch, and monitor the selected solution while retaining feedback loops for further change.",
+        "participants": [
+          "Design",
+          "Engineering",
+          "Quality",
+          "Operations"
+        ],
+        "outputs": [
+          "Delivered solution",
+          "Outcome evidence"
+        ]
+      }
+    ],
+    "roles": [
+      "No prescribed roles are required by the framework",
+      "Research, design, product, engineering, users, and stakeholders usually participate"
+    ],
+    "cadence": [
+      "Discovery and synthesis checkpoints",
+      "Iterative concept and validation cycles"
+    ],
+    "artifacts": [
+      "Research evidence",
+      "Problem brief",
+      "Concepts and prototypes",
+      "Delivered solution"
+    ],
+    "strengths": [
+      "Protects problem discovery from premature solution fixation",
+      "Makes divergent and convergent work understandable",
+      "Supports cross-functional design and innovation"
+    ],
+    "risks": [
+      "Can be misread as a one-way waterfall",
+      "Diamonds may become presentation theater without real evidence",
+      "Delivery realities may be excluded until too late"
+    ],
+    "healthySignals": [
+      "The problem definition changes when discovery evidence requires it",
+      "Multiple options are explored before commitment",
+      "Launch produces evidence for another learning cycle"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "ux-researcher",
+      "product-manager",
+      "frontend-developer"
+    ],
+    "relatedTerms": [
+      "double-diamond",
+      "discovery",
+      "problem-definition",
+      "prototype",
+      "design-brief"
+    ],
+    "compareWith": [
+      "agile",
+      "shape-up",
+      "waterfall"
+    ],
+    "resourceIds": [
+      "design-council-double-diamond"
+    ],
+    "featured": true,
+    "tags": [
+      "double diamond",
+      "design process",
+      "discovery",
+      "innovation"
+    ],
+    "references": [
+      {
+        "name": "Design Council Double Diamond",
+        "url": "https://www.designcouncil.org.uk/resources/the-double-diamond/"
+      }
+    ]
+  },
+  {
+    "slug": "shape-up",
+    "title": "Shape Up Product Development",
+    "shortTitle": "Shape Up",
+    "kind": "method",
+    "summary": "A product-development method that shapes bounded problems before betting on them, gives teams fixed time and variable scope, and separates building cycles from cooldown.",
+    "description": "Shape Up organizes work around appetites rather than detailed estimates. Senior shapers define the problem, boundaries, risks, and rough solution; decision-makers choose bets; small autonomous teams build within a fixed cycle and cut scope when necessary. It is designed for particular organizational conditions, not as a universal replacement for product discovery or delivery management.",
+    "bestFor": [
+      "Mature product teams able to work autonomously",
+      "Organizations willing to fix time while varying scope",
+      "Product work that can be shaped into bounded meaningful bets"
+    ],
+    "avoidWhen": [
+      "Teams require daily assignment or fixed detailed scope",
+      "Critical dependencies and operational demand cannot be isolated within a cycle"
+    ],
+    "coreIdeas": [
+      "Set an appetite before designing the solution",
+      "Shape enough to remove major unknowns without writing a task specification",
+      "Bet on a few bounded projects instead of maintaining one giant priority queue",
+      "Give builders autonomy and cut scope rather than extending the cycle"
+    ],
+    "flow": [
+      {
+        "id": "shape",
+        "title": "Shape the work",
+        "description": "Define the problem, appetite, solution elements, rabbit holes, and explicit no-gos at the right level of abstraction.",
+        "participants": [
+          "Shapers",
+          "Product and technical leaders"
+        ],
+        "outputs": [
+          "Pitch",
+          "Appetite and boundaries"
+        ]
+      },
+      {
+        "id": "bet",
+        "title": "Betting table",
+        "description": "Decision-makers compare shaped pitches, capacity, strategy, and risks, then commit teams without carrying an automatic backlog.",
+        "participants": [
+          "Leadership",
+          "Product",
+          "Technical decision-makers"
+        ],
+        "outputs": [
+          "Selected bets",
+          "Team allocation"
+        ]
+      },
+      {
+        "id": "build",
+        "title": "Build in a fixed cycle",
+        "description": "A small autonomous team discovers tasks, integrates scopes, manages risk, and delivers the core within the fixed timebox.",
+        "participants": [
+          "Designers",
+          "Programmers"
+        ],
+        "outputs": [
+          "Built product change",
+          "Scope decisions"
+        ]
+      },
+      {
+        "id": "cooldown",
+        "title": "Cooldown and learn",
+        "description": "Teams address small fixes, explore ideas, and prepare for future work while the organization reviews what shipped and what was learned.",
+        "participants": [
+          "Product teams",
+          "Shapers"
+        ],
+        "outputs": [
+          "Maintenance work",
+          "New shaping input"
+        ]
+      }
+    ],
+    "roles": [
+      "Shapers",
+      "Betting-table decision-makers",
+      "Small builder teams"
+    ],
+    "cadence": [
+      "Typically six-week build cycles",
+      "Cooldown between cycles"
+    ],
+    "artifacts": [
+      "Pitch",
+      "Appetite",
+      "Hill chart",
+      "Built scopes"
+    ],
+    "strengths": [
+      "Protects teams from constant reprioritization",
+      "Encourages bounded problems and autonomous execution",
+      "Makes time fixed and scope negotiable"
+    ],
+    "risks": [
+      "Poorly shaped bets transfer hidden risk to builders",
+      "The model can underrepresent continuous support and compliance work",
+      "Central betting decisions may distance teams from ongoing user evidence"
+    ],
+    "healthySignals": [
+      "Pitches expose risks and no-gos before commitment",
+      "Teams cut scope while preserving the core outcome",
+      "Cycles finish with meaningful integrated work"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "product-designer",
+      "tech-lead",
+      "engineering-manager"
+    ],
+    "relatedTerms": [
+      "shape-up",
+      "appetite",
+      "pitch",
+      "cycle",
+      "hill-chart"
+    ],
+    "compareWith": [
+      "double-diamond",
+      "scrum",
+      "lean"
+    ],
+    "resourceIds": [
+      "basecamp-shape-up"
+    ],
+    "featured": false,
+    "tags": [
+      "shape up",
+      "product development",
+      "appetite",
+      "autonomy"
+    ],
+    "references": [
+      {
+        "name": "Shape Up by Basecamp",
+        "url": "https://basecamp.com/shapeup"
+      }
+    ]
+  }
+]

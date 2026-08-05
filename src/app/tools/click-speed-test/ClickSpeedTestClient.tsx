@@ -496,10 +496,10 @@ export default function ClickSpeedTestClient() {
                   aria-live="assertive"
                 >
                   <div className="text-center">
-                    <p className="font-mono text-[11px] font-black uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
+                    <p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
                       Get ready
                     </p>
-                    <div className="mt-4 text-8xl font-black tracking-[-0.08em] text-[var(--color-primary)] motion-safe:animate-ping sm:text-9xl">
+                    <div className="mt-4 text-8xl font-black tracking-[-0.08em] text-[var(--color-primary-text-strong)] motion-safe:animate-ping sm:text-9xl">
                       {countdown}
                     </div>
                     <p className="mt-4 text-sm font-bold text-[var(--color-text-secondary)]">
@@ -570,14 +570,14 @@ export default function ClickSpeedTestClient() {
                     />
                     <Mouse
                       className={cn(
-                        "h-14 w-14 text-[var(--color-primary)] sm:h-20 sm:w-20",
+                        "h-14 w-14 text-[var(--color-primary-text-strong)] sm:h-20 sm:w-20",
                         isRunning && "motion-safe:animate-bounce",
                       )}
                       aria-hidden
                     />
                   </button>
 
-                  <p className="mt-6 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                  <p className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                     {isCountdown
                       ? "Ready your fingers"
                       : isRunning
@@ -610,7 +610,7 @@ export default function ClickSpeedTestClient() {
                       metricValue={formatNumber(stats.clicksPerSecond, 2)}
                       icon={
                         <Trophy
-                          className="h-4 w-4 text-[var(--color-primary)]"
+                          className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                           aria-hidden
                         />
                       }
@@ -774,7 +774,7 @@ export default function ClickSpeedTestClient() {
               title="Best run"
               icon={
                 <Crown
-                  className="h-4 w-4 text-[var(--color-primary)]"
+                  className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                   aria-hidden
                 />
               }
@@ -795,7 +795,7 @@ export default function ClickSpeedTestClient() {
             >
               {personalBest ? (
                 <div className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-4">
-                  <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary)]">
+                  <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary-text-strong)]">
                     {formatNumber(personalBest.stats.clicksPerSecond, 2)} CPS
                   </p>
                   <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
@@ -811,7 +811,7 @@ export default function ClickSpeedTestClient() {
               title="Last 10 runs"
               icon={
                 <History
-                  className="h-4 w-4 text-[var(--color-primary)]"
+                  className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                   aria-hidden
                 />
               }
@@ -857,7 +857,7 @@ export default function ClickSpeedTestClient() {
               {
                 icon: (
                   <Medal
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -866,7 +866,7 @@ export default function ClickSpeedTestClient() {
               {
                 icon: (
                   <Timer
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -875,7 +875,7 @@ export default function ClickSpeedTestClient() {
               {
                 icon: (
                   <ShieldCheck
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -884,7 +884,7 @@ export default function ClickSpeedTestClient() {
               {
                 icon: (
                   <Info
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -893,7 +893,7 @@ export default function ClickSpeedTestClient() {
               {
                 icon: (
                   <Sparkles
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),

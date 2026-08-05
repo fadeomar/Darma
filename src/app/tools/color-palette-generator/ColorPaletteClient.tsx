@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Lock, RefreshCw, Shuffle, Unlock } from "lucide-react";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -32,6 +32,8 @@ import {
   normalizeHex,
   randomHexColor,
 } from "./palette";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, writeColorWorkflowState } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import type { HarmonyMode, PaletteColor, PalettePreset, PaletteSize, PaletteUiMode } from "./types";
 
 type DetailsTab = "overview" | "accessibility" | "exports";
@@ -39,7 +41,9 @@ type DetailsTab = "overview" | "accessibility" | "exports";
 const PALETTE_SIZE_VALUES: PaletteSize[] = [3, 5, 7, 9];
 
 export default function ColorPaletteClient() {
+  const workflowId = useActiveWorkflowId();
   const [baseColor, setBaseColor] = useState("#2563EB");
+  const [workflowReady, setWorkflowReady] = useState(false);
   const [harmony, setHarmony] = useState<HarmonyMode>("analogous");
   const [size, setSize] = useState<PaletteSize>(5);
   const [uiMode, setUiMode] = useState<PaletteUiMode>("light");
@@ -55,6 +59,26 @@ export default function ColorPaletteClient() {
 
   const contrastPairs = useMemo(() => getContrastPairs(colors), [colors]);
   const summary = useMemo(() => getPaletteSummary(colors), [colors]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) {
+      setWorkflowReady(false);
+      return;
+    }
+    const stored = readColorWorkflowState();
+    if (stored?.primary) setBaseColor(stored.primary);
+    setWorkflowReady(true);
+  }, [workflowId]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID || !workflowReady || !normalizedBase || colors.length === 0) return;
+    const palette = colors.map((color) => color.hex);
+    writeColorWorkflowState({
+      primary: normalizedBase,
+      secondary: palette[1] ?? palette.at(-1),
+      palette,
+    });
+  }, [colors, normalizedBase, workflowId, workflowReady]);
 
   const tabs = useMemo<CodeOutputTab[]>(
     () => [
@@ -183,7 +207,7 @@ export default function ColorPaletteClient() {
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="truncate rounded-full bg-black/15 px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-current">
+                      <p className="truncate rounded-full bg-black/15 px-2 py-1 text-xs font-black uppercase tracking-[0.12em] text-current">
                         {color.name}
                       </p>
                       <p className="mt-2 text-xs font-bold opacity-85">{getColorUsage(color, index)}</p>
@@ -274,7 +298,7 @@ export default function ColorPaletteClient() {
               key={color}
               type="button"
               onClick={() => applyStarterColor(color)}
-              className="inline-flex h-8 items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 text-[11px] font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+              className="inline-flex h-8 items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 text-xs font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
             >
               <span className="h-3 w-3 shrink-0 rounded-full border border-black/10" style={{ backgroundColor: color }} aria-hidden />
               {color}
@@ -297,7 +321,7 @@ export default function ColorPaletteClient() {
                   <span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: preset.baseColor }} aria-hidden />
                   <span className="truncate text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
                 </span>
-                <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preset.size}</span>
+                <span className="shrink-0 text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preset.size}</span>
               </span>
               <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
               {preset.tags?.length ? (
@@ -440,7 +464,7 @@ export default function ColorPaletteClient() {
 function MetricCard({ label, value, tone = "info" }: { label: string; value: string; tone?: "info" | "success" | "warning" }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
-      <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="text-xs font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{label}</p>
       <div className="mt-2 flex items-center justify-between gap-2">
         <p className="truncate text-sm font-black text-[var(--color-text-primary)]">{value}</p>
         <Badge variant={tone === "success" ? "success" : tone === "warning" ? "warning" : "info"}>{tone}</Badge>

@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import { Badge, Card } from "@/components/ui";
+import { RouteLostArtwork } from "@/components/visuals";
 
 const suggestions = [
   { href: "/tools", label: "Open tools" },
@@ -12,7 +13,7 @@ export default function NotFound() {
   return (
     <main className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-5xl items-center px-4 py-16 sm:px-6 lg:px-8">
       <Card padding="lg" className="w-full overflow-hidden">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center">
           <div>
             <Badge variant="warning">404</Badge>
             <h1 className="mt-5 text-4xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-5xl">
@@ -33,11 +34,14 @@ export default function NotFound() {
             </div>
           </div>
 
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-5 font-mono text-sm text-[var(--color-code-text)] shadow-[var(--shadow-sm)]">
-            <p className="text-[var(--color-code-muted)]">darma/routes</p>
-            <p className="mt-4">status: <span className="text-[var(--color-warning-text)]">not_found</span></p>
-            <p className="mt-2">next: <span className="text-[var(--color-accent)]">/tools</span></p>
-            <p className="mt-2">fallback: <span className="text-[var(--color-primary)]">workshop_home</span></p>
+          <div>
+            <RouteLostArtwork />
+            <div className="route-lost-console">
+              <span>darma/routes</span>
+              <strong>status: <i>not_found</i></strong>
+              <strong>next: <b>/tools</b></strong>
+              <strong>fallback: <em>workshop_home</em></strong>
+            </div>
           </div>
         </div>
       </Card>

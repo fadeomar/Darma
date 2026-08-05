@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-noodle-twirl",
+  "name": "Noodle Twirl",
+  "category": "fun",
+  "tags": [
+    "noodle",
+    "twirl",
+    "bowl",
+    "ramen",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"fork\"></div><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .82); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 4%; width: 92%; height: 32%; border-radius: 0 0 50% 50% / 0 0 100% 100%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 34%, var(--accent-2))); }\n.loader::before { content: ''; position: absolute; bottom: 27%; left: 8%; width: 84%; height: 13%; border-radius: 50%; background: radial-gradient(ellipse at 40% 30%, color-mix(in srgb, #fff 46%, var(--accent)), var(--accent)); }\n.loader .fork { position: absolute; z-index: 3; bottom: 36%; left: calc(50% - var(--loader-size) * .028); width: calc(var(--loader-size) * .056); height: 50%; border-radius: 2px 2px 0 0; transform-origin: bottom center; background: linear-gradient(90deg, #f8fafc, #94a3b8); animation: twirl calc(var(--loader-speed) * 1.6) linear infinite; }\n.loader .fork::after { content: ''; position: absolute; top: 100%; left: -110%; width: 320%; height: calc(var(--loader-size) * .1); background: repeating-linear-gradient(90deg, #cbd5e1 0 24%, transparent 24% 38%); }\n.loader span { position: absolute; z-index: 2; bottom: 30%; left: 30%; width: 40%; height: 17%; border-radius: 50%; border: calc(var(--loader-size) * .035) solid var(--accent); border-top-color: transparent; animation: wrap calc(var(--loader-speed) * 1.6) linear infinite; }\n.loader span:nth-child(3) { bottom: 38%; left: 36%; width: 28%; height: 13%; border-color: color-mix(in srgb, #fff 30%, var(--accent)); border-bottom-color: transparent; animation-duration: calc(var(--loader-speed) * 1.1); }\n@keyframes twirl { to { transform: rotate(360deg); } }\n@keyframes wrap { to { transform: rotate(-360deg); } }",
+  "defaults": {
+    "color": "#fbbf24",
+    "secondaryColor": "#0f766e",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -25,8 +25,8 @@ export function ChallengeStatTile({
       <div className="pointer-events-none absolute -right-8 -top-10 h-24 w-24 rounded-full bg-[var(--color-primary-soft)] opacity-0 blur-xl transition-opacity group-hover:opacity-80" />
       <div className="relative">
         <div className="flex items-start justify-between gap-3">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{label}</p>
-          {icon ? <div className="rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-1.5 text-[var(--color-primary)]">{icon}</div> : null}
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{label}</p>
+          {icon ? <div className="rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-1.5 text-[var(--color-primary-text-strong)]">{icon}</div> : null}
         </div>
         <div className="mt-2 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-3xl">{value}</div>
         {hint ? <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">{hint}</p> : null}
@@ -43,7 +43,7 @@ export function ChallengeSmallMetric({ label, value, className }: { label: strin
         className,
       )}
     >
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-1 truncate text-sm font-black text-[var(--color-text-primary)]">{value}</p>
     </div>
   );

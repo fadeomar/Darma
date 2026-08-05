@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-pinwheel-spin",
+  "name": "Pinwheel",
+  "category": "fun",
+  "tags": ["pinwheel", "windmill", "blades", "spin", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 10%; background: conic-gradient(var(--accent) 0deg 90deg, var(--accent-2) 90deg 180deg, var(--accent) 180deg 270deg, var(--accent-2) 270deg 360deg); clip-path: polygon(50% 50%, 100% 0, 100% 50%, 50% 50%, 100% 100%, 50% 100%, 50% 50%, 0 100%, 0 50%, 50% 50%, 0 0, 50% 0); animation: spin calc(var(--loader-speed) * 1.4) linear infinite; }\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "defaults": { "color": "#0ea5e9", "secondaryColor": "#f43f5e", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

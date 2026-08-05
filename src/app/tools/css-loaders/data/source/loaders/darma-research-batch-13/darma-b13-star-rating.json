@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-star-rating",
+  "name": "Star Rating",
+  "category": "progress",
+  "tags": [
+    "star",
+    "rating",
+    "review",
+    "fill",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .2); display: flex; gap: 4%; }\n.loader span { position: relative; flex: 1; overflow: hidden; background: color-mix(in srgb, #000 14%, var(--accent-2)); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }\n.loader span::after { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%; background: var(--accent); animation: rate calc(var(--loader-speed) * 2.6) ease-out infinite; }\n.loader span:nth-child(2)::after { animation-delay: calc(var(--loader-speed) * .18); }\n.loader span:nth-child(3)::after { animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-child(4)::after { animation-delay: calc(var(--loader-speed) * .54); }\n.loader span:nth-child(5)::after { animation-delay: calc(var(--loader-speed) * .72); }\n@keyframes rate { 0% { width: 0; } 22% { width: 100%; } 82% { width: 100%; } 92%, 100% { width: 0; } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#94a3b8",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b8-blooming-flower",
+  "name": "Blooming Flower",
+  "category": "creative",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "flower",
+    "bloom",
+    "petals",
+    "nature",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-blooming-flower blooming flower creative darma-research-batch-8 darma research batch 8 flower bloom petals nature creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-blooming-flower\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b8-blooming-flower { --accent: var(--loader-color, #ec4899); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b8-blooming-flower span { position: absolute; left: 50%; top: 50%; width: 30%; height: 46%; margin-left: -15%; margin-top: -46%; transform-origin: 50% 100%; border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; background: linear-gradient(var(--accent), var(--accent-2)); animation: darma-loader-darma-b8-blooming-flower-bloom calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b8-blooming-flower span:nth-child(1) { transform: rotate(0deg); animation-delay: 0s; }\n.darma-loader-darma-b8-blooming-flower span:nth-child(2) { transform: rotate(60deg); animation-delay: calc(var(--loader-speed, 1s) * .1); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(3) { transform: rotate(120deg); animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(4) { transform: rotate(180deg); animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(5) { transform: rotate(240deg); animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(6) { transform: rotate(300deg); animation-delay: calc(var(--loader-speed, 1s) * .5); }\n@keyframes darma-loader-darma-b8-blooming-flower-bloom { 0%, 100% { scale: .3; opacity: .4; } 50% { scale: 1; opacity: .9; } }",
+  "defaults": {
+    "color": "#ec4899",
+    "secondaryColor": "#a855f7",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-blooming-flower\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b8-blooming-flower { --accent: var(--loader-color, #ec4899); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b8-blooming-flower span { position: absolute; left: 50%; top: 50%; width: 30%; height: 46%; margin-left: -15%; margin-top: -46%; transform-origin: 50% 100%; border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; background: linear-gradient(var(--accent), var(--accent-2)); animation: darma-loader-darma-b8-blooming-flower-bloom calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b8-blooming-flower span:nth-child(1) { transform: rotate(0deg); animation-delay: 0s; }\n.darma-loader-darma-b8-blooming-flower span:nth-child(2) { transform: rotate(60deg); animation-delay: calc(var(--loader-speed, 1s) * .1); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(3) { transform: rotate(120deg); animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(4) { transform: rotate(180deg); animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(5) { transform: rotate(240deg); animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b8-blooming-flower span:nth-child(6) { transform: rotate(300deg); animation-delay: calc(var(--loader-speed, 1s) * .5); }\n@keyframes darma-loader-darma-b8-blooming-flower-bloom { 0%, 100% { scale: .3; opacity: .4; } 50% { scale: 1; opacity: .9; } }",
+    "react": "export default function DarmaB8BloomingFlowerLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-blooming-flower\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

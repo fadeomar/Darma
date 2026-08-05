@@ -12,7 +12,7 @@ export default function TodoTemplatesPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm md:p-10">
-        <p className="text-sm font-semibold uppercase tracking-wide text-[var(--color-accent)]">Darma Tasks templates</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-[var(--color-accent-text)]">Darma Tasks templates</p>
         <h1 className="mt-3 text-3xl font-black tracking-tight text-[var(--color-text-primary)] md:text-5xl">
           Free to-do list templates for real workflows
         </h1>
@@ -46,7 +46,7 @@ export default function TodoTemplatesPage() {
                       <span className="size-3 rounded-full" style={{ background: template.color ?? "var(--color-accent)" }} aria-hidden />
                       <p className="text-sm font-semibold text-[var(--color-text-secondary)]">{template.defaultView} view</p>
                     </div>
-                    <h3 className="mt-3 text-lg font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]">{template.name}</h3>
+                    <h3 className="mt-3 text-lg font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-text)]">{template.name}</h3>
                     <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{template.description}</p>
                     <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">
                       {template.tasks.length} tasks · {template.category}

@@ -56,7 +56,7 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
           {selectedItems.map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
+              className="inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary-text-strong)]"
             >
               {getLabel(item)}
               <button
@@ -69,7 +69,7 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
                         item,
                       )
                 }
-                className="rounded-[var(--radius-full)] p-0.5 text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)]"
+                className="rounded-[var(--radius-full)] p-0.5 text-[var(--color-primary-text-strong)] transition hover:bg-[var(--color-primary-soft)]"
                 aria-label={`Remove ${getLabel(item)}`}
               >
                 <X className="h-3 w-3" aria-hidden />
@@ -127,7 +127,7 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
                         onClick={() => handleSecCatChange(cat.name, type)}
                         className={`rounded-[var(--radius-full)] border px-3 py-1 text-xs font-semibold transition ${
                           active
-                            ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                            ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                             : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                         }`}
                       >

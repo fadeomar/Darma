@@ -82,11 +82,11 @@ export function ReactionEdgeCasePanel() {
     <section className="rtp-edgecases" aria-labelledby="rtp-edgecases-title">
       <Card variant="default" padding="lg" className="rtp-edgecases-card">
         <div className="rtp-panel-head rtp-edgecases-head">
-          <AlertTriangle className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <AlertTriangle className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <div>
             <h3 id="rtp-edgecases-title" className="rtp-panel-title">Runtime safety checks</h3>
             <p className="rtp-edgecases-sub">
-              Sprint 20 adds non-blocking fallbacks for blocked storage, share/download failures, fullscreen limits, and interrupted timing-sensitive runs.
+              Non-blocking fallbacks for blocked storage, share and download failures, fullscreen limits, and interrupted timing-sensitive runs.
             </p>
           </div>
           <Button size="sm" variant="outline" onClick={refresh} leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}>

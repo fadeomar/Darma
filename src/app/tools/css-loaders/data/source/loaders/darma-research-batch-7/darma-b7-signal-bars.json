@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-signal-bars",
+  "name": "Signal Bars",
+  "category": "bars",
+  "tags": ["signal", "bars", "strength", "network", "steps"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); width: var(--loader-size); height: calc(var(--loader-size) * .62); display: flex; align-items: flex-end; gap: calc(var(--loader-size) * .06); }\n.loader span { flex: 1; background: var(--accent); border-radius: calc(var(--loader-size) * .02); opacity: .22; animation: signal calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n.loader span:nth-child(1) { height: 28%; animation-delay: 0s; }\n.loader span:nth-child(2) { height: 52%; animation-delay: calc(var(--loader-speed) * .15); }\n.loader span:nth-child(3) { height: 76%; animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(4) { height: 100%; animation-delay: calc(var(--loader-speed) * .45); }\n@keyframes signal { 0%, 100% { opacity: .22; } 50% { opacity: 1; } }",
+  "defaults": { "color": "#3b82f6", "size": 64, "speed": 1 },
+  "controls": { "color": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-whack-a-mole",
+  "name": "Whack A Mole",
+  "category": "fun",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "mole",
+    "arcade",
+    "holes",
+    "pop",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-whack-a-mole whack a mole fun darma-research-batch-13 darma research batch 13 mole arcade holes pop fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-whack-a-mole\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-whack-a-mole { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #4d7c0f); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .52); display: flex; align-items: flex-end; gap: 6%; }\n.darma-loader-darma-b13-whack-a-mole span { position: relative; flex: 1; height: 76%; overflow: hidden; border-radius: 48% 48% 8px 8px; background: linear-gradient(color-mix(in srgb, #000 42%, var(--accent-2)), color-mix(in srgb, #000 18%, var(--accent-2))); box-shadow: inset 0 calc(var(--loader-size, 116px) * .02) calc(var(--loader-size, 116px) * .03) rgba(0, 0, 0, .35); }\n.darma-loader-darma-b13-whack-a-mole span::after { content: ''; position: absolute; left: 17%; bottom: -68%; width: 66%; height: 96%; border-radius: 50% 50% 32% 32%; background: radial-gradient(circle at 50% 28%, color-mix(in srgb, #fff 28%, var(--accent)), var(--accent)); animation: darma-loader-darma-b13-whack-a-mole-mole calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.4, 1.4, .5, 1) infinite; }\n.darma-loader-darma-b13-whack-a-mole span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * 1.21); }\n.darma-loader-darma-b13-whack-a-mole span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .62); }\n@keyframes darma-loader-darma-b13-whack-a-mole-mole { 0%, 14% { transform: translateY(0); } 30%, 46% { transform: translateY(-74%); } 62%, 100% { transform: translateY(0); } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#4d7c0f",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-whack-a-mole\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-whack-a-mole { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #4d7c0f); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .52); display: flex; align-items: flex-end; gap: 6%; }\n.darma-loader-darma-b13-whack-a-mole span { position: relative; flex: 1; height: 76%; overflow: hidden; border-radius: 48% 48% 8px 8px; background: linear-gradient(color-mix(in srgb, #000 42%, var(--accent-2)), color-mix(in srgb, #000 18%, var(--accent-2))); box-shadow: inset 0 calc(var(--loader-size, 116px) * .02) calc(var(--loader-size, 116px) * .03) rgba(0, 0, 0, .35); }\n.darma-loader-darma-b13-whack-a-mole span::after { content: ''; position: absolute; left: 17%; bottom: -68%; width: 66%; height: 96%; border-radius: 50% 50% 32% 32%; background: radial-gradient(circle at 50% 28%, color-mix(in srgb, #fff 28%, var(--accent)), var(--accent)); animation: darma-loader-darma-b13-whack-a-mole-mole calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.4, 1.4, .5, 1) infinite; }\n.darma-loader-darma-b13-whack-a-mole span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * 1.21); }\n.darma-loader-darma-b13-whack-a-mole span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .62); }\n@keyframes darma-loader-darma-b13-whack-a-mole-mole { 0%, 14% { transform: translateY(0); } 30%, 46% { transform: translateY(-74%); } 62%, 100% { transform: translateY(0); } }",
+    "react": "export default function DarmaB13WhackAMoleLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-whack-a-mole\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

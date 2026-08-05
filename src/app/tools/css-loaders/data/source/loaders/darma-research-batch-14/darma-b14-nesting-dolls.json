@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-nesting-dolls",
+  "name": "Nesting Dolls",
+  "category": "fun",
+  "tags": [
+    "matryoshka",
+    "nesting",
+    "dolls",
+    "reveal",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .82); display: flex; align-items: flex-end; justify-content: center; gap: 4%; }\n.loader span { position: relative; border-radius: 50% 50% 42% 42% / 56% 56% 44% 44%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: doll-in calc(var(--loader-speed) * 3) ease-out infinite; }\n.loader span::before { content: ''; position: absolute; top: 7%; left: 21%; width: 58%; height: 32%; border-radius: 50%; background: radial-gradient(circle at 50% 66%, color-mix(in srgb, #fff 90%, var(--accent-2)), color-mix(in srgb, #fff 66%, var(--accent-2))); }\n.loader span::after { content: ''; position: absolute; bottom: 7%; left: 23%; width: 54%; height: 36%; border-radius: 46% 46% 38% 38%; background: var(--accent-2); }\n.loader span:nth-child(1) { width: 33%; height: 100%; }\n.loader span:nth-child(2) { width: 26%; height: 78%; animation-delay: calc(var(--loader-speed) * .22); }\n.loader span:nth-child(3) { width: 20%; height: 58%; animation-delay: calc(var(--loader-speed) * .44); }\n@keyframes doll-in { 0% { opacity: 0; transform: translateY(26%) scale(.6); } 12% { opacity: 1; transform: translateY(0) scale(1.06); } 20% { transform: translateY(0) scale(1); } 80% { opacity: 1; transform: translateY(0) scale(1); } 92%, 100% { opacity: 0; transform: translateY(26%) scale(.6); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#0284c7",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

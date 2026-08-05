@@ -64,9 +64,9 @@ function getPolicyStats(state: ReturnType<typeof buildCspState>) {
 function SummaryCard({ label, value, hint }: { label: string; value: string | number; hint: string }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{value}</p>
-      <p className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{hint}</p>
+      <p className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</p>
     </div>
   );
 }
@@ -169,7 +169,7 @@ export default function CspGeneratorClient() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="accent">Security builder</Badge>
         <Badge variant="success">Client-side</Badge>
-        <ol className="ml-auto flex flex-wrap items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        <ol className="ml-auto flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           {HOW_IT_WORKS.map((label, index) => (
             <li key={label} className="flex items-center gap-1.5">
               <span className="text-[var(--color-text-secondary)]">{index + 1}. {label}</span>
@@ -215,7 +215,7 @@ export default function CspGeneratorClient() {
                     )}
                   >
                     <span className="block text-sm font-black text-[var(--color-text-primary)]">{preset.label}</span>
-                    <span className="mt-0.5 block font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{preset.tagline}</span>
+                    <span className="mt-0.5 block font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{preset.tagline}</span>
                     <span className="mt-2 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
                   </button>
                 );

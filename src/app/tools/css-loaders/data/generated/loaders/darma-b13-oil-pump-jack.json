@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-oil-pump-jack",
+  "name": "Oil Pump Jack",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "oil",
+    "pump",
+    "derrick",
+    "rocking",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-oil-pump-jack oil pump jack creative darma-research-batch-13 darma research batch 13 oil pump derrick rocking creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-oil-pump-jack\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-oil-pump-jack__beam\"></div><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-oil-pump-jack { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #334155); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .64); position: relative; }\n.darma-loader-darma-b13-oil-pump-jack::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5%; border-radius: 2px; background: color-mix(in srgb, #000 25%, var(--accent-2)); }\n.darma-loader-darma-b13-oil-pump-jack::before { content: ''; position: absolute; bottom: 5%; left: 40%; width: 14%; height: 46%; clip-path: polygon(34% 0, 66% 0, 100% 100%, 0 100%); background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b13-oil-pump-jack .darma-loader-darma-b13-oil-pump-jack__beam { position: absolute; bottom: 48%; left: 10%; width: 74%; height: 8%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 58% center; animation: darma-loader-darma-b13-oil-pump-jack-rock calc(var(--loader-speed, 1s) * 2.2) ease-in-out infinite; }\n.darma-loader-darma-b13-oil-pump-jack .darma-loader-darma-b13-oil-pump-jack__beam::after { content: ''; position: absolute; left: -3%; top: -46%; width: 15%; height: 180%; border-radius: 45% 8% 8% 45%; background: var(--accent); }\n.darma-loader-darma-b13-oil-pump-jack span { position: absolute; bottom: 22%; right: 4%; width: calc(var(--loader-size, 120px) * .17); height: calc(var(--loader-size, 120px) * .17); border-radius: 50%; background: conic-gradient(from 0deg, var(--accent-2), var(--accent) 42%, var(--accent-2) 62%, var(--accent)); box-shadow: inset 0 0 0 calc(var(--loader-size, 120px) * .022) color-mix(in srgb, #000 30%, var(--accent-2)); animation: darma-loader-darma-b13-oil-pump-jack-crank calc(var(--loader-speed, 1s) * 2.2) linear infinite; }\n@keyframes darma-loader-darma-b13-oil-pump-jack-rock { 0%, 100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }\n@keyframes darma-loader-darma-b13-oil-pump-jack-crank { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#334155",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-oil-pump-jack\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-oil-pump-jack__beam\"></div><span></span></div>",
+    "css": ".darma-loader-darma-b13-oil-pump-jack { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #334155); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .64); position: relative; }\n.darma-loader-darma-b13-oil-pump-jack::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5%; border-radius: 2px; background: color-mix(in srgb, #000 25%, var(--accent-2)); }\n.darma-loader-darma-b13-oil-pump-jack::before { content: ''; position: absolute; bottom: 5%; left: 40%; width: 14%; height: 46%; clip-path: polygon(34% 0, 66% 0, 100% 100%, 0 100%); background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b13-oil-pump-jack .darma-loader-darma-b13-oil-pump-jack__beam { position: absolute; bottom: 48%; left: 10%; width: 74%; height: 8%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 58% center; animation: darma-loader-darma-b13-oil-pump-jack-rock calc(var(--loader-speed, 1s) * 2.2) ease-in-out infinite; }\n.darma-loader-darma-b13-oil-pump-jack .darma-loader-darma-b13-oil-pump-jack__beam::after { content: ''; position: absolute; left: -3%; top: -46%; width: 15%; height: 180%; border-radius: 45% 8% 8% 45%; background: var(--accent); }\n.darma-loader-darma-b13-oil-pump-jack span { position: absolute; bottom: 22%; right: 4%; width: calc(var(--loader-size, 120px) * .17); height: calc(var(--loader-size, 120px) * .17); border-radius: 50%; background: conic-gradient(from 0deg, var(--accent-2), var(--accent) 42%, var(--accent-2) 62%, var(--accent)); box-shadow: inset 0 0 0 calc(var(--loader-size, 120px) * .022) color-mix(in srgb, #000 30%, var(--accent-2)); animation: darma-loader-darma-b13-oil-pump-jack-crank calc(var(--loader-speed, 1s) * 2.2) linear infinite; }\n@keyframes darma-loader-darma-b13-oil-pump-jack-rock { 0%, 100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }\n@keyframes darma-loader-darma-b13-oil-pump-jack-crank { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB13OilPumpJackLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-oil-pump-jack\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-oil-pump-jack__beam\"></div><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

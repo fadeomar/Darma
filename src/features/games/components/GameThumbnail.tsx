@@ -1,23 +1,7 @@
 import Image from "next/image";
-import type { GameAccent, GameDefinition } from "../domain/game";
+import type { GameDefinition } from "../domain/game";
 import { cn } from "@/lib/cn";
-import { FloppyBirdCardPreview } from "../playables/floppy-bird/FloppyBirdCardPreview";
-import { ColorSwitchCardPreview } from "../playables/color-switch/ColorSwitchCardPreview";
-
-const accentClass: Record<GameAccent, string> = {
-  violet: "gthumb-violet",
-  blue: "gthumb-blue",
-  emerald: "gthumb-emerald",
-  amber: "gthumb-amber",
-  rose: "gthumb-rose",
-  cyan: "gthumb-cyan",
-  indigo: "gthumb-indigo",
-  orange: "gthumb-orange",
-  fuchsia: "gthumb-fuchsia",
-  sky: "gthumb-sky",
-  lime: "gthumb-lime",
-  teal: "gthumb-teal",
-};
+import { getGameScene } from "./scenes/registry";
 
 type GameThumbnailProps = {
   game: GameDefinition;
@@ -29,8 +13,13 @@ type GameThumbnailProps = {
 };
 
 /**
- * Renders a game's thumbnail in one of three modes. Falls back to a generated
- * gradient tile so the card never breaks when an image is missing.
+ * The single game thumbnail surface: catalog, featured rails, landing rail, and
+ * related-game strips all render this, so there is one thumbnail system.
+ *
+ * Every game gets a local scene showing a real moment of play. Gridland keeps
+ * its own pixel badge, which is stronger than a rebuilt scene would be. The
+ * emoji-on-gradient tile is gone; a game without a scene falls back to its
+ * accent tile rather than to a symbol.
  */
 export function GameThumbnail({
   game,
@@ -40,8 +29,7 @@ export function GameThumbnail({
   priority,
 }: GameThumbnailProps) {
   const aspectClass = aspect === "4/3" ? "aspect-[4/3]" : "aspect-[16/9]";
-  const motifSize =
-    size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl";
+  const Scene = getGameScene(game.slug);
 
   if (game.slug === "gridland") {
     return (
@@ -66,30 +54,18 @@ export function GameThumbnail({
     );
   }
 
-  if (game.slug === "floppy-bird") {
+  if (Scene) {
     return (
       <div
+        aria-hidden
         className={cn(
-          "relative w-full overflow-hidden",
+          "gscene relative w-full overflow-hidden",
           aspectClass,
+          size === "lg" && "gscene-lg",
           className,
         )}
       >
-        <FloppyBirdCardPreview className="absolute inset-0 h-full w-full transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
-      </div>
-    );
-  }
-
-  if (game.slug === "color-switch") {
-    return (
-      <div
-        className={cn(
-          "relative w-full overflow-hidden",
-          aspectClass,
-          className,
-        )}
-      >
-        <ColorSwitchCardPreview className="absolute inset-0 h-full w-full transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
+        <Scene />
       </div>
     );
   }
@@ -115,28 +91,13 @@ export function GameThumbnail({
     );
   }
 
-  const accent = accentClass[game.accent ?? "violet"];
-
   return (
     <div
       aria-hidden
-      className={cn(
-        "gthumb relative flex w-full items-center justify-center overflow-hidden",
-        accent,
-        aspectClass,
-        className,
-      )}
+      className={cn("gscene gscene-fallback relative w-full overflow-hidden", aspectClass, className)}
     >
-      <div className="gthumb-texture pointer-events-none absolute inset-0 opacity-70" />
-      <div className="game-thumbnail-shine pointer-events-none absolute inset-0" />
-      <span
-        className={cn(
-          "relative select-none drop-shadow-sm transition duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100",
-          motifSize,
-        )}
-      >
-        {game.thumbnail}
-      </span>
+      <span className="gscene-fallback-grid" />
+      <span className="gscene-fallback-orb" />
     </div>
   );
 }

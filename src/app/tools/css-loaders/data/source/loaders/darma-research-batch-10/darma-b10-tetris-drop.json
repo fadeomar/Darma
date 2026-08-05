@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-tetris-drop",
+  "name": "Tetris Drop",
+  "category": "fun",
+  "tags": ["tetris", "blocks", "drop", "puzzle", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; width: 44%; height: 44%; border-radius: 12%; border: calc(var(--loader-size) * .012) solid color-mix(in srgb, #fff 30%, transparent); opacity: 0; animation: drop calc(var(--loader-speed) * 2) ease-in infinite; }\n.loader span:nth-child(1) { left: 4%; top: 4%; background: var(--accent); animation-delay: 0s; }\n.loader span:nth-child(2) { right: 4%; top: 4%; background: var(--accent-2); animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(3) { left: 4%; bottom: 4%; background: var(--accent-2); animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-child(4) { right: 4%; bottom: 4%; background: var(--accent); animation-delay: calc(var(--loader-speed) * .9); }\n@keyframes drop { 0% { transform: translateY(-130%); opacity: 0; } 12% { opacity: 1; } 32%, 88% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }",
+  "defaults": { "color": "#06b6d4", "secondaryColor": "#f59e0b", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

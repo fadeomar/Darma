@@ -11,7 +11,7 @@ export function TaskDueBadge({ dueAt, completed }: { dueAt?: string; completed: 
   const overdue = isOverdue({ dueAt, completed });
 
   return (
-    <Badge variant={overdue ? "danger" : "outline"} className="text-[9px]">
+    <Badge variant={overdue ? "danger" : "outline"} className="text-xs">
       {overdue ? "Overdue" : label}
     </Badge>
   );

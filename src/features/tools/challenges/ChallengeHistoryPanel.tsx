@@ -25,7 +25,7 @@ export function ChallengePersonalBestCard({
     <ChallengeCard className="p-5 sm:p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
           <h3 className="mt-2 flex items-center gap-2 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
             {icon}
             {title}
@@ -64,7 +64,7 @@ export function ChallengeHistoryPanel<TAttempt>({
     <ChallengeCard className="p-5 sm:p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
           <h3 className="mt-2 flex items-center gap-2 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
             {icon}
             {title}

@@ -28,7 +28,7 @@ export function PasswordStrengthMeter({ strength }: { strength: StrengthResult |
     >
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
             Strength estimate
           </p>
           <p className="mt-1 text-lg font-black text-[var(--color-text-primary)]">

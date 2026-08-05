@@ -89,13 +89,13 @@ export default function ControlPanel({ state, setState, onRandomize, onReset, on
       <ControlSection title="Composition" description="Gradient style changes the overall visual structure, not just color." compact>
         <ControlGrid columns={2}>
           <label className="grid gap-1.5">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Gradient</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Gradient</span>
             <Select size="sm" value={state.gradientStyle} onChange={(event) => patch({ gradientStyle: event.target.value as GradientStyle })}>
               {gradientStyles.map((style) => <option key={style} value={style}>{style}</option>)}
             </Select>
           </label>
           <label className="grid gap-1.5">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Shape</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Shape</span>
             <Select size="sm" value={state.shape} onChange={(event) => patch({ shape: event.target.value as BackgroundShape })}>
               {shapes.map((shape) => <option key={shape} value={shape}>{shape}</option>)}
             </Select>
@@ -125,7 +125,7 @@ export default function ControlPanel({ state, setState, onRandomize, onReset, on
           <SliderNumberField label="Opacity" value={state.opacity} min={0.1} max={0.95} step={0.01} onChange={(opacity) => patch({ opacity })} />
           <SliderNumberField label="Glow" value={state.glow} min={0} max={110} unit="px" onChange={(glow) => patch({ glow })} />
           <label className="grid gap-1.5">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Blend</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Blend</span>
             <Select size="sm" value={state.blendMode} onChange={(event) => patch({ blendMode: event.target.value as BlendMode })}>
               {blendModes.map((mode) => <option key={mode} value={mode}>{mode}</option>)}
             </Select>

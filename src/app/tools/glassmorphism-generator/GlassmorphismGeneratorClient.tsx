@@ -66,9 +66,9 @@ function toneClass(tone: "good" | "warning" | "danger" | "neutral") {
 function MetricCard({ label, value, detail, tone = "neutral" }: { label: string; value: string; detail: string; tone?: "good" | "warning" | "danger" | "neutral" }) {
   return (
     <div className={`min-w-0 rounded-[var(--radius-md)] border px-3 py-2.5 shadow-[var(--shadow-xs)] ${toneClass(tone)}`}>
-      <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] opacity-70">{label}</p>
+      <p className="font-mono text-xs font-black uppercase tracking-[0.12em] opacity-70">{label}</p>
       <p className="mt-1 truncate text-sm font-black">{value}</p>
-      <p className="mt-1 line-clamp-2 text-[11px] leading-4 opacity-75">{detail}</p>
+      <p className="mt-1 line-clamp-2 text-xs leading-4 opacity-75">{detail}</p>
     </div>
   );
 }

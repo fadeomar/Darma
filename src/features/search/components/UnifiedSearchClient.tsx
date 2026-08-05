@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Gamepad2, Layers3, Search, Wrench } from "lucide-react";
+import { ArrowRight, BookOpen, Gamepad2, GraduationCap, Layers3, Search, Wrench } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
 import { CoreCategoryChips, CoreEmptyState, CoreEntityCard, CoreSearchInput, CoreSectionHeader, type CoreEntity, type CoreEntityKind } from "@/core";
 import { cn } from "@/lib/cn";
+import { SearchConstellationArtwork } from "@/components/visuals";
 import { getUnifiedSearchSummary, searchUnifiedEntities, type UnifiedSearchKind } from "../lib";
 import "../styles/unified-search.css";
 
@@ -19,6 +20,8 @@ const KIND_FILTERS: { value: UnifiedSearchKind; label: string; icon: typeof Sear
   { value: "tool", label: "Tools", icon: Wrench },
   { value: "game", label: "Games", icon: Gamepad2 },
   { value: "collection", label: "Collections", icon: Layers3 },
+  { value: "resource", label: "Resources", icon: BookOpen },
+  { value: "learning", label: "Atlas", icon: GraduationCap },
 ];
 
 const KIND_LABELS: Record<CoreEntityKind, string> = {
@@ -33,7 +36,7 @@ const KIND_LABELS: Record<CoreEntityKind, string> = {
 };
 
 function getSuggestedQueries(entities: readonly CoreEntity[]) {
-  const terms = ["image", "css", "puzzle", "calculator", "classic", "color", "productivity", "browser"];
+  const terms = ["react", "career", "agile", "accessibility", "image", "css", "calculator", "design"];
   return terms.filter((term) => searchUnifiedEntities({ entities, query: term }).length > 0).slice(0, 6);
 }
 
@@ -62,19 +65,18 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-center">
           <div>
             <div className="mb-5 flex flex-wrap gap-2">
-              <Badge variant="accent">Darma Core</Badge>
-              <Badge variant="outline">Unified search</Badge>
-              <Badge variant="soft">Tools + Games + Collections</Badge>
+              <Badge variant="accent">One search box</Badge>
+              <Badge variant="soft">Tools + Games + Tech Atlas</Badge>
             </div>
             <h1 className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
               Search everything Darma can do.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              One fast discovery layer across tools, games, and collections — powered by the shared CoreEntity registry.
+              Search tools, games, resources, learning paths, careers, workflows, and collections from one place.
             </p>
 
             <div className="mt-6 max-w-2xl">
-              <CoreSearchInput value={query} onChange={setQuery} placeholder="Search tools, games, collections…" label="Search Darma" />
+              <CoreSearchInput value={query} onChange={setQuery} placeholder="Search React, careers, Agile, tools, games…" label="Search Darma" />
             </div>
 
             {suggestedQueries.length ? (
@@ -94,23 +96,18 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
             ) : null}
           </div>
 
-          <div className="unified-search-stats-grid grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.total}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Searchable entities</p>
-            </Card>
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.live}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Live pages</p>
-            </Card>
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.featured}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Featured picks</p>
-            </Card>
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.kinds.length}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Connected kinds</p>
-            </Card>
+          <div className="unified-search-visual-stack">
+            <SearchConstellationArtwork total={summary.total} live={summary.live} kinds={summary.kinds.length} />
+            <div className="unified-search-stats-grid grid grid-cols-2 gap-2">
+              <Card className="unified-search-stat-card">
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{summary.live}</p>
+                <p className="mt-1 text-xs font-semibold text-[var(--color-text-secondary)]">Live pages</p>
+              </Card>
+              <Card className="unified-search-stat-card">
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{summary.featured}</p>
+                <p className="mt-1 text-xs font-semibold text-[var(--color-text-secondary)]">Featured picks</p>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -136,7 +133,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
               >
                 <Icon className="h-4 w-4" aria-hidden />
                 {item.label}
-                <span className={cn("rounded-full px-2 py-0.5 text-[11px]", active ? "bg-white/20" : "bg-[var(--color-control-track)]")}>{count}</span>
+                <span className={cn("rounded-full px-2 py-0.5 text-xs", active ? "bg-black/25" : "bg-[var(--color-control-track)]")}>{count}</span>
               </button>
             );
           })}
@@ -148,12 +145,12 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
       <section className="mt-8" aria-labelledby="search-results-title">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <CoreSectionHeader
-            eyebrow="Unified results"
+            eyebrow="Results"
             title={query.trim() ? `Results for “${query.trim()}”` : "Top Darma results"}
             description={`${results.length} matching item${results.length === 1 ? "" : "s"}. Filter by section or category to narrow the result set.`}
           />
           {query || kind !== "all" || category !== "All" ? (
-            <button type="button" onClick={reset} className="self-start text-sm font-bold text-[var(--color-primary)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
+            <button type="button" onClick={reset} className="self-start text-sm font-bold text-[var(--color-primary-text-strong)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
               Reset search
             </button>
           ) : null}
@@ -174,7 +171,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
 
       {featuredResults.length ? (
         <section className="mt-10" aria-labelledby="search-featured-title">
-          <CoreSectionHeader eyebrow="Recommended" title="Featured matches" description="High-confidence results from the shared registry." />
+          <CoreSectionHeader eyebrow="Recommended" title="Featured matches" description="Popular starting points for this kind of search." />
           <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {featuredResults.map((entity) => (
               <CoreEntityCard key={`featured-${entity.kind}-${entity.id}`} entity={entity} compact eyebrow={KIND_LABELS[entity.kind] ?? entity.kind} />
@@ -186,10 +183,10 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
       <section className="mt-10 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 shadow-[var(--shadow-card)] sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Core migration</p>
-            <h2 className="mt-1 text-xl font-black text-[var(--color-text-primary)]">Unified search is now the bridge across Darma.</h2>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Browse by section</p>
+            <h2 className="mt-1 text-xl font-black text-[var(--color-text-primary)]">Not sure what to search for?</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
-              This page proves Tools, Games, and Collections can share one searchable entity layer before deeper migration work.
+              Open the collections page to see every section Darma covers and what is in each one.
             </p>
           </div>
           <Link href="/collections" className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 py-2 text-sm font-bold text-[var(--color-text-primary)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">

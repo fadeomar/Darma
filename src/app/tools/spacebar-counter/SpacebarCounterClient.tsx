@@ -626,7 +626,7 @@ export default function SpacebarCounterClient() {
                     <span className="relative flex items-center gap-4">
                       <Keyboard
                         className={cn(
-                          "h-12 w-12 text-[var(--color-primary)] sm:h-16 sm:w-16",
+                          "h-12 w-12 text-[var(--color-primary-text-strong)] sm:h-16 sm:w-16",
                           isRunning && "motion-safe:animate-bounce",
                         )}
                         aria-hidden
@@ -642,7 +642,7 @@ export default function SpacebarCounterClient() {
                     </span>
                   </button>
 
-                  <p className="mt-6 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                  <p className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                     {isCountdown
                       ? "Ready your keyboard"
                       : isRunning
@@ -675,7 +675,7 @@ export default function SpacebarCounterClient() {
                       metricValue={formatNumber(stats.pressesPerSecond, 2)}
                       icon={
                         <Trophy
-                          className="h-4 w-4 text-[var(--color-primary)]"
+                          className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                           aria-hidden
                         />
                       }
@@ -839,7 +839,7 @@ export default function SpacebarCounterClient() {
               title="Best run"
               icon={
                 <Crown
-                  className="h-4 w-4 text-[var(--color-primary)]"
+                  className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                   aria-hidden
                 />
               }
@@ -860,7 +860,7 @@ export default function SpacebarCounterClient() {
             >
               {personalBest ? (
                 <div className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-4">
-                  <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary)]">
+                  <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary-text-strong)]">
                     {formatNumber(personalBest.stats.pressesPerSecond, 2)} PPS
                   </p>
                   <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
@@ -876,7 +876,7 @@ export default function SpacebarCounterClient() {
               title="Last 10 runs"
               icon={
                 <History
-                  className="h-4 w-4 text-[var(--color-primary)]"
+                  className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                   aria-hidden
                 />
               }
@@ -922,7 +922,7 @@ export default function SpacebarCounterClient() {
               {
                 icon: (
                   <Medal
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -931,7 +931,7 @@ export default function SpacebarCounterClient() {
               {
                 icon: (
                   <Timer
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -940,7 +940,7 @@ export default function SpacebarCounterClient() {
               {
                 icon: (
                   <Hand
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -949,7 +949,7 @@ export default function SpacebarCounterClient() {
               {
                 icon: (
                   <ShieldCheck
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -958,7 +958,7 @@ export default function SpacebarCounterClient() {
               {
                 icon: (
                   <Info
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),
@@ -967,7 +967,7 @@ export default function SpacebarCounterClient() {
               {
                 icon: (
                   <Sparkles
-                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]"
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]"
                     aria-hidden
                   />
                 ),

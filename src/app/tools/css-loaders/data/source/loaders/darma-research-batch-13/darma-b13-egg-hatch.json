@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-egg-hatch",
+  "name": "Egg Hatch",
+  "category": "fun",
+  "tags": [
+    "egg",
+    "hatch",
+    "crack",
+    "shell",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .74); height: var(--loader-size); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 8%; width: 84%; height: 5%; border-radius: 999px; background: color-mix(in srgb, #000 16%, var(--accent-2)); }\n.loader span { position: absolute; left: 0; width: 100%; background: linear-gradient(color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); }\n.loader span:nth-child(1) { top: 4%; height: 50%; border-radius: 50% 50% 0 0 / 78% 78% 0 0; clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 76% 80%, 64% 100%, 52% 80%, 40% 100%, 28% 80%, 16% 100%, 0 84%); animation: lid calc(var(--loader-speed) * 2.2) cubic-bezier(.4, 1.4, .5, 1) infinite; }\n.loader span:nth-child(2) { bottom: 5%; height: 50%; border-radius: 0 0 50% 50% / 0 0 66% 66%; clip-path: polygon(0 16%, 16% 0, 28% 16%, 40% 0, 52% 16%, 64% 0, 76% 16%, 88% 0, 100% 16%, 100% 100%, 0 100%); }\n.loader::before { content: ''; position: absolute; z-index: -1; top: 34%; left: 38%; width: 24%; height: 22%; border-radius: 50% 50% 40% 40%; background: var(--accent-2); }\n@keyframes lid { 0%, 40% { transform: translateY(0) rotate(0deg); } 58% { transform: translateY(-24%) rotate(-11deg); } 74% { transform: translateY(-9%) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }",
+  "defaults": {
+    "color": "#fde68a",
+    "secondaryColor": "#f97316",
+    "size": 104,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

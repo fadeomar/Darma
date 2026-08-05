@@ -1,0 +1,253 @@
+{
+  "generatedAt": "2026-07-29T13:41:47.601Z",
+  "sourceEntries": 379,
+  "catalogEntries": 361,
+  "duplicateEntriesMerged": 18,
+  "duplicateGroups": [
+    {
+      "name": "CodePen",
+      "url": "https://codepen.io",
+      "originalUrls": [
+        "https://codepen.io/",
+        "https://codepen.io"
+      ],
+      "categories": [
+        "JavaScript Tools",
+        "Learning & Cheatsheets"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "DEV Community",
+      "url": "https://dev.to",
+      "originalUrls": [
+        "https://dev.to/",
+        "https://dev.to"
+      ],
+      "categories": [
+        "Learning & Cheatsheets",
+        "Productivity & Collaboration"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Can I Use",
+      "url": "https://caniuse.com",
+      "originalUrls": [
+        "https://caniuse.com/",
+        "https://caniuse.com"
+      ],
+      "categories": [
+        "Accessibility & Optimization",
+        "Learning & Cheatsheets"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "JSFiddle",
+      "url": "https://jsfiddle.net",
+      "originalUrls": [
+        "https://jsfiddle.net/",
+        "https://jsfiddle.net"
+      ],
+      "categories": [
+        "JavaScript Tools",
+        "Learning & Cheatsheets"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Layoutit Grid",
+      "url": "https://grid.layoutit.com",
+      "originalUrls": [
+        "https://grid.layoutit.com",
+        "https://grid.layoutit.com/"
+      ],
+      "categories": [
+        "Layout & CSS Generators"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "uiGradients",
+      "url": "https://uigradients.com",
+      "originalUrls": [
+        "https://uigradients.com/",
+        "https://uigradients.com"
+      ],
+      "categories": [
+        "Color & Gradient Tools",
+        "Layout & CSS Generators"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Animista",
+      "url": "https://animista.net",
+      "originalUrls": [
+        "https://animista.net/"
+      ],
+      "categories": [
+        "Animation & Effects",
+        "Layout & CSS Generators"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "CSS Animation Generator",
+      "url": "https://www.cssportal.com/css-animation-generator",
+      "originalUrls": [
+        "https://www.cssportal.com/css-animation-generator/"
+      ],
+      "categories": [
+        "Layout & CSS Generators"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "CSS Tooltip Generator",
+      "url": "https://www.cssportal.com/css-tooltip-generator",
+      "originalUrls": [
+        "https://www.cssportal.com/css-tooltip-generator/"
+      ],
+      "categories": [
+        "Layout & CSS Generators"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "CSS Ribbon Generator",
+      "url": "https://www.cssportal.com/css-ribbon-generator",
+      "originalUrls": [
+        "https://www.cssportal.com/css-ribbon-generator/"
+      ],
+      "categories": [
+        "Layout & CSS Generators"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Lottie",
+      "url": "https://lottiefiles.com",
+      "originalUrls": [
+        "https://lottiefiles.com/",
+        "https://lottiefiles.com"
+      ],
+      "categories": [
+        "Animation & Effects",
+        "Design Resources"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Coolors",
+      "url": "https://coolors.co",
+      "originalUrls": [
+        "https://coolors.co"
+      ],
+      "categories": [
+        "Color & Gradient Tools",
+        "Design Resources"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Color Hunt",
+      "url": "https://colorhunt.co",
+      "originalUrls": [
+        "https://colorhunt.co"
+      ],
+      "categories": [
+        "Color & Gradient Tools",
+        "Design Resources"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Contrast Checker",
+      "url": "https://webaim.org/resources/contrastchecker",
+      "originalUrls": [
+        "https://webaim.org/resources/contrastchecker"
+      ],
+      "categories": [
+        "Accessibility & Optimization",
+        "Color & Gradient Tools"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "SVGO",
+      "url": "https://jakearchibald.github.io/svgomg",
+      "originalUrls": [
+        "https://jakearchibald.github.io/svgomg"
+      ],
+      "categories": [
+        "Accessibility & Optimization",
+        "SVG & Image Tools"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Unsplash",
+      "url": "https://unsplash.com",
+      "originalUrls": [
+        "https://unsplash.com"
+      ],
+      "categories": [
+        "Design Resources",
+        "SVG & Image Tools"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Pexels",
+      "url": "https://www.pexels.com",
+      "originalUrls": [
+        "https://www.pexels.com"
+      ],
+      "categories": [
+        "Design Resources",
+        "SVG & Image Tools"
+      ],
+      "duplicateCount": 2
+    },
+    {
+      "name": "Figma",
+      "url": "https://www.figma.com",
+      "originalUrls": [
+        "https://www.figma.com"
+      ],
+      "categories": [
+        "Productivity & Collaboration",
+        "SVG & Image Tools"
+      ],
+      "duplicateCount": 2
+    }
+  ],
+  "categories": [
+    "Accessibility & Optimization",
+    "Animation & Effects",
+    "Color & Gradient Tools",
+    "Design Resources",
+    "JavaScript Tools",
+    "Layout & CSS Generators",
+    "Learning & Cheatsheets",
+    "Placeholder Image Services",
+    "Productivity & Collaboration",
+    "SVG & Image Tools",
+    "Typography & Spacing"
+  ],
+  "upgradedHttpCount": 10,
+  "missingDescriptionCount": 100,
+  "generatedFallbackDescriptions": 85,
+  "invalidUrls": [],
+  "iconCandidates": {
+    "withLogo": 361,
+    "withFavicon": 361,
+    "fallbackOnly": 0
+  },
+  "reviewStatus": {
+    "needsReview": 361,
+    "verified": 0
+  }
+}

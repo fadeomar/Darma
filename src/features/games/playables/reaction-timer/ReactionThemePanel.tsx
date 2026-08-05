@@ -30,7 +30,7 @@ export function ReactionThemePanel({
     <Card variant="default" padding="lg" className="rtp-theme-panel">
       <div className="rtp-theme-head">
         <div className="rtp-panel-head-left">
-          <Palette className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <Palette className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <div>
             <h3 className="rtp-panel-title">Themes & unlockables</h3>
             <p className="rtp-theme-subtitle">Choose a local arena look. Unlocks stay on this device only.</p>

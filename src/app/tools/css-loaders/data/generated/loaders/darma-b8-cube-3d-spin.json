@@ -1,0 +1,49 @@
+{
+  "id": "darma-b8-cube-3d-spin",
+  "name": "3D Cube Spin",
+  "category": "creative",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "cube",
+    "3d",
+    "rotate",
+    "box",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-cube-3d-spin 3d cube spin creative darma-research-batch-8 darma research batch 8 cube 3d rotate box creative html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-cube-3d-spin\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b8-cube-3d-spin__cube\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b8-cube-3d-spin { --accent: var(--loader-color, #6366f1); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 84px); height: var(--loader-size, 84px); display: grid; place-items: center; perspective: 600px; }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube { --s: calc(var(--loader-size, 84px) * .52); position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: darma-loader-darma-b8-cube-3d-spin-cube-spin calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span { position: absolute; inset: 0; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 82%, transparent), color-mix(in srgb, var(--accent-2) 82%, transparent)); border: 1px solid color-mix(in srgb, #fff 30%, transparent); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(1) { transform: rotateY(0deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(2) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(4) { transform: rotateY(270deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }\n@keyframes darma-loader-darma-b8-cube-3d-spin-cube-spin { 0% { transform: rotateX(-24deg) rotateY(0deg); } 100% { transform: rotateX(-24deg) rotateY(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#22d3ee",
+    "size": 84,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-cube-3d-spin\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b8-cube-3d-spin__cube\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+    "css": ".darma-loader-darma-b8-cube-3d-spin { --accent: var(--loader-color, #6366f1); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 84px); height: var(--loader-size, 84px); display: grid; place-items: center; perspective: 600px; }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube { --s: calc(var(--loader-size, 84px) * .52); position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: darma-loader-darma-b8-cube-3d-spin-cube-spin calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span { position: absolute; inset: 0; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 82%, transparent), color-mix(in srgb, var(--accent-2) 82%, transparent)); border: 1px solid color-mix(in srgb, #fff 30%, transparent); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(1) { transform: rotateY(0deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(2) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(4) { transform: rotateY(270deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }\n.darma-loader-darma-b8-cube-3d-spin .darma-loader-darma-b8-cube-3d-spin__cube span:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }\n@keyframes darma-loader-darma-b8-cube-3d-spin-cube-spin { 0% { transform: rotateX(-24deg) rotateY(0deg); } 100% { transform: rotateX(-24deg) rotateY(360deg); } }",
+    "react": "export default function DarmaB8Cube3dSpinLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-cube-3d-spin\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b8-cube-3d-spin__cube\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

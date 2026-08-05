@@ -30,7 +30,7 @@ export default async function TodoTemplateDetailPage({ params }: Props) {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <nav className="mb-6 text-sm text-[var(--color-text-secondary)]">
-        <Link href="/tools/todo-list/templates" className="font-semibold text-[var(--color-accent)]">Templates</Link>
+        <Link href="/tools/todo-list/templates" className="font-semibold text-[var(--color-accent-text)]">Templates</Link>
         <span className="mx-2">/</span>
         <span>{template.name}</span>
       </nav>
@@ -87,7 +87,7 @@ export default async function TodoTemplateDetailPage({ params }: Props) {
               <h2 className="text-lg font-black text-[var(--color-text-primary)]">Related templates</h2>
               <div className="mt-3 space-y-2">
                 {related.map((item) => (
-                  <Link key={item.id} href={`/tools/todo-list/templates/${item.id}`} className="block rounded-xl border border-[var(--color-border)] p-3 text-sm font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-accent)]">
+                  <Link key={item.id} href={`/tools/todo-list/templates/${item.id}`} className="block rounded-xl border border-[var(--color-border)] p-3 text-sm font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-accent-text)]">
                     {item.name}
                   </Link>
                 ))}

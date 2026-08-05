@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-server-rack",
+  "name": "Server Rack",
+  "category": "bars",
+  "tags": [
+    "server",
+    "rack",
+    "leds",
+    "datacenter",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .74); height: var(--loader-size); display: flex; flex-direction: column; gap: 4%; padding: 6%; border-radius: 6%; background: linear-gradient(#334155, #0b1220); box-shadow: inset 0 0 0 2px #475569; }\n.loader span { position: relative; flex: 1; border-radius: 3px; background: rgba(255, 255, 255, .08); }\n.loader span::before { content: ''; position: absolute; left: 7%; top: 32%; width: 44%; height: 34%; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .2) 0 11%, transparent 11% 22%); }\n.loader span::after { content: ''; position: absolute; right: 9%; top: 34%; width: calc(var(--loader-size) * .045); height: calc(var(--loader-size) * .045); border-radius: 50%; background: var(--accent); box-shadow: calc(var(--loader-size) * -.085) 0 0 var(--accent-2), calc(var(--loader-size) * -.17) 0 0 var(--accent); animation: rack-blink calc(var(--loader-speed) * 1.4) steps(2, end) infinite; }\n.loader span:nth-child(2)::after { animation-delay: calc(var(--loader-speed) * .22); }\n.loader span:nth-child(3)::after { animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-child(4)::after { animation-delay: calc(var(--loader-speed) * .66); }\n.loader span:nth-child(5)::after { animation-delay: calc(var(--loader-speed) * .88); }\n@keyframes rack-blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#f59e0b",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

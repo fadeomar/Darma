@@ -24,16 +24,16 @@ const variantClass: Record<ButtonVariant, string> = {
   ghost:
     "border border-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
   soft:
-    "border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]",
+    "border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]",
   danger:
     "border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] hover:border-[var(--color-danger)] hover:brightness-95",
 };
 
 const sizeClass: Record<ButtonSize, string> = {
-  sm: "min-h-8 rounded-[var(--radius-sm)] px-3 text-xs",
-  md: "min-h-[38px] rounded-[var(--radius-sm)] px-4 text-sm",
+  sm: "min-h-10 rounded-[var(--radius-sm)] px-3.5 text-sm",
+  md: "min-h-11 rounded-[var(--radius-sm)] px-4 text-sm",
   lg: "min-h-11 rounded-[var(--radius-md)] px-5 text-base",
-  icon: "h-[38px] w-[38px] rounded-[var(--radius-sm)] p-0",
+  icon: "h-10 w-10 rounded-[var(--radius-sm)] p-0",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

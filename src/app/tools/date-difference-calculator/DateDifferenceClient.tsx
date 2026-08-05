@@ -67,18 +67,18 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-sm)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-lg font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]" title={hint}>{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]" title={hint}>{hint}</div>
     </div>
   );
 }
 
 function FieldLabel({ children, hint }: { children: ReactNode; hint?: string }) {
   return (
-    <label className="block min-w-0 text-[11px] font-bold text-[var(--color-text-secondary)]">
+    <label className="block min-w-0 text-xs font-bold text-[var(--color-text-secondary)]">
       <span className="flex items-center justify-between gap-2">
         <span>{children}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
@@ -110,7 +110,7 @@ function ChecksList({ checks }: { checks: DateCheck[] }) {
             <span className="mt-0.5 shrink-0"><CheckIcon level={check.level} /></span>
             <div className="min-w-0">
               <div className="text-xs font-black">{check.title}</div>
-              <p className="mt-0.5 text-[11px] leading-5 opacity-90">{check.message}</p>
+              <p className="mt-0.5 text-xs leading-5 opacity-90">{check.message}</p>
             </div>
           </div>
         </div>
@@ -271,15 +271,15 @@ export default function DateDifferenceClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-start justify-between gap-2">
               <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a realistic date workflow, then adjust it.</p>
+                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</h2>
+                <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Load a realistic date workflow, then adjust it.</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {presets.map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -348,7 +348,7 @@ export default function DateDifferenceClient() {
               <div>
                 <FieldLabel hint="Optional">Holidays</FieldLabel>
                 <Textarea className="mt-1 min-h-20 font-mono text-xs" value={holidayInput} onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setHolidayInput(event.target.value)} placeholder={"2026-07-15\n2026-08-01"} aria-label="Holiday dates" />
-                <p className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">One YYYY-MM-DD value per line, comma, or semicolon.</p>
+                <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">One YYYY-MM-DD value per line, comma, or semicolon.</p>
               </div>
             </div>
           </section>
@@ -367,7 +367,7 @@ export default function DateDifferenceClient() {
                 <section className={`rounded-[var(--radius-lg)] border p-5 ${calendarResult || dateTimeResult ? "border-[var(--color-primary)]/30 bg-[var(--color-primary-subtle)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Calculated difference</div>
+                      <div className="text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Calculated difference</div>
                       <div className="mt-1 break-words text-3xl font-black tracking-tight text-[var(--color-text-primary)] sm:text-4xl">{resultLabel}</div>
                       <p className="mt-2 text-sm font-semibold leading-6 text-[var(--color-text-secondary)]">{summaryText}</p>
                     </div>
@@ -384,7 +384,7 @@ export default function DateDifferenceClient() {
                       ["Whole months", formatNumber(calendarResult.totalMonths, 0)],
                     ].map(([label, value]) => (
                       <div key={label} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                        <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+                        <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
                         <div className="mt-1 font-mono text-lg font-black text-[var(--color-text-primary)]">{value}</div>
                       </div>
                     ))}
@@ -400,7 +400,7 @@ export default function DateDifferenceClient() {
                       ["Total seconds", formatNumber(dateTimeResult.totalSeconds, 0)],
                     ].map(([label, value]) => (
                       <div key={label} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                        <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+                        <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
                         <div className="mt-1 font-mono text-lg font-black text-[var(--color-text-primary)]">{value}</div>
                       </div>
                     ))}
@@ -409,7 +409,7 @@ export default function DateDifferenceClient() {
 
                 {dateTimeResult ? (
                   <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-bg)] p-4 text-[var(--color-code-text)]">
-                    <h3 className="flex items-center gap-2 text-sm font-black"><MapPin className="h-4 w-4 text-[var(--color-primary)]" />UTC normalization</h3>
+                    <h3 className="flex items-center gap-2 text-sm font-black"><MapPin className="h-4 w-4 text-[var(--color-primary-text-strong)]" />UTC normalization</h3>
                     <dl className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
                       <div><dt className="text-[var(--color-text-tertiary)]">From UTC</dt><dd className="mt-1 break-all font-mono">{dateTimeResult.fromUtcIso}</dd></div>
                       <div><dt className="text-[var(--color-text-tertiary)]">To UTC</dt><dd className="mt-1 break-all font-mono">{dateTimeResult.toUtcIso}</dd></div>
@@ -420,7 +420,7 @@ export default function DateDifferenceClient() {
                 <section>
                   <div className="mb-2 flex items-center justify-between gap-2">
                     <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h3>
-                    <span className="text-[10px] text-[var(--color-text-tertiary)]">{checks.length} completed</span>
+                    <span className="text-xs text-[var(--color-text-tertiary)]">{checks.length} completed</span>
                   </div>
                   <ChecksList checks={checks} />
                 </section>
@@ -430,7 +430,7 @@ export default function DateDifferenceClient() {
             {activeTab === "business" ? (
               <div className="space-y-4">
                 <section className="rounded-[var(--radius-lg)] border border-[var(--color-primary)]/30 bg-[var(--color-primary-subtle)] p-5">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Working-day result</div>
+                  <div className="text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Working-day result</div>
                   <div className="mt-1 text-4xl font-black text-[var(--color-text-primary)]">{business?.businessDays ?? "—"} <span className="text-2xl text-[var(--color-text-tertiary)]">days</span></div>
                   <p className="mt-2 text-sm text-[var(--color-text-secondary)]">Using a {weekendPreset === "fri-sat" ? "Friday–Saturday" : weekendPreset === "sun-only" ? "Sunday-only" : "Saturday–Sunday"} weekend and {holidayParse.dates.length} valid holiday date(s).</p>
                 </section>
@@ -442,7 +442,7 @@ export default function DateDifferenceClient() {
                   ].map(([label, value]) => (
                     <div key={label} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-center">
                       <div className="font-mono text-2xl font-black text-[var(--color-text-primary)]">{value}</div>
-                      <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+                      <div className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
                     </div>
                   ))}
                 </div>
@@ -453,7 +453,7 @@ export default function DateDifferenceClient() {
                     <div><dt className="text-[var(--color-text-tertiary)]">Invalid</dt><dd className="mt-1 font-mono font-black text-[var(--color-text-primary)]">{holidayParse.invalid.length}</dd></div>
                     <div><dt className="text-[var(--color-text-tertiary)]">Duplicates</dt><dd className="mt-1 font-mono font-black text-[var(--color-text-primary)]">{holidayParse.duplicates.length}</dd></div>
                   </dl>
-                  {holidayParse.dates.length ? <div className="mt-3 flex flex-wrap gap-1.5">{holidayParse.dates.map((date) => <span key={date} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2 py-1 font-mono text-[10px] text-[var(--color-text-secondary)]">{date}</span>)}</div> : null}
+                  {holidayParse.dates.length ? <div className="mt-3 flex flex-wrap gap-1.5">{holidayParse.dates.map((date) => <span key={date} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2 py-1 font-mono text-xs text-[var(--color-text-secondary)]">{date}</span>)}</div> : null}
                 </section>
               </div>
             ) : null}
@@ -461,7 +461,7 @@ export default function DateDifferenceClient() {
             {activeTab === "milestones" ? (
               <div className="space-y-4">
                 <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
-                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Flag className="h-4 w-4 text-[var(--color-primary)]" />Range timeline</h3>
+                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Flag className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Range timeline</h3>
                   <div className="relative mt-8 h-2 rounded-full bg-[var(--color-border-strong)]">
                     <div className="absolute inset-0 rounded-full bg-[var(--color-primary)]/30" />
                     {milestones.map((milestone) => (
@@ -473,7 +473,7 @@ export default function DateDifferenceClient() {
                 </section>
                 <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
                   <table className="w-full min-w-[620px] text-left text-xs">
-                    <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Milestone</th><th className="px-3 py-2">Date</th><th className="px-3 py-2">Weekday</th><th className="px-3 py-2">Offset</th><th className="px-3 py-2">Progress</th></tr></thead>
+                    <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Milestone</th><th className="px-3 py-2">Date</th><th className="px-3 py-2">Weekday</th><th className="px-3 py-2">Offset</th><th className="px-3 py-2">Progress</th></tr></thead>
                     <tbody className="divide-y divide-[var(--color-border-subtle)]">
                       {milestones.map((milestone) => <tr key={milestone.id}><td className="px-3 py-2 font-bold text-[var(--color-text-primary)]">{milestone.label}</td><td className="px-3 py-2 font-mono text-[var(--color-text-secondary)]">{milestone.date}</td><td className="px-3 py-2 text-[var(--color-text-secondary)]">{milestone.weekday}</td><td className="px-3 py-2 font-mono text-[var(--color-text-secondary)]">{milestone.offsetDays >= 0 ? "+" : ""}{milestone.offsetDays}d</td><td className="px-3 py-2 font-mono text-[var(--color-text-secondary)]">{Math.round(milestone.progress * 100)}%</td></tr>)}
                     </tbody>

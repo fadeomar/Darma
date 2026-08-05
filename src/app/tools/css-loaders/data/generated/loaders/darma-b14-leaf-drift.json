@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-leaf-drift",
+  "name": "Leaf Drift",
+  "category": "creative",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "leaf",
+    "autumn",
+    "drift",
+    "fall",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-leaf-drift leaf drift creative darma-research-batch-14 darma research batch 14 leaf autumn drift fall creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-leaf-drift\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-leaf-drift { --accent: var(--loader-color, #ea580c); --accent-2: var(--loader-secondary-color, #a16207); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; overflow: hidden; }\n.darma-loader-darma-b14-leaf-drift::before { content: ''; position: absolute; top: 5%; left: -6%; width: 74%; height: 4%; border-radius: 999px; transform: rotate(-9deg); background: color-mix(in srgb, #000 38%, var(--accent-2)); }\n.darma-loader-darma-b14-leaf-drift span { position: absolute; top: 7%; width: calc(var(--loader-size, 108px) * .2); height: calc(var(--loader-size, 108px) * .13); border-radius: 0 72% 0 72%; background: linear-gradient(128deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b14-leaf-drift-drift-down calc(var(--loader-speed, 1s) * 3.4) linear infinite; }\n.darma-loader-darma-b14-leaf-drift span::after { content: ''; position: absolute; top: 46%; left: 10%; width: 80%; height: 9%; border-radius: 999px; transform: rotate(-16deg); background: color-mix(in srgb, #000 30%, var(--accent-2)); }\n.darma-loader-darma-b14-leaf-drift span:nth-child(1) { left: 8%; }\n.darma-loader-darma-b14-leaf-drift span:nth-child(2) { left: 28%; animation-delay: calc(var(--loader-speed, 1s) * -.85); }\n.darma-loader-darma-b14-leaf-drift span:nth-child(3) { left: 48%; animation-delay: calc(var(--loader-speed, 1s) * -1.7); }\n.darma-loader-darma-b14-leaf-drift span:nth-child(4) { left: 66%; animation-delay: calc(var(--loader-speed, 1s) * -2.55); }\n@keyframes darma-loader-darma-b14-leaf-drift-drift-down { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 10% { opacity: 1; } 40% { transform: translate(calc(var(--loader-size, 108px) * .17), calc(var(--loader-size, 108px) * .32)) rotate(160deg); } 70% { transform: translate(calc(var(--loader-size, 108px) * -.07), calc(var(--loader-size, 108px) * .6)) rotate(300deg); } 92% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(var(--loader-size, 108px) * .13), calc(var(--loader-size, 108px) * .9)) rotate(420deg); } }",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#a16207",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-leaf-drift\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b14-leaf-drift { --accent: var(--loader-color, #ea580c); --accent-2: var(--loader-secondary-color, #a16207); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; overflow: hidden; }\n.darma-loader-darma-b14-leaf-drift::before { content: ''; position: absolute; top: 5%; left: -6%; width: 74%; height: 4%; border-radius: 999px; transform: rotate(-9deg); background: color-mix(in srgb, #000 38%, var(--accent-2)); }\n.darma-loader-darma-b14-leaf-drift span { position: absolute; top: 7%; width: calc(var(--loader-size, 108px) * .2); height: calc(var(--loader-size, 108px) * .13); border-radius: 0 72% 0 72%; background: linear-gradient(128deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b14-leaf-drift-drift-down calc(var(--loader-speed, 1s) * 3.4) linear infinite; }\n.darma-loader-darma-b14-leaf-drift span::after { content: ''; position: absolute; top: 46%; left: 10%; width: 80%; height: 9%; border-radius: 999px; transform: rotate(-16deg); background: color-mix(in srgb, #000 30%, var(--accent-2)); }\n.darma-loader-darma-b14-leaf-drift span:nth-child(1) { left: 8%; }\n.darma-loader-darma-b14-leaf-drift span:nth-child(2) { left: 28%; animation-delay: calc(var(--loader-speed, 1s) * -.85); }\n.darma-loader-darma-b14-leaf-drift span:nth-child(3) { left: 48%; animation-delay: calc(var(--loader-speed, 1s) * -1.7); }\n.darma-loader-darma-b14-leaf-drift span:nth-child(4) { left: 66%; animation-delay: calc(var(--loader-speed, 1s) * -2.55); }\n@keyframes darma-loader-darma-b14-leaf-drift-drift-down { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 10% { opacity: 1; } 40% { transform: translate(calc(var(--loader-size, 108px) * .17), calc(var(--loader-size, 108px) * .32)) rotate(160deg); } 70% { transform: translate(calc(var(--loader-size, 108px) * -.07), calc(var(--loader-size, 108px) * .6)) rotate(300deg); } 92% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(var(--loader-size, 108px) * .13), calc(var(--loader-size, 108px) * .9)) rotate(420deg); } }",
+    "react": "export default function DarmaB14LeafDriftLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-leaf-drift\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-hydraulic-press",
+  "name": "Hydraulic Press",
+  "category": "progress",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "hydraulic",
+    "press",
+    "crush",
+    "industrial",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-hydraulic-press hydraulic press progress darma-research-batch-14 darma research batch 14 hydraulic press crush industrial progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-hydraulic-press\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-hydraulic-press__platen\"></div><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-hydraulic-press { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .88); position: relative; }\n.darma-loader-darma-b14-hydraulic-press::before { content: ''; position: absolute; z-index: 3; top: 0; left: 0; width: 100%; height: 13%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 18%, var(--accent-2)), color-mix(in srgb, #000 38%, var(--accent-2))); }\n.darma-loader-darma-b14-hydraulic-press::after { content: ''; position: absolute; z-index: 3; bottom: 0; left: 0; width: 100%; height: 10%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 38%, var(--accent-2)), color-mix(in srgb, #000 18%, var(--accent-2))); }\n.darma-loader-darma-b14-hydraulic-press .darma-loader-darma-b14-hydraulic-press__platen { position: absolute; z-index: 2; left: 15%; width: 70%; height: 13%; border-radius: 2px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: darma-loader-darma-b14-hydraulic-press-press-down calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b14-hydraulic-press .darma-loader-darma-b14-hydraulic-press__platen::after { content: ''; position: absolute; bottom: 100%; left: 44%; width: 12%; height: 340%; background: linear-gradient(90deg, #94a3b8, #e2e8f0, #94a3b8); }\n.darma-loader-darma-b14-hydraulic-press span { position: absolute; bottom: 10%; left: 34%; width: 32%; height: 26%; border-radius: 2px; transform-origin: bottom center; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); animation: darma-loader-darma-b14-hydraulic-press-crush calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes darma-loader-darma-b14-hydraulic-press-press-down { 0%, 12% { top: 13%; } 44%, 56% { top: 66%; } 88%, 100% { top: 13%; } }\n@keyframes darma-loader-darma-b14-hydraulic-press-crush { 0%, 26% { transform: scale(1, 1); } 46%, 56% { transform: scale(1.28, .42); } 80%, 100% { transform: scale(1, 1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#475569",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-hydraulic-press\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b14-hydraulic-press__platen\"></div><span></span></div>",
+    "css": ".darma-loader-darma-b14-hydraulic-press { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .88); position: relative; }\n.darma-loader-darma-b14-hydraulic-press::before { content: ''; position: absolute; z-index: 3; top: 0; left: 0; width: 100%; height: 13%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 18%, var(--accent-2)), color-mix(in srgb, #000 38%, var(--accent-2))); }\n.darma-loader-darma-b14-hydraulic-press::after { content: ''; position: absolute; z-index: 3; bottom: 0; left: 0; width: 100%; height: 10%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 38%, var(--accent-2)), color-mix(in srgb, #000 18%, var(--accent-2))); }\n.darma-loader-darma-b14-hydraulic-press .darma-loader-darma-b14-hydraulic-press__platen { position: absolute; z-index: 2; left: 15%; width: 70%; height: 13%; border-radius: 2px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: darma-loader-darma-b14-hydraulic-press-press-down calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b14-hydraulic-press .darma-loader-darma-b14-hydraulic-press__platen::after { content: ''; position: absolute; bottom: 100%; left: 44%; width: 12%; height: 340%; background: linear-gradient(90deg, #94a3b8, #e2e8f0, #94a3b8); }\n.darma-loader-darma-b14-hydraulic-press span { position: absolute; bottom: 10%; left: 34%; width: 32%; height: 26%; border-radius: 2px; transform-origin: bottom center; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); animation: darma-loader-darma-b14-hydraulic-press-crush calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes darma-loader-darma-b14-hydraulic-press-press-down { 0%, 12% { top: 13%; } 44%, 56% { top: 66%; } 88%, 100% { top: 13%; } }\n@keyframes darma-loader-darma-b14-hydraulic-press-crush { 0%, 26% { transform: scale(1, 1); } 46%, 56% { transform: scale(1.28, .42); } 80%, 100% { transform: scale(1, 1); } }",
+    "react": "export default function DarmaB14HydraulicPressLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-hydraulic-press\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b14-hydraulic-press__platen\"></div><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -38,7 +38,7 @@ export default function ButtonCSSGeneratorArticle() {
           const Icon = card.icon;
           return (
             <div key={card.title} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-xs)]">
-              <Icon className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+              <Icon className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h3 className="mt-3 font-bold text-[var(--color-text-primary)]">{card.title}</h3>
               <p className="mt-1 text-xs leading-6 text-[var(--color-text-tertiary)]">{card.description}</p>
             </div>

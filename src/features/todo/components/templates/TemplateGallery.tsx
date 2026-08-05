@@ -183,7 +183,7 @@ function TemplateCard({ template, onClick }: { template: TodoTemplate; onClick: 
       <span className="todo-template-card__desc">{template.description}</span>
       <span className="todo-template-card__meta">
         <span className="todo-chip todo-chip--xs">{template.category}</span>
-        <span className="todo-muted text-[10px]">{template.tasks.length} tasks · {VIEW_LABELS[template.defaultView]}</span>
+        <span className="todo-muted text-xs">{template.tasks.length} tasks · {VIEW_LABELS[template.defaultView]}</span>
       </span>
     </button>
   );

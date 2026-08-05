@@ -9,7 +9,7 @@ function StatCard({ label, value, index }: { label: string; value: string | numb
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
       <div className="flex items-center gap-2 text-[var(--color-text-tertiary)]">
         <Icon className="h-4 w-4" aria-hidden />
-        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em]">{label}</span>
+        <span className="font-mono text-xs font-bold uppercase tracking-[0.08em]">{label}</span>
       </div>
       <p className="mt-2 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{value}</p>
     </div>

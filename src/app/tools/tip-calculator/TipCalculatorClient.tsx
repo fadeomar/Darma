@@ -57,11 +57,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -69,9 +69,9 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function MetricCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <div className="truncate text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate font-mono text-lg font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
-      {hint ? <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]">{hint}</div> : null}
+      {hint ? <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div> : null}
     </div>
   );
 }
@@ -79,7 +79,7 @@ function MetricCard({ label, value, hint }: { label: string; value: string; hint
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -222,8 +222,8 @@ export default function TipCalculatorClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a realistic receipt and edit any value.</p>
+                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</h2>
+                <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Load a realistic receipt and edit any value.</p>
               </div>
               <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
@@ -231,7 +231,7 @@ export default function TipCalculatorClient() {
               {TIP_PRESETS.map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -239,10 +239,10 @@ export default function TipCalculatorClient() {
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-center gap-2">
-              <Calculator className="h-4 w-4 text-[var(--color-primary)]" />
+              <Calculator className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Receipt amounts</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Enter percentages exactly as shown on the receipt.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Enter percentages exactly as shown on the receipt.</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -257,10 +257,10 @@ export default function TipCalculatorClient() {
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-center gap-2">
-              <Users className="h-4 w-4 text-[var(--color-primary)]" />
+              <Users className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Split settings</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Use equal shares or weighted guests.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Use equal shares or weighted guests.</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -285,7 +285,7 @@ export default function TipCalculatorClient() {
                 <div className="space-y-4">
                   <div className="grid gap-3 md:grid-cols-[minmax(0,1.4fr)_minmax(220px,0.6fr)]">
                     <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-5">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Total to collect</div>
+                      <div className="text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Total to collect</div>
                       <div className="mt-1 text-4xl font-black tracking-tight text-[var(--color-text-primary)]">{formatMoney(result.totalCollected, currency)}</div>
                       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-text-tertiary)]">
                         <span>Calculated: <strong className="text-[var(--color-text-secondary)]">{formatMoney(result.totalBeforeRounding, currency)}</strong></span>
@@ -293,7 +293,7 @@ export default function TipCalculatorClient() {
                       </div>
                     </div>
                     <div className="rounded-[var(--radius-lg)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)]/5 p-5 text-center">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-primary)]">Average per guest</div>
+                      <div className="text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-primary-text-strong)]">Average per guest</div>
                       <div className="mt-2 text-3xl font-black tracking-tight text-[var(--color-text-primary)]">{formatMoney(result.averagePerPerson, currency)}</div>
                       <div className="mt-1 text-xs text-[var(--color-text-tertiary)]">{result.people} share{result.people === 1 ? "" : "s"}</div>
                     </div>
@@ -307,7 +307,7 @@ export default function TipCalculatorClient() {
                   </div>
 
                   <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                    <div className="mb-3 flex items-center justify-between gap-2"><h3 className="text-sm font-black text-[var(--color-text-primary)]">Cost breakdown</h3><span className="text-[10px] text-[var(--color-text-tertiary)]">relative to largest component</span></div>
+                    <div className="mb-3 flex items-center justify-between gap-2"><h3 className="text-sm font-black text-[var(--color-text-primary)]">Cost breakdown</h3><span className="text-xs text-[var(--color-text-tertiary)]">relative to largest component</span></div>
                     <div className="space-y-3">
                       {breakdown.map((item) => (
                         <div key={item.label} className="grid grid-cols-[74px_minmax(0,1fr)_auto] items-center gap-3">
@@ -329,7 +329,7 @@ export default function TipCalculatorClient() {
             {activeTab === "guests" ? (
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Guest allocation</h3><p className="text-[11px] text-[var(--color-text-tertiary)]">Weights represent relative consumption—not currency amounts.</p></div>
+                  <div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Guest allocation</h3><p className="text-xs text-[var(--color-text-tertiary)]">Weights represent relative consumption—not currency amounts.</p></div>
                   <div className="flex gap-2"><Button size="sm" variant={splitMode === "equal" ? "soft" : "secondary"} onClick={() => setSplitMode("equal")}>Equal</Button><Button size="sm" variant={splitMode === "weighted" ? "soft" : "secondary"} onClick={() => setSplitMode("weighted")}>Weighted</Button>{splitMode === "weighted" ? <Button size="sm" variant="secondary" onClick={addGuest} leftIcon={<Plus className="h-3.5 w-3.5" />}>Add guest</Button> : null}</div>
                 </div>
 
@@ -341,7 +341,7 @@ export default function TipCalculatorClient() {
                         <div key={guest.id} className="grid gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 sm:grid-cols-[minmax(150px,1fr)_110px_120px_36px] sm:items-end">
                           <Field label={`Guest ${index + 1}`}><Input value={guest.name} onChange={(event) => updateGuest(guest.id, { name: event.target.value })} aria-label={`Guest ${index + 1} name`} /></Field>
                           <Field label="Weight"><Input type="text" inputMode="decimal" value={Number.isFinite(guest.weight) ? String(guest.weight) : ""} onChange={(event) => updateGuest(guest.id, { weight: parseNumber(event.target.value) })} aria-label={`${guest.name} weight`} /></Field>
-                          <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] px-3 py-2 text-right"><div className="font-mono text-sm font-black text-[var(--color-text-primary)]">{share ? formatMoney(share.finalShare, currency) : "—"}</div><div className="text-[10px] text-[var(--color-text-tertiary)]">{share ? `${share.sharePercent.toFixed(1)}% share` : "invalid weight"}</div></div>
+                          <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] px-3 py-2 text-right"><div className="font-mono text-sm font-black text-[var(--color-text-primary)]">{share ? formatMoney(share.finalShare, currency) : "—"}</div><div className="text-xs text-[var(--color-text-tertiary)]">{share ? `${share.sharePercent.toFixed(1)}% share` : "invalid weight"}</div></div>
                           <Button size="icon" variant="ghost" onClick={() => removeGuest(guest.id)} disabled={guests.length <= 1} aria-label={`Remove ${guest.name}`} leftIcon={<Trash2 className="h-4 w-4" />} />
                         </div>
                       );
@@ -352,7 +352,7 @@ export default function TipCalculatorClient() {
                 {result ? (
                   <div className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)]">
                     <table className="w-full min-w-[620px] text-left text-xs">
-                      <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Guest</th><th className="px-3 py-2 text-right">Weight</th><th className="px-3 py-2 text-right">Share</th><th className="px-3 py-2 text-right">Exact</th><th className="px-3 py-2 text-right">Final</th><th className="px-3 py-2 text-right">Rounding</th></tr></thead>
+                      <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Guest</th><th className="px-3 py-2 text-right">Weight</th><th className="px-3 py-2 text-right">Share</th><th className="px-3 py-2 text-right">Exact</th><th className="px-3 py-2 text-right">Final</th><th className="px-3 py-2 text-right">Rounding</th></tr></thead>
                       <tbody className="divide-y divide-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
                         {result.guestShares.map((share) => <tr key={share.id}><td className="px-3 py-2.5 font-bold text-[var(--color-text-primary)]">{share.name}</td><td className="px-3 py-2.5 text-right font-mono text-[var(--color-text-secondary)]">{share.weight}</td><td className="px-3 py-2.5 text-right font-mono text-[var(--color-text-secondary)]">{share.sharePercent.toFixed(2)}%</td><td className="px-3 py-2.5 text-right font-mono text-[var(--color-text-secondary)]">{formatMoney(share.exactShare, currency)}</td><td className="px-3 py-2.5 text-right font-mono font-black text-[var(--color-text-primary)]">{formatMoney(share.finalShare, currency)}</td><td className="px-3 py-2.5 text-right font-mono text-[var(--color-text-tertiary)]">{formatMoney(share.roundingDelta, currency)}</td></tr>)}
                       </tbody>
@@ -364,10 +364,10 @@ export default function TipCalculatorClient() {
 
             {activeTab === "scenarios" ? (
               <div className="space-y-4">
-                <div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Common tip comparison</h3><p className="text-[11px] text-[var(--color-text-tertiary)]">All scenarios keep the current tax, service, basis, split, currency, and rounding settings.</p></div>
+                <div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Common tip comparison</h3><p className="text-xs text-[var(--color-text-tertiary)]">All scenarios keep the current tax, service, basis, split, currency, and rounding settings.</p></div>
                 <div className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)]">
                   <table className="w-full min-w-[560px] text-left text-xs">
-                    <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Tip rate</th><th className="px-3 py-2 text-right">Tip amount</th><th className="px-3 py-2 text-right">Bill total</th><th className="px-3 py-2 text-right">Average share</th><th className="px-3 py-2 text-right">Action</th></tr></thead>
+                    <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Tip rate</th><th className="px-3 py-2 text-right">Tip amount</th><th className="px-3 py-2 text-right">Bill total</th><th className="px-3 py-2 text-right">Average share</th><th className="px-3 py-2 text-right">Action</th></tr></thead>
                     <tbody className="divide-y divide-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
                       {scenarios.map((scenario) => <tr key={scenario.tipPercent} className={scenario.tipPercent === input.tipPercent ? "bg-[var(--color-primary)]/5" : ""}><td className="px-3 py-2.5 font-mono font-black text-[var(--color-text-primary)]">{scenario.tipPercent}%</td><td className="px-3 py-2.5 text-right font-mono text-[var(--color-text-secondary)]">{formatMoney(scenario.tipAmount, currency)}</td><td className="px-3 py-2.5 text-right font-mono font-bold text-[var(--color-text-primary)]">{formatMoney(scenario.total, currency)}</td><td className="px-3 py-2.5 text-right font-mono text-[var(--color-text-secondary)]">{formatMoney(scenario.averagePerPerson, currency)}</td><td className="px-3 py-2.5 text-right"><Button size="sm" variant="ghost" onClick={() => setRawTip(String(scenario.tipPercent))}>Use</Button></td></tr>)}
                     </tbody>
@@ -378,13 +378,13 @@ export default function TipCalculatorClient() {
 
             {activeTab === "exports" ? (
               <div className="space-y-4">
-                <div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Production review</h3><p className="text-[11px] text-[var(--color-text-tertiary)]">Review assumptions before sharing or collecting money.</p></div>
+                <div><h3 className="text-sm font-black text-[var(--color-text-primary)]">Production review</h3><p className="text-xs text-[var(--color-text-tertiary)]">Review assumptions before sharing or collecting money.</p></div>
                 <div className="grid gap-2 md:grid-cols-2">
-                  {checks.map((check) => <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}><div className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /><div><div className="text-xs font-black">{check.title}</div><div className="mt-1 text-[11px] leading-4 opacity-90">{check.message}</div></div></div></div>)}
+                  {checks.map((check) => <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}><div className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /><div><div className="text-xs font-black">{check.title}</div><div className="mt-1 text-xs leading-4 opacity-90">{check.message}</div></div></div></div>)}
                 </div>
 
                 <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><PackageCheck className="h-4 w-4 text-[var(--color-primary)]" />Practical exports</h3>
+                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><PackageCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical exports</h3>
                   <div className="mt-3 grid grid-cols-2 gap-2 lg:grid-cols-3">
                     <Button size="sm" variant="secondary" disabled={!result} onClick={() => downloadText("bill-split-summary.md", markdown, "text/markdown;charset=utf-8")} leftIcon={<ReceiptText className="h-4 w-4" />}>Markdown</Button>
                     <Button size="sm" variant="secondary" disabled={!result} onClick={() => downloadText("guest-shares.csv", guestCsv, "text/csv;charset=utf-8")} leftIcon={<FileSpreadsheet className="h-4 w-4" />}>Guest CSV</Button>
@@ -396,8 +396,8 @@ export default function TipCalculatorClient() {
                 </div>
 
                 <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <div className="mb-2 flex items-center justify-between gap-2"><h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><WalletCards className="h-4 w-4 text-[var(--color-primary)]" />Shareable summary</h3><CopyButton text={markdown} size="sm" variant="secondary" disabled={!result}>Copy</CopyButton></div>
-                  <pre className="max-h-64 overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-3 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">{markdown}</pre>
+                  <div className="mb-2 flex items-center justify-between gap-2"><h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><WalletCards className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Shareable summary</h3><CopyButton text={markdown} size="sm" variant="secondary" disabled={!result}>Copy</CopyButton></div>
+                  <pre className="max-h-64 overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-3 font-mono text-xs leading-5 text-[var(--color-text-secondary)]">{markdown}</pre>
                 </div>
               </div>
             ) : null}

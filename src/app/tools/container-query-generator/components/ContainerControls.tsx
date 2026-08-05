@@ -92,9 +92,9 @@ export function ContainerControls({
               <button key={breakpoint.id} type="button" onClick={() => onPatch({ selectedBreakpointId: breakpoint.id })} className={cn("w-full rounded-[var(--radius-md)] border p-2 text-left text-xs transition", selected ? "border-[var(--color-accent)] bg-[var(--color-accent)]/10" : "border-[var(--color-border)] bg-[var(--color-surface-strong)] hover:border-[var(--color-border-strong)]")}>
                 <span className="flex min-w-0 items-center justify-between gap-2">
                   <strong className="truncate text-[var(--color-text)]">{breakpoint.name}</strong>
-                  <span className="shrink-0 rounded-full bg-[var(--color-bg-soft)] px-2 py-0.5 text-[10px] font-bold text-[var(--color-text-soft)]">{breakpoint.styles.length} rules</span>
+                  <span className="shrink-0 rounded-full bg-[var(--color-bg-soft)] px-2 py-0.5 text-xs font-bold text-[var(--color-text-soft)]">{breakpoint.styles.length} rules</span>
                 </span>
-                <span className="mt-1 block truncate font-mono text-[11px] text-[var(--color-text-soft)]">{formatContainerCondition(breakpoint)}</span>
+                <span className="mt-1 block truncate font-mono text-xs text-[var(--color-text-soft)]">{formatContainerCondition(breakpoint)}</span>
               </button>
             );
           })}
@@ -142,11 +142,11 @@ export function ContainerControls({
 }
 
 function Metric({ label, value }: { label: string; value: string | number }) {
-  return <div className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-2"><div className="text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-soft)]">{label}</div><div className="mt-1 truncate text-sm font-black text-[var(--color-text)]">{value}</div></div>;
+  return <div className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-2"><div className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-soft)]">{label}</div><div className="mt-1 truncate text-sm font-black text-[var(--color-text)]">{value}</div></div>;
 }
 
 function Toggle({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
-  return <button type="button" onClick={onClick} className={cn("rounded-[var(--radius-sm)] border px-2 py-1.5 text-left font-bold transition", active ? "border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-[var(--color-accent)]" : "border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text-soft)]")}>{label}</button>;
+  return <button type="button" onClick={onClick} className={cn("rounded-[var(--radius-sm)] border px-2 py-1.5 text-left font-bold transition", active ? "border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-[var(--color-accent-text)]" : "border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text-soft)]")}>{label}</button>;
 }
 
 function StyleRuleRow({ rule, onUpdate, onRemove }: { rule: ContainerStyleRule; onUpdate: (patch: Partial<ContainerStyleRule>) => void; onRemove: () => void }) {

@@ -56,7 +56,7 @@ function Field({ label, hint, count, children }: { label: string; hint?: string;
     <label className="grid min-w-0 gap-1.5 text-xs font-semibold text-[var(--color-text-secondary)]">
       <span className="flex items-center justify-between gap-3">
         <span>{label}</span>
-        {count ? <span className="font-mono text-[10px] font-normal text-[var(--color-text-tertiary)]">{count}</span> : null}
+        {count ? <span className="font-mono text-xs font-normal text-[var(--color-text-tertiary)]">{count}</span> : null}
       </span>
       {children}
       {hint ? <span className="font-normal leading-5 text-[var(--color-text-tertiary)]">{hint}</span> : null}
@@ -67,7 +67,7 @@ function Field({ label, hint, count, children }: { label: string; hint?: string;
 function SummaryCard({ label, value, detail }: { label: string; value: string; detail: string }) {
   return (
     <Card padding="sm" className="min-w-0">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-2 truncate text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]" title={value}>{value}</p>
       <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{detail}</p>
     </Card>
@@ -84,7 +84,7 @@ function PreviewImageStatus({ configured, alt }: { configured: boolean; alt: str
   return (
     <div className="grid min-h-36 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[linear-gradient(145deg,var(--color-surface-subtle),var(--color-surface-base))] p-5 text-center">
       <div>
-        <Share2 className="mx-auto h-7 w-7 text-[var(--color-primary)]" aria-hidden />
+        <Share2 className="mx-auto h-7 w-7 text-[var(--color-primary-text-strong)]" aria-hidden />
         <p className="mt-2 text-sm font-black text-[var(--color-text-primary)]">{configured ? "Social image URL configured" : "No social image configured"}</p>
         <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
           {configured ? (alt || "Add image alt text before handoff.") : "Add an absolute image URL for richer cards."}
@@ -191,7 +191,7 @@ export default function MetaTagClient() {
               <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-card)]" aria-label="Social card preview">
                 <PreviewImageStatus configured={Boolean(preview.imageUrl)} alt={preview.imageAlt} />
                 <div className="p-4">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preview.siteName} · {preview.domain}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preview.siteName} · {preview.domain}</p>
                   <h3 className="mt-2 max-h-12 overflow-hidden text-base font-black leading-6 text-[var(--color-text-primary)]">{preview.title}</h3>
                   <p className="mt-1 max-h-10 overflow-hidden text-xs leading-5 text-[var(--color-text-secondary)]">{preview.description}</p>
                 </div>

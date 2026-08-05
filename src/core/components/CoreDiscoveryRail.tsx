@@ -35,7 +35,7 @@ export function CoreDiscoveryRail<TEntity extends CoreEntity = CoreEntity>({
           {description ? <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">{description}</p> : null}
         </div>
         {href ? (
-          <Link href={href} className="hidden items-center gap-2 text-sm font-bold text-[var(--color-primary)] hover:underline sm:inline-flex">
+          <Link href={href} className="hidden items-center gap-2 text-sm font-bold text-[var(--color-primary-text-strong)] hover:underline sm:inline-flex">
             {ctaLabel}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>

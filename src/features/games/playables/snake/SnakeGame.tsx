@@ -313,7 +313,7 @@ export function SnakeGame({ game }: { game: GameDefinition }) {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 sm:px-5">
         <div>
           {!focusMode ? (
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">
+            <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">
               Arcade pro build
             </p>
           ) : null}
@@ -360,7 +360,7 @@ export function SnakeGame({ game }: { game: GameDefinition }) {
             {state.status !== "running" ? (
               <div className="absolute inset-0 flex items-center justify-center rounded-[var(--radius-md)] bg-black/55 p-5 text-center backdrop-blur-md">
                 <div className="max-w-sm">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
                     {state.status === "game-over" ? (
                       <Trophy className="h-7 w-7" aria-hidden />
                     ) : (
@@ -590,7 +590,7 @@ function Stat({ label, value }: { label: string; value: string }) {
       <div className="font-mono text-lg font-black text-[var(--color-text-primary)]">
         {value}
       </div>
-      <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
     </div>
@@ -609,7 +609,7 @@ function Feature({
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
       <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]">
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
         {title}
       </div>
       <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">

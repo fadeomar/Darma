@@ -17,7 +17,7 @@ function ToolArticleRoot({ children, className }: ToolArticleProps) {
     <article
       className={cn(
         "mx-auto max-w-4xl rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 text-sm leading-7 text-[var(--color-text-secondary)] shadow-[var(--shadow-card)] sm:p-7",
-        "[&_a]:font-semibold [&_a]:text-[var(--color-primary)] [&_a:hover]:text-[var(--color-primary-hover)]",
+        "[&_a]:font-semibold [&_a]:text-[var(--color-primary-text-strong)] [&_a:hover]:text-[var(--color-primary-hover)]",
         "[&_code]:rounded-[var(--radius-xs)] [&_code]:border [&_code]:border-[var(--color-code-border)] [&_code]:bg-[var(--color-code-bg)] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[var(--color-code-text)]",
         "[&_pre]:overflow-auto [&_pre]:rounded-[var(--radius-md)] [&_pre]:border [&_pre]:border-[var(--color-code-border)] [&_pre]:bg-[var(--color-code-bg)] [&_pre]:p-4 [&_pre]:font-mono [&_pre]:text-xs [&_pre]:leading-6 [&_pre]:text-[var(--color-code-text)]",
         className,

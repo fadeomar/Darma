@@ -1,0 +1,48 @@
+{
+  "id": "darma-b9-lava-lamp",
+  "name": "Lava Lamp",
+  "category": "creative",
+  "sourceId": "darma-research-batch-9",
+  "tags": [
+    "lava",
+    "lamp",
+    "blob",
+    "retro",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b9-lava-lamp lava lamp creative darma-research-batch-9 darma research batch 9 lava lamp blob retro creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b9-lava-lamp\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b9-lava-lamp { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #e11d48); width: calc(var(--loader-size, 100px) * .62); height: var(--loader-size, 100px); border-radius: calc(var(--loader-size, 100px) * .3); background: linear-gradient(color-mix(in srgb, var(--accent) 14%, transparent), color-mix(in srgb, var(--accent-2) 14%, transparent)); position: relative; overflow: hidden; }\n.darma-loader-darma-b9-lava-lamp span { position: absolute; left: 50%; width: calc(var(--loader-size, 100px) * .42); height: calc(var(--loader-size, 100px) * .42); margin-left: calc(var(--loader-size, 100px) * -.21); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); animation: darma-loader-darma-b9-lava-lamp-lava-a calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b9-lava-lamp span:nth-child(2) { width: calc(var(--loader-size, 100px) * .28); height: calc(var(--loader-size, 100px) * .28); margin-left: calc(var(--loader-size, 100px) * -.14); background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent-2)); animation: darma-loader-darma-b9-lava-lamp-lava-b calc(var(--loader-speed, 1s) * 5) ease-in-out infinite; }\n@keyframes darma-loader-darma-b9-lava-lamp-lava-a { 0%, 100% { bottom: -14%; border-radius: 50% 50% 44% 46%; } 50% { bottom: 76%; border-radius: 46% 44% 50% 48%; } }\n@keyframes darma-loader-darma-b9-lava-lamp-lava-b { 0%, 100% { bottom: 72%; } 50% { bottom: -10%; } }",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#e11d48",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b9-lava-lamp\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b9-lava-lamp { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #e11d48); width: calc(var(--loader-size, 100px) * .62); height: var(--loader-size, 100px); border-radius: calc(var(--loader-size, 100px) * .3); background: linear-gradient(color-mix(in srgb, var(--accent) 14%, transparent), color-mix(in srgb, var(--accent-2) 14%, transparent)); position: relative; overflow: hidden; }\n.darma-loader-darma-b9-lava-lamp span { position: absolute; left: 50%; width: calc(var(--loader-size, 100px) * .42); height: calc(var(--loader-size, 100px) * .42); margin-left: calc(var(--loader-size, 100px) * -.21); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); animation: darma-loader-darma-b9-lava-lamp-lava-a calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b9-lava-lamp span:nth-child(2) { width: calc(var(--loader-size, 100px) * .28); height: calc(var(--loader-size, 100px) * .28); margin-left: calc(var(--loader-size, 100px) * -.14); background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent-2)); animation: darma-loader-darma-b9-lava-lamp-lava-b calc(var(--loader-speed, 1s) * 5) ease-in-out infinite; }\n@keyframes darma-loader-darma-b9-lava-lamp-lava-a { 0%, 100% { bottom: -14%; border-radius: 50% 50% 44% 46%; } 50% { bottom: 76%; border-radius: 46% 44% 50% 48%; } }\n@keyframes darma-loader-darma-b9-lava-lamp-lava-b { 0%, 100% { bottom: 72%; } 50% { bottom: -10%; } }",
+    "react": "export default function DarmaB9LavaLampLoader() {\n  return (\n    <div className=\"darma-loader-darma-b9-lava-lamp\" aria-label=\"Loading\"><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 9",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

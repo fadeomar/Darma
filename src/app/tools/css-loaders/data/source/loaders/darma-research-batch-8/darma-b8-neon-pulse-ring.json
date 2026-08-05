@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-neon-pulse-ring",
+  "name": "Neon Pulse Ring",
+  "category": "pulse",
+  "tags": ["neon", "glow", "ring", "pulse", "cyberpunk"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; border: calc(var(--loader-size) * .05) solid var(--accent); position: relative; animation: neon calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader::before { content: ''; position: absolute; inset: 18%; border-radius: 50%; border: calc(var(--loader-size) * .03) solid var(--accent-2); box-shadow: 0 0 calc(var(--loader-size) * .1) var(--accent-2), inset 0 0 calc(var(--loader-size) * .06) var(--accent-2); }\n@keyframes neon { 0%, 100% { box-shadow: 0 0 calc(var(--loader-size) * .08) var(--accent), inset 0 0 calc(var(--loader-size) * .08) var(--accent); opacity: .7; } 50% { box-shadow: 0 0 calc(var(--loader-size) * .3) var(--accent), inset 0 0 calc(var(--loader-size) * .2) var(--accent); opacity: 1; } }",
+  "defaults": { "color": "#22d3ee", "secondaryColor": "#e879f9", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

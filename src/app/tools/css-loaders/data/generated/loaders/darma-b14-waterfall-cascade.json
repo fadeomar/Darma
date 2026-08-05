@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-waterfall-cascade",
+  "name": "Waterfall Cascade",
+  "category": "creative",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "waterfall",
+    "cascade",
+    "cliff",
+    "mist",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-waterfall-cascade waterfall cascade creative darma-research-batch-14 darma research batch 14 waterfall cascade cliff mist creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-waterfall-cascade\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-waterfall-cascade { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #334155); width: var(--loader-size, 104px); height: var(--loader-size, 104px); position: relative; overflow: hidden; border-radius: 6%; background: color-mix(in srgb, #fff 30%, var(--accent-2)); }\n.darma-loader-darma-b14-waterfall-cascade::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, color-mix(in srgb, #000 22%, var(--accent-2)) 0 22%, transparent 22%), linear-gradient(to left, color-mix(in srgb, #000 22%, var(--accent-2)) 0 18%, transparent 18%), repeating-linear-gradient(to bottom, rgba(255, 255, 255, .09) 0 7%, transparent 7% 15%); }\n.darma-loader-darma-b14-waterfall-cascade span { position: absolute; top: -80%; width: 19%; height: 160%; border-radius: 999px; background: linear-gradient(transparent, color-mix(in srgb, #fff 80%, var(--accent)) 30%, color-mix(in srgb, #fff 26%, var(--accent))); animation: darma-loader-darma-b14-waterfall-cascade-cascade calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n.darma-loader-darma-b14-waterfall-cascade span:nth-child(1) { left: 27%; }\n.darma-loader-darma-b14-waterfall-cascade span:nth-child(2) { left: 42%; animation-duration: calc(var(--loader-speed, 1s) * 1.05); }\n.darma-loader-darma-b14-waterfall-cascade span:nth-child(3) { left: 57%; animation-duration: calc(var(--loader-speed, 1s) * 1.7); }\n.darma-loader-darma-b14-waterfall-cascade::after { content: ''; position: absolute; bottom: -6%; left: 10%; width: 80%; height: 26%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, #fff 74%, var(--accent)) 0 38%, transparent 72%); animation: darma-loader-darma-b14-waterfall-cascade-mist calc(var(--loader-speed, 1s) * 2.1) ease-in-out infinite; }\n@keyframes darma-loader-darma-b14-waterfall-cascade-cascade { from { transform: translateY(0); } to { transform: translateY(80%); } }\n@keyframes darma-loader-darma-b14-waterfall-cascade-mist { 0%, 100% { opacity: .5; transform: scale(.92); } 50% { opacity: .9; transform: scale(1.05); } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#334155",
+    "size": 104,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-waterfall-cascade\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b14-waterfall-cascade { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #334155); width: var(--loader-size, 104px); height: var(--loader-size, 104px); position: relative; overflow: hidden; border-radius: 6%; background: color-mix(in srgb, #fff 30%, var(--accent-2)); }\n.darma-loader-darma-b14-waterfall-cascade::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, color-mix(in srgb, #000 22%, var(--accent-2)) 0 22%, transparent 22%), linear-gradient(to left, color-mix(in srgb, #000 22%, var(--accent-2)) 0 18%, transparent 18%), repeating-linear-gradient(to bottom, rgba(255, 255, 255, .09) 0 7%, transparent 7% 15%); }\n.darma-loader-darma-b14-waterfall-cascade span { position: absolute; top: -80%; width: 19%; height: 160%; border-radius: 999px; background: linear-gradient(transparent, color-mix(in srgb, #fff 80%, var(--accent)) 30%, color-mix(in srgb, #fff 26%, var(--accent))); animation: darma-loader-darma-b14-waterfall-cascade-cascade calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n.darma-loader-darma-b14-waterfall-cascade span:nth-child(1) { left: 27%; }\n.darma-loader-darma-b14-waterfall-cascade span:nth-child(2) { left: 42%; animation-duration: calc(var(--loader-speed, 1s) * 1.05); }\n.darma-loader-darma-b14-waterfall-cascade span:nth-child(3) { left: 57%; animation-duration: calc(var(--loader-speed, 1s) * 1.7); }\n.darma-loader-darma-b14-waterfall-cascade::after { content: ''; position: absolute; bottom: -6%; left: 10%; width: 80%; height: 26%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, #fff 74%, var(--accent)) 0 38%, transparent 72%); animation: darma-loader-darma-b14-waterfall-cascade-mist calc(var(--loader-speed, 1s) * 2.1) ease-in-out infinite; }\n@keyframes darma-loader-darma-b14-waterfall-cascade-cascade { from { transform: translateY(0); } to { transform: translateY(80%); } }\n@keyframes darma-loader-darma-b14-waterfall-cascade-mist { 0%, 100% { opacity: .5; transform: scale(.92); } 50% { opacity: .9; transform: scale(1.05); } }",
+    "react": "export default function DarmaB14WaterfallCascadeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-waterfall-cascade\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -12,7 +12,10 @@ export type SimpleGameSound =
   | "move"
   | "eat"
   | "bonus"
-  | "crash";
+  | "crash"
+  | "jump"
+  | "slide"
+  | "land";
 
 function getAudioContext(): AudioContext | null {
   if (typeof window === "undefined") return null;
@@ -51,6 +54,13 @@ export function createSimpleGameAudio() {
     unlock() {
       ensure();
     },
+    destroy() {
+      const activeContext = ctx;
+      ctx = null;
+      if (activeContext && activeContext.state !== "closed") {
+        void activeContext.close().catch(() => undefined);
+      }
+    },
     play(sound: SimpleGameSound) {
       if (sound === "click") tone(240, 0.045, "triangle", 0.025);
       if (sound === "start") [330, 392, 523].forEach((f, index) => tone(f, 0.07, "sine", 0.035, index * 0.045));
@@ -66,6 +76,9 @@ export function createSimpleGameAudio() {
       if (sound === "eat") [620, 780].forEach((f, index) => tone(f, 0.06, "sine", 0.035, index * 0.035));
       if (sound === "bonus") [660, 880, 1108].forEach((f, index) => tone(f, 0.08, "sine", 0.038, index * 0.05));
       if (sound === "crash") [180, 120].forEach((f, index) => tone(f, 0.12, "sawtooth", 0.025, index * 0.065));
+      if (sound === "jump") [320, 470].forEach((f, index) => tone(f, 0.065, "triangle", 0.028, index * 0.028));
+      if (sound === "slide") [170, 125].forEach((f, index) => tone(f, 0.055, "square", 0.014, index * 0.018));
+      if (sound === "land") [105, 82].forEach((f, index) => tone(f, 0.045, "triangle", 0.018, index * 0.014));
     },
   };
 }

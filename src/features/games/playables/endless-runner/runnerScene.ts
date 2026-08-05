@@ -23,7 +23,7 @@ export type RunnerStats = {
   speed: number;
 };
 
-export type RunnerEvent = "start" | "jump" | "slide" | "coin" | "hit" | "over";
+export type RunnerEvent = "start" | "jump" | "slide" | "fast-fall" | "land" | "coin" | "hit" | "over";
 
 export type RunnerCallbacks = {
   onHud: (hud: RunnerHud) => void;
@@ -37,8 +37,14 @@ export type RunnerControls = {
   resume: () => void;
   restart: () => void;
   jump: () => void;
-  slide: () => void;
+  downStart: () => void;
+  downEnd: () => void;
+  setReducedMotion: (reduced: boolean) => void;
   destroy: () => void;
+};
+
+export type RunnerOptions = {
+  reducedMotion?: boolean;
 };
 
 const WORLD_WIDTH = 900;
@@ -56,18 +62,31 @@ const HURT_POSE_MS = 260; // brief "hurt" pose right after a hit, independent of
 // gravity value cannot produce all three at once. World gravity (rather than
 // per-body gravity) is retuned per-frame in update(); obstacles/coins opt out
 // via allowGravity:false so only the player is affected.
-const JUMP_VELOCITY = -920;
-const RISE_GRAVITY = 2100;
-const APEX_GRAVITY = 1000;
-const FALL_GRAVITY = 3000;
-const APEX_VELOCITY_THRESHOLD = 140;
+// This arc peaks at roughly 104 world pixels and lands in about 630 ms.
+// That keeps the player close to the obstacle scale instead of leaving the
+// visible play lane for nearly a full second.
+const JUMP_VELOCITY = -700;
+const RISE_GRAVITY = 2400;
+const APEX_GRAVITY = 1400;
+const FALL_GRAVITY = 3200;
+const APEX_VELOCITY_THRESHOLD = 120;
 const COYOTE_MS = 110; // grace window to still jump just after walking off a ledge
 const JUMP_BUFFER_MS = 140; // early jump press is honored on landing
-const JUMP_AIRTIME_MS = 860; // approximate full rise+fall time at the tuning above, used for fairness spacing
+const JUMP_AIRTIME_MS = 630; // measured approximation for fairness spacing at the tuning above
 
-const SLIDE_MS = 620;
-const SLIDE_JUMP_LOCK_MS = 300; // can't cancel the first part of a slide into a jump
+// Ground slide is press/release driven. A short minimum prevents accidental
+// one-frame crouches, while the maximum prevents a missed keyup from leaving
+// the player stuck. Airborne Down is a separate fast-fall state.
+const SLIDE_MIN_MS = 200;
+const SLIDE_MAX_MS = 520;
+const SLIDE_JUMP_LOCK_MS = SLIDE_MIN_MS;
+const FAST_FALL_START_VELOCITY = 180;
+const FAST_FALL_GRAVITY = 4800;
 const HIT_FREEZE_MS = 550; // obstacle stays visible (frozen) this long after a hit
+const HARD_LANDING_VELOCITY = 900;
+const OBSTACLE_WARNING_LEAD_MS = 720;
+const SPEED_LINE_COUNT = 6;
+const SPEED_LINE_MIN_SPEED = 410;
 
 const GRACE_MS = 13000; // first ~13s only spawns simple, well-spaced obstacles
 const DIFFICULTY_STAGE_MS = 60000; // after this, rarer/longer patterns unlock
@@ -83,6 +102,28 @@ const SWITCH_ACTION_BUFFER_MS = 220;
 const MAX_OBSTACLES = 14;
 const MAX_COINS = 24;
 const STAT_EMIT_MS = 150; // throttle for the high-frequency, non-React stats callback
+
+// Runtime stability: gameplay bookkeeping runs at a fixed 60 Hz and catches
+// up at most three steps after a slow frame. This prevents a single stall from
+// creating a huge spawn/distance jump while still keeping normal frames fully
+// deterministic. Arcade Physics is configured to use the same fixed rate.
+const FIXED_STEP_MS = 1000 / 60;
+const FIXED_STEP_SECONDS = FIXED_STEP_MS / 1000;
+const MAX_CATCH_UP_STEPS = 3;
+const MAX_ACCEPTED_FRAME_MS = FIXED_STEP_MS * MAX_CATCH_UP_STEPS;
+const OBJECT_SPEED_SYNC_THRESHOLD = 4;
+
+// Coin spin is presentation-only. A shared lookup table updated at 30 Hz is
+// much cheaper and more predictable than evaluating trigonometry for every
+// active coin on every render frame.
+const COIN_SPIN_INTERVAL_MS = 1000 / 30;
+const COIN_SPIN_SAMPLES = 32;
+const COIN_SPIN_SCALE = Array.from({ length: COIN_SPIN_SAMPLES }, (_, index) =>
+  Math.max(0.12, Math.abs(Math.sin((index / COIN_SPIN_SAMPLES) * Math.PI * 2))),
+);
+
+const DEBUG_REFRESH_MS = 250;
+const DEBUG_FRAME_SAMPLE_COUNT = 300; // roughly five seconds at 60 FPS
 
 // Off by default. Flip locally (or press ` at runtime) to see FPS/object counts.
 const DEBUG_MODE = false;
@@ -141,7 +182,7 @@ const LATE_PATTERNS: Pattern[] = [
 type HeroPoseKey = "idle" | "walk1" | "walk2" | "jump" | "fall" | "slide" | "hurt";
 const HERO_NATIVE_W = 80;
 const HERO_NATIVE_H = 110;
-const HERO_SCALE = 0.72;
+const HERO_BASE_SCALE = 0.72;
 const HERO_POSE_FILES: Record<HeroPoseKey, string> = {
   idle: "hero-idle.png",
   walk1: "hero-walk1.png",
@@ -381,6 +422,7 @@ class RunnerScene extends Phaser.Scene {
 
   private phase: RunnerPhase = "idle";
   private ready = false;
+  private reducedMotion: boolean;
   private debugMode = DEBUG_MODE;
   private failedLoads = new Set<string>();
 
@@ -393,7 +435,17 @@ class RunnerScene extends Phaser.Scene {
   private coins!: Phaser.Physics.Arcade.Group;
   private dustEmitter!: Phaser.GameObjects.Particles.ParticleEmitter;
   private sparkEmitter!: Phaser.GameObjects.Particles.ParticleEmitter;
+  private warningSprite!: Phaser.GameObjects.Image;
+  private warningBadge!: Phaser.GameObjects.Text;
+  private landingRing!: Phaser.GameObjects.Ellipse;
+  private coinFeedbackText!: Phaser.GameObjects.Text;
+  private speedLines: Array<{ shape: Phaser.GameObjects.Rectangle; factor: number }> = [];
   private debugText?: Phaser.GameObjects.Text;
+  private activeObstacles = new Set<Phaser.Physics.Arcade.Image>();
+  private activeCoins = new Set<Phaser.Physics.Arcade.Image>();
+  private playerFeedbackTween?: Phaser.Tweens.Tween;
+  private landingFeedbackTween?: Phaser.Tweens.Tween;
+  private coinFeedbackTween?: Phaser.Tweens.Tween;
 
   private speed = START_SPEED;
   private distance = 0;
@@ -406,11 +458,16 @@ class RunnerScene extends Phaser.Scene {
   private coinGap = 900;
   private obstacleQueue: ObstacleKind[] = [];
   private lastObstacleAction: ObstacleAction | null = null;
+  private pendingObstacleKind: ObstacleKind | null = null;
 
   private grounded = true;
   private sliding = false;
-  private slideUntil = 0;
+  private slideStartedAt = 0;
+  private slideMaxUntil = 0;
+  private slideReleaseRequested = false;
   private slideJumpLockUntil = 0;
+  private downHeld = false;
+  private fastFalling = false;
   private invulnUntil = 0;
   private hurtUntil = 0;
   private playerState: PlayerAnimState = "idle";
@@ -420,14 +477,43 @@ class RunnerScene extends Phaser.Scene {
   private jumpBufferUntil = 0;
 
   private statTimer = 0;
-  private debugTimer = 0;
+  private simulationAccumulatorMs = 0;
+  private droppedSimulationMs = 0;
+  private lastAppliedObjectSpeed = START_SPEED;
+  private currentGravityY = FALL_GRAVITY;
+  private coinSpinAccumulatorMs = 0;
+  private coinSpinIndex = 0;
+  private debugRefreshAccumulatorMs = 0;
+  private frameTimes = new Float32Array(DEBUG_FRAME_SAMPLE_COUNT);
+  private frameTimeIndex = 0;
+  private frameTimeCount = 0;
   private lastEmitted: { phase: RunnerPhase; lives: number; best: number } | null = null;
 
-  constructor(callbacks: RunnerCallbacks, best: number) {
+  constructor(callbacks: RunnerCallbacks, best: number, options: RunnerOptions = {}) {
     super("runner");
     this.callbacks = callbacks;
     this.best = best;
+    this.reducedMotion = options.reducedMotion ?? false;
   }
+
+  private handleCanvasPointerDown = () => {
+    this.jump();
+  };
+
+  private handleDebugToggle = () => {
+    this.debugMode = !this.debugMode;
+    this.debugText?.setVisible(this.debugMode);
+    if (this.debugMode) this.renderDebug(true);
+  };
+
+  private cleanupScene = () => {
+    this.input.off("pointerdown", this.handleCanvasPointerDown);
+    this.input.keyboard?.off("keydown-BACKTICK", this.handleDebugToggle);
+    this.stopPlayerFeedbackTween();
+    this.stopTransientFeedback();
+    this.activeObstacles.clear();
+    this.activeCoins.clear();
+  };
 
   preload() {
     HERO_POSE_KEYS.forEach((pose) => {
@@ -458,7 +544,7 @@ class RunnerScene extends Phaser.Scene {
 
     this.player = this.physics.add.sprite(PLAYER_X, GROUND_TOP, heroTexKey("idle"));
     this.player.setOrigin(0.5, 1);
-    this.player.setScale(HERO_SCALE);
+    this.player.setScale(HERO_BASE_SCALE);
     this.player.setDepth(5);
     this.player.setCollideWorldBounds(false);
     this.setPlayerBody(false);
@@ -466,6 +552,52 @@ class RunnerScene extends Phaser.Scene {
 
     this.obstacles = this.physics.add.group({ allowGravity: false, maxSize: MAX_OBSTACLES, runChildUpdate: false });
     this.coins = this.physics.add.group({ allowGravity: false, maxSize: MAX_COINS, runChildUpdate: false });
+
+    this.speedLines = Array.from({ length: SPEED_LINE_COUNT }, (_, index) => {
+      const shape = this.add
+        .rectangle(120 + index * 155, 90 + ((index * 53) % 230), 46 + (index % 3) * 22, 2, 0xfff1c7, 0)
+        .setOrigin(0, 0.5)
+        .setDepth(3);
+      return { shape, factor: 0.85 + (index % 3) * 0.18 };
+    });
+
+    this.warningSprite = this.add
+      .image(WORLD_WIDTH - 34, GROUND_TOP, "er-rock")
+      .setOrigin(0.5, 1)
+      .setDepth(7)
+      .setTint(0xfbbf24)
+      .setAlpha(0)
+      .setVisible(false);
+    this.warningBadge = this.add
+      .text(WORLD_WIDTH - 34, GROUND_TOP - 78, "!", {
+        fontFamily: "monospace",
+        fontSize: "17px",
+        fontStyle: "bold",
+        color: "#1b1204",
+        backgroundColor: "#fbbf24",
+        padding: { x: 6, y: 2 },
+      })
+      .setOrigin(0.5)
+      .setDepth(8)
+      .setVisible(false);
+
+    this.landingRing = this.add
+      .ellipse(PLAYER_X, GROUND_TOP - 1, 36, 9)
+      .setStrokeStyle(3, 0xfde68a, 0.85)
+      .setDepth(4)
+      .setVisible(false);
+    this.coinFeedbackText = this.add
+      .text(PLAYER_X + 20, GROUND_TOP - 92, "+25", {
+        fontFamily: "monospace",
+        fontSize: "17px",
+        fontStyle: "bold",
+        color: "#fef3c7",
+        stroke: "#78350f",
+        strokeThickness: 3,
+      })
+      .setOrigin(0.5)
+      .setDepth(8)
+      .setVisible(false);
 
     this.dustEmitter = this.add.particles(0, 0, "er-dust", {
       lifespan: 320,
@@ -496,19 +628,22 @@ class RunnerScene extends Phaser.Scene {
     });
 
     // Pointer taps inside the canvas jump (and start the run on the first tap).
-    this.input.on("pointerdown", () => {
-      this.jump();
-    });
+    this.input.on("pointerdown", this.handleCanvasPointerDown);
 
     this.debugText = this.add
-      .text(8, 6, "", { fontFamily: "monospace", fontSize: "12px", color: "#7dffb0" })
+      .text(8, 6, "", {
+        fontFamily: "monospace",
+        fontSize: "12px",
+        color: "#7dffb0",
+        backgroundColor: "rgba(0, 0, 0, 0.78)",
+        padding: { x: 8, y: 6 },
+        lineSpacing: 3,
+      })
       .setDepth(10)
       .setScrollFactor(0)
       .setVisible(this.debugMode);
-    this.input.keyboard?.on("keydown-BACKTICK", () => {
-      this.debugMode = !this.debugMode;
-      this.debugText?.setVisible(this.debugMode);
-    });
+    this.input.keyboard?.on("keydown-BACKTICK", this.handleDebugToggle);
+    this.events.once("shutdown", this.cleanupScene);
 
     // Freeze the world until the player starts; parallax still drifts in update.
     this.physics.pause();
@@ -726,7 +861,7 @@ class RunnerScene extends Phaser.Scene {
   // ---- Body sizing & animation state ---------------------------------------
 
   // Sizes/offsets are in the native 80x110 sprite frame; Arcade Physics scales
-  // both automatically by the sprite's current scale (HERO_SCALE), so this
+  // both automatically by the sprite's fixed base scale (HERO_BASE_SCALE), so this
   // stays correct regardless of the real-asset vs. procedural-fallback path.
   // Measured against the real sprites' opaque pixel bounds, then trimmed in —
   // torso-core sized for standing/airborne, a low band for the prone slide.
@@ -747,6 +882,76 @@ class RunnerScene extends Phaser.Scene {
     this.player.anims.play(next, true);
   }
 
+  private stopPlayerFeedbackTween() {
+    if (this.playerFeedbackTween) {
+      this.playerFeedbackTween.remove();
+      this.playerFeedbackTween = undefined;
+    }
+    // Defensive cleanup in case a tween was created before the managed handle
+    // was assigned or by a future visual effect.
+    this.tweens.killTweensOf(this.player);
+  }
+
+  private stopTransientFeedback() {
+    this.landingFeedbackTween?.remove();
+    this.landingFeedbackTween = undefined;
+    this.coinFeedbackTween?.remove();
+    this.coinFeedbackTween = undefined;
+    this.tweens.killTweensOf(this.landingRing);
+    this.tweens.killTweensOf(this.coinFeedbackText);
+    this.landingRing?.setVisible(false);
+    this.coinFeedbackText?.setVisible(false);
+  }
+
+  setReducedMotion(reduced: boolean) {
+    this.reducedMotion = reduced;
+    if (reduced) {
+      for (const { shape } of this.speedLines) shape.setAlpha(0);
+      this.landingFeedbackTween?.remove();
+      this.landingRing?.setVisible(false);
+    }
+  }
+
+  private setWorldGravity(next: number) {
+    if (this.currentGravityY === next) return;
+    this.currentGravityY = next;
+    this.physics.world.gravity.y = next;
+  }
+
+  private syncMovingObjectSpeed(force = false) {
+    const reachedSpeedCap = this.speed >= MAX_SPEED && this.lastAppliedObjectSpeed !== MAX_SPEED;
+    if (!force && !reachedSpeedCap && Math.abs(this.speed - this.lastAppliedObjectSpeed) < OBJECT_SPEED_SYNC_THRESHOLD) return;
+    this.lastAppliedObjectSpeed = this.speed;
+    const velocityX = -this.lastAppliedObjectSpeed;
+
+    for (const obstacle of this.activeObstacles) {
+      if (!obstacle.active || obstacle.getData("hit")) continue;
+      (obstacle.body as Phaser.Physics.Arcade.Body).setVelocityX(velocityX);
+    }
+    for (const coin of this.activeCoins) {
+      if (!coin.active) continue;
+      (coin.body as Phaser.Physics.Arcade.Body).setVelocityX(velocityX);
+    }
+  }
+
+  private recordFrameTime(deltaMs: number) {
+    this.frameTimes[this.frameTimeIndex] = deltaMs;
+    this.frameTimeIndex = (this.frameTimeIndex + 1) % DEBUG_FRAME_SAMPLE_COUNT;
+    this.frameTimeCount = Math.min(DEBUG_FRAME_SAMPLE_COUNT, this.frameTimeCount + 1);
+  }
+
+  private getFrameStats() {
+    if (this.frameTimeCount === 0) return { average: 0, worst: 0 };
+    let total = 0;
+    let worst = 0;
+    for (let index = 0; index < this.frameTimeCount; index += 1) {
+      const value = this.frameTimes[index];
+      total += value;
+      if (value > worst) worst = value;
+    }
+    return { average: total / this.frameTimeCount, worst };
+  }
+
   // ---- Public control surface (called from React) -------------------------
 
   start() {
@@ -762,6 +967,7 @@ class RunnerScene extends Phaser.Scene {
 
   pauseRun() {
     if (this.phase !== "playing") return;
+    this.clearDownInput();
     this.phase = "paused";
     this.physics.pause();
     this.emitPhase();
@@ -802,40 +1008,80 @@ class RunnerScene extends Phaser.Scene {
   }
 
   private performJump() {
+    this.endSlide(true);
+    this.endFastFall();
     (this.player.body as Phaser.Physics.Arcade.Body).setVelocityY(JUMP_VELOCITY);
     this.grounded = false;
     this.jumpBufferUntil = 0;
-    this.endSlide();
-    this.dustEmitter.explode(6, this.player.x, GROUND_TOP - 2);
-    this.player.setScale(0.9, 1.15);
-    this.tweens.add({ targets: this.player, scaleX: 1, scaleY: 1, duration: 160, ease: "Sine.Out" });
+    this.dustEmitter.explode(this.reducedMotion ? 3 : 6, this.player.x, GROUND_TOP - 2);
     this.callbacks.onEvent("jump");
   }
 
-  slide() {
-    if (!this.ready || this.phase !== "playing") return;
-    if (!this.grounded) {
-      // Airborne: fast drop.
-      (this.player.body as Phaser.Physics.Arcade.Body).setVelocityY(-JUMP_VELOCITY * 0.9);
-      return;
-    }
+  downStart() {
+    if (!this.ready || this.phase !== "playing" || this.downHeld) return;
+    this.downHeld = true;
+    if (this.grounded) this.startSlide();
+    else this.startFastFall();
+  }
+
+  downEnd() {
+    this.downHeld = false;
+    this.endFastFall();
+    this.endSlide(false);
+  }
+
+  private startSlide() {
+    if (!this.grounded || this.sliding) return;
+    this.endFastFall();
     this.sliding = true;
-    this.slideUntil = this.time.now + SLIDE_MS;
+    this.slideStartedAt = this.time.now;
+    this.slideMaxUntil = this.time.now + SLIDE_MAX_MS;
+    this.slideReleaseRequested = false;
     this.slideJumpLockUntil = this.time.now + SLIDE_JUMP_LOCK_MS;
     this.setPlayerBody(true);
     this.callbacks.onEvent("slide");
   }
 
-  private endSlide() {
+  private endSlide(force: boolean) {
     if (!this.sliding) return;
+    if (!force && this.time.now < this.slideStartedAt + SLIDE_MIN_MS) {
+      this.slideReleaseRequested = true;
+      return;
+    }
     this.sliding = false;
+    this.slideReleaseRequested = false;
+    this.slideStartedAt = 0;
+    this.slideMaxUntil = 0;
+    this.slideJumpLockUntil = 0;
     this.setPlayerBody(false);
   }
 
+  private startFastFall() {
+    if (this.grounded || this.fastFalling) return;
+    this.fastFalling = true;
+    const body = this.player.body as Phaser.Physics.Arcade.Body;
+    // Reverse an ascent immediately once, then let the dedicated gravity tier
+    // perform the fall. We never keep overwriting velocity on repeated input.
+    if (body.velocity.y < FAST_FALL_START_VELOCITY) {
+      body.setVelocityY(FAST_FALL_START_VELOCITY);
+    }
+    this.callbacks.onEvent("fast-fall");
+  }
+
+  private endFastFall() {
+    this.fastFalling = false;
+  }
+
+  private clearDownInput() {
+    this.downHeld = false;
+    this.endFastFall();
+    this.endSlide(true);
+  }
+
   private resetRun() {
-    // Kill any in-flight tween (invuln blink, jump squash, death tint) before
+    // Kill any in-flight tween (invuln blink or death feedback) before
     // touching visual state, so nothing from the previous run can bleed in.
-    this.tweens.killTweensOf(this.player);
+    this.stopPlayerFeedbackTween();
 
     this.speed = START_SPEED;
     this.distance = 0;
@@ -847,24 +1093,34 @@ class RunnerScene extends Phaser.Scene {
     this.coinGap = 900;
     this.obstacleQueue = [];
     this.lastObstacleAction = null;
+    this.pendingObstacleKind = null;
     this.invulnUntil = 0;
     this.hurtUntil = 0;
     this.runTimeMs = 0;
     this.jumpBufferUntil = 0;
-    this.slideJumpLockUntil = 0;
-    this.slideUntil = 0;
     this.statTimer = 0;
+    this.simulationAccumulatorMs = 0;
+    this.droppedSimulationMs = 0;
+    this.lastAppliedObjectSpeed = START_SPEED;
+    this.coinSpinAccumulatorMs = 0;
+    this.coinSpinIndex = 0;
     this.lastEmitted = null;
 
-    this.endSlide();
-    this.obstacles.getChildren().forEach((child) => this.recycleObstacle(child as Phaser.Physics.Arcade.Image));
-    this.coins.getChildren().forEach((child) => this.recycleCoin(child as Phaser.Physics.Arcade.Image));
+    this.clearDownInput();
+    this.stopTransientFeedback();
+    this.clearObstacleWarning();
+    this.speedLines.forEach(({ shape }, index) => {
+      shape.setPosition(120 + index * 155, 90 + ((index * 53) % 230)).setAlpha(0);
+    });
+    for (const obstacle of Array.from(this.activeObstacles)) this.recycleObstacle(obstacle);
+    for (const coin of Array.from(this.activeCoins)) this.recycleCoin(coin);
 
     this.player.setAlpha(1);
     this.player.clearTint();
-    this.player.setScale(1, 1);
+    this.player.setScale(HERO_BASE_SCALE);
     this.player.setPosition(PLAYER_X, GROUND_TOP);
     (this.player.body as Phaser.Physics.Arcade.Body).setVelocity(0, 0);
+    this.setWorldGravity(FALL_GRAVITY);
     this.grounded = true;
     this.lastGroundedAt = 0;
     this.applyPlayerState("idle");
@@ -873,6 +1129,7 @@ class RunnerScene extends Phaser.Scene {
   // ---- Object pooling -------------------------------------------------------
 
   private recycleObstacle(image: Phaser.Physics.Arcade.Image) {
+    this.activeObstacles.delete(image);
     if (!image.active) return;
     image.setActive(false).setVisible(false);
     const body = image.body as Phaser.Physics.Arcade.Body;
@@ -885,6 +1142,7 @@ class RunnerScene extends Phaser.Scene {
   }
 
   private recycleCoin(coin: Phaser.Physics.Arcade.Image) {
+    this.activeCoins.delete(coin);
     if (!coin.active) return;
     coin.setActive(false).setVisible(false);
     const body = coin.body as Phaser.Physics.Arcade.Body;
@@ -922,13 +1180,40 @@ class RunnerScene extends Phaser.Scene {
     }
     // The previous obstacle's action determines how long the player is
     // occupied (mid-air, or crouched) before they're free to react again.
-    const previousManeuverMs = this.lastObstacleAction === "jump" ? JUMP_AIRTIME_MS : SLIDE_MS;
+    const previousManeuverMs = this.lastObstacleAction === "jump" ? JUMP_AIRTIME_MS : SLIDE_MAX_MS;
     return reactionPx + this.speed * ((previousManeuverMs + SWITCH_ACTION_BUFFER_MS) / 1000);
+  }
+
+  private prepareObstacleWarning() {
+    if (this.pendingObstacleKind !== null) return;
+    this.pendingObstacleKind = this.nextObstacleKind();
+    const action = OBSTACLE_ACTION[this.pendingObstacleKind];
+    const airborne = action === "slide";
+    const y = airborne ? GROUND_TOP - 60 : GROUND_TOP;
+    this.warningSprite
+      .setTexture(`er-${this.pendingObstacleKind}`)
+      .setPosition(WORLD_WIDTH - 34, y)
+      .setOrigin(0.5, airborne ? 0.5 : 1)
+      .setScale(airborne ? 0.62 : 0.58)
+      .setVisible(true);
+    this.warningBadge.setPosition(WORLD_WIDTH - 34, airborne ? y - 40 : y - 62).setVisible(true);
+  }
+
+  private clearObstacleWarning() {
+    this.warningSprite?.setVisible(false).setAlpha(0);
+    this.warningBadge?.setVisible(false).setAlpha(1);
+  }
+
+  private updateObstacleWarning() {
+    if (this.pendingObstacleKind === null || !this.warningSprite.visible) return;
+    const pulse = this.reducedMotion ? 0.48 : 0.36 + Math.abs(Math.sin(this.time.now * 0.012)) * 0.34;
+    this.warningSprite.setAlpha(pulse);
+    this.warningBadge.setAlpha(this.reducedMotion ? 0.9 : 0.68 + Math.abs(Math.sin(this.time.now * 0.016)) * 0.32);
   }
 
   private spawnObstacle(): boolean {
     const inGrace = this.runTimeMs < GRACE_MS;
-    const kind = this.nextObstacleKind();
+    const kind = this.pendingObstacleKind ?? this.nextObstacleKind();
     const action = OBSTACLE_ACTION[kind];
     const key = `er-${kind}`;
     let y = GROUND_TOP;
@@ -955,10 +1240,13 @@ class RunnerScene extends Phaser.Scene {
     // Slightly forgiving hitbox — smaller than the sprite, never larger.
     body.setSize(obstacle.width * 0.7, obstacle.height * 0.72);
     body.setOffset(obstacle.width * 0.15, obstacle.height * 0.18);
-    obstacle.setVelocityX(-this.speed);
+    obstacle.setVelocityX(-this.lastAppliedObjectSpeed);
     obstacle.setData("requiresSlide", action === "slide");
     obstacle.setData("hit", false);
     obstacle.setData("hitAt", 0);
+    this.activeObstacles.add(obstacle);
+    this.pendingObstacleKind = null;
+    this.clearObstacleWarning();
 
     this.obstacleGap = this.minGapPx(action) + Math.random() * (inGrace ? 220 : 160);
     this.lastObstacleAction = action;
@@ -982,7 +1270,9 @@ class RunnerScene extends Phaser.Scene {
       body.reset(x, baseY);
       body.enable = true;
       body.setAllowGravity(false);
-      coin.setVelocityX(-this.speed);
+      coin.setVelocityX(-this.lastAppliedObjectSpeed);
+      coin.setData("spinOffset", Math.floor(Math.random() * COIN_SPIN_SAMPLES));
+      this.activeCoins.add(coin);
     }
   }
 
@@ -1007,9 +1297,9 @@ class RunnerScene extends Phaser.Scene {
 
     this.lives -= 1;
     this.hurtUntil = this.time.now + HURT_POSE_MS;
-    this.cameras.main.shake(180, 0.01);
+    if (!this.reducedMotion) this.cameras.main.shake(180, 0.01);
     this.sparkEmitter.setParticleTint(0xff6b6b);
-    this.sparkEmitter.explode(10, this.player.x, this.player.y - 30);
+    this.sparkEmitter.explode(this.reducedMotion ? 5 : 10, this.player.x, this.player.y - 30);
     this.callbacks.onEvent("hit");
 
     if (this.lives <= 0) {
@@ -1020,43 +1310,99 @@ class RunnerScene extends Phaser.Scene {
     // Shield-style invulnerability feedback: a cool tint plus a blink, capped
     // duration so it never keeps animating once the run actually ends.
     this.invulnUntil = this.time.now + INVULN_MS;
-    this.tweens.killTweensOf(this.player);
+    this.stopPlayerFeedbackTween();
     this.player.setTint(0x7dd3fc);
-    this.tweens.add({
+    const tween = this.tweens.add({
       targets: this.player,
       alpha: 0.35,
       duration: 120,
       yoyo: true,
       repeat: Math.floor(INVULN_MS / 240),
       onComplete: () => {
+        if (this.playerFeedbackTween !== tween) return;
+        this.playerFeedbackTween = undefined;
+        if (this.phase === "over") return;
         this.player.setAlpha(1);
         this.player.clearTint();
       },
     });
+    this.playerFeedbackTween = tween;
     this.emitPhase();
   }
 
   private handleCoin(coin: Phaser.Physics.Arcade.Image) {
+    const feedbackX = coin.x;
+    const feedbackY = coin.y;
     this.recycleCoin(coin);
     this.score += 25;
     this.sparkEmitter.setParticleTint(0xfde68a);
-    this.sparkEmitter.explode(8, coin.x, coin.y);
+    this.sparkEmitter.explode(this.reducedMotion ? 4 : 8, feedbackX, feedbackY);
+    this.showCoinFeedback(feedbackX, feedbackY);
     this.callbacks.onEvent("coin");
     // No emitPhase() here on purpose: score changes flow through the
     // throttled onStats channel only, never through React state.
   }
 
+  private showCoinFeedback(x: number, y: number) {
+    this.coinFeedbackTween?.remove();
+    this.coinFeedbackText.setPosition(x, y - 12).setAlpha(1).setScale(1).setVisible(true);
+    const tween = this.tweens.add({
+      targets: this.coinFeedbackText,
+      y: this.reducedMotion ? y - 12 : y - 42,
+      alpha: 0,
+      scale: this.reducedMotion ? 1 : 1.12,
+      duration: this.reducedMotion ? 260 : 460,
+      ease: "Cubic.Out",
+      onComplete: () => {
+        if (this.coinFeedbackTween !== tween) return;
+        this.coinFeedbackTween = undefined;
+        this.coinFeedbackText.setVisible(false);
+      },
+    });
+    this.coinFeedbackTween = tween;
+  }
+
+  private showLandingFeedback(hardLanding: boolean) {
+    if (this.reducedMotion) return;
+    this.landingFeedbackTween?.remove();
+    this.landingRing
+      .setPosition(this.player.x, GROUND_TOP - 1)
+      .setScale(hardLanding ? 0.9 : 0.72, 1)
+      .setAlpha(hardLanding ? 0.9 : 0.62)
+      .setVisible(true);
+    const tween = this.tweens.add({
+      targets: this.landingRing,
+      scaleX: hardLanding ? 2.25 : 1.7,
+      scaleY: 1.3,
+      alpha: 0,
+      duration: hardLanding ? 300 : 220,
+      ease: "Cubic.Out",
+      onComplete: () => {
+        if (this.landingFeedbackTween !== tween) return;
+        this.landingFeedbackTween = undefined;
+        this.landingRing.setVisible(false);
+      },
+    });
+    this.landingFeedbackTween = tween;
+  }
+
   private gameOver() {
+    this.clearDownInput();
     this.phase = "over";
     this.physics.pause();
+    this.clearObstacleWarning();
+    for (const { shape } of this.speedLines) shape.setAlpha(0);
     // No tween may survive into the next run or keep animating forever once
     // the run has actually ended.
-    this.tweens.killTweensOf(this.player);
+    this.stopPlayerFeedbackTween();
     this.player.setAlpha(1);
     this.player.setTint(0xff6b6b);
     if (this.score > this.best) this.best = this.score;
-    this.callbacks.onEvent("over");
+    // Publish final score/distance before the React event persists the result.
+    // Previously the event fired first, so the stored best score could use a
+    // stale HUD snapshot from earlier in the run.
     this.emitPhase();
+    this.callbacks.onEvent("over");
   }
 
   // ---- HUD / stats ----------------------------------------------------------
@@ -1088,27 +1434,12 @@ class RunnerScene extends Phaser.Scene {
 
   // ---- Main loop ----------------------------------------------------------
 
-  update(_time: number, deltaMs: number) {
-    if (!this.ready) return;
-    const dt = Math.min(0.033, deltaMs / 1000);
-
-    // Parallax always drifts a little so the scene never looks frozen.
-    const drift = this.phase === "playing" ? this.speed : START_SPEED * 0.25;
-    this.layer1.tilePositionX += drift * 0.12 * dt;
-    this.layer2.tilePositionX += drift * 0.4 * dt;
-    if (this.phase === "playing") this.ground.tilePositionX += this.speed * dt;
-
-    if (this.phase !== "playing") {
-      (this.player.body as Phaser.Physics.Arcade.Body).setVelocity(0, 0);
-      if (this.phase === "idle" || this.phase === "paused") this.applyPlayerState("idle");
-      this.renderDebug();
-      return;
-    }
-
+  private updatePlayerRuntime() {
     const wasGrounded = this.grounded;
 
     // Ground clamp (manual so we need no static collider).
     const body = this.player.body as Phaser.Physics.Arcade.Body;
+    const landingVelocity = body.velocity.y;
     if (this.player.y >= GROUND_TOP) {
       this.player.y = GROUND_TOP;
       if (body.velocity.y > 0) body.setVelocityY(0);
@@ -1118,34 +1449,58 @@ class RunnerScene extends Phaser.Scene {
       this.grounded = false;
     }
 
-    // Just landed: a small squash + dust puff for readability, scaled by how
-    // hard the landing was.
-    if (this.grounded && !wasGrounded) {
-      this.player.setScale(1.18, 0.82);
-      this.tweens.add({ targets: this.player, scaleX: 1, scaleY: 1, duration: 130, ease: "Sine.Out" });
-      this.dustEmitter.explode(5, this.player.x, GROUND_TOP - 2);
+    const justLanded = this.grounded && !wasGrounded;
+    if (justLanded) {
+      // Keep the physics sprite at one permanent scale. Squash/stretch on the
+      // body itself changes its collision footprint and caused the hero to
+      // become permanently larger after the first jump.
+      this.player.setScale(HERO_BASE_SCALE);
+      const hardLanding = this.fastFalling || landingVelocity >= HARD_LANDING_VELOCITY;
+      const dustCount = this.reducedMotion ? (hardLanding ? 4 : 2) : hardLanding ? 14 : 7;
+      this.dustEmitter.explode(dustCount, this.player.x, GROUND_TOP - 2);
+      this.showLandingFeedback(hardLanding);
+      if (hardLanding && !this.reducedMotion) this.cameras.main.shake(90, 0.0035);
+      this.callbacks.onEvent("land");
     }
 
     // A jump pressed just before landing still fires the instant we touch down.
-    if (this.grounded && this.jumpBufferUntil > 0 && this.time.now <= this.jumpBufferUntil) {
-      this.performJump();
+    if (this.grounded && this.jumpBufferUntil > 0) {
+      if (this.time.now <= this.jumpBufferUntil) this.performJump();
+      else this.jumpBufferUntil = 0;
     }
 
-    // Three-tier gravity for a natural arc: strong rise, soft hang near the
-    // apex, faster fall. Obstacles/coins have allowGravity:false, so retuning
-    // world gravity here only ever affects the player.
+    // Finishing a fast-fall on the floor is immediate. Holding Down through
+    // the landing naturally transitions into a ground slide unless a buffered
+    // jump already took priority above.
     if (this.grounded) {
-      this.physics.world.gravity.y = FALL_GRAVITY;
-    } else if (body.velocity.y < -APEX_VELOCITY_THRESHOLD) {
-      this.physics.world.gravity.y = RISE_GRAVITY;
-    } else if (body.velocity.y > APEX_VELOCITY_THRESHOLD) {
-      this.physics.world.gravity.y = FALL_GRAVITY;
-    } else {
-      this.physics.world.gravity.y = APEX_GRAVITY;
+      this.endFastFall();
+      if (justLanded && this.downHeld && !this.sliding) this.startSlide();
     }
 
-    // Slide timing.
-    if (this.sliding && this.time.now >= this.slideUntil) this.endSlide();
+    // Four-tier gravity: normal rise/apex/fall plus an explicit fast-fall tier.
+    // Only write to the physics world when the tier actually changes.
+    if (this.grounded) {
+      this.setWorldGravity(FALL_GRAVITY);
+    } else if (this.fastFalling) {
+      this.setWorldGravity(FAST_FALL_GRAVITY);
+    } else if (body.velocity.y < -APEX_VELOCITY_THRESHOLD) {
+      this.setWorldGravity(RISE_GRAVITY);
+    } else if (body.velocity.y > APEX_VELOCITY_THRESHOLD) {
+      this.setWorldGravity(FALL_GRAVITY);
+    } else {
+      this.setWorldGravity(APEX_GRAVITY);
+    }
+
+    // Press/release slide timing. Early releases wait for the minimum readable
+    // pose; every slide ends at the hard maximum even if keyup is lost.
+    if (this.sliding) {
+      const minimumComplete = this.time.now >= this.slideStartedAt + SLIDE_MIN_MS;
+      const maximumComplete = this.time.now >= this.slideMaxUntil;
+      if (maximumComplete) this.downHeld = false;
+      if (maximumComplete || (this.slideReleaseRequested && minimumComplete)) {
+        this.endSlide(true);
+      }
+    }
 
     // Shadow follows the player and shrinks/fades with jump height, so it
     // reads as ground contact feedback rather than a static decal.
@@ -1166,9 +1521,72 @@ class RunnerScene extends Phaser.Scene {
     } else {
       this.applyPlayerState("run");
     }
+  }
 
-    // Difficulty: flat speed during the opening grace window, then a gentle,
-    // time-based ramp (never a sudden jump) up to the speed cap.
+  private updateCoinSpin(stepMs: number) {
+    this.coinSpinAccumulatorMs += stepMs;
+    if (this.coinSpinAccumulatorMs < COIN_SPIN_INTERVAL_MS) return;
+
+    const advances = Math.floor(this.coinSpinAccumulatorMs / COIN_SPIN_INTERVAL_MS);
+    this.coinSpinAccumulatorMs -= advances * COIN_SPIN_INTERVAL_MS;
+    this.coinSpinIndex = (this.coinSpinIndex + advances) % COIN_SPIN_SAMPLES;
+
+    for (const coin of this.activeCoins) {
+      if (!coin.active) continue;
+      const offset = (coin.getData("spinOffset") as number | undefined) ?? 0;
+      coin.setScale(COIN_SPIN_SCALE[(this.coinSpinIndex + offset) % COIN_SPIN_SAMPLES], 1);
+    }
+  }
+
+  private updateSpeedLines(dt: number) {
+    const intensity = Phaser.Math.Clamp((this.speed - SPEED_LINE_MIN_SPEED) / (MAX_SPEED - SPEED_LINE_MIN_SPEED), 0, 1);
+    for (let index = 0; index < this.speedLines.length; index += 1) {
+      const { shape, factor } = this.speedLines[index];
+      if (this.reducedMotion || intensity <= 0) {
+        shape.setAlpha(0);
+        continue;
+      }
+      shape.x -= this.speed * factor * dt;
+      if (shape.x + shape.width < 0) {
+        shape.x = WORLD_WIDTH + 40 + index * 26;
+        shape.y = 78 + ((index * 67 + Math.floor(this.runTimeMs / 500)) % 245);
+      }
+      shape.setAlpha((0.035 + index * 0.008) * intensity);
+    }
+  }
+
+  private recycleExpiredObjects() {
+    // Iterate active sets only. The Phaser pools remain bounded, but inactive
+    // pooled children no longer cost work on every simulation step.
+    for (const image of Array.from(this.activeObstacles)) {
+      if (!image.active) {
+        this.activeObstacles.delete(image);
+        continue;
+      }
+      if (image.getData("hit")) {
+        const hitAt = image.getData("hitAt") as number;
+        if (this.time.now - hitAt >= HIT_FREEZE_MS) this.recycleObstacle(image);
+        continue;
+      }
+      if (image.x < -120) this.recycleObstacle(image);
+    }
+
+    for (const coin of Array.from(this.activeCoins)) {
+      if (!coin.active) {
+        this.activeCoins.delete(coin);
+        continue;
+      }
+      if (coin.x < -80) this.recycleCoin(coin);
+    }
+  }
+
+  private stepSimulation(dt: number) {
+    // All horizontal world bookkeeping uses the same fixed step: parallax,
+    // distance, difficulty, spawn spacing, and recycling cannot drift apart.
+    this.layer1.tilePositionX += this.speed * 0.12 * dt;
+    this.layer2.tilePositionX += this.speed * 0.4 * dt;
+    this.ground.tilePositionX += this.speed * dt;
+
     this.runTimeMs += dt * 1000;
     this.distance += this.speed * dt * 0.03;
     if (this.runTimeMs < GRACE_MS) {
@@ -1178,14 +1596,18 @@ class RunnerScene extends Phaser.Scene {
     }
     this.score = Math.max(this.score, Math.floor(this.distance));
 
-    // Keep moving objects locked to current speed.
-    this.obstacles.setVelocityX(-this.speed);
-    this.coins.setVelocityX(-this.speed);
+    // Physics bodies keep their velocity between frames. Synchronize only
+    // after a meaningful speed change instead of rewriting two whole groups
+    // on every render frame.
+    this.syncMovingObjectSpeed();
 
-    // Obstacle spawning by pixel spacing (fair regardless of speed).
-    // spawnObstacle() sets this.obstacleGap for the *next* spawn itself, since
-    // that spacing depends on the grace window and which action is required.
+    // Obstacle spawning by pixel spacing (fair regardless of speed). A brief
+    // edge silhouette announces the required lane before the obstacle enters.
     this.obstacleAcc += this.speed * dt;
+    const warningLeadPx = this.speed * (OBSTACLE_WARNING_LEAD_MS / 1000);
+    if (this.pendingObstacleKind === null && this.obstacleGap - this.obstacleAcc <= warningLeadPx) {
+      this.prepareObstacleWarning();
+    }
     if (this.obstacleAcc >= this.obstacleGap) {
       const spawned = this.spawnObstacle();
       if (spawned) this.obstacleAcc = 0;
@@ -1199,61 +1621,96 @@ class RunnerScene extends Phaser.Scene {
       this.coinGap = 820 + Math.random() * 520;
     }
 
-    // Recycle objects, but only once collision has clearly resolved: a hit
-    // obstacle is frozen in place and stays visible for HIT_FREEZE_MS before
-    // it's recycled; everything else is only recycled once it's off-screen.
-    // Pooled objects are reused via group.get(), never destroyed, so object
-    // counts stay bounded no matter how long the run lasts.
-    for (const child of this.obstacles.getChildren()) {
-      const image = child as Phaser.Physics.Arcade.Image;
-      if (!image.active) continue;
-      if (image.getData("hit")) {
-        const hitAt = image.getData("hitAt") as number;
-        if (this.time.now - hitAt >= HIT_FREEZE_MS) this.recycleObstacle(image);
-        continue;
-      }
-      if (image.x < -120) this.recycleObstacle(image);
-    }
-    let coinCount = 0;
-    for (const child of this.coins.getChildren()) {
-      const coin = child as Phaser.Physics.Arcade.Image;
-      if (!coin.active) continue;
-      coinCount += 1;
-      // Cheap spin illusion: no per-coin tweens to manage/clean up.
-      coin.scaleX = Math.abs(Math.sin(this.time.now / 220 + coin.y));
-      if (coin.x < -80) this.recycleCoin(coin);
-    }
+    this.recycleExpiredObjects();
+    this.updateCoinSpin(dt * 1000);
+    this.updateSpeedLines(dt);
 
     // React only ever hears about score/distance/speed via this throttled,
     // non-setState channel — see EndlessRunnerGame.tsx.
     this.statTimer += dt;
     if (this.statTimer >= STAT_EMIT_MS / 1000) {
-      this.statTimer = 0;
+      this.statTimer %= STAT_EMIT_MS / 1000;
       this.emitStats();
     }
-
-    this.renderDebug(coinCount);
   }
 
-  private renderDebug(coinCountHint?: number) {
+  update(_time: number, deltaMs: number) {
+    if (!this.ready) return;
+
+    this.recordFrameTime(deltaMs);
+    this.debugRefreshAccumulatorMs += deltaMs;
+
+    const acceptedFrameMs = Math.min(deltaMs, MAX_ACCEPTED_FRAME_MS);
+
+    if (this.phase !== "playing") {
+      // A small render-delta idle drift keeps the scene alive without running
+      // gameplay simulation or accumulating catch-up work while paused.
+      const idleDt = acceptedFrameMs / 1000;
+      const drift = START_SPEED * 0.25;
+      this.layer1.tilePositionX += drift * 0.12 * idleDt;
+      this.layer2.tilePositionX += drift * 0.4 * idleDt;
+      (this.player.body as Phaser.Physics.Arcade.Body).setVelocity(0, 0);
+      if (this.phase === "idle" || this.phase === "paused") this.applyPlayerState("idle");
+      this.simulationAccumulatorMs = 0;
+      this.renderDebug();
+      return;
+    }
+
+    if (deltaMs > acceptedFrameMs) this.droppedSimulationMs += deltaMs - acceptedFrameMs;
+
+    this.updatePlayerRuntime();
+    this.updateObstacleWarning();
+
+    this.simulationAccumulatorMs += acceptedFrameMs;
+    let catchUpSteps = 0;
+    while (this.simulationAccumulatorMs >= FIXED_STEP_MS && catchUpSteps < MAX_CATCH_UP_STEPS) {
+      this.stepSimulation(FIXED_STEP_SECONDS);
+      this.simulationAccumulatorMs -= FIXED_STEP_MS;
+      catchUpSteps += 1;
+    }
+
+    // Floating-point leftovers normally remain below one step. This defensive
+    // branch prevents an accumulator backlog from surviving a pathological
+    // frame or future configuration change.
+    if (this.simulationAccumulatorMs >= FIXED_STEP_MS) {
+      const dropped = this.simulationAccumulatorMs - (this.simulationAccumulatorMs % FIXED_STEP_MS);
+      this.droppedSimulationMs += dropped;
+      this.simulationAccumulatorMs %= FIXED_STEP_MS;
+    }
+
+    this.renderDebug();
+  }
+
+  private renderDebug(force = false) {
     if (!this.debugMode || !this.debugText) return;
-    this.debugTimer += 1;
-    if (this.debugTimer % 6 !== 0) return; // ~10x/sec at 60fps, not every frame
-    const obstacleCount = this.obstacles.countActive(true);
-    const coinCount = coinCountHint ?? this.coins.countActive(true);
+    if (!force && this.debugRefreshAccumulatorMs < DEBUG_REFRESH_MS) return;
+    this.debugRefreshAccumulatorMs %= DEBUG_REFRESH_MS;
+
+    const { average, worst } = this.getFrameStats();
     const fps = Math.round(this.game.loop.actualFps);
+    const tweenCount = this.tweens.getTweensOf(this.player).length;
+    const particleCount = this.dustEmitter.getAliveParticleCount() + this.sparkEmitter.getAliveParticleCount();
+    const inputState = this.fastFalling ? "fast-fall" : this.sliding ? "slide" : this.downHeld ? "down" : "none";
+
     this.debugText.setText(
-      `FPS ${fps} | speed ${Math.round(this.speed)} | obstacles ${obstacleCount}/${MAX_OBSTACLES} | coins ${coinCount}/${MAX_COINS} | phase ${this.phase}`,
+      [
+        `FPS ${fps} | frame avg ${average.toFixed(1)}ms | worst ${worst.toFixed(1)}ms`,
+        `speed ${Math.round(this.speed)} | phase ${this.phase} | player ${this.playerState} | input ${inputState}`,
+        `obstacles ${this.activeObstacles.size}/${MAX_OBSTACLES} | coins ${this.activeCoins.size}/${MAX_COINS}`,
+        `tweens ${tweenCount} | particles ${particleCount} | dropped ${Math.round(this.droppedSimulationMs)}ms`,
+      ].join("\n"),
     );
   }
+
 }
 
 export function launchRunner(
   parent: HTMLElement,
   callbacks: RunnerCallbacks,
   best: number,
+  options: RunnerOptions = {},
 ): RunnerControls {
-  const scene = new RunnerScene(callbacks, best);
+  const scene = new RunnerScene(callbacks, best, options);
   const game = new Phaser.Game({
     type: Phaser.AUTO,
     parent,
@@ -1261,7 +1718,15 @@ export function launchRunner(
     height: WORLD_HEIGHT,
     backgroundColor: LIFE,
     scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-    physics: { default: "arcade", arcade: { gravity: { x: 0, y: FALL_GRAVITY }, debug: DEBUG_HITBOXES } },
+    physics: {
+      default: "arcade",
+      arcade: {
+        gravity: { x: 0, y: FALL_GRAVITY },
+        debug: DEBUG_HITBOXES,
+        fixedStep: true,
+        fps: 60,
+      },
+    },
     scene,
     audio: { noAudio: true },
     banner: false,
@@ -1273,7 +1738,9 @@ export function launchRunner(
     resume: () => scene.resumeRun(),
     restart: () => scene.restart(),
     jump: () => scene.jump(),
-    slide: () => scene.slide(),
+    downStart: () => scene.downStart(),
+    downEnd: () => scene.downEnd(),
+    setReducedMotion: (reduced) => scene.setReducedMotion(reduced),
     destroy: () => game.destroy(true),
   };
 }

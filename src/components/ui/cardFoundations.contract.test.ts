@@ -50,21 +50,33 @@ describe("game catalog card", () => {
 });
 
 describe("tool catalog card", () => {
-  it("reserves a two-line title region and a fixed description region", () => {
-    expect(toolDirectory).toContain("line-clamp-2 min-h-[2.5rem]");
-    expect(toolDirectory).toContain("sm:min-h-[3.5rem]");
-    expect(toolDirectory).toContain("line-clamp-3 min-h-[4.5rem]");
+  it("clamps the title and description instead of reserving blank height", () => {
+    // The reserved regions used to guarantee CTA alignment, at the cost of a
+    // blank band above the CTA on every short card. Consistent clamps plus the
+    // stretched grid row do the same job without the empty space.
+    expect(toolDirectory).toContain("line-clamp-2 text-base font-black");
+    expect(toolDirectory).toContain("line-clamp-2 text-sm leading-6");
+    expect(toolDirectory).not.toContain("min-h-[2.5rem]");
+    expect(toolDirectory).not.toContain("min-h-[3.5rem]");
+    expect(toolDirectory).not.toContain("min-h-[4.5rem]");
   });
 
-  it("reserves height for use cases and tags so the CTA cannot drift", () => {
-    expect(toolDirectory).toContain("min-h-[2.5rem] content-start");
-    expect(toolDirectory).toContain("min-h-8 flex-wrap content-start");
-    expect(toolDirectory).toContain("mt-auto pt-5");
+  it("anchors the CTA at the bottom of a full-height card", () => {
+    // `h-full` on the card + a growable body + `mt-auto` on the CTA is what
+    // keeps the CTAs of one grid row on a single baseline.
+    expect(toolDirectory).toContain('className="landing-directory-tool-card flex h-full flex-col overflow-hidden"');
+    expect(toolDirectory).toContain("flex flex-1 flex-col gap-3");
+    expect(toolDirectory).toContain("mt-auto inline-flex");
+  });
+
+  it("gives every catalog card the same preview region", () => {
+    // No per-density preview class: one 16:9 band owned by the stylesheet.
+    expect(toolDirectory).not.toContain("landing-directory-tool-art-compact");
   });
 
   it("keeps the body link a growable flex column", () => {
     // A bare inline <a> severs the flex chain and `mt-auto` stops working.
-    expect(toolDirectory).toContain('className="flex flex-1 flex-col"');
+    expect(toolDirectory).toContain('className="group flex flex-1 flex-col gap-2"');
     expect(toolCardLink).toContain("className={className}");
   });
 

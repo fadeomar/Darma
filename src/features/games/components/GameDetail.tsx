@@ -28,6 +28,7 @@ import { GamePlayerShell } from "./GamePlayerShell";
 import { GamePlayLink } from "./GamePlayLink";
 import { GameThumbnail } from "./GameThumbnail";
 import { RelatedGames } from "./RelatedGames";
+import { EndlessRunnerDetail } from "./EndlessRunnerDetail";
 
 type DetailRowProps = {
   label: string;
@@ -113,6 +114,10 @@ function getFallbackTips(game: GameDefinition) {
 }
 
 export function GameDetail({ game, allGames }: { game: GameDefinition; allGames: GameDefinition[] }) {
+  if (game.slug === "endless-runner") {
+    return <EndlessRunnerDetail game={game} allGames={allGames} />;
+  }
+
   const features = getGameFeatures(game);
   const tips = game.tips?.length ? game.tips.slice(0, 3) : getFallbackTips(game);
 

@@ -17,8 +17,7 @@
  * 6-7px the previous generic art rendered at.
  */
 .tp-frame { position: absolute; inset: .85rem; display: flex; flex-direction: column; gap: .5em; overflow: hidden; font-size: .86rem; line-height: 1.4; }
-.landing-directory-tool-card .landing-tool-art .tp-frame { inset: .7rem; font-size: .8rem; }
-.landing-directory-tool-art-compact .landing-tool-art .tp-frame { inset: .55rem; font-size: .74rem; }
+.landing-directory-tool-card .landing-tool-art .tp-frame { inset: .8rem; font-size: .86rem; }
 
 .tp-pane-label { display: block; color: var(--tp-mute); font-family: var(--font-mono); font-size: .78em; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .tp-badge { align-self: flex-start; padding: .18em .5em; border-radius: 999px; font-size: .78em; font-weight: 900; white-space: nowrap; }

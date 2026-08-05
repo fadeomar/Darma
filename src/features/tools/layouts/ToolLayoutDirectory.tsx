@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Search, SlidersHorizontal, X } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
@@ -45,6 +45,9 @@ const audienceLabels: Record<string, string> = {
   student: "Student",
   business: "Business",
 };
+
+/** Height of the sticky site header, matching the other in-page sticky bars. */
+const STICKY_TOP = 72;
 
 type ToolSort = "featured" | "recent" | "az" | "category";
 type ToolTypeFilter = "all" | NonNullable<ToolDefinition["layoutType"]>;
@@ -122,14 +125,14 @@ function sortTools(tools: ToolDefinition[], sort: ToolSort) {
 
 function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: boolean }) {
   const Icon = ICONS[tool.icon ?? "code"] ?? FaWandMagicSparkles;
-  const primaryTags = (tool.tags ?? []).slice(0, compact ? 1 : 2);
+  const primaryTags = (tool.tags ?? []).slice(0, 2);
   const privacy = privacyLabel(tool.privacy);
   const category = tool.secondaryCategory?.[0] ?? tool.mainCategory?.[0];
 
   return (
     <Card as="article" variant="interactive" padding="none" className="landing-directory-tool-card flex h-full flex-col overflow-hidden">
       <ToolCardLink href={tool.href} toolName={tool.title}>
-        <div className={cn("relative", compact && "landing-directory-tool-art-compact")}>
+        <div className="relative">
           <ToolPreviewArtwork tool={tool} />
           <span className="landing-directory-tool-icon">
             <Icon className="text-base" aria-hidden />
@@ -137,8 +140,17 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
         </div>
       </ToolCardLink>
 
-      <div className="flex h-full flex-col p-5 sm:p-6">
-        <div className="mb-4 flex items-center justify-between gap-3">
+      {/*
+        Tool catalog card body. The regions run in one fixed order — badges and
+        favourite, title, description, tags, CTA — and each is clamped rather
+        than given a reserved height, so a short description no longer leaves a
+        blank band above the CTA. `mt-auto` plus the stretched grid row is what
+        keeps the CTAs of a row on one baseline (F-12). The full title stays
+        available to assistive tech via the link's accessible name and to
+        pointer users via `title`, so the two-line clamp is presentational only.
+      */}
+      <div className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
+        <div className="flex items-center justify-between gap-3">
           <div className="flex flex-wrap gap-2">
             <Badge variant={tool.featured ? "soft" : "outline"}>{tool.featured ? "Featured" : layoutLabel(tool.layoutType)}</Badge>
             {!compact && privacy ? <Badge variant="accent">{privacy}</Badge> : null}
@@ -146,50 +158,111 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
           <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} showLabel={false} />
         </div>
 
-        <ToolCardLink href={tool.href} toolName={tool.title} title={tool.title} className="flex flex-1 flex-col">
-          <div className="flex h-full flex-col">
-            {/*
-              Tool catalog card, fixed content regions. Every region below has a
-              reserved height so the CTA sits at a constant offset and CTA rows
-              share a baseline across the grid row (F-12: titles reach 40
-              characters and descriptions vary freely, which spread CTAs by up
-              to 62px). The full title stays available to assistive tech via the
-              link's accessible name and to pointer users via `title`, so the
-              two-line clamp is presentational only.
-            */}
-            <h3
-              className="line-clamp-2 min-h-[2.5rem] text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:min-h-[3.5rem] sm:text-xl"
-            >
-              {tool.title}
-            </h3>
-            <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
+        <ToolCardLink href={tool.href} toolName={tool.title} title={tool.title} className="group flex flex-1 flex-col gap-2">
+          <h3 className="line-clamp-2 text-base font-black leading-snug tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-lg">
+            {tool.title}
+          </h3>
+          <p className="line-clamp-2 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
 
-            {!compact ? (
-              // Always two rows tall, whether or not use cases exist, so a tool
-              // without them does not pull its CTA up past its neighbours.
-              <ul className="mt-4 grid min-h-[2.5rem] content-start gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
-                {(tool.useCases ?? []).slice(0, 2).map((useCase) => (
-                  <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary-text-strong)]" aria-hidden>✦</span><span className="line-clamp-1">{useCase}</span></li>
-                ))}
-              </ul>
-            ) : null}
-
-            <div className="mt-4 flex min-h-8 flex-wrap content-start gap-2">
-              {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
-              {primaryTags.map((tag) => (
-                <Badge key={tag} variant="outline">#{tag}</Badge>
+          {!compact && (tool.useCases ?? []).length > 0 ? (
+            <ul className="grid gap-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
+              {(tool.useCases ?? []).slice(0, 2).map((useCase) => (
+                <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary-text-strong)]" aria-hidden>✦</span><span className="line-clamp-1">{useCase}</span></li>
               ))}
-            </div>
+            </ul>
+          ) : null}
 
-            <div className="mt-auto pt-5">
-              <span className="group inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
-                Open tool <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
-              </span>
-            </div>
+          <div className="flex flex-wrap content-start gap-2">
+            {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
+            {primaryTags.map((tag) => (
+              <Badge key={tag} variant="outline">#{tag}</Badge>
+            ))}
           </div>
+
+          <span className="mt-auto inline-flex min-h-10 items-center gap-2 pt-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
+            Open tool <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
+          </span>
         </ToolCardLink>
       </div>
     </Card>
+  );
+}
+
+/*
+ * The three catalog selects plus "Clear filters". One component, one set of
+ * handlers: the in-page panel, the compact sticky toolbar, and the mobile
+ * drawer all render this, so there is no second copy of the filter logic to
+ * keep in sync. `dense` only changes presentation — visible field labels become
+ * screen-reader labels, and the clear action is hidden until it does something.
+ */
+type ToolFilterControlsProps = {
+  dense?: boolean;
+  toolType: ToolTypeFilter;
+  setToolType: (value: ToolTypeFilter) => void;
+  category: string;
+  setCategory: (value: string) => void;
+  categories: string[];
+  sort: ToolSort;
+  setSort: (value: ToolSort) => void;
+  hasFilters: boolean;
+  clearFilters: () => void;
+};
+
+function ToolFilterControls({
+  dense = false,
+  toolType,
+  setToolType,
+  category,
+  setCategory,
+  categories,
+  sort,
+  setSort,
+  hasFilters,
+  clearFilters,
+}: ToolFilterControlsProps) {
+  const fieldClass = dense
+    ? "grid w-[10.5rem] shrink-0 gap-0"
+    : "grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]";
+  const labelClass = dense ? "sr-only" : undefined;
+
+  return (
+    <>
+      <label className={fieldClass}>
+        <span className={labelClass}>Tool type</span>
+        <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
+          {Object.entries(toolTypeLabels).map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
+          ))}
+        </Select>
+      </label>
+      <label className={fieldClass}>
+        <span className={labelClass}>Category</span>
+        <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
+          <option value="all">All categories</option>
+          {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
+        </Select>
+      </label>
+      <label className={fieldClass}>
+        <span className={labelClass}>Sort</span>
+        <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
+          <option value="featured">Featured first</option>
+          <option value="recent">Recently updated</option>
+          <option value="az">A to Z</option>
+          <option value="category">Category</option>
+        </Select>
+      </label>
+      {dense && !hasFilters ? null : (
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={clearFilters}
+          disabled={!hasFilters}
+          leftIcon={hasFilters ? <X className="h-4 w-4" aria-hidden /> : <SlidersHorizontal className="h-4 w-4" aria-hidden />}
+        >
+          Clear filters
+        </Button>
+      )}
+    </>
   );
 }
 
@@ -231,6 +304,11 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState<ToolSort>("featured");
   const [visibleCount, setVisibleCount] = useState(18);
+  // Sticky compact toolbar: shown only once the full panel has scrolled past.
+  const [panelPassed, setPanelPassed] = useState(false);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const mobilePanelRef = useRef<HTMLDivElement | null>(null);
 
   const categories = useMemo(() => {
     return Array.from(new Set(tools.flatMap((tool) => tool.secondaryCategory ?? []))).sort();
@@ -270,6 +348,32 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
     setVisibleCount(18);
   }, [query, audience, toolType, category, sort]);
 
+  /*
+   * A zero-height sentinel below the full panel drives the compact toolbar. The
+   * toolbar itself is fixed rather than sticky, so switching it on never adds
+   * or removes flow height and the catalog underneath cannot jump.
+   */
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPanelPassed(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { rootMargin: `-${STICKY_TOP}px 0px 0px 0px`, threshold: 0 },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+    mobilePanelRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileFiltersOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileFiltersOpen]);
+
   const visibleTools = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
   const hasFilters = query.trim().length > 0 || audience !== "all" || toolType !== "all" || category !== "all" || sort !== "featured";
@@ -293,7 +397,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
 
   return (
     <div className="mx-auto max-w-[var(--container-wide)] px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-14">
-      <section id="tool-directory-filters" aria-label="Tool search and filters" className="mt-4 scroll-mt-24 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]/95 p-4 shadow-[var(--shadow-card)] backdrop-blur sm:p-5 lg:sticky lg:top-[72px] lg:z-20">
+      <section id="tool-directory-filters" aria-label="Tool search and filters" className="mt-4 scroll-mt-24 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-card)] sm:p-5">
           <div className="space-y-4">
             <label className="relative block">
               <span className="sr-only">Search tools</span>
@@ -348,36 +452,111 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
             </div>
 
             <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
-              <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                Tool type
-                <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
-                  {Object.entries(toolTypeLabels).map(([value, label]) => (
-                    <option key={value} value={value}>{label}</option>
-                  ))}
-                </Select>
-              </label>
-              <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                Category
-                <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
-                  <option value="all">All categories</option>
-                  {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
-                </Select>
-              </label>
-              <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                Sort
-                <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
-                  <option value="featured">Featured first</option>
-                  <option value="recent">Recently updated</option>
-                  <option value="az">A to Z</option>
-                  <option value="category">Category</option>
-                </Select>
-              </label>
-              <Button variant="secondary" size="sm" onClick={clearFilters} disabled={!hasFilters} leftIcon={hasFilters ? <X className="h-4 w-4" aria-hidden /> : <SlidersHorizontal className="h-4 w-4" aria-hidden />}>
-                Clear filters
-              </Button>
+              <ToolFilterControls
+                toolType={toolType}
+                setToolType={setToolType}
+                category={category}
+                setCategory={setCategory}
+                categories={categories}
+                sort={sort}
+                setSort={setSort}
+                hasFilters={hasFilters}
+                clearFilters={clearFilters}
+              />
             </div>
           </div>
       </section>
+      <div ref={sentinelRef} aria-hidden className="h-px" />
+
+      {/* Compact scrolling state. Fixed, one row on desktop, and reduced to a
+          search field plus a Filters button on small screens. */}
+      <div
+        className={cn(
+          "fixed inset-x-0 z-30 border-b border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)] transition-opacity duration-150",
+          panelPassed ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+        style={{ top: STICKY_TOP }}
+        aria-hidden={!panelPassed}
+      >
+        <div className="mx-auto flex max-w-[var(--container-wide)] flex-wrap items-center gap-2 px-4 py-2 sm:px-6 lg:px-8">
+          <label className="relative block min-w-0 flex-1 md:w-[15rem] md:flex-none">
+            <span className="sr-only">Search tools</span>
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" aria-hidden />
+            <Input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search tools"
+              size="sm"
+              className="pl-9"
+              tabIndex={panelPassed ? undefined : -1}
+            />
+          </label>
+
+          <button
+            type="button"
+            onClick={() => setMobileFiltersOpen(true)}
+            tabIndex={panelPassed ? undefined : -1}
+            className="inline-flex min-h-9 shrink-0 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] md:hidden"
+          >
+            <SlidersHorizontal className="h-4 w-4" aria-hidden />
+            Filters
+            {hasFilters ? <span className="rounded-[var(--radius-full)] bg-[var(--color-primary)] px-1.5 text-xs font-black text-[var(--color-primary-text)]">On</span> : null}
+          </button>
+
+          <div className="hidden flex-wrap items-center gap-2 md:flex">
+            <ToolFilterControls
+              dense
+              toolType={toolType}
+              setToolType={setToolType}
+              category={category}
+              setCategory={setCategory}
+              categories={categories}
+              sort={sort}
+              setSort={setSort}
+              hasFilters={hasFilters}
+              clearFilters={clearFilters}
+            />
+          </div>
+        </div>
+      </div>
+
+      {mobileFiltersOpen ? (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <button type="button" aria-label="Close filters" onClick={() => setMobileFiltersOpen(false)} className="absolute inset-0 bg-[rgba(0,0,0,.45)]" />
+          <div
+            ref={mobilePanelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Tool filters"
+            tabIndex={-1}
+            className="absolute inset-x-0 bottom-0 max-h-[80vh] overflow-y-auto rounded-t-[var(--radius-lg)] border-t border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-lg)] focus:outline-none"
+          >
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h2 className="text-base font-black text-[var(--color-text-primary)]">Filter tools</h2>
+              <button
+                type="button"
+                onClick={() => setMobileFiltersOpen(false)}
+                className="inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] px-3 text-sm font-bold text-[var(--color-text-primary)] focus:outline-none focus-visible:shadow-[var(--focus-ring)]"
+              >
+                <X className="h-4 w-4" aria-hidden /> Close
+              </button>
+            </div>
+            <div className="grid gap-3">
+              <ToolFilterControls
+                toolType={toolType}
+                setToolType={setToolType}
+                category={category}
+                setCategory={setCategory}
+                categories={categories}
+                sort={sort}
+                setSort={setSort}
+                hasFilters={hasFilters}
+                clearFilters={clearFilters}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
 
 
       {showDashboardSections ? <RecentToolsRail tools={tools} /> : null}

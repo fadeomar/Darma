@@ -1226,23 +1226,41 @@
 .landing-tool-art-glow { position: absolute; width: 55%; aspect-ratio: 1; right: -17%; bottom: -48%; border-radius: 999px; background: var(--color-primary-soft); filter: blur(8px); }
 .landing-atlas-band { position: relative; overflow: hidden; border-block: 1px solid var(--color-border-subtle); background: linear-gradient(135deg, var(--color-section-mint), var(--color-page-bg-soft)); }
 .landing-atlas-band::after { position: absolute; width: 45rem; aspect-ratio: 1; right: -22rem; top: -17rem; content: ""; border: 1px dashed var(--color-accent-border); border-radius: 999px; box-shadow: inset 0 0 0 5rem var(--color-accent-soft); opacity: .55; }
-.landing-atlas-map { position: relative; min-height: 25rem; }
-.landing-atlas-map svg { width: 100%; height: auto; overflow: visible; }
 /*
- * Landing connected-atlas map: same in-SVG text policy as the portal scenes.
- * The labels are sized in viewBox units, so they fall to 5-7px on a phone and
- * 9-11px at 1024. Each band gets the size that clears the 12px floor; below
- * 1024 the text is dropped and the map reads as a diagram. The wrapper carries
- * an aria-label describing the map, so nothing is lost to assistive tech.
+ * Landing connected-atlas map.
+ *
+ * The diagram is one scaling piece: every label is sized in viewBox units and
+ * the SVG scales uniformly, so the composition cannot drift out of alignment
+ * the way per-breakpoint font-size overrides did. The smallest label is 15
+ * units, which still clears the 12px floor at the narrowest width the diagram
+ * is used at (the atlas column is ~515px against a 620-unit viewBox at 1024).
+ * Below that breakpoint the stacked map replaces it rather than shrinking it.
  */
-.landing-atlas-map svg text { display: none; }
+.landing-atlas-map { position: relative; min-width: 0; }
+.landing-atlas-map-diagram { display: none; width: 100%; max-width: 46rem; height: auto; margin-inline: auto; overflow: visible; }
+.landing-atlas-map-diagram text { font-family: var(--font-mono); }
+.landing-atlas-node-kicker { fill: var(--color-text-tertiary); font-size: 15px; font-weight: 900; letter-spacing: 1.2px; }
+.landing-atlas-node-value { fill: var(--color-text-primary); font-family: inherit; font-size: 34px; font-weight: 950; letter-spacing: -1px; }
+.landing-atlas-node-label { fill: var(--color-text-secondary); font-size: 15px; font-weight: 900; letter-spacing: 1.2px; }
+.landing-atlas-center-kicker { fill: var(--color-text-on-ink-muted); font-size: 22px; font-weight: 800; letter-spacing: 1.4px; }
+.landing-atlas-center-title { fill: var(--color-text-on-ink); font-size: 27px; font-weight: 950; letter-spacing: .4px; }
+
+/* Stacked relationship map for narrow viewports. */
+.landing-atlas-stack { display: grid; gap: .7rem; }
+.landing-atlas-stack-band { padding: .6rem .9rem; border: 1px solid var(--color-border-default); border-radius: .9rem; background: var(--color-surface-overlay); color: var(--color-text-secondary); font-family: var(--font-mono); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-align: center; text-transform: uppercase; }
+.landing-atlas-stack-center { display: grid; gap: .2rem; padding: 1rem; border: 2px solid var(--color-primary); border-radius: 1.25rem; background: var(--color-section-ink); text-align: center; }
+.landing-atlas-stack-center small { color: var(--color-text-on-ink-muted); font-family: var(--font-mono); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.landing-atlas-stack-center strong { color: var(--color-text-on-ink); font-size: 1.25rem; font-weight: 950; letter-spacing: -.02em; }
+.landing-atlas-stack-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+.landing-atlas-stack-grid li { display: grid; gap: .12rem; padding: .85rem .9rem; border: 1px solid var(--color-border-default); border-radius: 1rem; background: var(--color-surface-raised); box-shadow: var(--shadow-card); }
+.landing-atlas-stack-grid span { display: flex; align-items: center; gap: .4rem; color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .68rem; font-weight: 900; letter-spacing: .1em; }
+.landing-atlas-stack-grid i { width: .5rem; height: .5rem; flex: 0 0 auto; border-radius: 999px; background: var(--atlas-node-accent, var(--color-primary)); }
+.landing-atlas-stack-grid strong { color: var(--color-text-primary); font-family: var(--font-mono); font-size: 1.5rem; font-weight: 950; letter-spacing: -.03em; line-height: 1.15; }
+.landing-atlas-stack-grid small { color: var(--color-text-secondary); font-family: var(--font-mono); font-size: .72rem; font-weight: 900; letter-spacing: .1em; }
+
 @media (min-width: 1024px) {
-  .landing-atlas-map svg text { display: initial; font-size: 15px; }
-  .landing-atlas-map svg text.landing-atlas-map-title { font-size: 26px; }
-}
-@media (min-width: 1280px) {
-  .landing-atlas-map svg text { font-size: 12px; }
-  .landing-atlas-map svg text.landing-atlas-map-title { font-size: 22px; }
+  .landing-atlas-map-diagram { display: block; }
+  .landing-atlas-stack { display: none; }
 }
 
 .landing-atlas-node-card { position: absolute; display: grid; min-width: 7.2rem; min-height: 4.2rem; place-items: center; padding: .65rem; border: 1px solid var(--color-border-default); border-radius: .9rem; background: var(--color-surface-overlay); box-shadow: var(--shadow-md); text-align: center; }.landing-atlas-node-card strong { color: var(--color-text-primary); font-size: .75rem; }.landing-atlas-node-card span { margin-top: .2rem; color: var(--color-text-tertiary); font-size: .75rem; }.landing-atlas-node-card-one { left: 2%; top: 12%; }.landing-atlas-node-card-two { right: 2%; top: 5%; }.landing-atlas-node-card-three { left: 5%; bottom: 5%; }.landing-atlas-node-card-four { right: 7%; bottom: 12%; }
@@ -1330,9 +1348,14 @@
   .landing-workbench * { transform: none !important; animation: none !important; }
 }
 
-/* Tool directory cards reuse the landing preview language so the catalog is visual. */
-.landing-directory-tool-card .landing-tool-art { min-height: 9.25rem; }
-.landing-directory-tool-art-compact .landing-tool-art { min-height: 7.35rem; }
+/*
+ * Tool directory cards reuse the landing preview language so the catalog is
+ * visual. One preview region for every catalog card: a 16:9 band that stops
+ * growing at 200px, which keeps the preview near 35-45% of the card and leaves
+ * the interface inside it large enough to read instead of shrinking it to fit a
+ * 7rem strip.
+ */
+.landing-directory-tool-card .landing-tool-art { width: 100%; aspect-ratio: 16 / 9; min-height: 0; max-height: 12.5rem; }
 .landing-directory-tool-icon {
   position: absolute;
   z-index: 5;
@@ -1540,24 +1563,38 @@
 .modern-web-radar-scene::before { position: absolute; width: 62%; aspect-ratio: 1; content: ""; border-radius: 999px; background: conic-gradient(from 110deg, color-mix(in srgb, var(--color-primary) 24%, transparent), color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 68%, color-mix(in srgb, var(--color-primary) 20%, transparent)); filter: blur(34px); opacity: .75; }
 .modern-web-radar-scene svg { position: relative; z-index: 1; width: min(100%, 610px); height: auto; }
 .modern-radar-ring { fill: none; stroke: color-mix(in srgb, var(--color-text-on-ink) 12%, transparent); stroke-width: 1.5; stroke-dasharray: 8 11; }
-.modern-radar-ring-soft { stroke: color-mix(in srgb, var(--color-accent) 18%, transparent); stroke-dasharray: 3 8; }
-.modern-radar-core { fill: color-mix(in srgb, var(--color-section-ink) 75%, var(--color-primary)); stroke: var(--color-primary); stroke-width: 2; }
-.modern-radar-path { fill: none; stroke: url(#modern-radar-gradient); stroke-width: 2.2; stroke-linecap: round; }
-.modern-radar-node { fill: color-mix(in srgb, var(--color-section-ink) 86%, var(--color-accent)); stroke: color-mix(in srgb, var(--color-text-on-ink) 24%, transparent); stroke-width: 1.5; }
-.modern-radar-core-label { fill: var(--color-text-on-ink); font-size: 24px; font-weight: 950; }
-.modern-radar-core-caption, .modern-radar-node-label { fill: var(--color-text-on-ink-muted); font-family: var(--font-mono); font-size: 13px; font-weight: 900; letter-spacing: 1px; }
-.modern-web-radar-symbol { position: absolute; inset: 50% auto auto 50%; z-index: 2; width: 30px; height: 30px; translate: -50% -168%; color: var(--color-primary); }
-.modern-web-radar-symbol svg { width: 100%; height: 100%; }
+.modern-radar-ring-soft { stroke: color-mix(in srgb, var(--radar-accent, var(--color-accent)) 24%, transparent); stroke-dasharray: 3 8; }
+.modern-radar-core { fill: color-mix(in srgb, var(--color-section-ink) 72%, var(--radar-accent, var(--color-primary))); stroke: var(--radar-accent, var(--color-primary)); stroke-width: 2; transition: fill .3s var(--ease-standard), stroke .3s var(--ease-standard); }
+.modern-radar-path { fill: none; stroke: color-mix(in srgb, var(--radar-accent, var(--color-accent)) 45%, transparent); stroke-width: 2; stroke-linecap: round; transition: stroke .3s var(--ease-standard); }
+.modern-radar-path[data-highlight="true"] { stroke: var(--radar-accent, var(--color-accent)); stroke-width: 3; }
+.modern-radar-node { fill: color-mix(in srgb, var(--color-section-ink) 88%, var(--color-text-on-ink)); stroke: color-mix(in srgb, var(--color-text-on-ink) 22%, transparent); stroke-width: 1.5; transition: fill .3s var(--ease-standard), stroke .3s var(--ease-standard); }
+[data-highlight="true"] > .modern-radar-node { fill: color-mix(in srgb, var(--radar-accent, var(--color-accent)) 18%, var(--color-section-ink)); stroke: var(--radar-accent, var(--color-accent)); }
+[data-highlight="true"] > .modern-radar-node-label { fill: var(--color-text-on-ink); }
+.modern-radar-core-label { fill: var(--color-text-on-ink); font-family: var(--font-mono); font-size: 26px; font-weight: 950; }
+.modern-radar-core-caption, .modern-radar-node-label { fill: var(--color-text-on-ink-muted); font-family: var(--font-mono); font-size: 14px; font-weight: 900; letter-spacing: 1px; }
+.modern-radar-symbol { color: var(--radar-accent, var(--color-primary)); transition: color .3s var(--ease-standard); }
 .modern-web-radar-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border-top: 1px solid color-mix(in srgb, var(--color-text-on-ink) 10%, transparent); background: color-mix(in srgb, var(--color-text-on-ink) 10%, transparent); }
 .modern-web-radar-stages span { display: flex; align-items: center; gap: .55rem; padding: .85rem 1rem; background: color-mix(in srgb, var(--color-section-ink) 94%, transparent); color: var(--color-text-on-ink-muted); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .08em; }
 .modern-web-radar-stages i { color: var(--color-on-ink-primary); font-style: normal; }
+.modern-web-radar-next { display: grid; gap: .2rem; padding: .85rem 1rem; border-top: 1px solid color-mix(in srgb, var(--color-text-on-ink) 10%, transparent); }
+.modern-web-radar-next span { color: var(--radar-accent, var(--color-on-ink-accent)); font-family: var(--font-mono); font-size: .7rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.modern-web-radar-next strong { color: var(--color-text-on-ink); font-size: .85rem; font-weight: 800; line-height: 1.45; }
 .modern-web-radar-status { display: flex; align-items: center; gap: .5rem; padding: .85rem 1rem; border-top: 1px solid color-mix(in srgb, var(--color-text-on-ink) 10%, transparent); color: var(--color-on-ink-accent); font-size: .75rem; font-weight: 800; }
 .modern-web-radar-list { display: grid; gap: .8rem; }
-.modern-web-radar-card { overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-text-on-ink) 13%, transparent); border-radius: 1.35rem; background: color-mix(in srgb, var(--color-text-on-ink) 5%, transparent); transition: border-color .25s ease, background .25s ease, transform .25s ease; }
-.modern-web-radar-card[data-selected="true"] { border-color: color-mix(in srgb, var(--color-primary) 65%, transparent); background: color-mix(in srgb, var(--color-primary) 10%, transparent); transform: translateX(5px); }
-.modern-web-radar-card > button { display: grid; width: 100%; grid-template-columns: 46px 1fr; gap: .9rem; align-items: flex-start; padding: 1rem; text-align: left; }
-.modern-web-radar-card-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: .9rem; background: color-mix(in srgb, var(--color-primary) 14%, transparent); color: var(--color-primary); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-primary) 28%, transparent); }
+/* Selected is the committed state (click or keyboard focus); preview is the
+   lighter state a hover paints while the pointer is over a different card. */
+.modern-web-radar-card { position: relative; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-text-on-ink) 13%, transparent); border-radius: 1.35rem; background: color-mix(in srgb, var(--color-text-on-ink) 5%, transparent); transition: border-color .25s ease, background .25s ease, box-shadow .25s ease; }
+.modern-web-radar-card::before { position: absolute; left: 0; top: 0; bottom: 0; z-index: 2; width: 4px; content: ""; background: var(--radar-accent, var(--color-primary)); opacity: 0; transition: opacity .25s ease; }
+.modern-web-radar-card[data-preview="true"] { border-color: color-mix(in srgb, var(--radar-accent, var(--color-primary)) 40%, transparent); background: color-mix(in srgb, var(--color-text-on-ink) 8%, transparent); }
+.modern-web-radar-card[data-preview="true"]::before { opacity: .45; }
+.modern-web-radar-card[data-selected="true"] { border-color: color-mix(in srgb, var(--radar-accent, var(--color-primary)) 72%, transparent); background: color-mix(in srgb, var(--radar-accent, var(--color-primary)) 12%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--radar-accent, var(--color-primary)) 34%, transparent); }
+.modern-web-radar-card[data-selected="true"]::before { opacity: 1; }
+.modern-web-radar-card > button { display: grid; width: 100%; grid-template-columns: 46px minmax(0, 1fr) auto; gap: .9rem; align-items: flex-start; padding: 1rem; text-align: left; }
+.modern-web-radar-card > button:focus-visible { outline: 2px solid var(--color-on-ink-accent); outline-offset: -4px; border-radius: 1.2rem; }
+.modern-web-radar-card-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: .9rem; background: color-mix(in srgb, var(--radar-accent, var(--color-primary)) 16%, transparent); color: var(--radar-accent, var(--color-primary)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--radar-accent, var(--color-primary)) 34%, transparent); transition: background .25s ease, color .25s ease; }
 .modern-web-radar-card-icon svg { width: 24px; height: 24px; }
+.modern-web-radar-card-state { align-self: start; padding: .3rem .55rem; border: 1px solid color-mix(in srgb, var(--color-text-on-ink) 16%, transparent); border-radius: 999px; color: var(--color-text-on-ink-muted); font-family: var(--font-mono); font-size: .65rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.modern-web-radar-card[data-selected="true"] .modern-web-radar-card-state { border-color: color-mix(in srgb, var(--radar-accent, var(--color-primary)) 55%, transparent); color: var(--radar-accent, var(--color-primary)); }
 .modern-web-radar-card button > span:last-child { display: grid; gap: .38rem; }
 .modern-web-radar-card small { color: var(--color-on-ink-primary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
 .modern-web-radar-card strong { color: var(--color-text-on-ink); font-size: .98rem; line-height: 1.45; }
@@ -1633,7 +1670,13 @@
   .search-constellation-artwork, .search-constellation-artwork svg { min-height: 260px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .modern-web-radar-card { transition: none; }
+  .modern-web-radar-card,
+  .modern-web-radar-card::before,
+  .modern-web-radar-card-icon,
+  .modern-radar-core,
+  .modern-radar-path,
+  .modern-radar-node,
+  .modern-radar-symbol { transition: none; }
 }
 
 /* Experience architecture: task-first landing, connected proof routes, global footer. */
@@ -1700,13 +1743,18 @@
 .landing-intent-story-copy h3 { margin-top: .8rem; max-width: 38rem; color: var(--color-text-on-ink); font-size: clamp(1.75rem, 3.3vw, 2.8rem); font-weight: 950; line-height: 1.02; letter-spacing: -.055em; text-wrap: balance; }
 .landing-intent-story-copy p { margin-top: .85rem; max-width: 42rem; color: var(--color-text-on-ink-muted); font-size: .9rem; line-height: 1.72; text-wrap: pretty; }
 .landing-intent-map { position: relative; min-height: 15rem; margin-top: 1.35rem; }
-.landing-intent-map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* Direct child only: the connector layer fills the map, but a DarmaSymbol
+   rendered inside a node must keep its own utility-class size. */
+.landing-intent-map > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .landing-intent-node { position: absolute; display: grid; min-width: 7.6rem; max-width: 10.5rem; min-height: 5.25rem; align-content: center; justify-items: center; gap: .28rem; padding: .7rem; border: 1px solid rgba(255,255,255,.14); border-radius: 1rem; background: color-mix(in srgb, var(--color-section-ink) 82%, white 5%); box-shadow: 0 18px 38px rgba(0,0,0,.22); text-align: center; backdrop-filter: blur(14px); }
 .landing-intent-node small { color: var(--color-text-on-ink-muted); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .landing-intent-node strong { color: var(--color-text-on-ink); font-size: .75rem; font-weight: 950; line-height: 1.35; }
 .landing-intent-node-start { left: 1%; top: 50%; translate: 0 -50%; }
-.landing-intent-node-workspace { left: 50%; top: 50%; min-width: 9rem; min-height: 8.4rem; translate: -50% -50%; border-color: color-mix(in srgb, var(--color-primary) 65%, transparent); background: linear-gradient(145deg, color-mix(in srgb, var(--color-primary) 22%, var(--color-section-ink)), color-mix(in srgb, var(--color-accent) 13%, var(--color-section-ink))); }
-.landing-intent-node-workspace > span { display: grid; width: 2.6rem; height: 2.6rem; place-items: center; border-radius: .8rem; background: var(--color-primary); color: var(--color-primary-text); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-primary) 25%, transparent); }
+/* Three declared rows — icon plate, kicker, workspace name — so the symbol can
+   never be laid over the label whatever the intent's wording is. */
+.landing-intent-node-workspace { left: 50%; top: 50%; min-width: 9.5rem; min-height: 8.6rem; grid-template-rows: auto auto auto; row-gap: .45rem; padding: .85rem .75rem; translate: -50% -50%; border-color: color-mix(in srgb, var(--color-primary) 65%, transparent); background: linear-gradient(145deg, color-mix(in srgb, var(--color-primary) 22%, var(--color-section-ink)), color-mix(in srgb, var(--color-accent) 13%, var(--color-section-ink))); }
+.landing-intent-node-workspace > span { display: grid; width: 2.6rem; height: 2.6rem; flex: 0 0 auto; place-items: center; border-radius: .8rem; background: var(--color-primary); color: var(--color-primary-text); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-primary) 25%, transparent); }
+.landing-intent-node-workspace > span svg { width: 1.75rem; height: 1.75rem; }
 .landing-intent-node-outcome { right: 1%; top: 50%; translate: 0 -50%; }
 .landing-intent-result { display: flex; align-items: center; gap: .8rem; padding: .85rem 1rem; border: 1px solid rgba(45,212,191,.26); border-radius: 1rem; background: rgba(45,212,191,.075); }
 .landing-intent-result > span { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border-radius: .65rem; background: #2dd4bf; color: #071311; }
@@ -1715,9 +1763,12 @@
 .landing-intent-result strong { color: var(--color-text-on-ink); font-size: .78rem; line-height: 1.5; }
 
 .landing-intent-destinations { min-width: 0; padding: clamp(1.15rem, 2.7vw, 1.8rem); }
-.landing-intent-destinations-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border-subtle); }
+/* Stacked, left-aligned: the supporting line gets the full column instead of a
+   15rem side slot, so it sets on one line here and wraps in balanced pairs when
+   the panel narrows rather than orphaning a single word. */
+.landing-intent-destinations-heading { display: grid; gap: .3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border-subtle); }
 .landing-intent-destinations-heading span { color: var(--color-text-primary); font-size: .9rem; font-weight: 950; }
-.landing-intent-destinations-heading small { max-width: 15rem; color: var(--color-text-tertiary); font-size: .75rem; line-height: 1.5; text-align: right; }
+.landing-intent-destinations-heading small { max-width: 42ch; color: var(--color-text-tertiary); font-size: .78rem; line-height: 1.55; text-align: left; text-wrap: balance; }
 .landing-intent-link-list { display: grid; margin-top: .4rem; }
 .landing-intent-link { display: grid; grid-template-columns: 2.15rem minmax(0, 1fr) 2.25rem; gap: .75rem; align-items: center; padding: 1rem .25rem; border-bottom: 1px solid var(--color-border-subtle); transition: padding .22s ease, background .22s ease; }
 .landing-intent-link:hover { padding-inline: .75rem; border-radius: .9rem; background: var(--color-control-hover); }
@@ -1768,14 +1819,39 @@
 .landing-proof-connector { display: block; width: 2px; height: 1.1rem; margin-left: 2.15rem; background: linear-gradient(var(--color-primary), var(--color-accent)); }
 .landing-proof-connector i { display: block; width: .45rem; height: .45rem; translate: calc(-50% + 1px) .32rem; border-radius: 999px; background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-soft); }
 
-.landing-section-rail { position: fixed; right: 1rem; top: 50%; z-index: calc(var(--z-header) - 1); display: none; width: 5.6rem; translate: 0 -50%; padding: .65rem .45rem; border: 1px solid var(--color-border-default); border-radius: 1.1rem; background: color-mix(in srgb, var(--color-surface-overlay) 88%, transparent); box-shadow: var(--shadow-md); backdrop-filter: blur(16px); }
-.landing-section-rail::before { position: absolute; left: 1rem; top: 1rem; bottom: 1rem; width: 1px; content: ""; background: var(--color-border-default); }
-.landing-section-rail-indicator { position: absolute; left: calc(1rem - 4px); top: 0; z-index: 2; width: 9px; height: 9px; border: 2px solid var(--color-surface-base); border-radius: 999px; background: var(--color-primary); box-shadow: 0 0 0 4px var(--color-primary-soft); }
-.landing-section-rail a { position: relative; z-index: 1; display: flex; min-height: 2rem; align-items: center; gap: .55rem; border-radius: .55rem; color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
-.landing-section-rail a i { width: .55rem; height: .55rem; flex: 0 0 auto; border: 2px solid var(--color-surface-overlay); border-radius: 999px; background: var(--color-border-strong); }
+/*
+ * Landing section rail.
+ *
+ * Two columns, one fixed row height: the marker column is sized in `ch`-free
+ * absolute units so every dot — and the travelling indicator — shares one
+ * vertical axis, and the label column is the only thing that reacts to label
+ * length. "Workbench" therefore cannot push the marker sideways or make the
+ * indicator travel a different distance than it does for "Play".
+ */
+.landing-section-rail {
+  --rail-row: 2.15rem;
+  --rail-marker-col: 1.15rem;
+  --rail-pad: .5rem;
+  --rail-axis: calc(var(--rail-pad) + var(--rail-marker-col) / 2);
+  position: fixed; right: 1rem; top: 50%; z-index: calc(var(--z-header) - 1);
+  display: none; grid-auto-rows: var(--rail-row); translate: 0 -50%;
+  padding: var(--rail-pad);
+  border: 1px solid var(--color-border-default); border-radius: 1.1rem;
+  background: color-mix(in srgb, var(--color-surface-overlay) 92%, transparent);
+  box-shadow: var(--shadow-md); backdrop-filter: blur(16px);
+}
+.landing-section-rail::before { position: absolute; left: var(--rail-axis); top: calc(var(--rail-pad) + var(--rail-row) / 2); bottom: calc(var(--rail-pad) + var(--rail-row) / 2); width: 1px; content: ""; translate: -.5px 0; background: var(--color-border-default); }
+.landing-section-rail-indicator { position: absolute; left: var(--rail-axis); top: 0; z-index: 2; width: 10px; height: 10px; margin-left: -5px; border: 2px solid var(--color-surface-base); border-radius: 999px; background: var(--color-primary); box-shadow: 0 0 0 4px var(--color-primary-soft); }
+.landing-section-rail-active { display: none; }
+.landing-section-rail a { position: relative; z-index: 1; display: grid; grid-template-columns: var(--rail-marker-col) minmax(0, 1fr); align-items: center; column-gap: .3rem; height: var(--rail-row); border-radius: .55rem; color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .7rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; transition: color .2s var(--ease-standard); }
+.landing-section-rail a i { justify-self: center; width: .55rem; height: .55rem; border: 2px solid var(--color-surface-overlay); border-radius: 999px; background: var(--color-border-strong); transition: background .2s var(--ease-standard); }
+.landing-section-rail a span { overflow: hidden; white-space: nowrap; }
 .landing-section-rail a[data-active="true"] { color: var(--color-text-primary); }
 .landing-section-rail a[data-active="true"] i { background: transparent; }
 .landing-section-rail a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .landing-section-rail a, .landing-section-rail a i { transition: none; }
+}
 
 .darma-footer { position: relative; overflow: hidden; margin-top: 0; border-top: 1px solid rgba(255,255,255,.1); background: #101715; color: #f4f1ea; }
 .darma-footer::before { position: absolute; inset: 0; content: ""; opacity: .32; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
@@ -1862,21 +1938,49 @@
   .darma-footer-status { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
-@media (min-width: 1500px) {
+/*
+ * The rail is only shown once the page gutter can hold it without reaching the
+ * section content. `--container-wide` is 1380px, so the free space beside the
+ * container is `(100vw - 1380px) / 2 + 32px` of section padding, less the
+ * scrollbar: the ~49px compact rail clears the content from 1480px, the ~101px
+ * labelled rail from 1600px. Below that the rail is hidden rather than left to
+ * sit on top of the section content.
+ */
+@media (min-width: 1480px) {
   .landing-section-rail { display: grid; }
+}
+
+/* Compact state: marker column only, with the active label as a vertical
+   caption so the current section still reads without a wide label column. */
+@media (min-width: 1480px) and (max-width: 1599px) {
+  .landing-section-rail {
+    --rail-row: 1.9rem;
+    --rail-marker-col: 1.05rem;
+    --rail-pad: .45rem;
+    --rail-axis: calc(var(--rail-pad) + 1rem + var(--rail-marker-col) / 2);
+    right: .5rem;
+    padding-left: calc(var(--rail-pad) + 1rem);
+  }
+  .landing-section-rail a { grid-template-columns: var(--rail-marker-col); column-gap: 0; }
+  .landing-section-rail a span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .landing-section-rail-active {
+    position: absolute; left: var(--rail-pad); top: 50%; display: block;
+    max-height: calc(100% - 1.2rem); overflow: hidden;
+    translate: 0 -50%; rotate: 180deg; writing-mode: vertical-rl;
+    color: var(--color-text-primary); font-family: var(--font-mono); font-size: .6rem;
+    font-weight: 900; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+  }
 }
 
 @media (max-width: 759px) {
   .landing-intent-counts { margin-top: .5rem; }
   .landing-intent-tab strong { font-size: .75rem; }
   .landing-intent-map { min-height: 19rem; }
-  .landing-intent-map svg { display: none; }
+  .landing-intent-map > svg { display: none; }
   .landing-intent-node { position: relative; left: auto; right: auto; top: auto; max-width: none; min-width: 0; min-height: 4.7rem; translate: none; }
   .landing-intent-node + .landing-intent-node { margin-top: .65rem; }
-  .landing-intent-node-workspace { min-height: 6.6rem; }
+  .landing-intent-node-workspace { min-height: 6.9rem; }
   .landing-intent-node-start::after, .landing-intent-node-workspace::after { position: absolute; left: 50%; bottom: -.72rem; width: 2px; height: .72rem; content: ""; background: linear-gradient(var(--color-primary), var(--color-accent)); }
-  .landing-intent-destinations-heading { display: grid; align-items: start; }
-  .landing-intent-destinations-heading small { text-align: left; }
   .landing-intent-link { grid-template-columns: 2rem minmax(0, 1fr) 2rem; gap: .55rem; }
   .landing-intent-link:hover { padding-inline: .25rem; }
   .landing-proof-step { grid-template-columns: 2.15rem minmax(0, 1fr) 2rem; padding: .85rem; }

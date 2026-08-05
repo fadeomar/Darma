@@ -1,17 +1,27 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowDown, ArrowLeft, Heart, Maximize2, Minimize2, Pause, Play, RotateCcw, Volume2, VolumeX, Zap } from "lucide-react";
-import { Badge, Button } from "@/components/ui";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+  type RefObject,
+} from "react";
+import { ArrowDown, Heart, Maximize2, Minimize2, Pause, Play, RotateCcw, Sparkles, Volume2, VolumeX, Zap } from "lucide-react";
+import { Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
-import { createSimpleGameAudio } from "../shared/simpleGameAudio";
+import { createSimpleGameAudio, type SimpleGameSound } from "../shared/simpleGameAudio";
 import type { GameDefinition } from "../../domain/game";
 import type { RunnerControls, RunnerEvent, RunnerHud, RunnerStats } from "./runnerScene";
 
 const STORAGE_KEY = "darma:endless-runner:best-score";
 const MUTE_KEY = "darma:endless-runner:muted";
 const MAX_LIVES = 3;
+const BASE_SPEED = 300;
 
 function readNumber(key: string, fallback: number) {
   if (typeof window === "undefined") return fallback;
@@ -44,9 +54,9 @@ const INITIAL_HUD: RunnerHud = { phase: "idle", score: 0, distance: 0, speed: 30
 // onStats callback — React never re-renders it once mounted.
 function LiveStatPill({ label, valueRef, initial }: { label: string; valueRef: RefObject<HTMLParagraphElement | null>; initial: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 text-white shadow-inner shadow-black/20">
-      <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/75">{label}</p>
-      <p ref={valueRef} className="mt-1 text-lg font-black leading-none tracking-[-0.03em]">
+    <div className="min-w-0 rounded-xl border border-white/10 bg-black/35 px-2 py-1.5 text-white shadow-inner shadow-black/20 backdrop-blur-sm sm:px-3 sm:py-2">
+      <p className="truncate font-mono text-xs font-black uppercase tracking-[0.12em] text-amber-100/70">{label}</p>
+      <p ref={valueRef} className="mt-1 truncate text-sm font-black leading-none tracking-[-0.03em] sm:text-lg">
         {initial}
       </p>
     </div>
@@ -55,15 +65,11 @@ function LiveStatPill({ label, valueRef, initial }: { label: string; valueRef: R
 
 function StatPill({ label, value }: { label: string; value: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 text-white shadow-inner shadow-black/20">
-      <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/75">{label}</p>
-      <p className="mt-1 text-lg font-black leading-none tracking-[-0.03em]">{value}</p>
+    <div className="min-w-0 rounded-xl border border-white/10 bg-black/35 px-2 py-1.5 text-white shadow-inner shadow-black/20 backdrop-blur-sm sm:px-3 sm:py-2">
+      <p className="truncate font-mono text-xs font-black uppercase tracking-[0.12em] text-amber-100/70">{label}</p>
+      <p className="mt-1 truncate text-sm font-black leading-none tracking-[-0.03em] sm:text-lg">{value}</p>
     </div>
   );
-}
-
-function TinyTip({ children }: { children: ReactNode }) {
-  return <span className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 text-xs font-bold leading-5 text-white/78">{children}</span>;
 }
 
 function Hearts({ lives }: { lives: number }) {
@@ -81,7 +87,6 @@ function Hearts({ lives }: { lives: number }) {
 }
 
 export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
   const controlsRef = useRef<RunnerControls | null>(null);
@@ -102,6 +107,7 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
   const [best, setBest] = useState(0);
   const [muted, setMuted] = useState(false);
   const [focusMode, setFocusMode] = useState(false);
+  const [newBest, setNewBest] = useState(false);
 
   const isPlaying = hud.phase === "playing";
   const statusLabel = useMemo(() => {
@@ -112,7 +118,7 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
     return "Ready";
   }, [ready, hud.phase]);
 
-  const playSound = useCallback((sound: "start" | "bonus" | "crash" | "drop" | "click") => {
+  const playSound = useCallback((sound: SimpleGameSound) => {
     if (mutedRef.current) return;
     if (!audioRef.current) audioRef.current = createSimpleGameAudio();
     audioRef.current.play(sound);
@@ -120,25 +126,37 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
 
   const onHud = useCallback((next: RunnerHud) => {
     hudRef.current = next;
+    // Phase updates are rare, so synchronizing the DOM here is cheap and keeps
+    // restart/game-over values accurate before the next throttled stats tick.
+    if (scoreElRef.current) scoreElRef.current.textContent = String(next.score);
+    if (distanceElRef.current) distanceElRef.current.textContent = String(next.distance);
+    if (speedElRef.current) speedElRef.current.textContent = `${(next.speed / BASE_SPEED).toFixed(1)}×`;
     setHud(next);
   }, []);
 
   const onStats = useCallback((stats: RunnerStats) => {
     if (scoreElRef.current) scoreElRef.current.textContent = String(stats.score);
     if (distanceElRef.current) distanceElRef.current.textContent = String(stats.distance);
-    if (speedElRef.current) speedElRef.current.textContent = `${Math.round(stats.speed / 10)}x`;
+    if (speedElRef.current) speedElRef.current.textContent = `${(stats.speed / BASE_SPEED).toFixed(1)}×`;
   }, []);
 
   const onEvent = useCallback(
     (event: RunnerEvent) => {
-      if (event === "start") playSound("start");
-      else if (event === "jump") playSound("drop");
+      if (event === "start") {
+        setNewBest(false);
+        playSound("start");
+      } else if (event === "jump") playSound("jump");
+      else if (event === "slide") playSound("slide");
+      else if (event === "fast-fall") playSound("drop");
+      else if (event === "land") playSound("land");
       else if (event === "coin") playSound("bonus");
       else if (event === "hit") playSound("crash");
       else if (event === "over") {
-        playSound("crash");
+        playSound("lose");
         const finalScore = hudRef.current.score;
-        if (finalScore > bestRef.current) {
+        const beatBest = finalScore > bestRef.current;
+        setNewBest(beatBest);
+        if (beatBest) {
           bestRef.current = finalScore;
           writeBest(finalScore);
           setBest(finalScore);
@@ -163,19 +181,27 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
   useEffect(() => {
     let cancelled = false;
     let controls: RunnerControls | null = null;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleMotionChange = (event: MediaQueryListEvent) => controls?.setReducedMotion(event.matches);
+    motionQuery.addEventListener("change", handleMotionChange);
 
     void import("./runnerScene").then(({ launchRunner }) => {
       const parent = containerRef.current;
       if (cancelled || !parent) return;
-      controls = launchRunner(parent, { onHud, onStats, onEvent }, bestRef.current);
+      controls = launchRunner(parent, { onHud, onStats, onEvent }, bestRef.current, {
+        reducedMotion: motionQuery.matches,
+      });
       controlsRef.current = controls;
       setReady(true);
     });
 
     return () => {
       cancelled = true;
+      motionQuery.removeEventListener("change", handleMotionChange);
       controls?.destroy();
       controlsRef.current = null;
+      audioRef.current?.destroy();
+      audioRef.current = null;
       setReady(false);
     };
   }, [onHud, onStats, onEvent]);
@@ -185,7 +211,8 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
   const resume = useCallback(() => controlsRef.current?.resume(), []);
   const restart = useCallback(() => controlsRef.current?.restart(), []);
   const jump = useCallback(() => controlsRef.current?.jump(), []);
-  const slide = useCallback(() => controlsRef.current?.slide(), []);
+  const downStart = useCallback(() => controlsRef.current?.downStart(), []);
+  const downEnd = useCallback(() => controlsRef.current?.downEnd(), []);
 
   const togglePause = useCallback(() => {
     if (hudRef.current.phase === "playing") pause();
@@ -203,33 +230,115 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
 
   const toggleFocus = useCallback(() => setFocusMode((current) => !current), []);
 
-  // Keyboard controls (jump / slide / pause / start). Prevent page scroll.
   useEffect(() => {
-    const handleKeyboard = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement | null;
-      const tag = target?.tagName.toLowerCase();
-      if (["input", "textarea", "select"].includes(tag ?? "")) return;
+    if (!focusMode) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [focusMode]);
+
+  // Keyboard controls use explicit press/release state. This prevents browser
+  // key-repeat from continually extending a slide and gives airborne Down a
+  // responsive fast-fall that stops as soon as the key is released.
+  useEffect(() => {
+    const isInteractiveTarget = (target: EventTarget | null) => {
+      const element = target as HTMLElement | null;
+      const tag = element?.tagName.toLowerCase();
+      return element?.isContentEditable || ["input", "textarea", "select", "button", "a"].includes(tag ?? "");
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (isInteractiveTarget(event.target)) return;
 
       if (["Space", "ArrowUp", "KeyW"].includes(event.code)) {
         event.preventDefault();
-        jump();
+        if (!event.repeat) jump();
       } else if (["ArrowDown", "KeyS"].includes(event.code)) {
         event.preventDefault();
-        slide();
+        if (!event.repeat) downStart();
       } else if (["KeyP", "Escape"].includes(event.code)) {
         event.preventDefault();
-        togglePause();
+        if (!event.repeat) togglePause();
+      } else if (event.code === "KeyR") {
+        event.preventDefault();
+        if (!event.repeat) restart();
       } else if (event.code === "Enter") {
         event.preventDefault();
+        if (event.repeat) return;
         const phase = hudRef.current.phase;
         if (phase === "paused") resume();
         else if (phase === "playing") jump();
         else start();
       }
     };
-    window.addEventListener("keydown", handleKeyboard, { passive: false });
-    return () => window.removeEventListener("keydown", handleKeyboard);
-  }, [jump, resume, slide, start, togglePause]);
+
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (["ArrowDown", "KeyS"].includes(event.code)) {
+        event.preventDefault();
+        downEnd();
+      }
+    };
+
+    const pauseForInterruption = () => {
+      downEnd();
+      if (hudRef.current.phase === "playing") pause();
+    };
+    const handleVisibility = () => {
+      if (document.visibilityState === "hidden") pauseForInterruption();
+    };
+
+    window.addEventListener("keydown", handleKeyDown, { passive: false });
+    window.addEventListener("keyup", handleKeyUp, { passive: false });
+    window.addEventListener("blur", pauseForInterruption);
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+      window.removeEventListener("blur", pauseForInterruption);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      downEnd();
+    };
+  }, [downEnd, downStart, jump, pause, restart, resume, start, togglePause]);
+
+  const startDownPointer = useCallback(
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      event.currentTarget.setPointerCapture(event.pointerId);
+      downStart();
+    },
+    [downStart],
+  );
+
+  const endDownPointer = useCallback(
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+      downEnd();
+    },
+    [downEnd],
+  );
+
+  const handleDownKeyDown = useCallback(
+    (event: ReactKeyboardEvent<HTMLButtonElement>) => {
+      if (!["Space", "Enter"].includes(event.code)) return;
+      event.preventDefault();
+      if (!event.repeat) downStart();
+    },
+    [downStart],
+  );
+
+  const handleDownKeyUp = useCallback(
+    (event: ReactKeyboardEvent<HTMLButtonElement>) => {
+      if (!["Space", "Enter"].includes(event.code)) return;
+      event.preventDefault();
+      downEnd();
+    },
+    [downEnd],
+  );
 
   // hud.score only changes on phase-change events (0 on idle/restart, final
   // score on game over), so this stays accurate without live score in React.
@@ -241,129 +350,193 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
       ref={shellRef}
       className={cn(
         "overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[#070716] shadow-[var(--shadow-card)]",
-        focusMode && "fixed inset-2 z-50 overflow-y-auto rounded-[2rem] border-amber-300/50 bg-[#070716] p-2 sm:inset-4",
+        focusMode && "fixed inset-2 z-50 overflow-y-auto rounded-[1.75rem] border-amber-300/40 bg-[#070716] p-2 sm:inset-4",
       )}
     >
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-black/35 px-4 py-3 text-white sm:px-5">
-        <div className="flex min-w-0 items-center gap-3">
-          <button
-            type="button"
-            onClick={() => (focusMode ? setFocusMode(false) : router.push("/games"))}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white transition hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
-            aria-label={focusMode ? "Exit focus mode" : "Back to games"}
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-          </button>
-          <div className="min-w-0">
-            <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/70">Darma Arcade</p>
-            <h2 className="truncate text-base font-black tracking-[-0.02em] text-white sm:text-lg">{game.title}</h2>
+      <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-black/35 px-3 py-2.5 text-white sm:px-4">
+        <div className="min-w-0">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-100/60">Darma Arcade</p>
+          <div className="mt-0.5 flex min-w-0 items-center gap-2">
+            <h2 className="truncate text-sm font-black tracking-[-0.02em] text-white sm:text-base">{game.title}</h2>
+            <span
+              className={cn(
+                "inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 font-mono text-xs font-black uppercase tracking-[0.1em]",
+                hud.phase === "playing"
+                  ? "border-emerald-300/30 bg-emerald-300/15 text-emerald-100"
+                  : "border-white/15 bg-white/10 text-white/70",
+              )}
+              aria-live="polite"
+            >
+              {statusLabel}
+            </span>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="soft">Phaser</Badge>
-          <Badge variant={hud.phase === "playing" ? "accent" : "outline"}>{statusLabel}</Badge>
+
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            aria-label={muted ? "Turn sound on" : "Mute game sound"}
+            aria-pressed={muted}
+          >
+            {muted ? <VolumeX className="h-4 w-4" aria-hidden /> : <Volume2 className="h-4 w-4" aria-hidden />}
+          </button>
+          <button
+            type="button"
+            onClick={toggleFocus}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            aria-label={focusMode ? "Exit focus mode" : "Open focus mode"}
+            aria-pressed={focusMode}
+          >
+            {focusMode ? <Minimize2 className="h-4 w-4" aria-hidden /> : <Maximize2 className="h-4 w-4" aria-hidden />}
+          </button>
         </div>
       </div>
 
-      <div className={cn("grid gap-4 p-3 sm:p-5", focusMode ? "xl:grid-cols-[minmax(0,1fr)_300px]" : "2xl:grid-cols-[minmax(0,1fr)_290px]")}>
-        <div className="min-w-0">
-          <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-5">
+      <div className="p-2 sm:p-3">
+        <div
+          className={cn(
+            "relative mx-auto aspect-[2/1] w-full overflow-hidden rounded-[1.25rem] border border-amber-300/20 bg-slate-950 shadow-[0_24px_80px_rgba(0,0,0,0.42)]",
+            focusMode ? "max-w-[1400px]" : "max-w-[1200px]",
+          )}
+        >
+          <div
+            ref={containerRef}
+            className="block h-full w-full touch-none select-none overflow-hidden rounded-[1.2rem] bg-slate-950 [&>canvas]:rounded-[1.2rem]"
+            aria-label="Endless Runner game"
+            role="img"
+            onContextMenu={(event) => event.preventDefault()}
+          />
+
+          <div className="pointer-events-none absolute inset-x-2 top-2 z-20 grid grid-cols-5 gap-1 sm:inset-x-3 sm:top-3 sm:gap-2">
             <LiveStatPill label="Score" valueRef={scoreElRef} initial="0" />
             <StatPill label="Best" value={displayBest} />
             <LiveStatPill label="Meters" valueRef={distanceElRef} initial="0" />
-            <LiveStatPill label="Speed" valueRef={speedElRef} initial="30x" />
+            <LiveStatPill label="Speed" valueRef={speedElRef} initial="1.0×" />
             <StatPill label="Lives" value={<Hearts lives={hud.lives} />} />
           </div>
 
-          <div
-            className="relative mx-auto aspect-[2/1] overflow-hidden rounded-[1.5rem] border border-amber-300/25 bg-slate-950 p-2 shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
-            style={{ width: "min(100%, calc(clamp(240px, 100svh - 310px, 500px) * 2))", maxWidth: "100%" }}
-          >
-            <div
-              ref={containerRef}
-              className="block h-full w-full touch-none select-none overflow-hidden rounded-[1.1rem] bg-slate-950 [&>canvas]:rounded-[1.1rem]"
-              aria-label="Endless Runner game"
-              role="img"
-              onContextMenu={(event) => event.preventDefault()}
-            />
-
-            {overlayVisible ? (
-              <div className="pointer-events-none absolute inset-2 flex items-center justify-center rounded-[1.1rem]">
-                <div className="max-w-md rounded-[1.5rem] border border-amber-200/35 bg-slate-950/78 p-5 text-center text-white shadow-2xl backdrop-blur-md">
-                  <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/80">
-                    {!ready ? "Loading" : hud.phase === "over" ? "Final score" : hud.phase === "paused" ? "Take a breath" : "Sprite-based runner"}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] sm:text-3xl">
-                    {!ready ? "Preparing…" : hud.phase === "over" ? `${hud.score} points` : hud.phase === "paused" ? "Paused" : "Ready to run"}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-white/75">
-                    {hud.phase === "over"
-                      ? `Best score: ${displayBest}. Press restart, Enter, or tap to run again.`
-                      : "Jump over ground obstacles, slide under birds and branches, and grab coins. Space/↑/W jump, ↓/S slide."}
-                  </p>
+          {overlayVisible ? (
+            <div className="pointer-events-none absolute inset-0 z-30 flex items-end justify-center bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent p-3 sm:p-5">
+              <div className="pointer-events-auto w-full max-w-[560px] rounded-[1.1rem] border border-amber-100/25 bg-slate-950/80 p-2.5 text-white shadow-2xl backdrop-blur-md sm:rounded-[1.25rem] sm:p-4">
+                <div className="flex items-center justify-between gap-2 sm:gap-3">
+                  <div className="min-w-0">
+                    <p className="flex items-center gap-1.5 font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-100/70">
+                      {newBest && hud.phase === "over" ? <Sparkles className="h-3 w-3" aria-hidden /> : null}
+                      {!ready
+                        ? "Loading stage"
+                        : hud.phase === "over"
+                          ? newBest
+                            ? "New personal best"
+                            : "Run complete"
+                          : hud.phase === "paused"
+                            ? "Run paused"
+                            : "First move"}
+                    </p>
+                    <h3 className="mt-0.5 text-base font-black tracking-[-0.035em] sm:mt-1 sm:text-2xl">
+                      {!ready
+                        ? "Preparing…"
+                        : hud.phase === "over"
+                          ? newBest
+                            ? `${hud.score} — new best!`
+                            : `${hud.score} points`
+                          : hud.phase === "paused"
+                            ? "Ready when you are"
+                            : "Read ahead, then react"}
+                    </h3>
+                    <p className="mt-1 hidden max-w-md text-xs leading-5 text-white/70 sm:block sm:text-sm">
+                      {hud.phase === "over"
+                        ? newBest
+                          ? "That run set a new local record. Replay immediately and try to extend it."
+                          : `Best score: ${displayBest}. Replay immediately without reloading the page.`
+                        : hud.phase === "paused"
+                          ? "Your position is frozen. Resume when you are ready to continue."
+                          : "Jump over ground obstacles. Hold Down or S to slide, or use it in the air to fast-fall."}
+                    </p>
+                  </div>
+                  <Button
+                    type="button"
+                    onClick={hud.phase === "paused" ? resume : hud.phase === "over" ? restart : start}
+                    size="sm"
+                    variant="primary"
+                    className="min-h-9 shrink-0 gap-2 px-3 sm:min-h-[38px] sm:px-5"
+                    disabled={!ready}
+                  >
+                    <Play className="h-4 w-4" aria-hidden />
+                    {hud.phase === "paused" ? "Resume" : hud.phase === "over" ? "Run again" : "Start run"}
+                  </Button>
                 </div>
+                {hud.phase === "over" ? (
+                  <div className="mt-3 grid grid-cols-3 gap-2 border-t border-white/10 pt-3">
+                    <div className="rounded-lg bg-white/[0.05] px-2 py-2">
+                      <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-white/45">Distance</p>
+                      <p className="mt-1 text-sm font-black">{hud.distance} m</p>
+                    </div>
+                    <div className="rounded-lg bg-white/[0.05] px-2 py-2">
+                      <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-white/45">Top speed</p>
+                      <p className="mt-1 text-sm font-black">{(hud.speed / BASE_SPEED).toFixed(1)}×</p>
+                    </div>
+                    <div className="rounded-lg bg-white/[0.05] px-2 py-2">
+                      <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-white/45">Best</p>
+                      <p className="mt-1 text-sm font-black">{displayBest}</p>
+                    </div>
+                  </div>
+                ) : hud.phase === "idle" ? (
+                  <div className="mt-3 hidden flex-wrap gap-1.5 border-t border-white/10 pt-3 font-mono text-xs font-bold uppercase tracking-[0.08em] text-white/60 sm:flex">
+                    <span className="rounded-full border border-white/10 bg-white/[0.05] px-2 py-1">Space / ↑ / W · jump</span>
+                    <span className="rounded-full border border-white/10 bg-white/[0.05] px-2 py-1">Hold ↓ / S · slide</span>
+                    <span className="rounded-full border border-white/10 bg-white/[0.05] px-2 py-1">P / Esc · pause</span>
+                  </div>
+                ) : null}
               </div>
-            ) : null}
-          </div>
-
-          <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-            <div className="flex flex-wrap gap-2">
-              <Button type="button" onClick={hud.phase === "paused" ? resume : start} size="sm" variant="primary" className="gap-2" disabled={!ready}>
-                <Play className="h-4 w-4" aria-hidden />
-                {hud.phase === "paused" ? "Resume" : hud.phase === "over" ? "Play again" : "Start"}
-              </Button>
-              <Button type="button" onClick={pause} size="sm" variant="secondary" className="gap-2" disabled={!isPlaying}>
-                <Pause className="h-4 w-4" aria-hidden />
-                Pause
-              </Button>
-              <Button type="button" onClick={restart} size="sm" variant="secondary" className="gap-2" disabled={!ready}>
-                <RotateCcw className="h-4 w-4" aria-hidden />
-                Restart
-              </Button>
-              <Button type="button" onClick={jump} size="sm" variant="soft" className="gap-2" disabled={!ready}>
-                <Zap className="h-4 w-4" aria-hidden />
-                Jump
-              </Button>
-              <Button type="button" onClick={slide} size="sm" variant="soft" className="gap-2" disabled={!ready}>
-                <ArrowDown className="h-4 w-4" aria-hidden />
-                Slide
-              </Button>
-              <Button type="button" onClick={toggleMute} size="sm" variant="ghost" className="gap-2 text-white hover:bg-white/10">
-                {muted ? <VolumeX className="h-4 w-4" aria-hidden /> : <Volume2 className="h-4 w-4" aria-hidden />}
-                {muted ? "Muted" : "Sound"}
-              </Button>
-              <Button type="button" onClick={toggleFocus} size="sm" variant="ghost" className="gap-2 text-white hover:bg-white/10">
-                {focusMode ? <Minimize2 className="h-4 w-4" aria-hidden /> : <Maximize2 className="h-4 w-4" aria-hidden />}
-                {focusMode ? "Exit focus" : "Focus"}
-              </Button>
             </div>
+          ) : null}
+        </div>
+      </div>
 
-            <div className="flex flex-wrap justify-center gap-2 sm:justify-end">
-              <TinyTip>Space / ↑ / W = Jump</TinyTip>
-              <TinyTip>↓ / S = Slide</TinyTip>
-              <TinyTip>P / Esc = Pause</TinyTip>
-            </div>
-          </div>
+      <div className="grid gap-3 border-t border-white/10 bg-black/20 p-3 sm:p-4 lg:grid-cols-[auto_minmax(300px,440px)_minmax(0,1fr)] lg:items-center">
+        <div className="order-2 flex flex-wrap gap-2 lg:order-1">
+          <Button type="button" onClick={hud.phase === "paused" ? resume : start} size="sm" variant="secondary" className="gap-2 border-white/10 bg-white/[0.06] text-white hover:bg-white/10" disabled={!ready}>
+            <Play className="h-4 w-4" aria-hidden />
+            {hud.phase === "paused" ? "Resume" : hud.phase === "over" ? "Play again" : "Start"}
+          </Button>
+          <Button type="button" onClick={pause} size="sm" variant="secondary" className="gap-2 border-white/10 bg-white/[0.06] text-white hover:bg-white/10" disabled={!isPlaying}>
+            <Pause className="h-4 w-4" aria-hidden />
+            Pause
+          </Button>
+          <Button type="button" onClick={restart} size="sm" variant="secondary" className="gap-2 border-white/10 bg-white/[0.06] text-white hover:bg-white/10" disabled={!ready}>
+            <RotateCcw className="h-4 w-4" aria-hidden />
+            Restart
+          </Button>
         </div>
 
-        <aside className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 text-white">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-200/35 bg-amber-300/20 text-2xl">🏃</span>
-            <div>
-              <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/70">Endless run</p>
-              <h3 className="text-lg font-black tracking-[-0.02em]">Phaser sprite runner</h3>
-            </div>
-          </div>
-          <div className="mt-4 space-y-3 text-sm leading-6 text-white/72">
-            <p>This build runs on Phaser with the original parallax forest backgrounds, an animated sprite character, and proper game objects — rocks, crates, spikes, logs, a flying bird, and hanging branches.</p>
-            <p>You start with three lives and a short shield after each hit, so a single mistake never ends the run. Jump over ground obstacles, slide under head-height ones, and collect coins.</p>
-          </div>
-          <div className="mt-4 grid gap-2 rounded-2xl border border-white/10 bg-black/25 p-3 text-xs font-bold text-white/75">
-            <span>• Tap the game or the Jump button on mobile.</span>
-            <span>• Speed ramps up slowly over distance.</span>
-            <span>• Restart is instant — no page reload.</span>
-          </div>
-        </aside>
+        <div className="order-1 grid grid-cols-2 gap-2 lg:order-2">
+          <Button type="button" onClick={jump} size="lg" variant="soft" className="min-h-12 gap-2 border-amber-200/20 bg-amber-200/10 text-amber-50 hover:bg-amber-200/15" disabled={!ready}>
+            <Zap className="h-4 w-4" aria-hidden />
+            Jump
+          </Button>
+          <Button
+            type="button"
+            size="lg"
+            variant="soft"
+            className="min-h-12 touch-none gap-2 border-sky-200/20 bg-sky-200/10 text-sky-50 hover:bg-sky-200/15"
+            disabled={!ready}
+            onPointerDown={startDownPointer}
+            onPointerUp={endDownPointer}
+            onPointerCancel={endDownPointer}
+            onKeyDown={handleDownKeyDown}
+            onKeyUp={handleDownKeyUp}
+            aria-label="Hold to slide on the ground or fast-fall in the air"
+          >
+            <ArrowDown className="h-4 w-4" aria-hidden />
+            Slide / Drop
+          </Button>
+        </div>
+
+        <p className="order-3 text-xs leading-5 text-white/60 lg:text-right">
+          Keyboard: <strong className="text-white/80">Space / ↑ / W</strong> jumps · <strong className="text-white/80">hold ↓ / S</strong> slides or fast-falls · <strong className="text-white/80">P / Esc</strong> pauses · <strong className="text-white/80">R</strong> restarts
+        </p>
       </div>
     </div>
   );

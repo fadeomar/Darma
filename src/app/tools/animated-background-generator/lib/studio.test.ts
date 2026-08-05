@@ -111,6 +111,6 @@ describe("animated background production studio", () => {
     const checks = buildAnimatedBackgroundAudit(baseState, css, html);
     const summary = buildAnimatedBackgroundSummary(baseState, css, html, checks);
     expect(summary).toHaveLength(4);
-    expect(summary.map((card) => card.label)).toEqual(["Motion", "Performance", "Payload", "Readiness"]);
+    expect(summary.map((card) => card.label)).toEqual(["Motion intensity", "Render cost", "Export size", "Production status"]);
   });
 });

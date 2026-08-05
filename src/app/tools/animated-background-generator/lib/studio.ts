@@ -98,20 +98,22 @@ export function normalizeAnimatedBackgroundState(value: unknown): AnimatedBackgr
   if (!isRecord(value)) throw new Error("Project state must be an object.");
 
   const colors = Array.isArray(value.colors)
-    ? value.colors.slice(0, 4).map((color, index) => cleanColor(color, DEFAULT_STATE.colors[index] ?? DEFAULT_STATE.colors[0]))
+    ? value.colors.slice(0, 6).map((color, index) => cleanColor(color, DEFAULT_STATE.colors[index % DEFAULT_STATE.colors.length] ?? DEFAULT_STATE.colors[0]))
     : [...DEFAULT_STATE.colors];
 
-  while (colors.length < 4) colors.push(DEFAULT_STATE.colors[colors.length] ?? DEFAULT_STATE.colors[0]);
+  while (colors.length < 2) colors.push(DEFAULT_STATE.colors[colors.length % DEFAULT_STATE.colors.length] ?? DEFAULT_STATE.colors[0]);
 
   const minSize = cleanNumber(value.minSize, DEFAULT_STATE.minSize, 4, 320, true);
   const maxSize = cleanNumber(value.maxSize, DEFAULT_STATE.maxSize, minSize + 4, 720, true);
+
+  const shape = cleanChoice(value.shape, SHAPES, DEFAULT_STATE.shape);
 
   return {
     presetId: cleanText(value.presetId, DEFAULT_STATE.presetId, 80),
     seed: cleanNumber(value.seed, DEFAULT_STATE.seed, 1, 2_147_483_646, true),
     colors,
     background: cleanColor(value.background, DEFAULT_STATE.background),
-    shape: cleanChoice(value.shape, SHAPES, DEFAULT_STATE.shape),
+    shape,
     particleCount: cleanNumber(value.particleCount, DEFAULT_STATE.particleCount, 1, 44, true),
     minSize,
     maxSize,
@@ -121,7 +123,7 @@ export function normalizeAnimatedBackgroundState(value: unknown): AnimatedBackgr
     intensity: cleanNumber(value.intensity, DEFAULT_STATE.intensity, 0.1, 1.4),
     glow: cleanNumber(value.glow, DEFAULT_STATE.glow, 0, 110),
     blendMode: cleanChoice(value.blendMode, BLEND_MODES, DEFAULT_STATE.blendMode),
-    borderRadius: cleanNumber(value.borderRadius, DEFAULT_STATE.borderRadius, 0, 999, true),
+    borderRadius: shape === "circle" ? 999 : cleanNumber(value.borderRadius, Math.min(50, DEFAULT_STATE.borderRadius), 0, 50, true),
     gradientStyle: cleanChoice(value.gradientStyle, GRADIENT_STYLES, DEFAULT_STATE.gradientStyle),
     isPaused: false,
     showContent: cleanBoolean(value.showContent, true),
@@ -177,7 +179,6 @@ export function getAnimatedBackgroundPerformanceScore(state: AnimatedBackgroundS
 }
 
 export function getAnimatedBackgroundMotionScore(state: AnimatedBackgroundState): number {
-  if (state.isPaused) return 0;
   return Math.round(Math.min(100, state.speed * 34 + state.intensity * 38 + state.particleCount * 0.55));
 }
 
@@ -318,11 +319,30 @@ export function buildAnimatedBackgroundSummary(
   const metrics = buildAnimatedBackgroundMetrics(state, css, html, checks);
   const readiness = metrics.errorCount ? "Blocked" : metrics.warningCount ? "Review" : "Ready";
 
+  const motionLevel = metrics.motionScore >= 78 ? "High" : metrics.motionScore >= 52 ? "Moderate" : "Low";
+  const renderLevel = metrics.performanceScore >= 85 ? "High" : metrics.performanceScore >= 60 ? "Moderate" : "Low";
+
   return [
-    { label: "Motion", value: `${metrics.motionScore}/100`, detail: state.isPaused ? "Preview paused; export still runs" : `${state.speed.toFixed(2)}x speed · ${state.intensity.toFixed(2)} intensity` },
-    { label: "Performance", value: `${metrics.performanceScore}/100`, detail: `${state.particleCount} elements · ${state.blur}px blur` },
-    { label: "Payload", value: formatBytes(metrics.totalBytes), detail: `${formatBytes(metrics.cssBytes)} CSS · ${formatBytes(metrics.htmlBytes)} HTML` },
-    { label: "Readiness", value: readiness, detail: metrics.errorCount ? `${metrics.errorCount} blocking error${metrics.errorCount === 1 ? "" : "s"}` : metrics.warningCount ? `${metrics.warningCount} warning${metrics.warningCount === 1 ? "" : "s"}` : `${metrics.passCount} checks passed` },
+    {
+      label: "Motion intensity",
+      value: motionLevel,
+      detail: `${metrics.motionScore}/100 · ${state.speed.toFixed(2)}x speed${state.isPaused ? " · preview paused" : ""}`,
+    },
+    {
+      label: "Render cost",
+      value: renderLevel,
+      detail: `${metrics.performanceScore}/100 cost · ${state.particleCount} elements · ${state.blur}px blur`,
+    },
+    {
+      label: "Export size",
+      value: formatBytes(metrics.totalBytes),
+      detail: `${formatBytes(metrics.cssBytes)} CSS · ${formatBytes(metrics.htmlBytes)} HTML`,
+    },
+    {
+      label: "Production status",
+      value: readiness,
+      detail: metrics.errorCount ? `${metrics.errorCount} blocking error${metrics.errorCount === 1 ? "" : "s"}` : metrics.warningCount ? `${metrics.warningCount} warning${metrics.warningCount === 1 ? "" : "s"}` : `${metrics.passCount} checks passed`,
+    },
   ];
 }
 

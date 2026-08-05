@@ -1,6 +1,7 @@
 "use client";
 
 import { CodeOutputPanel, type CodeOutputTab } from "@/features/tools/components";
+import { downloadTextFile } from "@/features/tools/export/downloadText";
 import type { AnimatedBackgroundState } from "@/types/animatedBackgroundTypes";
 
 interface CodeOutputProps {
@@ -11,12 +12,13 @@ interface CodeOutputProps {
 }
 
 function cssVariablesSnippet(state: AnimatedBackgroundState) {
+  const colorVariables = state.colors
+    .map((color, index) => `  --darma-bg-color-${index + 1}: ${color};`)
+    .join("\n");
+
   return `:root {
   --darma-bg-base: ${state.background};
-  --darma-bg-color-1: ${state.colors[0] ?? "#38bdf8"};
-  --darma-bg-color-2: ${state.colors[1] ?? "#6366f1"};
-  --darma-bg-color-3: ${state.colors[2] ?? "#a855f7"};
-  --darma-bg-color-4: ${state.colors[3] ?? state.colors[0] ?? "#38bdf8"};
+${colorVariables}
   --darma-bg-speed: ${state.speed.toFixed(2)};
   --darma-bg-blur: ${state.blur}px;
   --darma-bg-glow: ${state.glow}px;
@@ -99,6 +101,11 @@ export default function CodeOutput({ html, css, state, particleCount }: CodeOutp
       description="Copy complete HTML/CSS, scoped CSS, CSS variables, a React component, Tailwind starter, or design tokens."
       tabs={tabs}
       defaultTab="full"
+      onDownload={(tab) => downloadTextFile({
+        content: tab.code,
+        filename: tab.filename ?? `animated-background.${tab.language ?? "txt"}`,
+        mimeType: "text/plain;charset=utf-8",
+      })}
     />
   );
 }

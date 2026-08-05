@@ -54,12 +54,20 @@ export function SliderNumberField({
           </div>
           {hint ? <div className="text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</div> : null}
         </div>
-        <div className="shrink-0 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-xs font-bold tabular-nums text-[var(--color-text-secondary)]">
+        <output
+          aria-live="off"
+          className="shrink-0 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2.5 py-1 font-mono text-xs font-bold tabular-nums text-[var(--color-text-secondary)]"
+        >
           {formatSliderValue(value, step, unit)}
-        </div>
+        </output>
       </div>
 
-      <div className="flex min-w-0 items-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 shadow-[var(--shadow-xs)]">
+      <div
+        className={cn(
+          "rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]",
+          disabled && "opacity-60",
+        )}
+      >
         <Slider
           min={min}
           max={max}
@@ -67,33 +75,43 @@ export function SliderNumberField({
           value={value}
           disabled={disabled}
           aria-label={ariaLabel}
+          aria-valuetext={formatSliderValue(value, step, unit)}
           aria-invalid={Boolean(error) || undefined}
           onChange={(event) => commitValue(Number(event.target.value))}
-          className="min-w-0 flex-1"
+          className="w-full"
         />
-        {showInput ? (
-          <div className="flex shrink-0 items-center gap-1.5">
-            <Input
-              type="number"
-              size="sm"
-              width="numeric"
-              value={value}
-              min={min}
-              max={max}
-              step={step}
-              disabled={disabled}
-              aria-label={`${ariaLabel} number`}
-              aria-invalid={Boolean(error) || undefined}
-              onChange={(event) => {
-                if (event.target.value === "") return;
-                commitValue(Number(event.target.value));
-              }}
-              className="font-mono tabular-nums"
-            />
-            {unit && typeof unit !== "string" ? <span className="text-xs font-bold text-[var(--color-text-tertiary)]">{unit}</span> : null}
+
+        <div className="mt-2 flex min-w-0 items-end justify-between gap-3">
+          <div className="flex min-w-0 flex-1 items-center justify-between gap-2 font-mono text-xs font-semibold tabular-nums text-[var(--color-text-tertiary)]" aria-hidden>
+            <span>{formatSliderValue(min, step, unit)}</span>
+            <span>{formatSliderValue(max, step, unit)}</span>
           </div>
-        ) : null}
+
+          {showInput ? (
+            <div className="flex shrink-0 items-center gap-1.5">
+              <Input
+                type="number"
+                size="sm"
+                width="numeric"
+                value={value}
+                min={min}
+                max={max}
+                step={step}
+                disabled={disabled}
+                aria-label={`${ariaLabel} number`}
+                aria-invalid={Boolean(error) || undefined}
+                onChange={(event) => {
+                  if (event.target.value === "") return;
+                  commitValue(Number(event.target.value));
+                }}
+                className="font-mono tabular-nums"
+              />
+              {unit && typeof unit !== "string" ? <span className="text-xs font-bold text-[var(--color-text-tertiary)]">{unit}</span> : null}
+            </div>
+          ) : null}
+        </div>
       </div>
+
       {error ? <p className="text-xs font-semibold leading-4 text-[var(--color-danger-text)]">{error}</p> : null}
     </div>
   );

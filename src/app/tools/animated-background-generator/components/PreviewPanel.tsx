@@ -1,6 +1,6 @@
 "use client";
 
-import { Maximize2 } from "lucide-react";
+import { Maximize2, Minimize2, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
 import { generateCss } from "../lib/generateCss";
@@ -12,7 +12,7 @@ interface PreviewPanelProps {
 
 function HeroPreview() {
   return (
-    <div className="relative z-20 flex min-h-[500px] flex-col justify-between p-5 text-white sm:p-8 lg:min-h-[540px] lg:p-10">
+    <div className="abg-preview-content relative z-20 flex min-h-[500px] flex-col justify-between p-5 text-white sm:p-8 lg:min-h-[540px] lg:p-10">
       <div className="flex items-center justify-between rounded-full border border-white/10 bg-white/10 px-4 py-3 text-xs backdrop-blur-md">
         <strong>Darma Studio</strong>
         <div className="hidden gap-4 text-white/70 sm:flex"><span>Tools</span><span>Showcase</span><span>Snippets</span></div>
@@ -35,7 +35,7 @@ function HeroPreview() {
 
 function CardsPreview() {
   return (
-    <div className="relative z-20 min-h-[500px] p-5 text-white sm:p-8 lg:min-h-[540px] lg:p-10">
+    <div className="abg-preview-content relative z-20 min-h-[500px] p-5 text-white sm:p-8 lg:min-h-[540px] lg:p-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 max-w-2xl">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/60">Card UI preview</p>
@@ -59,7 +59,7 @@ function CardsPreview() {
 
 function DashboardPreview() {
   return (
-    <div className="relative z-20 min-h-[500px] p-4 text-white sm:p-6 lg:min-h-[540px] lg:p-8">
+    <div className="abg-preview-content relative z-20 min-h-[500px] p-4 text-white sm:p-6 lg:min-h-[540px] lg:p-8">
       <div className="grid min-h-[460px] gap-4 lg:grid-cols-[220px,1fr]">
         <aside className="rounded-[1.75rem] border border-white/10 bg-black/20 p-5 backdrop-blur-xl">
           <strong>Darma Analytics</strong>
@@ -89,39 +89,79 @@ function DashboardPreview() {
 export default function PreviewPanel({ state, particles }: PreviewPanelProps) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [canFullscreen, setCanFullscreen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const css = generateCss(state, particles, { paused: state.isPaused });
 
   useEffect(() => {
     setCanFullscreen(Boolean(wrapperRef.current?.requestFullscreen));
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && document.fullscreenElement) document.exitFullscreen();
+
+    const onFullscreenChange = () => {
+      setIsFullscreen(document.fullscreenElement === wrapperRef.current);
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", onFullscreenChange);
   }, []);
 
-  const openFullscreen = async () => {
+  const toggleFullscreen = async () => {
     const element = wrapperRef.current;
     if (!element || !element.requestFullscreen) return;
-    await element.requestFullscreen();
+
+    try {
+      if (document.fullscreenElement === element) {
+        await document.exitFullscreen();
+      } else {
+        await element.requestFullscreen();
+      }
+    } catch {
+      setIsFullscreen(false);
+    }
   };
 
+  const fullscreenCss = `
+.abg-preview-shell:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  border: 0;
+  border-radius: 0;
+  background: #020617;
+}
+.abg-preview-shell:fullscreen .darma-animated-bg {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+}
+.abg-preview-shell:fullscreen .abg-preview-content {
+  min-height: 100vh;
+}
+`;
+
   return (
-    <div ref={wrapperRef} className="abg-preview-shell group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-code-bg)] shadow-[var(--shadow-md)]">
-      <style>{css}</style>
+    <div
+      ref={wrapperRef}
+      className="abg-preview-shell group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-code-bg)] shadow-[var(--shadow-md)]"
+    >
+      <style>{`${css}\n${fullscreenCss}`}</style>
       {canFullscreen ? (
         <button
           type="button"
-          onClick={openFullscreen}
-          className="absolute right-4 top-4 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur transition hover:bg-black/65"
+          onClick={() => void toggleFullscreen()}
+          aria-pressed={isFullscreen}
+          className="absolute right-4 top-4 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/55 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur transition hover:bg-black/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
         >
-          <Maximize2 className="h-3.5 w-3.5" />
-          Fullscreen
+          {isFullscreen ? <Minimize2 className="h-3.5 w-3.5" aria-hidden /> : <Maximize2 className="h-3.5 w-3.5" aria-hidden />}
+          {isFullscreen ? "Exit fullscreen" : "Fullscreen"}
         </button>
       ) : null}
-      <div className="pointer-events-none absolute left-4 top-4 z-30 hidden rounded-full bg-black/45 px-4 py-2 text-xs font-bold text-white backdrop-blur group-fullscreen:block">
-        Press Esc to exit fullscreen
-      </div>
+
+      {state.isPaused ? (
+        <div className="pointer-events-none absolute bottom-4 left-4 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/55 px-3 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">
+          <Pause className="h-3.5 w-3.5" aria-hidden />
+          Animation paused
+        </div>
+      ) : null}
+
       <div className="darma-animated-bg min-h-[500px] lg:min-h-[540px]">
         {particles.map((particle) => <span key={particle.id} />)}
         {state.showContent && state.previewMode === "hero" && <HeroPreview />}

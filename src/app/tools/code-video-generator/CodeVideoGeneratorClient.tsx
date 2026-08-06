@@ -65,6 +65,24 @@ import {
 type ImportStatus = { kind: "success" | "error"; message: string } | null;
 type ExportStatus = { kind: "working" | "success" | "error"; message: string } | null;
 type EditorInstance = Parameters<OnMount>[0];
+type CaptureIntent = "video" | "thumbnail";
+type CaptureHandle = { handle?: string; origin?: string };
+type CaptureHandleTrack = MediaStreamTrack & { getCaptureHandle?: () => CaptureHandle };
+type CaptureHandleMediaDevices = MediaDevices & {
+  setCaptureHandleConfig?: (config: {
+    handle: string;
+    exposeOrigin?: boolean;
+    permittedOrigins?: string[];
+  }) => void;
+};
+type DarmaDisplayMediaOptions = DisplayMediaStreamOptions & {
+  preferCurrentTab?: boolean;
+  selfBrowserSurface?: "include" | "exclude";
+  surfaceSwitching?: "include" | "exclude";
+  monitorTypeSurfaces?: "include" | "exclude";
+};
+
+const DARMA_CAPTURE_HANDLE = "darma-code-video-stage-v1";
 
 const fileTabs: Array<{ id: CodeFileId; label: string; language: string }> = [
   { id: "html", label: "index.html", language: "html" },
@@ -206,6 +224,7 @@ export default function CodeVideoGeneratorClient() {
   const [isDragging, setIsDragging] = useState(false);
   const [presentationMode, setPresentationMode] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
+  const [captureIntent, setCaptureIntent] = useState<CaptureIntent | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
@@ -217,17 +236,36 @@ export default function CodeVideoGeneratorClient() {
 
   const timeline = useMemo(() => buildCodeVideoTimeline(project, settings), [project, settings]);
   const snapshot = useMemo(() => getPlaybackSnapshot(timeline, project, elapsedMs), [elapsedMs, project, timeline]);
-  const previewDocument = useMemo(() => buildPreviewDocument(snapshot.previewProject), [snapshot.previewProject]);
+  const previewDocument = useMemo(
+    () => buildPreviewDocument(snapshot.previewProject),
+    [
+      snapshot.previewProject.title,
+      snapshot.previewProject.html,
+      snapshot.previewProject.css,
+      snapshot.previewProject.js,
+    ],
+  );
   const activeFile = fileTabs.find((file) => file.id === snapshot.activeFile) ?? fileTabs[0];
   const sourceFile = fileTabs.find((file) => file.id === sourceTab) ?? fileTabs[0];
   const totalCharacters = project.html.length + project.css.length + project.js.length;
   const totalLines = [project.html, project.css, project.js].reduce((total, source) => total + (source ? source.split("\n").length : 0), 0);
   const activeStageSource = snapshot.project[snapshot.activeFile];
+  const activeStageLineCount = activeStageSource ? activeStageSource.split("\n").length : 1;
+
+  useEffect(() => {
+    const mediaDevices = navigator.mediaDevices as CaptureHandleMediaDevices | undefined;
+    mediaDevices?.setCaptureHandleConfig?.({
+      handle: DARMA_CAPTURE_HANDLE,
+      exposeOrigin: false,
+      permittedOrigins: ["*"],
+    });
+  }, []);
 
   useEffect(() => {
     setElapsedMs(0);
     setIsPlaying(false);
     playbackStartedAtRef.current = null;
+    playbackLastFrameRef.current = 0;
   }, [timeline]);
 
   useEffect(() => {
@@ -237,7 +275,10 @@ export default function CodeVideoGeneratorClient() {
       if (playbackStartedAtRef.current === null) playbackStartedAtRef.current = timestamp;
       const nextElapsed = playbackStartElapsedRef.current + (timestamp - playbackStartedAtRef.current);
       const isComplete = nextElapsed >= timeline.totalDurationMs;
-      if (isComplete || timestamp - playbackLastFrameRef.current >= 1000 / 30) {
+      // Monaco and the timeline do not need a 60 FPS React render loop. A
+      // controlled 24 FPS clock keeps motion smooth while avoiding repeated
+      // tokenization/decoration work between typed characters.
+      if (isComplete || timestamp - playbackLastFrameRef.current >= 1000 / 24) {
         playbackLastFrameRef.current = timestamp;
         setElapsedMs(isComplete ? timeline.totalDurationMs : nextElapsed);
       }
@@ -257,10 +298,9 @@ export default function CodeVideoGeneratorClient() {
   useEffect(() => {
     const editor = stageEditorRef.current;
     if (!editor) return;
-    const line = Math.max(1, activeStageSource.split("\n").length);
-    editor.revealLineInCenterIfOutsideViewport(line);
-    editor.setPosition({ lineNumber: line, column: 9999 });
-  }, [activeStageSource]);
+    editor.revealLineInCenterIfOutsideViewport(activeStageLineCount);
+    editor.setPosition({ lineNumber: activeStageLineCount, column: 9999 });
+  }, [activeStageLineCount, snapshot.activeFile]);
 
   const setSetting = <Key extends keyof CodeVideoSettings>(key: Key, value: CodeVideoSettings[Key]) => {
     setSettings((current) => ({ ...current, [key]: value }));
@@ -379,18 +419,22 @@ export default function CodeVideoGeneratorClient() {
     await new Promise((resolve) => window.setTimeout(resolve, 320));
     let displayStream: MediaStream | null = null;
     try {
-      const displayOptions = {
-        video: true,
+      const captureOptions: DarmaDisplayMediaOptions = {
+        video: { displaySurface: "browser" },
         audio: false,
         preferCurrentTab: true,
         selfBrowserSurface: "include",
         surfaceSwitching: "exclude",
         monitorTypeSurfaces: "exclude",
-      } as DisplayMediaStreamOptions;
-      displayStream = await navigator.mediaDevices.getDisplayMedia(displayOptions);
-      const videoTrack = displayStream.getVideoTracks()[0];
+      };
+      displayStream = await navigator.mediaDevices.getDisplayMedia(captureOptions);
+      const videoTrack = displayStream.getVideoTracks()[0] as CaptureHandleTrack | undefined;
       const displaySurface = videoTrack?.getSettings().displaySurface;
       if (displaySurface && displaySurface !== "browser") throw new Error("Choose the current browser tab, not a window or the entire screen, so Darma can crop the stage accurately.");
+      const captureHandle = videoTrack?.getCaptureHandle?.();
+      if (videoTrack?.getCaptureHandle && captureHandle?.handle !== DARMA_CAPTURE_HANDLE) {
+        throw new Error("The selected source is not this Darma Code Video Generator tab. Choose the current localhost/Darma tab and try again.");
+      }
       const video = document.createElement("video");
       video.muted = true;
       video.playsInline = true;
@@ -426,7 +470,7 @@ export default function CodeVideoGeneratorClient() {
       setExportStatus({ kind: "error", message: "MediaRecorder is not available in this browser." });
       return;
     }
-    setExportStatus({ kind: "working", message: "When prompted, choose this Darma tab. Recording starts automatically." });
+    setExportStatus({ kind: "working", message: "Checking the selected Darma tab, then recording the clean production stage…" });
     setIsRecording(true);
     let displayStream: MediaStream | null = null;
     let canvasStream: MediaStream | null = null;
@@ -549,16 +593,16 @@ export default function CodeVideoGeneratorClient() {
           </ControlSection>
 
           <ControlSection title="Typing direction" description="The timeline is deterministic; natural rhythm changes timing, not source code.">
-            <label className="code-video-slider-field"><span><b>Typing speed</b><output>{settings.charsPerSecond} chars/s</output></span><Slider min={12} max={180} step={1} value={settings.charsPerSecond} onChange={(event) => setSetting("charsPerSecond", Number(event.target.value))} /></label>
+            <label className="code-video-slider-field"><span><b>Typing speed</b><output>{settings.charsPerSecond} chars/s</output></span><Slider min={8} max={60} step={1} value={settings.charsPerSecond} onChange={(event) => setSetting("charsPerSecond", Number(event.target.value))} /></label>
             <label className="code-video-slider-field"><span><b>Line pause</b><output>{settings.linePauseMs} ms</output></span><Slider min={0} max={700} step={5} value={settings.linePauseMs} onChange={(event) => setSetting("linePauseMs", Number(event.target.value))} /></label>
             <label className="code-video-slider-field"><span><b>Section pause</b><output>{settings.sectionPauseMs} ms</output></span><Slider min={0} max={2500} step={50} value={settings.sectionPauseMs} onChange={(event) => setSetting("sectionPauseMs", Number(event.target.value))} /></label>
-            <label className="code-video-check-row"><input type="checkbox" checked={settings.humanVariation} onChange={(event) => setSetting("humanVariation", event.target.checked)} /><span><b>Natural rhythm</b><small>Small deterministic timing variation between characters.</small></span></label>
+            <label className="code-video-check-row"><input type="checkbox" checked={settings.humanVariation} onChange={(event) => setSetting("humanVariation", event.target.checked)} /><span><b>Natural rhythm</b><small>Deterministic typing bursts with natural punctuation and line pauses.</small></span></label>
           </ControlSection>
 
           <ControlSection title="Outputs" description="Recording asks for tab permission, then crops only the clean stage.">
-            <Button fullWidth onClick={() => void recordVideo()} loading={isRecording} leftIcon={<MonitorPlay className="h-4 w-4" aria-hidden />}>Record &amp; export video</Button>
+            <Button fullWidth onClick={() => setCaptureIntent("video")} loading={isRecording} leftIcon={<MonitorPlay className="h-4 w-4" aria-hidden />}>Record &amp; export video</Button>
             <div className="grid grid-cols-2 gap-2">
-              <Button variant="secondary" size="sm" onClick={() => void captureThumbnail()} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>Thumbnail</Button>
+              <Button variant="secondary" size="sm" onClick={() => setCaptureIntent("thumbnail")} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>Thumbnail</Button>
               <Button variant="secondary" size="sm" onClick={() => void exportBundle()} leftIcon={<FileArchive className="h-4 w-4" aria-hidden />}>ZIP pack</Button>
               <Button variant="outline" size="sm" onClick={exportTimeline} leftIcon={<FileJson2 className="h-4 w-4" aria-hidden />}>Timeline</Button>
               <Button variant="outline" size="sm" onClick={() => downloadBlob(`${sanitizeFileName(project.title)}-captions.srt`, buildTimelineSrt(timeline), "text/plain")} leftIcon={<Captions className="h-4 w-4" aria-hidden />}>Captions</Button>
@@ -570,7 +614,15 @@ export default function CodeVideoGeneratorClient() {
         <section className="code-video-main" aria-label="Code video preview and timeline">
           <div className="code-video-stage-toolbar">
             <div><Badge variant="soft">Live production stage</Badge><span>{snapshot.currentStep?.label ?? "Ready"}</span></div>
-            <div className="code-video-stage-toolbar-actions"><span>{formatClock(elapsedMs)} / {formatClock(timeline.totalDurationMs)}</span><Button variant="ghost" size="icon" onClick={restartPlayback}><RotateCcw className="h-4 w-4" aria-hidden />Restart</Button><Button size="sm" onClick={togglePlayback} leftIcon={isPlaying ? <Pause className="h-4 w-4" aria-hidden /> : <Play className="h-4 w-4" aria-hidden />}>{isPlaying ? "Pause" : snapshot.isComplete ? "Replay" : "Play"}</Button></div>
+            <div className="code-video-stage-toolbar-actions">
+              <span>{formatClock(elapsedMs)} / {formatClock(timeline.totalDurationMs)}</span>
+              <div className="code-video-playback-actions">
+                <Button variant="ghost" size="sm" onClick={restartPlayback} leftIcon={<RotateCcw className="h-4 w-4" aria-hidden />}>Restart</Button>
+                <Button size="sm" onClick={togglePlayback} leftIcon={isPlaying ? <Pause className="h-4 w-4" aria-hidden /> : <Play className="h-4 w-4" aria-hidden />}>
+                  {isPlaying ? "Pause" : snapshot.isComplete ? "Replay" : "Play"}
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="code-video-stage-viewport">
@@ -579,7 +631,7 @@ export default function CodeVideoGeneratorClient() {
               <div className="code-video-stage-body">
                 {settings.showExplorer && shouldShowCode ? <aside className="code-video-explorer" aria-label="Project files"><p>EXPLORER</p><strong><ChevronRight className="h-3 w-3" aria-hidden /> PROJECT</strong>{fileTabs.map((file) => <div key={file.id} className={cn(file.id === snapshot.activeFile && "is-active")}><FileCode2 className="h-3.5 w-3.5" aria-hidden />{file.label}</div>)}</aside> : null}
                 <div className={cn("code-video-stage-content", shouldShowCode && shouldShowPreview && "is-split")}>
-                  {shouldShowCode ? <section className="code-video-editor-pane"><div className="code-video-editor-tabs">{fileTabs.map((file) => <span key={file.id} className={cn(file.id === snapshot.activeFile && "is-active")}>{file.label}</span>)}</div><Editor value={snapshot.project[snapshot.activeFile]} language={activeFile.language} theme={monacoTheme} onMount={(editor) => { stageEditorRef.current = editor; }} options={{ readOnly: true, domReadOnly: true, minimap: { enabled: false }, lineNumbers: settings.showLineNumbers ? "on" : "off", lineNumbersMinChars: 3, glyphMargin: false, folding: false, renderLineHighlight: "line", scrollBeyondLastLine: false, automaticLayout: true, fontSize: settings.format === "short" ? 14 : 15, lineHeight: settings.format === "short" ? 22 : 23, padding: { top: 16, bottom: 16 }, wordWrap: "off", cursorBlinking: isPlaying ? "phase" : "solid", overviewRulerLanes: 0, hideCursorInOverviewRuler: true }} /></section> : null}
+                  {shouldShowCode ? <section className="code-video-editor-pane"><div className="code-video-editor-tabs">{fileTabs.map((file) => <span key={file.id} className={cn(file.id === snapshot.activeFile && "is-active")}>{file.label}</span>)}</div><Editor value={activeStageSource} language={activeFile.language} theme={monacoTheme} onMount={(editor) => { stageEditorRef.current = editor; }} options={{ readOnly: true, domReadOnly: true, minimap: { enabled: false }, lineNumbers: settings.showLineNumbers ? "on" : "off", lineNumbersMinChars: 3, glyphMargin: false, folding: false, renderLineHighlight: "none", renderValidationDecorations: "off", colorDecorators: !isPlaying, occurrencesHighlight: "off", selectionHighlight: false, matchBrackets: "never", scrollBeyondLastLine: false, automaticLayout: true, fontSize: settings.format === "short" ? 14 : 15, lineHeight: settings.format === "short" ? 22 : 23, padding: { top: 16, bottom: 16 }, wordWrap: "off", cursorBlinking: "solid", overviewRulerLanes: 0, hideCursorInOverviewRuler: true }} /></section> : null}
                   {shouldShowPreview ? <section className="code-video-preview-pane"><div className="code-video-preview-bar"><span><span className="code-video-preview-dot" /> localhost:3000</span><Badge variant="outline">Live preview</Badge></div><iframe title="Code video project preview" sandbox="allow-scripts" srcDoc={previewDocument} /></section> : null}
                 </div>
               </div>
@@ -595,6 +647,29 @@ export default function CodeVideoGeneratorClient() {
         </section>
       </div>
 
+      {captureIntent ? <div className="code-video-capture-dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setCaptureIntent(null); }}>
+        <div className="code-video-capture-dialog" role="dialog" aria-modal="true" aria-labelledby="code-video-capture-title">
+          <Badge variant="soft">Capture check</Badge>
+          <h3 id="code-video-capture-title">Choose this Darma tab</h3>
+          <p>Chrome will open its native sharing window. The current Code Video Generator tab must be selected so the exported file contains the production stage—not another Darma page or a static screen.</p>
+          <ol>
+            <li>Stay on <b>Chrome Tab</b>.</li>
+            <li>Select the current localhost/Darma Code Video Generator tab.</li>
+            <li>Do not select another Darma page, a window, or the entire screen.</li>
+          </ol>
+          <div className="code-video-capture-dialog-actions">
+            <Button variant="secondary" onClick={() => setCaptureIntent(null)}>Cancel</Button>
+            <Button onClick={() => {
+              const intent = captureIntent;
+              setCaptureIntent(null);
+              if (intent === "video") void recordVideo();
+              else void captureThumbnail();
+            }} leftIcon={captureIntent === "video" ? <MonitorPlay className="h-4 w-4" aria-hidden /> : <ImageDown className="h-4 w-4" aria-hidden />}>
+              Choose current tab
+            </Button>
+          </div>
+        </div>
+      </div> : null}
       {presentationMode ? <div className="code-video-capture-note" aria-live="polite">{isRecording ? <CircleStop className="h-4 w-4" aria-hidden /> : <Sparkles className="h-4 w-4" aria-hidden />}{isRecording ? "Darma is recording the clean stage. Do not switch tabs." : "Preparing the clean capture stage…"}</div> : null}
     </div>
   );

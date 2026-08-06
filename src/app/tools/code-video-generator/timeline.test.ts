@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   DEFAULT_CODE_VIDEO_SETTINGS,
+  buildCharacterSchedule,
   buildCodeVideoTimeline,
   buildTimelineSrt,
   getPlaybackSnapshot,
@@ -22,6 +23,12 @@ describe("code video timeline", () => {
     expect(splitIntoTeachingChunks(project.js, "js").join("")).toBe(project.js);
   });
 
+  it("uses a readable natural default and keeps its variation deterministic", () => {
+    expect(DEFAULT_CODE_VIDEO_SETTINGS.charsPerSecond).toBeLessThanOrEqual(20);
+    expect(buildCharacterSchedule(project.html, DEFAULT_CODE_VIDEO_SETTINGS)).toEqual(
+      buildCharacterSchedule(project.html, DEFAULT_CODE_VIDEO_SETTINGS),
+    );
+  });
   it("reconstructs the complete project at the end", () => {
     const timeline = buildCodeVideoTimeline(project, DEFAULT_CODE_VIDEO_SETTINGS);
     const snapshot = getPlaybackSnapshot(timeline, project, timeline.totalDurationMs);
@@ -43,6 +50,27 @@ describe("code video timeline", () => {
     expect(snapshot.project).toEqual(project);
   });
 
+  it("keeps the last stable preview while a teaching chunk is still typing", () => {
+    const timeline = buildCodeVideoTimeline(project, DEFAULT_CODE_VIDEO_SETTINGS);
+    const firstHtmlStepIndex = timeline.steps.findIndex((step) => step.type === "type" && step.file === "html");
+    const firstHtmlStep = timeline.steps[firstHtmlStepIndex];
+    const stepStart = timeline.steps
+      .slice(0, firstHtmlStepIndex)
+      .reduce((total, step) => total + step.durationMs, 0);
+
+    const partialSnapshot = getPlaybackSnapshot(
+      timeline,
+      project,
+      stepStart + Math.floor(firstHtmlStep.durationMs / 2),
+    );
+    expect(partialSnapshot.project.html.length).toBeGreaterThan(0);
+    expect(partialSnapshot.previewProject.html).toBe("");
+
+    const committedSnapshot = getPlaybackSnapshot(timeline, project, stepStart + firstHtmlStep.durationMs);
+    expect(committedSnapshot.previewProject.html).toBe(
+      project.html.slice(0, firstHtmlStep.sourceEnd),
+    );
+  });
   it("does not execute JavaScript until the complete JS file is committed", () => {
     const longProject = {
       ...project,

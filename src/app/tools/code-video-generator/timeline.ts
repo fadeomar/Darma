@@ -53,9 +53,9 @@ export const DEFAULT_CODE_VIDEO_SETTINGS: CodeVideoSettings = {
   format: "youtube",
   layout: "split",
   theme: "darma-dark",
-  charsPerSecond: 72,
-  linePauseMs: 115,
-  sectionPauseMs: 700,
+  charsPerSecond: 16,
+  linePauseMs: 320,
+  sectionPauseMs: 750,
   introMs: 2400,
   finalMs: 3600,
   humanVariation: true,
@@ -70,7 +70,7 @@ const clamp = (value: number, min: number, max: number) => Math.min(max, Math.ma
 export function normalizeSettings(settings: CodeVideoSettings): CodeVideoSettings {
   return {
     ...settings,
-    charsPerSecond: clamp(Math.round(settings.charsPerSecond), 12, 240),
+    charsPerSecond: clamp(Math.round(settings.charsPerSecond), 8, 80),
     linePauseMs: clamp(Math.round(settings.linePauseMs), 0, 1600),
     sectionPauseMs: clamp(Math.round(settings.sectionPauseMs), 0, 5000),
     introMs: clamp(Math.round(settings.introMs), 400, 15000),
@@ -112,10 +112,17 @@ export function splitIntoTeachingChunks(source: string, language: CodeFileId) {
   return chunks;
 }
 
+function deterministicUnit(seed: number) {
+  const value = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
+  return value - Math.floor(value);
+}
 function deterministicFactor(index: number, charCode: number) {
-  const value = Math.sin((index + 1) * 12.9898 + charCode * 78.233) * 43758.5453;
-  const fraction = value - Math.floor(value);
-  return 0.82 + fraction * 0.36;
+  // Keep nearby characters in the same natural typing burst instead of
+  // assigning a visibly different random speed to every single character.
+  const burstIndex = Math.floor(index / 8);
+  const burstFactor = 0.86 + deterministicUnit(burstIndex * 31 + charCode) * 0.28;
+  const microFactor = 0.96 + deterministicUnit(index * 17 + charCode) * 0.08;
+  return clamp(burstFactor * microFactor, 0.78, 1.22);
 }
 
 const characterScheduleCache = new Map<string, number[]>();
@@ -147,10 +154,14 @@ export function buildCharacterSchedule(content: string, inputSettings: CodeVideo
   for (let index = 0; index < content.length; index += 1) {
     const character = content[index];
     const factor = settings.humanVariation ? deterministicFactor(index, character.charCodeAt(0)) : 1;
-    elapsed += baseMs * factor;
-    if (character === "\n") elapsed += settings.linePauseMs;
-    else if (/[{};>]/.test(character)) elapsed += baseMs * 0.65;
-    else if (/[,.]/.test(character)) elapsed += baseMs * 0.25;
+    const isSpacing = character === " " || character === "\t";
+    elapsed += baseMs * factor * (isSpacing ? 0.62 : 1);
+    if (character === "\n") {
+      const lineVariation = settings.humanVariation ? 0.88 + deterministicUnit(index + 11) * 0.24 : 1;
+      elapsed += settings.linePauseMs * lineVariation;
+    } else if (/[;}]/.test(character)) elapsed += baseMs * 1.25;
+    else if (/[>{]/.test(character)) elapsed += baseMs * 0.8;
+    else if (/[,.:]/.test(character)) elapsed += baseMs * 0.35;
     schedule.push(elapsed);
   }
   cacheCharacterSchedule(key, schedule);
@@ -259,7 +270,7 @@ function sourceLengthAfterStep(step: TimelineStep, currentLength: number) {
 export function getPlaybackSnapshot(timeline: CodeVideoTimeline, sourceProject: CodeVideoProject, elapsedInputMs: number): PlaybackSnapshot {
   const elapsedMs = clamp(elapsedInputMs, 0, timeline.totalDurationMs);
   const typedLengths: Record<CodeFileId, number> = { html: 0, css: 0, js: 0 };
-  let runnableJsLength = 0;
+  const previewLengths: Record<CodeFileId, number> = { html: 0, css: 0, js: 0 };
   let activeFile: CodeFileId = firstAvailableFile(sourceProject);
   let cursor = 0;
   let currentStepIndex = timeline.steps.length - 1;
@@ -274,7 +285,14 @@ export function getPlaybackSnapshot(timeline: CodeVideoTimeline, sourceProject: 
       if (step.type === "switch-file" && step.file) activeFile = step.file;
       if (step.type === "type" && step.file) {
         typedLengths[step.file] = sourceLengthAfterStep(step, typedLengths[step.file]);
-        if (step.file === "js" && typedLengths.js >= sourceProject.js.length) runnableJsLength = sourceProject.js.length;
+        // Commit the browser preview only at completed semantic chunks. This
+        // avoids rebuilding the iframe for every character and prevents
+        // incomplete HTML/CSS from flashing in the recorded result.
+        if (step.file !== "js") {
+          previewLengths[step.file] = typedLengths[step.file];
+        } else if (typedLengths.js >= sourceProject.js.length) {
+          previewLengths.js = sourceProject.js.length;
+        }
       }
       cursor = stepEnd;
       continue;
@@ -305,9 +323,14 @@ export function getPlaybackSnapshot(timeline: CodeVideoTimeline, sourceProject: 
         js: sourceProject.js.slice(0, typedLengths.js),
       };
 
-  let previewProject = isOpeningReveal
+  let previewProject: CodeVideoProject = isOpeningReveal
     ? sourceProject
-    : { ...project, js: sourceProject.js.slice(0, runnableJsLength) };
+    : {
+        title: sourceProject.title,
+        html: sourceProject.html.slice(0, previewLengths.html),
+        css: sourceProject.css.slice(0, previewLengths.css),
+        js: sourceProject.js.slice(0, previewLengths.js),
+      };
 
   if (elapsedMs >= timeline.totalDurationMs) {
     currentStep = timeline.steps.at(-1) ?? null;

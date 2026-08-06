@@ -25,6 +25,8 @@ export type TimelineStep = {
   durationMs: number;
   file?: CodeFileId;
   content?: string;
+  sourceStart?: number;
+  sourceEnd?: number;
   focus: "code" | "preview";
 };
 export type CodeVideoTimeline = {
@@ -62,6 +64,7 @@ export const DEFAULT_CODE_VIDEO_SETTINGS: CodeVideoSettings = {
 };
 
 const FILE_LABELS: Record<CodeFileId, string> = { html: "index.html", css: "style.css", js: "script.js" };
+const MAX_CHARACTER_SCHEDULE_CACHE_ENTRIES = 32;
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
 export function normalizeSettings(settings: CodeVideoSettings): CodeVideoSettings {
@@ -120,11 +123,24 @@ function scheduleCacheKey(content: string, settings: CodeVideoSettings) {
   return `${settings.charsPerSecond}|${settings.linePauseMs}|${settings.humanVariation ? 1 : 0}|${content}`;
 }
 
+function cacheCharacterSchedule(key: string, schedule: number[]) {
+  if (characterScheduleCache.size >= MAX_CHARACTER_SCHEDULE_CACHE_ENTRIES) {
+    const oldestKey = characterScheduleCache.keys().next().value;
+    if (oldestKey !== undefined) characterScheduleCache.delete(oldestKey);
+  }
+  characterScheduleCache.set(key, schedule);
+}
+
 export function buildCharacterSchedule(content: string, inputSettings: CodeVideoSettings) {
   const settings = normalizeSettings(inputSettings);
   const key = scheduleCacheKey(content, settings);
   const cached = characterScheduleCache.get(key);
-  if (cached) return cached;
+  if (cached) {
+    characterScheduleCache.delete(key);
+    characterScheduleCache.set(key, cached);
+    return cached;
+  }
+
   const baseMs = 1000 / settings.charsPerSecond;
   const schedule: number[] = [];
   let elapsed = 0;
@@ -137,7 +153,7 @@ export function buildCharacterSchedule(content: string, inputSettings: CodeVideo
     else if (/[,.]/.test(character)) elapsed += baseMs * 0.25;
     schedule.push(elapsed);
   }
-  characterScheduleCache.set(key, schedule);
+  cacheCharacterSchedule(key, schedule);
   return schedule;
 }
 
@@ -164,26 +180,46 @@ function switchStep(file: CodeFileId, order: number): TimelineStep {
   return { id: `switch-${file}-${order}`, type: "switch-file", file, label: `Open ${FILE_LABELS[file]}`, durationMs: 420, focus: "code" };
 }
 
+function firstAvailableFile(project: CodeVideoProject): CodeFileId {
+  if (project.html.trim()) return "html";
+  if (project.css.trim()) return "css";
+  return "js";
+}
+
 export function buildCodeVideoTimeline(project: CodeVideoProject, inputSettings: CodeVideoSettings): CodeVideoTimeline {
   const settings = normalizeSettings(inputSettings);
+  const codeOnly = settings.layout === "code";
   const steps: TimelineStep[] = [
-    { id: "final-reveal-opening", type: "reveal", label: "Show the finished project", durationMs: settings.introMs, focus: "preview" },
+    {
+      id: "final-reveal-opening",
+      type: "reveal",
+      label: codeOnly ? "Show the finished source" : "Show the finished project",
+      durationMs: settings.introMs,
+      focus: codeOnly ? "code" : "preview",
+    },
   ];
   const files: Array<{ file: CodeFileId; source: string }> = [
     { file: "html", source: project.html },
     { file: "css", source: project.css },
     { file: "js", source: project.js },
   ];
+
   for (const { file, source } of files) {
     if (!source.trim()) continue;
     steps.push(switchStep(file, steps.length));
     const chunks = splitIntoTeachingChunks(source, file);
+    let sourceOffset = 0;
     chunks.forEach((content, chunkIndex) => {
+      const sourceStart = sourceOffset;
+      const sourceEnd = sourceStart + content.length;
+      sourceOffset = sourceEnd;
       steps.push({
         id: `type-${file}-${chunkIndex}`,
         type: "type",
         file,
         content,
+        sourceStart,
+        sourceEnd,
         label: chunkIndex === 0 ? `Start ${FILE_LABELS[file]}` : `Continue ${FILE_LABELS[file]}`,
         durationMs: getTypingDuration(content, settings),
         focus: "code",
@@ -197,7 +233,13 @@ export function buildCodeVideoTimeline(project: CodeVideoProject, inputSettings:
       }
     });
   }
-  steps.push({ id: "final-preview", type: "preview", label: "Show the completed project", durationMs: settings.finalMs, focus: "preview" });
+  steps.push({
+    id: "final-preview",
+    type: "preview",
+    label: codeOnly ? "Hold on the completed source" : "Show the completed project",
+    durationMs: settings.finalMs,
+    focus: codeOnly ? "code" : "preview",
+  });
   return {
     version: 1,
     createdAt: new Date().toISOString(),
@@ -208,37 +250,36 @@ export function buildCodeVideoTimeline(project: CodeVideoProject, inputSettings:
   };
 }
 
-function applyCompletedStep(step: TimelineStep, project: CodeVideoProject, activeFile: CodeFileId, runnableJs: string) {
-  let nextActiveFile = activeFile;
-  let nextRunnableJs = runnableJs;
-  if (step.type === "switch-file" && step.file) nextActiveFile = step.file;
-  if (step.type === "type" && step.file && step.content) {
-    project[step.file] += step.content;
-    if (step.file === "js") nextRunnableJs = project.js;
-  }
-  return { activeFile: nextActiveFile, runnableJs: nextRunnableJs };
+function sourceLengthAfterStep(step: TimelineStep, currentLength: number) {
+  if (step.type !== "type") return currentLength;
+  if (typeof step.sourceEnd === "number") return step.sourceEnd;
+  return currentLength + (step.content?.length ?? 0);
 }
 
 export function getPlaybackSnapshot(timeline: CodeVideoTimeline, sourceProject: CodeVideoProject, elapsedInputMs: number): PlaybackSnapshot {
   const elapsedMs = clamp(elapsedInputMs, 0, timeline.totalDurationMs);
-  const project: CodeVideoProject = { title: sourceProject.title, html: "", css: "", js: "" };
-  let runnableJs = "";
-  let activeFile: CodeFileId = "html";
+  const typedLengths: Record<CodeFileId, number> = { html: 0, css: 0, js: 0 };
+  let runnableJsLength = 0;
+  let activeFile: CodeFileId = firstAvailableFile(sourceProject);
   let cursor = 0;
   let currentStepIndex = timeline.steps.length - 1;
   let currentStep: TimelineStep | null = timeline.steps.at(-1) ?? null;
   let elapsedInStepMs = currentStep?.durationMs ?? 0;
-  let focus: "code" | "preview" = "preview";
+  let focus: "code" | "preview" = currentStep?.focus ?? "preview";
+
   for (let index = 0; index < timeline.steps.length; index += 1) {
     const step = timeline.steps[index];
     const stepEnd = cursor + step.durationMs;
     if (elapsedMs >= stepEnd) {
-      const applied = applyCompletedStep(step, project, activeFile, runnableJs);
-      activeFile = applied.activeFile;
-      runnableJs = applied.runnableJs;
+      if (step.type === "switch-file" && step.file) activeFile = step.file;
+      if (step.type === "type" && step.file) {
+        typedLengths[step.file] = sourceLengthAfterStep(step, typedLengths[step.file]);
+        if (step.file === "js" && typedLengths.js >= sourceProject.js.length) runnableJsLength = sourceProject.js.length;
+      }
       cursor = stepEnd;
       continue;
     }
+
     currentStepIndex = index;
     currentStep = step;
     elapsedInStepMs = elapsedMs - cursor;
@@ -246,19 +287,36 @@ export function getPlaybackSnapshot(timeline: CodeVideoTimeline, sourceProject: 
     if (step.type === "switch-file" && step.file) activeFile = step.file;
     if (step.type === "type" && step.file && step.content) {
       activeFile = step.file;
+      const sourceStart = step.sourceStart ?? typedLengths[step.file];
       const count = getTypedCharacterCount(step.content, elapsedInStepMs, timeline.settings);
-      project[step.file] += step.content.slice(0, count);
+      typedLengths[step.file] = sourceStart + count;
     }
     break;
   }
-  let previewProject = currentStep?.type === "reveal" ? sourceProject : { ...project, js: runnableJs };
+
+  const isOpeningReveal = currentStep?.type === "reveal";
+  const showFinishedSource = isOpeningReveal && timeline.settings.layout === "code";
+  const project: CodeVideoProject = showFinishedSource
+    ? { ...sourceProject }
+    : {
+        title: sourceProject.title,
+        html: sourceProject.html.slice(0, typedLengths.html),
+        css: sourceProject.css.slice(0, typedLengths.css),
+        js: sourceProject.js.slice(0, typedLengths.js),
+      };
+
+  let previewProject = isOpeningReveal
+    ? sourceProject
+    : { ...project, js: sourceProject.js.slice(0, runnableJsLength) };
+
   if (elapsedMs >= timeline.totalDurationMs) {
     currentStep = timeline.steps.at(-1) ?? null;
     currentStepIndex = Math.max(0, timeline.steps.length - 1);
     elapsedInStepMs = currentStep?.durationMs ?? 0;
-    focus = "preview";
+    focus = currentStep?.focus ?? "preview";
     previewProject = sourceProject;
   }
+
   return {
     project,
     previewProject,

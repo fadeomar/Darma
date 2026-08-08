@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-barometer-needle",
+  "name": "Barometer Needle",
+  "category": "spinners",
+  "tags": [
+    "barometer",
+    "needle",
+    "pressure",
+    "dial",
+    "spinners"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"face\"></div><div class=\"ticks\"></div><div class=\"needle\"></div><div class=\"hub\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .face { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 42% 36%, color-mix(in srgb, #fff 45%, transparent), transparent 70%), color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--accent) 55%, transparent); }\n.loader .ticks { position: absolute; inset: 9%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--accent) 60%, transparent) 0 1.5deg, transparent 1.5deg 30deg); mask: radial-gradient(circle, transparent 0 76%, #000 77%); -webkit-mask: radial-gradient(circle, transparent 0 76%, #000 77%); }\n.loader .needle { position: absolute; left: 48%; top: 14%; width: 4%; height: 38%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 20%, var(--accent-2))); transform-origin: 50% 100%; animation: baro-swing calc(var(--loader-speed) * 3.6) cubic-bezier(.45, 0, .3, 1) infinite; }\n.loader .hub { position: absolute; left: 43%; top: 43%; width: 14%; height: 14%; border-radius: 50%; background: linear-gradient(#94a3b8, #334155); }\n@keyframes baro-swing { 0%, 100% { transform: rotate(-118deg); } 22% { transform: rotate(-42deg); } 44% { transform: rotate(-76deg); } 66% { transform: rotate(64deg); } 84% { transform: rotate(18deg); } }",
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#f59e0b",
+    "size": 114,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-crab-sidestep",
+  "name": "Crab Sidestep",
+  "category": "fun",
+  "tags": [
+    "crab",
+    "sidestep",
+    "beach",
+    "claws",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"crab\"><span class=\"shell\"></span><span class=\"claw\"></span><span class=\"claw\"></span><span class=\"eye\"></span><span class=\"eye\"></span></div><div class=\"sand\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); position: relative; }\n.loader .sand { position: absolute; left: 0; right: 0; bottom: 8%; height: 6%; border-radius: 3px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.loader .crab { position: absolute; left: 22%; bottom: 14%; width: 34%; height: 52%; animation: crab-step calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .shell { position: absolute; left: 12%; bottom: 0; width: 76%; height: 62%; border-radius: 50% 50% 34% 34%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 26%, var(--accent)), var(--accent)); }\n.loader .claw { position: absolute; bottom: 30%; width: 30%; height: 34%; border-radius: 50% 50% 20% 50%; background: var(--accent); }\n.loader .claw:nth-of-type(2) { left: -18%; transform-origin: 100% 100%; animation: crab-claw-left calc(var(--loader-speed) * .8) ease-in-out infinite; }\n.loader .claw:nth-of-type(3) { right: -18%; border-radius: 50% 50% 50% 20%; transform-origin: 0 100%; animation: crab-claw-right calc(var(--loader-speed) * .8) ease-in-out infinite; }\n.loader .eye { position: absolute; top: 4%; width: 9%; height: 26%; border-radius: 3px; background: var(--accent); }\n.loader .eye::after { content: ''; position: absolute; left: -40%; top: -46%; width: 180%; height: 60%; border-radius: 50%; background: #0f172a; }\n.loader .eye:nth-of-type(4) { left: 32%; }\n.loader .eye:nth-of-type(5) { right: 32%; }\n@keyframes crab-step { 0%, 100% { transform: translateX(0) translateY(0); } 25% { transform: translateX(60%) translateY(-8%); } 50% { transform: translateX(120%) translateY(0); } 75% { transform: translateX(60%) translateY(-8%); } }\n@keyframes crab-claw-left { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(-32deg); } }\n@keyframes crab-claw-right { 0%, 100% { transform: rotate(8deg); } 50% { transform: rotate(32deg); } }",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#fed7aa",
+    "size": 122,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

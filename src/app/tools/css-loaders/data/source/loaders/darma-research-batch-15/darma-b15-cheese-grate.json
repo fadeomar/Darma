@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-cheese-grate",
+  "name": "Cheese Grate",
+  "category": "fun",
+  "tags": [
+    "cheese",
+    "grater",
+    "kitchen",
+    "shred",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"grater\"></div><div class=\"block\"></div><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .grater { position: absolute; left: 24%; top: 8%; width: 52%; height: 50%; border-radius: 6px; background: repeating-linear-gradient(180deg, #94a3b8 0 10%, #cbd5e1 0 20%); box-shadow: inset 0 0 0 2px #64748b; }\n.loader .block { position: absolute; left: 30%; top: 2%; width: 40%; height: 18%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); animation: grate-push calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n.loader i { position: absolute; top: 58%; width: 9%; height: 7%; border-radius: 3px; background: var(--accent); opacity: 0; animation: grate-shred calc(var(--loader-speed) * 1.4) ease-in infinite; }\n.loader i:nth-of-type(1) { left: 32%; }\n.loader i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed) * .46); }\n.loader i:nth-of-type(3) { left: 60%; animation-delay: calc(var(--loader-speed) * .92); }\n@keyframes grate-push { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(48%); } }\n@keyframes grate-shred { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(300%) rotate(120deg); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fef3c7",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

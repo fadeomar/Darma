@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-mailbox-flag",
+  "name": "Mailbox Flag",
+  "category": "fun",
+  "tags": [
+    "mailbox",
+    "flag",
+    "post",
+    "delivery",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"box\"></div><div class=\"door\"></div><div class=\"flag\"></div><div class=\"post\"></div><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader .post { position: absolute; left: 44%; bottom: 2%; width: 12%; height: 40%; background: linear-gradient(90deg, #a16207, #78350f); border-radius: 3px; }\n.loader .box { position: absolute; left: 18%; right: 18%; top: 26%; height: 36%; border-radius: 999px 999px 4px 4px / 60% 60% 4px 4px; background: linear-gradient(color-mix(in srgb, #fff 18%, var(--accent)), var(--accent)); }\n.loader .door { position: absolute; left: 16%; top: 28%; width: 10%; height: 32%; border-radius: 6px 2px 2px 6px; background: color-mix(in srgb, #000 22%, var(--accent)); transform-origin: 100% 50%; animation: mail-door calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .flag { position: absolute; right: 16%; top: 14%; width: 6%; height: 30%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: mail-flag calc(var(--loader-speed) * 3) cubic-bezier(.4, 0, .3, 1) infinite; }\n.loader .flag::after { content: ''; position: absolute; left: -180%; top: 0; width: 190%; height: 52%; border-radius: 2px; background: var(--accent-2); }\n.loader i { position: absolute; left: 6%; top: 34%; width: 18%; height: 14%; border-radius: 2px; background: color-mix(in srgb, #fff 82%, var(--accent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 22%, transparent); opacity: 0; animation: mail-letter calc(var(--loader-speed) * 3) ease-in-out infinite; }\n@keyframes mail-door { 0%, 24% { transform: rotate(0deg); } 40%, 60% { transform: rotate(-72deg); } 78%, 100% { transform: rotate(0deg); } }\n@keyframes mail-letter { 0%, 26% { opacity: 0; transform: translateX(-40%); } 38% { opacity: 1; transform: translateX(0); } 58% { opacity: 1; transform: translateX(120%); } 66%, 100% { opacity: 0; transform: translateX(140%); } }\n@keyframes mail-flag { 0%, 62% { transform: rotate(84deg); } 76%, 100% { transform: rotate(0deg); } }",
+  "defaults": {
+    "color": "#1d4ed8",
+    "secondaryColor": "#ef4444",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-stack-push-pop",
+  "name": "Stack Push Pop",
+  "category": "bars",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "stack",
+    "lifo",
+    "push",
+    "pop",
+    "bars"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-stack-push-pop stack push pop bars darma-research-batch-15 darma research batch 15 stack lifo push pop bars html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-stack-push-pop\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-stack-push-pop__frame\"></div><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b15-stack-push-pop { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #ddd6fe); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .68); position: relative; overflow: hidden; }\n.darma-loader-darma-b15-stack-push-pop .darma-loader-darma-b15-stack-push-pop__frame { position: absolute; left: 16%; right: 16%; bottom: 2%; height: 76%; border-radius: 0 0 8px 8px; border: 2px solid color-mix(in srgb, var(--accent) 30%, transparent); border-top: 0; }\n.darma-loader-darma-b15-stack-push-pop span { position: absolute; left: 21%; width: 58%; height: 15%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(1) { bottom: 6%; animation: darma-loader-darma-b15-stack-push-pop-stk-first calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(2) { bottom: 24%; animation: darma-loader-darma-b15-stack-push-pop-stk-second calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(3) { bottom: 42%; animation: darma-loader-darma-b15-stack-push-pop-stk-third calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(4) { bottom: 60%; animation: darma-loader-darma-b15-stack-push-pop-stk-fourth calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-first { 0%, 5% { transform: translateY(-360%); opacity: 0; } 13%, 85% { transform: translateY(0); opacity: 1; } 93%, 100% { transform: translateY(-360%); opacity: 0; } }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-second { 0%, 15% { transform: translateY(-360%); opacity: 0; } 23%, 75% { transform: translateY(0); opacity: 1; } 83%, 100% { transform: translateY(-360%); opacity: 0; } }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-third { 0%, 25% { transform: translateY(-360%); opacity: 0; } 33%, 65% { transform: translateY(0); opacity: 1; } 73%, 100% { transform: translateY(-360%); opacity: 0; } }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-fourth { 0%, 35% { transform: translateY(-360%); opacity: 0; } 43%, 55% { transform: translateY(0); opacity: 1; } 63%, 100% { transform: translateY(-360%); opacity: 0; } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#ddd6fe",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-stack-push-pop\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-stack-push-pop__frame\"></div><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b15-stack-push-pop { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #ddd6fe); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .68); position: relative; overflow: hidden; }\n.darma-loader-darma-b15-stack-push-pop .darma-loader-darma-b15-stack-push-pop__frame { position: absolute; left: 16%; right: 16%; bottom: 2%; height: 76%; border-radius: 0 0 8px 8px; border: 2px solid color-mix(in srgb, var(--accent) 30%, transparent); border-top: 0; }\n.darma-loader-darma-b15-stack-push-pop span { position: absolute; left: 21%; width: 58%; height: 15%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(1) { bottom: 6%; animation: darma-loader-darma-b15-stack-push-pop-stk-first calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(2) { bottom: 24%; animation: darma-loader-darma-b15-stack-push-pop-stk-second calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(3) { bottom: 42%; animation: darma-loader-darma-b15-stack-push-pop-stk-third calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b15-stack-push-pop span:nth-of-type(4) { bottom: 60%; animation: darma-loader-darma-b15-stack-push-pop-stk-fourth calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-first { 0%, 5% { transform: translateY(-360%); opacity: 0; } 13%, 85% { transform: translateY(0); opacity: 1; } 93%, 100% { transform: translateY(-360%); opacity: 0; } }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-second { 0%, 15% { transform: translateY(-360%); opacity: 0; } 23%, 75% { transform: translateY(0); opacity: 1; } 83%, 100% { transform: translateY(-360%); opacity: 0; } }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-third { 0%, 25% { transform: translateY(-360%); opacity: 0; } 33%, 65% { transform: translateY(0); opacity: 1; } 73%, 100% { transform: translateY(-360%); opacity: 0; } }\n@keyframes darma-loader-darma-b15-stack-push-pop-stk-fourth { 0%, 35% { transform: translateY(-360%); opacity: 0; } 43%, 55% { transform: translateY(0); opacity: 1; } 63%, 100% { transform: translateY(-360%); opacity: 0; } }",
+    "react": "export default function DarmaB15StackPushPopLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-stack-push-pop\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-stack-push-pop__frame\"></div><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

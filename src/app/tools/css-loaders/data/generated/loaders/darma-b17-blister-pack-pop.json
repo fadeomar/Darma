@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-blister-pack-pop",
+  "name": "Blister Pack Pop",
+  "category": "dots",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "blister",
+    "pills",
+    "pack",
+    "medicine",
+    "dots"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-blister-pack-pop blister pack pop dots darma-research-batch-17 darma research batch 17 blister pills pack medicine dots html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-blister-pack-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b17-blister-pack-pop { --accent: var(--loader-color, #4f46e5); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .56); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 5%; padding: 4%; border-radius: 8px; background: color-mix(in srgb, var(--accent) 16%, transparent); box-sizing: border-box; }\n.darma-loader-darma-b17-blister-pack-pop span { position: relative; border-radius: 40% / 46%; background: linear-gradient(150deg, color-mix(in srgb, #fff 45%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 -3px 0 color-mix(in srgb, #000 12%, transparent); animation: darma-loader-darma-b17-blister-pack-pop-blister-pop calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b17-blister-pack-pop span::after { content: ''; position: absolute; left: 26%; right: 26%; top: 38%; height: 22%; border-radius: 999px; background: var(--accent); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(4) { animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(5) { animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(6) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.68); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(8) { animation-delay: calc(var(--loader-speed, 1s) * 1.96); }\n@keyframes darma-loader-darma-b17-blister-pack-pop-blister-pop { 0%, 10% { transform: scale(1); opacity: 1; } 18% { transform: scale(1.16); } 26%, 74% { transform: scale(.62); opacity: .3; } 88%, 100% { transform: scale(1); opacity: 1; } }",
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#f8fafc",
+    "size": 128,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-blister-pack-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b17-blister-pack-pop { --accent: var(--loader-color, #4f46e5); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .56); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 5%; padding: 4%; border-radius: 8px; background: color-mix(in srgb, var(--accent) 16%, transparent); box-sizing: border-box; }\n.darma-loader-darma-b17-blister-pack-pop span { position: relative; border-radius: 40% / 46%; background: linear-gradient(150deg, color-mix(in srgb, #fff 45%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 -3px 0 color-mix(in srgb, #000 12%, transparent); animation: darma-loader-darma-b17-blister-pack-pop-blister-pop calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b17-blister-pack-pop span::after { content: ''; position: absolute; left: 26%; right: 26%; top: 38%; height: 22%; border-radius: 999px; background: var(--accent); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(4) { animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(5) { animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(6) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.68); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(8) { animation-delay: calc(var(--loader-speed, 1s) * 1.96); }\n@keyframes darma-loader-darma-b17-blister-pack-pop-blister-pop { 0%, 10% { transform: scale(1); opacity: 1; } 18% { transform: scale(1.16); } 26%, 74% { transform: scale(.62); opacity: .3; } 88%, 100% { transform: scale(1); opacity: 1; } }",
+    "react": "export default function DarmaB17BlisterPackPopLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-blister-pack-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-egg-fry-sizzle",
+  "name": "Egg Fry Sizzle",
+  "category": "fun",
+  "tags": [
+    "egg",
+    "fry",
+    "pan",
+    "sizzle",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"pan\"></div><div class=\"white\"></div><div class=\"yolk\"></div><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .8); position: relative; }\n.loader .pan { position: absolute; left: 6%; top: 22%; width: 74%; height: 68%; border-radius: 50%; background: linear-gradient(#475569, #1e293b); }\n.loader .pan::after { content: ''; position: absolute; left: 92%; top: 40%; width: 42%; height: 16%; border-radius: 4px; background: #334155; }\n.loader .white { position: absolute; left: 16%; top: 32%; width: 54%; height: 48%; border-radius: 48% 52% 44% 56% / 52% 46% 54% 48%; background: var(--accent-2); animation: egg-wobble calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader .yolk { position: absolute; left: 33%; top: 44%; width: 22%; height: 24%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 34%, var(--accent)), var(--accent)); animation: egg-yolk calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: egg-sizzle calc(var(--loader-speed) * 1.2) ease-out infinite; }\n.loader i:nth-of-type(1) { left: 22%; top: 26%; }\n.loader i:nth-of-type(2) { left: 58%; top: 22%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader i:nth-of-type(3) { left: 40%; top: 18%; animation-delay: calc(var(--loader-speed) * .8); }\n@keyframes egg-wobble { 0%, 100% { border-radius: 48% 52% 44% 56% / 52% 46% 54% 48%; transform: scale(1); } 50% { border-radius: 54% 46% 56% 44% / 46% 54% 46% 54%; transform: scale(1.03); } }\n@keyframes egg-yolk { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }\n@keyframes egg-sizzle { 0% { opacity: 0; transform: translateY(0) scale(.4); } 30% { opacity: .9; } 100% { opacity: 0; transform: translateY(-120%) scale(1.1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fef9c3",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

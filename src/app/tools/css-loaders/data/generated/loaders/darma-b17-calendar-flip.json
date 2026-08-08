@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-calendar-flip",
+  "name": "Calendar Flip",
+  "category": "creative",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "calendar",
+    "date",
+    "page",
+    "schedule",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-calendar-flip calendar flip creative darma-research-batch-17 darma research batch 17 calendar date page schedule creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-calendar-flip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-calendar-flip__back\"></div><div class=\"darma-loader-darma-b17-calendar-flip__band\"></div><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-calendar-flip__ring\"></div><div class=\"darma-loader-darma-b17-calendar-flip__ring\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-calendar-flip { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .92); position: relative; perspective: 600px; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__back { position: absolute; left: 4%; right: 4%; top: 8%; bottom: 4%; border-radius: 6px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__band { position: absolute; left: 4%; right: 4%; top: 8%; height: 20%; border-radius: 6px 6px 0 0; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-calendar-flip span { position: absolute; left: 4%; right: 4%; top: 28%; bottom: 4%; border-radius: 0 0 6px 6px; background: var(--accent-2); box-shadow: 0 4px 10px color-mix(in srgb, #000 25%, transparent); transform-origin: 50% 0; animation: darma-loader-darma-b17-calendar-flip-cal-flip calc(var(--loader-speed, 1s) * 2.7) cubic-bezier(.5, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-calendar-flip span::after { content: ''; position: absolute; left: 24%; right: 24%; top: 26%; height: 34%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-calendar-flip span:nth-of-type(1) { animation-delay: calc(var(--loader-speed, 1s) * -1.8); }\n.darma-loader-darma-b17-calendar-flip span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * -.9); }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring { position: absolute; top: 2%; width: 6%; height: 12%; border-radius: 999px; box-shadow: inset 0 0 0 3px #94a3b8; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring:nth-of-type(3) { left: 26%; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring:nth-of-type(4) { right: 26%; }\n@keyframes darma-loader-darma-b17-calendar-flip-cal-flip { 0% { transform: rotateX(0deg); opacity: 1; } 22% { transform: rotateX(-96deg); opacity: .35; } 24%, 100% { transform: rotateX(0deg); opacity: 1; } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#f8fafc",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-calendar-flip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-calendar-flip__back\"></div><div class=\"darma-loader-darma-b17-calendar-flip__band\"></div><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-calendar-flip__ring\"></div><div class=\"darma-loader-darma-b17-calendar-flip__ring\"></div></div>",
+    "css": ".darma-loader-darma-b17-calendar-flip { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .92); position: relative; perspective: 600px; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__back { position: absolute; left: 4%; right: 4%; top: 8%; bottom: 4%; border-radius: 6px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__band { position: absolute; left: 4%; right: 4%; top: 8%; height: 20%; border-radius: 6px 6px 0 0; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-calendar-flip span { position: absolute; left: 4%; right: 4%; top: 28%; bottom: 4%; border-radius: 0 0 6px 6px; background: var(--accent-2); box-shadow: 0 4px 10px color-mix(in srgb, #000 25%, transparent); transform-origin: 50% 0; animation: darma-loader-darma-b17-calendar-flip-cal-flip calc(var(--loader-speed, 1s) * 2.7) cubic-bezier(.5, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-calendar-flip span::after { content: ''; position: absolute; left: 24%; right: 24%; top: 26%; height: 34%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-calendar-flip span:nth-of-type(1) { animation-delay: calc(var(--loader-speed, 1s) * -1.8); }\n.darma-loader-darma-b17-calendar-flip span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * -.9); }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring { position: absolute; top: 2%; width: 6%; height: 12%; border-radius: 999px; box-shadow: inset 0 0 0 3px #94a3b8; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring:nth-of-type(3) { left: 26%; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring:nth-of-type(4) { right: 26%; }\n@keyframes darma-loader-darma-b17-calendar-flip-cal-flip { 0% { transform: rotateX(0deg); opacity: 1; } 22% { transform: rotateX(-96deg); opacity: .35; } 24%, 100% { transform: rotateX(0deg); opacity: 1; } }",
+    "react": "export default function DarmaB17CalendarFlipLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-calendar-flip\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-calendar-flip__back\"></div><div className=\"darma-loader-darma-b17-calendar-flip__band\"></div><span></span><span></span><span></span><div className=\"darma-loader-darma-b17-calendar-flip__ring\"></div><div className=\"darma-loader-darma-b17-calendar-flip__ring\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

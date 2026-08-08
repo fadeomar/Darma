@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-wax-seal-press",
+  "name": "Wax Seal Press",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "wax",
+    "seal",
+    "stamp",
+    "letter",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-wax-seal-press wax seal press fun darma-research-batch-17 darma research batch 17 wax seal stamp letter fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-wax-seal-press\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-wax-seal-press__paper\"></div><div class=\"darma-loader-darma-b17-wax-seal-press__blob\"></div><div class=\"darma-loader-darma-b17-wax-seal-press__crest\"></div><div class=\"darma-loader-darma-b17-wax-seal-press__stamp\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-wax-seal-press { --accent: var(--loader-color, #be123c); --accent-2: var(--loader-secondary-color, #fee2e2); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__paper { position: absolute; left: 8%; right: 8%; bottom: 6%; height: 46%; border-radius: 3px; background: var(--accent-2); box-shadow: 0 3px 8px color-mix(in srgb, #000 22%, transparent); }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__blob { position: absolute; left: 32%; bottom: 16%; width: 36%; height: 26%; border-radius: 46% 54% 50% 44% / 52% 46% 54% 48%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); transform: scale(0); animation: darma-loader-darma-b17-wax-seal-press-wax-spread calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.3, 1.3, .5, 1) infinite; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__crest { position: absolute; left: 42%; bottom: 21%; width: 16%; height: 16%; border-radius: 3px; background: color-mix(in srgb, #000 26%, var(--accent)); clip-path: polygon(50% 0, 100% 30%, 82% 100%, 18% 100%, 0 30%); opacity: 0; animation: darma-loader-darma-b17-wax-seal-press-wax-crest calc(var(--loader-speed, 1s) * 2.6) ease-out infinite; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__stamp { position: absolute; left: 34%; top: 2%; width: 32%; height: 44%; border-radius: 6px 6px 4px 4px; background: linear-gradient(#a16207, #78350f); animation: darma-loader-darma-b17-wax-seal-press-wax-press calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__stamp::after { content: ''; position: absolute; left: 16%; right: 16%; top: -22%; height: 30%; border-radius: 4px; background: #92400e; }\n@keyframes darma-loader-darma-b17-wax-seal-press-wax-press { 0%, 18% { transform: translateY(0); } 40%, 54% { transform: translateY(74%); } 78%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b17-wax-seal-press-wax-spread { 0%, 22% { transform: scale(0); } 46%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b17-wax-seal-press-wax-crest { 0%, 56% { opacity: 0; } 68%, 92% { opacity: 1; } 100% { opacity: 0; } }",
+  "defaults": {
+    "color": "#be123c",
+    "secondaryColor": "#fee2e2",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-wax-seal-press\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-wax-seal-press__paper\"></div><div class=\"darma-loader-darma-b17-wax-seal-press__blob\"></div><div class=\"darma-loader-darma-b17-wax-seal-press__crest\"></div><div class=\"darma-loader-darma-b17-wax-seal-press__stamp\"></div></div>",
+    "css": ".darma-loader-darma-b17-wax-seal-press { --accent: var(--loader-color, #be123c); --accent-2: var(--loader-secondary-color, #fee2e2); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__paper { position: absolute; left: 8%; right: 8%; bottom: 6%; height: 46%; border-radius: 3px; background: var(--accent-2); box-shadow: 0 3px 8px color-mix(in srgb, #000 22%, transparent); }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__blob { position: absolute; left: 32%; bottom: 16%; width: 36%; height: 26%; border-radius: 46% 54% 50% 44% / 52% 46% 54% 48%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); transform: scale(0); animation: darma-loader-darma-b17-wax-seal-press-wax-spread calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.3, 1.3, .5, 1) infinite; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__crest { position: absolute; left: 42%; bottom: 21%; width: 16%; height: 16%; border-radius: 3px; background: color-mix(in srgb, #000 26%, var(--accent)); clip-path: polygon(50% 0, 100% 30%, 82% 100%, 18% 100%, 0 30%); opacity: 0; animation: darma-loader-darma-b17-wax-seal-press-wax-crest calc(var(--loader-speed, 1s) * 2.6) ease-out infinite; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__stamp { position: absolute; left: 34%; top: 2%; width: 32%; height: 44%; border-radius: 6px 6px 4px 4px; background: linear-gradient(#a16207, #78350f); animation: darma-loader-darma-b17-wax-seal-press-wax-press calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b17-wax-seal-press .darma-loader-darma-b17-wax-seal-press__stamp::after { content: ''; position: absolute; left: 16%; right: 16%; top: -22%; height: 30%; border-radius: 4px; background: #92400e; }\n@keyframes darma-loader-darma-b17-wax-seal-press-wax-press { 0%, 18% { transform: translateY(0); } 40%, 54% { transform: translateY(74%); } 78%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b17-wax-seal-press-wax-spread { 0%, 22% { transform: scale(0); } 46%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b17-wax-seal-press-wax-crest { 0%, 56% { opacity: 0; } 68%, 92% { opacity: 1; } 100% { opacity: 0; } }",
+    "react": "export default function DarmaB17WaxSealPressLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-wax-seal-press\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-wax-seal-press__paper\"></div><div className=\"darma-loader-darma-b17-wax-seal-press__blob\"></div><div className=\"darma-loader-darma-b17-wax-seal-press__crest\"></div><div className=\"darma-loader-darma-b17-wax-seal-press__stamp\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-container-ship-load",
+  "name": "Container Ship Load",
+  "category": "fun",
+  "tags": [
+    "container",
+    "ship",
+    "cargo",
+    "port",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"hull\"></div><span></span><span></span><span></span><span></span><div class=\"sea\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .7); position: relative; overflow: hidden; }\n.loader .hull { position: absolute; left: 8%; right: 8%; bottom: 16%; height: 22%; border-radius: 4px 4px 30% 30% / 4px 4px 90% 90%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: cargo-rock calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span { position: absolute; width: 18%; height: 12%; border-radius: 2px; background: var(--accent-2); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 25%, transparent); animation: cargo-drop calc(var(--loader-speed) * 2.6) cubic-bezier(.5, 0, .6, 1) infinite; }\n.loader span:nth-of-type(1) { left: 16%; bottom: 38%; }\n.loader span:nth-of-type(2) { left: 36%; bottom: 38%; animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-of-type(3) { left: 56%; bottom: 38%; animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-of-type(4) { left: 36%; bottom: 51%; animation-delay: calc(var(--loader-speed) * .9); }\n.loader .sea { position: absolute; left: 0; right: 0; bottom: 0; height: 18%; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 55%, transparent) 0 12%, color-mix(in srgb, var(--accent) 25%, transparent) 0 24%); }\n@keyframes cargo-drop { 0% { opacity: 0; transform: translateY(-320%); } 22% { opacity: 1; transform: translateY(0); } 76% { opacity: 1; transform: translateY(0); } 90%, 100% { opacity: 0; transform: translateY(0); } }\n@keyframes cargo-rock { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }",
+  "defaults": {
+    "color": "#0369a1",
+    "secondaryColor": "#fb923c",
+    "size": 126,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

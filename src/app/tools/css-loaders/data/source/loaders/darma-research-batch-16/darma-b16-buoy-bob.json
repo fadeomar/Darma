@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-buoy-bob",
+  "name": "Buoy Bob",
+  "category": "fun",
+  "tags": [
+    "buoy",
+    "sea",
+    "marker",
+    "beacon",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"buoy\"><span class=\"lamp\"></span></div><div class=\"swell\"></div><div class=\"swell\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 8px; }\n.loader .buoy { position: absolute; left: 36%; top: 18%; width: 28%; height: 48%; border-radius: 40% 40% 26% 26% / 24% 24% 18% 18%; background: repeating-linear-gradient(var(--accent) 0 22%, color-mix(in srgb, #fff 70%, var(--accent)) 0 44%); transform-origin: 50% 100%; animation: buoy-rock calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n.loader .lamp { position: absolute; left: 26%; bottom: 96%; width: 48%; height: 22%; border-radius: 50%; background: var(--accent-2); animation: buoy-flash calc(var(--loader-speed) * 1.1) ease-in-out infinite; }\n.loader .swell { position: absolute; left: -26%; width: 152%; height: 26%; border-radius: 50% 50% 0 0 / 100% 100% 0 0; animation: buoy-swell calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .swell:nth-of-type(2) { bottom: 14%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); }\n.loader .swell:nth-of-type(3) { bottom: 0; height: 32%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation-delay: calc(var(--loader-speed) * -1.5); }\n@keyframes buoy-rock { 0%, 100% { transform: translateY(0) rotate(-9deg); } 50% { transform: translateY(-8%) rotate(9deg); } }\n@keyframes buoy-flash { 0%, 55% { opacity: .3; box-shadow: none; } 68%, 82% { opacity: 1; box-shadow: 0 0 14px var(--accent-2); } 100% { opacity: .3; box-shadow: none; } }\n@keyframes buoy-swell { 0%, 100% { transform: translateX(-6%); } 50% { transform: translateX(6%); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#38bdf8",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

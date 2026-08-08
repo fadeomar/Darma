@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-spotlight-sweep",
+  "name": "Spotlight Sweep",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "spotlight",
+    "stage",
+    "beam",
+    "search",
+    "spinners"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-spotlight-sweep spotlight sweep spinners darma-research-batch-17 darma research batch 17 spotlight stage beam search spinners html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-spotlight-sweep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__lamp\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__floor\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-spotlight-sweep { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 124px); height: var(--loader-size, 124px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__floor { position: absolute; left: 0; right: 0; bottom: 0; height: 16%; background: linear-gradient(color-mix(in srgb, var(--accent-2) 40%, transparent), color-mix(in srgb, var(--accent-2) 10%, transparent)); }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone { position: absolute; left: 50%; top: 12%; width: 44%; height: 82%; margin-left: -22%; transform-origin: 50% 0; clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone:nth-of-type(1) { background: linear-gradient(color-mix(in srgb, var(--accent) 72%, transparent), transparent 82%); animation: darma-loader-darma-b17-spotlight-sweep-spot-swing-a calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone:nth-of-type(2) { background: linear-gradient(color-mix(in srgb, var(--accent-2) 62%, transparent), transparent 82%); animation: darma-loader-darma-b17-spotlight-sweep-spot-swing-b calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__lamp { position: absolute; left: 42%; top: 4%; width: 16%; height: 12%; border-radius: 4px 4px 40% 40%; background: linear-gradient(#64748b, #1e293b); box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 60%, transparent); }\n@keyframes darma-loader-darma-b17-spotlight-sweep-spot-swing-a { 0%, 100% { transform: rotate(-32deg); } 50% { transform: rotate(28deg); } }\n@keyframes darma-loader-darma-b17-spotlight-sweep-spot-swing-b { 0%, 100% { transform: rotate(30deg); } 50% { transform: rotate(-26deg); } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#a855f7",
+    "size": 124,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-spotlight-sweep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__lamp\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__floor\"></div></div>",
+    "css": ".darma-loader-darma-b17-spotlight-sweep { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 124px); height: var(--loader-size, 124px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__floor { position: absolute; left: 0; right: 0; bottom: 0; height: 16%; background: linear-gradient(color-mix(in srgb, var(--accent-2) 40%, transparent), color-mix(in srgb, var(--accent-2) 10%, transparent)); }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone { position: absolute; left: 50%; top: 12%; width: 44%; height: 82%; margin-left: -22%; transform-origin: 50% 0; clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone:nth-of-type(1) { background: linear-gradient(color-mix(in srgb, var(--accent) 72%, transparent), transparent 82%); animation: darma-loader-darma-b17-spotlight-sweep-spot-swing-a calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone:nth-of-type(2) { background: linear-gradient(color-mix(in srgb, var(--accent-2) 62%, transparent), transparent 82%); animation: darma-loader-darma-b17-spotlight-sweep-spot-swing-b calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__lamp { position: absolute; left: 42%; top: 4%; width: 16%; height: 12%; border-radius: 4px 4px 40% 40%; background: linear-gradient(#64748b, #1e293b); box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 60%, transparent); }\n@keyframes darma-loader-darma-b17-spotlight-sweep-spot-swing-a { 0%, 100% { transform: rotate(-32deg); } 50% { transform: rotate(28deg); } }\n@keyframes darma-loader-darma-b17-spotlight-sweep-spot-swing-b { 0%, 100% { transform: rotate(30deg); } 50% { transform: rotate(-26deg); } }",
+    "react": "export default function DarmaB17SpotlightSweepLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-spotlight-sweep\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div className=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div className=\"darma-loader-darma-b17-spotlight-sweep__lamp\"></div><div className=\"darma-loader-darma-b17-spotlight-sweep__floor\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-scaffold-build",
+  "name": "Scaffold Build",
+  "category": "bars",
+  "tags": [
+    "scaffold",
+    "frame",
+    "levels",
+    "construction",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><i></i><i></i><i></i><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader i { position: absolute; bottom: 4%; width: 5%; border-radius: 3px; background: var(--accent); transform-origin: 50% 100%; transform: scaleY(0); animation: scaf-post calc(var(--loader-speed) * 3.2) ease-out infinite; }\n.loader i:nth-of-type(1) { left: 8%; height: 92%; }\n.loader i:nth-of-type(2) { left: 47%; height: 92%; animation-delay: calc(var(--loader-speed) * .12); }\n.loader i:nth-of-type(3) { right: 8%; height: 92%; animation-delay: calc(var(--loader-speed) * .24); }\n.loader span { position: absolute; left: 6%; right: 6%; height: 7%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 22%, var(--accent-2))); transform-origin: 0 50%; transform: scaleX(0); animation: scaf-plank calc(var(--loader-speed) * 3.2) cubic-bezier(.4, 0, .4, 1) infinite; }\n.loader span:nth-of-type(1) { bottom: 8%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(2) { bottom: 32%; animation-delay: calc(var(--loader-speed) * .64); }\n.loader span:nth-of-type(3) { bottom: 56%; animation-delay: calc(var(--loader-speed) * .88); }\n.loader span:nth-of-type(4) { bottom: 80%; animation-delay: calc(var(--loader-speed) * 1.12); }\n@keyframes scaf-post { 0%, 3% { transform: scaleY(0); opacity: 0; } 18%, 76% { transform: scaleY(1); opacity: 1; } 92%, 100% { transform: scaleY(0); opacity: 0; } }\n@keyframes scaf-plank { 0%, 3% { transform: scaleX(0); opacity: 0; } 16%, 74% { transform: scaleX(1); opacity: 1; } 90%, 100% { transform: scaleX(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#facc15",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

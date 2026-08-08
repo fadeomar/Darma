@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-salt-sprinkle",
+  "name": "Salt Sprinkle",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "salt",
+    "shaker",
+    "season",
+    "kitchen",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-salt-sprinkle salt sprinkle fun darma-research-batch-15 darma research batch 15 salt shaker season kitchen fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-salt-sprinkle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-salt-sprinkle__shaker\"></div><i></i><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b15-salt-sprinkle__plate\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-salt-sprinkle { --accent: var(--loader-color, #475569); --accent-2: var(--loader-secondary-color, #f1f5f9); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-salt-sprinkle .darma-loader-darma-b15-salt-sprinkle__shaker { position: absolute; left: 36%; top: 4%; width: 28%; height: 40%; border-radius: 42% 42% 12% 12% / 34% 34% 8% 8%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b15-salt-sprinkle-salt-shake calc(var(--loader-speed, 1s) * .9) ease-in-out infinite; }\n.darma-loader-darma-b15-salt-sprinkle .darma-loader-darma-b15-salt-sprinkle__shaker::after { content: ''; position: absolute; left: 20%; right: 20%; top: 6%; height: 22%; border-radius: 3px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.darma-loader-darma-b15-salt-sprinkle i { position: absolute; top: 46%; width: 5%; height: 5%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-salt-sprinkle-salt-fall calc(var(--loader-speed, 1s) * 1.2) ease-in infinite; }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(1) { left: 40%; }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(3) { left: 54%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(4) { left: 43%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(5) { left: 51%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b15-salt-sprinkle .darma-loader-darma-b15-salt-sprinkle__plate { position: absolute; left: 16%; right: 16%; bottom: 8%; height: 12%; border-radius: 50%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); }\n@keyframes darma-loader-darma-b15-salt-sprinkle-salt-shake { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(16deg); } }\n@keyframes darma-loader-darma-b15-salt-sprinkle-salt-fall { 0% { opacity: 0; transform: translateY(0) scale(.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(340%) scale(1); } }",
+  "defaults": {
+    "color": "#475569",
+    "secondaryColor": "#f1f5f9",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-salt-sprinkle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-salt-sprinkle__shaker\"></div><i></i><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b15-salt-sprinkle__plate\"></div></div>",
+    "css": ".darma-loader-darma-b15-salt-sprinkle { --accent: var(--loader-color, #475569); --accent-2: var(--loader-secondary-color, #f1f5f9); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-salt-sprinkle .darma-loader-darma-b15-salt-sprinkle__shaker { position: absolute; left: 36%; top: 4%; width: 28%; height: 40%; border-radius: 42% 42% 12% 12% / 34% 34% 8% 8%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b15-salt-sprinkle-salt-shake calc(var(--loader-speed, 1s) * .9) ease-in-out infinite; }\n.darma-loader-darma-b15-salt-sprinkle .darma-loader-darma-b15-salt-sprinkle__shaker::after { content: ''; position: absolute; left: 20%; right: 20%; top: 6%; height: 22%; border-radius: 3px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.darma-loader-darma-b15-salt-sprinkle i { position: absolute; top: 46%; width: 5%; height: 5%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-salt-sprinkle-salt-fall calc(var(--loader-speed, 1s) * 1.2) ease-in infinite; }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(1) { left: 40%; }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(3) { left: 54%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(4) { left: 43%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b15-salt-sprinkle i:nth-of-type(5) { left: 51%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b15-salt-sprinkle .darma-loader-darma-b15-salt-sprinkle__plate { position: absolute; left: 16%; right: 16%; bottom: 8%; height: 12%; border-radius: 50%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); }\n@keyframes darma-loader-darma-b15-salt-sprinkle-salt-shake { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(16deg); } }\n@keyframes darma-loader-darma-b15-salt-sprinkle-salt-fall { 0% { opacity: 0; transform: translateY(0) scale(.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(340%) scale(1); } }",
+    "react": "export default function DarmaB15SaltSprinkleLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-salt-sprinkle\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-salt-sprinkle__shaker\"></div><i></i><i></i><i></i><i></i><i></i><div className=\"darma-loader-darma-b15-salt-sprinkle__plate\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

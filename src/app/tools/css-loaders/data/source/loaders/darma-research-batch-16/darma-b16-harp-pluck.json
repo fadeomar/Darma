@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-harp-pluck",
+  "name": "Harp Pluck",
+  "category": "fun",
+  "tags": [
+    "harp",
+    "strings",
+    "music",
+    "pluck",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"pillar\"></div><div class=\"neck\"></div><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .pillar { position: absolute; left: 6%; bottom: 6%; width: 10%; height: 88%; border-radius: 5px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); }\n.loader .neck { position: absolute; left: 6%; bottom: 6%; width: 88%; height: 9%; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader span { position: absolute; bottom: 14%; width: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent-2) 85%, transparent); transform-origin: 50% 100%; animation: harp-vibe calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader span:nth-of-type(1) { left: 20%; height: 78%; }\n.loader span:nth-of-type(2) { left: 32%; height: 68%; animation-delay: calc(var(--loader-speed) * .18); }\n.loader span:nth-of-type(3) { left: 44%; height: 58%; animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-of-type(4) { left: 56%; height: 48%; animation-delay: calc(var(--loader-speed) * .54); }\n.loader span:nth-of-type(5) { left: 68%; height: 38%; animation-delay: calc(var(--loader-speed) * .72); }\n.loader span:nth-of-type(6) { left: 80%; height: 28%; animation-delay: calc(var(--loader-speed) * .9); }\n@keyframes harp-vibe { 0%, 62%, 100% { transform: scaleX(1); opacity: .6; } 8% { transform: scaleX(3.2); opacity: 1; } 20% { transform: scaleX(2.1); } 34% { transform: scaleX(1.5); } 48% { transform: scaleX(1.2); } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#fde68a",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-laser-cut",
+  "name": "Laser Cut",
+  "category": "creative",
+  "tags": [
+    "laser",
+    "cut",
+    "cnc",
+    "fabrication",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"sheet\"></div><div class=\"kerf\"></div><div class=\"head\"></div><div class=\"spark\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .sheet { position: absolute; inset: 6%; border-radius: 4px; background: repeating-linear-gradient(45deg, color-mix(in srgb, #fff 8%, var(--accent)) 0 6px, var(--accent) 0 12px); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 25%, transparent); }\n.loader .kerf { position: absolute; left: 22%; top: 22%; width: 56%; height: 56%; border-radius: 6px; border: 3px solid var(--accent-2); box-shadow: 0 0 12px color-mix(in srgb, var(--accent-2) 55%, transparent); animation: laser-kerf calc(var(--loader-speed) * 4) linear infinite; }\n.loader .head { position: absolute; left: 20%; top: 18%; width: 10%; height: 10%; border-radius: 3px; background: linear-gradient(#e2e8f0, #64748b); animation: laser-path calc(var(--loader-speed) * 4) linear infinite; }\n.loader .spark { position: absolute; left: 22%; top: 22%; width: 7%; height: 7%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 80%, var(--accent-2)), transparent 70%); animation: laser-flare calc(var(--loader-speed) * .2) steps(1, end) infinite, laser-path calc(var(--loader-speed) * 4) linear infinite; }\n@keyframes laser-path { 0% { transform: translate(0, 0); } 25% { transform: translate(calc(var(--loader-size) * .56), 0); } 50% { transform: translate(calc(var(--loader-size) * .56), calc(var(--loader-size) * .56)); } 75% { transform: translate(0, calc(var(--loader-size) * .56)); } 100% { transform: translate(0, 0); } }\n@keyframes laser-kerf { 0% { opacity: 0; } 25% { opacity: .3; } 50% { opacity: .58; } 75% { opacity: .82; } 94% { opacity: 1; } 100% { opacity: 0; } }\n@keyframes laser-flare { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .35; } }",
+  "defaults": {
+    "color": "#334155",
+    "secondaryColor": "#f43f5e",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

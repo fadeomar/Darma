@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-javelin-arc",
+  "name": "Javelin Arc",
+  "category": "fun",
+  "tags": [
+    "javelin",
+    "throw",
+    "arc",
+    "athletics",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"spear\"></div><div class=\"field\"></div><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .66); position: relative; }\n.loader .field { position: absolute; left: 0; right: 0; bottom: 10%; height: 6%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n.loader i { position: absolute; bottom: 17%; width: 2%; height: 8%; border-radius: 2px; background: color-mix(in srgb, var(--accent) 50%, transparent); }\n.loader i:nth-of-type(1) { left: 34%; }\n.loader i:nth-of-type(2) { left: 58%; }\n.loader i:nth-of-type(3) { left: 82%; }\n.loader .spear { position: absolute; left: 4%; bottom: 22%; width: 34%; height: 4%; border-radius: 2px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); animation: jav-throw calc(var(--loader-speed) * 2.2) cubic-bezier(.35, .05, .55, 1) infinite; }\n@keyframes jav-throw { 0% { opacity: 0; transform: translate(0, 0) rotate(-32deg); } 10% { opacity: 1; } 50% { transform: translate(96%, -170%) rotate(-4deg); } 88% { opacity: 1; transform: translate(190%, 4%) rotate(54deg); } 100% { opacity: 0; transform: translate(190%, 4%) rotate(54deg); } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#bbf7d0",
+    "size": 132,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

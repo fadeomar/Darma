@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-satellite-dish-sweep",
+  "name": "Satellite Dish Sweep",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "satellite",
+    "dish",
+    "signal",
+    "antenna",
+    "spinners"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-satellite-dish-sweep satellite dish sweep spinners darma-research-batch-16 darma research batch 16 satellite dish signal antenna spinners html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-satellite-dish-sweep\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-satellite-dish-sweep__dish\"></div><div class=\"darma-loader-darma-b16-satellite-dish-sweep__mast\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-satellite-dish-sweep { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__mast { position: absolute; left: 45%; bottom: 6%; width: 10%; height: 34%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #475569); }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__dish { position: absolute; left: 22%; top: 26%; width: 56%; height: 42%; border-radius: 50%; background: radial-gradient(ellipse at 46% 40%, color-mix(in srgb, #fff 32%, var(--accent)), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-satellite-dish-sweep-dish-sweep calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__dish::after { content: ''; position: absolute; left: 44%; top: 34%; width: 12%; height: 42%; border-radius: 3px; background: #475569; }\n.darma-loader-darma-b16-satellite-dish-sweep span { position: absolute; left: 50%; top: 30%; border-radius: 50%; border: 3px solid var(--accent-2); border-bottom-color: transparent; border-left-color: transparent; opacity: 0; animation: darma-loader-darma-b16-satellite-dish-sweep-dish-wave calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(1) { width: 22%; height: 22%; margin: -11% 0 0 -11%; }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(2) { width: 40%; height: 40%; margin: -20% 0 0 -20%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(3) { width: 58%; height: 58%; margin: -29% 0 0 -29%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b16-satellite-dish-sweep-dish-sweep { 0%, 100% { transform: rotate(-24deg); } 50% { transform: rotate(24deg); } }\n@keyframes darma-loader-darma-b16-satellite-dish-sweep-dish-wave { 0% { opacity: 0; transform: rotate(-45deg) scale(.5); } 25% { opacity: .95; } 100% { opacity: 0; transform: rotate(-45deg) scale(1.25); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#fbbf24",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-satellite-dish-sweep\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-satellite-dish-sweep__dish\"></div><div class=\"darma-loader-darma-b16-satellite-dish-sweep__mast\"></div></div>",
+    "css": ".darma-loader-darma-b16-satellite-dish-sweep { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__mast { position: absolute; left: 45%; bottom: 6%; width: 10%; height: 34%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #475569); }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__dish { position: absolute; left: 22%; top: 26%; width: 56%; height: 42%; border-radius: 50%; background: radial-gradient(ellipse at 46% 40%, color-mix(in srgb, #fff 32%, var(--accent)), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-satellite-dish-sweep-dish-sweep calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__dish::after { content: ''; position: absolute; left: 44%; top: 34%; width: 12%; height: 42%; border-radius: 3px; background: #475569; }\n.darma-loader-darma-b16-satellite-dish-sweep span { position: absolute; left: 50%; top: 30%; border-radius: 50%; border: 3px solid var(--accent-2); border-bottom-color: transparent; border-left-color: transparent; opacity: 0; animation: darma-loader-darma-b16-satellite-dish-sweep-dish-wave calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(1) { width: 22%; height: 22%; margin: -11% 0 0 -11%; }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(2) { width: 40%; height: 40%; margin: -20% 0 0 -20%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(3) { width: 58%; height: 58%; margin: -29% 0 0 -29%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b16-satellite-dish-sweep-dish-sweep { 0%, 100% { transform: rotate(-24deg); } 50% { transform: rotate(24deg); } }\n@keyframes darma-loader-darma-b16-satellite-dish-sweep-dish-wave { 0% { opacity: 0; transform: rotate(-45deg) scale(.5); } 25% { opacity: .95; } 100% { opacity: 0; transform: rotate(-45deg) scale(1.25); } }",
+    "react": "export default function DarmaB16SatelliteDishSweepLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-satellite-dish-sweep\" aria-label=\"Loading\"><span></span><span></span><span></span><div className=\"darma-loader-darma-b16-satellite-dish-sweep__dish\"></div><div className=\"darma-loader-darma-b16-satellite-dish-sweep__mast\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

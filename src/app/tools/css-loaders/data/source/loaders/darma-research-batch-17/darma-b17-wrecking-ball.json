@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-wrecking-ball",
+  "name": "Wrecking Ball",
+  "category": "fun",
+  "tags": [
+    "wrecking",
+    "demolition",
+    "swing",
+    "site",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"beam\"></div><div class=\"arm\"><span class=\"chain\"></span><span class=\"ball\"></span></div><div class=\"wall\"></div><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .beam { position: absolute; left: 4%; right: 4%; top: 4%; height: 7%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 28%, var(--accent-2))); }\n.loader .arm { position: absolute; left: 24%; top: 8%; width: 12%; height: 62%; transform-origin: 50% 0; animation: wreck-swing calc(var(--loader-speed) * 2.2) cubic-bezier(.45, 0, .55, 1) infinite; }\n.loader .chain { position: absolute; left: 42%; top: 0; width: 16%; height: 68%; background: repeating-linear-gradient(#cbd5e1 0 40%, transparent 0 60%); background-size: 100% 14%; }\n.loader .ball { position: absolute; left: -34%; top: 62%; width: 168%; height: 38%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 26%, var(--accent)), color-mix(in srgb, #000 30%, var(--accent))); }\n.loader .wall { position: absolute; right: 4%; bottom: 4%; width: 34%; height: 54%; border-radius: 3px; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 70%, transparent) 0 40%, transparent 0 46%), repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, transparent) 0 46%, transparent 0 52%); animation: wreck-shudder calc(var(--loader-speed) * 2.2) ease-out infinite; }\n.loader i { position: absolute; right: 34%; bottom: 30%; width: 8%; height: 7%; border-radius: 2px; background: var(--accent); opacity: 0; animation: wreck-rubble calc(var(--loader-speed) * 2.2) ease-out infinite; }\n.loader i:nth-of-type(1) { --dx: -180%; --dy: 120%; }\n.loader i:nth-of-type(2) { --dx: -90%; --dy: 210%; animation-delay: calc(var(--loader-speed) * .08); }\n@keyframes wreck-swing { 0%, 100% { transform: rotate(-52deg); } 50% { transform: rotate(20deg); } }\n@keyframes wreck-shudder { 0%, 44% { transform: translateX(0); } 52% { transform: translateX(4%); } 60% { transform: translateX(-2%); } 70%, 100% { transform: translateX(0); } }\n@keyframes wreck-rubble { 0%, 46% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 54% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx, 0%), var(--dy, 0%)) rotate(180deg); } }",
+  "defaults": {
+    "color": "#78716c",
+    "secondaryColor": "#f59e0b",
+    "size": 122,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

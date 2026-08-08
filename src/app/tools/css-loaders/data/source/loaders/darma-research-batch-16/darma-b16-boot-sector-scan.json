@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-boot-sector-scan",
+  "name": "Boot Sector Scan",
+  "category": "progress",
+  "tags": [
+    "boot",
+    "sector",
+    "scan",
+    "disk",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"grid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class=\"caret\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .44); position: relative; }\n.loader .grid { position: absolute; left: 0; right: 0; top: 0; height: 72%; display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 1fr; gap: 4%; }\n.loader span { border-radius: 3px; background: color-mix(in srgb, var(--accent) 16%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent); animation: sector-check calc(var(--loader-speed) * 2.8) steps(1, end) infinite; }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(4) { animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-of-type(5) { animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-of-type(6) { animation-delay: calc(var(--loader-speed) * 1); }\n.loader span:nth-of-type(7) { animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span:nth-of-type(8) { animation-delay: calc(var(--loader-speed) * 1.4); }\n.loader span:nth-of-type(9) { animation-delay: calc(var(--loader-speed) * 1.6); }\n.loader span:nth-of-type(10) { animation-delay: calc(var(--loader-speed) * 1.8); }\n.loader span:nth-of-type(11) { animation-delay: calc(var(--loader-speed) * 2); }\n.loader span:nth-of-type(12) { animation-delay: calc(var(--loader-speed) * 2.2); }\n.loader .caret { position: absolute; left: 0; bottom: 2%; width: 8%; height: 16%; background: var(--accent-2); animation: sector-caret calc(var(--loader-speed) * .8) steps(1, end) infinite; }\n@keyframes sector-check { 0%, 6% { background: color-mix(in srgb, var(--accent) 16%, transparent); } 7%, 20% { background: var(--accent-2); } 21%, 100% { background: var(--accent); } }\n@keyframes sector-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#84cc16",
+    "size": 132,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

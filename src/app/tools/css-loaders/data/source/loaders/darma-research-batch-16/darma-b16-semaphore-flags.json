@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-semaphore-flags",
+  "name": "Semaphore Flags",
+  "category": "fun",
+  "tags": [
+    "semaphore",
+    "flags",
+    "signal",
+    "arms",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"torso\"></div><div class=\"arm\"></div><div class=\"arm\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .torso { position: absolute; left: 43%; top: 30%; width: 14%; height: 52%; border-radius: 8px 8px 5px 5px; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); }\n.loader .torso::before { content: ''; position: absolute; left: 2%; bottom: 100%; width: 96%; height: 34%; border-radius: 50%; background: var(--accent); }\n.loader .arm { position: absolute; left: 48%; top: 36%; width: 4%; height: 34%; border-radius: 3px; background: color-mix(in srgb, #0f172a 55%, transparent); transform-origin: 50% 0; }\n.loader .arm::after { content: ''; position: absolute; left: -180%; top: 76%; width: 460%; height: 40%; background: var(--accent-2); clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); }\n.loader .arm:nth-of-type(2) { animation: sema-left calc(var(--loader-speed) * 2.8) steps(1, end) infinite; }\n.loader .arm:nth-of-type(3) { animation: sema-right calc(var(--loader-speed) * 2.8) steps(1, end) infinite; }\n@keyframes sema-left { 0%, 24% { transform: rotate(200deg); } 25%, 49% { transform: rotate(155deg); } 50%, 74% { transform: rotate(245deg); } 75%, 100% { transform: rotate(180deg); } }\n@keyframes sema-right { 0%, 24% { transform: rotate(160deg); } 25%, 49% { transform: rotate(115deg); } 50%, 74% { transform: rotate(70deg); } 75%, 100% { transform: rotate(135deg); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#facc15",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

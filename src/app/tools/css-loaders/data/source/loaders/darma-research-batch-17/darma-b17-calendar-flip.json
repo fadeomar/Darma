@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-calendar-flip",
+  "name": "Calendar Flip",
+  "category": "creative",
+  "tags": [
+    "calendar",
+    "date",
+    "page",
+    "schedule",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"back\"></div><div class=\"band\"></div><span></span><span></span><span></span><div class=\"ring\"></div><div class=\"ring\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .92); position: relative; perspective: 600px; }\n.loader .back { position: absolute; left: 4%; right: 4%; top: 8%; bottom: 4%; border-radius: 6px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.loader .band { position: absolute; left: 4%; right: 4%; top: 8%; height: 20%; border-radius: 6px 6px 0 0; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); }\n.loader span { position: absolute; left: 4%; right: 4%; top: 28%; bottom: 4%; border-radius: 0 0 6px 6px; background: var(--accent-2); box-shadow: 0 4px 10px color-mix(in srgb, #000 25%, transparent); transform-origin: 50% 0; animation: cal-flip calc(var(--loader-speed) * 2.7) cubic-bezier(.5, 0, .4, 1) infinite; }\n.loader span::after { content: ''; position: absolute; left: 24%; right: 24%; top: 26%; height: 34%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.loader span:nth-of-type(1) { animation-delay: calc(var(--loader-speed) * -1.8); }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * -.9); }\n.loader .ring { position: absolute; top: 2%; width: 6%; height: 12%; border-radius: 999px; box-shadow: inset 0 0 0 3px #94a3b8; }\n.loader .ring:nth-of-type(3) { left: 26%; }\n.loader .ring:nth-of-type(4) { right: 26%; }\n@keyframes cal-flip { 0% { transform: rotateX(0deg); opacity: 1; } 22% { transform: rotateX(-96deg); opacity: .35; } 24%, 100% { transform: rotateX(0deg); opacity: 1; } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#f8fafc",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-bunsen-burner",
+  "name": "Bunsen Burner",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "bunsen",
+    "burner",
+    "flame",
+    "lab",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-bunsen-burner bunsen burner fun darma-research-batch-16 darma research batch 16 bunsen burner flame lab fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-bunsen-burner\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-bunsen-burner__flame\"></div><div class=\"darma-loader-darma-b16-bunsen-burner__inner\"></div><div class=\"darma-loader-darma-b16-bunsen-burner__barrel\"></div><div class=\"darma-loader-darma-b16-bunsen-burner__foot\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-bunsen-burner { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__foot { position: absolute; left: 24%; right: 24%; bottom: 4%; height: 9%; border-radius: 4px 4px 6px 6px; background: linear-gradient(#94a3b8, #334155); }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__barrel { position: absolute; left: 42%; bottom: 12%; width: 16%; height: 34%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #64748b); }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__barrel::after { content: ''; position: absolute; left: -30%; bottom: 8%; width: 160%; height: 16%; border-radius: 3px; background: #475569; }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__flame { position: absolute; left: 38%; bottom: 44%; width: 24%; height: 44%; border-radius: 50% 50% 42% 42% / 76% 76% 24% 24%; background: linear-gradient(color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent)); filter: blur(1px); transform-origin: 50% 100%; animation: darma-loader-darma-b16-bunsen-burner-bunsen-lick calc(var(--loader-speed, 1s) * .7) ease-in-out infinite alternate; }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__inner { position: absolute; left: 44%; bottom: 46%; width: 12%; height: 22%; border-radius: 50% 50% 40% 40% / 76% 76% 24% 24%; background: color-mix(in srgb, #fff 55%, var(--accent-2)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-bunsen-burner-bunsen-core calc(var(--loader-speed, 1s) * .7) ease-in-out infinite alternate; }\n@keyframes darma-loader-darma-b16-bunsen-burner-bunsen-lick { from { transform: scaleY(.86) scaleX(1.06) skewX(-3deg); opacity: .85; } to { transform: scaleY(1.12) scaleX(.94) skewX(3deg); opacity: 1; } }\n@keyframes darma-loader-darma-b16-bunsen-burner-bunsen-core { from { transform: scaleY(.8); } to { transform: scaleY(1.15); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#a5f3fc",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-bunsen-burner\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-bunsen-burner__flame\"></div><div class=\"darma-loader-darma-b16-bunsen-burner__inner\"></div><div class=\"darma-loader-darma-b16-bunsen-burner__barrel\"></div><div class=\"darma-loader-darma-b16-bunsen-burner__foot\"></div></div>",
+    "css": ".darma-loader-darma-b16-bunsen-burner { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__foot { position: absolute; left: 24%; right: 24%; bottom: 4%; height: 9%; border-radius: 4px 4px 6px 6px; background: linear-gradient(#94a3b8, #334155); }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__barrel { position: absolute; left: 42%; bottom: 12%; width: 16%; height: 34%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #64748b); }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__barrel::after { content: ''; position: absolute; left: -30%; bottom: 8%; width: 160%; height: 16%; border-radius: 3px; background: #475569; }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__flame { position: absolute; left: 38%; bottom: 44%; width: 24%; height: 44%; border-radius: 50% 50% 42% 42% / 76% 76% 24% 24%; background: linear-gradient(color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent)); filter: blur(1px); transform-origin: 50% 100%; animation: darma-loader-darma-b16-bunsen-burner-bunsen-lick calc(var(--loader-speed, 1s) * .7) ease-in-out infinite alternate; }\n.darma-loader-darma-b16-bunsen-burner .darma-loader-darma-b16-bunsen-burner__inner { position: absolute; left: 44%; bottom: 46%; width: 12%; height: 22%; border-radius: 50% 50% 40% 40% / 76% 76% 24% 24%; background: color-mix(in srgb, #fff 55%, var(--accent-2)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-bunsen-burner-bunsen-core calc(var(--loader-speed, 1s) * .7) ease-in-out infinite alternate; }\n@keyframes darma-loader-darma-b16-bunsen-burner-bunsen-lick { from { transform: scaleY(.86) scaleX(1.06) skewX(-3deg); opacity: .85; } to { transform: scaleY(1.12) scaleX(.94) skewX(3deg); opacity: 1; } }\n@keyframes darma-loader-darma-b16-bunsen-burner-bunsen-core { from { transform: scaleY(.8); } to { transform: scaleY(1.15); } }",
+    "react": "export default function DarmaB16BunsenBurnerLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-bunsen-burner\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-bunsen-burner__flame\"></div><div className=\"darma-loader-darma-b16-bunsen-burner__inner\"></div><div className=\"darma-loader-darma-b16-bunsen-burner__barrel\"></div><div className=\"darma-loader-darma-b16-bunsen-burner__foot\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

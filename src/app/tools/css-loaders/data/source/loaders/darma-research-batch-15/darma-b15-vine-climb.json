@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-vine-climb",
+  "name": "Vine Climb",
+  "category": "creative",
+  "tags": [
+    "vine",
+    "climb",
+    "leaf",
+    "growth",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"trellis\"></div><div class=\"stem\"></div><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .72); height: var(--loader-size); position: relative; }\n.loader .trellis { position: absolute; left: 30%; bottom: 4%; width: 40%; height: 92%; border-radius: 4px; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 20%, transparent) 0 6%, transparent 0 18%), color-mix(in srgb, var(--accent) 10%, transparent); }\n.loader .stem { position: absolute; left: 45%; bottom: 4%; width: 10%; height: 0; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); animation: vine-rise calc(var(--loader-speed) * 3.2) ease-in-out infinite; }\n.loader span { position: absolute; width: 30%; height: 12%; background: var(--accent-2); transform: scale(0); animation: vine-leaf calc(var(--loader-speed) * 3.2) ease-out infinite; }\n.loader span:nth-of-type(1) { left: 55%; bottom: 20%; border-radius: 60% 6% 60% 6%; transform-origin: 0 50%; animation-delay: calc(var(--loader-speed) * .5); }\n.loader span:nth-of-type(2) { right: 55%; bottom: 38%; border-radius: 6% 60% 6% 60%; transform-origin: 100% 50%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-of-type(3) { left: 55%; bottom: 56%; border-radius: 60% 6% 60% 6%; transform-origin: 0 50%; animation-delay: calc(var(--loader-speed) * 1.1); }\n.loader span:nth-of-type(4) { right: 55%; bottom: 74%; border-radius: 6% 60% 6% 60%; transform-origin: 100% 50%; animation-delay: calc(var(--loader-speed) * 1.4); }\n@keyframes vine-rise { 0%, 4% { height: 0; } 52%, 78% { height: 88%; } 96%, 100% { height: 0; } }\n@keyframes vine-leaf { 0%, 12% { transform: scale(0); opacity: 0; } 32%, 62% { transform: scale(1); opacity: 1; } 82%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#15803d",
+    "secondaryColor": "#a3e635",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

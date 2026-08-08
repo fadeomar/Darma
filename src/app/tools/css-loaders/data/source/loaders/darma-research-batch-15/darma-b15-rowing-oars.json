@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-rowing-oars",
+  "name": "Rowing Oars",
+  "category": "fun",
+  "tags": [
+    "rowing",
+    "oars",
+    "boat",
+    "sport",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"oar\"></div><div class=\"oar\"></div><div class=\"hull\"></div><div class=\"wave\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .62); position: relative; }\n.loader .hull { position: absolute; left: 16%; top: 42%; width: 68%; height: 18%; border-radius: 46% 8% 8% 46% / 60% 40% 40% 60%; background: linear-gradient(var(--accent-2), var(--accent)); animation: row-glide calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader .oar { position: absolute; left: 48%; top: 45%; width: 42%; height: 5%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #64748b); transform-origin: 3% 50%; }\n.loader .oar::after { content: ''; position: absolute; left: 82%; top: -70%; width: 22%; height: 240%; border-radius: 40%; background: var(--accent); }\n.loader .oar:nth-of-type(1) { animation: row-stroke calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader .oar:nth-of-type(2) { animation: row-stroke-mirror calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader .wave { position: absolute; left: 2%; right: 2%; bottom: 12%; height: 8%; border-radius: 4px; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 45%, transparent) 0 14%, transparent 0 28%); animation: row-water calc(var(--loader-speed) * 1.6) linear infinite; }\n@keyframes row-stroke { 0%, 100% { transform: rotate(-36deg); } 50% { transform: rotate(-4deg); } }\n@keyframes row-stroke-mirror { 0%, 100% { transform: rotate(36deg); } 50% { transform: rotate(4deg); } }\n@keyframes row-glide { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5%); } }\n@keyframes row-water { to { background-position: -28% 0; } }",
+  "defaults": {
+    "color": "#0369a1",
+    "secondaryColor": "#7dd3fc",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

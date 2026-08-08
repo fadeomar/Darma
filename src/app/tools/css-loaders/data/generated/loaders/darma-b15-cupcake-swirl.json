@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-cupcake-swirl",
+  "name": "Cupcake Swirl",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "cupcake",
+    "frosting",
+    "swirl",
+    "bakery",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-cupcake-swirl cupcake swirl fun darma-research-batch-15 darma research batch 15 cupcake frosting swirl bakery fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-cupcake-swirl\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-cupcake-swirl__cup\"></div><span></span><span></span><span></span><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-cupcake-swirl { --accent: var(--loader-color, #db2777); --accent-2: var(--loader-secondary-color, #fbcfe8); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-cupcake-swirl .darma-loader-darma-b15-cupcake-swirl__cup { position: absolute; left: 20%; bottom: 8%; width: 60%; height: 34%; border-radius: 4px 4px 14px 14px; background: repeating-linear-gradient(90deg, #b45309 0 9%, #92400e 0 18%); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); }\n.darma-loader-darma-b15-cupcake-swirl span { position: absolute; border-radius: 50% 50% 40% 40%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; transform: scale(0); animation: darma-loader-darma-b15-cupcake-swirl-cake-swirl calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.3, 1.3, .5, 1) infinite; }\n.darma-loader-darma-b15-cupcake-swirl span:nth-of-type(1) { left: 18%; bottom: 40%; width: 64%; height: 22%; }\n.darma-loader-darma-b15-cupcake-swirl span:nth-of-type(2) { left: 26%; bottom: 56%; width: 48%; height: 20%; animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b15-cupcake-swirl span:nth-of-type(3) { left: 35%; bottom: 70%; width: 30%; height: 18%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b15-cupcake-swirl i { position: absolute; left: 44%; bottom: 86%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent); transform: scale(0); animation: darma-loader-darma-b15-cupcake-swirl-cake-cherry calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.3, 1.5, .5, 1) infinite; }\n@keyframes darma-loader-darma-b15-cupcake-swirl-cake-swirl { 0%, 6% { transform: scale(0); opacity: 0; } 30%, 74% { transform: scale(1); opacity: 1; } 92%, 100% { transform: scale(0); opacity: 0; } }\n@keyframes darma-loader-darma-b15-cupcake-swirl-cake-cherry { 0%, 46% { transform: scale(0); opacity: 0; } 62%, 76% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#fbcfe8",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-cupcake-swirl\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-cupcake-swirl__cup\"></div><span></span><span></span><span></span><i></i></div>",
+    "css": ".darma-loader-darma-b15-cupcake-swirl { --accent: var(--loader-color, #db2777); --accent-2: var(--loader-secondary-color, #fbcfe8); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-cupcake-swirl .darma-loader-darma-b15-cupcake-swirl__cup { position: absolute; left: 20%; bottom: 8%; width: 60%; height: 34%; border-radius: 4px 4px 14px 14px; background: repeating-linear-gradient(90deg, #b45309 0 9%, #92400e 0 18%); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); }\n.darma-loader-darma-b15-cupcake-swirl span { position: absolute; border-radius: 50% 50% 40% 40%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; transform: scale(0); animation: darma-loader-darma-b15-cupcake-swirl-cake-swirl calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.3, 1.3, .5, 1) infinite; }\n.darma-loader-darma-b15-cupcake-swirl span:nth-of-type(1) { left: 18%; bottom: 40%; width: 64%; height: 22%; }\n.darma-loader-darma-b15-cupcake-swirl span:nth-of-type(2) { left: 26%; bottom: 56%; width: 48%; height: 20%; animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b15-cupcake-swirl span:nth-of-type(3) { left: 35%; bottom: 70%; width: 30%; height: 18%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b15-cupcake-swirl i { position: absolute; left: 44%; bottom: 86%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent); transform: scale(0); animation: darma-loader-darma-b15-cupcake-swirl-cake-cherry calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.3, 1.5, .5, 1) infinite; }\n@keyframes darma-loader-darma-b15-cupcake-swirl-cake-swirl { 0%, 6% { transform: scale(0); opacity: 0; } 30%, 74% { transform: scale(1); opacity: 1; } 92%, 100% { transform: scale(0); opacity: 0; } }\n@keyframes darma-loader-darma-b15-cupcake-swirl-cake-cherry { 0%, 46% { transform: scale(0); opacity: 0; } 62%, 76% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+    "react": "export default function DarmaB15CupcakeSwirlLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-cupcake-swirl\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-cupcake-swirl__cup\"></div><span></span><span></span><span></span><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

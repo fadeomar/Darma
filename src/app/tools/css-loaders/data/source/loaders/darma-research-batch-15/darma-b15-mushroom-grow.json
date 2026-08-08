@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-mushroom-grow",
+  "name": "Mushroom Grow",
+  "category": "fun",
+  "tags": [
+    "mushroom",
+    "grow",
+    "forest",
+    "spore",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"stalk\"></div><div class=\"cap\"></div><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .stalk { position: absolute; left: 42%; bottom: 12%; width: 16%; height: 0; border-radius: 4px 4px 6px 6px; background: linear-gradient(90deg, color-mix(in srgb, #000 12%, var(--accent-2)), var(--accent-2)); animation: shroom-stalk calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader .cap { position: absolute; left: 20%; bottom: 44%; width: 60%; height: 30%; border-radius: 50% 50% 14% 14%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 26%, var(--accent)), var(--accent)); transform-origin: 50% 100%; transform: scale(0); animation: shroom-cap calc(var(--loader-speed) * 2.6) cubic-bezier(.3, 1.4, .5, 1) infinite; }\n.loader .cap::after { content: ''; position: absolute; left: 22%; top: 22%; width: 18%; height: 30%; border-radius: 50%; background: var(--accent-2); }\n.loader i { position: absolute; bottom: 74%; width: 7%; height: 7%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: shroom-spore calc(var(--loader-speed) * 2.6) ease-out infinite; }\n.loader i:nth-of-type(1) { left: 26%; }\n.loader i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed) * .3); }\n.loader i:nth-of-type(3) { left: 68%; animation-delay: calc(var(--loader-speed) * .6); }\n@keyframes shroom-stalk { 0%, 6% { height: 0; } 40%, 76% { height: 38%; } 96%, 100% { height: 0; } }\n@keyframes shroom-cap { 0%, 18% { transform: scale(0); } 48%, 76% { transform: scale(1); } 94%, 100% { transform: scale(0); } }\n@keyframes shroom-spore { 0%, 50% { opacity: 0; transform: translateY(0) scale(.4); } 62% { opacity: .9; } 100% { opacity: 0; transform: translateY(-70%) scale(1.1); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#fef3c7",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-icicle-drip",
+  "name": "Icicle Drip",
+  "category": "creative",
+  "tags": [
+    "icicle",
+    "melt",
+    "winter",
+    "drip",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"ledge\"></div><span></span><span></span><span></span><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .92); position: relative; }\n.loader .ledge { position: absolute; left: 2%; right: 2%; top: 4%; height: 11%; border-radius: 4px; background: linear-gradient(var(--accent-2), color-mix(in srgb, var(--accent) 60%, var(--accent-2))); }\n.loader span { position: absolute; top: 13%; width: 14%; background: linear-gradient(var(--accent-2), color-mix(in srgb, var(--accent) 70%, transparent)); clip-path: polygon(0 0, 100% 0, 50% 100%); animation: ice-melt calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span:nth-of-type(1) { left: 16%; }\n.loader span:nth-of-type(2) { left: 43%; animation-delay: calc(var(--loader-speed) * .5); }\n.loader span:nth-of-type(3) { left: 70%; animation-delay: calc(var(--loader-speed) * 1); }\n.loader i { position: absolute; width: 8%; height: 11%; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; background: var(--accent-2); opacity: 0; animation: ice-drop calc(var(--loader-speed) * 1.5) ease-in infinite; }\n.loader i:nth-of-type(1) { left: 19%; top: 48%; }\n.loader i:nth-of-type(2) { left: 73%; top: 44%; animation-delay: calc(var(--loader-speed) * .75); }\n@keyframes ice-melt { 0%, 100% { height: 46%; opacity: 1; } 50% { height: 24%; opacity: .7; } }\n@keyframes ice-drop { 0% { opacity: 0; transform: translateY(0) scale(.5); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(280%) scale(1); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#bae6fd",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

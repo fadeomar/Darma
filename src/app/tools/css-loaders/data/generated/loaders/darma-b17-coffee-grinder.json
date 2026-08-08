@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-coffee-grinder",
+  "name": "Coffee Grinder",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "grinder",
+    "beans",
+    "crank",
+    "brew",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-coffee-grinder coffee grinder fun darma-research-batch-17 darma research batch 17 grinder beans crank brew fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-coffee-grinder\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-coffee-grinder__crank\"></div><div class=\"darma-loader-darma-b17-coffee-grinder__hopper\"></div><i></i><i></i><i></i><div class=\"darma-loader-darma-b17-coffee-grinder__drawer\"><div class=\"darma-loader-darma-b17-coffee-grinder__grounds\"></div></div></div>",
+  "previewCss": ".darma-loader-darma-b17-coffee-grinder { --accent: var(--loader-color, #78350f); --accent-2: var(--loader-secondary-color, #d6d3d1); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__crank { position: absolute; left: 46%; top: 2%; width: 8%; height: 16%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: darma-loader-darma-b17-coffee-grinder-grind-crank calc(var(--loader-speed, 1s) * 1.1) linear infinite; }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__crank::after { content: ''; position: absolute; left: -180%; top: -30%; width: 200%; height: 40%; border-radius: 3px; background: var(--accent-2); }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__hopper { position: absolute; left: 16%; right: 16%; top: 18%; height: 42%; border-radius: 6px 6px 30% 30%; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); }\n.darma-loader-darma-b17-coffee-grinder i { position: absolute; width: 10%; height: 8%; border-radius: 50%; background: color-mix(in srgb, #000 20%, var(--accent)); animation: darma-loader-darma-b17-coffee-grinder-grind-bean calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-b17-coffee-grinder i:nth-of-type(1) { left: 28%; top: 26%; }\n.darma-loader-darma-b17-coffee-grinder i:nth-of-type(2) { left: 46%; top: 32%; animation-delay: calc(var(--loader-speed, 1s) * -.37); }\n.darma-loader-darma-b17-coffee-grinder i:nth-of-type(3) { left: 62%; top: 24%; animation-delay: calc(var(--loader-speed, 1s) * -.74); }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__drawer { position: absolute; left: 12%; right: 12%; bottom: 4%; height: 30%; border-radius: 4px; overflow: hidden; background: linear-gradient(color-mix(in srgb, #fff 10%, var(--accent)), color-mix(in srgb, #000 25%, var(--accent))); }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__grounds { position: absolute; left: 8%; right: 8%; bottom: 8%; height: 4%; border-radius: 3px 3px 2px 2px; background: color-mix(in srgb, #000 35%, var(--accent)); animation: darma-loader-darma-b17-coffee-grinder-grind-fill calc(var(--loader-speed, 1s) * 4.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-coffee-grinder-grind-crank { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-coffee-grinder-grind-bean { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(6%, 26%) rotate(140deg); } }\n@keyframes darma-loader-darma-b17-coffee-grinder-grind-fill { 0%, 6% { height: 4%; } 72%, 88% { height: 72%; } 98%, 100% { height: 4%; } }",
+  "defaults": {
+    "color": "#78350f",
+    "secondaryColor": "#d6d3d1",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-coffee-grinder\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-coffee-grinder__crank\"></div><div class=\"darma-loader-darma-b17-coffee-grinder__hopper\"></div><i></i><i></i><i></i><div class=\"darma-loader-darma-b17-coffee-grinder__drawer\"><div class=\"darma-loader-darma-b17-coffee-grinder__grounds\"></div></div></div>",
+    "css": ".darma-loader-darma-b17-coffee-grinder { --accent: var(--loader-color, #78350f); --accent-2: var(--loader-secondary-color, #d6d3d1); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__crank { position: absolute; left: 46%; top: 2%; width: 8%; height: 16%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: darma-loader-darma-b17-coffee-grinder-grind-crank calc(var(--loader-speed, 1s) * 1.1) linear infinite; }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__crank::after { content: ''; position: absolute; left: -180%; top: -30%; width: 200%; height: 40%; border-radius: 3px; background: var(--accent-2); }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__hopper { position: absolute; left: 16%; right: 16%; top: 18%; height: 42%; border-radius: 6px 6px 30% 30%; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); }\n.darma-loader-darma-b17-coffee-grinder i { position: absolute; width: 10%; height: 8%; border-radius: 50%; background: color-mix(in srgb, #000 20%, var(--accent)); animation: darma-loader-darma-b17-coffee-grinder-grind-bean calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-b17-coffee-grinder i:nth-of-type(1) { left: 28%; top: 26%; }\n.darma-loader-darma-b17-coffee-grinder i:nth-of-type(2) { left: 46%; top: 32%; animation-delay: calc(var(--loader-speed, 1s) * -.37); }\n.darma-loader-darma-b17-coffee-grinder i:nth-of-type(3) { left: 62%; top: 24%; animation-delay: calc(var(--loader-speed, 1s) * -.74); }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__drawer { position: absolute; left: 12%; right: 12%; bottom: 4%; height: 30%; border-radius: 4px; overflow: hidden; background: linear-gradient(color-mix(in srgb, #fff 10%, var(--accent)), color-mix(in srgb, #000 25%, var(--accent))); }\n.darma-loader-darma-b17-coffee-grinder .darma-loader-darma-b17-coffee-grinder__grounds { position: absolute; left: 8%; right: 8%; bottom: 8%; height: 4%; border-radius: 3px 3px 2px 2px; background: color-mix(in srgb, #000 35%, var(--accent)); animation: darma-loader-darma-b17-coffee-grinder-grind-fill calc(var(--loader-speed, 1s) * 4.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-coffee-grinder-grind-crank { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-coffee-grinder-grind-bean { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(6%, 26%) rotate(140deg); } }\n@keyframes darma-loader-darma-b17-coffee-grinder-grind-fill { 0%, 6% { height: 4%; } 72%, 88% { height: 72%; } 98%, 100% { height: 4%; } }",
+    "react": "export default function DarmaB17CoffeeGrinderLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-coffee-grinder\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-coffee-grinder__crank\"></div><div className=\"darma-loader-darma-b17-coffee-grinder__hopper\"></div><i></i><i></i><i></i><div className=\"darma-loader-darma-b17-coffee-grinder__drawer\"><div className=\"darma-loader-darma-b17-coffee-grinder__grounds\"></div></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

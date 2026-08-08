@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-letterpress",
+  "name": "Letterpress",
+  "category": "creative",
+  "tags": [
+    "letterpress",
+    "print",
+    "type",
+    "platen",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"paper\"></div><span></span><span></span><span></span><div class=\"platen\"></div><div class=\"lever\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .78); position: relative; }\n.loader .paper { position: absolute; left: 14%; right: 14%; bottom: 6%; height: 44%; border-radius: 3px; background: var(--accent-2); box-shadow: 0 2px 6px color-mix(in srgb, #000 25%, transparent); }\n.loader span { position: absolute; bottom: 22%; width: 16%; height: 14%; border-radius: 2px; background: var(--accent); transform: scale(0); animation: press-ink calc(var(--loader-speed) * 2) ease-out infinite; }\n.loader span:nth-of-type(1) { left: 22%; }\n.loader span:nth-of-type(2) { left: 42%; animation-delay: calc(var(--loader-speed) * .06); }\n.loader span:nth-of-type(3) { left: 62%; animation-delay: calc(var(--loader-speed) * .12); }\n.loader .platen { position: absolute; left: 10%; right: 10%; top: 6%; height: 34%; border-radius: 5px; background: linear-gradient(color-mix(in srgb, #fff 16%, var(--accent)), var(--accent)); box-shadow: 0 6px 12px color-mix(in srgb, #000 30%, transparent); animation: press-stamp calc(var(--loader-speed) * 2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader .lever { position: absolute; right: 6%; top: 10%; width: 7%; height: 30%; border-radius: 4px; background: linear-gradient(#94a3b8, #475569); transform-origin: 50% 0; animation: press-lever calc(var(--loader-speed) * 2) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes press-stamp { 0%, 24% { transform: translateY(0); } 44%, 54% { transform: translateY(56%); } 78%, 100% { transform: translateY(0); } }\n@keyframes press-lever { 0%, 24% { transform: rotate(0deg); } 44%, 54% { transform: rotate(-32deg); } 78%, 100% { transform: rotate(0deg); } }\n@keyframes press-ink { 0%, 46% { transform: scale(0); opacity: 0; } 56%, 84% { transform: scale(1); opacity: 1; } 96%, 100% { transform: scale(1); opacity: 0; } }",
+  "defaults": {
+    "color": "#1e293b",
+    "secondaryColor": "#f8fafc",
+    "size": 122,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

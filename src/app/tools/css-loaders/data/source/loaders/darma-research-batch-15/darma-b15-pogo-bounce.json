@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-pogo-bounce",
+  "name": "Pogo Stick Bounce",
+  "category": "fun",
+  "tags": [
+    "pogo",
+    "bounce",
+    "spring",
+    "toy",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"rig\"><span class=\"bar\"></span><span class=\"pole\"></span><span class=\"foot\"></span></div><div class=\"ground\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .rig { position: absolute; left: 38%; bottom: 14%; width: 24%; height: 64%; animation: pogo-hop calc(var(--loader-speed) * 1.1) cubic-bezier(.3, 0, .35, 1) infinite; }\n.loader .pole { position: absolute; left: 38%; top: 4%; width: 24%; height: 76%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader .bar { position: absolute; left: 0; top: 0; width: 100%; height: 10%; border-radius: 5px; background: var(--accent); }\n.loader .foot { position: absolute; left: 20%; bottom: 0; width: 60%; height: 22%; border-radius: 3px; background: linear-gradient(#94a3b8, #475569); transform-origin: 50% 100%; animation: pogo-spring calc(var(--loader-speed) * 1.1) ease-in-out infinite; }\n.loader .ground { position: absolute; left: 16%; right: 16%; bottom: 9%; height: 4%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n@keyframes pogo-hop { 0%, 100% { transform: translateY(0); } 12% { transform: translateY(5%); } 50% { transform: translateY(-26%); } }\n@keyframes pogo-spring { 0%, 100% { transform: scaleY(1); } 12% { transform: scaleY(.52); } 50% { transform: scaleY(1.18); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#fca5a5",
+    "size": 110,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

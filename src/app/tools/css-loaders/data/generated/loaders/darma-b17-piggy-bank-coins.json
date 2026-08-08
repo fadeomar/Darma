@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-piggy-bank-coins",
+  "name": "Piggy Bank Coins",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "piggy",
+    "savings",
+    "coin",
+    "bank",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-piggy-bank-coins piggy bank coins fun darma-research-batch-17 darma research batch 17 piggy savings coin bank fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-piggy-bank-coins\" aria-label=\"Loading\"><i></i><i></i><i></i><div class=\"darma-loader-darma-b17-piggy-bank-coins__pig\"><span class=\"darma-loader-darma-b17-piggy-bank-coins__slot\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__ear\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__snout\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__leg\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__leg\"></span></div></div>",
+  "previewCss": ".darma-loader-darma-b17-piggy-bank-coins { --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; overflow: hidden; }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__pig { position: absolute; left: 12%; right: 12%; bottom: 8%; height: 52%; border-radius: 46% 46% 42% 42%; background: radial-gradient(circle at 34% 32%, color-mix(in srgb, #fff 32%, var(--accent)), var(--accent)); animation: darma-loader-darma-b17-piggy-bank-coins-piggy-nudge calc(var(--loader-speed, 1s) * 1.4) ease-out infinite; }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__slot { position: absolute; left: 38%; top: 12%; width: 24%; height: 7%; border-radius: 4px; background: color-mix(in srgb, #000 45%, transparent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__ear { position: absolute; left: 16%; top: -12%; width: 18%; height: 26%; border-radius: 50% 50% 10% 50%; background: var(--accent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__snout { position: absolute; right: 2%; top: 40%; width: 20%; height: 26%; border-radius: 40%; background: color-mix(in srgb, #000 8%, var(--accent)); box-shadow: inset 3px 0 0 color-mix(in srgb, #000 18%, transparent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__leg { position: absolute; bottom: -16%; width: 16%; height: 22%; border-radius: 0 0 5px 5px; background: var(--accent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__leg:nth-of-type(4) { left: 18%; }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__leg:nth-of-type(5) { right: 26%; }\n.darma-loader-darma-b17-piggy-bank-coins i { position: absolute; left: 44%; top: 0; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); opacity: 0; animation: darma-loader-darma-b17-piggy-bank-coins-piggy-coin calc(var(--loader-speed, 1s) * 1.4) cubic-bezier(.5, 0, .7, 1) infinite; }\n.darma-loader-darma-b17-piggy-bank-coins i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .47); }\n.darma-loader-darma-b17-piggy-bank-coins i:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .94); }\n@keyframes darma-loader-darma-b17-piggy-bank-coins-piggy-coin { 0% { opacity: 0; transform: translateY(-40%) rotate(0deg) scaleX(1); } 14% { opacity: 1; } 62% { opacity: 1; transform: translateY(300%) rotate(180deg) scaleX(.3); } 72%, 100% { opacity: 0; transform: translateY(320%) rotate(220deg) scaleX(.2); } }\n@keyframes darma-loader-darma-b17-piggy-bank-coins-piggy-nudge { 0%, 58% { transform: translateY(0) scaleY(1); } 66% { transform: translateY(2%) scaleY(.97); } 78%, 100% { transform: translateY(0) scaleY(1); } }",
+  "defaults": {
+    "color": "#f472b6",
+    "secondaryColor": "#fbbf24",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-piggy-bank-coins\" aria-label=\"Loading\"><i></i><i></i><i></i><div class=\"darma-loader-darma-b17-piggy-bank-coins__pig\"><span class=\"darma-loader-darma-b17-piggy-bank-coins__slot\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__ear\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__snout\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__leg\"></span><span class=\"darma-loader-darma-b17-piggy-bank-coins__leg\"></span></div></div>",
+    "css": ".darma-loader-darma-b17-piggy-bank-coins { --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; overflow: hidden; }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__pig { position: absolute; left: 12%; right: 12%; bottom: 8%; height: 52%; border-radius: 46% 46% 42% 42%; background: radial-gradient(circle at 34% 32%, color-mix(in srgb, #fff 32%, var(--accent)), var(--accent)); animation: darma-loader-darma-b17-piggy-bank-coins-piggy-nudge calc(var(--loader-speed, 1s) * 1.4) ease-out infinite; }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__slot { position: absolute; left: 38%; top: 12%; width: 24%; height: 7%; border-radius: 4px; background: color-mix(in srgb, #000 45%, transparent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__ear { position: absolute; left: 16%; top: -12%; width: 18%; height: 26%; border-radius: 50% 50% 10% 50%; background: var(--accent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__snout { position: absolute; right: 2%; top: 40%; width: 20%; height: 26%; border-radius: 40%; background: color-mix(in srgb, #000 8%, var(--accent)); box-shadow: inset 3px 0 0 color-mix(in srgb, #000 18%, transparent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__leg { position: absolute; bottom: -16%; width: 16%; height: 22%; border-radius: 0 0 5px 5px; background: var(--accent); }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__leg:nth-of-type(4) { left: 18%; }\n.darma-loader-darma-b17-piggy-bank-coins .darma-loader-darma-b17-piggy-bank-coins__leg:nth-of-type(5) { right: 26%; }\n.darma-loader-darma-b17-piggy-bank-coins i { position: absolute; left: 44%; top: 0; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); opacity: 0; animation: darma-loader-darma-b17-piggy-bank-coins-piggy-coin calc(var(--loader-speed, 1s) * 1.4) cubic-bezier(.5, 0, .7, 1) infinite; }\n.darma-loader-darma-b17-piggy-bank-coins i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .47); }\n.darma-loader-darma-b17-piggy-bank-coins i:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .94); }\n@keyframes darma-loader-darma-b17-piggy-bank-coins-piggy-coin { 0% { opacity: 0; transform: translateY(-40%) rotate(0deg) scaleX(1); } 14% { opacity: 1; } 62% { opacity: 1; transform: translateY(300%) rotate(180deg) scaleX(.3); } 72%, 100% { opacity: 0; transform: translateY(320%) rotate(220deg) scaleX(.2); } }\n@keyframes darma-loader-darma-b17-piggy-bank-coins-piggy-nudge { 0%, 58% { transform: translateY(0) scaleY(1); } 66% { transform: translateY(2%) scaleY(.97); } 78%, 100% { transform: translateY(0) scaleY(1); } }",
+    "react": "export default function DarmaB17PiggyBankCoinsLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-piggy-bank-coins\" aria-label=\"Loading\"><i></i><i></i><i></i><div className=\"darma-loader-darma-b17-piggy-bank-coins__pig\"><span className=\"darma-loader-darma-b17-piggy-bank-coins__slot\"></span><span className=\"darma-loader-darma-b17-piggy-bank-coins__ear\"></span><span className=\"darma-loader-darma-b17-piggy-bank-coins__snout\"></span><span className=\"darma-loader-darma-b17-piggy-bank-coins__leg\"></span><span className=\"darma-loader-darma-b17-piggy-bank-coins__leg\"></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

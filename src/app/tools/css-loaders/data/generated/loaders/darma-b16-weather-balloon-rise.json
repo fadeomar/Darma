@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-weather-balloon-rise",
+  "name": "Weather Balloon Rise",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "balloon",
+    "weather",
+    "sonde",
+    "ascent",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-weather-balloon-rise weather balloon rise fun darma-research-batch-16 darma research batch 16 balloon weather sonde ascent fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-weather-balloon-rise\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-weather-balloon-rise__rig\"><span class=\"darma-loader-darma-b16-weather-balloon-rise__sphere\"></span><span class=\"darma-loader-darma-b16-weather-balloon-rise__tether\"></span><span class=\"darma-loader-darma-b16-weather-balloon-rise__probe\"></span></div><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b16-weather-balloon-rise { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #f97316); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; overflow: hidden; }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__rig { position: absolute; left: 28%; width: 44%; height: 80%; bottom: -14%; animation: darma-loader-darma-b16-weather-balloon-rise-sonde-rise calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__sphere { position: absolute; left: 0; top: 0; width: 100%; height: 62%; border-radius: 50% 50% 44% 44%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 55%, var(--accent)), var(--accent)); box-shadow: inset -6px -8px 0 color-mix(in srgb, #000 10%, transparent); }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__tether { position: absolute; left: 48%; top: 60%; width: 3%; height: 22%; background: color-mix(in srgb, #0f172a 45%, transparent); }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__probe { position: absolute; left: 36%; bottom: 4%; width: 28%; height: 18%; border-radius: 3px; background: var(--accent-2); animation: darma-loader-darma-b16-weather-balloon-rise-sonde-swing calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b16-weather-balloon-rise i { position: absolute; height: 12%; border-radius: 40%; background: color-mix(in srgb, var(--accent) 30%, transparent); animation: darma-loader-darma-b16-weather-balloon-rise-sonde-cloud calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b16-weather-balloon-rise i:nth-of-type(1) { left: 2%; width: 30%; }\n.darma-loader-darma-b16-weather-balloon-rise i:nth-of-type(2) { left: 62%; width: 24%; animation-delay: calc(var(--loader-speed, 1s) * -2); }\n@keyframes darma-loader-darma-b16-weather-balloon-rise-sonde-rise { 0% { transform: translateY(8%); opacity: 0; } 14% { opacity: 1; } 84% { opacity: 1; } 100% { transform: translateY(-116%); opacity: 0; } }\n@keyframes darma-loader-darma-b16-weather-balloon-rise-sonde-swing { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }\n@keyframes darma-loader-darma-b16-weather-balloon-rise-sonde-cloud { 0% { top: 110%; opacity: 0; } 15%, 80% { opacity: 1; } 100% { top: -20%; opacity: 0; } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#f97316",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-weather-balloon-rise\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-weather-balloon-rise__rig\"><span class=\"darma-loader-darma-b16-weather-balloon-rise__sphere\"></span><span class=\"darma-loader-darma-b16-weather-balloon-rise__tether\"></span><span class=\"darma-loader-darma-b16-weather-balloon-rise__probe\"></span></div><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b16-weather-balloon-rise { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #f97316); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; overflow: hidden; }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__rig { position: absolute; left: 28%; width: 44%; height: 80%; bottom: -14%; animation: darma-loader-darma-b16-weather-balloon-rise-sonde-rise calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__sphere { position: absolute; left: 0; top: 0; width: 100%; height: 62%; border-radius: 50% 50% 44% 44%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 55%, var(--accent)), var(--accent)); box-shadow: inset -6px -8px 0 color-mix(in srgb, #000 10%, transparent); }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__tether { position: absolute; left: 48%; top: 60%; width: 3%; height: 22%; background: color-mix(in srgb, #0f172a 45%, transparent); }\n.darma-loader-darma-b16-weather-balloon-rise .darma-loader-darma-b16-weather-balloon-rise__probe { position: absolute; left: 36%; bottom: 4%; width: 28%; height: 18%; border-radius: 3px; background: var(--accent-2); animation: darma-loader-darma-b16-weather-balloon-rise-sonde-swing calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b16-weather-balloon-rise i { position: absolute; height: 12%; border-radius: 40%; background: color-mix(in srgb, var(--accent) 30%, transparent); animation: darma-loader-darma-b16-weather-balloon-rise-sonde-cloud calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b16-weather-balloon-rise i:nth-of-type(1) { left: 2%; width: 30%; }\n.darma-loader-darma-b16-weather-balloon-rise i:nth-of-type(2) { left: 62%; width: 24%; animation-delay: calc(var(--loader-speed, 1s) * -2); }\n@keyframes darma-loader-darma-b16-weather-balloon-rise-sonde-rise { 0% { transform: translateY(8%); opacity: 0; } 14% { opacity: 1; } 84% { opacity: 1; } 100% { transform: translateY(-116%); opacity: 0; } }\n@keyframes darma-loader-darma-b16-weather-balloon-rise-sonde-swing { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }\n@keyframes darma-loader-darma-b16-weather-balloon-rise-sonde-cloud { 0% { top: 110%; opacity: 0; } 15%, 80% { opacity: 1; } 100% { top: -20%; opacity: 0; } }",
+    "react": "export default function DarmaB16WeatherBalloonRiseLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-weather-balloon-rise\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-weather-balloon-rise__rig\"><span className=\"darma-loader-darma-b16-weather-balloon-rise__sphere\"></span><span className=\"darma-loader-darma-b16-weather-balloon-rise__tether\"></span><span className=\"darma-loader-darma-b16-weather-balloon-rise__probe\"></span></div><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

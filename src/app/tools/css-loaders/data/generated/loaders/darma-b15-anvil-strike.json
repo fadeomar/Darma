@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-anvil-strike",
+  "name": "Anvil Strike",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "anvil",
+    "hammer",
+    "forge",
+    "sparks",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-anvil-strike anvil strike fun darma-research-batch-15 darma research batch 15 anvil hammer forge sparks fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-anvil-strike\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-anvil-strike__anvil\"></div><div class=\"darma-loader-darma-b15-anvil-strike__hammer\"></div><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-anvil-strike { --accent: var(--loader-color, #b91c1c); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 118px); height: calc(var(--loader-size, 118px) * .8); position: relative; }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__anvil { position: absolute; bottom: 22%; left: 20%; width: 60%; height: 20%; border-radius: 5px 5px 8px 8px; background: linear-gradient(color-mix(in srgb, var(--accent) 22%, #64748b), color-mix(in srgb, var(--accent) 32%, #1e293b)); }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__anvil::after { content: ''; position: absolute; left: 26%; right: 26%; top: 100%; height: 90%; border-radius: 0 0 4px 4px; background: color-mix(in srgb, var(--accent) 26%, #334155); }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__hammer { position: absolute; bottom: 42%; left: 46%; width: 8%; height: 42%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, var(--accent-2) 34%, #a16207), color-mix(in srgb, var(--accent) 30%, #78350f)); transform-origin: 50% 100%; animation: darma-loader-darma-b15-anvil-strike-anvil-swing calc(var(--loader-speed, 1s) * 1.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__hammer::after { content: ''; position: absolute; top: -4%; left: -95%; width: 290%; height: 24%; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b15-anvil-strike i { position: absolute; bottom: 40%; left: 48%; width: 6%; height: 6%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-anvil-strike-anvil-spark calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b15-anvil-strike i:nth-of-type(1) { --dx: -180%; --dy: -110%; }\n.darma-loader-darma-b15-anvil-strike i:nth-of-type(2) { --dx: 30%; --dy: -220%; }\n.darma-loader-darma-b15-anvil-strike i:nth-of-type(3) { --dx: 190%; --dy: -120%; }\n@keyframes darma-loader-darma-b15-anvil-strike-anvil-swing { 0%, 100% { transform: rotate(-54deg); } 42% { transform: rotate(4deg); } 56% { transform: rotate(-8deg); } }\n@keyframes darma-loader-darma-b15-anvil-strike-anvil-spark { 0%, 40% { opacity: 0; transform: translate(0, 0) scale(.3); } 48% { opacity: 1; transform: translate(0, 0) scale(1); } 100% { opacity: 0; transform: translate(var(--dx, 140%), var(--dy, -140%)) scale(.25); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#fbbf24",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-anvil-strike\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-anvil-strike__anvil\"></div><div class=\"darma-loader-darma-b15-anvil-strike__hammer\"></div><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b15-anvil-strike { --accent: var(--loader-color, #b91c1c); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 118px); height: calc(var(--loader-size, 118px) * .8); position: relative; }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__anvil { position: absolute; bottom: 22%; left: 20%; width: 60%; height: 20%; border-radius: 5px 5px 8px 8px; background: linear-gradient(color-mix(in srgb, var(--accent) 22%, #64748b), color-mix(in srgb, var(--accent) 32%, #1e293b)); }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__anvil::after { content: ''; position: absolute; left: 26%; right: 26%; top: 100%; height: 90%; border-radius: 0 0 4px 4px; background: color-mix(in srgb, var(--accent) 26%, #334155); }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__hammer { position: absolute; bottom: 42%; left: 46%; width: 8%; height: 42%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, var(--accent-2) 34%, #a16207), color-mix(in srgb, var(--accent) 30%, #78350f)); transform-origin: 50% 100%; animation: darma-loader-darma-b15-anvil-strike-anvil-swing calc(var(--loader-speed, 1s) * 1.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-anvil-strike .darma-loader-darma-b15-anvil-strike__hammer::after { content: ''; position: absolute; top: -4%; left: -95%; width: 290%; height: 24%; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b15-anvil-strike i { position: absolute; bottom: 40%; left: 48%; width: 6%; height: 6%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-anvil-strike-anvil-spark calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b15-anvil-strike i:nth-of-type(1) { --dx: -180%; --dy: -110%; }\n.darma-loader-darma-b15-anvil-strike i:nth-of-type(2) { --dx: 30%; --dy: -220%; }\n.darma-loader-darma-b15-anvil-strike i:nth-of-type(3) { --dx: 190%; --dy: -120%; }\n@keyframes darma-loader-darma-b15-anvil-strike-anvil-swing { 0%, 100% { transform: rotate(-54deg); } 42% { transform: rotate(4deg); } 56% { transform: rotate(-8deg); } }\n@keyframes darma-loader-darma-b15-anvil-strike-anvil-spark { 0%, 40% { opacity: 0; transform: translate(0, 0) scale(.3); } 48% { opacity: 1; transform: translate(0, 0) scale(1); } 100% { opacity: 0; transform: translate(var(--dx, 140%), var(--dy, -140%)) scale(.25); } }",
+    "react": "export default function DarmaB15AnvilStrikeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-anvil-strike\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-anvil-strike__anvil\"></div><div className=\"darma-loader-darma-b15-anvil-strike__hammer\"></div><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

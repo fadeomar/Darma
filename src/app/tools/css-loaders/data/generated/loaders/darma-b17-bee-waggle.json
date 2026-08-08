@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-bee-waggle",
+  "name": "Bee Waggle",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "bee",
+    "waggle",
+    "dance",
+    "insect",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-bee-waggle bee waggle fun darma-research-batch-17 darma research batch 17 bee waggle dance insect fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-bee-waggle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-bee-waggle__path\"></div><div class=\"darma-loader-darma-b17-bee-waggle__bee\"><span class=\"darma-loader-darma-b17-bee-waggle__wing\"></span><span class=\"darma-loader-darma-b17-bee-waggle__wing\"></span><span class=\"darma-loader-darma-b17-bee-waggle__body\"></span></div></div>",
+  "previewCss": ".darma-loader-darma-b17-bee-waggle { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #0f172a); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__path { position: absolute; left: 22%; right: 22%; top: 10%; bottom: 10%; border-radius: 50%; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__bee { position: absolute; left: 42%; top: 42%; width: 16%; height: 16%; animation: darma-loader-darma-b17-bee-waggle-bee-loop calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__body { position: absolute; inset: 0; border-radius: 46% 46% 50% 50%; background: repeating-linear-gradient(90deg, var(--accent) 0 26%, var(--accent-2) 0 52%); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 20%, transparent); }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__wing { position: absolute; top: -34%; width: 62%; height: 62%; border-radius: 50% 50% 40% 40%; background: color-mix(in srgb, #fff 62%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-2) 30%, transparent); }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__wing:nth-of-type(1) { left: -22%; transform-origin: 100% 100%; animation: darma-loader-darma-b17-bee-waggle-bee-wing-left calc(var(--loader-speed, 1s) * .14) ease-in-out infinite; }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__wing:nth-of-type(2) { right: -22%; transform-origin: 0 100%; animation: darma-loader-darma-b17-bee-waggle-bee-wing-right calc(var(--loader-speed, 1s) * .14) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-bee-waggle-bee-loop { 0% { transform: translate(0, 0) rotate(0deg); } 12% { transform: translate(0, -180%) rotate(0deg); } 24% { transform: translate(-150%, -90%) rotate(-20deg); } 36% { transform: translate(-90%, 60%) rotate(-10deg); } 48% { transform: translate(0, 0) rotate(0deg); } 56%, 62% { transform: translate(6%, -60%) rotate(6deg); } 68% { transform: translate(-6%, -120%) rotate(-6deg); } 76% { transform: translate(150%, -90%) rotate(20deg); } 88% { transform: translate(90%, 60%) rotate(10deg); } 100% { transform: translate(0, 0) rotate(0deg); } }\n@keyframes darma-loader-darma-b17-bee-waggle-bee-wing-left { 0%, 100% { transform: rotate(-18deg) scaleY(1); } 50% { transform: rotate(16deg) scaleY(.7); } }\n@keyframes darma-loader-darma-b17-bee-waggle-bee-wing-right { 0%, 100% { transform: rotate(18deg) scaleY(1); } 50% { transform: rotate(-16deg) scaleY(.7); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#0f172a",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-bee-waggle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-bee-waggle__path\"></div><div class=\"darma-loader-darma-b17-bee-waggle__bee\"><span class=\"darma-loader-darma-b17-bee-waggle__wing\"></span><span class=\"darma-loader-darma-b17-bee-waggle__wing\"></span><span class=\"darma-loader-darma-b17-bee-waggle__body\"></span></div></div>",
+    "css": ".darma-loader-darma-b17-bee-waggle { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #0f172a); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__path { position: absolute; left: 22%; right: 22%; top: 10%; bottom: 10%; border-radius: 50%; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__bee { position: absolute; left: 42%; top: 42%; width: 16%; height: 16%; animation: darma-loader-darma-b17-bee-waggle-bee-loop calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__body { position: absolute; inset: 0; border-radius: 46% 46% 50% 50%; background: repeating-linear-gradient(90deg, var(--accent) 0 26%, var(--accent-2) 0 52%); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 20%, transparent); }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__wing { position: absolute; top: -34%; width: 62%; height: 62%; border-radius: 50% 50% 40% 40%; background: color-mix(in srgb, #fff 62%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-2) 30%, transparent); }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__wing:nth-of-type(1) { left: -22%; transform-origin: 100% 100%; animation: darma-loader-darma-b17-bee-waggle-bee-wing-left calc(var(--loader-speed, 1s) * .14) ease-in-out infinite; }\n.darma-loader-darma-b17-bee-waggle .darma-loader-darma-b17-bee-waggle__wing:nth-of-type(2) { right: -22%; transform-origin: 0 100%; animation: darma-loader-darma-b17-bee-waggle-bee-wing-right calc(var(--loader-speed, 1s) * .14) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-bee-waggle-bee-loop { 0% { transform: translate(0, 0) rotate(0deg); } 12% { transform: translate(0, -180%) rotate(0deg); } 24% { transform: translate(-150%, -90%) rotate(-20deg); } 36% { transform: translate(-90%, 60%) rotate(-10deg); } 48% { transform: translate(0, 0) rotate(0deg); } 56%, 62% { transform: translate(6%, -60%) rotate(6deg); } 68% { transform: translate(-6%, -120%) rotate(-6deg); } 76% { transform: translate(150%, -90%) rotate(20deg); } 88% { transform: translate(90%, 60%) rotate(10deg); } 100% { transform: translate(0, 0) rotate(0deg); } }\n@keyframes darma-loader-darma-b17-bee-waggle-bee-wing-left { 0%, 100% { transform: rotate(-18deg) scaleY(1); } 50% { transform: rotate(16deg) scaleY(.7); } }\n@keyframes darma-loader-darma-b17-bee-waggle-bee-wing-right { 0%, 100% { transform: rotate(18deg) scaleY(1); } 50% { transform: rotate(-16deg) scaleY(.7); } }",
+    "react": "export default function DarmaB17BeeWaggleLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-bee-waggle\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-bee-waggle__path\"></div><div className=\"darma-loader-darma-b17-bee-waggle__bee\"><span className=\"darma-loader-darma-b17-bee-waggle__wing\"></span><span className=\"darma-loader-darma-b17-bee-waggle__wing\"></span><span className=\"darma-loader-darma-b17-bee-waggle__body\"></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

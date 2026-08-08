@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-knitting-needles",
+  "name": "Knitting Needles",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "knitting",
+    "needles",
+    "yarn",
+    "craft",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-knitting-needles knitting needles fun darma-research-batch-15 darma research batch 15 knitting needles yarn craft fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-knitting-needles\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-knitting-needles__pin\"></div><div class=\"darma-loader-darma-b15-knitting-needles__pin\"></div><div class=\"darma-loader-darma-b15-knitting-needles__ball\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-knitting-needles { --accent: var(--loader-color, #be185d); --accent-2: var(--loader-secondary-color, #f9a8d4); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin { position: absolute; top: 8%; left: 47%; width: 6%; height: 56%; border-radius: 3px; background: linear-gradient(#f1f5f9, #94a3b8); transform-origin: 50% 92%; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin::after { content: ''; position: absolute; left: -20%; top: -6%; width: 140%; height: 9%; border-radius: 50%; background: var(--accent); }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin:nth-of-type(1) { animation: darma-loader-darma-b15-knitting-needles-knit-left calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin:nth-of-type(2) { animation: darma-loader-darma-b15-knitting-needles-knit-right calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__ball { position: absolute; bottom: 3%; left: 31%; width: 38%; height: 38%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--accent) 0 12%, var(--accent-2) 0 24%); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); animation: darma-loader-darma-b15-knitting-needles-knit-roll calc(var(--loader-speed, 1s) * 3) linear infinite; }\n@keyframes darma-loader-darma-b15-knitting-needles-knit-left { 0%, 100% { transform: rotate(-28deg); } 50% { transform: rotate(-7deg); } }\n@keyframes darma-loader-darma-b15-knitting-needles-knit-right { 0%, 100% { transform: rotate(28deg); } 50% { transform: rotate(7deg); } }\n@keyframes darma-loader-darma-b15-knitting-needles-knit-roll { to { transform: rotate(-1turn); } }",
+  "defaults": {
+    "color": "#be185d",
+    "secondaryColor": "#f9a8d4",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-knitting-needles\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-knitting-needles__pin\"></div><div class=\"darma-loader-darma-b15-knitting-needles__pin\"></div><div class=\"darma-loader-darma-b15-knitting-needles__ball\"></div></div>",
+    "css": ".darma-loader-darma-b15-knitting-needles { --accent: var(--loader-color, #be185d); --accent-2: var(--loader-secondary-color, #f9a8d4); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin { position: absolute; top: 8%; left: 47%; width: 6%; height: 56%; border-radius: 3px; background: linear-gradient(#f1f5f9, #94a3b8); transform-origin: 50% 92%; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin::after { content: ''; position: absolute; left: -20%; top: -6%; width: 140%; height: 9%; border-radius: 50%; background: var(--accent); }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin:nth-of-type(1) { animation: darma-loader-darma-b15-knitting-needles-knit-left calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__pin:nth-of-type(2) { animation: darma-loader-darma-b15-knitting-needles-knit-right calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b15-knitting-needles .darma-loader-darma-b15-knitting-needles__ball { position: absolute; bottom: 3%; left: 31%; width: 38%; height: 38%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--accent) 0 12%, var(--accent-2) 0 24%); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); animation: darma-loader-darma-b15-knitting-needles-knit-roll calc(var(--loader-speed, 1s) * 3) linear infinite; }\n@keyframes darma-loader-darma-b15-knitting-needles-knit-left { 0%, 100% { transform: rotate(-28deg); } 50% { transform: rotate(-7deg); } }\n@keyframes darma-loader-darma-b15-knitting-needles-knit-right { 0%, 100% { transform: rotate(28deg); } 50% { transform: rotate(7deg); } }\n@keyframes darma-loader-darma-b15-knitting-needles-knit-roll { to { transform: rotate(-1turn); } }",
+    "react": "export default function DarmaB15KnittingNeedlesLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-knitting-needles\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-knitting-needles__pin\"></div><div className=\"darma-loader-darma-b15-knitting-needles__pin\"></div><div className=\"darma-loader-darma-b15-knitting-needles__ball\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-fiber-optic-strands",
+  "name": "Fiber Optic Strands",
+  "category": "creative",
+  "tags": [
+    "fiber",
+    "optic",
+    "strand",
+    "light",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"hub\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .68); position: relative; overflow: hidden; border-radius: 8px; }\n.loader .hub { position: absolute; left: 0; top: 32%; width: 10%; height: 36%; border-radius: 3px; background: linear-gradient(#475569, #0f172a); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent); }\n.loader span { position: absolute; left: 8%; width: 92%; height: 5%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 45%, transparent), color-mix(in srgb, var(--accent) 12%, transparent)); overflow: hidden; }\n.loader span::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 26%; border-radius: 999px; background: linear-gradient(90deg, transparent, var(--accent-2), color-mix(in srgb, #fff 70%, var(--accent-2)), transparent); animation: fiber-pulse calc(var(--loader-speed) * 2.2) cubic-bezier(.5, 0, .5, 1) infinite; }\n.loader span:nth-of-type(1) { top: 10%; transform: rotate(-9deg); transform-origin: 0 50%; }\n.loader span:nth-of-type(2) { top: 30%; transform: rotate(-4deg); transform-origin: 0 50%; }\n.loader span:nth-of-type(3) { top: 48%; }\n.loader span:nth-of-type(4) { top: 64%; transform: rotate(4deg); transform-origin: 0 50%; }\n.loader span:nth-of-type(5) { top: 82%; transform: rotate(9deg); transform-origin: 0 50%; }\n.loader span:nth-of-type(2)::after { animation-delay: calc(var(--loader-speed) * .22); }\n.loader span:nth-of-type(3)::after { animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-of-type(4)::after { animation-delay: calc(var(--loader-speed) * .66); }\n.loader span:nth-of-type(5)::after { animation-delay: calc(var(--loader-speed) * .88); }\n@keyframes fiber-pulse { 0% { transform: translateX(-110%); opacity: 0; } 12% { opacity: 1; } 82% { opacity: 1; } 100% { transform: translateX(400%); opacity: 0; } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f0abfc",
+    "size": 126,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

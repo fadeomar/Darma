@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-titration-burette",
+  "name": "Titration Burette",
+  "category": "progress",
+  "tags": [
+    "titration",
+    "burette",
+    "chemistry",
+    "flask",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"tube\"><div class=\"level\"></div></div><div class=\"tap\"></div><i></i><div class=\"flask\"><div class=\"liquid\"></div></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .78); height: var(--loader-size); position: relative; }\n.loader .tube { position: absolute; left: 38%; top: 0; width: 24%; height: 44%; border-radius: 3px; overflow: hidden; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); }\n.loader .level { position: absolute; left: 0; right: 0; top: 0; height: 92%; background: linear-gradient(color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); animation: titr-drain calc(var(--loader-speed) * 3.4) linear infinite; }\n.loader .tap { position: absolute; left: 34%; top: 44%; width: 32%; height: 7%; border-radius: 2px; background: #64748b; }\n.loader i { position: absolute; left: 46%; top: 52%; width: 8%; height: 9%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); opacity: 0; animation: titr-drip calc(var(--loader-speed) * .85) ease-in infinite; }\n.loader .flask { position: absolute; left: 20%; right: 20%; bottom: 2%; height: 34%; overflow: hidden; background: color-mix(in srgb, var(--accent-2) 20%, transparent); clip-path: polygon(36% 0, 64% 0, 100% 100%, 0 100%); }\n.loader .liquid { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; background: var(--accent-2); animation: titr-turn calc(var(--loader-speed) * 3.4) ease-in-out infinite; }\n@keyframes titr-drain { 0%, 4% { height: 92%; } 80% { height: 6%; } 94%, 100% { height: 92%; } }\n@keyframes titr-drip { 0% { opacity: 0; transform: translateY(0) scale(.5); } 15% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(340%) scale(.7); } }\n@keyframes titr-turn { 0%, 60% { background: var(--accent-2); } 82%, 100% { background: var(--accent); } }",
+  "defaults": {
+    "color": "#be185d",
+    "secondaryColor": "#fbcfe8",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-bell-jar-vacuum",
+  "name": "Bell Jar Vacuum",
+  "category": "creative",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "vacuum",
+    "bell jar",
+    "pump",
+    "lab",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-bell-jar-vacuum bell jar vacuum creative darma-research-batch-16 darma research batch 16 vacuum bell jar pump lab creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-bell-jar-vacuum\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-bell-jar-vacuum__jar\"></div><div class=\"darma-loader-darma-b16-bell-jar-vacuum__specimen\"></div><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b16-bell-jar-vacuum__plate\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-bell-jar-vacuum { --accent: var(--loader-color, #64748b); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__jar { position: absolute; left: 14%; right: 14%; top: 6%; bottom: 16%; border-radius: 44% 44% 6px 6px / 40% 40% 6px 6px; background: color-mix(in srgb, var(--accent-2) 12%, transparent); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 45%, transparent); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-sheen calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__specimen { position: absolute; left: 40%; bottom: 22%; width: 20%; height: 22%; border-radius: 44% 44% 30% 30%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-expand calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-evacuate calc(var(--loader-speed, 1s) * 3) ease-in infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(1) { left: 26%; top: 26%; --dx: 190%; --dy: 420%; }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(2) { left: 62%; top: 22%; --dx: -110%; --dy: 480%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(3) { left: 30%; top: 48%; --dx: 160%; --dy: 210%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(4) { left: 66%; top: 50%; --dx: -170%; --dy: 200%; animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__plate { position: absolute; left: 6%; right: 6%; bottom: 6%; height: 12%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-evacuate { 0%, 10% { opacity: .9; transform: translate(0, 0) scale(1); } 62%, 100% { opacity: 0; transform: translate(var(--dx, 0%), var(--dy, 0%)) scale(.35); } }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-expand { 0%, 14% { transform: scale(1); } 62%, 80% { transform: scale(1.22); } 96%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-sheen { 0%, 100% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 35%, transparent); } 60% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 85%, transparent); } }",
+  "defaults": {
+    "color": "#64748b",
+    "secondaryColor": "#38bdf8",
+    "size": 114,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-bell-jar-vacuum\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-bell-jar-vacuum__jar\"></div><div class=\"darma-loader-darma-b16-bell-jar-vacuum__specimen\"></div><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b16-bell-jar-vacuum__plate\"></div></div>",
+    "css": ".darma-loader-darma-b16-bell-jar-vacuum { --accent: var(--loader-color, #64748b); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__jar { position: absolute; left: 14%; right: 14%; top: 6%; bottom: 16%; border-radius: 44% 44% 6px 6px / 40% 40% 6px 6px; background: color-mix(in srgb, var(--accent-2) 12%, transparent); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 45%, transparent); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-sheen calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__specimen { position: absolute; left: 40%; bottom: 22%; width: 20%; height: 22%; border-radius: 44% 44% 30% 30%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-expand calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-evacuate calc(var(--loader-speed, 1s) * 3) ease-in infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(1) { left: 26%; top: 26%; --dx: 190%; --dy: 420%; }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(2) { left: 62%; top: 22%; --dx: -110%; --dy: 480%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(3) { left: 30%; top: 48%; --dx: 160%; --dy: 210%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(4) { left: 66%; top: 50%; --dx: -170%; --dy: 200%; animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__plate { position: absolute; left: 6%; right: 6%; bottom: 6%; height: 12%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-evacuate { 0%, 10% { opacity: .9; transform: translate(0, 0) scale(1); } 62%, 100% { opacity: 0; transform: translate(var(--dx, 0%), var(--dy, 0%)) scale(.35); } }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-expand { 0%, 14% { transform: scale(1); } 62%, 80% { transform: scale(1.22); } 96%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-sheen { 0%, 100% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 35%, transparent); } 60% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 85%, transparent); } }",
+    "react": "export default function DarmaB16BellJarVacuumLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-bell-jar-vacuum\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-bell-jar-vacuum__jar\"></div><div className=\"darma-loader-darma-b16-bell-jar-vacuum__specimen\"></div><i></i><i></i><i></i><i></i><div className=\"darma-loader-darma-b16-bell-jar-vacuum__plate\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

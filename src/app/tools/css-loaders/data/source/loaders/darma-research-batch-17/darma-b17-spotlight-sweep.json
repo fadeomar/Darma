@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-spotlight-sweep",
+  "name": "Spotlight Sweep",
+  "category": "spinners",
+  "tags": [
+    "spotlight",
+    "stage",
+    "beam",
+    "search",
+    "spinners"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"cone\"></div><div class=\"cone\"></div><div class=\"lamp\"></div><div class=\"floor\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 8px; }\n.loader .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 16%; background: linear-gradient(color-mix(in srgb, var(--accent-2) 40%, transparent), color-mix(in srgb, var(--accent-2) 10%, transparent)); }\n.loader .cone { position: absolute; left: 50%; top: 12%; width: 44%; height: 82%; margin-left: -22%; transform-origin: 50% 0; clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }\n.loader .cone:nth-of-type(1) { background: linear-gradient(color-mix(in srgb, var(--accent) 72%, transparent), transparent 82%); animation: spot-swing-a calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .cone:nth-of-type(2) { background: linear-gradient(color-mix(in srgb, var(--accent-2) 62%, transparent), transparent 82%); animation: spot-swing-b calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .lamp { position: absolute; left: 42%; top: 4%; width: 16%; height: 12%; border-radius: 4px 4px 40% 40%; background: linear-gradient(#64748b, #1e293b); box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 60%, transparent); }\n@keyframes spot-swing-a { 0%, 100% { transform: rotate(-32deg); } 50% { transform: rotate(28deg); } }\n@keyframes spot-swing-b { 0%, 100% { transform: rotate(30deg); } 50% { transform: rotate(-26deg); } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#a855f7",
+    "size": 124,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

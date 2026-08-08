@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-marble-maze",
+  "name": "Marble Maze",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "marble",
+    "labyrinth",
+    "tilt",
+    "puzzle",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-marble-maze marble maze fun darma-research-batch-17 darma research batch 17 marble labyrinth tilt puzzle fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-marble-maze\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-marble-maze__board\"><span></span><span></span><span></span><i></i></div></div>",
+  "previewCss": ".darma-loader-darma-b17-marble-maze { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-marble-maze .darma-loader-darma-b17-marble-maze__board { position: absolute; inset: 0; border-radius: 10px; background: color-mix(in srgb, var(--accent) 15%, transparent); box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b17-marble-maze-maze-tilt calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b17-marble-maze span { position: absolute; height: 6%; border-radius: 3px; background: var(--accent); }\n.darma-loader-darma-b17-marble-maze span:nth-of-type(1) { left: 10%; top: 26%; width: 62%; }\n.darma-loader-darma-b17-marble-maze span:nth-of-type(2) { right: 10%; top: 52%; width: 62%; }\n.darma-loader-darma-b17-marble-maze span:nth-of-type(3) { left: 10%; top: 76%; width: 62%; }\n.darma-loader-darma-b17-marble-maze i { position: absolute; width: 14%; height: 14%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 55%, var(--accent-2)), var(--accent-2)); box-shadow: 0 2px 5px color-mix(in srgb, #000 35%, transparent); animation: darma-loader-darma-b17-marble-maze-maze-roll calc(var(--loader-speed, 1s) * 4) cubic-bezier(.45, 0, .55, 1) infinite; }\n@keyframes darma-loader-darma-b17-marble-maze-maze-tilt { 0%, 100% { transform: rotate(-3deg); } 25% { transform: rotate(2deg); } 50% { transform: rotate(3deg); } 75% { transform: rotate(-2deg); } }\n@keyframes darma-loader-darma-b17-marble-maze-maze-roll { 0% { left: 8%; top: 8%; } 22% { left: 76%; top: 8%; } 46% { left: 76%; top: 34%; } 50% { left: 8%; top: 34%; } 72% { left: 8%; top: 60%; } 76% { left: 76%; top: 60%; } 96%, 100% { left: 76%; top: 84%; } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#facc15",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-marble-maze\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-marble-maze__board\"><span></span><span></span><span></span><i></i></div></div>",
+    "css": ".darma-loader-darma-b17-marble-maze { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-marble-maze .darma-loader-darma-b17-marble-maze__board { position: absolute; inset: 0; border-radius: 10px; background: color-mix(in srgb, var(--accent) 15%, transparent); box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b17-marble-maze-maze-tilt calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b17-marble-maze span { position: absolute; height: 6%; border-radius: 3px; background: var(--accent); }\n.darma-loader-darma-b17-marble-maze span:nth-of-type(1) { left: 10%; top: 26%; width: 62%; }\n.darma-loader-darma-b17-marble-maze span:nth-of-type(2) { right: 10%; top: 52%; width: 62%; }\n.darma-loader-darma-b17-marble-maze span:nth-of-type(3) { left: 10%; top: 76%; width: 62%; }\n.darma-loader-darma-b17-marble-maze i { position: absolute; width: 14%; height: 14%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 55%, var(--accent-2)), var(--accent-2)); box-shadow: 0 2px 5px color-mix(in srgb, #000 35%, transparent); animation: darma-loader-darma-b17-marble-maze-maze-roll calc(var(--loader-speed, 1s) * 4) cubic-bezier(.45, 0, .55, 1) infinite; }\n@keyframes darma-loader-darma-b17-marble-maze-maze-tilt { 0%, 100% { transform: rotate(-3deg); } 25% { transform: rotate(2deg); } 50% { transform: rotate(3deg); } 75% { transform: rotate(-2deg); } }\n@keyframes darma-loader-darma-b17-marble-maze-maze-roll { 0% { left: 8%; top: 8%; } 22% { left: 76%; top: 8%; } 46% { left: 76%; top: 34%; } 50% { left: 8%; top: 34%; } 72% { left: 8%; top: 60%; } 76% { left: 76%; top: 60%; } 96%, 100% { left: 76%; top: 84%; } }",
+    "react": "export default function DarmaB17MarbleMazeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-marble-maze\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-marble-maze__board\"><span></span><span></span><span></span><i></i></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

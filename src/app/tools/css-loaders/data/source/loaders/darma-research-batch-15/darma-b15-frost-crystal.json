@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-frost-crystal",
+  "name": "Frost Crystal",
+  "category": "creative",
+  "tags": [
+    "frost",
+    "snowflake",
+    "crystal",
+    "winter",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"core\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; left: 48.5%; top: 8%; width: 3%; height: 42%; border-radius: 2px; transform-origin: 50% 100%; background: linear-gradient(var(--accent-2), var(--accent)); animation: frost-arm calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span::before { content: ''; position: absolute; left: -240%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(38deg); transform-origin: 100% 50%; }\n.loader span::after { content: ''; position: absolute; left: 80%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(-38deg); transform-origin: 0 50%; }\n.loader span:nth-of-type(1) { --rot: 0deg; }\n.loader span:nth-of-type(2) { --rot: 60deg; animation-delay: calc(var(--loader-speed) * .12); }\n.loader span:nth-of-type(3) { --rot: 120deg; animation-delay: calc(var(--loader-speed) * .24); }\n.loader span:nth-of-type(4) { --rot: 180deg; animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-of-type(5) { --rot: 240deg; animation-delay: calc(var(--loader-speed) * .48); }\n.loader span:nth-of-type(6) { --rot: 300deg; animation-delay: calc(var(--loader-speed) * .6); }\n.loader .core { position: absolute; left: 44%; top: 44%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent-2); animation: frost-core calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n@keyframes frost-arm { 0%, 6% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } 34%, 66% { transform: rotate(var(--rot, 0deg)) scaleY(1); opacity: 1; } 94%, 100% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } }\n@keyframes frost-core { 0%, 100% { transform: scale(.5); opacity: .4; } 40%, 66% { transform: scale(1); opacity: 1; } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#e0f2fe",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-avalanche-slide",
+  "name": "Avalanche Slide",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "avalanche",
+    "snow",
+    "slide",
+    "mountain",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-avalanche-slide avalanche slide fun darma-research-batch-15 darma research batch 15 avalanche snow slide mountain fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-avalanche-slide\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-avalanche-slide__slope\"></div><i></i><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-avalanche-slide { --accent: var(--loader-color, #64748b); --accent-2: var(--loader-secondary-color, #f1f5f9); width: var(--loader-size, 126px); height: calc(var(--loader-size, 126px) * .66); position: relative; overflow: hidden; border-radius: 6px; }\n.darma-loader-darma-b15-avalanche-slide .darma-loader-darma-b15-avalanche-slide__slope { position: absolute; left: -8%; right: -8%; bottom: 14%; height: 7%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 45%, transparent); transform: rotate(-15deg); }\n.darma-loader-darma-b15-avalanche-slide i { position: absolute; left: 4%; top: 6%; width: 15%; height: 15%; border-radius: 32%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-avalanche-slide-aval-slide calc(var(--loader-speed, 1s) * 1.9) cubic-bezier(.42, 0, .62, 1) infinite; }\n.darma-loader-darma-b15-avalanche-slide i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); width: 11%; height: 11%; }\n.darma-loader-darma-b15-avalanche-slide i:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); width: 18%; height: 18%; }\n.darma-loader-darma-b15-avalanche-slide i:nth-of-type(4) { animation-delay: calc(var(--loader-speed, 1s) * .84); width: 9%; height: 9%; }\n@keyframes darma-loader-darma-b15-avalanche-slide-aval-slide { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 12% { opacity: 1; } 84% { opacity: 1; } 100% { opacity: 0; transform: translate(430%, 230%) rotate(280deg); } }",
+  "defaults": {
+    "color": "#64748b",
+    "secondaryColor": "#f1f5f9",
+    "size": 126,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-avalanche-slide\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-avalanche-slide__slope\"></div><i></i><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b15-avalanche-slide { --accent: var(--loader-color, #64748b); --accent-2: var(--loader-secondary-color, #f1f5f9); width: var(--loader-size, 126px); height: calc(var(--loader-size, 126px) * .66); position: relative; overflow: hidden; border-radius: 6px; }\n.darma-loader-darma-b15-avalanche-slide .darma-loader-darma-b15-avalanche-slide__slope { position: absolute; left: -8%; right: -8%; bottom: 14%; height: 7%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 45%, transparent); transform: rotate(-15deg); }\n.darma-loader-darma-b15-avalanche-slide i { position: absolute; left: 4%; top: 6%; width: 15%; height: 15%; border-radius: 32%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-avalanche-slide-aval-slide calc(var(--loader-speed, 1s) * 1.9) cubic-bezier(.42, 0, .62, 1) infinite; }\n.darma-loader-darma-b15-avalanche-slide i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); width: 11%; height: 11%; }\n.darma-loader-darma-b15-avalanche-slide i:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); width: 18%; height: 18%; }\n.darma-loader-darma-b15-avalanche-slide i:nth-of-type(4) { animation-delay: calc(var(--loader-speed, 1s) * .84); width: 9%; height: 9%; }\n@keyframes darma-loader-darma-b15-avalanche-slide-aval-slide { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 12% { opacity: 1; } 84% { opacity: 1; } 100% { opacity: 0; transform: translate(430%, 230%) rotate(280deg); } }",
+    "react": "export default function DarmaB15AvalancheSlideLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-avalanche-slide\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-avalanche-slide__slope\"></div><i></i><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

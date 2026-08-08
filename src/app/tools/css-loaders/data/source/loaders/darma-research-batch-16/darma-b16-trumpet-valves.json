@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-trumpet-valves",
+  "name": "Trumpet Valves",
+  "category": "fun",
+  "tags": [
+    "trumpet",
+    "valves",
+    "brass",
+    "music",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"pipe\"></div><div class=\"bell\"></div><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); position: relative; }\n.loader .pipe { position: absolute; left: 6%; top: 44%; width: 68%; height: 14%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader .bell { position: absolute; right: 2%; top: 26%; width: 26%; height: 50%; border-radius: 10% 50% 50% 10% / 10% 50% 50% 10%; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #fff 35%, var(--accent-2))); }\n.loader span { position: absolute; top: 12%; width: 9%; height: 34%; border-radius: 4px 4px 2px 2px; background: linear-gradient(#e2e8f0, #94a3b8); transform-origin: 50% 100%; animation: valve-press calc(var(--loader-speed) * 1.5) ease-in-out infinite; }\n.loader span:nth-of-type(1) { left: 20%; }\n.loader span:nth-of-type(2) { left: 34%; animation-delay: calc(var(--loader-speed) * .25); }\n.loader span:nth-of-type(3) { left: 48%; animation-delay: calc(var(--loader-speed) * .5); }\n@keyframes valve-press { 0%, 100% { transform: translateY(0) scaleY(1); } 14% { transform: translateY(26%) scaleY(.72); } 34% { transform: translateY(0) scaleY(1); } }",
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fef08a",
+    "size": 126,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

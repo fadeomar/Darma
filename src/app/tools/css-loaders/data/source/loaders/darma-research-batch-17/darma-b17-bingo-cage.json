@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-bingo-cage",
+  "name": "Bingo Cage",
+  "category": "dots",
+  "tags": [
+    "bingo",
+    "cage",
+    "tumble",
+    "lottery",
+    "dots"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"cage\"><i></i><i></i><i></i><i></i><i></i></div><div class=\"stand\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .cage { position: absolute; left: 8%; right: 8%; top: 4%; height: 74%; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 4px var(--accent); background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0 14deg, color-mix(in srgb, var(--accent) 45%, transparent) 14deg 15deg); animation: bingo-tumble calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader i { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); animation: bingo-ball calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n.loader i:nth-of-type(1) { left: 16%; top: 22%; }\n.loader i:nth-of-type(2) { left: 44%; top: 12%; animation-delay: calc(var(--loader-speed) * -.24); }\n.loader i:nth-of-type(3) { left: 62%; top: 38%; animation-delay: calc(var(--loader-speed) * -.48); }\n.loader i:nth-of-type(4) { left: 26%; top: 54%; animation-delay: calc(var(--loader-speed) * -.72); }\n.loader i:nth-of-type(5) { left: 52%; top: 62%; animation-delay: calc(var(--loader-speed) * -.96); }\n.loader .stand { position: absolute; left: 32%; right: 32%; bottom: 2%; height: 20%; border-radius: 0 0 6px 6px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 32%, var(--accent))); clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%); }\n@keyframes bingo-tumble { to { transform: rotate(1turn); } }\n@keyframes bingo-ball { 0%, 100% { transform: translate(0, 0); } 30% { transform: translate(24%, 22%); } 60% { transform: translate(-18%, 12%); } }",
+  "defaults": {
+    "color": "#be123c",
+    "secondaryColor": "#fef3c7",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

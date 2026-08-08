@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-sheet-music-scroll",
+  "name": "Sheet Music Scroll",
+  "category": "creative",
+  "tags": [
+    "sheet music",
+    "staff",
+    "notes",
+    "score",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"staff\"></div><i></i><i></i><i></i><i></i><i></i><div class=\"playhead\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .48); position: relative; overflow: hidden; border-radius: 6px; }\n.loader .staff { position: absolute; left: 0; right: 0; top: 18%; height: 64%; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 50%, transparent) 0 2px, transparent 2px 25%); }\n.loader i { position: absolute; width: 11%; height: 15%; border-radius: 50%; background: var(--accent-2); transform: rotate(-18deg); animation: score-scroll calc(var(--loader-speed) * 3.2) linear infinite; }\n.loader i::after { content: ''; position: absolute; left: 84%; bottom: 30%; width: 12%; height: 200%; border-radius: 2px; background: var(--accent-2); }\n.loader i:nth-of-type(1) { top: 22%; }\n.loader i:nth-of-type(2) { top: 54%; animation-delay: calc(var(--loader-speed) * -.64); }\n.loader i:nth-of-type(3) { top: 38%; animation-delay: calc(var(--loader-speed) * -1.28); }\n.loader i:nth-of-type(4) { top: 66%; animation-delay: calc(var(--loader-speed) * -1.92); }\n.loader i:nth-of-type(5) { top: 30%; animation-delay: calc(var(--loader-speed) * -2.56); }\n.loader .playhead { position: absolute; left: 26%; top: 6%; bottom: 6%; width: 3%; border-radius: 2px; background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent); animation: score-beat calc(var(--loader-speed) * .64) ease-in-out infinite; }\n@keyframes score-scroll { from { left: 104%; } to { left: -14%; } }\n@keyframes score-beat { 0%, 100% { opacity: .55; transform: scaleY(.9); } 50% { opacity: 1; transform: scaleY(1); } }",
+  "defaults": {
+    "color": "#4338ca",
+    "secondaryColor": "#f472b6",
+    "size": 132,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-kanban-card-move",
+  "name": "Kanban Card Move",
+  "category": "creative",
+  "tags": [
+    "kanban",
+    "board",
+    "card",
+    "workflow",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"col\"></div><div class=\"col\"></div><div class=\"col\"></div><div class=\"card\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .62); position: relative; }\n.loader .col { position: absolute; top: 0; width: 30%; height: 100%; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, transparent); }\n.loader .col:nth-of-type(1) { left: 0; }\n.loader .col:nth-of-type(2) { left: 35%; }\n.loader .col:nth-of-type(3) { left: 70%; }\n.loader .col::after { content: ''; position: absolute; left: 14%; right: 14%; top: 8%; height: 8%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 40%, transparent); }\n.loader .card { position: absolute; left: 4%; top: 26%; width: 22%; height: 26%; border-radius: 6px; background: linear-gradient(140deg, var(--accent-2), var(--accent)); box-shadow: 0 4px 10px color-mix(in srgb, #000 25%, transparent); animation: kan-move calc(var(--loader-speed) * 3.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes kan-move { 0%, 16% { left: 4%; top: 26%; opacity: 1; } 32%, 48% { left: 39%; top: 44%; opacity: 1; } 64%, 84% { left: 74%; top: 62%; opacity: 1; } 94%, 100% { left: 74%; top: 62%; opacity: 0; } }",
+  "defaults": {
+    "color": "#0d9488",
+    "secondaryColor": "#99f6e4",
+    "size": 130,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

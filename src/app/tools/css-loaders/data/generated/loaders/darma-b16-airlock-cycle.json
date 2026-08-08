@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-airlock-cycle",
+  "name": "Airlock Cycle",
+  "category": "creative",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "airlock",
+    "iris",
+    "hatch",
+    "space",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-airlock-cycle airlock cycle creative darma-research-batch-16 darma research batch 16 airlock iris hatch space creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-airlock-cycle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-airlock-cycle__frame\"></div><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-airlock-cycle__gauge\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-airlock-cycle { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__frame { position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 5px color-mix(in srgb, var(--accent) 55%, transparent), inset 0 0 0 11px color-mix(in srgb, var(--accent) 18%, transparent); }\n.darma-loader-darma-b16-airlock-cycle span { position: absolute; left: 46%; top: 8%; width: 8%; height: 42%; transform-origin: 50% 100%; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%); animation: darma-loader-darma-b16-airlock-cycle-iris-blade calc(var(--loader-speed, 1s) * 2.8) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(1) { --spin: 0deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(2) { --spin: 60deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(3) { --spin: 120deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(4) { --spin: 180deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(5) { --spin: 240deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(6) { --spin: 300deg; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__gauge { position: absolute; left: 30%; right: 30%; bottom: 12%; height: 5%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 25%, transparent); overflow: hidden; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__gauge::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 12%; background: var(--accent-2); animation: darma-loader-darma-b16-airlock-cycle-iris-pressure calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-airlock-cycle-iris-blade { 0%, 12% { transform: rotate(var(--spin, 0deg)) translateY(0) scaleY(1); } 46%, 62% { transform: rotate(var(--spin, 0deg)) translateY(-42%) scaleY(.62); } 92%, 100% { transform: rotate(var(--spin, 0deg)) translateY(0) scaleY(1); } }\n@keyframes darma-loader-darma-b16-airlock-cycle-iris-pressure { 0%, 12% { width: 10%; } 46%, 62% { width: 100%; } 92%, 100% { width: 10%; } }",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#fbbf24",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-airlock-cycle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-airlock-cycle__frame\"></div><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-airlock-cycle__gauge\"></div></div>",
+    "css": ".darma-loader-darma-b16-airlock-cycle { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__frame { position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 5px color-mix(in srgb, var(--accent) 55%, transparent), inset 0 0 0 11px color-mix(in srgb, var(--accent) 18%, transparent); }\n.darma-loader-darma-b16-airlock-cycle span { position: absolute; left: 46%; top: 8%; width: 8%; height: 42%; transform-origin: 50% 100%; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%); animation: darma-loader-darma-b16-airlock-cycle-iris-blade calc(var(--loader-speed, 1s) * 2.8) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(1) { --spin: 0deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(2) { --spin: 60deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(3) { --spin: 120deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(4) { --spin: 180deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(5) { --spin: 240deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(6) { --spin: 300deg; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__gauge { position: absolute; left: 30%; right: 30%; bottom: 12%; height: 5%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 25%, transparent); overflow: hidden; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__gauge::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 12%; background: var(--accent-2); animation: darma-loader-darma-b16-airlock-cycle-iris-pressure calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-airlock-cycle-iris-blade { 0%, 12% { transform: rotate(var(--spin, 0deg)) translateY(0) scaleY(1); } 46%, 62% { transform: rotate(var(--spin, 0deg)) translateY(-42%) scaleY(.62); } 92%, 100% { transform: rotate(var(--spin, 0deg)) translateY(0) scaleY(1); } }\n@keyframes darma-loader-darma-b16-airlock-cycle-iris-pressure { 0%, 12% { width: 10%; } 46%, 62% { width: 100%; } 92%, 100% { width: 10%; } }",
+    "react": "export default function DarmaB16AirlockCycleLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-airlock-cycle\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-airlock-cycle__frame\"></div><span></span><span></span><span></span><span></span><span></span><span></span><div className=\"darma-loader-darma-b16-airlock-cycle__gauge\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

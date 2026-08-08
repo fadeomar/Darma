@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-orbital-docking",
+  "name": "Orbital Docking",
+  "category": "creative",
+  "tags": [
+    "docking",
+    "orbit",
+    "station",
+    "space",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"rig\"><span class=\"station\"></span><span class=\"craft\"></span><span class=\"latch\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .rig { position: absolute; inset: 0; animation: dock-spin calc(var(--loader-speed) * 6) linear infinite; }\n.loader .station { position: absolute; left: 8%; top: 42%; width: 40%; height: 16%; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader .station::after { content: ''; position: absolute; left: 22%; top: -120%; width: 56%; height: 340%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 55%, transparent); }\n.loader .craft { position: absolute; right: 8%; top: 42%; width: 30%; height: 16%; border-radius: 5px 40% 40% 5px / 5px 50% 50% 5px; background: linear-gradient(color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); animation: dock-approach calc(var(--loader-speed) * 3.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader .latch { position: absolute; left: 47%; top: 45%; width: 6%; height: 10%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: dock-latch calc(var(--loader-speed) * 3.4) ease-out infinite; }\n@keyframes dock-spin { to { transform: rotate(1turn); } }\n@keyframes dock-approach { 0%, 10% { transform: translateX(0); } 56%, 84% { transform: translateX(-46%); } 98%, 100% { transform: translateX(0); } }\n@keyframes dock-latch { 0%, 52% { opacity: 0; transform: scale(.4); } 62%, 84% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--accent-2); } 94%, 100% { opacity: 0; transform: scale(.4); } }",
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5f3fc",
+    "size": 122,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

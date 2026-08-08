@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-petri-dish-culture",
+  "name": "Petri Dish Culture",
+  "category": "creative",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "petri",
+    "dish",
+    "culture",
+    "biology",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-petri-dish-culture petri dish culture creative darma-research-batch-16 darma research batch 16 petri dish culture biology creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-petri-dish-culture\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-petri-dish-culture__dish\"></div><i></i><i></i><i></i><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b16-petri-dish-culture { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #bbf7d0); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-petri-dish-culture .darma-loader-darma-b16-petri-dish-culture__dish { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, var(--accent-2) 55%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent)); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }\n.darma-loader-darma-b16-petri-dish-culture i { position: absolute; border-radius: 46% 54% 52% 48%; background: color-mix(in srgb, var(--accent) 78%, transparent); transform: scale(0); animation: darma-loader-darma-b16-petri-dish-culture-petri-colony calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(1) { left: 26%; top: 28%; width: 16%; height: 16%; }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(2) { left: 54%; top: 22%; width: 12%; height: 12%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(3) { left: 62%; top: 48%; width: 18%; height: 18%; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(4) { left: 34%; top: 58%; width: 14%; height: 14%; animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(5) { left: 18%; top: 48%; width: 10%; height: 10%; animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(6) { left: 48%; top: 68%; width: 11%; height: 11%; animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n@keyframes darma-loader-darma-b16-petri-dish-culture-petri-colony { 0%, 4% { transform: scale(0); opacity: 0; } 26%, 66% { transform: scale(1); opacity: 1; } 88%, 100% { transform: scale(1.15); opacity: 0; } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#bbf7d0",
+    "size": 114,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-petri-dish-culture\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-petri-dish-culture__dish\"></div><i></i><i></i><i></i><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b16-petri-dish-culture { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #bbf7d0); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-petri-dish-culture .darma-loader-darma-b16-petri-dish-culture__dish { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, var(--accent-2) 55%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent)); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }\n.darma-loader-darma-b16-petri-dish-culture i { position: absolute; border-radius: 46% 54% 52% 48%; background: color-mix(in srgb, var(--accent) 78%, transparent); transform: scale(0); animation: darma-loader-darma-b16-petri-dish-culture-petri-colony calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(1) { left: 26%; top: 28%; width: 16%; height: 16%; }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(2) { left: 54%; top: 22%; width: 12%; height: 12%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(3) { left: 62%; top: 48%; width: 18%; height: 18%; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(4) { left: 34%; top: 58%; width: 14%; height: 14%; animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(5) { left: 18%; top: 48%; width: 10%; height: 10%; animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(6) { left: 48%; top: 68%; width: 11%; height: 11%; animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n@keyframes darma-loader-darma-b16-petri-dish-culture-petri-colony { 0%, 4% { transform: scale(0); opacity: 0; } 26%, 66% { transform: scale(1); opacity: 1; } 88%, 100% { transform: scale(1.15); opacity: 0; } }",
+    "react": "export default function DarmaB16PetriDishCultureLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-petri-dish-culture\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-petri-dish-culture__dish\"></div><i></i><i></i><i></i><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

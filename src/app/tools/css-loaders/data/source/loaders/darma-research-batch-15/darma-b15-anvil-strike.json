@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-anvil-strike",
+  "name": "Anvil Strike",
+  "category": "fun",
+  "tags": [
+    "anvil",
+    "hammer",
+    "forge",
+    "sparks",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"anvil\"></div><div class=\"hammer\"></div><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .8); position: relative; }\n.loader .anvil { position: absolute; bottom: 22%; left: 20%; width: 60%; height: 20%; border-radius: 5px 5px 8px 8px; background: linear-gradient(color-mix(in srgb, var(--accent) 22%, #64748b), color-mix(in srgb, var(--accent) 32%, #1e293b)); }\n.loader .anvil::after { content: ''; position: absolute; left: 26%; right: 26%; top: 100%; height: 90%; border-radius: 0 0 4px 4px; background: color-mix(in srgb, var(--accent) 26%, #334155); }\n.loader .hammer { position: absolute; bottom: 42%; left: 46%; width: 8%; height: 42%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, var(--accent-2) 34%, #a16207), color-mix(in srgb, var(--accent) 30%, #78350f)); transform-origin: 50% 100%; animation: anvil-swing calc(var(--loader-speed) * 1.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader .hammer::after { content: ''; position: absolute; top: -4%; left: -95%; width: 290%; height: 24%; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader i { position: absolute; bottom: 40%; left: 48%; width: 6%; height: 6%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: anvil-spark calc(var(--loader-speed) * 1.2) ease-out infinite; }\n.loader i:nth-of-type(1) { --dx: -180%; --dy: -110%; }\n.loader i:nth-of-type(2) { --dx: 30%; --dy: -220%; }\n.loader i:nth-of-type(3) { --dx: 190%; --dy: -120%; }\n@keyframes anvil-swing { 0%, 100% { transform: rotate(-54deg); } 42% { transform: rotate(4deg); } 56% { transform: rotate(-8deg); } }\n@keyframes anvil-spark { 0%, 40% { opacity: 0; transform: translate(0, 0) scale(.3); } 48% { opacity: 1; transform: translate(0, 0) scale(1); } 100% { opacity: 0; transform: translate(var(--dx, 140%), var(--dy, -140%)) scale(.25); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#fbbf24",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

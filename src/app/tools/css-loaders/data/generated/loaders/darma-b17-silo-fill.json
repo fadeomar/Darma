@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-silo-fill",
+  "name": "Silo Fill",
+  "category": "progress",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "silo",
+    "grain",
+    "harvest",
+    "store",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-silo-fill silo fill progress darma-research-batch-17 darma research batch 17 silo grain harvest store progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-silo-fill\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-silo-fill__auger\"></div><i></i><i></i><i></i><div class=\"darma-loader-darma-b17-silo-fill__tower\"><div class=\"darma-loader-darma-b17-silo-fill__grain\"></div></div></div>",
+  "previewCss": ".darma-loader-darma-b17-silo-fill { --accent: var(--loader-color, #94a3b8); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__tower { position: absolute; left: 28%; right: 28%; bottom: 2%; height: 74%; border-radius: 44% 44% 6px 6px / 18% 18% 6px 6px; overflow: hidden; background: color-mix(in srgb, var(--accent) 25%, transparent); box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__tower::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 45%, transparent) 0 1px, transparent 1px 14%); }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__grain { position: absolute; left: 0; right: 0; bottom: 0; height: 4%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: darma-loader-darma-b17-silo-fill-silo-level calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__auger { position: absolute; left: 2%; top: 4%; width: 40%; height: 8%; border-radius: 4px; background: repeating-linear-gradient(90deg, #cbd5e1 0 14%, #64748b 0 28%); transform: rotate(-16deg); transform-origin: 0 50%; }\n.darma-loader-darma-b17-silo-fill i { position: absolute; left: 44%; top: 16%; width: 6%; height: 6%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b17-silo-fill-silo-pour calc(var(--loader-speed, 1s) * .8) linear infinite; }\n.darma-loader-darma-b17-silo-fill i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .27); }\n.darma-loader-darma-b17-silo-fill i:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .54); }\n@keyframes darma-loader-darma-b17-silo-fill-silo-level { 0%, 6% { height: 4%; } 72%, 88% { height: 88%; } 98%, 100% { height: 4%; } }\n@keyframes darma-loader-darma-b17-silo-fill-silo-pour { 0% { opacity: 0; transform: translate(0, 0); } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(30%, 340%); } }",
+  "defaults": {
+    "color": "#94a3b8",
+    "secondaryColor": "#f59e0b",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-silo-fill\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-silo-fill__auger\"></div><i></i><i></i><i></i><div class=\"darma-loader-darma-b17-silo-fill__tower\"><div class=\"darma-loader-darma-b17-silo-fill__grain\"></div></div></div>",
+    "css": ".darma-loader-darma-b17-silo-fill { --accent: var(--loader-color, #94a3b8); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__tower { position: absolute; left: 28%; right: 28%; bottom: 2%; height: 74%; border-radius: 44% 44% 6px 6px / 18% 18% 6px 6px; overflow: hidden; background: color-mix(in srgb, var(--accent) 25%, transparent); box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__tower::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 45%, transparent) 0 1px, transparent 1px 14%); }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__grain { position: absolute; left: 0; right: 0; bottom: 0; height: 4%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: darma-loader-darma-b17-silo-fill-silo-level calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b17-silo-fill .darma-loader-darma-b17-silo-fill__auger { position: absolute; left: 2%; top: 4%; width: 40%; height: 8%; border-radius: 4px; background: repeating-linear-gradient(90deg, #cbd5e1 0 14%, #64748b 0 28%); transform: rotate(-16deg); transform-origin: 0 50%; }\n.darma-loader-darma-b17-silo-fill i { position: absolute; left: 44%; top: 16%; width: 6%; height: 6%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b17-silo-fill-silo-pour calc(var(--loader-speed, 1s) * .8) linear infinite; }\n.darma-loader-darma-b17-silo-fill i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .27); }\n.darma-loader-darma-b17-silo-fill i:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .54); }\n@keyframes darma-loader-darma-b17-silo-fill-silo-level { 0%, 6% { height: 4%; } 72%, 88% { height: 88%; } 98%, 100% { height: 4%; } }\n@keyframes darma-loader-darma-b17-silo-fill-silo-pour { 0% { opacity: 0; transform: translate(0, 0); } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(30%, 340%); } }",
+    "react": "export default function DarmaB17SiloFillLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-silo-fill\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-silo-fill__auger\"></div><i></i><i></i><i></i><div className=\"darma-loader-darma-b17-silo-fill__tower\"><div className=\"darma-loader-darma-b17-silo-fill__grain\"></div></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

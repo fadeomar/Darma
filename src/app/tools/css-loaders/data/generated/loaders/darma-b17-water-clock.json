@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-water-clock",
+  "name": "Water Clock",
+  "category": "progress",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "clepsydra",
+    "water",
+    "time",
+    "vessel",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-water-clock water clock progress darma-research-batch-17 darma research batch 17 clepsydra water time vessel progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-water-clock\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-water-clock__upper\"><div class=\"darma-loader-darma-b17-water-clock__fill\"></div></div><i></i><div class=\"darma-loader-darma-b17-water-clock__lower\"><div class=\"darma-loader-darma-b17-water-clock__fill\"></div><span></span><span></span><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b17-water-clock { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #a16207); width: calc(var(--loader-size, 108px) * .78); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__upper { position: absolute; left: 12%; right: 12%; top: 0; height: 38%; border-radius: 4px 4px 42% 42%; overflow: hidden; box-shadow: inset 0 0 0 3px var(--accent-2); }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__upper .darma-loader-darma-b17-water-clock__fill { position: absolute; left: 0; right: 0; top: 0; height: 88%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b17-water-clock-clepsy-drain calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower { position: absolute; left: 12%; right: 12%; bottom: 0; height: 46%; border-radius: 4px 4px 12% 12%; overflow: hidden; box-shadow: inset 0 0 0 3px var(--accent-2); }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower .darma-loader-darma-b17-water-clock__fill { position: absolute; left: 0; right: 0; bottom: 0; height: 6%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b17-water-clock-clepsy-rise calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span { position: absolute; left: 6%; width: 26%; height: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span:nth-of-type(1) { bottom: 26%; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span:nth-of-type(2) { bottom: 50%; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span:nth-of-type(3) { bottom: 74%; }\n.darma-loader-darma-b17-water-clock i { position: absolute; left: 46%; top: 38%; width: 8%; height: 10%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); animation: darma-loader-darma-b17-water-clock-clepsy-drip calc(var(--loader-speed, 1s) * .7) linear infinite; }\n@keyframes darma-loader-darma-b17-water-clock-clepsy-drain { 0%, 4% { height: 88%; } 88% { height: 4%; } 96%, 100% { height: 88%; } }\n@keyframes darma-loader-darma-b17-water-clock-clepsy-rise { 0%, 4% { height: 6%; } 88% { height: 90%; } 96%, 100% { height: 6%; } }\n@keyframes darma-loader-darma-b17-water-clock-clepsy-drip { 0% { opacity: 0; transform: translateY(0) scale(.6); } 20% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(140%) scale(.8); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#a16207",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-water-clock\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-water-clock__upper\"><div class=\"darma-loader-darma-b17-water-clock__fill\"></div></div><i></i><div class=\"darma-loader-darma-b17-water-clock__lower\"><div class=\"darma-loader-darma-b17-water-clock__fill\"></div><span></span><span></span><span></span></div></div>",
+    "css": ".darma-loader-darma-b17-water-clock { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #a16207); width: calc(var(--loader-size, 108px) * .78); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__upper { position: absolute; left: 12%; right: 12%; top: 0; height: 38%; border-radius: 4px 4px 42% 42%; overflow: hidden; box-shadow: inset 0 0 0 3px var(--accent-2); }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__upper .darma-loader-darma-b17-water-clock__fill { position: absolute; left: 0; right: 0; top: 0; height: 88%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b17-water-clock-clepsy-drain calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower { position: absolute; left: 12%; right: 12%; bottom: 0; height: 46%; border-radius: 4px 4px 12% 12%; overflow: hidden; box-shadow: inset 0 0 0 3px var(--accent-2); }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower .darma-loader-darma-b17-water-clock__fill { position: absolute; left: 0; right: 0; bottom: 0; height: 6%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b17-water-clock-clepsy-rise calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span { position: absolute; left: 6%; width: 26%; height: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span:nth-of-type(1) { bottom: 26%; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span:nth-of-type(2) { bottom: 50%; }\n.darma-loader-darma-b17-water-clock .darma-loader-darma-b17-water-clock__lower span:nth-of-type(3) { bottom: 74%; }\n.darma-loader-darma-b17-water-clock i { position: absolute; left: 46%; top: 38%; width: 8%; height: 10%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); animation: darma-loader-darma-b17-water-clock-clepsy-drip calc(var(--loader-speed, 1s) * .7) linear infinite; }\n@keyframes darma-loader-darma-b17-water-clock-clepsy-drain { 0%, 4% { height: 88%; } 88% { height: 4%; } 96%, 100% { height: 88%; } }\n@keyframes darma-loader-darma-b17-water-clock-clepsy-rise { 0%, 4% { height: 6%; } 88% { height: 90%; } 96%, 100% { height: 6%; } }\n@keyframes darma-loader-darma-b17-water-clock-clepsy-drip { 0% { opacity: 0; transform: translateY(0) scale(.6); } 20% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(140%) scale(.8); } }",
+    "react": "export default function DarmaB17WaterClockLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-water-clock\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-water-clock__upper\"><div className=\"darma-loader-darma-b17-water-clock__fill\"></div></div><i></i><div className=\"darma-loader-darma-b17-water-clock__lower\"><div className=\"darma-loader-darma-b17-water-clock__fill\"></div><span></span><span></span><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

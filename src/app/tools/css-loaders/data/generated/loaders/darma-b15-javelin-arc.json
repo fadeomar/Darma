@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-javelin-arc",
+  "name": "Javelin Arc",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "javelin",
+    "throw",
+    "arc",
+    "athletics",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-javelin-arc javelin arc fun darma-research-batch-15 darma research batch 15 javelin throw arc athletics fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-javelin-arc\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-javelin-arc__spear\"></div><div class=\"darma-loader-darma-b15-javelin-arc__field\"></div><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-javelin-arc { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #bbf7d0); width: var(--loader-size, 132px); height: calc(var(--loader-size, 132px) * .66); position: relative; }\n.darma-loader-darma-b15-javelin-arc .darma-loader-darma-b15-javelin-arc__field { position: absolute; left: 0; right: 0; bottom: 10%; height: 6%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n.darma-loader-darma-b15-javelin-arc i { position: absolute; bottom: 17%; width: 2%; height: 8%; border-radius: 2px; background: color-mix(in srgb, var(--accent) 50%, transparent); }\n.darma-loader-darma-b15-javelin-arc i:nth-of-type(1) { left: 34%; }\n.darma-loader-darma-b15-javelin-arc i:nth-of-type(2) { left: 58%; }\n.darma-loader-darma-b15-javelin-arc i:nth-of-type(3) { left: 82%; }\n.darma-loader-darma-b15-javelin-arc .darma-loader-darma-b15-javelin-arc__spear { position: absolute; left: 4%; bottom: 22%; width: 34%; height: 4%; border-radius: 2px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-javelin-arc-jav-throw calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.35, .05, .55, 1) infinite; }\n@keyframes darma-loader-darma-b15-javelin-arc-jav-throw { 0% { opacity: 0; transform: translate(0, 0) rotate(-32deg); } 10% { opacity: 1; } 50% { transform: translate(96%, -170%) rotate(-4deg); } 88% { opacity: 1; transform: translate(190%, 4%) rotate(54deg); } 100% { opacity: 0; transform: translate(190%, 4%) rotate(54deg); } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#bbf7d0",
+    "size": 132,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-javelin-arc\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-javelin-arc__spear\"></div><div class=\"darma-loader-darma-b15-javelin-arc__field\"></div><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b15-javelin-arc { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #bbf7d0); width: var(--loader-size, 132px); height: calc(var(--loader-size, 132px) * .66); position: relative; }\n.darma-loader-darma-b15-javelin-arc .darma-loader-darma-b15-javelin-arc__field { position: absolute; left: 0; right: 0; bottom: 10%; height: 6%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n.darma-loader-darma-b15-javelin-arc i { position: absolute; bottom: 17%; width: 2%; height: 8%; border-radius: 2px; background: color-mix(in srgb, var(--accent) 50%, transparent); }\n.darma-loader-darma-b15-javelin-arc i:nth-of-type(1) { left: 34%; }\n.darma-loader-darma-b15-javelin-arc i:nth-of-type(2) { left: 58%; }\n.darma-loader-darma-b15-javelin-arc i:nth-of-type(3) { left: 82%; }\n.darma-loader-darma-b15-javelin-arc .darma-loader-darma-b15-javelin-arc__spear { position: absolute; left: 4%; bottom: 22%; width: 34%; height: 4%; border-radius: 2px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-javelin-arc-jav-throw calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.35, .05, .55, 1) infinite; }\n@keyframes darma-loader-darma-b15-javelin-arc-jav-throw { 0% { opacity: 0; transform: translate(0, 0) rotate(-32deg); } 10% { opacity: 1; } 50% { transform: translate(96%, -170%) rotate(-4deg); } 88% { opacity: 1; transform: translate(190%, 4%) rotate(54deg); } 100% { opacity: 0; transform: translate(190%, 4%) rotate(54deg); } }",
+    "react": "export default function DarmaB15JavelinArcLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-javelin-arc\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-javelin-arc__spear\"></div><div className=\"darma-loader-darma-b15-javelin-arc__field\"></div><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

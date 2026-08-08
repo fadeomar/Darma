@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-hurdle-jump",
+  "name": "Hurdle Jump",
+  "category": "fun",
+  "tags": [
+    "hurdle",
+    "jump",
+    "run",
+    "athletics",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"track\"></div><div class=\"bar\"></div><div class=\"bar\"></div><div class=\"runner\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); position: relative; overflow: hidden; }\n.loader .track { position: absolute; left: 0; right: 0; bottom: 14%; height: 5%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n.loader .bar { position: absolute; bottom: 19%; width: 13%; height: 30%; border-top: 4px solid var(--accent-2); border-left: 3px solid var(--accent-2); border-right: 3px solid var(--accent-2); border-radius: 3px 3px 0 0; animation: hurdle-scroll calc(var(--loader-speed) * 1.8) linear infinite; }\n.loader .bar:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * -.9); }\n.loader .runner { position: absolute; left: 20%; bottom: 19%; width: 15%; height: 24%; border-radius: 50% 50% 42% 42%; background: linear-gradient(var(--accent-2), var(--accent)); animation: hurdle-leap calc(var(--loader-speed) * .9) ease-in-out infinite; }\n@keyframes hurdle-scroll { from { left: 102%; } to { left: -15%; } }\n@keyframes hurdle-leap { 0%, 100% { transform: translateY(0) scaleY(1); } 14% { transform: translateY(0) scaleY(.8); } 50% { transform: translateY(-118%) scaleY(1.08); } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fda4af",
+    "size": 130,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

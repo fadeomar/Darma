@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-whisk-bowl",
+  "name": "Whisk Bowl",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "whisk",
+    "bowl",
+    "batter",
+    "baking",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-whisk-bowl whisk bowl fun darma-research-batch-15 darma research batch 15 whisk bowl batter baking fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-whisk-bowl\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-whisk-bowl__whisk\"><span></span><span></span><span></span></div><div class=\"darma-loader-darma-b15-whisk-bowl__batter\"></div><div class=\"darma-loader-darma-b15-whisk-bowl__bowl\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-whisk-bowl { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #fde68a); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__bowl { position: absolute; left: 8%; bottom: 6%; width: 84%; height: 44%; border-radius: 6px 6px 46% 46% / 6px 6px 92% 92%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 25%, var(--accent))); }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__batter { position: absolute; left: 14%; bottom: 30%; width: 72%; height: 16%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b15-whisk-bowl-whisk-batter calc(var(--loader-speed, 1s) * .9) ease-in-out infinite; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk { position: absolute; left: 40%; top: 4%; width: 20%; height: 54%; transform-origin: 50% 10%; animation: darma-loader-darma-b15-whisk-bowl-whisk-turn calc(var(--loader-speed, 1s) * .9) linear infinite; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk span { position: absolute; left: 44%; top: 0; width: 12%; height: 100%; border-radius: 40%; background: linear-gradient(#e2e8f0, #94a3b8); transform-origin: 50% 6%; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk span:nth-of-type(1) { transform: rotate(-22deg); }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk span:nth-of-type(3) { transform: rotate(22deg); }\n@keyframes darma-loader-darma-b15-whisk-bowl-whisk-turn { 0%, 100% { transform: rotate(-16deg) scaleX(1); } 25% { transform: rotate(0deg) scaleX(.3); } 50% { transform: rotate(16deg) scaleX(1); } 75% { transform: rotate(0deg) scaleX(.3); } }\n@keyframes darma-loader-darma-b15-whisk-bowl-whisk-batter { 0%, 100% { transform: translateX(-4%) scaleX(1); } 50% { transform: translateX(4%) scaleX(1.05); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#fde68a",
+    "size": 114,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-whisk-bowl\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-whisk-bowl__whisk\"><span></span><span></span><span></span></div><div class=\"darma-loader-darma-b15-whisk-bowl__batter\"></div><div class=\"darma-loader-darma-b15-whisk-bowl__bowl\"></div></div>",
+    "css": ".darma-loader-darma-b15-whisk-bowl { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #fde68a); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__bowl { position: absolute; left: 8%; bottom: 6%; width: 84%; height: 44%; border-radius: 6px 6px 46% 46% / 6px 6px 92% 92%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 25%, var(--accent))); }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__batter { position: absolute; left: 14%; bottom: 30%; width: 72%; height: 16%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b15-whisk-bowl-whisk-batter calc(var(--loader-speed, 1s) * .9) ease-in-out infinite; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk { position: absolute; left: 40%; top: 4%; width: 20%; height: 54%; transform-origin: 50% 10%; animation: darma-loader-darma-b15-whisk-bowl-whisk-turn calc(var(--loader-speed, 1s) * .9) linear infinite; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk span { position: absolute; left: 44%; top: 0; width: 12%; height: 100%; border-radius: 40%; background: linear-gradient(#e2e8f0, #94a3b8); transform-origin: 50% 6%; }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk span:nth-of-type(1) { transform: rotate(-22deg); }\n.darma-loader-darma-b15-whisk-bowl .darma-loader-darma-b15-whisk-bowl__whisk span:nth-of-type(3) { transform: rotate(22deg); }\n@keyframes darma-loader-darma-b15-whisk-bowl-whisk-turn { 0%, 100% { transform: rotate(-16deg) scaleX(1); } 25% { transform: rotate(0deg) scaleX(.3); } 50% { transform: rotate(16deg) scaleX(1); } 75% { transform: rotate(0deg) scaleX(.3); } }\n@keyframes darma-loader-darma-b15-whisk-bowl-whisk-batter { 0%, 100% { transform: translateX(-4%) scaleX(1); } 50% { transform: translateX(4%) scaleX(1.05); } }",
+    "react": "export default function DarmaB15WhiskBowlLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-whisk-bowl\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-whisk-bowl__whisk\"><span></span><span></span><span></span></div><div className=\"darma-loader-darma-b15-whisk-bowl__batter\"></div><div className=\"darma-loader-darma-b15-whisk-bowl__bowl\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

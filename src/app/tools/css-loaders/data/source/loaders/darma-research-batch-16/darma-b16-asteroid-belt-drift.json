@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-asteroid-belt-drift",
+  "name": "Asteroid Belt Drift",
+  "category": "dots",
+  "tags": [
+    "asteroid",
+    "belt",
+    "orbit",
+    "space",
+    "dots"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"sun\"></div><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .sun { position: absolute; left: 42%; top: 42%; width: 16%; height: 16%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 45%, var(--accent-2)), var(--accent-2)); box-shadow: 0 0 16px color-mix(in srgb, var(--accent-2) 60%, transparent); }\n.loader i { position: absolute; left: 47%; top: 47%; width: 6%; height: 6%; border-radius: 44% 56% 52% 48%; background: var(--accent); animation: belt-orbit calc(var(--loader-speed) * 4) linear infinite; }\n.loader i:nth-of-type(1) { --r: calc(var(--loader-size) * .2); }\n.loader i:nth-of-type(2) { --r: calc(var(--loader-size) * .26); animation-duration: calc(var(--loader-speed) * 4.8); animation-delay: calc(var(--loader-speed) * -1.4); }\n.loader i:nth-of-type(3) { --r: calc(var(--loader-size) * .31); animation-duration: calc(var(--loader-speed) * 5.6); animation-delay: calc(var(--loader-speed) * -2.6); }\n.loader i:nth-of-type(4) { --r: calc(var(--loader-size) * .24); animation-duration: calc(var(--loader-speed) * 4.4); animation-delay: calc(var(--loader-speed) * -3.1); }\n.loader i:nth-of-type(5) { --r: calc(var(--loader-size) * .35); animation-duration: calc(var(--loader-speed) * 6.4); animation-delay: calc(var(--loader-speed) * -1.9); }\n.loader i:nth-of-type(6) { --r: calc(var(--loader-size) * .29); animation-duration: calc(var(--loader-speed) * 5.2); animation-delay: calc(var(--loader-speed) * -4.3); }\n.loader i:nth-of-type(7) { --r: calc(var(--loader-size) * .22); animation-duration: calc(var(--loader-speed) * 4.1); animation-delay: calc(var(--loader-speed) * -2.2); }\n@keyframes belt-orbit { from { transform: rotate(0deg) translateX(var(--r, 40px)) rotate(0deg); } to { transform: rotate(360deg) translateX(var(--r, 40px)) rotate(-360deg); } }",
+  "defaults": {
+    "color": "#78716c",
+    "secondaryColor": "#fbbf24",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-litmus-strip",
+  "name": "Litmus Strip",
+  "category": "progress",
+  "tags": [
+    "litmus",
+    "ph",
+    "test",
+    "chemistry",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"strip\"><div class=\"wick\"></div></div><div class=\"beaker\"><div class=\"fluid\"></div></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .8); height: var(--loader-size); position: relative; }\n.loader .strip { position: absolute; left: 40%; top: 2%; width: 20%; height: 62%; border-radius: 3px; overflow: hidden; background: color-mix(in srgb, #fff 82%, var(--accent-2)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 18%, transparent); animation: litmus-dip calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .wick { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: linear-gradient(var(--accent), var(--accent-2)); animation: litmus-wick calc(var(--loader-speed) * 3) ease-out infinite; }\n.loader .beaker { position: absolute; left: 16%; right: 16%; bottom: 2%; height: 34%; border-radius: 2px 2px 8px 8px; overflow: hidden; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 45%, transparent); }\n.loader .fluid { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: color-mix(in srgb, var(--accent-2) 40%, transparent); }\n@keyframes litmus-dip { 0%, 100% { transform: translateY(0); } 30%, 74% { transform: translateY(16%); } }\n@keyframes litmus-wick { 0%, 26% { height: 0; } 62%, 80% { height: 84%; } 96%, 100% { height: 0; } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#22c55e",
+    "size": 110,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-stock-ticker",
+  "name": "Stock Ticker",
+  "category": "bars",
+  "tags": [
+    "stock",
+    "candlestick",
+    "market",
+    "trade",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"mid\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .52); position: relative; overflow: hidden; }\n.loader .mid { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.loader span { position: absolute; width: 8%; border-radius: 2px; animation: tick-scroll calc(var(--loader-speed) * 3.5) linear infinite; }\n.loader span::after { content: ''; position: absolute; left: 38%; top: -28%; width: 24%; height: 156%; background: inherit; }\n.loader span:nth-of-type(1) { top: 26%; height: 30%; background: var(--accent); }\n.loader span:nth-of-type(2) { top: 42%; height: 24%; background: var(--accent-2); animation-delay: calc(var(--loader-speed) * -.5); }\n.loader span:nth-of-type(3) { top: 18%; height: 38%; background: var(--accent); animation-delay: calc(var(--loader-speed) * -1); }\n.loader span:nth-of-type(4) { top: 34%; height: 20%; background: var(--accent-2); animation-delay: calc(var(--loader-speed) * -1.5); }\n.loader span:nth-of-type(5) { top: 12%; height: 44%; background: var(--accent); animation-delay: calc(var(--loader-speed) * -2); }\n.loader span:nth-of-type(6) { top: 30%; height: 26%; background: var(--accent-2); animation-delay: calc(var(--loader-speed) * -2.5); }\n.loader span:nth-of-type(7) { top: 20%; height: 40%; background: var(--accent); animation-delay: calc(var(--loader-speed) * -3); }\n@keyframes tick-scroll { from { left: 102%; } to { left: -10%; } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#ef4444",
+    "size": 130,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

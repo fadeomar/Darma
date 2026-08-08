@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-bunsen-burner",
+  "name": "Bunsen Burner",
+  "category": "fun",
+  "tags": [
+    "bunsen",
+    "burner",
+    "flame",
+    "lab",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"flame\"></div><div class=\"inner\"></div><div class=\"barrel\"></div><div class=\"foot\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .foot { position: absolute; left: 24%; right: 24%; bottom: 4%; height: 9%; border-radius: 4px 4px 6px 6px; background: linear-gradient(#94a3b8, #334155); }\n.loader .barrel { position: absolute; left: 42%; bottom: 12%; width: 16%; height: 34%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #64748b); }\n.loader .barrel::after { content: ''; position: absolute; left: -30%; bottom: 8%; width: 160%; height: 16%; border-radius: 3px; background: #475569; }\n.loader .flame { position: absolute; left: 38%; bottom: 44%; width: 24%; height: 44%; border-radius: 50% 50% 42% 42% / 76% 76% 24% 24%; background: linear-gradient(color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent)); filter: blur(1px); transform-origin: 50% 100%; animation: bunsen-lick calc(var(--loader-speed) * .7) ease-in-out infinite alternate; }\n.loader .inner { position: absolute; left: 44%; bottom: 46%; width: 12%; height: 22%; border-radius: 50% 50% 40% 40% / 76% 76% 24% 24%; background: color-mix(in srgb, #fff 55%, var(--accent-2)); transform-origin: 50% 100%; animation: bunsen-core calc(var(--loader-speed) * .7) ease-in-out infinite alternate; }\n@keyframes bunsen-lick { from { transform: scaleY(.86) scaleX(1.06) skewX(-3deg); opacity: .85; } to { transform: scaleY(1.12) scaleX(.94) skewX(3deg); opacity: 1; } }\n@keyframes bunsen-core { from { transform: scaleY(.8); } to { transform: scaleY(1.15); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#a5f3fc",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

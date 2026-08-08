@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-note-counter",
+  "name": "Note Counter",
+  "category": "bars",
+  "tags": [
+    "banknote",
+    "counting",
+    "machine",
+    "money",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"hopper\"></div><span></span><span></span><span></span><span></span><span></span><div class=\"tray\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .66); position: relative; overflow: hidden; }\n.loader .hopper { position: absolute; left: 8%; top: 4%; width: 32%; height: 26%; border-radius: 4px 4px 2px 2px; background: linear-gradient(#64748b, #1e293b); }\n.loader .tray { position: absolute; right: 6%; bottom: 6%; width: 40%; height: 12%; border-radius: 3px; background: linear-gradient(#475569, #0f172a); }\n.loader span { position: absolute; left: 12%; top: 26%; width: 26%; height: 12%; border-radius: 2px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 22%, transparent); animation: count-flick calc(var(--loader-speed) * 1.5) cubic-bezier(.4, 0, .3, 1) infinite; }\n.loader span:nth-of-type(1) { animation-delay: calc(var(--loader-speed) * -1.2); }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * -.9); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * -.6); }\n.loader span:nth-of-type(4) { animation-delay: calc(var(--loader-speed) * -.3); }\n.loader span:nth-of-type(5) { animation-delay: 0s; }\n@keyframes count-flick { 0% { opacity: 0; transform: translate(0, 0) rotate(-6deg); } 10% { opacity: 1; } 46% { transform: translate(90%, 60%) rotate(14deg); } 82% { opacity: 1; transform: translate(180%, 200%) rotate(0deg); } 100% { opacity: 0; transform: translate(180%, 210%) rotate(0deg); } }",
+  "defaults": {
+    "color": "#047857",
+    "secondaryColor": "#a7f3d0",
+    "size": 124,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

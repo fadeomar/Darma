@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-water-clock",
+  "name": "Water Clock",
+  "category": "progress",
+  "tags": [
+    "clepsydra",
+    "water",
+    "time",
+    "vessel",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"upper\"><div class=\"fill\"></div></div><i></i><div class=\"lower\"><div class=\"fill\"></div><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .78); height: var(--loader-size); position: relative; }\n.loader .upper { position: absolute; left: 12%; right: 12%; top: 0; height: 38%; border-radius: 4px 4px 42% 42%; overflow: hidden; box-shadow: inset 0 0 0 3px var(--accent-2); }\n.loader .upper .fill { position: absolute; left: 0; right: 0; top: 0; height: 88%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: clepsy-drain calc(var(--loader-speed) * 4) linear infinite; }\n.loader .lower { position: absolute; left: 12%; right: 12%; bottom: 0; height: 46%; border-radius: 4px 4px 12% 12%; overflow: hidden; box-shadow: inset 0 0 0 3px var(--accent-2); }\n.loader .lower .fill { position: absolute; left: 0; right: 0; bottom: 0; height: 6%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: clepsy-rise calc(var(--loader-speed) * 4) linear infinite; }\n.loader .lower span { position: absolute; left: 6%; width: 26%; height: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.loader .lower span:nth-of-type(1) { bottom: 26%; }\n.loader .lower span:nth-of-type(2) { bottom: 50%; }\n.loader .lower span:nth-of-type(3) { bottom: 74%; }\n.loader i { position: absolute; left: 46%; top: 38%; width: 8%; height: 10%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); animation: clepsy-drip calc(var(--loader-speed) * .7) linear infinite; }\n@keyframes clepsy-drain { 0%, 4% { height: 88%; } 88% { height: 4%; } 96%, 100% { height: 88%; } }\n@keyframes clepsy-rise { 0%, 4% { height: 6%; } 88% { height: 90%; } 96%, 100% { height: 6%; } }\n@keyframes clepsy-drip { 0% { opacity: 0; transform: translateY(0) scale(.6); } 20% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(140%) scale(.8); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#a16207",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

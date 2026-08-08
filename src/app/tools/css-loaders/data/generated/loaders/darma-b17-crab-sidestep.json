@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-crab-sidestep",
+  "name": "Crab Sidestep",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "crab",
+    "sidestep",
+    "beach",
+    "claws",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-crab-sidestep crab sidestep fun darma-research-batch-17 darma research batch 17 crab sidestep beach claws fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-crab-sidestep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-crab-sidestep__crab\"><span class=\"darma-loader-darma-b17-crab-sidestep__shell\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__claw\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__claw\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__eye\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__eye\"></span></div><div class=\"darma-loader-darma-b17-crab-sidestep__sand\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-crab-sidestep { --accent: var(--loader-color, #ea580c); --accent-2: var(--loader-secondary-color, #fed7aa); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .6); position: relative; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__sand { position: absolute; left: 0; right: 0; bottom: 8%; height: 6%; border-radius: 3px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__crab { position: absolute; left: 22%; bottom: 14%; width: 34%; height: 52%; animation: darma-loader-darma-b17-crab-sidestep-crab-step calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__shell { position: absolute; left: 12%; bottom: 0; width: 76%; height: 62%; border-radius: 50% 50% 34% 34%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 26%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__claw { position: absolute; bottom: 30%; width: 30%; height: 34%; border-radius: 50% 50% 20% 50%; background: var(--accent); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__claw:nth-of-type(2) { left: -18%; transform-origin: 100% 100%; animation: darma-loader-darma-b17-crab-sidestep-crab-claw-left calc(var(--loader-speed, 1s) * .8) ease-in-out infinite; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__claw:nth-of-type(3) { right: -18%; border-radius: 50% 50% 50% 20%; transform-origin: 0 100%; animation: darma-loader-darma-b17-crab-sidestep-crab-claw-right calc(var(--loader-speed, 1s) * .8) ease-in-out infinite; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye { position: absolute; top: 4%; width: 9%; height: 26%; border-radius: 3px; background: var(--accent); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye::after { content: ''; position: absolute; left: -40%; top: -46%; width: 180%; height: 60%; border-radius: 50%; background: #0f172a; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye:nth-of-type(4) { left: 32%; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye:nth-of-type(5) { right: 32%; }\n@keyframes darma-loader-darma-b17-crab-sidestep-crab-step { 0%, 100% { transform: translateX(0) translateY(0); } 25% { transform: translateX(60%) translateY(-8%); } 50% { transform: translateX(120%) translateY(0); } 75% { transform: translateX(60%) translateY(-8%); } }\n@keyframes darma-loader-darma-b17-crab-sidestep-crab-claw-left { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(-32deg); } }\n@keyframes darma-loader-darma-b17-crab-sidestep-crab-claw-right { 0%, 100% { transform: rotate(8deg); } 50% { transform: rotate(32deg); } }",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#fed7aa",
+    "size": 122,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-crab-sidestep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-crab-sidestep__crab\"><span class=\"darma-loader-darma-b17-crab-sidestep__shell\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__claw\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__claw\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__eye\"></span><span class=\"darma-loader-darma-b17-crab-sidestep__eye\"></span></div><div class=\"darma-loader-darma-b17-crab-sidestep__sand\"></div></div>",
+    "css": ".darma-loader-darma-b17-crab-sidestep { --accent: var(--loader-color, #ea580c); --accent-2: var(--loader-secondary-color, #fed7aa); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .6); position: relative; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__sand { position: absolute; left: 0; right: 0; bottom: 8%; height: 6%; border-radius: 3px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__crab { position: absolute; left: 22%; bottom: 14%; width: 34%; height: 52%; animation: darma-loader-darma-b17-crab-sidestep-crab-step calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__shell { position: absolute; left: 12%; bottom: 0; width: 76%; height: 62%; border-radius: 50% 50% 34% 34%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 26%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__claw { position: absolute; bottom: 30%; width: 30%; height: 34%; border-radius: 50% 50% 20% 50%; background: var(--accent); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__claw:nth-of-type(2) { left: -18%; transform-origin: 100% 100%; animation: darma-loader-darma-b17-crab-sidestep-crab-claw-left calc(var(--loader-speed, 1s) * .8) ease-in-out infinite; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__claw:nth-of-type(3) { right: -18%; border-radius: 50% 50% 50% 20%; transform-origin: 0 100%; animation: darma-loader-darma-b17-crab-sidestep-crab-claw-right calc(var(--loader-speed, 1s) * .8) ease-in-out infinite; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye { position: absolute; top: 4%; width: 9%; height: 26%; border-radius: 3px; background: var(--accent); }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye::after { content: ''; position: absolute; left: -40%; top: -46%; width: 180%; height: 60%; border-radius: 50%; background: #0f172a; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye:nth-of-type(4) { left: 32%; }\n.darma-loader-darma-b17-crab-sidestep .darma-loader-darma-b17-crab-sidestep__eye:nth-of-type(5) { right: 32%; }\n@keyframes darma-loader-darma-b17-crab-sidestep-crab-step { 0%, 100% { transform: translateX(0) translateY(0); } 25% { transform: translateX(60%) translateY(-8%); } 50% { transform: translateX(120%) translateY(0); } 75% { transform: translateX(60%) translateY(-8%); } }\n@keyframes darma-loader-darma-b17-crab-sidestep-crab-claw-left { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(-32deg); } }\n@keyframes darma-loader-darma-b17-crab-sidestep-crab-claw-right { 0%, 100% { transform: rotate(8deg); } 50% { transform: rotate(32deg); } }",
+    "react": "export default function DarmaB17CrabSidestepLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-crab-sidestep\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-crab-sidestep__crab\"><span className=\"darma-loader-darma-b17-crab-sidestep__shell\"></span><span className=\"darma-loader-darma-b17-crab-sidestep__claw\"></span><span className=\"darma-loader-darma-b17-crab-sidestep__claw\"></span><span className=\"darma-loader-darma-b17-crab-sidestep__eye\"></span><span className=\"darma-loader-darma-b17-crab-sidestep__eye\"></span></div><div className=\"darma-loader-darma-b17-crab-sidestep__sand\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

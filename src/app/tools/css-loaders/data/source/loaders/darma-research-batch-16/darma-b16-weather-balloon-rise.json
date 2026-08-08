@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-weather-balloon-rise",
+  "name": "Weather Balloon Rise",
+  "category": "fun",
+  "tags": [
+    "balloon",
+    "weather",
+    "sonde",
+    "ascent",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"rig\"><span class=\"sphere\"></span><span class=\"tether\"></span><span class=\"probe\"></span></div><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader .rig { position: absolute; left: 28%; width: 44%; height: 80%; bottom: -14%; animation: sonde-rise calc(var(--loader-speed) * 4) ease-in-out infinite; }\n.loader .sphere { position: absolute; left: 0; top: 0; width: 100%; height: 62%; border-radius: 50% 50% 44% 44%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 55%, var(--accent)), var(--accent)); box-shadow: inset -6px -8px 0 color-mix(in srgb, #000 10%, transparent); }\n.loader .tether { position: absolute; left: 48%; top: 60%; width: 3%; height: 22%; background: color-mix(in srgb, #0f172a 45%, transparent); }\n.loader .probe { position: absolute; left: 36%; bottom: 4%; width: 28%; height: 18%; border-radius: 3px; background: var(--accent-2); animation: sonde-swing calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader i { position: absolute; height: 12%; border-radius: 40%; background: color-mix(in srgb, var(--accent) 30%, transparent); animation: sonde-cloud calc(var(--loader-speed) * 4) linear infinite; }\n.loader i:nth-of-type(1) { left: 2%; width: 30%; }\n.loader i:nth-of-type(2) { left: 62%; width: 24%; animation-delay: calc(var(--loader-speed) * -2); }\n@keyframes sonde-rise { 0% { transform: translateY(8%); opacity: 0; } 14% { opacity: 1; } 84% { opacity: 1; } 100% { transform: translateY(-116%); opacity: 0; } }\n@keyframes sonde-swing { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }\n@keyframes sonde-cloud { 0% { top: 110%; opacity: 0; } 15%, 80% { opacity: 1; } 100% { top: -20%; opacity: 0; } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#f97316",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

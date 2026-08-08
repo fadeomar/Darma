@@ -27,6 +27,9 @@ export type LoaderSourceGroupId =
   | "darma-research-batch-12"
   | "darma-research-batch-13"
   | "darma-research-batch-14"
+  | "darma-research-batch-15"
+  | "darma-research-batch-16"
+  | "darma-research-batch-17"
   | "darma-tailwind-pack"
   | "loaders-css"
   | "loading-io"
@@ -153,6 +156,33 @@ export const LOADER_SOURCE_GROUPS: readonly LoaderSourceGroup[] = [
     id: "darma-research-batch-14",
     name: "Darma Research Batch 14",
     description: "Darma original loaders from kitchen, workshop, and household motifs (pancake flip, hydraulic press, window blinds, snow globe).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-15",
+    name: "Darma Research Batch 15",
+    description: "Darma original loaders from craft, sport, food, and computer-science motifs (pottery wheel, kickflip, taco fold, binary tree).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-16",
+    name: "Darma Research Batch 16",
+    description: "Darma original loaders from marine, laboratory, space, and retro-computing motifs (periscope, titration, airlock, defrag grid).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-17",
+    name: "Darma Research Batch 17",
+    description: "Darma original loaders from clinic, construction, farm, money, and pattern motifs (bandage wrap, bricklaying, silo fill, Sierpinski build).",
     author: "Darma",
     license: "Custom (Darma)",
     isOriginal: true,

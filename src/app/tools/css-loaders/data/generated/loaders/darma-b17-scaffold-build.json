@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-scaffold-build",
+  "name": "Scaffold Build",
+  "category": "bars",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "scaffold",
+    "frame",
+    "levels",
+    "construction",
+    "bars"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-scaffold-build scaffold build bars darma-research-batch-17 darma research batch 17 scaffold frame levels construction bars html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-scaffold-build\" aria-label=\"Loading\"><i></i><i></i><i></i><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b17-scaffold-build { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-scaffold-build i { position: absolute; bottom: 4%; width: 5%; border-radius: 3px; background: var(--accent); transform-origin: 50% 100%; transform: scaleY(0); animation: darma-loader-darma-b17-scaffold-build-scaf-post calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b17-scaffold-build i:nth-of-type(1) { left: 8%; height: 92%; }\n.darma-loader-darma-b17-scaffold-build i:nth-of-type(2) { left: 47%; height: 92%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b17-scaffold-build i:nth-of-type(3) { right: 8%; height: 92%; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b17-scaffold-build span { position: absolute; left: 6%; right: 6%; height: 7%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 22%, var(--accent-2))); transform-origin: 0 50%; transform: scaleX(0); animation: darma-loader-darma-b17-scaffold-build-scaf-plank calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.4, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(1) { bottom: 8%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(2) { bottom: 32%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(3) { bottom: 56%; animation-delay: calc(var(--loader-speed, 1s) * .88); }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(4) { bottom: 80%; animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n@keyframes darma-loader-darma-b17-scaffold-build-scaf-post { 0%, 3% { transform: scaleY(0); opacity: 0; } 18%, 76% { transform: scaleY(1); opacity: 1; } 92%, 100% { transform: scaleY(0); opacity: 0; } }\n@keyframes darma-loader-darma-b17-scaffold-build-scaf-plank { 0%, 3% { transform: scaleX(0); opacity: 0; } 16%, 74% { transform: scaleX(1); opacity: 1; } 90%, 100% { transform: scaleX(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#facc15",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-scaffold-build\" aria-label=\"Loading\"><i></i><i></i><i></i><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b17-scaffold-build { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-scaffold-build i { position: absolute; bottom: 4%; width: 5%; border-radius: 3px; background: var(--accent); transform-origin: 50% 100%; transform: scaleY(0); animation: darma-loader-darma-b17-scaffold-build-scaf-post calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b17-scaffold-build i:nth-of-type(1) { left: 8%; height: 92%; }\n.darma-loader-darma-b17-scaffold-build i:nth-of-type(2) { left: 47%; height: 92%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b17-scaffold-build i:nth-of-type(3) { right: 8%; height: 92%; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b17-scaffold-build span { position: absolute; left: 6%; right: 6%; height: 7%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 22%, var(--accent-2))); transform-origin: 0 50%; transform: scaleX(0); animation: darma-loader-darma-b17-scaffold-build-scaf-plank calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.4, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(1) { bottom: 8%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(2) { bottom: 32%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(3) { bottom: 56%; animation-delay: calc(var(--loader-speed, 1s) * .88); }\n.darma-loader-darma-b17-scaffold-build span:nth-of-type(4) { bottom: 80%; animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n@keyframes darma-loader-darma-b17-scaffold-build-scaf-post { 0%, 3% { transform: scaleY(0); opacity: 0; } 18%, 76% { transform: scaleY(1); opacity: 1; } 92%, 100% { transform: scaleY(0); opacity: 0; } }\n@keyframes darma-loader-darma-b17-scaffold-build-scaf-plank { 0%, 3% { transform: scaleX(0); opacity: 0; } 16%, 74% { transform: scaleX(1); opacity: 1; } 90%, 100% { transform: scaleX(0); opacity: 0; } }",
+    "react": "export default function DarmaB17ScaffoldBuildLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-scaffold-build\" aria-label=\"Loading\"><i></i><i></i><i></i><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

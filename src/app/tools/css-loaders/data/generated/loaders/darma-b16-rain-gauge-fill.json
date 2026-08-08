@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-rain-gauge-fill",
+  "name": "Rain Gauge Fill",
+  "category": "progress",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "rain",
+    "gauge",
+    "weather",
+    "measure",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-rain-gauge-fill rain gauge fill progress darma-research-batch-16 darma research batch 16 rain gauge weather measure progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-rain-gauge-fill\" aria-label=\"Loading\"><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b16-rain-gauge-fill__tube\"><div class=\"darma-loader-darma-b16-rain-gauge-fill__water\"></div></div></div>",
+  "previewCss": ".darma-loader-darma-b16-rain-gauge-fill { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #bae6fd); width: calc(var(--loader-size, 110px) * .74); height: var(--loader-size, 110px); position: relative; }\n.darma-loader-darma-b16-rain-gauge-fill .darma-loader-darma-b16-rain-gauge-fill__tube { position: absolute; left: 26%; right: 26%; bottom: 2%; height: 62%; border-radius: 3px 3px 8px 8px; overflow: hidden; background: color-mix(in srgb, var(--accent-2) 18%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); }\n.darma-loader-darma-b16-rain-gauge-fill .darma-loader-darma-b16-rain-gauge-fill__tube::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 34%; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 50%, transparent) 0 2px, transparent 2px 14%); }\n.darma-loader-darma-b16-rain-gauge-fill .darma-loader-darma-b16-rain-gauge-fill__water { position: absolute; left: 0; right: 0; bottom: 0; height: 4%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b16-rain-gauge-fill-gauge-fill calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b16-rain-gauge-fill i { position: absolute; top: 0; width: 8%; height: 13%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent-2); animation: darma-loader-darma-b16-rain-gauge-fill-gauge-rain calc(var(--loader-speed, 1s) * 1.1) linear infinite; }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(1) { left: 18%; }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(2) { left: 40%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(3) { left: 62%; animation-delay: calc(var(--loader-speed, 1s) * .55); }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(4) { left: 48%; animation-delay: calc(var(--loader-speed, 1s) * .82); }\n@keyframes darma-loader-darma-b16-rain-gauge-fill-gauge-fill { 0%, 6% { height: 4%; } 74%, 88% { height: 92%; } 98%, 100% { height: 4%; } }\n@keyframes darma-loader-darma-b16-rain-gauge-fill-gauge-rain { 0% { opacity: 0; transform: translateY(0); } 12% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0; transform: translateY(280%); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#bae6fd",
+    "size": 110,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-rain-gauge-fill\" aria-label=\"Loading\"><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b16-rain-gauge-fill__tube\"><div class=\"darma-loader-darma-b16-rain-gauge-fill__water\"></div></div></div>",
+    "css": ".darma-loader-darma-b16-rain-gauge-fill { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #bae6fd); width: calc(var(--loader-size, 110px) * .74); height: var(--loader-size, 110px); position: relative; }\n.darma-loader-darma-b16-rain-gauge-fill .darma-loader-darma-b16-rain-gauge-fill__tube { position: absolute; left: 26%; right: 26%; bottom: 2%; height: 62%; border-radius: 3px 3px 8px 8px; overflow: hidden; background: color-mix(in srgb, var(--accent-2) 18%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); }\n.darma-loader-darma-b16-rain-gauge-fill .darma-loader-darma-b16-rain-gauge-fill__tube::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 34%; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 50%, transparent) 0 2px, transparent 2px 14%); }\n.darma-loader-darma-b16-rain-gauge-fill .darma-loader-darma-b16-rain-gauge-fill__water { position: absolute; left: 0; right: 0; bottom: 0; height: 4%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b16-rain-gauge-fill-gauge-fill calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b16-rain-gauge-fill i { position: absolute; top: 0; width: 8%; height: 13%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent-2); animation: darma-loader-darma-b16-rain-gauge-fill-gauge-rain calc(var(--loader-speed, 1s) * 1.1) linear infinite; }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(1) { left: 18%; }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(2) { left: 40%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(3) { left: 62%; animation-delay: calc(var(--loader-speed, 1s) * .55); }\n.darma-loader-darma-b16-rain-gauge-fill i:nth-of-type(4) { left: 48%; animation-delay: calc(var(--loader-speed, 1s) * .82); }\n@keyframes darma-loader-darma-b16-rain-gauge-fill-gauge-fill { 0%, 6% { height: 4%; } 74%, 88% { height: 92%; } 98%, 100% { height: 4%; } }\n@keyframes darma-loader-darma-b16-rain-gauge-fill-gauge-rain { 0% { opacity: 0; transform: translateY(0); } 12% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0; transform: translateY(280%); } }",
+    "react": "export default function DarmaB16RainGaugeFillLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-rain-gauge-fill\" aria-label=\"Loading\"><i></i><i></i><i></i><i></i><div className=\"darma-loader-darma-b16-rain-gauge-fill__tube\"><div className=\"darma-loader-darma-b16-rain-gauge-fill__water\"></div></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

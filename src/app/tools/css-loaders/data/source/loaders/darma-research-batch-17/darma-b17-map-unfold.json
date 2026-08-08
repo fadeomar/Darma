@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-map-unfold",
+  "name": "Map Unfold",
+  "category": "creative",
+  "tags": [
+    "map",
+    "unfold",
+    "travel",
+    "route",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"route\"></div><div class=\"pin\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .68); position: relative; perspective: 700px; }\n.loader span { position: absolute; top: 0; bottom: 0; width: 33.4%; background: linear-gradient(150deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 22%, transparent); animation: map-open calc(var(--loader-speed) * 3.2) ease-in-out infinite; }\n.loader span:nth-of-type(1) { left: 0; transform-origin: 100% 50%; --fold: -78deg; }\n.loader span:nth-of-type(2) { left: 33.3%; --fold: 0deg; }\n.loader span:nth-of-type(3) { left: 66.6%; transform-origin: 0 50%; --fold: 78deg; }\n.loader .route { position: absolute; left: 10%; top: 24%; width: 76%; height: 46%; border-top: 3px dashed var(--accent-2); border-right: 3px dashed var(--accent-2); border-radius: 0 40% 0 0; opacity: 0; animation: map-route calc(var(--loader-speed) * 3.2) ease-out infinite; }\n.loader .pin { position: absolute; right: 12%; top: 58%; width: 9%; height: 13%; border-radius: 50% 50% 50% 0; background: var(--accent-2); transform: rotate(-45deg) scale(0); animation: map-pin calc(var(--loader-speed) * 3.2) cubic-bezier(.3, 1.5, .5, 1) infinite; }\n@keyframes map-open { 0%, 8% { transform: rotateY(var(--fold, 0deg)); } 34%, 74% { transform: rotateY(0deg); } 94%, 100% { transform: rotateY(var(--fold, 0deg)); } }\n@keyframes map-route { 0%, 36% { opacity: 0; } 50%, 74% { opacity: 1; } 88%, 100% { opacity: 0; } }\n@keyframes map-pin { 0%, 48% { transform: rotate(-45deg) scale(0); } 62%, 74% { transform: rotate(-45deg) scale(1); } 88%, 100% { transform: rotate(-45deg) scale(0); } }",
+  "defaults": {
+    "color": "#0d9488",
+    "secondaryColor": "#f97316",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

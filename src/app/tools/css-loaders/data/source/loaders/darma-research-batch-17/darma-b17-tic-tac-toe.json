@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-tic-tac-toe",
+  "name": "Tic Tac Toe",
+  "category": "creative",
+  "tags": [
+    "tictactoe",
+    "grid",
+    "game",
+    "noughts",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"rule\"></div><div class=\"rule\"></div><div class=\"rule\"></div><div class=\"rule\"></div><span></span><span></span><span></span><span></span><span></span><div class=\"win\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .rule { position: absolute; background: color-mix(in srgb, var(--accent) 55%, transparent); border-radius: 3px; }\n.loader .rule:nth-of-type(1) { left: 32%; top: 4%; width: 3%; height: 92%; }\n.loader .rule:nth-of-type(2) { left: 65%; top: 4%; width: 3%; height: 92%; }\n.loader .rule:nth-of-type(3) { top: 32%; left: 4%; height: 3%; width: 92%; }\n.loader .rule:nth-of-type(4) { top: 65%; left: 4%; height: 3%; width: 92%; }\n.loader span { position: absolute; width: 20%; height: 20%; border-radius: 50%; box-shadow: inset 0 0 0 4px var(--accent); transform: scale(0); animation: ttt-mark calc(var(--loader-speed) * 3.6) ease-out infinite; }\n.loader span:nth-of-type(1) { left: 7%; top: 7%; border-radius: 3px; box-shadow: none; background: linear-gradient(45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%); }\n.loader span:nth-of-type(2) { left: 40%; top: 40%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(3) { left: 73%; top: 7%; border-radius: 3px; box-shadow: none; background: linear-gradient(45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%); animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-of-type(4) { left: 7%; top: 73%; animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span:nth-of-type(5) { left: 40%; top: 7%; border-radius: 3px; box-shadow: none; background: linear-gradient(45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%); animation-delay: calc(var(--loader-speed) * 1.6); }\n.loader .win { position: absolute; left: 10%; top: 15%; width: 80%; height: 4%; border-radius: 3px; background: var(--accent-2); transform-origin: 0 50%; transform: scaleX(0); animation: ttt-win calc(var(--loader-speed) * 3.6) ease-out infinite; }\n@keyframes ttt-mark { 0%, 6% { transform: scale(0); opacity: 0; } 16%, 76% { transform: scale(1); opacity: 1; } 88%, 100% { transform: scale(0); opacity: 0; } }\n@keyframes ttt-win { 0%, 52% { transform: scaleX(0); opacity: 0; } 62%, 78% { transform: scaleX(1); opacity: 1; } 88%, 100% { transform: scaleX(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#334155",
+    "secondaryColor": "#f43f5e",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

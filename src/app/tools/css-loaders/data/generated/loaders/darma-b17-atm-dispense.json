@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-atm-dispense",
+  "name": "ATM Dispense",
+  "category": "progress",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "atm",
+    "cash",
+    "dispense",
+    "withdraw",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-atm-dispense atm dispense progress darma-research-batch-17 darma research batch 17 atm cash dispense withdraw progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-atm-dispense\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-atm-dispense__face\"></div><div class=\"darma-loader-darma-b17-atm-dispense__screen\"></div><div class=\"darma-loader-darma-b17-atm-dispense__slot\"></div><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b17-atm-dispense { --accent: var(--loader-color, #1e40af); --accent-2: var(--loader-secondary-color, #4ade80); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__face { position: absolute; inset: 0; border-radius: 8px; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__screen { position: absolute; left: 12%; right: 12%; top: 8%; height: 32%; border-radius: 5px; background: color-mix(in srgb, #0f172a 72%, transparent); overflow: hidden; }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__screen::after { content: ''; position: absolute; left: 8%; right: 8%; top: 60%; height: 14%; border-radius: 3px; background: color-mix(in srgb, var(--accent-2) 30%, transparent); box-shadow: inset 0 0 0 1px var(--accent-2); }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__screen::before { content: ''; position: absolute; left: 8%; top: 60%; width: 0; height: 14%; border-radius: 3px; background: var(--accent-2); z-index: 1; animation: darma-loader-darma-b17-atm-dispense-atm-progress calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__slot { position: absolute; left: 16%; right: 16%; top: 52%; height: 6%; border-radius: 3px; background: color-mix(in srgb, #0f172a 80%, transparent); }\n.darma-loader-darma-b17-atm-dispense span { position: absolute; left: 20%; width: 60%; height: 11%; border-radius: 3px; background: linear-gradient(90deg, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: 0 2px 4px color-mix(in srgb, #000 25%, transparent); opacity: 0; animation: darma-loader-darma-b17-atm-dispense-atm-note calc(var(--loader-speed, 1s) * 3) cubic-bezier(.4, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-atm-dispense span:nth-of-type(1) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b17-atm-dispense span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n.darma-loader-darma-b17-atm-dispense span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * 2); }\n@keyframes darma-loader-darma-b17-atm-dispense-atm-progress { 0%, 8% { width: 0; } 62%, 100% { width: 84%; } }\n@keyframes darma-loader-darma-b17-atm-dispense-atm-note { 0% { opacity: 0; top: 52%; transform: scaleY(.4); } 12% { opacity: 1; } 60% { opacity: 1; top: 76%; transform: scaleY(1); } 100% { opacity: 0; top: 88%; transform: scaleY(1); } }",
+  "defaults": {
+    "color": "#1e40af",
+    "secondaryColor": "#4ade80",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-atm-dispense\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-atm-dispense__face\"></div><div class=\"darma-loader-darma-b17-atm-dispense__screen\"></div><div class=\"darma-loader-darma-b17-atm-dispense__slot\"></div><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b17-atm-dispense { --accent: var(--loader-color, #1e40af); --accent-2: var(--loader-secondary-color, #4ade80); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__face { position: absolute; inset: 0; border-radius: 8px; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__screen { position: absolute; left: 12%; right: 12%; top: 8%; height: 32%; border-radius: 5px; background: color-mix(in srgb, #0f172a 72%, transparent); overflow: hidden; }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__screen::after { content: ''; position: absolute; left: 8%; right: 8%; top: 60%; height: 14%; border-radius: 3px; background: color-mix(in srgb, var(--accent-2) 30%, transparent); box-shadow: inset 0 0 0 1px var(--accent-2); }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__screen::before { content: ''; position: absolute; left: 8%; top: 60%; width: 0; height: 14%; border-radius: 3px; background: var(--accent-2); z-index: 1; animation: darma-loader-darma-b17-atm-dispense-atm-progress calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b17-atm-dispense .darma-loader-darma-b17-atm-dispense__slot { position: absolute; left: 16%; right: 16%; top: 52%; height: 6%; border-radius: 3px; background: color-mix(in srgb, #0f172a 80%, transparent); }\n.darma-loader-darma-b17-atm-dispense span { position: absolute; left: 20%; width: 60%; height: 11%; border-radius: 3px; background: linear-gradient(90deg, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: 0 2px 4px color-mix(in srgb, #000 25%, transparent); opacity: 0; animation: darma-loader-darma-b17-atm-dispense-atm-note calc(var(--loader-speed, 1s) * 3) cubic-bezier(.4, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-atm-dispense span:nth-of-type(1) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b17-atm-dispense span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n.darma-loader-darma-b17-atm-dispense span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * 2); }\n@keyframes darma-loader-darma-b17-atm-dispense-atm-progress { 0%, 8% { width: 0; } 62%, 100% { width: 84%; } }\n@keyframes darma-loader-darma-b17-atm-dispense-atm-note { 0% { opacity: 0; top: 52%; transform: scaleY(.4); } 12% { opacity: 1; } 60% { opacity: 1; top: 76%; transform: scaleY(1); } 100% { opacity: 0; top: 88%; transform: scaleY(1); } }",
+    "react": "export default function DarmaB17AtmDispenseLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-atm-dispense\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-atm-dispense__face\"></div><div className=\"darma-loader-darma-b17-atm-dispense__screen\"></div><div className=\"darma-loader-darma-b17-atm-dispense__slot\"></div><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

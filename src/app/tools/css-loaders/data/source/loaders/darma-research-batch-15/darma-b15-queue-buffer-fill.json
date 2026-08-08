@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-queue-buffer-fill",
+  "name": "Queue Buffer Fill",
+  "category": "progress",
+  "tags": [
+    "queue",
+    "buffer",
+    "cells",
+    "stream",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"head\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .26); position: relative; display: flex; gap: 2.5%; align-items: center; }\n.loader span { flex: 1; height: 100%; border-radius: 4px; background: var(--accent); opacity: .16; transform-origin: 50% 100%; transform: scaleY(.45); animation: qbuf-cell calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-of-type(4) { animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-of-type(5) { animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(6) { animation-delay: calc(var(--loader-speed) * .5); }\n.loader span:nth-of-type(7) { animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-of-type(8) { animation-delay: calc(var(--loader-speed) * .7); }\n.loader .head { position: absolute; top: -14%; bottom: -14%; left: 0; width: 11%; border-radius: 5px; box-shadow: inset 0 0 0 2px var(--accent-2); animation: qbuf-head calc(var(--loader-speed) * 2.2) linear infinite; }\n@keyframes qbuf-cell { 0% { opacity: .16; transform: scaleY(.45); } 22%, 62% { opacity: 1; transform: scaleY(1); } 84%, 100% { opacity: .16; transform: scaleY(.45); } }\n@keyframes qbuf-head { 0% { transform: translateX(0); } 100% { transform: translateX(810%); } }",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#f97316",
+    "size": 136,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

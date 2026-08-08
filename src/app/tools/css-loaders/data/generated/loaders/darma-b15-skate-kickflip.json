@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-skate-kickflip",
+  "name": "Skate Kickflip",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "skateboard",
+    "kickflip",
+    "trick",
+    "sport",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-skate-kickflip skate kickflip fun darma-research-batch-15 darma research batch 15 skateboard kickflip trick sport fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-skate-kickflip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-skate-kickflip__deck\"></div><div class=\"darma-loader-darma-b15-skate-kickflip__ground\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-skate-kickflip { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .72); position: relative; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__deck { position: absolute; left: 24%; bottom: 26%; width: 52%; height: 12%; border-radius: 7px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-skate-kickflip-kick-trick calc(var(--loader-speed, 1s) * 1.5) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__deck::before { content: ''; position: absolute; left: 14%; top: 88%; width: 14%; height: 62%; border-radius: 50%; background: #e2e8f0; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__deck::after { content: ''; position: absolute; right: 14%; top: 88%; width: 14%; height: 62%; border-radius: 50%; background: #e2e8f0; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__ground { position: absolute; left: 6%; right: 6%; bottom: 14%; height: 5%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n@keyframes darma-loader-darma-b15-skate-kickflip-kick-trick { 0% { transform: translateY(0) rotate(0deg); } 22% { transform: translateY(-85%) rotate(-16deg); } 52% { transform: translateY(-125%) rotate(-190deg); } 80% { transform: translateY(-32%) rotate(-348deg); } 92%, 100% { transform: translateY(0) rotate(-360deg); } }",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#a5f3fc",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-skate-kickflip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-skate-kickflip__deck\"></div><div class=\"darma-loader-darma-b15-skate-kickflip__ground\"></div></div>",
+    "css": ".darma-loader-darma-b15-skate-kickflip { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .72); position: relative; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__deck { position: absolute; left: 24%; bottom: 26%; width: 52%; height: 12%; border-radius: 7px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-skate-kickflip-kick-trick calc(var(--loader-speed, 1s) * 1.5) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__deck::before { content: ''; position: absolute; left: 14%; top: 88%; width: 14%; height: 62%; border-radius: 50%; background: #e2e8f0; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__deck::after { content: ''; position: absolute; right: 14%; top: 88%; width: 14%; height: 62%; border-radius: 50%; background: #e2e8f0; }\n.darma-loader-darma-b15-skate-kickflip .darma-loader-darma-b15-skate-kickflip__ground { position: absolute; left: 6%; right: 6%; bottom: 14%; height: 5%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n@keyframes darma-loader-darma-b15-skate-kickflip-kick-trick { 0% { transform: translateY(0) rotate(0deg); } 22% { transform: translateY(-85%) rotate(-16deg); } 52% { transform: translateY(-125%) rotate(-190deg); } 80% { transform: translateY(-32%) rotate(-348deg); } 92%, 100% { transform: translateY(0) rotate(-360deg); } }",
+    "react": "export default function DarmaB15SkateKickflipLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-skate-kickflip\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-skate-kickflip__deck\"></div><div className=\"darma-loader-darma-b15-skate-kickflip__ground\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

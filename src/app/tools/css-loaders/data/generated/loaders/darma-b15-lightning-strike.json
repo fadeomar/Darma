@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-lightning-strike",
+  "name": "Lightning Strike",
+  "category": "creative",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "lightning",
+    "storm",
+    "bolt",
+    "flash",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-lightning-strike lightning strike creative darma-research-batch-15 darma research batch 15 lightning storm bolt flash creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-lightning-strike\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-lightning-strike__cloud\"></div><div class=\"darma-loader-darma-b15-lightning-strike__bolt\"></div><div class=\"darma-loader-darma-b15-lightning-strike__glow\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-lightning-strike { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #64748b); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__cloud { position: absolute; left: 10%; top: 14%; width: 80%; height: 30%; border-radius: 46% 46% 34% 34% / 60% 60% 40% 40%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); animation: darma-loader-darma-b15-lightning-strike-bolt-cloud calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__cloud::after { content: ''; position: absolute; left: 12%; top: -26%; width: 46%; height: 62%; border-radius: 50%; background: var(--accent-2); }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__bolt { position: absolute; left: 38%; top: 42%; width: 26%; height: 46%; background: linear-gradient(var(--accent), color-mix(in srgb, #fff 30%, var(--accent))); clip-path: polygon(58% 0, 12% 54%, 46% 54%, 24% 100%, 88% 40%, 52% 40%); animation: darma-loader-darma-b15-lightning-strike-bolt-flash calc(var(--loader-speed, 1s) * 1.8) steps(1, end) infinite; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__glow { position: absolute; left: 24%; top: 46%; width: 52%; height: 46%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent), transparent 68%); animation: darma-loader-darma-b15-lightning-strike-bolt-glow calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-flash { 0%, 54% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .15; } 68% { opacity: 1; } 84%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-glow { 0%, 54% { opacity: 0; transform: scale(.5); } 62% { opacity: .9; transform: scale(1); } 90%, 100% { opacity: 0; transform: scale(1.3); } }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-cloud { 0%, 100% { transform: translateX(-3%); } 50% { transform: translateX(3%); } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#64748b",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-lightning-strike\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-lightning-strike__cloud\"></div><div class=\"darma-loader-darma-b15-lightning-strike__bolt\"></div><div class=\"darma-loader-darma-b15-lightning-strike__glow\"></div></div>",
+    "css": ".darma-loader-darma-b15-lightning-strike { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #64748b); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__cloud { position: absolute; left: 10%; top: 14%; width: 80%; height: 30%; border-radius: 46% 46% 34% 34% / 60% 60% 40% 40%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); animation: darma-loader-darma-b15-lightning-strike-bolt-cloud calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__cloud::after { content: ''; position: absolute; left: 12%; top: -26%; width: 46%; height: 62%; border-radius: 50%; background: var(--accent-2); }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__bolt { position: absolute; left: 38%; top: 42%; width: 26%; height: 46%; background: linear-gradient(var(--accent), color-mix(in srgb, #fff 30%, var(--accent))); clip-path: polygon(58% 0, 12% 54%, 46% 54%, 24% 100%, 88% 40%, 52% 40%); animation: darma-loader-darma-b15-lightning-strike-bolt-flash calc(var(--loader-speed, 1s) * 1.8) steps(1, end) infinite; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__glow { position: absolute; left: 24%; top: 46%; width: 52%; height: 46%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent), transparent 68%); animation: darma-loader-darma-b15-lightning-strike-bolt-glow calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-flash { 0%, 54% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .15; } 68% { opacity: 1; } 84%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-glow { 0%, 54% { opacity: 0; transform: scale(.5); } 62% { opacity: .9; transform: scale(1); } 90%, 100% { opacity: 0; transform: scale(1.3); } }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-cloud { 0%, 100% { transform: translateX(-3%); } 50% { transform: translateX(3%); } }",
+    "react": "export default function DarmaB15LightningStrikeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-lightning-strike\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-lightning-strike__cloud\"></div><div className=\"darma-loader-darma-b15-lightning-strike__bolt\"></div><div className=\"darma-loader-darma-b15-lightning-strike__glow\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

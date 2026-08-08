@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-coffee-grinder",
+  "name": "Coffee Grinder",
+  "category": "fun",
+  "tags": [
+    "grinder",
+    "beans",
+    "crank",
+    "brew",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"crank\"></div><div class=\"hopper\"></div><i></i><i></i><i></i><div class=\"drawer\"><div class=\"grounds\"></div></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .crank { position: absolute; left: 46%; top: 2%; width: 8%; height: 16%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: grind-crank calc(var(--loader-speed) * 1.1) linear infinite; }\n.loader .crank::after { content: ''; position: absolute; left: -180%; top: -30%; width: 200%; height: 40%; border-radius: 3px; background: var(--accent-2); }\n.loader .hopper { position: absolute; left: 16%; right: 16%; top: 18%; height: 42%; border-radius: 6px 6px 30% 30%; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); }\n.loader i { position: absolute; width: 10%; height: 8%; border-radius: 50%; background: color-mix(in srgb, #000 20%, var(--accent)); animation: grind-bean calc(var(--loader-speed) * 1.1) ease-in-out infinite; }\n.loader i:nth-of-type(1) { left: 28%; top: 26%; }\n.loader i:nth-of-type(2) { left: 46%; top: 32%; animation-delay: calc(var(--loader-speed) * -.37); }\n.loader i:nth-of-type(3) { left: 62%; top: 24%; animation-delay: calc(var(--loader-speed) * -.74); }\n.loader .drawer { position: absolute; left: 12%; right: 12%; bottom: 4%; height: 30%; border-radius: 4px; overflow: hidden; background: linear-gradient(color-mix(in srgb, #fff 10%, var(--accent)), color-mix(in srgb, #000 25%, var(--accent))); }\n.loader .grounds { position: absolute; left: 8%; right: 8%; bottom: 8%; height: 4%; border-radius: 3px 3px 2px 2px; background: color-mix(in srgb, #000 35%, var(--accent)); animation: grind-fill calc(var(--loader-speed) * 4.4) ease-in-out infinite; }\n@keyframes grind-crank { to { transform: rotate(1turn); } }\n@keyframes grind-bean { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(6%, 26%) rotate(140deg); } }\n@keyframes grind-fill { 0%, 6% { height: 4%; } 72%, 88% { height: 72%; } 98%, 100% { height: 4%; } }",
+  "defaults": {
+    "color": "#78350f",
+    "secondaryColor": "#d6d3d1",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

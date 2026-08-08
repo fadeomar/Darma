@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-litmus-strip",
+  "name": "Litmus Strip",
+  "category": "progress",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "litmus",
+    "ph",
+    "test",
+    "chemistry",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-litmus-strip litmus strip progress darma-research-batch-16 darma research batch 16 litmus ph test chemistry progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-litmus-strip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-litmus-strip__strip\"><div class=\"darma-loader-darma-b16-litmus-strip__wick\"></div></div><div class=\"darma-loader-darma-b16-litmus-strip__beaker\"><div class=\"darma-loader-darma-b16-litmus-strip__fluid\"></div></div></div>",
+  "previewCss": ".darma-loader-darma-b16-litmus-strip { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #22c55e); width: calc(var(--loader-size, 110px) * .8); height: var(--loader-size, 110px); position: relative; }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__strip { position: absolute; left: 40%; top: 2%; width: 20%; height: 62%; border-radius: 3px; overflow: hidden; background: color-mix(in srgb, #fff 82%, var(--accent-2)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 18%, transparent); animation: darma-loader-darma-b16-litmus-strip-litmus-dip calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__wick { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: linear-gradient(var(--accent), var(--accent-2)); animation: darma-loader-darma-b16-litmus-strip-litmus-wick calc(var(--loader-speed, 1s) * 3) ease-out infinite; }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__beaker { position: absolute; left: 16%; right: 16%; bottom: 2%; height: 34%; border-radius: 2px 2px 8px 8px; overflow: hidden; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 45%, transparent); }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__fluid { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: color-mix(in srgb, var(--accent-2) 40%, transparent); }\n@keyframes darma-loader-darma-b16-litmus-strip-litmus-dip { 0%, 100% { transform: translateY(0); } 30%, 74% { transform: translateY(16%); } }\n@keyframes darma-loader-darma-b16-litmus-strip-litmus-wick { 0%, 26% { height: 0; } 62%, 80% { height: 84%; } 96%, 100% { height: 0; } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#22c55e",
+    "size": 110,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-litmus-strip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-litmus-strip__strip\"><div class=\"darma-loader-darma-b16-litmus-strip__wick\"></div></div><div class=\"darma-loader-darma-b16-litmus-strip__beaker\"><div class=\"darma-loader-darma-b16-litmus-strip__fluid\"></div></div></div>",
+    "css": ".darma-loader-darma-b16-litmus-strip { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #22c55e); width: calc(var(--loader-size, 110px) * .8); height: var(--loader-size, 110px); position: relative; }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__strip { position: absolute; left: 40%; top: 2%; width: 20%; height: 62%; border-radius: 3px; overflow: hidden; background: color-mix(in srgb, #fff 82%, var(--accent-2)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 18%, transparent); animation: darma-loader-darma-b16-litmus-strip-litmus-dip calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__wick { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: linear-gradient(var(--accent), var(--accent-2)); animation: darma-loader-darma-b16-litmus-strip-litmus-wick calc(var(--loader-speed, 1s) * 3) ease-out infinite; }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__beaker { position: absolute; left: 16%; right: 16%; bottom: 2%; height: 34%; border-radius: 2px 2px 8px 8px; overflow: hidden; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 45%, transparent); }\n.darma-loader-darma-b16-litmus-strip .darma-loader-darma-b16-litmus-strip__fluid { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: color-mix(in srgb, var(--accent-2) 40%, transparent); }\n@keyframes darma-loader-darma-b16-litmus-strip-litmus-dip { 0%, 100% { transform: translateY(0); } 30%, 74% { transform: translateY(16%); } }\n@keyframes darma-loader-darma-b16-litmus-strip-litmus-wick { 0%, 26% { height: 0; } 62%, 80% { height: 84%; } 96%, 100% { height: 0; } }",
+    "react": "export default function DarmaB16LitmusStripLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-litmus-strip\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-litmus-strip__strip\"><div className=\"darma-loader-darma-b16-litmus-strip__wick\"></div></div><div className=\"darma-loader-darma-b16-litmus-strip__beaker\"><div className=\"darma-loader-darma-b16-litmus-strip__fluid\"></div></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

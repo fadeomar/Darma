@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-floppy-disk-write",
+  "name": "Floppy Disk Write",
+  "category": "creative",
+  "tags": [
+    "floppy",
+    "disk",
+    "save",
+    "retro",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"body\"></div><div class=\"shutter\"></div><div class=\"label\"></div><div class=\"led\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .body { position: absolute; inset: 4%; border-radius: 5px 12px 5px 5px; background: linear-gradient(150deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.loader .shutter { position: absolute; left: 28%; top: 8%; width: 40%; height: 30%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); animation: floppy-shutter calc(var(--loader-speed) * 2.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.loader .shutter::after { content: ''; position: absolute; left: 58%; top: 10%; width: 26%; height: 80%; border-radius: 2px; background: color-mix(in srgb, #0f172a 65%, transparent); }\n.loader .label { position: absolute; left: 16%; right: 16%; bottom: 12%; height: 34%; border-radius: 3px; background: repeating-linear-gradient(color-mix(in srgb, #fff 78%, var(--accent)) 0 26%, color-mix(in srgb, #fff 55%, var(--accent)) 0 34%); overflow: hidden; }\n.loader .label::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: color-mix(in srgb, var(--accent-2) 55%, transparent); animation: floppy-write calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader .led { position: absolute; right: 10%; top: 12%; width: 8%; height: 8%; border-radius: 50%; background: var(--accent-2); animation: floppy-led calc(var(--loader-speed) * .6) steps(1, end) infinite; }\n@keyframes floppy-shutter { 0%, 8% { transform: translateX(0); } 24%, 76% { transform: translateX(-46%); } 92%, 100% { transform: translateX(0); } }\n@keyframes floppy-write { 0%, 20% { width: 0; } 80%, 100% { width: 100%; } }\n@keyframes floppy-led { 0%, 49% { opacity: 1; box-shadow: 0 0 10px var(--accent-2); } 50%, 100% { opacity: .2; box-shadow: none; } }",
+  "defaults": {
+    "color": "#1e293b",
+    "secondaryColor": "#22c55e",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

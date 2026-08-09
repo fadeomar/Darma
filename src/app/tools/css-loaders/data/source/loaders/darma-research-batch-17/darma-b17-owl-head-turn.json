@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-owl-head-turn",
+  "name": "Owl Head Turn",
+  "category": "fun",
+  "tags": [
+    "owl",
+    "head",
+    "turn",
+    "bird",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"body\"></div><div class=\"head\"><span class=\"eye\"></span><span class=\"eye\"></span><span class=\"beak\"></span><span class=\"tuft\"></span><span class=\"tuft\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .body { position: absolute; left: 18%; right: 18%; bottom: 4%; height: 58%; border-radius: 46% 46% 40% 40%; background: linear-gradient(color-mix(in srgb, #fff 12%, var(--accent)), var(--accent)); }\n.loader .head { position: absolute; left: 20%; right: 20%; top: 6%; height: 46%; border-radius: 46%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); animation: owl-swivel calc(var(--loader-speed) * 3.4) ease-in-out infinite; }\n.loader .eye { position: absolute; top: 26%; width: 30%; height: 38%; border-radius: 50%; background: color-mix(in srgb, #fff 78%, var(--accent-2)); }\n.loader .eye::after { content: ''; position: absolute; left: 24%; top: 22%; width: 52%; height: 56%; border-radius: 50%; background: #0f172a; animation: owl-blink calc(var(--loader-speed) * 3.4) steps(1, end) infinite; }\n.loader .eye:nth-of-type(1) { left: 10%; }\n.loader .eye:nth-of-type(2) { right: 10%; }\n.loader .beak { position: absolute; left: 42%; top: 58%; width: 16%; height: 22%; background: var(--accent-2); clip-path: polygon(50% 100%, 0 0, 100% 0); }\n.loader .tuft { position: absolute; top: -16%; width: 22%; height: 28%; background: var(--accent); }\n.loader .tuft:nth-of-type(4) { left: 8%; clip-path: polygon(0 100%, 40% 0, 100% 100%); }\n.loader .tuft:nth-of-type(5) { right: 8%; clip-path: polygon(0 100%, 60% 0, 100% 100%); }\n@keyframes owl-swivel { 0%, 14% { transform: rotate(0deg) translateX(0); } 34%, 46% { transform: rotate(-16deg) translateX(-8%); } 66%, 78% { transform: rotate(16deg) translateX(8%); } 94%, 100% { transform: rotate(0deg) translateX(0); } }\n@keyframes owl-blink { 0%, 52% { transform: scaleY(1); } 54%, 57% { transform: scaleY(.08); } 59%, 100% { transform: scaleY(1); } }",
+  "defaults": {
+    "color": "#92400e",
+    "secondaryColor": "#fbbf24",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

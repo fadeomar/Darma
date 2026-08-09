@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-piggy-bank-coins",
+  "name": "Piggy Bank Coins",
+  "category": "fun",
+  "tags": [
+    "piggy",
+    "savings",
+    "coin",
+    "bank",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><i></i><i></i><i></i><div class=\"pig\"><span class=\"slot\"></span><span class=\"ear\"></span><span class=\"snout\"></span><span class=\"leg\"></span><span class=\"leg\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader .pig { position: absolute; left: 12%; right: 12%; bottom: 8%; height: 52%; border-radius: 46% 46% 42% 42%; background: radial-gradient(circle at 34% 32%, color-mix(in srgb, #fff 32%, var(--accent)), var(--accent)); animation: piggy-nudge calc(var(--loader-speed) * 1.4) ease-out infinite; }\n.loader .slot { position: absolute; left: 38%; top: 12%; width: 24%; height: 7%; border-radius: 4px; background: color-mix(in srgb, #000 45%, transparent); }\n.loader .ear { position: absolute; left: 16%; top: -12%; width: 18%; height: 26%; border-radius: 50% 50% 10% 50%; background: var(--accent); }\n.loader .snout { position: absolute; right: 2%; top: 40%; width: 20%; height: 26%; border-radius: 40%; background: color-mix(in srgb, #000 8%, var(--accent)); box-shadow: inset 3px 0 0 color-mix(in srgb, #000 18%, transparent); }\n.loader .leg { position: absolute; bottom: -16%; width: 16%; height: 22%; border-radius: 0 0 5px 5px; background: var(--accent); }\n.loader .leg:nth-of-type(4) { left: 18%; }\n.loader .leg:nth-of-type(5) { right: 26%; }\n.loader i { position: absolute; left: 44%; top: 0; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, transparent); opacity: 0; animation: piggy-coin calc(var(--loader-speed) * 1.4) cubic-bezier(.5, 0, .7, 1) infinite; }\n.loader i:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .47); }\n.loader i:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * .94); }\n@keyframes piggy-coin { 0% { opacity: 0; transform: translateY(-40%) rotate(0deg) scaleX(1); } 14% { opacity: 1; } 62% { opacity: 1; transform: translateY(300%) rotate(180deg) scaleX(.3); } 72%, 100% { opacity: 0; transform: translateY(320%) rotate(220deg) scaleX(.2); } }\n@keyframes piggy-nudge { 0%, 58% { transform: translateY(0) scaleY(1); } 66% { transform: translateY(2%) scaleY(.97); } 78%, 100% { transform: translateY(0) scaleY(1); } }",
+  "defaults": {
+    "color": "#f472b6",
+    "secondaryColor": "#fbbf24",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

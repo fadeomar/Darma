@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-pipette-drop",
+  "name": "Pipette Drop",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "pipette",
+    "drop",
+    "lab",
+    "sample",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-pipette-drop pipette drop fun darma-research-batch-16 darma research batch 16 pipette drop lab sample fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-pipette-drop\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-pipette-drop__bulb\"></div><div class=\"darma-loader-darma-b16-pipette-drop__stem\"></div><i></i><i></i><div class=\"darma-loader-darma-b16-pipette-drop__well\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-pipette-drop { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #c4b5fd); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b16-pipette-drop .darma-loader-darma-b16-pipette-drop__bulb { position: absolute; left: 36%; top: 4%; width: 28%; height: 26%; border-radius: 46% 46% 34% 34%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-pipette-drop-pip-squeeze calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b16-pipette-drop .darma-loader-darma-b16-pipette-drop__stem { position: absolute; left: 45%; top: 28%; width: 10%; height: 34%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); clip-path: polygon(0 0, 100% 0, 66% 100%, 34% 100%); }\n.darma-loader-darma-b16-pipette-drop i { position: absolute; left: 45%; top: 60%; width: 10%; height: 12%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); opacity: 0; animation: darma-loader-darma-b16-pipette-drop-pip-fall calc(var(--loader-speed, 1s) * 1.6) ease-in infinite; }\n.darma-loader-darma-b16-pipette-drop i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b16-pipette-drop .darma-loader-darma-b16-pipette-drop__well { position: absolute; left: 22%; right: 22%; bottom: 6%; height: 18%; border-radius: 4px 4px 40% 40%; background: color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b16-pipette-drop-pip-ripple calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n@keyframes darma-loader-darma-b16-pipette-drop-pip-squeeze { 0%, 30% { transform: scale(1); } 46% { transform: scale(.76, .84); } 66%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b16-pipette-drop-pip-fall { 0%, 44% { opacity: 0; transform: translateY(0) scale(.5); } 52% { opacity: 1; transform: translateY(0) scale(1); } 94%, 100% { opacity: 0; transform: translateY(170%) scale(.7); } }\n@keyframes darma-loader-darma-b16-pipette-drop-pip-ripple { 0%, 88% { transform: scaleX(1); } 94% { transform: scaleX(1.06); } 100% { transform: scaleX(1); } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c4b5fd",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-pipette-drop\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-pipette-drop__bulb\"></div><div class=\"darma-loader-darma-b16-pipette-drop__stem\"></div><i></i><i></i><div class=\"darma-loader-darma-b16-pipette-drop__well\"></div></div>",
+    "css": ".darma-loader-darma-b16-pipette-drop { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #c4b5fd); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b16-pipette-drop .darma-loader-darma-b16-pipette-drop__bulb { position: absolute; left: 36%; top: 4%; width: 28%; height: 26%; border-radius: 46% 46% 34% 34%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-pipette-drop-pip-squeeze calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b16-pipette-drop .darma-loader-darma-b16-pipette-drop__stem { position: absolute; left: 45%; top: 28%; width: 10%; height: 34%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); clip-path: polygon(0 0, 100% 0, 66% 100%, 34% 100%); }\n.darma-loader-darma-b16-pipette-drop i { position: absolute; left: 45%; top: 60%; width: 10%; height: 12%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); opacity: 0; animation: darma-loader-darma-b16-pipette-drop-pip-fall calc(var(--loader-speed, 1s) * 1.6) ease-in infinite; }\n.darma-loader-darma-b16-pipette-drop i:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b16-pipette-drop .darma-loader-darma-b16-pipette-drop__well { position: absolute; left: 22%; right: 22%; bottom: 6%; height: 18%; border-radius: 4px 4px 40% 40%; background: color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b16-pipette-drop-pip-ripple calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n@keyframes darma-loader-darma-b16-pipette-drop-pip-squeeze { 0%, 30% { transform: scale(1); } 46% { transform: scale(.76, .84); } 66%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b16-pipette-drop-pip-fall { 0%, 44% { opacity: 0; transform: translateY(0) scale(.5); } 52% { opacity: 1; transform: translateY(0) scale(1); } 94%, 100% { opacity: 0; transform: translateY(170%) scale(.7); } }\n@keyframes darma-loader-darma-b16-pipette-drop-pip-ripple { 0%, 88% { transform: scaleX(1); } 94% { transform: scaleX(1.06); } 100% { transform: scaleX(1); } }",
+    "react": "export default function DarmaB16PipetteDropLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-pipette-drop\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-pipette-drop__bulb\"></div><div className=\"darma-loader-darma-b16-pipette-drop__stem\"></div><i></i><i></i><div className=\"darma-loader-darma-b16-pipette-drop__well\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

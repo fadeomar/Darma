@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-bee-waggle",
+  "name": "Bee Waggle",
+  "category": "fun",
+  "tags": [
+    "bee",
+    "waggle",
+    "dance",
+    "insect",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"path\"></div><div class=\"bee\"><span class=\"wing\"></span><span class=\"wing\"></span><span class=\"body\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .path { position: absolute; left: 22%; right: 22%; top: 10%; bottom: 10%; border-radius: 50%; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }\n.loader .bee { position: absolute; left: 42%; top: 42%; width: 16%; height: 16%; animation: bee-loop calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .body { position: absolute; inset: 0; border-radius: 46% 46% 50% 50%; background: repeating-linear-gradient(90deg, var(--accent) 0 26%, var(--accent-2) 0 52%); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 20%, transparent); }\n.loader .wing { position: absolute; top: -34%; width: 62%; height: 62%; border-radius: 50% 50% 40% 40%; background: color-mix(in srgb, #fff 62%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-2) 30%, transparent); }\n.loader .wing:nth-of-type(1) { left: -22%; transform-origin: 100% 100%; animation: bee-wing-left calc(var(--loader-speed) * .14) ease-in-out infinite; }\n.loader .wing:nth-of-type(2) { right: -22%; transform-origin: 0 100%; animation: bee-wing-right calc(var(--loader-speed) * .14) ease-in-out infinite; }\n@keyframes bee-loop { 0% { transform: translate(0, 0) rotate(0deg); } 12% { transform: translate(0, -180%) rotate(0deg); } 24% { transform: translate(-150%, -90%) rotate(-20deg); } 36% { transform: translate(-90%, 60%) rotate(-10deg); } 48% { transform: translate(0, 0) rotate(0deg); } 56%, 62% { transform: translate(6%, -60%) rotate(6deg); } 68% { transform: translate(-6%, -120%) rotate(-6deg); } 76% { transform: translate(150%, -90%) rotate(20deg); } 88% { transform: translate(90%, 60%) rotate(10deg); } 100% { transform: translate(0, 0) rotate(0deg); } }\n@keyframes bee-wing-left { 0%, 100% { transform: rotate(-18deg) scaleY(1); } 50% { transform: rotate(16deg) scaleY(.7); } }\n@keyframes bee-wing-right { 0%, 100% { transform: rotate(18deg) scaleY(1); } 50% { transform: rotate(-16deg) scaleY(.7); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#0f172a",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

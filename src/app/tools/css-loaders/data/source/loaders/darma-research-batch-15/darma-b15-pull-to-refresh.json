@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-pull-to-refresh",
+  "name": "Pull To Refresh",
+  "category": "spinners",
+  "tags": [
+    "refresh",
+    "pull",
+    "mobile",
+    "gesture",
+    "spinners"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"ring\"></div><div class=\"sheet\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .82); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 10px; }\n.loader .ring { position: absolute; left: 34%; top: 8%; width: 32%; height: 0; padding-bottom: 32%; border-radius: 50%; border: 3px solid color-mix(in srgb, var(--accent) 25%, transparent); border-top-color: var(--accent); animation: ptr-pull calc(var(--loader-speed) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.loader .sheet { position: absolute; left: 6%; right: 6%; top: 22%; height: 76%; border-radius: 10px 10px 0 0; background: color-mix(in srgb, var(--accent-2) 45%, transparent); animation: ptr-sheet calc(var(--loader-speed) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.loader .sheet::after { content: ''; position: absolute; left: 10%; right: 10%; top: 14%; height: 9%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 40%, transparent); box-shadow: 0 220% 0 color-mix(in srgb, var(--accent) 40%, transparent), 0 440% 0 color-mix(in srgb, var(--accent) 40%, transparent); }\n@keyframes ptr-pull { 0% { opacity: 0; transform: translateY(-140%) rotate(0deg); } 14% { opacity: 1; } 30% { transform: translateY(0) rotate(200deg); } 78% { opacity: 1; transform: translateY(0) rotate(1000deg); } 100% { opacity: 0; transform: translateY(-140%) rotate(1160deg); } }\n@keyframes ptr-sheet { 0% { transform: translateY(-16%); } 30%, 78% { transform: translateY(0); } 100% { transform: translateY(-16%); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#bfdbfe",
+    "size": 110,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-donut-glaze",
+  "name": "Donut Glaze",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "donut",
+    "glaze",
+    "dip",
+    "bakery",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-donut-glaze donut glaze fun darma-research-batch-15 darma research batch 15 donut glaze dip bakery fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-donut-glaze\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-donut-glaze__dunk\"><span class=\"darma-loader-darma-b15-donut-glaze__ring\"></span><span class=\"darma-loader-darma-b15-donut-glaze__glaze\"></span></div><div class=\"darma-loader-darma-b15-donut-glaze__bowl\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-donut-glaze { --accent: var(--loader-color, #c2410c); --accent-2: var(--loader-secondary-color, #f472b6); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__bowl { position: absolute; left: 12%; right: 12%; bottom: 4%; height: 26%; border-radius: 6px 6px 42% 42%; background: linear-gradient(color-mix(in srgb, #000 12%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__dunk { position: absolute; left: 26%; top: 4%; width: 48%; height: 48%; animation: darma-loader-darma-b15-donut-glaze-donut-dip calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__ring { position: absolute; inset: 0; border-radius: 50%; border: calc(var(--loader-size, 116px) * .085) solid var(--accent); }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__glaze { position: absolute; inset: 0; border-radius: 50%; border: calc(var(--loader-size, 116px) * .085) solid var(--accent-2); animation: darma-loader-darma-b15-donut-glaze-donut-coat calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-donut-glaze-donut-dip { 0%, 100% { transform: translateY(0); } 40%, 56% { transform: translateY(66%); } }\n@keyframes darma-loader-darma-b15-donut-glaze-donut-coat { 0%, 30% { clip-path: inset(100% 0 0 0); } 56%, 86% { clip-path: inset(44% 0 0 0); } 98%, 100% { clip-path: inset(100% 0 0 0); } }",
+  "defaults": {
+    "color": "#c2410c",
+    "secondaryColor": "#f472b6",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-donut-glaze\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-donut-glaze__dunk\"><span class=\"darma-loader-darma-b15-donut-glaze__ring\"></span><span class=\"darma-loader-darma-b15-donut-glaze__glaze\"></span></div><div class=\"darma-loader-darma-b15-donut-glaze__bowl\"></div></div>",
+    "css": ".darma-loader-darma-b15-donut-glaze { --accent: var(--loader-color, #c2410c); --accent-2: var(--loader-secondary-color, #f472b6); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__bowl { position: absolute; left: 12%; right: 12%; bottom: 4%; height: 26%; border-radius: 6px 6px 42% 42%; background: linear-gradient(color-mix(in srgb, #000 12%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__dunk { position: absolute; left: 26%; top: 4%; width: 48%; height: 48%; animation: darma-loader-darma-b15-donut-glaze-donut-dip calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__ring { position: absolute; inset: 0; border-radius: 50%; border: calc(var(--loader-size, 116px) * .085) solid var(--accent); }\n.darma-loader-darma-b15-donut-glaze .darma-loader-darma-b15-donut-glaze__glaze { position: absolute; inset: 0; border-radius: 50%; border: calc(var(--loader-size, 116px) * .085) solid var(--accent-2); animation: darma-loader-darma-b15-donut-glaze-donut-coat calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-donut-glaze-donut-dip { 0%, 100% { transform: translateY(0); } 40%, 56% { transform: translateY(66%); } }\n@keyframes darma-loader-darma-b15-donut-glaze-donut-coat { 0%, 30% { clip-path: inset(100% 0 0 0); } 56%, 86% { clip-path: inset(44% 0 0 0); } 98%, 100% { clip-path: inset(100% 0 0 0); } }",
+    "react": "export default function DarmaB15DonutGlazeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-donut-glaze\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-donut-glaze__dunk\"><span className=\"darma-loader-darma-b15-donut-glaze__ring\"></span><span className=\"darma-loader-darma-b15-donut-glaze__glaze\"></span></div><div className=\"darma-loader-darma-b15-donut-glaze__bowl\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

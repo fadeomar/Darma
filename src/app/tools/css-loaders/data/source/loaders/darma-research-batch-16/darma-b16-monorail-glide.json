@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-monorail-glide",
+  "name": "Monorail Glide",
+  "category": "fun",
+  "tags": [
+    "monorail",
+    "train",
+    "transit",
+    "rail",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"beam\"></div><div class=\"pylon\"></div><div class=\"pylon\"></div><div class=\"car\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .56); position: relative; overflow: hidden; }\n.loader .beam { position: absolute; left: 0; right: 0; top: 46%; height: 8%; border-radius: 3px; background: linear-gradient(#cbd5e1, #64748b); }\n.loader .pylon { position: absolute; top: 54%; width: 5%; height: 46%; background: color-mix(in srgb, var(--accent) 35%, transparent); animation: rail-pass calc(var(--loader-speed) * 2.6) linear infinite; }\n.loader .pylon:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * -1.3); }\n.loader .car { position: absolute; left: 6%; top: 12%; width: 56%; height: 34%; border-radius: 16px 8px 6px 6px / 50% 30% 6px 6px; background: linear-gradient(var(--accent-2), var(--accent)); box-shadow: 0 4px 0 color-mix(in srgb, #000 25%, transparent); animation: rail-glide calc(var(--loader-speed) * 2.6) cubic-bezier(.5, 0, .5, 1) infinite; }\n.loader .car::after { content: ''; position: absolute; left: 12%; top: 30%; width: 66%; height: 34%; border-radius: 3px; background: repeating-linear-gradient(90deg, color-mix(in srgb, #0f172a 55%, transparent) 0 24%, transparent 0 34%); }\n@keyframes rail-pass { from { left: 104%; } to { left: -6%; } }\n@keyframes rail-glide { 0% { transform: translateX(-120%); } 40%, 60% { transform: translateX(0); } 100% { transform: translateX(120%); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#e0f2fe",
+    "size": 134,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

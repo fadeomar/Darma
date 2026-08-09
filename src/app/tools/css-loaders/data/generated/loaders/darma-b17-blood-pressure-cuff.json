@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-blood-pressure-cuff",
+  "name": "Blood Pressure Cuff",
+  "category": "progress",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "cuff",
+    "pressure",
+    "gauge",
+    "clinic",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-blood-pressure-cuff blood pressure cuff progress darma-research-batch-17 darma research batch 17 cuff pressure gauge clinic progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-blood-pressure-cuff\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-blood-pressure-cuff__arm\"></div><div class=\"darma-loader-darma-b17-blood-pressure-cuff__cuff\"></div><div class=\"darma-loader-darma-b17-blood-pressure-cuff__dial\"><span class=\"darma-loader-darma-b17-blood-pressure-cuff__needle\"></span></div><div class=\"darma-loader-darma-b17-blood-pressure-cuff__bulb\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-blood-pressure-cuff { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .6); position: relative; }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__arm { position: absolute; left: 2%; top: 34%; width: 58%; height: 30%; border-radius: 999px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__cuff { position: absolute; left: 14%; top: 22%; width: 34%; height: 54%; border-radius: 8px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 22%, var(--accent-2))); transform-origin: 50% 50%; animation: darma-loader-darma-b17-blood-pressure-cuff-cuff-inflate calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__dial { position: absolute; right: 4%; top: 6%; width: 32%; height: 54%; border-radius: 50%; background: color-mix(in srgb, #fff 82%, var(--accent-2)); box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__needle { position: absolute; left: 47%; top: 12%; width: 6%; height: 40%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: darma-loader-darma-b17-blood-pressure-cuff-cuff-needle calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__bulb { position: absolute; right: 10%; bottom: 2%; width: 20%; height: 30%; border-radius: 46% 46% 40% 40%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 25%, var(--accent))); transform-origin: 50% 100%; animation: darma-loader-darma-b17-blood-pressure-cuff-cuff-squeeze calc(var(--loader-speed, 1s) * .75) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-blood-pressure-cuff-cuff-inflate { 0%, 6% { transform: scaleY(1) scaleX(1); } 54%, 68% { transform: scaleY(1.16) scaleX(1.06); } 92%, 100% { transform: scaleY(1) scaleX(1); } }\n@keyframes darma-loader-darma-b17-blood-pressure-cuff-cuff-needle { 0%, 6% { transform: rotate(-120deg); } 54%, 68% { transform: rotate(96deg); } 92%, 100% { transform: rotate(-120deg); } }\n@keyframes darma-loader-darma-b17-blood-pressure-cuff-cuff-squeeze { 0%, 100% { transform: scale(1); } 50% { transform: scale(.82, .88); } }",
+  "defaults": {
+    "color": "#334155",
+    "secondaryColor": "#38bdf8",
+    "size": 124,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-blood-pressure-cuff\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-blood-pressure-cuff__arm\"></div><div class=\"darma-loader-darma-b17-blood-pressure-cuff__cuff\"></div><div class=\"darma-loader-darma-b17-blood-pressure-cuff__dial\"><span class=\"darma-loader-darma-b17-blood-pressure-cuff__needle\"></span></div><div class=\"darma-loader-darma-b17-blood-pressure-cuff__bulb\"></div></div>",
+    "css": ".darma-loader-darma-b17-blood-pressure-cuff { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .6); position: relative; }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__arm { position: absolute; left: 2%; top: 34%; width: 58%; height: 30%; border-radius: 999px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__cuff { position: absolute; left: 14%; top: 22%; width: 34%; height: 54%; border-radius: 8px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 22%, var(--accent-2))); transform-origin: 50% 50%; animation: darma-loader-darma-b17-blood-pressure-cuff-cuff-inflate calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__dial { position: absolute; right: 4%; top: 6%; width: 32%; height: 54%; border-radius: 50%; background: color-mix(in srgb, #fff 82%, var(--accent-2)); box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__needle { position: absolute; left: 47%; top: 12%; width: 6%; height: 40%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: darma-loader-darma-b17-blood-pressure-cuff-cuff-needle calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-blood-pressure-cuff .darma-loader-darma-b17-blood-pressure-cuff__bulb { position: absolute; right: 10%; bottom: 2%; width: 20%; height: 30%; border-radius: 46% 46% 40% 40%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 25%, var(--accent))); transform-origin: 50% 100%; animation: darma-loader-darma-b17-blood-pressure-cuff-cuff-squeeze calc(var(--loader-speed, 1s) * .75) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-blood-pressure-cuff-cuff-inflate { 0%, 6% { transform: scaleY(1) scaleX(1); } 54%, 68% { transform: scaleY(1.16) scaleX(1.06); } 92%, 100% { transform: scaleY(1) scaleX(1); } }\n@keyframes darma-loader-darma-b17-blood-pressure-cuff-cuff-needle { 0%, 6% { transform: rotate(-120deg); } 54%, 68% { transform: rotate(96deg); } 92%, 100% { transform: rotate(-120deg); } }\n@keyframes darma-loader-darma-b17-blood-pressure-cuff-cuff-squeeze { 0%, 100% { transform: scale(1); } 50% { transform: scale(.82, .88); } }",
+    "react": "export default function DarmaB17BloodPressureCuffLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-blood-pressure-cuff\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-blood-pressure-cuff__arm\"></div><div className=\"darma-loader-darma-b17-blood-pressure-cuff__cuff\"></div><div className=\"darma-loader-darma-b17-blood-pressure-cuff__dial\"><span className=\"darma-loader-darma-b17-blood-pressure-cuff__needle\"></span></div><div className=\"darma-loader-darma-b17-blood-pressure-cuff__bulb\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

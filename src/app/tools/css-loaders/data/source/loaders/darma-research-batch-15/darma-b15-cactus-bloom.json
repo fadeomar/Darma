@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-cactus-bloom",
+  "name": "Cactus Bloom",
+  "category": "fun",
+  "tags": [
+    "cactus",
+    "bloom",
+    "desert",
+    "plant",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"stem\"></div><div class=\"limb\"></div><div class=\"limb\"></div><i></i><i></i><i></i><div class=\"pot\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .stem { position: absolute; left: 42%; bottom: 14%; width: 16%; height: 62%; border-radius: 9px; background: linear-gradient(90deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.loader .limb { position: absolute; bottom: 40%; width: 11%; height: 24%; border-radius: 7px; background: var(--accent); }\n.loader .limb::after { content: ''; position: absolute; bottom: 0; width: 130%; height: 40%; border-radius: 6px; background: var(--accent); }\n.loader .limb:nth-of-type(2) { left: 21%; }\n.loader .limb:nth-of-type(2)::after { left: 60%; }\n.loader .limb:nth-of-type(3) { right: 21%; }\n.loader .limb:nth-of-type(3)::after { right: 60%; }\n.loader i { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); transform: scale(0); animation: cact-bloom calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader i:nth-of-type(1) { left: 43.5%; bottom: 71%; }\n.loader i:nth-of-type(2) { left: 20%; bottom: 62%; animation-delay: calc(var(--loader-speed) * .28); }\n.loader i:nth-of-type(3) { right: 20%; bottom: 62%; animation-delay: calc(var(--loader-speed) * .56); }\n.loader .pot { position: absolute; left: 28%; right: 28%; bottom: 4%; height: 14%; border-radius: 3px 3px 8px 8px; background: linear-gradient(#b45309, #78350f); }\n@keyframes cact-bloom { 0%, 8% { transform: scale(0); opacity: 0; } 34%, 68% { transform: scale(1); opacity: 1; } 92%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#15803d",
+    "secondaryColor": "#fb7185",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

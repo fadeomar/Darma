@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-bingo-cage",
+  "name": "Bingo Cage",
+  "category": "dots",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "bingo",
+    "cage",
+    "tumble",
+    "lottery",
+    "dots"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-bingo-cage bingo cage dots darma-research-batch-17 darma research batch 17 bingo cage tumble lottery dots html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-bingo-cage\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-bingo-cage__cage\"><i></i><i></i><i></i><i></i><i></i></div><div class=\"darma-loader-darma-b17-bingo-cage__stand\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-bingo-cage { --accent: var(--loader-color, #be123c); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-bingo-cage .darma-loader-darma-b17-bingo-cage__cage { position: absolute; left: 8%; right: 8%; top: 4%; height: 74%; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 4px var(--accent); background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0 14deg, color-mix(in srgb, var(--accent) 45%, transparent) 14deg 15deg); animation: darma-loader-darma-b17-bingo-cage-bingo-tumble calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b17-bingo-cage i { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); animation: darma-loader-darma-b17-bingo-cage-bingo-ball calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(1) { left: 16%; top: 22%; }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(2) { left: 44%; top: 12%; animation-delay: calc(var(--loader-speed, 1s) * -.24); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(3) { left: 62%; top: 38%; animation-delay: calc(var(--loader-speed, 1s) * -.48); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(4) { left: 26%; top: 54%; animation-delay: calc(var(--loader-speed, 1s) * -.72); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(5) { left: 52%; top: 62%; animation-delay: calc(var(--loader-speed, 1s) * -.96); }\n.darma-loader-darma-b17-bingo-cage .darma-loader-darma-b17-bingo-cage__stand { position: absolute; left: 32%; right: 32%; bottom: 2%; height: 20%; border-radius: 0 0 6px 6px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 32%, var(--accent))); clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%); }\n@keyframes darma-loader-darma-b17-bingo-cage-bingo-tumble { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-bingo-cage-bingo-ball { 0%, 100% { transform: translate(0, 0); } 30% { transform: translate(24%, 22%); } 60% { transform: translate(-18%, 12%); } }",
+  "defaults": {
+    "color": "#be123c",
+    "secondaryColor": "#fef3c7",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-bingo-cage\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-bingo-cage__cage\"><i></i><i></i><i></i><i></i><i></i></div><div class=\"darma-loader-darma-b17-bingo-cage__stand\"></div></div>",
+    "css": ".darma-loader-darma-b17-bingo-cage { --accent: var(--loader-color, #be123c); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-bingo-cage .darma-loader-darma-b17-bingo-cage__cage { position: absolute; left: 8%; right: 8%; top: 4%; height: 74%; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 4px var(--accent); background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0 14deg, color-mix(in srgb, var(--accent) 45%, transparent) 14deg 15deg); animation: darma-loader-darma-b17-bingo-cage-bingo-tumble calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b17-bingo-cage i { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); animation: darma-loader-darma-b17-bingo-cage-bingo-ball calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(1) { left: 16%; top: 22%; }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(2) { left: 44%; top: 12%; animation-delay: calc(var(--loader-speed, 1s) * -.24); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(3) { left: 62%; top: 38%; animation-delay: calc(var(--loader-speed, 1s) * -.48); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(4) { left: 26%; top: 54%; animation-delay: calc(var(--loader-speed, 1s) * -.72); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(5) { left: 52%; top: 62%; animation-delay: calc(var(--loader-speed, 1s) * -.96); }\n.darma-loader-darma-b17-bingo-cage .darma-loader-darma-b17-bingo-cage__stand { position: absolute; left: 32%; right: 32%; bottom: 2%; height: 20%; border-radius: 0 0 6px 6px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 32%, var(--accent))); clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%); }\n@keyframes darma-loader-darma-b17-bingo-cage-bingo-tumble { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-bingo-cage-bingo-ball { 0%, 100% { transform: translate(0, 0); } 30% { transform: translate(24%, 22%); } 60% { transform: translate(-18%, 12%); } }",
+    "react": "export default function DarmaB17BingoCageLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-bingo-cage\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-bingo-cage__cage\"><i></i><i></i><i></i><i></i><i></i></div><div className=\"darma-loader-darma-b17-bingo-cage__stand\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

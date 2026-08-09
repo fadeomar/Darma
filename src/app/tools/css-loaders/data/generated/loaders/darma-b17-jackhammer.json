@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-jackhammer",
+  "name": "Jackhammer",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "jackhammer",
+    "drill",
+    "concrete",
+    "site",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-jackhammer jackhammer fun darma-research-batch-17 darma research batch 17 jackhammer drill concrete site fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-jackhammer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-jackhammer__rig\"><span class=\"darma-loader-darma-b17-jackhammer__grip\"></span><span class=\"darma-loader-darma-b17-jackhammer__barrel\"></span><span class=\"darma-loader-darma-b17-jackhammer__bit\"></span></div><div class=\"darma-loader-darma-b17-jackhammer__slab\"></div><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b17-jackhammer { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__rig { position: absolute; left: 33%; top: 4%; width: 34%; height: 74%; animation: darma-loader-darma-b17-jackhammer-jack-buck calc(var(--loader-speed, 1s) * .22) ease-in-out infinite; }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__grip { position: absolute; left: -18%; top: 0; width: 136%; height: 12%; border-radius: 5px; background: var(--accent-2); }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__barrel { position: absolute; left: 16%; top: 10%; width: 68%; height: 62%; border-radius: 6px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 22%, var(--accent))); }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__bit { position: absolute; left: 38%; top: 70%; width: 24%; height: 32%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__slab { position: absolute; left: 6%; right: 6%; bottom: 4%; height: 16%; border-radius: 4px; background: repeating-linear-gradient(90deg, var(--accent-2) 0 18%, color-mix(in srgb, #000 18%, var(--accent-2)) 0 20%); animation: darma-loader-darma-b17-jackhammer-jack-shake calc(var(--loader-speed, 1s) * .22) ease-in-out infinite; }\n.darma-loader-darma-b17-jackhammer i { position: absolute; bottom: 18%; width: 7%; height: 6%; border-radius: 2px; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b17-jackhammer-jack-chip calc(var(--loader-speed, 1s) * .88) ease-out infinite; }\n.darma-loader-darma-b17-jackhammer i:nth-of-type(1) { left: 30%; --dx: -150%; }\n.darma-loader-darma-b17-jackhammer i:nth-of-type(2) { left: 47%; --dx: 20%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b17-jackhammer i:nth-of-type(3) { left: 62%; --dx: 160%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n@keyframes darma-loader-darma-b17-jackhammer-jack-buck { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5%); } }\n@keyframes darma-loader-darma-b17-jackhammer-jack-shake { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(1.5%); } }\n@keyframes darma-loader-darma-b17-jackhammer-jack-chip { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx, 0%), -180%) rotate(200deg); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#475569",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-jackhammer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-jackhammer__rig\"><span class=\"darma-loader-darma-b17-jackhammer__grip\"></span><span class=\"darma-loader-darma-b17-jackhammer__barrel\"></span><span class=\"darma-loader-darma-b17-jackhammer__bit\"></span></div><div class=\"darma-loader-darma-b17-jackhammer__slab\"></div><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b17-jackhammer { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #475569); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__rig { position: absolute; left: 33%; top: 4%; width: 34%; height: 74%; animation: darma-loader-darma-b17-jackhammer-jack-buck calc(var(--loader-speed, 1s) * .22) ease-in-out infinite; }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__grip { position: absolute; left: -18%; top: 0; width: 136%; height: 12%; border-radius: 5px; background: var(--accent-2); }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__barrel { position: absolute; left: 16%; top: 10%; width: 68%; height: 62%; border-radius: 6px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #000 22%, var(--accent))); }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__bit { position: absolute; left: 38%; top: 70%; width: 24%; height: 32%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.darma-loader-darma-b17-jackhammer .darma-loader-darma-b17-jackhammer__slab { position: absolute; left: 6%; right: 6%; bottom: 4%; height: 16%; border-radius: 4px; background: repeating-linear-gradient(90deg, var(--accent-2) 0 18%, color-mix(in srgb, #000 18%, var(--accent-2)) 0 20%); animation: darma-loader-darma-b17-jackhammer-jack-shake calc(var(--loader-speed, 1s) * .22) ease-in-out infinite; }\n.darma-loader-darma-b17-jackhammer i { position: absolute; bottom: 18%; width: 7%; height: 6%; border-radius: 2px; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b17-jackhammer-jack-chip calc(var(--loader-speed, 1s) * .88) ease-out infinite; }\n.darma-loader-darma-b17-jackhammer i:nth-of-type(1) { left: 30%; --dx: -150%; }\n.darma-loader-darma-b17-jackhammer i:nth-of-type(2) { left: 47%; --dx: 20%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b17-jackhammer i:nth-of-type(3) { left: 62%; --dx: 160%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n@keyframes darma-loader-darma-b17-jackhammer-jack-buck { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5%); } }\n@keyframes darma-loader-darma-b17-jackhammer-jack-shake { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(1.5%); } }\n@keyframes darma-loader-darma-b17-jackhammer-jack-chip { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx, 0%), -180%) rotate(200deg); } }",
+    "react": "export default function DarmaB17JackhammerLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-jackhammer\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-jackhammer__rig\"><span className=\"darma-loader-darma-b17-jackhammer__grip\"></span><span className=\"darma-loader-darma-b17-jackhammer__barrel\"></span><span className=\"darma-loader-darma-b17-jackhammer__bit\"></span></div><div className=\"darma-loader-darma-b17-jackhammer__slab\"></div><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

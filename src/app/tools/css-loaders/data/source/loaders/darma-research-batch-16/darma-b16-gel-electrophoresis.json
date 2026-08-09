@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-gel-electrophoresis",
+  "name": "Gel Electrophoresis",
+  "category": "bars",
+  "tags": [
+    "gel",
+    "dna",
+    "lane",
+    "biology",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"well\"></div><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .72); position: relative; overflow: hidden; border-radius: 6px; background: color-mix(in srgb, var(--accent) 12%, transparent); }\n.loader .well { position: absolute; left: 0; right: 0; top: 6%; height: 7%; background: repeating-linear-gradient(90deg, transparent 0 4%, color-mix(in srgb, #0f172a 45%, transparent) 0 14%, transparent 0 18%); }\n.loader span { position: absolute; top: 14%; width: 10%; height: 5%; border-radius: 2px; background: var(--accent-2); box-shadow: 0 0 8px color-mix(in srgb, var(--accent-2) 70%, transparent); animation: gel-run calc(var(--loader-speed) * 3.4) cubic-bezier(.25, .5, .4, 1) infinite; }\n.loader span:nth-of-type(1) { left: 5%; --end: calc(var(--loader-size) * .32); }\n.loader span:nth-of-type(2) { left: 21%; --end: calc(var(--loader-size) * .19); animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-of-type(3) { left: 37%; --end: calc(var(--loader-size) * .4); animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-of-type(4) { left: 53%; --end: calc(var(--loader-size) * .25); animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-of-type(5) { left: 69%; --end: calc(var(--loader-size) * .46); animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(6) { left: 85%; --end: calc(var(--loader-size) * .13); animation-delay: calc(var(--loader-speed) * .5); }\n@keyframes gel-run { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: 1; } 72%, 88% { transform: translateY(var(--end, 40px)); opacity: 1; } 100% { transform: translateY(var(--end, 40px)); opacity: 0; } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#67e8f9",
+    "size": 122,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

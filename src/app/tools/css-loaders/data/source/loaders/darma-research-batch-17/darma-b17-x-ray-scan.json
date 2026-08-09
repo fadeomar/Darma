@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-x-ray-scan",
+  "name": "X Ray Scan",
+  "category": "creative",
+  "tags": [
+    "xray",
+    "scan",
+    "ribs",
+    "radiology",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"plate\"></div><span></span><span></span><span></span><span></span><div class=\"spine\"></div><div class=\"beam\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .82); position: relative; overflow: hidden; border-radius: 8px; }\n.loader .plate { position: absolute; inset: 0; border-radius: 8px; background: linear-gradient(color-mix(in srgb, var(--accent) 30%, transparent), color-mix(in srgb, var(--accent) 10%, transparent)); }\n.loader .spine { position: absolute; left: 47%; top: 10%; width: 6%; height: 80%; border-radius: 4px; background: repeating-linear-gradient(color-mix(in srgb, var(--accent-2) 70%, transparent) 0 62%, transparent 0 100%); background-size: 100% 14%; }\n.loader span { position: absolute; left: 14%; right: 14%; height: 12%; border: 4px solid color-mix(in srgb, var(--accent-2) 32%, transparent); border-top: 0; border-radius: 0 0 60% 60% / 0 0 100% 100%; animation: xray-rib calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-of-type(1) { top: 16%; }\n.loader span:nth-of-type(2) { top: 32%; animation-delay: calc(var(--loader-speed) * .18); }\n.loader span:nth-of-type(3) { top: 48%; animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-of-type(4) { top: 64%; animation-delay: calc(var(--loader-speed) * .54); }\n.loader .beam { position: absolute; left: 0; right: 0; height: 16%; background: linear-gradient(transparent, color-mix(in srgb, var(--accent-2) 75%, transparent), transparent); animation: xray-beam calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n@keyframes xray-beam { 0%, 100% { top: -12%; } 50% { top: 92%; } }\n@keyframes xray-rib { 0%, 100% { border-color: color-mix(in srgb, var(--accent-2) 26%, transparent); border-top-color: transparent; } 46% { border-color: var(--accent-2); border-top-color: transparent; } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#e0f2fe",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

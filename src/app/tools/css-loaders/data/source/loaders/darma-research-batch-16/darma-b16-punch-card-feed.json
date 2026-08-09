@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-punch-card-feed",
+  "name": "Punch Card Feed",
+  "category": "creative",
+  "tags": [
+    "punch card",
+    "reader",
+    "retro",
+    "mainframe",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"card\"></div><div class=\"card\"></div><div class=\"reader\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .52); position: relative; overflow: hidden; border-radius: 6px; }\n.loader .card { position: absolute; top: 18%; width: 46%; height: 64%; border-radius: 2px 8px 2px 2px; background: color-mix(in srgb, #fff 60%, var(--accent-2)); background-image: repeating-linear-gradient(90deg, transparent 0 6%, color-mix(in srgb, #0f172a 62%, transparent) 0 10%, transparent 0 16%), repeating-linear-gradient(transparent 0 14%, color-mix(in srgb, #0f172a 62%, transparent) 0 24%, transparent 0 38%); box-shadow: 0 2px 6px color-mix(in srgb, #000 25%, transparent); animation: card-feed calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader .card:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * -1.2); }\n.loader .reader { position: absolute; left: 46%; top: 0; bottom: 0; width: 8%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, transparent), transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); animation: card-read calc(var(--loader-speed) * .6) ease-in-out infinite; }\n@keyframes card-feed { from { left: 104%; } to { left: -50%; } }\n@keyframes card-read { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#fde68a",
+    "size": 130,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-egg-fry-sizzle",
+  "name": "Egg Fry Sizzle",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "egg",
+    "fry",
+    "pan",
+    "sizzle",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-egg-fry-sizzle egg fry sizzle fun darma-research-batch-15 darma research batch 15 egg fry pan sizzle fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-egg-fry-sizzle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-egg-fry-sizzle__pan\"></div><div class=\"darma-loader-darma-b15-egg-fry-sizzle__white\"></div><div class=\"darma-loader-darma-b15-egg-fry-sizzle__yolk\"></div><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-egg-fry-sizzle { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fef9c3); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .8); position: relative; }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__pan { position: absolute; left: 6%; top: 22%; width: 74%; height: 68%; border-radius: 50%; background: linear-gradient(#475569, #1e293b); }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__pan::after { content: ''; position: absolute; left: 92%; top: 40%; width: 42%; height: 16%; border-radius: 4px; background: #334155; }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__white { position: absolute; left: 16%; top: 32%; width: 54%; height: 48%; border-radius: 48% 52% 44% 56% / 52% 46% 54% 48%; background: var(--accent-2); animation: darma-loader-darma-b15-egg-fry-sizzle-egg-wobble calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__yolk { position: absolute; left: 33%; top: 44%; width: 22%; height: 24%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 34%, var(--accent)), var(--accent)); animation: darma-loader-darma-b15-egg-fry-sizzle-egg-yolk calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-egg-fry-sizzle i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-egg-fry-sizzle-egg-sizzle calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b15-egg-fry-sizzle i:nth-of-type(1) { left: 22%; top: 26%; }\n.darma-loader-darma-b15-egg-fry-sizzle i:nth-of-type(2) { left: 58%; top: 22%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b15-egg-fry-sizzle i:nth-of-type(3) { left: 40%; top: 18%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b15-egg-fry-sizzle-egg-wobble { 0%, 100% { border-radius: 48% 52% 44% 56% / 52% 46% 54% 48%; transform: scale(1); } 50% { border-radius: 54% 46% 56% 44% / 46% 54% 46% 54%; transform: scale(1.03); } }\n@keyframes darma-loader-darma-b15-egg-fry-sizzle-egg-yolk { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }\n@keyframes darma-loader-darma-b15-egg-fry-sizzle-egg-sizzle { 0% { opacity: 0; transform: translateY(0) scale(.4); } 30% { opacity: .9; } 100% { opacity: 0; transform: translateY(-120%) scale(1.1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fef9c3",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-egg-fry-sizzle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-egg-fry-sizzle__pan\"></div><div class=\"darma-loader-darma-b15-egg-fry-sizzle__white\"></div><div class=\"darma-loader-darma-b15-egg-fry-sizzle__yolk\"></div><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b15-egg-fry-sizzle { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fef9c3); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .8); position: relative; }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__pan { position: absolute; left: 6%; top: 22%; width: 74%; height: 68%; border-radius: 50%; background: linear-gradient(#475569, #1e293b); }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__pan::after { content: ''; position: absolute; left: 92%; top: 40%; width: 42%; height: 16%; border-radius: 4px; background: #334155; }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__white { position: absolute; left: 16%; top: 32%; width: 54%; height: 48%; border-radius: 48% 52% 44% 56% / 52% 46% 54% 48%; background: var(--accent-2); animation: darma-loader-darma-b15-egg-fry-sizzle-egg-wobble calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-egg-fry-sizzle .darma-loader-darma-b15-egg-fry-sizzle__yolk { position: absolute; left: 33%; top: 44%; width: 22%; height: 24%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 34%, var(--accent)), var(--accent)); animation: darma-loader-darma-b15-egg-fry-sizzle-egg-yolk calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-egg-fry-sizzle i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-egg-fry-sizzle-egg-sizzle calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b15-egg-fry-sizzle i:nth-of-type(1) { left: 22%; top: 26%; }\n.darma-loader-darma-b15-egg-fry-sizzle i:nth-of-type(2) { left: 58%; top: 22%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b15-egg-fry-sizzle i:nth-of-type(3) { left: 40%; top: 18%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b15-egg-fry-sizzle-egg-wobble { 0%, 100% { border-radius: 48% 52% 44% 56% / 52% 46% 54% 48%; transform: scale(1); } 50% { border-radius: 54% 46% 56% 44% / 46% 54% 46% 54%; transform: scale(1.03); } }\n@keyframes darma-loader-darma-b15-egg-fry-sizzle-egg-yolk { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }\n@keyframes darma-loader-darma-b15-egg-fry-sizzle-egg-sizzle { 0% { opacity: 0; transform: translateY(0) scale(.4); } 30% { opacity: .9; } 100% { opacity: 0; transform: translateY(-120%) scale(1.1); } }",
+    "react": "export default function DarmaB15EggFrySizzleLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-egg-fry-sizzle\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-egg-fry-sizzle__pan\"></div><div className=\"darma-loader-darma-b15-egg-fry-sizzle__white\"></div><div className=\"darma-loader-darma-b15-egg-fry-sizzle__yolk\"></div><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-origami-crane-flap",
+  "name": "Origami Crane Flap",
+  "category": "fun",
+  "tags": [
+    "origami",
+    "crane",
+    "paper",
+    "flap",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bird\"><span class=\"wing\"></span><span class=\"wing\"></span><span class=\"body\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .72); position: relative; }\n.loader .bird { position: absolute; inset: 0; animation: crane-glide calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader .body { position: absolute; left: 30%; top: 38%; width: 44%; height: 34%; background: linear-gradient(var(--accent-2), var(--accent)); clip-path: polygon(0 20%, 62% 0, 100% 46%, 46% 100%); }\n.loader .wing { position: absolute; top: 12%; width: 38%; height: 44%; background: linear-gradient(color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); }\n.loader .wing:nth-of-type(1) { left: 8%; clip-path: polygon(0 8%, 100% 52%, 62% 100%); transform-origin: 100% 60%; animation: crane-left calc(var(--loader-speed) * .95) ease-in-out infinite; }\n.loader .wing:nth-of-type(2) { right: 8%; clip-path: polygon(100% 8%, 0 52%, 38% 100%); transform-origin: 0 60%; animation: crane-right calc(var(--loader-speed) * .95) ease-in-out infinite; }\n@keyframes crane-left { 0%, 100% { transform: rotate(-26deg) scaleY(1); } 50% { transform: rotate(22deg) scaleY(.72); } }\n@keyframes crane-right { 0%, 100% { transform: rotate(26deg) scaleY(1); } 50% { transform: rotate(-22deg) scaleY(.72); } }\n@keyframes crane-glide { 0%, 100% { transform: translateY(4%); } 50% { transform: translateY(-6%); } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fecdd3",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

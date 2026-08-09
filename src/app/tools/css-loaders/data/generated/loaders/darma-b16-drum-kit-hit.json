@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-drum-kit-hit",
+  "name": "Drum Kit Hit",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "drum",
+    "kit",
+    "beat",
+    "music",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-drum-kit-hit drum kit hit fun darma-research-batch-16 darma research batch 16 drum kit beat music fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-drum-kit-hit\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-drum-kit-hit__hat\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__snare\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__kick\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__stick\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__stick\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-drum-kit-hit { --accent: var(--loader-color, #b91c1c); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .74); position: relative; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__kick { position: absolute; left: 30%; bottom: 4%; width: 40%; height: 38%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 4px var(--accent-2); animation: darma-loader-darma-b16-drum-kit-hit-kit-kick calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__snare { position: absolute; left: 6%; bottom: 30%; width: 30%; height: 14%; border-radius: 50%; background: linear-gradient(color-mix(in srgb, #fff 35%, var(--accent-2)), var(--accent-2)); animation: darma-loader-darma-b16-drum-kit-hit-kit-snare calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__hat { position: absolute; right: 6%; bottom: 44%; width: 32%; height: 9%; border-radius: 50%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 25%, var(--accent-2))); animation: darma-loader-darma-b16-drum-kit-hit-kit-hat calc(var(--loader-speed, 1s) * .6) ease-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__stick { position: absolute; bottom: 46%; width: 30%; height: 5%; border-radius: 3px; background: linear-gradient(90deg, #e2e8f0, #94a3b8); }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__stick:nth-of-type(4) { left: 4%; transform-origin: 10% 50%; animation: darma-loader-darma-b16-drum-kit-hit-kit-stick-left calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__stick:nth-of-type(5) { right: 4%; transform-origin: 90% 50%; animation: darma-loader-darma-b16-drum-kit-hit-kit-stick-right calc(var(--loader-speed, 1s) * .6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-kick { 0%, 100% { transform: scale(1); } 8% { transform: scale(1.09); } 24% { transform: scale(.98); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-snare { 0%, 46%, 100% { transform: scaleY(1); } 54% { transform: scaleY(1.5); } 66% { transform: scaleY(.9); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-hat { 0%, 100% { transform: scaleY(1); } 12% { transform: scaleY(.5); } 34% { transform: scaleY(1.15); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-stick-left { 0%, 40%, 100% { transform: rotate(-6deg); } 52% { transform: rotate(-34deg); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-stick-right { 0%, 100% { transform: rotate(6deg); } 20% { transform: rotate(32deg); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#fbbf24",
+    "size": 124,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-drum-kit-hit\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-drum-kit-hit__hat\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__snare\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__kick\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__stick\"></div><div class=\"darma-loader-darma-b16-drum-kit-hit__stick\"></div></div>",
+    "css": ".darma-loader-darma-b16-drum-kit-hit { --accent: var(--loader-color, #b91c1c); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .74); position: relative; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__kick { position: absolute; left: 30%; bottom: 4%; width: 40%; height: 38%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 4px var(--accent-2); animation: darma-loader-darma-b16-drum-kit-hit-kit-kick calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__snare { position: absolute; left: 6%; bottom: 30%; width: 30%; height: 14%; border-radius: 50%; background: linear-gradient(color-mix(in srgb, #fff 35%, var(--accent-2)), var(--accent-2)); animation: darma-loader-darma-b16-drum-kit-hit-kit-snare calc(var(--loader-speed, 1s) * 1.2) ease-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__hat { position: absolute; right: 6%; bottom: 44%; width: 32%; height: 9%; border-radius: 50%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 25%, var(--accent-2))); animation: darma-loader-darma-b16-drum-kit-hit-kit-hat calc(var(--loader-speed, 1s) * .6) ease-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__stick { position: absolute; bottom: 46%; width: 30%; height: 5%; border-radius: 3px; background: linear-gradient(90deg, #e2e8f0, #94a3b8); }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__stick:nth-of-type(4) { left: 4%; transform-origin: 10% 50%; animation: darma-loader-darma-b16-drum-kit-hit-kit-stick-left calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b16-drum-kit-hit .darma-loader-darma-b16-drum-kit-hit__stick:nth-of-type(5) { right: 4%; transform-origin: 90% 50%; animation: darma-loader-darma-b16-drum-kit-hit-kit-stick-right calc(var(--loader-speed, 1s) * .6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-kick { 0%, 100% { transform: scale(1); } 8% { transform: scale(1.09); } 24% { transform: scale(.98); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-snare { 0%, 46%, 100% { transform: scaleY(1); } 54% { transform: scaleY(1.5); } 66% { transform: scaleY(.9); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-hat { 0%, 100% { transform: scaleY(1); } 12% { transform: scaleY(.5); } 34% { transform: scaleY(1.15); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-stick-left { 0%, 40%, 100% { transform: rotate(-6deg); } 52% { transform: rotate(-34deg); } }\n@keyframes darma-loader-darma-b16-drum-kit-hit-kit-stick-right { 0%, 100% { transform: rotate(6deg); } 20% { transform: rotate(32deg); } }",
+    "react": "export default function DarmaB16DrumKitHitLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-drum-kit-hit\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-drum-kit-hit__hat\"></div><div className=\"darma-loader-darma-b16-drum-kit-hit__snare\"></div><div className=\"darma-loader-darma-b16-drum-kit-hit__kick\"></div><div className=\"darma-loader-darma-b16-drum-kit-hit__stick\"></div><div className=\"darma-loader-darma-b16-drum-kit-hit__stick\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

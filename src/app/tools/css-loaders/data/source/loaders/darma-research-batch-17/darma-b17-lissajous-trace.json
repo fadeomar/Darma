@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-lissajous-trace",
+  "name": "Lissajous Trace",
+  "category": "minimal",
+  "tags": [
+    "lissajous",
+    "curve",
+    "oscilloscope",
+    "trace",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"frame\"></div><i></i><i></i><i></i><i></i><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .frame { position: absolute; inset: 0; border-radius: 8px; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 28%, transparent); background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 72%); }\n.loader i { position: absolute; left: 46%; top: 46%; width: 8%; height: 8%; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px color-mix(in srgb, var(--accent-2) 70%, transparent); animation: liss-x calc(var(--loader-speed) * 2) ease-in-out infinite alternate, liss-y calc(var(--loader-speed) * 3) ease-in-out infinite alternate; }\n.loader i:nth-of-type(1) { opacity: 1; }\n.loader i:nth-of-type(2) { opacity: .68; animation-delay: calc(var(--loader-speed) * -.1), calc(var(--loader-speed) * -.1); }\n.loader i:nth-of-type(3) { opacity: .5; animation-delay: calc(var(--loader-speed) * -.2), calc(var(--loader-speed) * -.2); }\n.loader i:nth-of-type(4) { opacity: .36; animation-delay: calc(var(--loader-speed) * -.3), calc(var(--loader-speed) * -.3); }\n.loader i:nth-of-type(5) { opacity: .24; animation-delay: calc(var(--loader-speed) * -.4), calc(var(--loader-speed) * -.4); }\n.loader i:nth-of-type(6) { opacity: .14; animation-delay: calc(var(--loader-speed) * -.5), calc(var(--loader-speed) * -.5); }\n@keyframes liss-x { from { left: 8%; } to { left: 84%; } }\n@keyframes liss-y { from { top: 8%; } to { top: 84%; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#a3e635",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

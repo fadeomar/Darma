@@ -199,6 +199,37 @@
     }
   },
   {
+    "id": "darma-b16-barometer-needle",
+    "name": "Barometer Needle",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "barometer",
+      "needle",
+      "pressure",
+      "dial",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-barometer-needle barometer needle spinners darma-research-batch-16 darma research batch 16 barometer needle pressure dial spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-barometer-needle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-barometer-needle__face\"></div><div class=\"darma-loader-darma-b16-barometer-needle__ticks\"></div><div class=\"darma-loader-darma-b16-barometer-needle__needle\"></div><div class=\"darma-loader-darma-b16-barometer-needle__hub\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-barometer-needle { --accent: var(--loader-color, #0f766e); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-barometer-needle .darma-loader-darma-b16-barometer-needle__face { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 42% 36%, color-mix(in srgb, #fff 45%, transparent), transparent 70%), color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-b16-barometer-needle .darma-loader-darma-b16-barometer-needle__ticks { position: absolute; inset: 9%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--accent) 60%, transparent) 0 1.5deg, transparent 1.5deg 30deg); mask: radial-gradient(circle, transparent 0 76%, #000 77%); -webkit-mask: radial-gradient(circle, transparent 0 76%, #000 77%); }\n.darma-loader-darma-b16-barometer-needle .darma-loader-darma-b16-barometer-needle__needle { position: absolute; left: 48%; top: 14%; width: 4%; height: 38%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 20%, var(--accent-2))); transform-origin: 50% 100%; animation: darma-loader-darma-b16-barometer-needle-baro-swing calc(var(--loader-speed, 1s) * 3.6) cubic-bezier(.45, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-barometer-needle .darma-loader-darma-b16-barometer-needle__hub { position: absolute; left: 43%; top: 43%; width: 14%; height: 14%; border-radius: 50%; background: linear-gradient(#94a3b8, #334155); }\n@keyframes darma-loader-darma-b16-barometer-needle-baro-swing { 0%, 100% { transform: rotate(-118deg); } 22% { transform: rotate(-42deg); } 44% { transform: rotate(-76deg); } 66% { transform: rotate(64deg); } 84% { transform: rotate(18deg); } }",
+    "defaults": {
+      "color": "#0f766e",
+      "secondaryColor": "#f59e0b",
+      "size": 114,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-b14-bike-chain-drive",
     "name": "Bike Chain Drive",
     "category": "spinners",
@@ -2907,6 +2938,37 @@
     }
   },
   {
+    "id": "darma-b17-irrigation-pivot",
+    "name": "Irrigation Pivot",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "irrigation",
+      "pivot",
+      "sprinkler",
+      "farm",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-irrigation-pivot irrigation pivot spinners darma-research-batch-17 darma research batch 17 irrigation pivot sprinkler farm spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-irrigation-pivot\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-irrigation-pivot__field\"></div><div class=\"darma-loader-darma-b17-irrigation-pivot__wet\"></div><div class=\"darma-loader-darma-b17-irrigation-pivot__arm\"><i></i><i></i><i></i></div><div class=\"darma-loader-darma-b17-irrigation-pivot__hub\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-irrigation-pivot { --accent: var(--loader-color, #65a30d); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__field { position: absolute; inset: 0; border-radius: 50%; background: color-mix(in srgb, var(--accent) 18%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__wet { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from -150deg, transparent 0deg, color-mix(in srgb, var(--accent) 30%, transparent) 30deg, color-mix(in srgb, var(--accent) 75%, transparent) 150deg, transparent 152deg); animation: darma-loader-darma-b17-irrigation-pivot-pivot-turn calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__arm { position: absolute; left: 50%; top: 50%; width: 46%; height: 6%; margin-top: -3%; transform-origin: 0 50%; background: linear-gradient(90deg, #cbd5e1, #64748b); border-radius: 3px; animation: darma-loader-darma-b17-irrigation-pivot-pivot-turn calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__arm i { position: absolute; top: 90%; width: 8%; height: 130%; border-radius: 50%; background: var(--accent-2); opacity: .8; animation: darma-loader-darma-b17-irrigation-pivot-pivot-spray calc(var(--loader-speed, 1s) * .7) ease-in-out infinite; }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__arm i:nth-of-type(1) { left: 26%; }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__arm i:nth-of-type(2) { left: 54%; animation-delay: calc(var(--loader-speed, 1s) * .23); }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__arm i:nth-of-type(3) { left: 82%; animation-delay: calc(var(--loader-speed, 1s) * .46); }\n.darma-loader-darma-b17-irrigation-pivot .darma-loader-darma-b17-irrigation-pivot__hub { position: absolute; left: 43%; top: 43%; width: 14%; height: 14%; border-radius: 50%; background: linear-gradient(#94a3b8, #334155); }\n@keyframes darma-loader-darma-b17-irrigation-pivot-pivot-turn { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-irrigation-pivot-pivot-spray { 0%, 100% { transform: scaleY(.7); opacity: .5; } 50% { transform: scaleY(1.25); opacity: .95; } }",
+    "defaults": {
+      "color": "#65a30d",
+      "secondaryColor": "#38bdf8",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-415",
     "name": "Line Orbit 01",
     "category": "spinners",
@@ -5463,6 +5525,37 @@
     }
   },
   {
+    "id": "darma-b17-pocket-watch-wind",
+    "name": "Pocket Watch Wind",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "pocket watch",
+      "wind",
+      "crown",
+      "vintage",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-pocket-watch-wind pocket watch wind spinners darma-research-batch-17 darma research batch 17 pocket watch wind crown vintage spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-pocket-watch-wind\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-pocket-watch-wind__crown\"></div><div class=\"darma-loader-darma-b17-pocket-watch-wind__bow\"></div><div class=\"darma-loader-darma-b17-pocket-watch-wind__case\"><span class=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span class=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span class=\"darma-loader-darma-b17-pocket-watch-wind__pin\"></span></div></div>",
+    "previewCss": ".darma-loader-darma-b17-pocket-watch-wind { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__bow { position: absolute; left: 43%; top: 0; width: 14%; height: 11%; border-radius: 999px; box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__crown { position: absolute; left: 44%; top: 9%; width: 12%; height: 8%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent) 0 24%, color-mix(in srgb, #000 25%, var(--accent)) 0 40%); animation: darma-loader-darma-b17-pocket-watch-wind-watch-wind calc(var(--loader-speed, 1s) * .5) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__case { position: absolute; left: 6%; right: 6%; bottom: 2%; height: 82%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 6px var(--accent); }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand { position: absolute; left: 48%; border-radius: 3px; background: color-mix(in srgb, #000 65%, var(--accent)); transform-origin: 50% 100%; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand:nth-of-type(1) { top: 24%; width: 4%; height: 26%; animation: darma-loader-darma-b17-pocket-watch-wind-watch-hour calc(var(--loader-speed, 1s) * 12) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand:nth-of-type(2) { top: 14%; width: 3%; height: 36%; animation: darma-loader-darma-b17-pocket-watch-wind-watch-minute calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__pin { position: absolute; left: 45%; top: 47%; width: 10%; height: 10%; border-radius: 50%; background: var(--accent); }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-wind { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-hour { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-minute { to { transform: rotate(1turn); } }",
+    "defaults": {
+      "color": "#a16207",
+      "secondaryColor": "#fef3c7",
+      "size": 114,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-070",
     "name": "Polygon Nested Spin",
     "category": "spinners",
@@ -5567,6 +5660,37 @@
       "speed": 1,
       "color": "#000000",
       "secondaryColor": "#777777"
+    }
+  },
+  {
+    "id": "darma-b15-pull-to-refresh",
+    "name": "Pull To Refresh",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "refresh",
+      "pull",
+      "mobile",
+      "gesture",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-pull-to-refresh pull to refresh spinners darma-research-batch-15 darma research batch 15 refresh pull mobile gesture spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-pull-to-refresh\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-pull-to-refresh__ring\"></div><div class=\"darma-loader-darma-b15-pull-to-refresh__sheet\"></div></div>",
+    "previewCss": ".darma-loader-darma-b15-pull-to-refresh { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #bfdbfe); width: calc(var(--loader-size, 110px) * .82); height: var(--loader-size, 110px); position: relative; overflow: hidden; border-radius: 10px; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__ring { position: absolute; left: 34%; top: 8%; width: 32%; height: 0; padding-bottom: 32%; border-radius: 50%; border: 3px solid color-mix(in srgb, var(--accent) 25%, transparent); border-top-color: var(--accent); animation: darma-loader-darma-b15-pull-to-refresh-ptr-pull calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__sheet { position: absolute; left: 6%; right: 6%; top: 22%; height: 76%; border-radius: 10px 10px 0 0; background: color-mix(in srgb, var(--accent-2) 45%, transparent); animation: darma-loader-darma-b15-pull-to-refresh-ptr-sheet calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__sheet::after { content: ''; position: absolute; left: 10%; right: 10%; top: 14%; height: 9%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 40%, transparent); box-shadow: 0 220% 0 color-mix(in srgb, var(--accent) 40%, transparent), 0 440% 0 color-mix(in srgb, var(--accent) 40%, transparent); }\n@keyframes darma-loader-darma-b15-pull-to-refresh-ptr-pull { 0% { opacity: 0; transform: translateY(-140%) rotate(0deg); } 14% { opacity: 1; } 30% { transform: translateY(0) rotate(200deg); } 78% { opacity: 1; transform: translateY(0) rotate(1000deg); } 100% { opacity: 0; transform: translateY(-140%) rotate(1160deg); } }\n@keyframes darma-loader-darma-b15-pull-to-refresh-ptr-sheet { 0% { transform: translateY(-16%); } 30%, 78% { transform: translateY(0); } 100% { transform: translateY(-16%); } }",
+    "defaults": {
+      "color": "#2563eb",
+      "secondaryColor": "#bfdbfe",
+      "size": 110,
+      "speed": 1
     }
   },
   {
@@ -6223,6 +6347,37 @@
     }
   },
   {
+    "id": "darma-b16-revolving-door",
+    "name": "Revolving Door",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "revolving",
+      "door",
+      "lobby",
+      "rotate",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-revolving-door revolving door spinners darma-research-batch-16 darma research batch 16 revolving door lobby rotate spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-revolving-door\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-revolving-door__drum\"></div><div class=\"darma-loader-darma-b16-revolving-door__vanes\"><span></span><span></span></div><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b16-revolving-door { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-revolving-door .darma-loader-darma-b16-revolving-door__drum { position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 5px color-mix(in srgb, var(--accent) 45%, transparent); mask: conic-gradient(from 20deg, #000 0 140deg, transparent 140deg 180deg, #000 180deg 320deg, transparent 320deg); -webkit-mask: conic-gradient(from 20deg, #000 0 140deg, transparent 140deg 180deg, #000 180deg 320deg, transparent 320deg); }\n.darma-loader-darma-b16-revolving-door .darma-loader-darma-b16-revolving-door__vanes { position: absolute; inset: 8%; animation: darma-loader-darma-b16-revolving-door-door-turn calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b16-revolving-door .darma-loader-darma-b16-revolving-door__vanes span { position: absolute; left: 50%; top: 50%; width: 100%; height: 7%; margin: -3.5% 0 0 -50%; border-radius: 4px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent-2) 60%, transparent), var(--accent-2), color-mix(in srgb, var(--accent-2) 60%, transparent)); }\n.darma-loader-darma-b16-revolving-door .darma-loader-darma-b16-revolving-door__vanes span:nth-of-type(2) { transform: rotate(90deg); }\n.darma-loader-darma-b16-revolving-door i { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: var(--accent); animation: darma-loader-darma-b16-revolving-door-door-walk calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-revolving-door i:nth-of-type(1) { left: 2%; top: 44%; --dir: 1; }\n.darma-loader-darma-b16-revolving-door i:nth-of-type(2) { left: 76%; top: 44%; --dir: -1; animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n@keyframes darma-loader-darma-b16-revolving-door-door-turn { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b16-revolving-door-door-walk { 0% { transform: translateX(0); opacity: 0; } 14% { opacity: 1; } 84% { opacity: 1; } 100% { transform: translateX(calc(var(--dir, 1) * 570%)); opacity: 0; } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#fbbf24",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-054",
     "name": "Ring Sweep Fill",
     "category": "spinners",
@@ -6549,6 +6704,37 @@
     }
   },
   {
+    "id": "darma-b16-satellite-dish-sweep",
+    "name": "Satellite Dish Sweep",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "satellite",
+      "dish",
+      "signal",
+      "antenna",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-satellite-dish-sweep satellite dish sweep spinners darma-research-batch-16 darma research batch 16 satellite dish signal antenna spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-satellite-dish-sweep\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-satellite-dish-sweep__dish\"></div><div class=\"darma-loader-darma-b16-satellite-dish-sweep__mast\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-satellite-dish-sweep { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__mast { position: absolute; left: 45%; bottom: 6%; width: 10%; height: 34%; border-radius: 3px; background: linear-gradient(90deg, #cbd5e1, #475569); }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__dish { position: absolute; left: 22%; top: 26%; width: 56%; height: 42%; border-radius: 50%; background: radial-gradient(ellipse at 46% 40%, color-mix(in srgb, #fff 32%, var(--accent)), var(--accent)); transform-origin: 50% 100%; animation: darma-loader-darma-b16-satellite-dish-sweep-dish-sweep calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-satellite-dish-sweep .darma-loader-darma-b16-satellite-dish-sweep__dish::after { content: ''; position: absolute; left: 44%; top: 34%; width: 12%; height: 42%; border-radius: 3px; background: #475569; }\n.darma-loader-darma-b16-satellite-dish-sweep span { position: absolute; left: 50%; top: 30%; border-radius: 50%; border: 3px solid var(--accent-2); border-bottom-color: transparent; border-left-color: transparent; opacity: 0; animation: darma-loader-darma-b16-satellite-dish-sweep-dish-wave calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(1) { width: 22%; height: 22%; margin: -11% 0 0 -11%; }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(2) { width: 40%; height: 40%; margin: -20% 0 0 -20%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b16-satellite-dish-sweep span:nth-of-type(3) { width: 58%; height: 58%; margin: -29% 0 0 -29%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b16-satellite-dish-sweep-dish-sweep { 0%, 100% { transform: rotate(-24deg); } 50% { transform: rotate(24deg); } }\n@keyframes darma-loader-darma-b16-satellite-dish-sweep-dish-wave { 0% { opacity: 0; transform: rotate(-45deg) scale(.5); } 25% { opacity: .95; } 100% { opacity: 0; transform: rotate(-45deg) scale(1.25); } }",
+    "defaults": {
+      "color": "#0284c7",
+      "secondaryColor": "#fbbf24",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-soft-3d-cube-flip",
     "name": "Soft 3D Cube Flip",
     "category": "spinners",
@@ -6616,6 +6802,37 @@
       "speed": 2,
       "color": "#fff000",
       "secondaryColor": "#3c3c3c"
+    }
+  },
+  {
+    "id": "darma-b17-spotlight-sweep",
+    "name": "Spotlight Sweep",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "spotlight",
+      "stage",
+      "beam",
+      "search",
+      "spinners"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-spotlight-sweep spotlight sweep spinners darma-research-batch-17 darma research batch 17 spotlight stage beam search spinners html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-spotlight-sweep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__cone\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__lamp\"></div><div class=\"darma-loader-darma-b17-spotlight-sweep__floor\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-spotlight-sweep { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 124px); height: var(--loader-size, 124px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__floor { position: absolute; left: 0; right: 0; bottom: 0; height: 16%; background: linear-gradient(color-mix(in srgb, var(--accent-2) 40%, transparent), color-mix(in srgb, var(--accent-2) 10%, transparent)); }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone { position: absolute; left: 50%; top: 12%; width: 44%; height: 82%; margin-left: -22%; transform-origin: 50% 0; clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone:nth-of-type(1) { background: linear-gradient(color-mix(in srgb, var(--accent) 72%, transparent), transparent 82%); animation: darma-loader-darma-b17-spotlight-sweep-spot-swing-a calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__cone:nth-of-type(2) { background: linear-gradient(color-mix(in srgb, var(--accent-2) 62%, transparent), transparent 82%); animation: darma-loader-darma-b17-spotlight-sweep-spot-swing-b calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-spotlight-sweep .darma-loader-darma-b17-spotlight-sweep__lamp { position: absolute; left: 42%; top: 4%; width: 16%; height: 12%; border-radius: 4px 4px 40% 40%; background: linear-gradient(#64748b, #1e293b); box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 60%, transparent); }\n@keyframes darma-loader-darma-b17-spotlight-sweep-spot-swing-a { 0%, 100% { transform: rotate(-32deg); } 50% { transform: rotate(28deg); } }\n@keyframes darma-loader-darma-b17-spotlight-sweep-spot-swing-b { 0%, 100% { transform: rotate(30deg); } 50% { transform: rotate(-26deg); } }",
+    "defaults": {
+      "color": "#facc15",
+      "secondaryColor": "#a855f7",
+      "size": 124,
+      "speed": 1
     }
   },
   {

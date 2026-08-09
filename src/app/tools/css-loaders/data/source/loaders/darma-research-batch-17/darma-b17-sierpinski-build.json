@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-sierpinski-build",
+  "name": "Sierpinski Build",
+  "category": "creative",
+  "tags": [
+    "sierpinski",
+    "fractal",
+    "triangle",
+    "recursive",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .88); position: relative; }\n.loader span { position: absolute; background: linear-gradient(var(--accent-2), var(--accent)); clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: scale(0); animation: sierp-grow calc(var(--loader-speed) * 3.4) cubic-bezier(.3, 1.4, .5, 1) infinite; }\n.loader span:nth-of-type(1) { left: 25%; top: 0; width: 50%; height: 50%; }\n.loader span:nth-of-type(2) { left: 0; top: 50%; width: 50%; height: 50%; animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-of-type(3) { left: 50%; top: 50%; width: 50%; height: 50%; animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-of-type(4) { left: 37.5%; top: 0; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-of-type(5) { left: 25%; top: 25%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-of-type(6) { left: 50%; top: 25%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-of-type(7) { left: 12.5%; top: 50%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed) * .68); }\n.loader span:nth-of-type(8) { left: 62.5%; top: 50%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed) * .68); }\n.loader span:nth-of-type(9) { left: 37.5%; top: 75%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed) * .92); }\n@keyframes sierp-grow { 0%, 4% { transform: scale(0); opacity: 0; } 20%, 72% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#f0abfc",
+    "size": 122,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

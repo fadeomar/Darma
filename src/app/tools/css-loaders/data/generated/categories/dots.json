@@ -1,5 +1,36 @@
 [
   {
+    "id": "darma-b16-asteroid-belt-drift",
+    "name": "Asteroid Belt Drift",
+    "category": "dots",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "asteroid",
+      "belt",
+      "orbit",
+      "space",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-asteroid-belt-drift asteroid belt drift dots darma-research-batch-16 darma research batch 16 asteroid belt orbit space dots html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-asteroid-belt-drift\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-asteroid-belt-drift__sun\"></div><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b16-asteroid-belt-drift { --accent: var(--loader-color, #78716c); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b16-asteroid-belt-drift .darma-loader-darma-b16-asteroid-belt-drift__sun { position: absolute; left: 42%; top: 42%; width: 16%; height: 16%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 45%, var(--accent-2)), var(--accent-2)); box-shadow: 0 0 16px color-mix(in srgb, var(--accent-2) 60%, transparent); }\n.darma-loader-darma-b16-asteroid-belt-drift i { position: absolute; left: 47%; top: 47%; width: 6%; height: 6%; border-radius: 44% 56% 52% 48%; background: var(--accent); animation: darma-loader-darma-b16-asteroid-belt-drift-belt-orbit calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(1) { --r: calc(var(--loader-size, 118px) * .2); }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(2) { --r: calc(var(--loader-size, 118px) * .26); animation-duration: calc(var(--loader-speed, 1s) * 4.8); animation-delay: calc(var(--loader-speed, 1s) * -1.4); }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(3) { --r: calc(var(--loader-size, 118px) * .31); animation-duration: calc(var(--loader-speed, 1s) * 5.6); animation-delay: calc(var(--loader-speed, 1s) * -2.6); }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(4) { --r: calc(var(--loader-size, 118px) * .24); animation-duration: calc(var(--loader-speed, 1s) * 4.4); animation-delay: calc(var(--loader-speed, 1s) * -3.1); }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(5) { --r: calc(var(--loader-size, 118px) * .35); animation-duration: calc(var(--loader-speed, 1s) * 6.4); animation-delay: calc(var(--loader-speed, 1s) * -1.9); }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(6) { --r: calc(var(--loader-size, 118px) * .29); animation-duration: calc(var(--loader-speed, 1s) * 5.2); animation-delay: calc(var(--loader-speed, 1s) * -4.3); }\n.darma-loader-darma-b16-asteroid-belt-drift i:nth-of-type(7) { --r: calc(var(--loader-size, 118px) * .22); animation-duration: calc(var(--loader-speed, 1s) * 4.1); animation-delay: calc(var(--loader-speed, 1s) * -2.2); }\n@keyframes darma-loader-darma-b16-asteroid-belt-drift-belt-orbit { from { transform: rotate(0deg) translateX(var(--r, 40px)) rotate(0deg); } to { transform: rotate(360deg) translateX(var(--r, 40px)) rotate(-360deg); } }",
+    "defaults": {
+      "color": "#78716c",
+      "secondaryColor": "#fbbf24",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-aurora-jump-pearls",
     "name": "Aurora Jump Pearls",
     "category": "dots",
@@ -133,6 +164,68 @@
       "secondaryColor": "#fbcfe8",
       "size": 52,
       "speed": 0.75
+    }
+  },
+  {
+    "id": "darma-b17-bingo-cage",
+    "name": "Bingo Cage",
+    "category": "dots",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "bingo",
+      "cage",
+      "tumble",
+      "lottery",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-bingo-cage bingo cage dots darma-research-batch-17 darma research batch 17 bingo cage tumble lottery dots html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-bingo-cage\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-bingo-cage__cage\"><i></i><i></i><i></i><i></i><i></i></div><div class=\"darma-loader-darma-b17-bingo-cage__stand\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-bingo-cage { --accent: var(--loader-color, #be123c); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-bingo-cage .darma-loader-darma-b17-bingo-cage__cage { position: absolute; left: 8%; right: 8%; top: 4%; height: 74%; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 4px var(--accent); background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0 14deg, color-mix(in srgb, var(--accent) 45%, transparent) 14deg 15deg); animation: darma-loader-darma-b17-bingo-cage-bingo-tumble calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b17-bingo-cage i { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); animation: darma-loader-darma-b17-bingo-cage-bingo-ball calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(1) { left: 16%; top: 22%; }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(2) { left: 44%; top: 12%; animation-delay: calc(var(--loader-speed, 1s) * -.24); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(3) { left: 62%; top: 38%; animation-delay: calc(var(--loader-speed, 1s) * -.48); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(4) { left: 26%; top: 54%; animation-delay: calc(var(--loader-speed, 1s) * -.72); }\n.darma-loader-darma-b17-bingo-cage i:nth-of-type(5) { left: 52%; top: 62%; animation-delay: calc(var(--loader-speed, 1s) * -.96); }\n.darma-loader-darma-b17-bingo-cage .darma-loader-darma-b17-bingo-cage__stand { position: absolute; left: 32%; right: 32%; bottom: 2%; height: 20%; border-radius: 0 0 6px 6px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 32%, var(--accent))); clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%); }\n@keyframes darma-loader-darma-b17-bingo-cage-bingo-tumble { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-bingo-cage-bingo-ball { 0%, 100% { transform: translate(0, 0); } 30% { transform: translate(24%, 22%); } 60% { transform: translate(-18%, 12%); } }",
+    "defaults": {
+      "color": "#be123c",
+      "secondaryColor": "#fef3c7",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b17-blister-pack-pop",
+    "name": "Blister Pack Pop",
+    "category": "dots",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "blister",
+      "pills",
+      "pack",
+      "medicine",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-blister-pack-pop blister pack pop dots darma-research-batch-17 darma research batch 17 blister pills pack medicine dots html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-blister-pack-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b17-blister-pack-pop { --accent: var(--loader-color, #4f46e5); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .56); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 5%; padding: 4%; border-radius: 8px; background: color-mix(in srgb, var(--accent) 16%, transparent); box-sizing: border-box; }\n.darma-loader-darma-b17-blister-pack-pop span { position: relative; border-radius: 40% / 46%; background: linear-gradient(150deg, color-mix(in srgb, #fff 45%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 -3px 0 color-mix(in srgb, #000 12%, transparent); animation: darma-loader-darma-b17-blister-pack-pop-blister-pop calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b17-blister-pack-pop span::after { content: ''; position: absolute; left: 26%; right: 26%; top: 38%; height: 22%; border-radius: 999px; background: var(--accent); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(4) { animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(5) { animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(6) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.68); }\n.darma-loader-darma-b17-blister-pack-pop span:nth-of-type(8) { animation-delay: calc(var(--loader-speed, 1s) * 1.96); }\n@keyframes darma-loader-darma-b17-blister-pack-pop-blister-pop { 0%, 10% { transform: scale(1); opacity: 1; } 18% { transform: scale(1.16); } 26%, 74% { transform: scale(.62); opacity: .3; } 88%, 100% { transform: scale(1); opacity: 1; } }",
+    "defaults": {
+      "color": "#4f46e5",
+      "secondaryColor": "#f8fafc",
+      "size": 128,
+      "speed": 1
     }
   },
   {
@@ -2563,6 +2656,37 @@
     }
   },
   {
+    "id": "darma-b16-morse-code-blink",
+    "name": "Morse Code Blink",
+    "category": "dots",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "morse",
+      "code",
+      "signal",
+      "telegraph",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-morse-code-blink morse code blink dots darma-research-batch-16 darma research batch 16 morse code signal telegraph dots html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-morse-code-blink\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-morse-code-blink__lamp\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-morse-code-blink { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .3); position: relative; display: flex; gap: 3%; align-items: center; }\n.darma-loader-darma-b16-morse-code-blink span { flex: none; height: 34%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 22%, transparent); animation: darma-loader-darma-b16-morse-code-blink-morse-key calc(var(--loader-speed, 1s) * 3) steps(1, end) infinite; }\n.darma-loader-darma-b16-morse-code-blink span:nth-of-type(1) { width: 7%; }\n.darma-loader-darma-b16-morse-code-blink span:nth-of-type(2) { width: 18%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b16-morse-code-blink span:nth-of-type(3) { width: 7%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b16-morse-code-blink span:nth-of-type(4) { width: 7%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b16-morse-code-blink span:nth-of-type(5) { width: 18%; animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n.darma-loader-darma-b16-morse-code-blink span:nth-of-type(6) { width: 18%; animation-delay: calc(var(--loader-speed, 1s) * 2); }\n.darma-loader-darma-b16-morse-code-blink .darma-loader-darma-b16-morse-code-blink__lamp { position: absolute; right: 0; top: 16%; width: 9%; height: 62%; border-radius: 50%; background: var(--accent-2); opacity: .2; animation: darma-loader-darma-b16-morse-code-blink-morse-lamp calc(var(--loader-speed, 1s) * .5) steps(1, end) infinite; }\n@keyframes darma-loader-darma-b16-morse-code-blink-morse-key { 0%, 4% { background: color-mix(in srgb, var(--accent) 20%, transparent); transform: scaleY(1); } 6%, 22% { background: var(--accent); transform: scaleY(1.5); } 26%, 100% { background: color-mix(in srgb, var(--accent) 20%, transparent); transform: scaleY(1); } }\n@keyframes darma-loader-darma-b16-morse-code-blink-morse-lamp { 0%, 49% { opacity: 1; box-shadow: 0 0 12px var(--accent-2); } 50%, 100% { opacity: .18; box-shadow: none; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#fde047",
+      "size": 130,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-b7-newtons-cradle",
     "name": "Newton's Cradle",
     "category": "dots",
@@ -3012,6 +3136,37 @@
       "size": 96,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b15-packet-hop-route",
+    "name": "Packet Hop Route",
+    "category": "dots",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "packet",
+      "network",
+      "route",
+      "hop",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-packet-hop-route packet hop route dots darma-research-batch-15 darma research batch 15 packet network route hop dots html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-packet-hop-route\" aria-label=\"Loading\"><i></i><i></i><i></i><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b15-packet-hop-route__packet\"></div></div>",
+    "previewCss": ".darma-loader-darma-b15-packet-hop-route { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 132px); height: calc(var(--loader-size, 132px) * .58); position: relative; }\n.darma-loader-darma-b15-packet-hop-route i { position: absolute; height: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent) 35%, transparent); transform-origin: 0 50%; }\n.darma-loader-darma-b15-packet-hop-route i:nth-of-type(1) { left: 12%; top: 68%; width: 34%; transform: rotate(-52deg); }\n.darma-loader-darma-b15-packet-hop-route i:nth-of-type(2) { left: 36%; top: 22%; width: 34%; transform: rotate(52deg); }\n.darma-loader-darma-b15-packet-hop-route i:nth-of-type(3) { left: 60%; top: 70%; width: 34%; transform: rotate(-52deg); }\n.darma-loader-darma-b15-packet-hop-route span { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: color-mix(in srgb, var(--accent) 55%, transparent); box-shadow: inset 0 0 0 2px var(--accent); animation: darma-loader-darma-b15-packet-hop-route-hop-node calc(var(--loader-speed, 1s) * 2.8) ease-out infinite; }\n.darma-loader-darma-b15-packet-hop-route span:nth-of-type(1) { left: 6%; top: 62%; }\n.darma-loader-darma-b15-packet-hop-route span:nth-of-type(2) { left: 32%; top: 16%; animation-delay: calc(var(--loader-speed, 1s) * .7); }\n.darma-loader-darma-b15-packet-hop-route span:nth-of-type(3) { left: 56%; top: 64%; animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n.darma-loader-darma-b15-packet-hop-route span:nth-of-type(4) { left: 82%; top: 18%; animation-delay: calc(var(--loader-speed, 1s) * 2.1); }\n.darma-loader-darma-b15-packet-hop-route .darma-loader-darma-b15-packet-hop-route__packet { position: absolute; width: 8%; height: 8%; border-radius: 2px; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); animation: darma-loader-darma-b15-packet-hop-route-hop-route calc(var(--loader-speed, 1s) * 2.8) cubic-bezier(.5, 0, .4, 1) infinite; }\n@keyframes darma-loader-darma-b15-packet-hop-route-hop-route { 0% { left: 8.5%; top: 64.5%; opacity: 0; } 6% { opacity: 1; } 25% { left: 34.5%; top: 18.5%; } 50% { left: 58.5%; top: 66.5%; } 75%, 90% { left: 84.5%; top: 20.5%; opacity: 1; } 100% { left: 84.5%; top: 20.5%; opacity: 0; } }\n@keyframes darma-loader-darma-b15-packet-hop-route-hop-node { 0%, 18% { transform: scale(1); background: color-mix(in srgb, var(--accent) 55%, transparent); } 25% { transform: scale(1.35); background: var(--accent-2); } 45%, 100% { transform: scale(1); background: color-mix(in srgb, var(--accent) 55%, transparent); } }",
+    "defaults": {
+      "color": "#2563eb",
+      "secondaryColor": "#f59e0b",
+      "size": 132,
+      "speed": 1
     }
   },
   {

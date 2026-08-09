@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-curling-stone",
+  "name": "Curling Stone",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "curling",
+    "stone",
+    "ice",
+    "sport",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-curling-stone curling stone fun darma-research-batch-15 darma research batch 15 curling stone ice sport fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-curling-stone\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-curling-stone__house\"></div><div class=\"darma-loader-darma-b15-curling-stone__stone\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-curling-stone { --accent: var(--loader-color, #b91c1c); --accent-2: var(--loader-secondary-color, #60a5fa); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .62); position: relative; }\n.darma-loader-darma-b15-curling-stone .darma-loader-darma-b15-curling-stone__house { position: absolute; right: 5%; top: 8%; width: 42%; height: 84%; border-radius: 50%; background: radial-gradient(circle, var(--accent) 0 17%, transparent 17% 33%, var(--accent-2) 33% 50%, transparent 50% 68%, color-mix(in srgb, var(--accent) 45%, transparent) 68% 84%, transparent 84%); }\n.darma-loader-darma-b15-curling-stone .darma-loader-darma-b15-curling-stone__stone { position: absolute; left: 2%; top: 34%; width: 20%; height: 32%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #94a3b8, #334155); animation: darma-loader-darma-b15-curling-stone-curl-slide calc(var(--loader-speed, 1s) * 2.8) cubic-bezier(.15, .65, .3, 1) infinite; }\n.darma-loader-darma-b15-curling-stone .darma-loader-darma-b15-curling-stone__stone::after { content: ''; position: absolute; left: 30%; bottom: 92%; width: 40%; height: 34%; border-radius: 4px 4px 0 0; background: var(--accent-2); }\n@keyframes darma-loader-darma-b15-curling-stone-curl-slide { 0% { opacity: 0; transform: translateX(0) rotate(0deg); } 8% { opacity: 1; } 76%, 90% { opacity: 1; transform: translateX(280%) rotate(210deg); } 100% { opacity: 0; transform: translateX(280%) rotate(210deg); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#60a5fa",
+    "size": 130,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-curling-stone\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-curling-stone__house\"></div><div class=\"darma-loader-darma-b15-curling-stone__stone\"></div></div>",
+    "css": ".darma-loader-darma-b15-curling-stone { --accent: var(--loader-color, #b91c1c); --accent-2: var(--loader-secondary-color, #60a5fa); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .62); position: relative; }\n.darma-loader-darma-b15-curling-stone .darma-loader-darma-b15-curling-stone__house { position: absolute; right: 5%; top: 8%; width: 42%; height: 84%; border-radius: 50%; background: radial-gradient(circle, var(--accent) 0 17%, transparent 17% 33%, var(--accent-2) 33% 50%, transparent 50% 68%, color-mix(in srgb, var(--accent) 45%, transparent) 68% 84%, transparent 84%); }\n.darma-loader-darma-b15-curling-stone .darma-loader-darma-b15-curling-stone__stone { position: absolute; left: 2%; top: 34%; width: 20%; height: 32%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #94a3b8, #334155); animation: darma-loader-darma-b15-curling-stone-curl-slide calc(var(--loader-speed, 1s) * 2.8) cubic-bezier(.15, .65, .3, 1) infinite; }\n.darma-loader-darma-b15-curling-stone .darma-loader-darma-b15-curling-stone__stone::after { content: ''; position: absolute; left: 30%; bottom: 92%; width: 40%; height: 34%; border-radius: 4px 4px 0 0; background: var(--accent-2); }\n@keyframes darma-loader-darma-b15-curling-stone-curl-slide { 0% { opacity: 0; transform: translateX(0) rotate(0deg); } 8% { opacity: 1; } 76%, 90% { opacity: 1; transform: translateX(280%) rotate(210deg); } 100% { opacity: 0; transform: translateX(280%) rotate(210deg); } }",
+    "react": "export default function DarmaB15CurlingStoneLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-curling-stone\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-curling-stone__house\"></div><div className=\"darma-loader-darma-b15-curling-stone__stone\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

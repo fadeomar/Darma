@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-scissor-lift-rise",
+  "name": "Scissor Lift Rise",
+  "category": "bars",
+  "tags": [
+    "scissor",
+    "lift",
+    "platform",
+    "machine",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"deck\"></div><div class=\"rig\"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class=\"base\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .base { position: absolute; left: 10%; right: 10%; bottom: 2%; height: 10%; border-radius: 4px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.loader .deck { position: absolute; left: 6%; right: 6%; height: 9%; border-radius: 4px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: scissor-deck calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .rig { position: absolute; left: 22%; right: 22%; bottom: 12%; height: 76%; }\n.loader .rig span { position: absolute; left: 0; width: 100%; height: 6%; border-radius: 3px; background: var(--accent); animation: scissor-arm calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .rig span:nth-of-type(1) { bottom: 4%; }\n.loader .rig span:nth-of-type(2) { bottom: 4%; animation-name: scissor-arm-mirror; }\n.loader .rig span:nth-of-type(3) { bottom: 30%; }\n.loader .rig span:nth-of-type(4) { bottom: 30%; animation-name: scissor-arm-mirror; }\n.loader .rig span:nth-of-type(5) { bottom: 56%; }\n.loader .rig span:nth-of-type(6) { bottom: 56%; animation-name: scissor-arm-mirror; }\n@keyframes scissor-deck { 0%, 8% { bottom: 26%; } 52%, 76% { bottom: 82%; } 96%, 100% { bottom: 26%; } }\n@keyframes scissor-arm { 0%, 8% { transform: rotate(14deg) scaleX(1); } 52%, 76% { transform: rotate(62deg) scaleX(.62); } 96%, 100% { transform: rotate(14deg) scaleX(1); } }\n@keyframes scissor-arm-mirror { 0%, 8% { transform: rotate(-14deg) scaleX(1); } 52%, 76% { transform: rotate(-62deg) scaleX(.62); } 96%, 100% { transform: rotate(-14deg) scaleX(1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#1e293b",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

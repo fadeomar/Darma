@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-magnet-filings",
+  "name": "Magnet Filings",
+  "category": "creative",
+  "tags": [
+    "magnet",
+    "filings",
+    "field",
+    "physics",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"bar\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .78); position: relative; }\n.loader .bar { position: absolute; left: 28%; top: 44%; width: 44%; height: 12%; border-radius: 3px; background: linear-gradient(90deg, var(--accent) 50%, var(--accent-2) 50%); }\n.loader span { position: absolute; border-radius: 50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); animation: mag-field calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader span:nth-of-type(1) { left: 28%; top: 35%; width: 44%; height: 30%; }\n.loader span:nth-of-type(2) { left: 19%; top: 27%; width: 62%; height: 46%; animation-delay: calc(var(--loader-speed) * .22); }\n.loader span:nth-of-type(3) { left: 10%; top: 19%; width: 80%; height: 62%; animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-of-type(4) { left: 1%; top: 10%; width: 98%; height: 80%; animation-delay: calc(var(--loader-speed) * .66); }\n@keyframes mag-field { 0%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); transform: scale(.96); } 42% { box-shadow: 0 0 0 3px var(--accent-2); transform: scale(1); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#3b82f6",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

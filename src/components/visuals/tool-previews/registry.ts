@@ -227,6 +227,19 @@ export const TOOL_PREVIEWS: Record<string, ToolPreviewConfig> = {
     ],
     sample: "card",
   },
+  "code-video-generator": {
+    family: "code",
+    lang: "script.js · 00:42",
+    chips: ["16:9 + 9:16", "captions", "MP4 + WebM"],
+    code: [
+      "// step 3 — wire the counter",
+      "let value = 0",
+      "btn.onclick = () => {",
+      "  count.textContent = ++value",
+      "}▌",
+    ],
+    sample: "card",
+  },
   "css-clamp-generator": {
     family: "code",
     lang: "fluid.css",

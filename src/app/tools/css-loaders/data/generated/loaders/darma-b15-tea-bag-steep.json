@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-tea-bag-steep",
+  "name": "Tea Bag Steep",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "tea",
+    "steep",
+    "cup",
+    "brew",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-tea-bag-steep tea bag steep fun darma-research-batch-15 darma research batch 15 tea steep cup brew fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-tea-bag-steep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-tea-bag-steep__string\"></div><div class=\"darma-loader-darma-b15-tea-bag-steep__bag\"></div><div class=\"darma-loader-darma-b15-tea-bag-steep__cup\"></div><div class=\"darma-loader-darma-b15-tea-bag-steep__brew\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-tea-bag-steep { --accent: var(--loader-color, #b45309); --accent-2: var(--loader-secondary-color, #fcd34d); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__cup { position: absolute; left: 16%; bottom: 6%; width: 62%; height: 44%; border-radius: 6px 6px 26% 26%; background: linear-gradient(#e2e8f0, #cbd5e1); }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__cup::after { content: ''; position: absolute; left: 96%; top: 18%; width: 26%; height: 46%; border-radius: 0 50% 50% 0; border: 4px solid #cbd5e1; border-left-color: transparent; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__brew { position: absolute; left: 20%; bottom: 12%; width: 54%; height: 30%; border-radius: 4px 4px 24% 24%; background: var(--accent-2); animation: darma-loader-darma-b15-tea-bag-steep-tea-brew calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__string { position: absolute; left: 46%; top: 6%; width: 2%; height: 28%; border-radius: 2px; background: #94a3b8; transform-origin: 50% 0; animation: darma-loader-darma-b15-tea-bag-steep-tea-sway calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__bag { position: absolute; left: 38%; top: 30%; width: 18%; height: 22%; border-radius: 3px 3px 6px 6px; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% -80%; animation: darma-loader-darma-b15-tea-bag-steep-tea-dip calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-tea-bag-steep-tea-sway { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }\n@keyframes darma-loader-darma-b15-tea-bag-steep-tea-dip { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(26%) rotate(7deg); } }\n@keyframes darma-loader-darma-b15-tea-bag-steep-tea-brew { 0% { background: color-mix(in srgb, var(--accent-2) 25%, transparent); } 70%, 100% { background: var(--accent); } }",
+  "defaults": {
+    "color": "#b45309",
+    "secondaryColor": "#fcd34d",
+    "size": 114,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-tea-bag-steep\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-tea-bag-steep__string\"></div><div class=\"darma-loader-darma-b15-tea-bag-steep__bag\"></div><div class=\"darma-loader-darma-b15-tea-bag-steep__cup\"></div><div class=\"darma-loader-darma-b15-tea-bag-steep__brew\"></div></div>",
+    "css": ".darma-loader-darma-b15-tea-bag-steep { --accent: var(--loader-color, #b45309); --accent-2: var(--loader-secondary-color, #fcd34d); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__cup { position: absolute; left: 16%; bottom: 6%; width: 62%; height: 44%; border-radius: 6px 6px 26% 26%; background: linear-gradient(#e2e8f0, #cbd5e1); }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__cup::after { content: ''; position: absolute; left: 96%; top: 18%; width: 26%; height: 46%; border-radius: 0 50% 50% 0; border: 4px solid #cbd5e1; border-left-color: transparent; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__brew { position: absolute; left: 20%; bottom: 12%; width: 54%; height: 30%; border-radius: 4px 4px 24% 24%; background: var(--accent-2); animation: darma-loader-darma-b15-tea-bag-steep-tea-brew calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__string { position: absolute; left: 46%; top: 6%; width: 2%; height: 28%; border-radius: 2px; background: #94a3b8; transform-origin: 50% 0; animation: darma-loader-darma-b15-tea-bag-steep-tea-sway calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-tea-bag-steep .darma-loader-darma-b15-tea-bag-steep__bag { position: absolute; left: 38%; top: 30%; width: 18%; height: 22%; border-radius: 3px 3px 6px 6px; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% -80%; animation: darma-loader-darma-b15-tea-bag-steep-tea-dip calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-tea-bag-steep-tea-sway { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }\n@keyframes darma-loader-darma-b15-tea-bag-steep-tea-dip { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(26%) rotate(7deg); } }\n@keyframes darma-loader-darma-b15-tea-bag-steep-tea-brew { 0% { background: color-mix(in srgb, var(--accent-2) 25%, transparent); } 70%, 100% { background: var(--accent); } }",
+    "react": "export default function DarmaB15TeaBagSteepLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-tea-bag-steep\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-tea-bag-steep__string\"></div><div className=\"darma-loader-darma-b15-tea-bag-steep__bag\"></div><div className=\"darma-loader-darma-b15-tea-bag-steep__cup\"></div><div className=\"darma-loader-darma-b15-tea-bag-steep__brew\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

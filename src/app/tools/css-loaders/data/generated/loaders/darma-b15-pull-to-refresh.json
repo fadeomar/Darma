@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-pull-to-refresh",
+  "name": "Pull To Refresh",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "refresh",
+    "pull",
+    "mobile",
+    "gesture",
+    "spinners"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-pull-to-refresh pull to refresh spinners darma-research-batch-15 darma research batch 15 refresh pull mobile gesture spinners html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-pull-to-refresh\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-pull-to-refresh__ring\"></div><div class=\"darma-loader-darma-b15-pull-to-refresh__sheet\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-pull-to-refresh { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #bfdbfe); width: calc(var(--loader-size, 110px) * .82); height: var(--loader-size, 110px); position: relative; overflow: hidden; border-radius: 10px; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__ring { position: absolute; left: 34%; top: 8%; width: 32%; height: 0; padding-bottom: 32%; border-radius: 50%; border: 3px solid color-mix(in srgb, var(--accent) 25%, transparent); border-top-color: var(--accent); animation: darma-loader-darma-b15-pull-to-refresh-ptr-pull calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__sheet { position: absolute; left: 6%; right: 6%; top: 22%; height: 76%; border-radius: 10px 10px 0 0; background: color-mix(in srgb, var(--accent-2) 45%, transparent); animation: darma-loader-darma-b15-pull-to-refresh-ptr-sheet calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__sheet::after { content: ''; position: absolute; left: 10%; right: 10%; top: 14%; height: 9%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 40%, transparent); box-shadow: 0 220% 0 color-mix(in srgb, var(--accent) 40%, transparent), 0 440% 0 color-mix(in srgb, var(--accent) 40%, transparent); }\n@keyframes darma-loader-darma-b15-pull-to-refresh-ptr-pull { 0% { opacity: 0; transform: translateY(-140%) rotate(0deg); } 14% { opacity: 1; } 30% { transform: translateY(0) rotate(200deg); } 78% { opacity: 1; transform: translateY(0) rotate(1000deg); } 100% { opacity: 0; transform: translateY(-140%) rotate(1160deg); } }\n@keyframes darma-loader-darma-b15-pull-to-refresh-ptr-sheet { 0% { transform: translateY(-16%); } 30%, 78% { transform: translateY(0); } 100% { transform: translateY(-16%); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#bfdbfe",
+    "size": 110,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-pull-to-refresh\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-pull-to-refresh__ring\"></div><div class=\"darma-loader-darma-b15-pull-to-refresh__sheet\"></div></div>",
+    "css": ".darma-loader-darma-b15-pull-to-refresh { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #bfdbfe); width: calc(var(--loader-size, 110px) * .82); height: var(--loader-size, 110px); position: relative; overflow: hidden; border-radius: 10px; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__ring { position: absolute; left: 34%; top: 8%; width: 32%; height: 0; padding-bottom: 32%; border-radius: 50%; border: 3px solid color-mix(in srgb, var(--accent) 25%, transparent); border-top-color: var(--accent); animation: darma-loader-darma-b15-pull-to-refresh-ptr-pull calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__sheet { position: absolute; left: 6%; right: 6%; top: 22%; height: 76%; border-radius: 10px 10px 0 0; background: color-mix(in srgb, var(--accent-2) 45%, transparent); animation: darma-loader-darma-b15-pull-to-refresh-ptr-sheet calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b15-pull-to-refresh .darma-loader-darma-b15-pull-to-refresh__sheet::after { content: ''; position: absolute; left: 10%; right: 10%; top: 14%; height: 9%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 40%, transparent); box-shadow: 0 220% 0 color-mix(in srgb, var(--accent) 40%, transparent), 0 440% 0 color-mix(in srgb, var(--accent) 40%, transparent); }\n@keyframes darma-loader-darma-b15-pull-to-refresh-ptr-pull { 0% { opacity: 0; transform: translateY(-140%) rotate(0deg); } 14% { opacity: 1; } 30% { transform: translateY(0) rotate(200deg); } 78% { opacity: 1; transform: translateY(0) rotate(1000deg); } 100% { opacity: 0; transform: translateY(-140%) rotate(1160deg); } }\n@keyframes darma-loader-darma-b15-pull-to-refresh-ptr-sheet { 0% { transform: translateY(-16%); } 30%, 78% { transform: translateY(0); } 100% { transform: translateY(-16%); } }",
+    "react": "export default function DarmaB15PullToRefreshLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-pull-to-refresh\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-pull-to-refresh__ring\"></div><div className=\"darma-loader-darma-b15-pull-to-refresh__sheet\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

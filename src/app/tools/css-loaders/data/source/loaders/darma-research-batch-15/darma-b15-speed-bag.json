@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-speed-bag",
+  "name": "Speed Bag",
+  "category": "fun",
+  "tags": [
+    "boxing",
+    "speed bag",
+    "punch",
+    "sport",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"board\"></div><div class=\"bag\"></div><div class=\"glove\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .82); position: relative; }\n.loader .board { position: absolute; left: 8%; right: 8%; top: 6%; height: 8%; border-radius: 4px; background: linear-gradient(#64748b, #334155); }\n.loader .bag { position: absolute; left: 39%; top: 15%; width: 22%; height: 32%; border-radius: 42% 42% 50% 50%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 0; animation: bag-swing calc(var(--loader-speed) * .4) ease-in-out infinite; }\n.loader .glove { position: absolute; left: 12%; top: 26%; width: 18%; height: 18%; border-radius: 44% 30% 30% 44%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 25%, var(--accent))); animation: bag-hit calc(var(--loader-speed) * .8) ease-in-out infinite; }\n@keyframes bag-swing { 0%, 100% { transform: rotate(-17deg); } 50% { transform: rotate(17deg); } }\n@keyframes bag-hit { 0%, 100% { transform: translateX(0) scale(1); } 50% { transform: translateX(72%) scale(1.06); } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#fbbf24",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

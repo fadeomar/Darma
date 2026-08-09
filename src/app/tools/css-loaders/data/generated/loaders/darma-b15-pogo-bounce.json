@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-pogo-bounce",
+  "name": "Pogo Stick Bounce",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "pogo",
+    "bounce",
+    "spring",
+    "toy",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-pogo-bounce pogo stick bounce fun darma-research-batch-15 darma research batch 15 pogo bounce spring toy fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-pogo-bounce\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-pogo-bounce__rig\"><span class=\"darma-loader-darma-b15-pogo-bounce__bar\"></span><span class=\"darma-loader-darma-b15-pogo-bounce__pole\"></span><span class=\"darma-loader-darma-b15-pogo-bounce__foot\"></span></div><div class=\"darma-loader-darma-b15-pogo-bounce__ground\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-pogo-bounce { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #fca5a5); width: var(--loader-size, 110px); height: var(--loader-size, 110px); position: relative; }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__rig { position: absolute; left: 38%; bottom: 14%; width: 24%; height: 64%; animation: darma-loader-darma-b15-pogo-bounce-pogo-hop calc(var(--loader-speed, 1s) * 1.1) cubic-bezier(.3, 0, .35, 1) infinite; }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__pole { position: absolute; left: 38%; top: 4%; width: 24%; height: 76%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__bar { position: absolute; left: 0; top: 0; width: 100%; height: 10%; border-radius: 5px; background: var(--accent); }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__foot { position: absolute; left: 20%; bottom: 0; width: 60%; height: 22%; border-radius: 3px; background: linear-gradient(#94a3b8, #475569); transform-origin: 50% 100%; animation: darma-loader-darma-b15-pogo-bounce-pogo-spring calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__ground { position: absolute; left: 16%; right: 16%; bottom: 9%; height: 4%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n@keyframes darma-loader-darma-b15-pogo-bounce-pogo-hop { 0%, 100% { transform: translateY(0); } 12% { transform: translateY(5%); } 50% { transform: translateY(-26%); } }\n@keyframes darma-loader-darma-b15-pogo-bounce-pogo-spring { 0%, 100% { transform: scaleY(1); } 12% { transform: scaleY(.52); } 50% { transform: scaleY(1.18); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#fca5a5",
+    "size": 110,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-pogo-bounce\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-pogo-bounce__rig\"><span class=\"darma-loader-darma-b15-pogo-bounce__bar\"></span><span class=\"darma-loader-darma-b15-pogo-bounce__pole\"></span><span class=\"darma-loader-darma-b15-pogo-bounce__foot\"></span></div><div class=\"darma-loader-darma-b15-pogo-bounce__ground\"></div></div>",
+    "css": ".darma-loader-darma-b15-pogo-bounce { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #fca5a5); width: var(--loader-size, 110px); height: var(--loader-size, 110px); position: relative; }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__rig { position: absolute; left: 38%; bottom: 14%; width: 24%; height: 64%; animation: darma-loader-darma-b15-pogo-bounce-pogo-hop calc(var(--loader-speed, 1s) * 1.1) cubic-bezier(.3, 0, .35, 1) infinite; }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__pole { position: absolute; left: 38%; top: 4%; width: 24%; height: 76%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__bar { position: absolute; left: 0; top: 0; width: 100%; height: 10%; border-radius: 5px; background: var(--accent); }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__foot { position: absolute; left: 20%; bottom: 0; width: 60%; height: 22%; border-radius: 3px; background: linear-gradient(#94a3b8, #475569); transform-origin: 50% 100%; animation: darma-loader-darma-b15-pogo-bounce-pogo-spring calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-b15-pogo-bounce .darma-loader-darma-b15-pogo-bounce__ground { position: absolute; left: 16%; right: 16%; bottom: 9%; height: 4%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 35%, transparent); }\n@keyframes darma-loader-darma-b15-pogo-bounce-pogo-hop { 0%, 100% { transform: translateY(0); } 12% { transform: translateY(5%); } 50% { transform: translateY(-26%); } }\n@keyframes darma-loader-darma-b15-pogo-bounce-pogo-spring { 0%, 100% { transform: scaleY(1); } 12% { transform: scaleY(.52); } 50% { transform: scaleY(1.18); } }",
+    "react": "export default function DarmaB15PogoBounceLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-pogo-bounce\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-pogo-bounce__rig\"><span className=\"darma-loader-darma-b15-pogo-bounce__bar\"></span><span className=\"darma-loader-darma-b15-pogo-bounce__pole\"></span><span className=\"darma-loader-darma-b15-pogo-bounce__foot\"></span></div><div className=\"darma-loader-darma-b15-pogo-bounce__ground\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

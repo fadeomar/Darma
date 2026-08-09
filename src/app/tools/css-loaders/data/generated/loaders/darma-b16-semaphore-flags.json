@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-semaphore-flags",
+  "name": "Semaphore Flags",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "semaphore",
+    "flags",
+    "signal",
+    "arms",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-semaphore-flags semaphore flags fun darma-research-batch-16 darma research batch 16 semaphore flags signal arms fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-semaphore-flags\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-semaphore-flags__torso\"></div><div class=\"darma-loader-darma-b16-semaphore-flags__arm\"></div><div class=\"darma-loader-darma-b16-semaphore-flags__arm\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-semaphore-flags { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__torso { position: absolute; left: 43%; top: 30%; width: 14%; height: 52%; border-radius: 8px 8px 5px 5px; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__torso::before { content: ''; position: absolute; left: 2%; bottom: 100%; width: 96%; height: 34%; border-radius: 50%; background: var(--accent); }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm { position: absolute; left: 48%; top: 36%; width: 4%; height: 34%; border-radius: 3px; background: color-mix(in srgb, #0f172a 55%, transparent); transform-origin: 50% 0; }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm::after { content: ''; position: absolute; left: -180%; top: 76%; width: 460%; height: 40%; background: var(--accent-2); clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm:nth-of-type(2) { animation: darma-loader-darma-b16-semaphore-flags-sema-left calc(var(--loader-speed, 1s) * 2.8) steps(1, end) infinite; }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm:nth-of-type(3) { animation: darma-loader-darma-b16-semaphore-flags-sema-right calc(var(--loader-speed, 1s) * 2.8) steps(1, end) infinite; }\n@keyframes darma-loader-darma-b16-semaphore-flags-sema-left { 0%, 24% { transform: rotate(200deg); } 25%, 49% { transform: rotate(155deg); } 50%, 74% { transform: rotate(245deg); } 75%, 100% { transform: rotate(180deg); } }\n@keyframes darma-loader-darma-b16-semaphore-flags-sema-right { 0%, 24% { transform: rotate(160deg); } 25%, 49% { transform: rotate(115deg); } 50%, 74% { transform: rotate(70deg); } 75%, 100% { transform: rotate(135deg); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#facc15",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-semaphore-flags\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-semaphore-flags__torso\"></div><div class=\"darma-loader-darma-b16-semaphore-flags__arm\"></div><div class=\"darma-loader-darma-b16-semaphore-flags__arm\"></div></div>",
+    "css": ".darma-loader-darma-b16-semaphore-flags { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__torso { position: absolute; left: 43%; top: 30%; width: 14%; height: 52%; border-radius: 8px 8px 5px 5px; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__torso::before { content: ''; position: absolute; left: 2%; bottom: 100%; width: 96%; height: 34%; border-radius: 50%; background: var(--accent); }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm { position: absolute; left: 48%; top: 36%; width: 4%; height: 34%; border-radius: 3px; background: color-mix(in srgb, #0f172a 55%, transparent); transform-origin: 50% 0; }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm::after { content: ''; position: absolute; left: -180%; top: 76%; width: 460%; height: 40%; background: var(--accent-2); clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm:nth-of-type(2) { animation: darma-loader-darma-b16-semaphore-flags-sema-left calc(var(--loader-speed, 1s) * 2.8) steps(1, end) infinite; }\n.darma-loader-darma-b16-semaphore-flags .darma-loader-darma-b16-semaphore-flags__arm:nth-of-type(3) { animation: darma-loader-darma-b16-semaphore-flags-sema-right calc(var(--loader-speed, 1s) * 2.8) steps(1, end) infinite; }\n@keyframes darma-loader-darma-b16-semaphore-flags-sema-left { 0%, 24% { transform: rotate(200deg); } 25%, 49% { transform: rotate(155deg); } 50%, 74% { transform: rotate(245deg); } 75%, 100% { transform: rotate(180deg); } }\n@keyframes darma-loader-darma-b16-semaphore-flags-sema-right { 0%, 24% { transform: rotate(160deg); } 25%, 49% { transform: rotate(115deg); } 50%, 74% { transform: rotate(70deg); } 75%, 100% { transform: rotate(135deg); } }",
+    "react": "export default function DarmaB16SemaphoreFlagsLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-semaphore-flags\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-semaphore-flags__torso\"></div><div className=\"darma-loader-darma-b16-semaphore-flags__arm\"></div><div className=\"darma-loader-darma-b16-semaphore-flags__arm\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

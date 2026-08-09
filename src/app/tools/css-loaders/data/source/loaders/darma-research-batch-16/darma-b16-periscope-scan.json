@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-periscope-scan",
+  "name": "Periscope Scan",
+  "category": "creative",
+  "tags": [
+    "periscope",
+    "scan",
+    "sweep",
+    "watch",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"sea\"></div><div class=\"rig\"><span class=\"tube\"></span><span class=\"head\"></span><span class=\"beam\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .8); position: relative; overflow: hidden; border-radius: 8px; }\n.loader .sea { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; background: linear-gradient(color-mix(in srgb, var(--accent) 40%, transparent), color-mix(in srgb, var(--accent) 12%, transparent)); }\n.loader .rig { position: absolute; left: 0; right: 0; bottom: 46%; height: 54%; animation: peri-rise calc(var(--loader-speed) * 4) ease-in-out infinite; }\n.loader .tube { position: absolute; left: 47%; bottom: 0; width: 6%; height: 62%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader .head { position: absolute; left: 40%; bottom: 56%; width: 20%; height: 12%; border-radius: 4px; background: var(--accent); transform-origin: 50% 100%; animation: peri-turn calc(var(--loader-speed) * 2) ease-in-out infinite alternate; }\n.loader .beam { position: absolute; left: 20%; bottom: 40%; width: 60%; height: 34%; background: conic-gradient(from -30deg at 50% 100%, transparent 0deg, color-mix(in srgb, var(--accent-2) 60%, transparent) 20deg, transparent 40deg); transform-origin: 50% 100%; animation: peri-turn calc(var(--loader-speed) * 2) ease-in-out infinite alternate; }\n@keyframes peri-rise { 0%, 100% { transform: translateY(46%); } 26%, 74% { transform: translateY(0); } }\n@keyframes peri-turn { from { transform: rotate(-40deg); } to { transform: rotate(40deg); } }",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#a5f3fc",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

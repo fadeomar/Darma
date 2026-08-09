@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-morse-code-blink",
+  "name": "Morse Code Blink",
+  "category": "dots",
+  "tags": [
+    "morse",
+    "code",
+    "signal",
+    "telegraph",
+    "dots"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"lamp\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .3); position: relative; display: flex; gap: 3%; align-items: center; }\n.loader span { flex: none; height: 34%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 22%, transparent); animation: morse-key calc(var(--loader-speed) * 3) steps(1, end) infinite; }\n.loader span:nth-of-type(1) { width: 7%; }\n.loader span:nth-of-type(2) { width: 18%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(3) { width: 7%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-of-type(4) { width: 7%; animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span:nth-of-type(5) { width: 18%; animation-delay: calc(var(--loader-speed) * 1.6); }\n.loader span:nth-of-type(6) { width: 18%; animation-delay: calc(var(--loader-speed) * 2); }\n.loader .lamp { position: absolute; right: 0; top: 16%; width: 9%; height: 62%; border-radius: 50%; background: var(--accent-2); opacity: .2; animation: morse-lamp calc(var(--loader-speed) * .5) steps(1, end) infinite; }\n@keyframes morse-key { 0%, 4% { background: color-mix(in srgb, var(--accent) 20%, transparent); transform: scaleY(1); } 6%, 22% { background: var(--accent); transform: scaleY(1.5); } 26%, 100% { background: color-mix(in srgb, var(--accent) 20%, transparent); transform: scaleY(1); } }\n@keyframes morse-lamp { 0%, 49% { opacity: 1; box-shadow: 0 0 12px var(--accent-2); } 50%, 100% { opacity: .18; box-shadow: none; } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#fde047",
+    "size": 130,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-frost-crystal",
+  "name": "Frost Crystal",
+  "category": "creative",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "frost",
+    "snowflake",
+    "crystal",
+    "winter",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-frost-crystal frost crystal creative darma-research-batch-15 darma research batch 15 frost snowflake crystal winter creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-frost-crystal\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b15-frost-crystal__core\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-frost-crystal { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #e0f2fe); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-frost-crystal span { position: absolute; left: 48.5%; top: 8%; width: 3%; height: 42%; border-radius: 2px; transform-origin: 50% 100%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-frost-crystal-frost-arm calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b15-frost-crystal span::before { content: ''; position: absolute; left: -240%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(38deg); transform-origin: 100% 50%; }\n.darma-loader-darma-b15-frost-crystal span::after { content: ''; position: absolute; left: 80%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(-38deg); transform-origin: 0 50%; }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(1) { --rot: 0deg; }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(2) { --rot: 60deg; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(3) { --rot: 120deg; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(4) { --rot: 180deg; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(5) { --rot: 240deg; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(6) { --rot: 300deg; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b15-frost-crystal .darma-loader-darma-b15-frost-crystal__core { position: absolute; left: 44%; top: 44%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b15-frost-crystal-frost-core calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-frost-crystal-frost-arm { 0%, 6% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } 34%, 66% { transform: rotate(var(--rot, 0deg)) scaleY(1); opacity: 1; } 94%, 100% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } }\n@keyframes darma-loader-darma-b15-frost-crystal-frost-core { 0%, 100% { transform: scale(.5); opacity: .4; } 40%, 66% { transform: scale(1); opacity: 1; } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#e0f2fe",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-frost-crystal\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b15-frost-crystal__core\"></div></div>",
+    "css": ".darma-loader-darma-b15-frost-crystal { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #e0f2fe); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-frost-crystal span { position: absolute; left: 48.5%; top: 8%; width: 3%; height: 42%; border-radius: 2px; transform-origin: 50% 100%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-frost-crystal-frost-arm calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b15-frost-crystal span::before { content: ''; position: absolute; left: -240%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(38deg); transform-origin: 100% 50%; }\n.darma-loader-darma-b15-frost-crystal span::after { content: ''; position: absolute; left: 80%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(-38deg); transform-origin: 0 50%; }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(1) { --rot: 0deg; }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(2) { --rot: 60deg; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(3) { --rot: 120deg; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(4) { --rot: 180deg; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(5) { --rot: 240deg; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(6) { --rot: 300deg; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b15-frost-crystal .darma-loader-darma-b15-frost-crystal__core { position: absolute; left: 44%; top: 44%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b15-frost-crystal-frost-core calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-frost-crystal-frost-arm { 0%, 6% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } 34%, 66% { transform: rotate(var(--rot, 0deg)) scaleY(1); opacity: 1; } 94%, 100% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } }\n@keyframes darma-loader-darma-b15-frost-crystal-frost-core { 0%, 100% { transform: scale(.5); opacity: .4; } 40%, 66% { transform: scale(1); opacity: 1; } }",
+    "react": "export default function DarmaB15FrostCrystalLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-frost-crystal\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div className=\"darma-loader-darma-b15-frost-crystal__core\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-harp-pluck",
+  "name": "Harp Pluck",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "harp",
+    "strings",
+    "music",
+    "pluck",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-harp-pluck harp pluck fun darma-research-batch-16 darma research batch 16 harp strings music pluck fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-harp-pluck\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-harp-pluck__pillar\"></div><div class=\"darma-loader-darma-b16-harp-pluck__neck\"></div><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b16-harp-pluck { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fde68a); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-harp-pluck .darma-loader-darma-b16-harp-pluck__pillar { position: absolute; left: 6%; bottom: 6%; width: 10%; height: 88%; border-radius: 5px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); }\n.darma-loader-darma-b16-harp-pluck .darma-loader-darma-b16-harp-pluck__neck { position: absolute; left: 6%; bottom: 6%; width: 88%; height: 9%; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b16-harp-pluck span { position: absolute; bottom: 14%; width: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent-2) 85%, transparent); transform-origin: 50% 100%; animation: darma-loader-darma-b16-harp-pluck-harp-vibe calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(1) { left: 20%; height: 78%; }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(2) { left: 32%; height: 68%; animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(3) { left: 44%; height: 58%; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(4) { left: 56%; height: 48%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(5) { left: 68%; height: 38%; animation-delay: calc(var(--loader-speed, 1s) * .72); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(6) { left: 80%; height: 28%; animation-delay: calc(var(--loader-speed, 1s) * .9); }\n@keyframes darma-loader-darma-b16-harp-pluck-harp-vibe { 0%, 62%, 100% { transform: scaleX(1); opacity: .6; } 8% { transform: scaleX(3.2); opacity: 1; } 20% { transform: scaleX(2.1); } 34% { transform: scaleX(1.5); } 48% { transform: scaleX(1.2); } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#fde68a",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-harp-pluck\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-harp-pluck__pillar\"></div><div class=\"darma-loader-darma-b16-harp-pluck__neck\"></div><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b16-harp-pluck { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fde68a); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-harp-pluck .darma-loader-darma-b16-harp-pluck__pillar { position: absolute; left: 6%; bottom: 6%; width: 10%; height: 88%; border-radius: 5px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); }\n.darma-loader-darma-b16-harp-pluck .darma-loader-darma-b16-harp-pluck__neck { position: absolute; left: 6%; bottom: 6%; width: 88%; height: 9%; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b16-harp-pluck span { position: absolute; bottom: 14%; width: 3%; border-radius: 2px; background: color-mix(in srgb, var(--accent-2) 85%, transparent); transform-origin: 50% 100%; animation: darma-loader-darma-b16-harp-pluck-harp-vibe calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(1) { left: 20%; height: 78%; }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(2) { left: 32%; height: 68%; animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(3) { left: 44%; height: 58%; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(4) { left: 56%; height: 48%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(5) { left: 68%; height: 38%; animation-delay: calc(var(--loader-speed, 1s) * .72); }\n.darma-loader-darma-b16-harp-pluck span:nth-of-type(6) { left: 80%; height: 28%; animation-delay: calc(var(--loader-speed, 1s) * .9); }\n@keyframes darma-loader-darma-b16-harp-pluck-harp-vibe { 0%, 62%, 100% { transform: scaleX(1); opacity: .6; } 8% { transform: scaleX(3.2); opacity: 1; } 20% { transform: scaleX(2.1); } 34% { transform: scaleX(1.5); } 48% { transform: scaleX(1.2); } }",
+    "react": "export default function DarmaB16HarpPluckLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-harp-pluck\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-harp-pluck__pillar\"></div><div className=\"darma-loader-darma-b16-harp-pluck__neck\"></div><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

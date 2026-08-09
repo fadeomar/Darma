@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-flip-dot-display",
+  "name": "Flip Dot Display",
+  "category": "creative",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "flip dot",
+    "display",
+    "sign",
+    "mechanical",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-flip-dot-display flip dot display creative darma-research-batch-16 darma research batch 16 flip dot display sign mechanical creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-flip-dot-display\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b16-flip-dot-display { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #1e293b); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .38); position: relative; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6%; perspective: 320px; }\n.darma-loader-darma-b16-flip-dot-display span { border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 30%, transparent); transform-style: preserve-3d; animation: darma-loader-darma-b16-flip-dot-display-flipdot-turn calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 2) { animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 3) { animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 4) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 5) { animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b16-flip-dot-display-flipdot-turn { 0%, 14% { transform: rotateX(0deg); background: var(--accent-2); } 30%, 62% { transform: rotateX(180deg); background: var(--accent); } 78%, 100% { transform: rotateX(360deg); background: var(--accent-2); } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#1e293b",
+    "size": 128,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-flip-dot-display\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b16-flip-dot-display { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #1e293b); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .38); position: relative; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6%; perspective: 320px; }\n.darma-loader-darma-b16-flip-dot-display span { border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 30%, transparent); transform-style: preserve-3d; animation: darma-loader-darma-b16-flip-dot-display-flipdot-turn calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 2) { animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 3) { animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 4) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 5) { animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b16-flip-dot-display-flipdot-turn { 0%, 14% { transform: rotateX(0deg); background: var(--accent-2); } 30%, 62% { transform: rotateX(180deg); background: var(--accent); } 78%, 100% { transform: rotateX(360deg); background: var(--accent-2); } }",
+    "react": "export default function DarmaB16FlipDotDisplayLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-flip-dot-display\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

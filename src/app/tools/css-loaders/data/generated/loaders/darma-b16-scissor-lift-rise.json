@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-scissor-lift-rise",
+  "name": "Scissor Lift Rise",
+  "category": "bars",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "scissor",
+    "lift",
+    "platform",
+    "machine",
+    "bars"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-scissor-lift-rise scissor lift rise bars darma-research-batch-16 darma research batch 16 scissor lift platform machine bars html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-scissor-lift-rise\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-scissor-lift-rise__deck\"></div><div class=\"darma-loader-darma-b16-scissor-lift-rise__rig\"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class=\"darma-loader-darma-b16-scissor-lift-rise__base\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-scissor-lift-rise { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #1e293b); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__base { position: absolute; left: 10%; right: 10%; bottom: 2%; height: 10%; border-radius: 4px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__deck { position: absolute; left: 6%; right: 6%; height: 9%; border-radius: 4px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b16-scissor-lift-rise-scissor-deck calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig { position: absolute; left: 22%; right: 22%; bottom: 12%; height: 76%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span { position: absolute; left: 0; width: 100%; height: 6%; border-radius: 3px; background: var(--accent); animation: darma-loader-darma-b16-scissor-lift-rise-scissor-arm calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(1) { bottom: 4%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(2) { bottom: 4%; animation-name: darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(3) { bottom: 30%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(4) { bottom: 30%; animation-name: darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(5) { bottom: 56%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(6) { bottom: 56%; animation-name: darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror; }\n@keyframes darma-loader-darma-b16-scissor-lift-rise-scissor-deck { 0%, 8% { bottom: 26%; } 52%, 76% { bottom: 82%; } 96%, 100% { bottom: 26%; } }\n@keyframes darma-loader-darma-b16-scissor-lift-rise-scissor-arm { 0%, 8% { transform: rotate(14deg) scaleX(1); } 52%, 76% { transform: rotate(62deg) scaleX(.62); } 96%, 100% { transform: rotate(14deg) scaleX(1); } }\n@keyframes darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror { 0%, 8% { transform: rotate(-14deg) scaleX(1); } 52%, 76% { transform: rotate(-62deg) scaleX(.62); } 96%, 100% { transform: rotate(-14deg) scaleX(1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#1e293b",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-scissor-lift-rise\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-scissor-lift-rise__deck\"></div><div class=\"darma-loader-darma-b16-scissor-lift-rise__rig\"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class=\"darma-loader-darma-b16-scissor-lift-rise__base\"></div></div>",
+    "css": ".darma-loader-darma-b16-scissor-lift-rise { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #1e293b); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__base { position: absolute; left: 10%; right: 10%; bottom: 2%; height: 10%; border-radius: 4px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__deck { position: absolute; left: 6%; right: 6%; height: 9%; border-radius: 4px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b16-scissor-lift-rise-scissor-deck calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig { position: absolute; left: 22%; right: 22%; bottom: 12%; height: 76%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span { position: absolute; left: 0; width: 100%; height: 6%; border-radius: 3px; background: var(--accent); animation: darma-loader-darma-b16-scissor-lift-rise-scissor-arm calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(1) { bottom: 4%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(2) { bottom: 4%; animation-name: darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(3) { bottom: 30%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(4) { bottom: 30%; animation-name: darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(5) { bottom: 56%; }\n.darma-loader-darma-b16-scissor-lift-rise .darma-loader-darma-b16-scissor-lift-rise__rig span:nth-of-type(6) { bottom: 56%; animation-name: darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror; }\n@keyframes darma-loader-darma-b16-scissor-lift-rise-scissor-deck { 0%, 8% { bottom: 26%; } 52%, 76% { bottom: 82%; } 96%, 100% { bottom: 26%; } }\n@keyframes darma-loader-darma-b16-scissor-lift-rise-scissor-arm { 0%, 8% { transform: rotate(14deg) scaleX(1); } 52%, 76% { transform: rotate(62deg) scaleX(.62); } 96%, 100% { transform: rotate(14deg) scaleX(1); } }\n@keyframes darma-loader-darma-b16-scissor-lift-rise-scissor-arm-mirror { 0%, 8% { transform: rotate(-14deg) scaleX(1); } 52%, 76% { transform: rotate(-62deg) scaleX(.62); } 96%, 100% { transform: rotate(-14deg) scaleX(1); } }",
+    "react": "export default function DarmaB16ScissorLiftRiseLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-scissor-lift-rise\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-scissor-lift-rise__deck\"></div><div className=\"darma-loader-darma-b16-scissor-lift-rise__rig\"><span></span><span></span><span></span><span></span><span></span><span></span></div><div className=\"darma-loader-darma-b16-scissor-lift-rise__base\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

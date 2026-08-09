@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-defrag-grid",
+  "name": "Defrag Grid",
+  "category": "creative",
+  "tags": [
+    "defrag",
+    "grid",
+    "blocks",
+    "retro",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 4%; }\n.loader span { border-radius: 2px; background: var(--accent-2); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent); animation: defrag-pack calc(var(--loader-speed) * 3.2) steps(1, end) infinite; }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .18); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * 1.44); }\n.loader span:nth-of-type(4) { animation-delay: calc(var(--loader-speed) * .54); }\n.loader span:nth-of-type(5) { animation-delay: calc(var(--loader-speed) * 2.16); }\n.loader span:nth-of-type(6) { animation-delay: calc(var(--loader-speed) * .9); }\n.loader span:nth-of-type(7) { animation-delay: calc(var(--loader-speed) * 1.8); }\n.loader span:nth-of-type(8) { animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-of-type(9) { animation-delay: calc(var(--loader-speed) * 2.52); }\n.loader span:nth-of-type(10) { animation-delay: calc(var(--loader-speed) * 1.08); }\n.loader span:nth-of-type(11) { animation-delay: calc(var(--loader-speed) * .72); }\n.loader span:nth-of-type(12) { animation-delay: calc(var(--loader-speed) * 2.88); }\n.loader span:nth-of-type(13) { animation-delay: calc(var(--loader-speed) * 1.62); }\n.loader span:nth-of-type(14) { animation-delay: calc(var(--loader-speed) * 2.34); }\n.loader span:nth-of-type(15) { animation-delay: calc(var(--loader-speed) * 1.26); }\n.loader span:nth-of-type(16) { animation-delay: calc(var(--loader-speed) * 2.7); }\n@keyframes defrag-pack { 0%, 44% { background: var(--accent-2); transform: scale(1); } 45%, 56% { background: color-mix(in srgb, #fff 40%, var(--accent)); transform: scale(.72); } 57%, 100% { background: var(--accent); transform: scale(1); } }",
+  "defaults": {
+    "color": "#1d4ed8",
+    "secondaryColor": "#f8fafc",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-cactus-bloom",
+  "name": "Cactus Bloom",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "cactus",
+    "bloom",
+    "desert",
+    "plant",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-cactus-bloom cactus bloom fun darma-research-batch-15 darma research batch 15 cactus bloom desert plant fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-cactus-bloom\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-cactus-bloom__stem\"></div><div class=\"darma-loader-darma-b15-cactus-bloom__limb\"></div><div class=\"darma-loader-darma-b15-cactus-bloom__limb\"></div><i></i><i></i><i></i><div class=\"darma-loader-darma-b15-cactus-bloom__pot\"></div></div>",
+  "previewCss": ".darma-loader-darma-b15-cactus-bloom { --accent: var(--loader-color, #15803d); --accent-2: var(--loader-secondary-color, #fb7185); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__stem { position: absolute; left: 42%; bottom: 14%; width: 16%; height: 62%; border-radius: 9px; background: linear-gradient(90deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb { position: absolute; bottom: 40%; width: 11%; height: 24%; border-radius: 7px; background: var(--accent); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb::after { content: ''; position: absolute; bottom: 0; width: 130%; height: 40%; border-radius: 6px; background: var(--accent); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(2) { left: 21%; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(2)::after { left: 60%; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(3) { right: 21%; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(3)::after { right: 60%; }\n.darma-loader-darma-b15-cactus-bloom i { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); transform: scale(0); animation: darma-loader-darma-b15-cactus-bloom-cact-bloom calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b15-cactus-bloom i:nth-of-type(1) { left: 43.5%; bottom: 71%; }\n.darma-loader-darma-b15-cactus-bloom i:nth-of-type(2) { left: 20%; bottom: 62%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b15-cactus-bloom i:nth-of-type(3) { right: 20%; bottom: 62%; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__pot { position: absolute; left: 28%; right: 28%; bottom: 4%; height: 14%; border-radius: 3px 3px 8px 8px; background: linear-gradient(#b45309, #78350f); }\n@keyframes darma-loader-darma-b15-cactus-bloom-cact-bloom { 0%, 8% { transform: scale(0); opacity: 0; } 34%, 68% { transform: scale(1); opacity: 1; } 92%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#15803d",
+    "secondaryColor": "#fb7185",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-cactus-bloom\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-cactus-bloom__stem\"></div><div class=\"darma-loader-darma-b15-cactus-bloom__limb\"></div><div class=\"darma-loader-darma-b15-cactus-bloom__limb\"></div><i></i><i></i><i></i><div class=\"darma-loader-darma-b15-cactus-bloom__pot\"></div></div>",
+    "css": ".darma-loader-darma-b15-cactus-bloom { --accent: var(--loader-color, #15803d); --accent-2: var(--loader-secondary-color, #fb7185); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__stem { position: absolute; left: 42%; bottom: 14%; width: 16%; height: 62%; border-radius: 9px; background: linear-gradient(90deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb { position: absolute; bottom: 40%; width: 11%; height: 24%; border-radius: 7px; background: var(--accent); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb::after { content: ''; position: absolute; bottom: 0; width: 130%; height: 40%; border-radius: 6px; background: var(--accent); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(2) { left: 21%; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(2)::after { left: 60%; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(3) { right: 21%; }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__limb:nth-of-type(3)::after { right: 60%; }\n.darma-loader-darma-b15-cactus-bloom i { position: absolute; width: 13%; height: 13%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); transform: scale(0); animation: darma-loader-darma-b15-cactus-bloom-cact-bloom calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b15-cactus-bloom i:nth-of-type(1) { left: 43.5%; bottom: 71%; }\n.darma-loader-darma-b15-cactus-bloom i:nth-of-type(2) { left: 20%; bottom: 62%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b15-cactus-bloom i:nth-of-type(3) { right: 20%; bottom: 62%; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b15-cactus-bloom .darma-loader-darma-b15-cactus-bloom__pot { position: absolute; left: 28%; right: 28%; bottom: 4%; height: 14%; border-radius: 3px 3px 8px 8px; background: linear-gradient(#b45309, #78350f); }\n@keyframes darma-loader-darma-b15-cactus-bloom-cact-bloom { 0%, 8% { transform: scale(0); opacity: 0; } 34%, 68% { transform: scale(1); opacity: 1; } 92%, 100% { transform: scale(0); opacity: 0; } }",
+    "react": "export default function DarmaB15CactusBloomLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-cactus-bloom\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-cactus-bloom__stem\"></div><div className=\"darma-loader-darma-b15-cactus-bloom__limb\"></div><div className=\"darma-loader-darma-b15-cactus-bloom__limb\"></div><i></i><i></i><i></i><div className=\"darma-loader-darma-b15-cactus-bloom__pot\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

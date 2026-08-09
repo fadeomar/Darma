@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-frog-leap",
+  "name": "Frog Leap",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "frog",
+    "leap",
+    "lilypad",
+    "pond",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-frog-leap frog leap fun darma-research-batch-17 darma research batch 17 frog leap lilypad pond fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-frog-leap\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-frog-leap__pad\"></div><div class=\"darma-loader-darma-b17-frog-leap__pad\"></div><div class=\"darma-loader-darma-b17-frog-leap__pad\"></div><div class=\"darma-loader-darma-b17-frog-leap__frog\"><span class=\"darma-loader-darma-b17-frog-leap__eye\"></span><span class=\"darma-loader-darma-b17-frog-leap__eye\"></span></div></div>",
+  "previewCss": ".darma-loader-darma-b17-frog-leap { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #4ade80); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .52); position: relative; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad { position: absolute; bottom: 6%; width: 26%; height: 18%; border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad:nth-of-type(1) { left: 2%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad:nth-of-type(2) { left: 37%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad:nth-of-type(3) { left: 72%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__frog { position: absolute; left: 7%; bottom: 14%; width: 16%; height: 30%; border-radius: 46% 46% 40% 40%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent)); animation: darma-loader-darma-b17-frog-leap-frog-hop calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .5, 1) infinite; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye { position: absolute; top: -14%; width: 34%; height: 34%; border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 -2px 0 color-mix(in srgb, #000 20%, transparent); }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye::after { content: ''; position: absolute; left: 26%; top: 30%; width: 40%; height: 40%; border-radius: 50%; background: #0f172a; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye:nth-of-type(1) { left: 8%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye:nth-of-type(2) { right: 8%; }\n@keyframes darma-loader-darma-b17-frog-leap-frog-hop { 0%, 10% { transform: translate(0, 0) scaleY(1); } 16% { transform: translate(0, 8%) scaleY(.78); } 30% { transform: translate(110%, -120%) scaleY(1.12); } 42%, 52% { transform: translate(219%, 0) scaleY(1); } 58% { transform: translate(219%, 8%) scaleY(.78); } 72% { transform: translate(329%, -120%) scaleY(1.12); } 84%, 94% { transform: translate(438%, 0) scaleY(1); } 100% { transform: translate(0, 0) scaleY(1); } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#4ade80",
+    "size": 128,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-frog-leap\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-frog-leap__pad\"></div><div class=\"darma-loader-darma-b17-frog-leap__pad\"></div><div class=\"darma-loader-darma-b17-frog-leap__pad\"></div><div class=\"darma-loader-darma-b17-frog-leap__frog\"><span class=\"darma-loader-darma-b17-frog-leap__eye\"></span><span class=\"darma-loader-darma-b17-frog-leap__eye\"></span></div></div>",
+    "css": ".darma-loader-darma-b17-frog-leap { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #4ade80); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .52); position: relative; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad { position: absolute; bottom: 6%; width: 26%; height: 18%; border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad:nth-of-type(1) { left: 2%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad:nth-of-type(2) { left: 37%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__pad:nth-of-type(3) { left: 72%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__frog { position: absolute; left: 7%; bottom: 14%; width: 16%; height: 30%; border-radius: 46% 46% 40% 40%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent)); animation: darma-loader-darma-b17-frog-leap-frog-hop calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .5, 1) infinite; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye { position: absolute; top: -14%; width: 34%; height: 34%; border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 -2px 0 color-mix(in srgb, #000 20%, transparent); }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye::after { content: ''; position: absolute; left: 26%; top: 30%; width: 40%; height: 40%; border-radius: 50%; background: #0f172a; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye:nth-of-type(1) { left: 8%; }\n.darma-loader-darma-b17-frog-leap .darma-loader-darma-b17-frog-leap__eye:nth-of-type(2) { right: 8%; }\n@keyframes darma-loader-darma-b17-frog-leap-frog-hop { 0%, 10% { transform: translate(0, 0) scaleY(1); } 16% { transform: translate(0, 8%) scaleY(.78); } 30% { transform: translate(110%, -120%) scaleY(1.12); } 42%, 52% { transform: translate(219%, 0) scaleY(1); } 58% { transform: translate(219%, 8%) scaleY(.78); } 72% { transform: translate(329%, -120%) scaleY(1.12); } 84%, 94% { transform: translate(438%, 0) scaleY(1); } 100% { transform: translate(0, 0) scaleY(1); } }",
+    "react": "export default function DarmaB17FrogLeapLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-frog-leap\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-frog-leap__pad\"></div><div className=\"darma-loader-darma-b17-frog-leap__pad\"></div><div className=\"darma-loader-darma-b17-frog-leap__pad\"></div><div className=\"darma-loader-darma-b17-frog-leap__frog\"><span className=\"darma-loader-darma-b17-frog-leap__eye\"></span><span className=\"darma-loader-darma-b17-frog-leap__eye\"></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

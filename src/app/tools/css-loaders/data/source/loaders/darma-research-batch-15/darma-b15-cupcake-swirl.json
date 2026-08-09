@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-cupcake-swirl",
+  "name": "Cupcake Swirl",
+  "category": "fun",
+  "tags": [
+    "cupcake",
+    "frosting",
+    "swirl",
+    "bakery",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"cup\"></div><span></span><span></span><span></span><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .cup { position: absolute; left: 20%; bottom: 8%; width: 60%; height: 34%; border-radius: 4px 4px 14px 14px; background: repeating-linear-gradient(90deg, #b45309 0 9%, #92400e 0 18%); clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); }\n.loader span { position: absolute; border-radius: 50% 50% 40% 40%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; transform: scale(0); animation: cake-swirl calc(var(--loader-speed) * 2.4) cubic-bezier(.3, 1.3, .5, 1) infinite; }\n.loader span:nth-of-type(1) { left: 18%; bottom: 40%; width: 64%; height: 22%; }\n.loader span:nth-of-type(2) { left: 26%; bottom: 56%; width: 48%; height: 20%; animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-of-type(3) { left: 35%; bottom: 70%; width: 30%; height: 18%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader i { position: absolute; left: 44%; bottom: 86%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent); transform: scale(0); animation: cake-cherry calc(var(--loader-speed) * 2.4) cubic-bezier(.3, 1.5, .5, 1) infinite; }\n@keyframes cake-swirl { 0%, 6% { transform: scale(0); opacity: 0; } 30%, 74% { transform: scale(1); opacity: 1; } 92%, 100% { transform: scale(0); opacity: 0; } }\n@keyframes cake-cherry { 0%, 46% { transform: scale(0); opacity: 0; } 62%, 76% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#fbcfe8",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

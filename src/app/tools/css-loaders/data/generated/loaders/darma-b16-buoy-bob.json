@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-buoy-bob",
+  "name": "Buoy Bob",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "buoy",
+    "sea",
+    "marker",
+    "beacon",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-buoy-bob buoy bob fun darma-research-batch-16 darma research batch 16 buoy sea marker beacon fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-buoy-bob\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-buoy-bob__buoy\"><span class=\"darma-loader-darma-b16-buoy-bob__lamp\"></span></div><div class=\"darma-loader-darma-b16-buoy-bob__swell\"></div><div class=\"darma-loader-darma-b16-buoy-bob__swell\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-buoy-bob { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__buoy { position: absolute; left: 36%; top: 18%; width: 28%; height: 48%; border-radius: 40% 40% 26% 26% / 24% 24% 18% 18%; background: repeating-linear-gradient(var(--accent) 0 22%, color-mix(in srgb, #fff 70%, var(--accent)) 0 44%); transform-origin: 50% 100%; animation: darma-loader-darma-b16-buoy-bob-buoy-rock calc(var(--loader-speed, 1s) * 2.2) ease-in-out infinite; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__lamp { position: absolute; left: 26%; bottom: 96%; width: 48%; height: 22%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b16-buoy-bob-buoy-flash calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__swell { position: absolute; left: -26%; width: 152%; height: 26%; border-radius: 50% 50% 0 0 / 100% 100% 0 0; animation: darma-loader-darma-b16-buoy-bob-buoy-swell calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__swell:nth-of-type(2) { bottom: 14%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__swell:nth-of-type(3) { bottom: 0; height: 32%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n@keyframes darma-loader-darma-b16-buoy-bob-buoy-rock { 0%, 100% { transform: translateY(0) rotate(-9deg); } 50% { transform: translateY(-8%) rotate(9deg); } }\n@keyframes darma-loader-darma-b16-buoy-bob-buoy-flash { 0%, 55% { opacity: .3; box-shadow: none; } 68%, 82% { opacity: 1; box-shadow: 0 0 14px var(--accent-2); } 100% { opacity: .3; box-shadow: none; } }\n@keyframes darma-loader-darma-b16-buoy-bob-buoy-swell { 0%, 100% { transform: translateX(-6%); } 50% { transform: translateX(6%); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#38bdf8",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-buoy-bob\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-buoy-bob__buoy\"><span class=\"darma-loader-darma-b16-buoy-bob__lamp\"></span></div><div class=\"darma-loader-darma-b16-buoy-bob__swell\"></div><div class=\"darma-loader-darma-b16-buoy-bob__swell\"></div></div>",
+    "css": ".darma-loader-darma-b16-buoy-bob { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__buoy { position: absolute; left: 36%; top: 18%; width: 28%; height: 48%; border-radius: 40% 40% 26% 26% / 24% 24% 18% 18%; background: repeating-linear-gradient(var(--accent) 0 22%, color-mix(in srgb, #fff 70%, var(--accent)) 0 44%); transform-origin: 50% 100%; animation: darma-loader-darma-b16-buoy-bob-buoy-rock calc(var(--loader-speed, 1s) * 2.2) ease-in-out infinite; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__lamp { position: absolute; left: 26%; bottom: 96%; width: 48%; height: 22%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b16-buoy-bob-buoy-flash calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__swell { position: absolute; left: -26%; width: 152%; height: 26%; border-radius: 50% 50% 0 0 / 100% 100% 0 0; animation: darma-loader-darma-b16-buoy-bob-buoy-swell calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__swell:nth-of-type(2) { bottom: 14%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); }\n.darma-loader-darma-b16-buoy-bob .darma-loader-darma-b16-buoy-bob__swell:nth-of-type(3) { bottom: 0; height: 32%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n@keyframes darma-loader-darma-b16-buoy-bob-buoy-rock { 0%, 100% { transform: translateY(0) rotate(-9deg); } 50% { transform: translateY(-8%) rotate(9deg); } }\n@keyframes darma-loader-darma-b16-buoy-bob-buoy-flash { 0%, 55% { opacity: .3; box-shadow: none; } 68%, 82% { opacity: 1; box-shadow: 0 0 14px var(--accent-2); } 100% { opacity: .3; box-shadow: none; } }\n@keyframes darma-loader-darma-b16-buoy-bob-buoy-swell { 0%, 100% { transform: translateX(-6%); } 50% { transform: translateX(6%); } }",
+    "react": "export default function DarmaB16BuoyBobLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-buoy-bob\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-buoy-bob__buoy\"><span className=\"darma-loader-darma-b16-buoy-bob__lamp\"></span></div><div className=\"darma-loader-darma-b16-buoy-bob__swell\"></div><div className=\"darma-loader-darma-b16-buoy-bob__swell\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

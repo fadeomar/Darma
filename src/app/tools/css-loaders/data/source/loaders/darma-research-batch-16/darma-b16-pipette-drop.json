@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-pipette-drop",
+  "name": "Pipette Drop",
+  "category": "fun",
+  "tags": [
+    "pipette",
+    "drop",
+    "lab",
+    "sample",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bulb\"></div><div class=\"stem\"></div><i></i><i></i><div class=\"well\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .bulb { position: absolute; left: 36%; top: 4%; width: 28%; height: 26%; border-radius: 46% 46% 34% 34%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; animation: pip-squeeze calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader .stem { position: absolute; left: 45%; top: 28%; width: 10%; height: 34%; background: color-mix(in srgb, var(--accent-2) 55%, transparent); clip-path: polygon(0 0, 100% 0, 66% 100%, 34% 100%); }\n.loader i { position: absolute; left: 45%; top: 60%; width: 10%; height: 12%; border-radius: 50% 50% 50% 50% / 66% 66% 34% 34%; background: var(--accent); opacity: 0; animation: pip-fall calc(var(--loader-speed) * 1.6) ease-in infinite; }\n.loader i:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .8); }\n.loader .well { position: absolute; left: 22%; right: 22%; bottom: 6%; height: 18%; border-radius: 4px 4px 40% 40%; background: color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); animation: pip-ripple calc(var(--loader-speed) * 1.6) ease-out infinite; }\n@keyframes pip-squeeze { 0%, 30% { transform: scale(1); } 46% { transform: scale(.76, .84); } 66%, 100% { transform: scale(1); } }\n@keyframes pip-fall { 0%, 44% { opacity: 0; transform: translateY(0) scale(.5); } 52% { opacity: 1; transform: translateY(0) scale(1); } 94%, 100% { opacity: 0; transform: translateY(170%) scale(.7); } }\n@keyframes pip-ripple { 0%, 88% { transform: scaleX(1); } 94% { transform: scaleX(1.06); } 100% { transform: scaleX(1); } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c4b5fd",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

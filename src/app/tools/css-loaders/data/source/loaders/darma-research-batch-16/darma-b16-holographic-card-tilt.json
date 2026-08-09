@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-holographic-card-tilt",
+  "name": "Holographic Card Tilt",
+  "category": "creative",
+  "tags": [
+    "holographic",
+    "card",
+    "sheen",
+    "iridescent",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"card\"><span class=\"sheen\"></span><span class=\"chip\"></span><span class=\"row\"></span><span class=\"row\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .66); position: relative; perspective: 600px; }\n.loader .card { position: absolute; inset: 0; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent-2) 60%, var(--accent)) 45%, var(--accent-2)); box-shadow: 0 10px 24px color-mix(in srgb, #000 32%, transparent); animation: holo-tilt calc(var(--loader-speed) * 3.2) ease-in-out infinite; }\n.loader .sheen { position: absolute; top: -60%; left: -40%; width: 60%; height: 220%; background: linear-gradient(90deg, transparent, color-mix(in srgb, #fff 72%, transparent), transparent); transform: rotate(18deg); animation: holo-sheen calc(var(--loader-speed) * 3.2) ease-in-out infinite; }\n.loader .chip { position: absolute; left: 10%; top: 22%; width: 20%; height: 26%; border-radius: 5px; background: repeating-linear-gradient(90deg, color-mix(in srgb, #fff 55%, transparent) 0 22%, color-mix(in srgb, #000 22%, transparent) 0 34%); }\n.loader .row { position: absolute; left: 10%; height: 8%; border-radius: 4px; background: color-mix(in srgb, #fff 42%, transparent); }\n.loader .row:nth-of-type(3) { bottom: 26%; width: 62%; }\n.loader .row:nth-of-type(4) { bottom: 12%; width: 40%; }\n@keyframes holo-tilt { 0%, 100% { transform: rotateY(-16deg) rotateX(6deg); } 50% { transform: rotateY(16deg) rotateX(-6deg); } }\n@keyframes holo-sheen { 0%, 100% { transform: translateX(0) rotate(18deg); opacity: .35; } 50% { transform: translateX(230%) rotate(18deg); opacity: .95; } }",
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#22d3ee",
+    "size": 124,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-salt-sprinkle",
+  "name": "Salt Sprinkle",
+  "category": "fun",
+  "tags": [
+    "salt",
+    "shaker",
+    "season",
+    "kitchen",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"shaker\"></div><i></i><i></i><i></i><i></i><i></i><div class=\"plate\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .shaker { position: absolute; left: 36%; top: 4%; width: 28%; height: 40%; border-radius: 42% 42% 12% 12% / 34% 34% 8% 8%; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 100%; animation: salt-shake calc(var(--loader-speed) * .9) ease-in-out infinite; }\n.loader .shaker::after { content: ''; position: absolute; left: 20%; right: 20%; top: 6%; height: 22%; border-radius: 3px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.loader i { position: absolute; top: 46%; width: 5%; height: 5%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: salt-fall calc(var(--loader-speed) * 1.2) ease-in infinite; }\n.loader i:nth-of-type(1) { left: 40%; }\n.loader i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed) * .2); }\n.loader i:nth-of-type(3) { left: 54%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader i:nth-of-type(4) { left: 43%; animation-delay: calc(var(--loader-speed) * .6); }\n.loader i:nth-of-type(5) { left: 51%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader .plate { position: absolute; left: 16%; right: 16%; bottom: 8%; height: 12%; border-radius: 50%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); }\n@keyframes salt-shake { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(16deg); } }\n@keyframes salt-fall { 0% { opacity: 0; transform: translateY(0) scale(.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(340%) scale(1); } }",
+  "defaults": {
+    "color": "#475569",
+    "secondaryColor": "#f1f5f9",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

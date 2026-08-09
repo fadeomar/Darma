@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-launch-countdown",
+  "name": "Launch Countdown",
+  "category": "progress",
+  "tags": [
+    "countdown",
+    "launch",
+    "ignition",
+    "sequence",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"row\"><span></span><span></span><span></span><span></span><span></span></div><div class=\"flare\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .46); position: relative; }\n.loader .row { position: absolute; left: 0; right: 0; top: 0; height: 58%; display: flex; gap: 3%; align-items: stretch; }\n.loader span { flex: 1; border-radius: 5px; background: color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); animation: count-tick calc(var(--loader-speed) * 3) steps(1, end) infinite; }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-of-type(4) { animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span:nth-of-type(5) { animation-delay: calc(var(--loader-speed) * 1.6); }\n.loader .flare { position: absolute; left: 39%; bottom: 2%; width: 22%; height: 36%; transform-origin: 50% 0; border-radius: 50% 50% 40% 40%; background: radial-gradient(ellipse at 50% 15%, var(--accent-2), transparent 72%); opacity: 0; animation: count-ignite calc(var(--loader-speed) * 3) ease-out infinite; }\n@keyframes count-tick { 0%, 12% { background: color-mix(in srgb, var(--accent) 20%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); } 13%, 66% { background: var(--accent-2); box-shadow: inset 0 0 0 2px var(--accent-2); } 67%, 100% { background: color-mix(in srgb, var(--accent) 20%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); } }\n@keyframes count-ignite { 0%, 66% { opacity: 0; transform: scaleY(.3); } 74% { opacity: 1; transform: scaleY(1.1); } 92%, 100% { opacity: 0; transform: scaleY(.3); } }",
+  "defaults": {
+    "color": "#1d4ed8",
+    "secondaryColor": "#f97316",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

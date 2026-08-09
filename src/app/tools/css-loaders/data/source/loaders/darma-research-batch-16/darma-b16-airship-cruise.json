@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-airship-cruise",
+  "name": "Airship Cruise",
+  "category": "fun",
+  "tags": [
+    "airship",
+    "zeppelin",
+    "flight",
+    "sky",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"ship\"><span class=\"hull\"></span><span class=\"gondola\"></span><span class=\"tail\"></span><span class=\"rotor\"></span></div><div class=\"puff\"></div><div class=\"puff\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .56); position: relative; overflow: hidden; }\n.loader .ship { position: absolute; left: 14%; top: 22%; width: 68%; height: 46%; animation: zep-drift calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .hull { position: absolute; left: 8%; top: 0; width: 84%; height: 62%; border-radius: 50%; background: linear-gradient(var(--accent-2), var(--accent)); box-shadow: inset 0 -6px 0 color-mix(in srgb, #000 15%, transparent); }\n.loader .gondola { position: absolute; left: 38%; top: 56%; width: 24%; height: 24%; border-radius: 4px 4px 8px 8px; background: #475569; }\n.loader .tail { position: absolute; right: 0; top: 16%; width: 16%; height: 30%; background: var(--accent); clip-path: polygon(0 40%, 100% 0, 100% 100%); }\n.loader .rotor { position: absolute; left: 30%; top: 74%; width: 6%; height: 22%; border-radius: 50%; background: #cbd5e1; animation: zep-rotor calc(var(--loader-speed) * .4) linear infinite; }\n.loader .puff { position: absolute; height: 14%; border-radius: 40%; background: color-mix(in srgb, var(--accent-2) 45%, transparent); animation: zep-cloud calc(var(--loader-speed) * 5) linear infinite; }\n.loader .puff:nth-of-type(2) { top: 12%; width: 26%; }\n.loader .puff:nth-of-type(3) { top: 72%; width: 34%; animation-delay: calc(var(--loader-speed) * -2.5); }\n@keyframes zep-drift { 0%, 100% { transform: translate(-3%, 4%) rotate(-1.5deg); } 50% { transform: translate(3%, -4%) rotate(1.5deg); } }\n@keyframes zep-rotor { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.16); } }\n@keyframes zep-cloud { from { left: 104%; } to { left: -36%; } }",
+  "defaults": {
+    "color": "#b45309",
+    "secondaryColor": "#fed7aa",
+    "size": 132,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

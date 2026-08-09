@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-capsule-parachute",
+  "name": "Capsule Parachute",
+  "category": "fun",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "parachute",
+    "capsule",
+    "descent",
+    "reentry",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-capsule-parachute capsule parachute fun darma-research-batch-16 darma research batch 16 parachute capsule descent reentry fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-capsule-parachute\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-capsule-parachute__rig\"><span class=\"darma-loader-darma-b16-capsule-parachute__canopy\"></span><span class=\"darma-loader-darma-b16-capsule-parachute__cord\"></span><span class=\"darma-loader-darma-b16-capsule-parachute__cord\"></span><span class=\"darma-loader-darma-b16-capsule-parachute__pod\"></span></div></div>",
+  "previewCss": ".darma-loader-darma-b16-capsule-parachute { --accent: var(--loader-color, #ea580c); --accent-2: var(--loader-secondary-color, #fed7aa); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__rig { position: absolute; left: 14%; right: 14%; top: 6%; bottom: 6%; transform-origin: 50% 8%; animation: darma-loader-darma-b16-capsule-parachute-chute-sway calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__canopy { position: absolute; left: 0; top: 0; width: 100%; height: 38%; border-radius: 50% 50% 12% 12% / 96% 96% 30% 30%; background: repeating-linear-gradient(90deg, var(--accent) 0 12%, var(--accent-2) 0 24%); animation: darma-loader-darma-b16-capsule-parachute-chute-billow calc(var(--loader-speed, 1s) * 1.7) ease-in-out infinite; }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__cord { position: absolute; top: 36%; width: 2%; height: 32%; background: color-mix(in srgb, #0f172a 45%, transparent); }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__cord:nth-of-type(2) { left: 22%; transform: rotate(9deg); }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__cord:nth-of-type(3) { right: 22%; transform: rotate(-9deg); }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__pod { position: absolute; left: 34%; bottom: 6%; width: 32%; height: 26%; border-radius: 40% 40% 22% 22% / 60% 60% 26% 26%; background: linear-gradient(color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); }\n@keyframes darma-loader-darma-b16-capsule-parachute-chute-sway { 0%, 100% { transform: rotate(-7deg) translateY(-3%); } 50% { transform: rotate(7deg) translateY(3%); } }\n@keyframes darma-loader-darma-b16-capsule-parachute-chute-billow { 0%, 100% { transform: scaleX(1) scaleY(1); } 50% { transform: scaleX(1.06) scaleY(.92); } }",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#fed7aa",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-capsule-parachute\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-capsule-parachute__rig\"><span class=\"darma-loader-darma-b16-capsule-parachute__canopy\"></span><span class=\"darma-loader-darma-b16-capsule-parachute__cord\"></span><span class=\"darma-loader-darma-b16-capsule-parachute__cord\"></span><span class=\"darma-loader-darma-b16-capsule-parachute__pod\"></span></div></div>",
+    "css": ".darma-loader-darma-b16-capsule-parachute { --accent: var(--loader-color, #ea580c); --accent-2: var(--loader-secondary-color, #fed7aa); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__rig { position: absolute; left: 14%; right: 14%; top: 6%; bottom: 6%; transform-origin: 50% 8%; animation: darma-loader-darma-b16-capsule-parachute-chute-sway calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__canopy { position: absolute; left: 0; top: 0; width: 100%; height: 38%; border-radius: 50% 50% 12% 12% / 96% 96% 30% 30%; background: repeating-linear-gradient(90deg, var(--accent) 0 12%, var(--accent-2) 0 24%); animation: darma-loader-darma-b16-capsule-parachute-chute-billow calc(var(--loader-speed, 1s) * 1.7) ease-in-out infinite; }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__cord { position: absolute; top: 36%; width: 2%; height: 32%; background: color-mix(in srgb, #0f172a 45%, transparent); }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__cord:nth-of-type(2) { left: 22%; transform: rotate(9deg); }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__cord:nth-of-type(3) { right: 22%; transform: rotate(-9deg); }\n.darma-loader-darma-b16-capsule-parachute .darma-loader-darma-b16-capsule-parachute__pod { position: absolute; left: 34%; bottom: 6%; width: 32%; height: 26%; border-radius: 40% 40% 22% 22% / 60% 60% 26% 26%; background: linear-gradient(color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); }\n@keyframes darma-loader-darma-b16-capsule-parachute-chute-sway { 0%, 100% { transform: rotate(-7deg) translateY(-3%); } 50% { transform: rotate(7deg) translateY(3%); } }\n@keyframes darma-loader-darma-b16-capsule-parachute-chute-billow { 0%, 100% { transform: scaleX(1) scaleY(1); } 50% { transform: scaleX(1.06) scaleY(.92); } }",
+    "react": "export default function DarmaB16CapsuleParachuteLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-capsule-parachute\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-capsule-parachute__rig\"><span className=\"darma-loader-darma-b16-capsule-parachute__canopy\"></span><span className=\"darma-loader-darma-b16-capsule-parachute__cord\"></span><span className=\"darma-loader-darma-b16-capsule-parachute__cord\"></span><span className=\"darma-loader-darma-b16-capsule-parachute__pod\"></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

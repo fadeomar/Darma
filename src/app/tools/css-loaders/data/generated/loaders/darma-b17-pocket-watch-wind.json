@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-pocket-watch-wind",
+  "name": "Pocket Watch Wind",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "pocket watch",
+    "wind",
+    "crown",
+    "vintage",
+    "spinners"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-pocket-watch-wind pocket watch wind spinners darma-research-batch-17 darma research batch 17 pocket watch wind crown vintage spinners html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-pocket-watch-wind\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-pocket-watch-wind__crown\"></div><div class=\"darma-loader-darma-b17-pocket-watch-wind__bow\"></div><div class=\"darma-loader-darma-b17-pocket-watch-wind__case\"><span class=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span class=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span class=\"darma-loader-darma-b17-pocket-watch-wind__pin\"></span></div></div>",
+  "previewCss": ".darma-loader-darma-b17-pocket-watch-wind { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__bow { position: absolute; left: 43%; top: 0; width: 14%; height: 11%; border-radius: 999px; box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__crown { position: absolute; left: 44%; top: 9%; width: 12%; height: 8%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent) 0 24%, color-mix(in srgb, #000 25%, var(--accent)) 0 40%); animation: darma-loader-darma-b17-pocket-watch-wind-watch-wind calc(var(--loader-speed, 1s) * .5) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__case { position: absolute; left: 6%; right: 6%; bottom: 2%; height: 82%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 6px var(--accent); }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand { position: absolute; left: 48%; border-radius: 3px; background: color-mix(in srgb, #000 65%, var(--accent)); transform-origin: 50% 100%; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand:nth-of-type(1) { top: 24%; width: 4%; height: 26%; animation: darma-loader-darma-b17-pocket-watch-wind-watch-hour calc(var(--loader-speed, 1s) * 12) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand:nth-of-type(2) { top: 14%; width: 3%; height: 36%; animation: darma-loader-darma-b17-pocket-watch-wind-watch-minute calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__pin { position: absolute; left: 45%; top: 47%; width: 10%; height: 10%; border-radius: 50%; background: var(--accent); }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-wind { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-hour { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-minute { to { transform: rotate(1turn); } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#fef3c7",
+    "size": 114,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-pocket-watch-wind\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-pocket-watch-wind__crown\"></div><div class=\"darma-loader-darma-b17-pocket-watch-wind__bow\"></div><div class=\"darma-loader-darma-b17-pocket-watch-wind__case\"><span class=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span class=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span class=\"darma-loader-darma-b17-pocket-watch-wind__pin\"></span></div></div>",
+    "css": ".darma-loader-darma-b17-pocket-watch-wind { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__bow { position: absolute; left: 43%; top: 0; width: 14%; height: 11%; border-radius: 999px; box-shadow: inset 0 0 0 3px var(--accent); }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__crown { position: absolute; left: 44%; top: 9%; width: 12%; height: 8%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent) 0 24%, color-mix(in srgb, #000 25%, var(--accent)) 0 40%); animation: darma-loader-darma-b17-pocket-watch-wind-watch-wind calc(var(--loader-speed, 1s) * .5) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__case { position: absolute; left: 6%; right: 6%; bottom: 2%; height: 82%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 6px var(--accent); }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand { position: absolute; left: 48%; border-radius: 3px; background: color-mix(in srgb, #000 65%, var(--accent)); transform-origin: 50% 100%; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand:nth-of-type(1) { top: 24%; width: 4%; height: 26%; animation: darma-loader-darma-b17-pocket-watch-wind-watch-hour calc(var(--loader-speed, 1s) * 12) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__hand:nth-of-type(2) { top: 14%; width: 3%; height: 36%; animation: darma-loader-darma-b17-pocket-watch-wind-watch-minute calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b17-pocket-watch-wind .darma-loader-darma-b17-pocket-watch-wind__pin { position: absolute; left: 45%; top: 47%; width: 10%; height: 10%; border-radius: 50%; background: var(--accent); }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-wind { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-hour { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b17-pocket-watch-wind-watch-minute { to { transform: rotate(1turn); } }",
+    "react": "export default function DarmaB17PocketWatchWindLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-pocket-watch-wind\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-pocket-watch-wind__crown\"></div><div className=\"darma-loader-darma-b17-pocket-watch-wind__bow\"></div><div className=\"darma-loader-darma-b17-pocket-watch-wind__case\"><span className=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span className=\"darma-loader-darma-b17-pocket-watch-wind__hand\"></span><span className=\"darma-loader-darma-b17-pocket-watch-wind__pin\"></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

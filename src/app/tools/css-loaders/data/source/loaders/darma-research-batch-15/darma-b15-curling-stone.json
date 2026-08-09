@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-curling-stone",
+  "name": "Curling Stone",
+  "category": "fun",
+  "tags": [
+    "curling",
+    "stone",
+    "ice",
+    "sport",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"house\"></div><div class=\"stone\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .62); position: relative; }\n.loader .house { position: absolute; right: 5%; top: 8%; width: 42%; height: 84%; border-radius: 50%; background: radial-gradient(circle, var(--accent) 0 17%, transparent 17% 33%, var(--accent-2) 33% 50%, transparent 50% 68%, color-mix(in srgb, var(--accent) 45%, transparent) 68% 84%, transparent 84%); }\n.loader .stone { position: absolute; left: 2%; top: 34%; width: 20%; height: 32%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #94a3b8, #334155); animation: curl-slide calc(var(--loader-speed) * 2.8) cubic-bezier(.15, .65, .3, 1) infinite; }\n.loader .stone::after { content: ''; position: absolute; left: 30%; bottom: 92%; width: 40%; height: 34%; border-radius: 4px 4px 0 0; background: var(--accent-2); }\n@keyframes curl-slide { 0% { opacity: 0; transform: translateX(0) rotate(0deg); } 8% { opacity: 1; } 76%, 90% { opacity: 1; transform: translateX(280%) rotate(210deg); } 100% { opacity: 0; transform: translateX(280%) rotate(210deg); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#60a5fa",
+    "size": 130,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

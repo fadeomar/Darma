@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-rotisserie-spin",
+  "name": "Rotisserie Spin",
+  "category": "fun",
+  "tags": [
+    "rotisserie",
+    "grill",
+    "spin",
+    "cooking",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"spit\"></div><i></i><i></i><i></i><div class=\"flame\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .7); position: relative; }\n.loader .spit { position: absolute; left: 2%; right: 2%; top: 42%; height: 4%; border-radius: 2px; background: linear-gradient(#e2e8f0, #94a3b8); }\n.loader i { position: absolute; top: 28%; width: 21%; height: 32%; border-radius: 36%; background: linear-gradient(var(--accent-2), var(--accent)); animation: roti-turn calc(var(--loader-speed) * 1.6) linear infinite; }\n.loader i:nth-of-type(1) { left: 11%; }\n.loader i:nth-of-type(2) { left: 39%; animation-delay: calc(var(--loader-speed) * -.53); }\n.loader i:nth-of-type(3) { left: 67%; animation-delay: calc(var(--loader-speed) * -1.06); }\n.loader .flame { position: absolute; left: 12%; right: 12%; bottom: 5%; height: 17%; border-radius: 50% 50% 36% 36%; background: linear-gradient(#fde68a, var(--accent)); animation: roti-fire calc(var(--loader-speed) * .55) ease-in-out infinite alternate; }\n@keyframes roti-turn { 0% { transform: rotate(0deg) scaleX(1); } 50% { transform: rotate(180deg) scaleX(.62); } 100% { transform: rotate(360deg) scaleX(1); } }\n@keyframes roti-fire { from { transform: scaleY(.7); opacity: .6; } to { transform: scaleY(1.15); opacity: 1; } }",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#fbbf24",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

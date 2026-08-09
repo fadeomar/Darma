@@ -1,0 +1,48 @@
+{
+  "id": "darma-b16-van-de-graaff-spark",
+  "name": "Van De Graaff Spark",
+  "category": "creative",
+  "sourceId": "darma-research-batch-16",
+  "tags": [
+    "static",
+    "spark",
+    "physics",
+    "electricity",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b16-van-de-graaff-spark van de graaff spark creative darma-research-batch-16 darma research batch 16 static spark physics electricity creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b16-van-de-graaff-spark\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-van-de-graaff-spark__dome\"></div><div class=\"darma-loader-darma-b16-van-de-graaff-spark__column\"></div><div class=\"darma-loader-darma-b16-van-de-graaff-spark__rod\"></div><i></i><i></i><div class=\"darma-loader-darma-b16-van-de-graaff-spark__halo\"></div></div>",
+  "previewCss": ".darma-loader-darma-b16-van-de-graaff-spark { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__column { position: absolute; left: 42%; bottom: 6%; width: 16%; height: 44%; background: linear-gradient(90deg, #cbd5e1, #475569); border-radius: 3px; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__dome { position: absolute; left: 24%; top: 18%; width: 52%; height: 36%; border-radius: 50%; background: radial-gradient(circle at 36% 30%, color-mix(in srgb, #fff 40%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__halo { position: absolute; left: 20%; top: 14%; width: 60%; height: 44%; border-radius: 50%; box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-2) 55%, transparent); opacity: 0; animation: darma-loader-darma-b16-van-de-graaff-spark-vdg-halo calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__rod { position: absolute; right: 4%; top: 30%; width: 8%; height: 40%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n.darma-loader-darma-b16-van-de-graaff-spark i { position: absolute; right: 12%; top: 34%; width: 20%; height: 10%; background: var(--accent-2); clip-path: polygon(0 40%, 34% 0, 26% 44%, 66% 20%, 54% 62%, 100% 44%, 40% 100%, 46% 58%); opacity: 0; animation: darma-loader-darma-b16-van-de-graaff-spark-vdg-arc calc(var(--loader-speed, 1s) * 1.6) steps(1, end) infinite; }\n.darma-loader-darma-b16-van-de-graaff-spark i:nth-of-type(2) { top: 44%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n@keyframes darma-loader-darma-b16-van-de-graaff-spark-vdg-arc { 0%, 52% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .1; } 68% { opacity: 1; } 78%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b16-van-de-graaff-spark-vdg-halo { 0%, 50% { opacity: 0; transform: scale(.9); } 62% { opacity: .9; transform: scale(1); } 92%, 100% { opacity: 0; transform: scale(1.12); } }",
+  "defaults": {
+    "color": "#a855f7",
+    "secondaryColor": "#fde047",
+    "size": 118,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b16-van-de-graaff-spark\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-van-de-graaff-spark__dome\"></div><div class=\"darma-loader-darma-b16-van-de-graaff-spark__column\"></div><div class=\"darma-loader-darma-b16-van-de-graaff-spark__rod\"></div><i></i><i></i><div class=\"darma-loader-darma-b16-van-de-graaff-spark__halo\"></div></div>",
+    "css": ".darma-loader-darma-b16-van-de-graaff-spark { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__column { position: absolute; left: 42%; bottom: 6%; width: 16%; height: 44%; background: linear-gradient(90deg, #cbd5e1, #475569); border-radius: 3px; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__dome { position: absolute; left: 24%; top: 18%; width: 52%; height: 36%; border-radius: 50%; background: radial-gradient(circle at 36% 30%, color-mix(in srgb, #fff 40%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__halo { position: absolute; left: 20%; top: 14%; width: 60%; height: 44%; border-radius: 50%; box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-2) 55%, transparent); opacity: 0; animation: darma-loader-darma-b16-van-de-graaff-spark-vdg-halo calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__rod { position: absolute; right: 4%; top: 30%; width: 8%; height: 40%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n.darma-loader-darma-b16-van-de-graaff-spark i { position: absolute; right: 12%; top: 34%; width: 20%; height: 10%; background: var(--accent-2); clip-path: polygon(0 40%, 34% 0, 26% 44%, 66% 20%, 54% 62%, 100% 44%, 40% 100%, 46% 58%); opacity: 0; animation: darma-loader-darma-b16-van-de-graaff-spark-vdg-arc calc(var(--loader-speed, 1s) * 1.6) steps(1, end) infinite; }\n.darma-loader-darma-b16-van-de-graaff-spark i:nth-of-type(2) { top: 44%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n@keyframes darma-loader-darma-b16-van-de-graaff-spark-vdg-arc { 0%, 52% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .1; } 68% { opacity: 1; } 78%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b16-van-de-graaff-spark-vdg-halo { 0%, 50% { opacity: 0; transform: scale(.9); } 62% { opacity: .9; transform: scale(1); } 92%, 100% { opacity: 0; transform: scale(1.12); } }",
+    "react": "export default function DarmaB16VanDeGraaffSparkLoader() {\n  return (\n    <div className=\"darma-loader-darma-b16-van-de-graaff-spark\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b16-van-de-graaff-spark__dome\"></div><div className=\"darma-loader-darma-b16-van-de-graaff-spark__column\"></div><div className=\"darma-loader-darma-b16-van-de-graaff-spark__rod\"></div><i></i><i></i><div className=\"darma-loader-darma-b16-van-de-graaff-spark__halo\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

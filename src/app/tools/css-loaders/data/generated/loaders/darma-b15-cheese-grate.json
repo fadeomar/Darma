@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-cheese-grate",
+  "name": "Cheese Grate",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "cheese",
+    "grater",
+    "kitchen",
+    "shred",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-cheese-grate cheese grate fun darma-research-batch-15 darma research batch 15 cheese grater kitchen shred fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-cheese-grate\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-cheese-grate__grater\"></div><div class=\"darma-loader-darma-b15-cheese-grate__block\"></div><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-cheese-grate { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b15-cheese-grate .darma-loader-darma-b15-cheese-grate__grater { position: absolute; left: 24%; top: 8%; width: 52%; height: 50%; border-radius: 6px; background: repeating-linear-gradient(180deg, #94a3b8 0 10%, #cbd5e1 0 20%); box-shadow: inset 0 0 0 2px #64748b; }\n.darma-loader-darma-b15-cheese-grate .darma-loader-darma-b15-cheese-grate__block { position: absolute; left: 30%; top: 2%; width: 40%; height: 18%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-cheese-grate-grate-push calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b15-cheese-grate i { position: absolute; top: 58%; width: 9%; height: 7%; border-radius: 3px; background: var(--accent); opacity: 0; animation: darma-loader-darma-b15-cheese-grate-grate-shred calc(var(--loader-speed, 1s) * 1.4) ease-in infinite; }\n.darma-loader-darma-b15-cheese-grate i:nth-of-type(1) { left: 32%; }\n.darma-loader-darma-b15-cheese-grate i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed, 1s) * .46); }\n.darma-loader-darma-b15-cheese-grate i:nth-of-type(3) { left: 60%; animation-delay: calc(var(--loader-speed, 1s) * .92); }\n@keyframes darma-loader-darma-b15-cheese-grate-grate-push { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(48%); } }\n@keyframes darma-loader-darma-b15-cheese-grate-grate-shred { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(300%) rotate(120deg); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fef3c7",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-cheese-grate\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-cheese-grate__grater\"></div><div class=\"darma-loader-darma-b15-cheese-grate__block\"></div><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b15-cheese-grate { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b15-cheese-grate .darma-loader-darma-b15-cheese-grate__grater { position: absolute; left: 24%; top: 8%; width: 52%; height: 50%; border-radius: 6px; background: repeating-linear-gradient(180deg, #94a3b8 0 10%, #cbd5e1 0 20%); box-shadow: inset 0 0 0 2px #64748b; }\n.darma-loader-darma-b15-cheese-grate .darma-loader-darma-b15-cheese-grate__block { position: absolute; left: 30%; top: 2%; width: 40%; height: 18%; border-radius: 4px; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-cheese-grate-grate-push calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b15-cheese-grate i { position: absolute; top: 58%; width: 9%; height: 7%; border-radius: 3px; background: var(--accent); opacity: 0; animation: darma-loader-darma-b15-cheese-grate-grate-shred calc(var(--loader-speed, 1s) * 1.4) ease-in infinite; }\n.darma-loader-darma-b15-cheese-grate i:nth-of-type(1) { left: 32%; }\n.darma-loader-darma-b15-cheese-grate i:nth-of-type(2) { left: 47%; animation-delay: calc(var(--loader-speed, 1s) * .46); }\n.darma-loader-darma-b15-cheese-grate i:nth-of-type(3) { left: 60%; animation-delay: calc(var(--loader-speed, 1s) * .92); }\n@keyframes darma-loader-darma-b15-cheese-grate-grate-push { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(48%); } }\n@keyframes darma-loader-darma-b15-cheese-grate-grate-shred { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(300%) rotate(120deg); } }",
+    "react": "export default function DarmaB15CheeseGrateLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-cheese-grate\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-cheese-grate__grater\"></div><div className=\"darma-loader-darma-b15-cheese-grate__block\"></div><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

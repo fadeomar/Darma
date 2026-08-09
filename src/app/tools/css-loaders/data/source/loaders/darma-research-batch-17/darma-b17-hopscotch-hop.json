@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-hopscotch-hop",
+  "name": "Hopscotch Hop",
+  "category": "fun",
+  "tags": [
+    "hopscotch",
+    "playground",
+    "chalk",
+    "hop",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"marker\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .44); position: relative; }\n.loader span { position: absolute; bottom: 2%; width: 17%; height: 46%; border-radius: 4px; box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 60%, transparent); background: color-mix(in srgb, var(--accent) 12%, transparent); animation: hop-lit calc(var(--loader-speed) * 2.5) ease-in-out infinite; }\n.loader span:nth-of-type(1) { left: 1%; }\n.loader span:nth-of-type(2) { left: 21%; animation-delay: calc(var(--loader-speed) * .5); }\n.loader span:nth-of-type(3) { left: 41%; animation-delay: calc(var(--loader-speed) * 1); }\n.loader span:nth-of-type(4) { left: 61%; animation-delay: calc(var(--loader-speed) * 1.5); }\n.loader span:nth-of-type(5) { left: 81%; animation-delay: calc(var(--loader-speed) * 2); }\n.loader .marker { position: absolute; left: 5%; bottom: 12%; width: 9%; height: 26%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); animation: hop-jump calc(var(--loader-speed) * 2.5) cubic-bezier(.4, 0, .5, 1) infinite; }\n@keyframes hop-jump { 0%, 6% { transform: translate(0, 0); } 13% { transform: translate(111%, -150%); } 20%, 26% { transform: translate(222%, 0); } 33% { transform: translate(333%, -150%); } 40%, 46% { transform: translate(444%, 0); } 53% { transform: translate(555%, -150%); } 60%, 66% { transform: translate(667%, 0); } 73% { transform: translate(778%, -150%); } 80%, 88% { transform: translate(889%, 0); } 95% { transform: translate(445%, -200%); } 100% { transform: translate(0, 0); } }\n@keyframes hop-lit { 0%, 8% { background: color-mix(in srgb, var(--accent-2) 48%, transparent); } 18%, 100% { background: color-mix(in srgb, var(--accent) 10%, transparent); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f43f5e",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

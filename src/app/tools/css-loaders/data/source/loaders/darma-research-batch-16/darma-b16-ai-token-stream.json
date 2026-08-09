@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-ai-token-stream",
+  "name": "AI Token Stream",
+  "category": "creative",
+  "tags": [
+    "ai",
+    "tokens",
+    "stream",
+    "generate",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"caret\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .22); position: relative; display: flex; gap: 3%; align-items: center; }\n.loader span { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 0 50%; transform: scaleX(0); opacity: 0; animation: token-emit calc(var(--loader-speed) * 2.6) cubic-bezier(.3, .8, .4, 1) infinite; }\n.loader span:nth-of-type(1) { width: 16%; }\n.loader span:nth-of-type(2) { width: 24%; animation-delay: calc(var(--loader-speed) * .22); }\n.loader span:nth-of-type(3) { width: 13%; animation-delay: calc(var(--loader-speed) * .44); }\n.loader span:nth-of-type(4) { width: 21%; animation-delay: calc(var(--loader-speed) * .66); }\n.loader span:nth-of-type(5) { width: 15%; animation-delay: calc(var(--loader-speed) * .88); }\n.loader .caret { position: absolute; right: 0; top: 6%; width: 2.5%; height: 88%; border-radius: 2px; background: var(--accent); animation: token-caret calc(var(--loader-speed) * .9) steps(1, end) infinite; }\n@keyframes token-emit { 0%, 6% { transform: scaleX(0); opacity: 0; } 20%, 66% { transform: scaleX(1); opacity: 1; } 84%, 100% { transform: scaleX(0); opacity: 0; } }\n@keyframes token-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .15; } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#c7d2fe",
+    "size": 132,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

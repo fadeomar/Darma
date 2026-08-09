@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-silo-fill",
+  "name": "Silo Fill",
+  "category": "progress",
+  "tags": [
+    "silo",
+    "grain",
+    "harvest",
+    "store",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"auger\"></div><i></i><i></i><i></i><div class=\"tower\"><div class=\"grain\"></div></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .tower { position: absolute; left: 28%; right: 28%; bottom: 2%; height: 74%; border-radius: 44% 44% 6px 6px / 18% 18% 6px 6px; overflow: hidden; background: color-mix(in srgb, var(--accent) 25%, transparent); box-shadow: inset 0 0 0 3px var(--accent); }\n.loader .tower::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 45%, transparent) 0 1px, transparent 1px 14%); }\n.loader .grain { position: absolute; left: 0; right: 0; bottom: 0; height: 4%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: silo-level calc(var(--loader-speed) * 4) ease-in-out infinite; }\n.loader .auger { position: absolute; left: 2%; top: 4%; width: 40%; height: 8%; border-radius: 4px; background: repeating-linear-gradient(90deg, #cbd5e1 0 14%, #64748b 0 28%); transform: rotate(-16deg); transform-origin: 0 50%; }\n.loader i { position: absolute; left: 44%; top: 16%; width: 6%; height: 6%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: silo-pour calc(var(--loader-speed) * .8) linear infinite; }\n.loader i:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * .27); }\n.loader i:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * .54); }\n@keyframes silo-level { 0%, 6% { height: 4%; } 72%, 88% { height: 88%; } 98%, 100% { height: 4%; } }\n@keyframes silo-pour { 0% { opacity: 0; transform: translate(0, 0); } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(30%, 340%); } }",
+  "defaults": {
+    "color": "#94a3b8",
+    "secondaryColor": "#f59e0b",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

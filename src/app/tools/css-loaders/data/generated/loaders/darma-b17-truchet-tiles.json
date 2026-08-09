@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-truchet-tiles",
+  "name": "Truchet Tiles",
+  "category": "creative",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "truchet",
+    "tiles",
+    "pattern",
+    "generative",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-truchet-tiles truchet tiles creative darma-research-batch-17 darma research batch 17 truchet tiles pattern generative creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-truchet-tiles\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b17-truchet-tiles { --accent: var(--loader-color, #4338ca); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 120px); height: var(--loader-size, 120px); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 0; }\n.darma-loader-darma-b17-truchet-tiles span { position: relative; overflow: hidden; background: color-mix(in srgb, var(--accent) 12%, transparent); animation: darma-loader-darma-b17-truchet-tiles-truchet-turn calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b17-truchet-tiles span::before { content: ''; position: absolute; left: -50%; top: -50%; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-2); }\n.darma-loader-darma-b17-truchet-tiles span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 4px var(--accent); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(2n) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(3n) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(5n) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(7n) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b17-truchet-tiles-truchet-turn { 0%, 18% { transform: rotate(0deg); } 32%, 68% { transform: rotate(90deg); } 82%, 100% { transform: rotate(0deg); } }",
+  "defaults": {
+    "color": "#4338ca",
+    "secondaryColor": "#22d3ee",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-truchet-tiles\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b17-truchet-tiles { --accent: var(--loader-color, #4338ca); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 120px); height: var(--loader-size, 120px); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 0; }\n.darma-loader-darma-b17-truchet-tiles span { position: relative; overflow: hidden; background: color-mix(in srgb, var(--accent) 12%, transparent); animation: darma-loader-darma-b17-truchet-tiles-truchet-turn calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b17-truchet-tiles span::before { content: ''; position: absolute; left: -50%; top: -50%; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-2); }\n.darma-loader-darma-b17-truchet-tiles span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 4px var(--accent); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(2n) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(3n) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(5n) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(7n) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b17-truchet-tiles-truchet-turn { 0%, 18% { transform: rotate(0deg); } 32%, 68% { transform: rotate(90deg); } 82%, 100% { transform: rotate(0deg); } }",
+    "react": "export default function DarmaB17TruchetTilesLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-truchet-tiles\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

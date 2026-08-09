@@ -1,0 +1,48 @@
+{
+  "id": "darma-b15-bellows-pump",
+  "name": "Bellows Pump",
+  "category": "fun",
+  "sourceId": "darma-research-batch-15",
+  "tags": [
+    "bellows",
+    "pump",
+    "air",
+    "workshop",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b15-bellows-pump bellows pump fun darma-research-batch-15 darma research batch 15 bellows pump air workshop fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b15-bellows-pump\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-bellows-pump__bag\"></div><div class=\"darma-loader-darma-b15-bellows-pump__nozzle\"></div><i></i><i></i><i></i></div>",
+  "previewCss": ".darma-loader-darma-b15-bellows-pump { --accent: var(--loader-color, #7c2d12); --accent-2: var(--loader-secondary-color, #fdba74); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .6); position: relative; }\n.darma-loader-darma-b15-bellows-pump .darma-loader-darma-b15-bellows-pump__bag { position: absolute; left: 3%; top: 20%; width: 55%; height: 54%; border-radius: 10px 20px 20px 10px; background: repeating-linear-gradient(90deg, var(--accent) 0 9%, var(--accent-2) 0 18%); transform-origin: 100% 50%; animation: darma-loader-darma-b15-bellows-pump-bellow-squeeze calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-bellows-pump .darma-loader-darma-b15-bellows-pump__nozzle { position: absolute; left: 58%; top: 41%; width: 13%; height: 12%; border-radius: 2px 5px 5px 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.darma-loader-darma-b15-bellows-pump i { position: absolute; top: 42%; left: 71%; width: 8%; height: 8%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-bellows-pump-bellow-puff calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b15-bellows-pump i:nth-of-type(2) { top: 28%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b15-bellows-pump i:nth-of-type(3) { top: 56%; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n@keyframes darma-loader-darma-b15-bellows-pump-bellow-squeeze { 0%, 100% { transform: scaleX(1); } 46% { transform: scaleX(.6); } }\n@keyframes darma-loader-darma-b15-bellows-pump-bellow-puff { 0% { opacity: 0; transform: translateX(0) scale(.5); } 25% { opacity: .95; } 100% { opacity: 0; transform: translateX(200%) scale(1.5); } }",
+  "defaults": {
+    "color": "#7c2d12",
+    "secondaryColor": "#fdba74",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b15-bellows-pump\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-bellows-pump__bag\"></div><div class=\"darma-loader-darma-b15-bellows-pump__nozzle\"></div><i></i><i></i><i></i></div>",
+    "css": ".darma-loader-darma-b15-bellows-pump { --accent: var(--loader-color, #7c2d12); --accent-2: var(--loader-secondary-color, #fdba74); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .6); position: relative; }\n.darma-loader-darma-b15-bellows-pump .darma-loader-darma-b15-bellows-pump__bag { position: absolute; left: 3%; top: 20%; width: 55%; height: 54%; border-radius: 10px 20px 20px 10px; background: repeating-linear-gradient(90deg, var(--accent) 0 9%, var(--accent-2) 0 18%); transform-origin: 100% 50%; animation: darma-loader-darma-b15-bellows-pump-bellow-squeeze calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b15-bellows-pump .darma-loader-darma-b15-bellows-pump__nozzle { position: absolute; left: 58%; top: 41%; width: 13%; height: 12%; border-radius: 2px 5px 5px 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.darma-loader-darma-b15-bellows-pump i { position: absolute; top: 42%; left: 71%; width: 8%; height: 8%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-bellows-pump-bellow-puff calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b15-bellows-pump i:nth-of-type(2) { top: 28%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b15-bellows-pump i:nth-of-type(3) { top: 56%; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n@keyframes darma-loader-darma-b15-bellows-pump-bellow-squeeze { 0%, 100% { transform: scaleX(1); } 46% { transform: scaleX(.6); } }\n@keyframes darma-loader-darma-b15-bellows-pump-bellow-puff { 0% { opacity: 0; transform: translateX(0) scale(.5); } 25% { opacity: .95; } 100% { opacity: 0; transform: translateX(200%) scale(1.5); } }",
+    "react": "export default function DarmaB15BellowsPumpLoader() {\n  return (\n    <div className=\"darma-loader-darma-b15-bellows-pump\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b15-bellows-pump__bag\"></div><div className=\"darma-loader-darma-b15-bellows-pump__nozzle\"></div><i></i><i></i><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-dial-up-handshake",
+  "name": "Dial Up Handshake",
+  "category": "bars",
+  "tags": [
+    "dialup",
+    "modem",
+    "handshake",
+    "retro",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"link\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .42); position: relative; display: flex; gap: 2%; align-items: center; justify-content: space-between; }\n.loader span { flex: 1; height: 60%; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); transform-origin: 50% 50%; animation: modem-screech calc(var(--loader-speed) * .9) ease-in-out infinite; }\n.loader span:nth-of-type(1) { animation-delay: calc(var(--loader-speed) * -.11); }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * -.43); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * -.07); }\n.loader span:nth-of-type(4) { animation-delay: calc(var(--loader-speed) * -.62); }\n.loader span:nth-of-type(5) { animation-delay: calc(var(--loader-speed) * -.29); }\n.loader span:nth-of-type(6) { animation-delay: calc(var(--loader-speed) * -.78); }\n.loader span:nth-of-type(7) { animation-delay: calc(var(--loader-speed) * -.19); }\n.loader span:nth-of-type(8) { animation-delay: calc(var(--loader-speed) * -.51); }\n.loader span:nth-of-type(9) { animation-delay: calc(var(--loader-speed) * -.35); }\n.loader .link { position: absolute; left: 0; right: 0; bottom: 0; height: 8%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 22%, transparent); overflow: hidden; }\n.loader .link::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--accent); animation: modem-connect calc(var(--loader-speed) * 4.5) ease-in-out infinite; }\n@keyframes modem-screech { 0%, 100% { transform: scaleY(.28); } 50% { transform: scaleY(1); } }\n@keyframes modem-connect { 0% { width: 0; } 30% { width: 22%; } 44% { width: 26%; } 72% { width: 68%; } 92%, 100% { width: 100%; } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#f59e0b",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

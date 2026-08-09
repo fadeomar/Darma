@@ -246,6 +246,68 @@
     }
   },
   {
+    "id": "darma-b16-ai-token-stream",
+    "name": "AI Token Stream",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "ai",
+      "tokens",
+      "stream",
+      "generate",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-ai-token-stream ai token stream creative darma-research-batch-16 darma research batch 16 ai tokens stream generate creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-ai-token-stream\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-ai-token-stream__caret\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-ai-token-stream { --accent: var(--loader-color, #6366f1); --accent-2: var(--loader-secondary-color, #c7d2fe); width: var(--loader-size, 132px); height: calc(var(--loader-size, 132px) * .22); position: relative; display: flex; gap: 3%; align-items: center; }\n.darma-loader-darma-b16-ai-token-stream span { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 0 50%; transform: scaleX(0); opacity: 0; animation: darma-loader-darma-b16-ai-token-stream-token-emit calc(var(--loader-speed, 1s) * 2.6) cubic-bezier(.3, .8, .4, 1) infinite; }\n.darma-loader-darma-b16-ai-token-stream span:nth-of-type(1) { width: 16%; }\n.darma-loader-darma-b16-ai-token-stream span:nth-of-type(2) { width: 24%; animation-delay: calc(var(--loader-speed, 1s) * .22); }\n.darma-loader-darma-b16-ai-token-stream span:nth-of-type(3) { width: 13%; animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b16-ai-token-stream span:nth-of-type(4) { width: 21%; animation-delay: calc(var(--loader-speed, 1s) * .66); }\n.darma-loader-darma-b16-ai-token-stream span:nth-of-type(5) { width: 15%; animation-delay: calc(var(--loader-speed, 1s) * .88); }\n.darma-loader-darma-b16-ai-token-stream .darma-loader-darma-b16-ai-token-stream__caret { position: absolute; right: 0; top: 6%; width: 2.5%; height: 88%; border-radius: 2px; background: var(--accent); animation: darma-loader-darma-b16-ai-token-stream-token-caret calc(var(--loader-speed, 1s) * .9) steps(1, end) infinite; }\n@keyframes darma-loader-darma-b16-ai-token-stream-token-emit { 0%, 6% { transform: scaleX(0); opacity: 0; } 20%, 66% { transform: scaleX(1); opacity: 1; } 84%, 100% { transform: scaleX(0); opacity: 0; } }\n@keyframes darma-loader-darma-b16-ai-token-stream-token-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .15; } }",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#c7d2fe",
+      "size": 132,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-airlock-cycle",
+    "name": "Airlock Cycle",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "airlock",
+      "iris",
+      "hatch",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-airlock-cycle airlock cycle creative darma-research-batch-16 darma research batch 16 airlock iris hatch space creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-airlock-cycle\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-airlock-cycle__frame\"></div><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-airlock-cycle__gauge\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-airlock-cycle { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__frame { position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 5px color-mix(in srgb, var(--accent) 55%, transparent), inset 0 0 0 11px color-mix(in srgb, var(--accent) 18%, transparent); }\n.darma-loader-darma-b16-airlock-cycle span { position: absolute; left: 46%; top: 8%; width: 8%; height: 42%; transform-origin: 50% 100%; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%); animation: darma-loader-darma-b16-airlock-cycle-iris-blade calc(var(--loader-speed, 1s) * 2.8) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(1) { --spin: 0deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(2) { --spin: 60deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(3) { --spin: 120deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(4) { --spin: 180deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(5) { --spin: 240deg; }\n.darma-loader-darma-b16-airlock-cycle span:nth-of-type(6) { --spin: 300deg; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__gauge { position: absolute; left: 30%; right: 30%; bottom: 12%; height: 5%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 25%, transparent); overflow: hidden; }\n.darma-loader-darma-b16-airlock-cycle .darma-loader-darma-b16-airlock-cycle__gauge::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 12%; background: var(--accent-2); animation: darma-loader-darma-b16-airlock-cycle-iris-pressure calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-airlock-cycle-iris-blade { 0%, 12% { transform: rotate(var(--spin, 0deg)) translateY(0) scaleY(1); } 46%, 62% { transform: rotate(var(--spin, 0deg)) translateY(-42%) scaleY(.62); } 92%, 100% { transform: rotate(var(--spin, 0deg)) translateY(0) scaleY(1); } }\n@keyframes darma-loader-darma-b16-airlock-cycle-iris-pressure { 0%, 12% { width: 10%; } 46%, 62% { width: 100%; } 92%, 100% { width: 10%; } }",
+    "defaults": {
+      "color": "#0891b2",
+      "secondaryColor": "#fbbf24",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-653",
     "name": "Animated Triangle Mark",
     "category": "creative",
@@ -429,6 +491,37 @@
     }
   },
   {
+    "id": "darma-b15-bamboo-segments",
+    "name": "Bamboo Segments",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "bamboo",
+      "grow",
+      "segments",
+      "nature",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-bamboo-segments bamboo segments creative darma-research-batch-15 darma research batch 15 bamboo grow segments nature creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-bamboo-segments\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b15-bamboo-segments { --accent: var(--loader-color, #166534); --accent-2: var(--loader-secondary-color, #86efac); width: calc(var(--loader-size, 116px) * .56); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b15-bamboo-segments span { position: absolute; left: 30%; width: 40%; height: 16%; border-radius: 5px; background: linear-gradient(90deg, var(--accent-2), var(--accent) 70%); box-shadow: 0 2px 0 color-mix(in srgb, #000 25%, transparent); transform-origin: 50% 100%; transform: scaleY(0); animation: darma-loader-darma-b15-bamboo-segments-bam-grow calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b15-bamboo-segments span:nth-of-type(1) { bottom: 3%; }\n.darma-loader-darma-b15-bamboo-segments span:nth-of-type(2) { bottom: 22%; animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b15-bamboo-segments span:nth-of-type(3) { bottom: 41%; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b15-bamboo-segments span:nth-of-type(4) { bottom: 60%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b15-bamboo-segments span:nth-of-type(5) { bottom: 79%; animation-delay: calc(var(--loader-speed, 1s) * .72); }\n.darma-loader-darma-b15-bamboo-segments i { position: absolute; width: 34%; height: 11%; border-radius: 60% 6% 60% 6%; background: var(--accent-2); transform: scale(0); animation: darma-loader-darma-b15-bamboo-segments-bam-leaf calc(var(--loader-speed, 1s) * 2.6) ease-out infinite; }\n.darma-loader-darma-b15-bamboo-segments i:nth-of-type(1) { left: 66%; bottom: 46%; animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b15-bamboo-segments i:nth-of-type(2) { left: 0; bottom: 66%; border-radius: 6% 60% 6% 60%; animation-delay: calc(var(--loader-speed, 1s) * .7); }\n@keyframes darma-loader-darma-b15-bamboo-segments-bam-grow { 0%, 8% { transform: scaleY(0); opacity: 0; } 26%, 70% { transform: scaleY(1); opacity: 1; } 92%, 100% { transform: scaleY(0); opacity: 0; } }\n@keyframes darma-loader-darma-b15-bamboo-segments-bam-leaf { 0%, 20% { transform: scale(0); opacity: 0; } 40%, 70% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#166534",
+      "secondaryColor": "#86efac",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-banter-box-shuffle",
     "name": "Banter Box Shuffle",
     "category": "creative",
@@ -525,6 +618,68 @@
     }
   },
   {
+    "id": "darma-b17-beehive-frames",
+    "name": "Beehive Frames",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "beehive",
+      "frames",
+      "honeycomb",
+      "apiary",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-beehive-frames beehive frames creative darma-research-batch-17 darma research batch 17 beehive frames honeycomb apiary creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-beehive-frames\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-beehive-frames__box\"></div><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b17-beehive-frames { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .72); position: relative; }\n.darma-loader-darma-b17-beehive-frames .darma-loader-darma-b17-beehive-frames__box { position: absolute; inset: 0; border-radius: 6px; background: color-mix(in srgb, var(--accent) 18%, transparent); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-b17-beehive-frames span { position: absolute; top: 8%; width: 20%; height: 84%; border-radius: 3px; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); overflow: hidden; animation: darma-loader-darma-b17-beehive-frames-hive-pull calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b17-beehive-frames span::after { content: ''; position: absolute; left: 10%; right: 10%; bottom: 6%; height: 0; background: repeating-conic-gradient(from 30deg at 50% 50%, var(--accent-2) 0 16.7%, color-mix(in srgb, #000 12%, var(--accent-2)) 0 33.3%); background-size: 34% 34%; animation: darma-loader-darma-b17-beehive-frames-hive-comb calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b17-beehive-frames span:nth-of-type(1) { left: 6%; }\n.darma-loader-darma-b17-beehive-frames span:nth-of-type(2) { left: 29%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b17-beehive-frames span:nth-of-type(3) { left: 52%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b17-beehive-frames span:nth-of-type(4) { left: 75%; animation-delay: calc(var(--loader-speed, 1s) * .96); }\n@keyframes darma-loader-darma-b17-beehive-frames-hive-pull { 0%, 12% { transform: translateY(0); } 34%, 62% { transform: translateY(-9%); } 86%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b17-beehive-frames-hive-comb { 0%, 10% { height: 0; } 46%, 74% { height: 86%; } 94%, 100% { height: 0; } }",
+    "defaults": {
+      "color": "#a16207",
+      "secondaryColor": "#fbbf24",
+      "size": 122,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-bell-jar-vacuum",
+    "name": "Bell Jar Vacuum",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "vacuum",
+      "bell jar",
+      "pump",
+      "lab",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-bell-jar-vacuum bell jar vacuum creative darma-research-batch-16 darma research batch 16 vacuum bell jar pump lab creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-bell-jar-vacuum\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-bell-jar-vacuum__jar\"></div><div class=\"darma-loader-darma-b16-bell-jar-vacuum__specimen\"></div><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b16-bell-jar-vacuum__plate\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-bell-jar-vacuum { --accent: var(--loader-color, #64748b); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__jar { position: absolute; left: 14%; right: 14%; top: 6%; bottom: 16%; border-radius: 44% 44% 6px 6px / 40% 40% 6px 6px; background: color-mix(in srgb, var(--accent-2) 12%, transparent); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 45%, transparent); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-sheen calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__specimen { position: absolute; left: 40%; bottom: 22%; width: 20%; height: 22%; border-radius: 44% 44% 30% 30%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-expand calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation: darma-loader-darma-b16-bell-jar-vacuum-jar-evacuate calc(var(--loader-speed, 1s) * 3) ease-in infinite; }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(1) { left: 26%; top: 26%; --dx: 190%; --dy: 420%; }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(2) { left: 62%; top: 22%; --dx: -110%; --dy: 480%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(3) { left: 30%; top: 48%; --dx: 160%; --dy: 210%; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b16-bell-jar-vacuum i:nth-of-type(4) { left: 66%; top: 50%; --dx: -170%; --dy: 200%; animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b16-bell-jar-vacuum .darma-loader-darma-b16-bell-jar-vacuum__plate { position: absolute; left: 6%; right: 6%; bottom: 6%; height: 12%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-evacuate { 0%, 10% { opacity: .9; transform: translate(0, 0) scale(1); } 62%, 100% { opacity: 0; transform: translate(var(--dx, 0%), var(--dy, 0%)) scale(.35); } }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-expand { 0%, 14% { transform: scale(1); } 62%, 80% { transform: scale(1.22); } 96%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b16-bell-jar-vacuum-jar-sheen { 0%, 100% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 35%, transparent); } 60% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 85%, transparent); } }",
+    "defaults": {
+      "color": "#64748b",
+      "secondaryColor": "#38bdf8",
+      "size": 114,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-bicycle-blueprint",
     "name": "Bicycle Blueprint",
     "category": "creative",
@@ -557,6 +712,37 @@
       "size": 140,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b15-binary-tree-grow",
+    "name": "Binary Tree Grow",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "tree",
+      "binary",
+      "nodes",
+      "graph",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-binary-tree-grow binary tree grow creative darma-research-batch-15 darma research batch 15 tree binary nodes graph creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-binary-tree-grow\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b15-binary-tree-grow { --accent: var(--loader-color, #059669); --accent-2: var(--loader-secondary-color, #a7f3d0); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .74); position: relative; }\n.darma-loader-darma-b15-binary-tree-grow span { position: absolute; width: 13%; height: 17%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, var(--accent-2), var(--accent)); transform: scale(0); animation: darma-loader-darma-b15-binary-tree-grow-tree-node calc(var(--loader-speed, 1s) * 3) ease-out infinite; }\n.darma-loader-darma-b15-binary-tree-grow span::before { content: ''; position: absolute; left: 42%; bottom: 96%; width: calc(var(--loader-size, 128px) * .016); height: calc(var(--loader-size, 128px) * .19); border-radius: 2px; background: color-mix(in srgb, var(--accent) 45%, transparent); transform-origin: 50% 100%; transform: rotate(var(--tilt, 0deg)); }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(1) { left: 43.5%; top: 2%; }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(1)::before { display: none; }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(2) { left: 21%; top: 40%; --tilt: 38deg; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(3) { left: 66%; top: 40%; --tilt: -38deg; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(4) { left: 6%; top: 78%; --tilt: 30deg; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(5) { left: 32%; top: 78%; --tilt: -30deg; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(6) { left: 55%; top: 78%; --tilt: 30deg; animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b15-binary-tree-grow span:nth-of-type(7) { left: 81%; top: 78%; --tilt: -30deg; animation-delay: calc(var(--loader-speed, 1s) * .84); }\n@keyframes darma-loader-darma-b15-binary-tree-grow-tree-node { 0%, 4% { transform: scale(0); opacity: 0; } 22%, 72% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#059669",
+      "secondaryColor": "#a7f3d0",
+      "size": 128,
+      "speed": 1
     }
   },
   {
@@ -1386,6 +1572,37 @@
       "size": 50,
       "speed": 1.5,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b17-calendar-flip",
+    "name": "Calendar Flip",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "calendar",
+      "date",
+      "page",
+      "schedule",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-calendar-flip calendar flip creative darma-research-batch-17 darma research batch 17 calendar date page schedule creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-calendar-flip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-calendar-flip__back\"></div><div class=\"darma-loader-darma-b17-calendar-flip__band\"></div><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-calendar-flip__ring\"></div><div class=\"darma-loader-darma-b17-calendar-flip__ring\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-calendar-flip { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .92); position: relative; perspective: 600px; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__back { position: absolute; left: 4%; right: 4%; top: 8%; bottom: 4%; border-radius: 6px; background: color-mix(in srgb, #000 22%, var(--accent-2)); }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__band { position: absolute; left: 4%; right: 4%; top: 8%; height: 20%; border-radius: 6px 6px 0 0; background: linear-gradient(color-mix(in srgb, #fff 14%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-calendar-flip span { position: absolute; left: 4%; right: 4%; top: 28%; bottom: 4%; border-radius: 0 0 6px 6px; background: var(--accent-2); box-shadow: 0 4px 10px color-mix(in srgb, #000 25%, transparent); transform-origin: 50% 0; animation: darma-loader-darma-b17-calendar-flip-cal-flip calc(var(--loader-speed, 1s) * 2.7) cubic-bezier(.5, 0, .4, 1) infinite; }\n.darma-loader-darma-b17-calendar-flip span::after { content: ''; position: absolute; left: 24%; right: 24%; top: 26%; height: 34%; border-radius: 4px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-calendar-flip span:nth-of-type(1) { animation-delay: calc(var(--loader-speed, 1s) * -1.8); }\n.darma-loader-darma-b17-calendar-flip span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * -.9); }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring { position: absolute; top: 2%; width: 6%; height: 12%; border-radius: 999px; box-shadow: inset 0 0 0 3px #94a3b8; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring:nth-of-type(3) { left: 26%; }\n.darma-loader-darma-b17-calendar-flip .darma-loader-darma-b17-calendar-flip__ring:nth-of-type(4) { right: 26%; }\n@keyframes darma-loader-darma-b17-calendar-flip-cal-flip { 0% { transform: rotateX(0deg); opacity: 1; } 22% { transform: rotateX(-96deg); opacity: .35; } 24%, 100% { transform: rotateX(0deg); opacity: 1; } }",
+    "defaults": {
+      "color": "#dc2626",
+      "secondaryColor": "#f8fafc",
+      "size": 112,
+      "speed": 1
     }
   },
   {
@@ -3732,6 +3949,37 @@
     }
   },
   {
+    "id": "darma-b16-crt-degauss",
+    "name": "CRT Degauss",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "crt",
+      "degauss",
+      "monitor",
+      "retro",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-crt-degauss crt degauss creative darma-research-batch-16 darma research batch 16 crt degauss monitor retro creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-crt-degauss\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-crt-degauss__screen\"><div class=\"darma-loader-darma-b16-crt-degauss__scanlines\"></div><div class=\"darma-loader-darma-b16-crt-degauss__wobble\"></div></div><div class=\"darma-loader-darma-b16-crt-degauss__stand\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-crt-degauss { --accent: var(--loader-color, #0f766e); --accent-2: var(--loader-secondary-color, #f472b6); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .82); position: relative; }\n.darma-loader-darma-b16-crt-degauss .darma-loader-darma-b16-crt-degauss__screen { position: absolute; left: 4%; right: 4%; top: 2%; height: 74%; border-radius: 14%/18%; overflow: hidden; background: radial-gradient(ellipse at 50% 45%, color-mix(in srgb, var(--accent) 62%, transparent), color-mix(in srgb, #020617 85%, transparent) 78%); box-shadow: inset 0 0 0 4px #1e293b; animation: darma-loader-darma-b16-crt-degauss-crt-pulse calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-crt-degauss .darma-loader-darma-b16-crt-degauss__scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(color-mix(in srgb, #000 32%, transparent) 0 2px, transparent 2px 5px); }\n.darma-loader-darma-b16-crt-degauss .darma-loader-darma-b16-crt-degauss__wobble { position: absolute; left: -10%; right: -10%; top: 34%; height: 26%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-2) 65%, transparent), transparent); filter: blur(3px); animation: darma-loader-darma-b16-crt-degauss-crt-warp calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b16-crt-degauss .darma-loader-darma-b16-crt-degauss__stand { position: absolute; left: 34%; right: 34%; bottom: 2%; height: 12%; border-radius: 3px 3px 6px 6px; background: linear-gradient(#475569, #1e293b); }\n@keyframes darma-loader-darma-b16-crt-degauss-crt-pulse { 0%, 100% { transform: scale(1); filter: saturate(1); } 18% { transform: scale(1.03, .96); filter: saturate(2.2); } 34% { transform: scale(.98, 1.02); filter: saturate(1.4); } 50% { transform: scale(1.01, .99); } }\n@keyframes darma-loader-darma-b16-crt-degauss-crt-warp { 0%, 100% { opacity: 0; transform: translateY(60%); } 20% { opacity: .9; } 60% { opacity: .5; transform: translateY(-70%); } 70%, 100% { opacity: 0; } }",
+    "defaults": {
+      "color": "#0f766e",
+      "secondaryColor": "#f472b6",
+      "size": 122,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-crystal-bloom",
     "name": "Crystal Bloom",
     "category": "creative",
@@ -4071,6 +4319,37 @@
     }
   },
   {
+    "id": "darma-b16-defrag-grid",
+    "name": "Defrag Grid",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "defrag",
+      "grid",
+      "blocks",
+      "retro",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-defrag-grid defrag grid creative darma-research-batch-16 darma research batch 16 defrag grid blocks retro creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-defrag-grid\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b16-defrag-grid { --accent: var(--loader-color, #1d4ed8); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 4%; }\n.darma-loader-darma-b16-defrag-grid span { border-radius: 2px; background: var(--accent-2); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent); animation: darma-loader-darma-b16-defrag-grid-defrag-pack calc(var(--loader-speed, 1s) * 3.2) steps(1, end) infinite; }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * 1.44); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(4) { animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(5) { animation-delay: calc(var(--loader-speed, 1s) * 2.16); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(6) { animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.8); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(8) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(9) { animation-delay: calc(var(--loader-speed, 1s) * 2.52); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(10) { animation-delay: calc(var(--loader-speed, 1s) * 1.08); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(11) { animation-delay: calc(var(--loader-speed, 1s) * .72); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(12) { animation-delay: calc(var(--loader-speed, 1s) * 2.88); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(13) { animation-delay: calc(var(--loader-speed, 1s) * 1.62); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(14) { animation-delay: calc(var(--loader-speed, 1s) * 2.34); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(15) { animation-delay: calc(var(--loader-speed, 1s) * 1.26); }\n.darma-loader-darma-b16-defrag-grid span:nth-of-type(16) { animation-delay: calc(var(--loader-speed, 1s) * 2.7); }\n@keyframes darma-loader-darma-b16-defrag-grid-defrag-pack { 0%, 44% { background: var(--accent-2); transform: scale(1); } 45%, 56% { background: color-mix(in srgb, #fff 40%, var(--accent)); transform: scale(.72); } 57%, 100% { background: var(--accent); transform: scale(1); } }",
+    "defaults": {
+      "color": "#1d4ed8",
+      "secondaryColor": "#f8fafc",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-002",
     "name": "Diagonal Corner Fold",
     "category": "creative",
@@ -4212,6 +4491,37 @@
       "speed": 1.4,
       "color": "#8b5cf6",
       "secondaryColor": "#c084fc"
+    }
+  },
+  {
+    "id": "darma-b16-distillation-coil",
+    "name": "Distillation Coil",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "distillation",
+      "coil",
+      "condenser",
+      "chemistry",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-distillation-coil distillation coil creative darma-research-batch-16 darma research batch 16 distillation coil condenser chemistry creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-distillation-coil\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-distillation-coil__pot\"></div><div class=\"darma-loader-darma-b16-distillation-coil__jar\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-distillation-coil { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .74); position: relative; }\n.darma-loader-darma-b16-distillation-coil .darma-loader-darma-b16-distillation-coil__pot { position: absolute; left: 2%; bottom: 6%; width: 26%; height: 34%; border-radius: 6px 6px 40% 40%; background: linear-gradient(color-mix(in srgb, #fff 20%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-distillation-coil .darma-loader-darma-b16-distillation-coil__jar { position: absolute; right: 2%; bottom: 6%; width: 22%; height: 30%; border-radius: 4px 4px 20% 20%; background: color-mix(in srgb, var(--accent-2) 25%, transparent); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 60%, transparent); overflow: hidden; }\n.darma-loader-darma-b16-distillation-coil .darma-loader-darma-b16-distillation-coil__jar::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 20%; background: var(--accent-2); animation: darma-loader-darma-b16-distillation-coil-still-collect calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b16-distillation-coil span { position: absolute; top: 12%; width: 15%; height: 44%; border-radius: 50%; box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b16-distillation-coil-still-flow calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b16-distillation-coil span:nth-of-type(1) { left: 20%; }\n.darma-loader-darma-b16-distillation-coil span:nth-of-type(2) { left: 33%; animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b16-distillation-coil span:nth-of-type(3) { left: 46%; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b16-distillation-coil span:nth-of-type(4) { left: 59%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b16-distillation-coil span:nth-of-type(5) { left: 72%; animation-delay: calc(var(--loader-speed, 1s) * .72); }\n@keyframes darma-loader-darma-b16-distillation-coil-still-flow { 0%, 100% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); transform: scale(1); } 40% { box-shadow: inset 0 0 0 3px var(--accent-2); transform: scale(1.07); } }\n@keyframes darma-loader-darma-b16-distillation-coil-still-collect { 0% { height: 12%; } 80%, 100% { height: 78%; } }",
+    "defaults": {
+      "color": "#0891b2",
+      "secondaryColor": "#fbbf24",
+      "size": 122,
+      "speed": 1
     }
   },
   {
@@ -5012,6 +5322,68 @@
     }
   },
   {
+    "id": "darma-b15-face-scan-grid",
+    "name": "Face Scan Grid",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "face",
+      "scan",
+      "biometric",
+      "security",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-face-scan-grid face scan grid creative darma-research-batch-15 darma research batch 15 face scan biometric security creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-face-scan-grid\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-face-scan-grid__mesh\"></div><div class=\"darma-loader-darma-b15-face-scan-grid__head\"></div><div class=\"darma-loader-darma-b15-face-scan-grid__beam\"></div><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b15-face-scan-grid { --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; overflow: hidden; border-radius: 10px; }\n.darma-loader-darma-b15-face-scan-grid .darma-loader-darma-b15-face-scan-grid__head { position: absolute; left: 28%; top: 18%; width: 44%; height: 60%; border-radius: 46% 46% 42% 42% / 52% 52% 60% 60%; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 70%, transparent); }\n.darma-loader-darma-b15-face-scan-grid .darma-loader-darma-b15-face-scan-grid__mesh { position: absolute; left: 26%; top: 16%; width: 48%; height: 64%; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 32%, transparent) 0 1px, transparent 1px 12%), repeating-linear-gradient(color-mix(in srgb, var(--accent) 32%, transparent) 0 1px, transparent 1px 12%); animation: darma-loader-darma-b15-face-scan-grid-face-mesh calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b15-face-scan-grid .darma-loader-darma-b15-face-scan-grid__beam { position: absolute; left: 20%; right: 20%; top: 0; height: 6%; border-radius: 3px; background: linear-gradient(90deg, transparent, var(--accent-2), transparent); box-shadow: 0 0 12px var(--accent-2); animation: darma-loader-darma-b15-face-scan-grid-face-beam calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b15-face-scan-grid span { position: absolute; width: 16%; height: 16%; border: 2px solid var(--accent-2); }\n.darma-loader-darma-b15-face-scan-grid span:nth-of-type(1) { left: 6%; top: 6%; border-right: 0; border-bottom: 0; }\n.darma-loader-darma-b15-face-scan-grid span:nth-of-type(2) { right: 6%; top: 6%; border-left: 0; border-bottom: 0; }\n.darma-loader-darma-b15-face-scan-grid span:nth-of-type(3) { left: 6%; bottom: 6%; border-right: 0; border-top: 0; }\n.darma-loader-darma-b15-face-scan-grid span:nth-of-type(4) { right: 6%; bottom: 6%; border-left: 0; border-top: 0; }\n@keyframes darma-loader-darma-b15-face-scan-grid-face-beam { 0%, 100% { top: 8%; } 50% { top: 86%; } }\n@keyframes darma-loader-darma-b15-face-scan-grid-face-mesh { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#a5f3fc",
+      "size": 112,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b17-fiber-optic-strands",
+    "name": "Fiber Optic Strands",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "fiber",
+      "optic",
+      "strand",
+      "light",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-fiber-optic-strands fiber optic strands creative darma-research-batch-17 darma research batch 17 fiber optic strand light creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-fiber-optic-strands\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-fiber-optic-strands__hub\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-fiber-optic-strands { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f0abfc); width: var(--loader-size, 126px); height: calc(var(--loader-size, 126px) * .68); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-fiber-optic-strands .darma-loader-darma-b17-fiber-optic-strands__hub { position: absolute; left: 0; top: 32%; width: 10%; height: 36%; border-radius: 3px; background: linear-gradient(#475569, #0f172a); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent); }\n.darma-loader-darma-b17-fiber-optic-strands span { position: absolute; left: 8%; width: 92%; height: 5%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 45%, transparent), color-mix(in srgb, var(--accent) 12%, transparent)); overflow: hidden; }\n.darma-loader-darma-b17-fiber-optic-strands span::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 26%; border-radius: 999px; background: linear-gradient(90deg, transparent, var(--accent-2), color-mix(in srgb, #fff 70%, var(--accent-2)), transparent); animation: darma-loader-darma-b17-fiber-optic-strands-fiber-pulse calc(var(--loader-speed, 1s) * 2.2) cubic-bezier(.5, 0, .5, 1) infinite; }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(1) { top: 10%; transform: rotate(-9deg); transform-origin: 0 50%; }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(2) { top: 30%; transform: rotate(-4deg); transform-origin: 0 50%; }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(3) { top: 48%; }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(4) { top: 64%; transform: rotate(4deg); transform-origin: 0 50%; }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(5) { top: 82%; transform: rotate(9deg); transform-origin: 0 50%; }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .22); }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(4)::after { animation-delay: calc(var(--loader-speed, 1s) * .66); }\n.darma-loader-darma-b17-fiber-optic-strands span:nth-of-type(5)::after { animation-delay: calc(var(--loader-speed, 1s) * .88); }\n@keyframes darma-loader-darma-b17-fiber-optic-strands-fiber-pulse { 0% { transform: translateX(-110%); opacity: 0; } 12% { opacity: 1; } 82% { opacity: 1; } 100% { transform: translateX(400%); opacity: 0; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#f0abfc",
+      "size": 126,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-film-reel-runner",
     "name": "Film Reel Runner",
     "category": "creative",
@@ -5145,6 +5517,37 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-flip-dot-display",
+    "name": "Flip Dot Display",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "flip dot",
+      "display",
+      "sign",
+      "mechanical",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-flip-dot-display flip dot display creative darma-research-batch-16 darma research batch 16 flip dot display sign mechanical creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-flip-dot-display\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b16-flip-dot-display { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #1e293b); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .38); position: relative; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6%; perspective: 320px; }\n.darma-loader-darma-b16-flip-dot-display span { border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 30%, transparent); transform-style: preserve-3d; animation: darma-loader-darma-b16-flip-dot-display-flipdot-turn calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 2) { animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 3) { animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 4) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n + 5) { animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b16-flip-dot-display span:nth-of-type(6n) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b16-flip-dot-display-flipdot-turn { 0%, 14% { transform: rotateX(0deg); background: var(--accent-2); } 30%, 62% { transform: rotateX(180deg); background: var(--accent); } 78%, 100% { transform: rotateX(360deg); background: var(--accent-2); } }",
+    "defaults": {
+      "color": "#facc15",
+      "secondaryColor": "#1e293b",
+      "size": 128,
       "speed": 1
     }
   },
@@ -6015,6 +6418,37 @@
     }
   },
   {
+    "id": "darma-b16-floppy-disk-write",
+    "name": "Floppy Disk Write",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "floppy",
+      "disk",
+      "save",
+      "retro",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-floppy-disk-write floppy disk write creative darma-research-batch-16 darma research batch 16 floppy disk save retro creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-floppy-disk-write\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-floppy-disk-write__body\"></div><div class=\"darma-loader-darma-b16-floppy-disk-write__shutter\"></div><div class=\"darma-loader-darma-b16-floppy-disk-write__label\"></div><div class=\"darma-loader-darma-b16-floppy-disk-write__led\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-floppy-disk-write { --accent: var(--loader-color, #1e293b); --accent-2: var(--loader-secondary-color, #22c55e); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b16-floppy-disk-write .darma-loader-darma-b16-floppy-disk-write__body { position: absolute; inset: 4%; border-radius: 5px 12px 5px 5px; background: linear-gradient(150deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-floppy-disk-write .darma-loader-darma-b16-floppy-disk-write__shutter { position: absolute; left: 28%; top: 8%; width: 40%; height: 30%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); animation: darma-loader-darma-b16-floppy-disk-write-floppy-shutter calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-floppy-disk-write .darma-loader-darma-b16-floppy-disk-write__shutter::after { content: ''; position: absolute; left: 58%; top: 10%; width: 26%; height: 80%; border-radius: 2px; background: color-mix(in srgb, #0f172a 65%, transparent); }\n.darma-loader-darma-b16-floppy-disk-write .darma-loader-darma-b16-floppy-disk-write__label { position: absolute; left: 16%; right: 16%; bottom: 12%; height: 34%; border-radius: 3px; background: repeating-linear-gradient(color-mix(in srgb, #fff 78%, var(--accent)) 0 26%, color-mix(in srgb, #fff 55%, var(--accent)) 0 34%); overflow: hidden; }\n.darma-loader-darma-b16-floppy-disk-write .darma-loader-darma-b16-floppy-disk-write__label::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: color-mix(in srgb, var(--accent-2) 55%, transparent); animation: darma-loader-darma-b16-floppy-disk-write-floppy-write calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b16-floppy-disk-write .darma-loader-darma-b16-floppy-disk-write__led { position: absolute; right: 10%; top: 12%; width: 8%; height: 8%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b16-floppy-disk-write-floppy-led calc(var(--loader-speed, 1s) * .6) steps(1, end) infinite; }\n@keyframes darma-loader-darma-b16-floppy-disk-write-floppy-shutter { 0%, 8% { transform: translateX(0); } 24%, 76% { transform: translateX(-46%); } 92%, 100% { transform: translateX(0); } }\n@keyframes darma-loader-darma-b16-floppy-disk-write-floppy-write { 0%, 20% { width: 0; } 80%, 100% { width: 100%; } }\n@keyframes darma-loader-darma-b16-floppy-disk-write-floppy-led { 0%, 49% { opacity: 1; box-shadow: 0 0 10px var(--accent-2); } 50%, 100% { opacity: .2; box-shadow: none; } }",
+    "defaults": {
+      "color": "#1e293b",
+      "secondaryColor": "#22c55e",
+      "size": 112,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-flying-file-stream",
     "name": "Flying File Stream",
     "category": "creative",
@@ -6150,6 +6584,37 @@
       "size": 40,
       "speed": 2.5,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b15-frost-crystal",
+    "name": "Frost Crystal",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "frost",
+      "snowflake",
+      "crystal",
+      "winter",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-frost-crystal frost crystal creative darma-research-batch-15 darma research batch 15 frost snowflake crystal winter creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-frost-crystal\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b15-frost-crystal__core\"></div></div>",
+    "previewCss": ".darma-loader-darma-b15-frost-crystal { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #e0f2fe); width: var(--loader-size, 112px); height: var(--loader-size, 112px); position: relative; }\n.darma-loader-darma-b15-frost-crystal span { position: absolute; left: 48.5%; top: 8%; width: 3%; height: 42%; border-radius: 2px; transform-origin: 50% 100%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-frost-crystal-frost-arm calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b15-frost-crystal span::before { content: ''; position: absolute; left: -240%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(38deg); transform-origin: 100% 50%; }\n.darma-loader-darma-b15-frost-crystal span::after { content: ''; position: absolute; left: 80%; top: 34%; width: 260%; height: 12%; border-radius: 2px; background: var(--accent); transform: rotate(-38deg); transform-origin: 0 50%; }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(1) { --rot: 0deg; }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(2) { --rot: 60deg; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(3) { --rot: 120deg; animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(4) { --rot: 180deg; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(5) { --rot: 240deg; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b15-frost-crystal span:nth-of-type(6) { --rot: 300deg; animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b15-frost-crystal .darma-loader-darma-b15-frost-crystal__core { position: absolute; left: 44%; top: 44%; width: 12%; height: 12%; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b15-frost-crystal-frost-core calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b15-frost-crystal-frost-arm { 0%, 6% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } 34%, 66% { transform: rotate(var(--rot, 0deg)) scaleY(1); opacity: 1; } 94%, 100% { transform: rotate(var(--rot, 0deg)) scaleY(0); opacity: 0; } }\n@keyframes darma-loader-darma-b15-frost-crystal-frost-core { 0%, 100% { transform: scale(.5); opacity: .4; } 40%, 66% { transform: scale(1); opacity: 1; } }",
+    "defaults": {
+      "color": "#38bdf8",
+      "secondaryColor": "#e0f2fe",
+      "size": 112,
+      "speed": 1
     }
   },
   {
@@ -6851,6 +7316,37 @@
     }
   },
   {
+    "id": "darma-b16-holographic-card-tilt",
+    "name": "Holographic Card Tilt",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "holographic",
+      "card",
+      "sheen",
+      "iridescent",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-holographic-card-tilt holographic card tilt creative darma-research-batch-16 darma research batch 16 holographic card sheen iridescent creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-holographic-card-tilt\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-holographic-card-tilt__card\"><span class=\"darma-loader-darma-b16-holographic-card-tilt__sheen\"></span><span class=\"darma-loader-darma-b16-holographic-card-tilt__chip\"></span><span class=\"darma-loader-darma-b16-holographic-card-tilt__row\"></span><span class=\"darma-loader-darma-b16-holographic-card-tilt__row\"></span></div></div>",
+    "previewCss": ".darma-loader-darma-b16-holographic-card-tilt { --accent: var(--loader-color, #8b5cf6); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .66); position: relative; perspective: 600px; }\n.darma-loader-darma-b16-holographic-card-tilt .darma-loader-darma-b16-holographic-card-tilt__card { position: absolute; inset: 0; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent-2) 60%, var(--accent)) 45%, var(--accent-2)); box-shadow: 0 10px 24px color-mix(in srgb, #000 32%, transparent); animation: darma-loader-darma-b16-holographic-card-tilt-holo-tilt calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b16-holographic-card-tilt .darma-loader-darma-b16-holographic-card-tilt__sheen { position: absolute; top: -60%; left: -40%; width: 60%; height: 220%; background: linear-gradient(90deg, transparent, color-mix(in srgb, #fff 72%, transparent), transparent); transform: rotate(18deg); animation: darma-loader-darma-b16-holographic-card-tilt-holo-sheen calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b16-holographic-card-tilt .darma-loader-darma-b16-holographic-card-tilt__chip { position: absolute; left: 10%; top: 22%; width: 20%; height: 26%; border-radius: 5px; background: repeating-linear-gradient(90deg, color-mix(in srgb, #fff 55%, transparent) 0 22%, color-mix(in srgb, #000 22%, transparent) 0 34%); }\n.darma-loader-darma-b16-holographic-card-tilt .darma-loader-darma-b16-holographic-card-tilt__row { position: absolute; left: 10%; height: 8%; border-radius: 4px; background: color-mix(in srgb, #fff 42%, transparent); }\n.darma-loader-darma-b16-holographic-card-tilt .darma-loader-darma-b16-holographic-card-tilt__row:nth-of-type(3) { bottom: 26%; width: 62%; }\n.darma-loader-darma-b16-holographic-card-tilt .darma-loader-darma-b16-holographic-card-tilt__row:nth-of-type(4) { bottom: 12%; width: 40%; }\n@keyframes darma-loader-darma-b16-holographic-card-tilt-holo-tilt { 0%, 100% { transform: rotateY(-16deg) rotateX(6deg); } 50% { transform: rotateY(16deg) rotateX(-6deg); } }\n@keyframes darma-loader-darma-b16-holographic-card-tilt-holo-sheen { 0%, 100% { transform: translateX(0) rotate(18deg); opacity: .35; } 50% { transform: translateX(230%) rotate(18deg); opacity: .95; } }",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#22d3ee",
+      "size": 124,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-b14-honey-drip",
     "name": "Honey Drip",
     "category": "creative",
@@ -7045,6 +7541,37 @@
       "size": 40,
       "speed": 1.5,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b15-icicle-drip",
+    "name": "Icicle Drip",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "icicle",
+      "melt",
+      "winter",
+      "drip",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-icicle-drip icicle drip creative darma-research-batch-15 darma research batch 15 icicle melt winter drip creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-icicle-drip\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-icicle-drip__ledge\"></div><span></span><span></span><span></span><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b15-icicle-drip { --accent: var(--loader-color, #0284c7); --accent-2: var(--loader-secondary-color, #bae6fd); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .92); position: relative; }\n.darma-loader-darma-b15-icicle-drip .darma-loader-darma-b15-icicle-drip__ledge { position: absolute; left: 2%; right: 2%; top: 4%; height: 11%; border-radius: 4px; background: linear-gradient(var(--accent-2), color-mix(in srgb, var(--accent) 60%, var(--accent-2))); }\n.darma-loader-darma-b15-icicle-drip span { position: absolute; top: 13%; width: 14%; background: linear-gradient(var(--accent-2), color-mix(in srgb, var(--accent) 70%, transparent)); clip-path: polygon(0 0, 100% 0, 50% 100%); animation: darma-loader-darma-b15-icicle-drip-ice-melt calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b15-icicle-drip span:nth-of-type(1) { left: 16%; }\n.darma-loader-darma-b15-icicle-drip span:nth-of-type(2) { left: 43%; animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b15-icicle-drip span:nth-of-type(3) { left: 70%; animation-delay: calc(var(--loader-speed, 1s) * 1); }\n.darma-loader-darma-b15-icicle-drip i { position: absolute; width: 8%; height: 11%; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-icicle-drip-ice-drop calc(var(--loader-speed, 1s) * 1.5) ease-in infinite; }\n.darma-loader-darma-b15-icicle-drip i:nth-of-type(1) { left: 19%; top: 48%; }\n.darma-loader-darma-b15-icicle-drip i:nth-of-type(2) { left: 73%; top: 44%; animation-delay: calc(var(--loader-speed, 1s) * .75); }\n@keyframes darma-loader-darma-b15-icicle-drip-ice-melt { 0%, 100% { height: 46%; opacity: 1; } 50% { height: 24%; opacity: .7; } }\n@keyframes darma-loader-darma-b15-icicle-drip-ice-drop { 0% { opacity: 0; transform: translateY(0) scale(.5); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(280%) scale(1); } }",
+    "defaults": {
+      "color": "#0284c7",
+      "secondaryColor": "#bae6fd",
+      "size": 116,
+      "speed": 1
     }
   },
   {
@@ -7291,6 +7818,68 @@
     }
   },
   {
+    "id": "darma-b15-kanban-card-move",
+    "name": "Kanban Card Move",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "kanban",
+      "board",
+      "card",
+      "workflow",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-kanban-card-move kanban card move creative darma-research-batch-15 darma research batch 15 kanban board card workflow creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-kanban-card-move\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-kanban-card-move__col\"></div><div class=\"darma-loader-darma-b15-kanban-card-move__col\"></div><div class=\"darma-loader-darma-b15-kanban-card-move__col\"></div><div class=\"darma-loader-darma-b15-kanban-card-move__card\"></div></div>",
+    "previewCss": ".darma-loader-darma-b15-kanban-card-move { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #99f6e4); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .62); position: relative; }\n.darma-loader-darma-b15-kanban-card-move .darma-loader-darma-b15-kanban-card-move__col { position: absolute; top: 0; width: 30%; height: 100%; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, transparent); }\n.darma-loader-darma-b15-kanban-card-move .darma-loader-darma-b15-kanban-card-move__col:nth-of-type(1) { left: 0; }\n.darma-loader-darma-b15-kanban-card-move .darma-loader-darma-b15-kanban-card-move__col:nth-of-type(2) { left: 35%; }\n.darma-loader-darma-b15-kanban-card-move .darma-loader-darma-b15-kanban-card-move__col:nth-of-type(3) { left: 70%; }\n.darma-loader-darma-b15-kanban-card-move .darma-loader-darma-b15-kanban-card-move__col::after { content: ''; position: absolute; left: 14%; right: 14%; top: 8%; height: 8%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 40%, transparent); }\n.darma-loader-darma-b15-kanban-card-move .darma-loader-darma-b15-kanban-card-move__card { position: absolute; left: 4%; top: 26%; width: 22%; height: 26%; border-radius: 6px; background: linear-gradient(140deg, var(--accent-2), var(--accent)); box-shadow: 0 4px 10px color-mix(in srgb, #000 25%, transparent); animation: darma-loader-darma-b15-kanban-card-move-kan-move calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes darma-loader-darma-b15-kanban-card-move-kan-move { 0%, 16% { left: 4%; top: 26%; opacity: 1; } 32%, 48% { left: 39%; top: 44%; opacity: 1; } 64%, 84% { left: 74%; top: 62%; opacity: 1; } 94%, 100% { left: 74%; top: 62%; opacity: 0; } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#99f6e4",
+      "size": 130,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b17-laser-cut",
+    "name": "Laser Cut",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "laser",
+      "cut",
+      "cnc",
+      "fabrication",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-laser-cut laser cut creative darma-research-batch-17 darma research batch 17 laser cut cnc fabrication creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-laser-cut\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-laser-cut__sheet\"></div><div class=\"darma-loader-darma-b17-laser-cut__kerf\"></div><div class=\"darma-loader-darma-b17-laser-cut__head\"></div><div class=\"darma-loader-darma-b17-laser-cut__spark\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-laser-cut { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b17-laser-cut .darma-loader-darma-b17-laser-cut__sheet { position: absolute; inset: 6%; border-radius: 4px; background: repeating-linear-gradient(45deg, color-mix(in srgb, #fff 8%, var(--accent)) 0 6px, var(--accent) 0 12px); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 25%, transparent); }\n.darma-loader-darma-b17-laser-cut .darma-loader-darma-b17-laser-cut__kerf { position: absolute; left: 22%; top: 22%; width: 56%; height: 56%; border-radius: 6px; border: 3px solid var(--accent-2); box-shadow: 0 0 12px color-mix(in srgb, var(--accent-2) 55%, transparent); animation: darma-loader-darma-b17-laser-cut-laser-kerf calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-laser-cut .darma-loader-darma-b17-laser-cut__head { position: absolute; left: 20%; top: 18%; width: 10%; height: 10%; border-radius: 3px; background: linear-gradient(#e2e8f0, #64748b); animation: darma-loader-darma-b17-laser-cut-laser-path calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b17-laser-cut .darma-loader-darma-b17-laser-cut__spark { position: absolute; left: 22%; top: 22%; width: 7%; height: 7%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 80%, var(--accent-2)), transparent 70%); animation: darma-loader-darma-b17-laser-cut-laser-flare calc(var(--loader-speed, 1s) * .2) steps(1, end) infinite, darma-loader-darma-b17-laser-cut-laser-path calc(var(--loader-speed, 1s) * 4) linear infinite; }\n@keyframes darma-loader-darma-b17-laser-cut-laser-path { 0% { transform: translate(0, 0); } 25% { transform: translate(calc(var(--loader-size, 118px) * .56), 0); } 50% { transform: translate(calc(var(--loader-size, 118px) * .56), calc(var(--loader-size, 118px) * .56)); } 75% { transform: translate(0, calc(var(--loader-size, 118px) * .56)); } 100% { transform: translate(0, 0); } }\n@keyframes darma-loader-darma-b17-laser-cut-laser-kerf { 0% { opacity: 0; } 25% { opacity: .3; } 50% { opacity: .58; } 75% { opacity: .82; } 94% { opacity: 1; } 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b17-laser-cut-laser-flare { 0%, 49% { opacity: 1; } 50%, 100% { opacity: .35; } }",
+    "defaults": {
+      "color": "#334155",
+      "secondaryColor": "#f43f5e",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-b9-lava-lamp",
     "name": "Lava Lamp",
     "category": "creative",
@@ -7353,6 +7942,37 @@
     }
   },
   {
+    "id": "darma-b17-letterpress",
+    "name": "Letterpress",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "letterpress",
+      "print",
+      "type",
+      "platen",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-letterpress letterpress creative darma-research-batch-17 darma research batch 17 letterpress print type platen creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-letterpress\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-letterpress__paper\"></div><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-letterpress__platen\"></div><div class=\"darma-loader-darma-b17-letterpress__lever\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-letterpress { --accent: var(--loader-color, #1e293b); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .78); position: relative; }\n.darma-loader-darma-b17-letterpress .darma-loader-darma-b17-letterpress__paper { position: absolute; left: 14%; right: 14%; bottom: 6%; height: 44%; border-radius: 3px; background: var(--accent-2); box-shadow: 0 2px 6px color-mix(in srgb, #000 25%, transparent); }\n.darma-loader-darma-b17-letterpress span { position: absolute; bottom: 22%; width: 16%; height: 14%; border-radius: 2px; background: var(--accent); transform: scale(0); animation: darma-loader-darma-b17-letterpress-press-ink calc(var(--loader-speed, 1s) * 2) ease-out infinite; }\n.darma-loader-darma-b17-letterpress span:nth-of-type(1) { left: 22%; }\n.darma-loader-darma-b17-letterpress span:nth-of-type(2) { left: 42%; animation-delay: calc(var(--loader-speed, 1s) * .06); }\n.darma-loader-darma-b17-letterpress span:nth-of-type(3) { left: 62%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b17-letterpress .darma-loader-darma-b17-letterpress__platen { position: absolute; left: 10%; right: 10%; top: 6%; height: 34%; border-radius: 5px; background: linear-gradient(color-mix(in srgb, #fff 16%, var(--accent)), var(--accent)); box-shadow: 0 6px 12px color-mix(in srgb, #000 30%, transparent); animation: darma-loader-darma-b17-letterpress-press-stamp calc(var(--loader-speed, 1s) * 2) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b17-letterpress .darma-loader-darma-b17-letterpress__lever { position: absolute; right: 6%; top: 10%; width: 7%; height: 30%; border-radius: 4px; background: linear-gradient(#94a3b8, #475569); transform-origin: 50% 0; animation: darma-loader-darma-b17-letterpress-press-lever calc(var(--loader-speed, 1s) * 2) cubic-bezier(.5, 0, .3, 1) infinite; }\n@keyframes darma-loader-darma-b17-letterpress-press-stamp { 0%, 24% { transform: translateY(0); } 44%, 54% { transform: translateY(56%); } 78%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b17-letterpress-press-lever { 0%, 24% { transform: rotate(0deg); } 44%, 54% { transform: rotate(-32deg); } 78%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b17-letterpress-press-ink { 0%, 46% { transform: scale(0); opacity: 0; } 56%, 84% { transform: scale(1); opacity: 1; } 96%, 100% { transform: scale(1); opacity: 0; } }",
+    "defaults": {
+      "color": "#1e293b",
+      "secondaryColor": "#f8fafc",
+      "size": 122,
+      "speed": 1
+    }
+  },
+  {
     "id": "lighthouse-beam",
     "name": "Lighthouse Beam",
     "category": "creative",
@@ -7379,6 +7999,37 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b15-lightning-strike",
+    "name": "Lightning Strike",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "lightning",
+      "storm",
+      "bolt",
+      "flash",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-lightning-strike lightning strike creative darma-research-batch-15 darma research batch 15 lightning storm bolt flash creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-lightning-strike\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-lightning-strike__cloud\"></div><div class=\"darma-loader-darma-b15-lightning-strike__bolt\"></div><div class=\"darma-loader-darma-b15-lightning-strike__glow\"></div></div>",
+    "previewCss": ".darma-loader-darma-b15-lightning-strike { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #64748b); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__cloud { position: absolute; left: 10%; top: 14%; width: 80%; height: 30%; border-radius: 46% 46% 34% 34% / 60% 60% 40% 40%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); animation: darma-loader-darma-b15-lightning-strike-bolt-cloud calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__cloud::after { content: ''; position: absolute; left: 12%; top: -26%; width: 46%; height: 62%; border-radius: 50%; background: var(--accent-2); }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__bolt { position: absolute; left: 38%; top: 42%; width: 26%; height: 46%; background: linear-gradient(var(--accent), color-mix(in srgb, #fff 30%, var(--accent))); clip-path: polygon(58% 0, 12% 54%, 46% 54%, 24% 100%, 88% 40%, 52% 40%); animation: darma-loader-darma-b15-lightning-strike-bolt-flash calc(var(--loader-speed, 1s) * 1.8) steps(1, end) infinite; }\n.darma-loader-darma-b15-lightning-strike .darma-loader-darma-b15-lightning-strike__glow { position: absolute; left: 24%; top: 46%; width: 52%; height: 46%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent), transparent 68%); animation: darma-loader-darma-b15-lightning-strike-bolt-glow calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-flash { 0%, 54% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .15; } 68% { opacity: 1; } 84%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-glow { 0%, 54% { opacity: 0; transform: scale(.5); } 62% { opacity: .9; transform: scale(1); } 90%, 100% { opacity: 0; transform: scale(1.3); } }\n@keyframes darma-loader-darma-b15-lightning-strike-bolt-cloud { 0%, 100% { transform: translateX(-3%); } 50% { transform: translateX(3%); } }",
+    "defaults": {
+      "color": "#facc15",
+      "secondaryColor": "#64748b",
+      "size": 108,
       "speed": 1
     }
   },
@@ -8355,6 +9006,68 @@
     }
   },
   {
+    "id": "darma-b15-loom-weave",
+    "name": "Loom Weave",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "loom",
+      "weave",
+      "textile",
+      "shuttle",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-loom-weave loom weave creative darma-research-batch-15 darma research batch 15 loom weave textile shuttle creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-loom-weave\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-loom-weave__warp\"></div><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b15-loom-weave__shuttle\"></div></div>",
+    "previewCss": ".darma-loader-darma-b15-loom-weave { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 124px); height: calc(var(--loader-size, 124px) * .74); position: relative; overflow: hidden; border-radius: 6px; }\n.darma-loader-darma-b15-loom-weave .darma-loader-darma-b15-loom-weave__warp { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--accent) 45%, transparent) 0 6%, transparent 0 14%); }\n.darma-loader-darma-b15-loom-weave span { position: absolute; left: 4%; width: 92%; height: 9%; border-radius: 3px; background: var(--accent); transform-origin: left center; transform: scaleX(0); animation: darma-loader-darma-b15-loom-weave-loom-pass calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b15-loom-weave span:nth-of-type(1) { bottom: 7%; }\n.darma-loader-darma-b15-loom-weave span:nth-of-type(2) { bottom: 26%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b15-loom-weave span:nth-of-type(3) { bottom: 45%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b15-loom-weave span:nth-of-type(4) { bottom: 64%; animation-delay: calc(var(--loader-speed, 1s) * .96); }\n.darma-loader-darma-b15-loom-weave .darma-loader-darma-b15-loom-weave__shuttle { position: absolute; top: 5%; left: 0; width: 17%; height: 11%; border-radius: 40% 6% 6% 40%; background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: darma-loader-darma-b15-loom-weave-loom-slide calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite alternate; }\n@keyframes darma-loader-darma-b15-loom-weave-loom-pass { 0% { transform: scaleX(0); opacity: .15; } 28%, 68% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(0); opacity: .15; } }\n@keyframes darma-loader-darma-b15-loom-weave-loom-slide { from { left: 0; } to { left: 83%; } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#f59e0b",
+      "size": 124,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-magnet-filings",
+    "name": "Magnet Filings",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "magnet",
+      "filings",
+      "field",
+      "physics",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-magnet-filings magnet filings creative darma-research-batch-16 darma research batch 16 magnet filings field physics creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-magnet-filings\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-magnet-filings__bar\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-magnet-filings { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 118px); height: calc(var(--loader-size, 118px) * .78); position: relative; }\n.darma-loader-darma-b16-magnet-filings .darma-loader-darma-b16-magnet-filings__bar { position: absolute; left: 28%; top: 44%; width: 44%; height: 12%; border-radius: 3px; background: linear-gradient(90deg, var(--accent) 50%, var(--accent-2) 50%); }\n.darma-loader-darma-b16-magnet-filings span { position: absolute; border-radius: 50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); animation: darma-loader-darma-b16-magnet-filings-mag-field calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b16-magnet-filings span:nth-of-type(1) { left: 28%; top: 35%; width: 44%; height: 30%; }\n.darma-loader-darma-b16-magnet-filings span:nth-of-type(2) { left: 19%; top: 27%; width: 62%; height: 46%; animation-delay: calc(var(--loader-speed, 1s) * .22); }\n.darma-loader-darma-b16-magnet-filings span:nth-of-type(3) { left: 10%; top: 19%; width: 80%; height: 62%; animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b16-magnet-filings span:nth-of-type(4) { left: 1%; top: 10%; width: 98%; height: 80%; animation-delay: calc(var(--loader-speed, 1s) * .66); }\n@keyframes darma-loader-darma-b16-magnet-filings-mag-field { 0%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); transform: scale(.96); } 42% { box-shadow: 0 0 0 3px var(--accent-2); transform: scale(1); } }",
+    "defaults": {
+      "color": "#dc2626",
+      "secondaryColor": "#3b82f6",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-magnetic-field-pulse",
     "name": "Magnetic Field Pulse",
     "category": "creative",
@@ -8386,6 +9099,37 @@
       "size": 140,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b17-map-unfold",
+    "name": "Map Unfold",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "map",
+      "unfold",
+      "travel",
+      "route",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-map-unfold map unfold creative darma-research-batch-17 darma research batch 17 map unfold travel route creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-map-unfold\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-map-unfold__route\"></div><div class=\"darma-loader-darma-b17-map-unfold__pin\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-map-unfold { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #f97316); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .68); position: relative; perspective: 700px; }\n.darma-loader-darma-b17-map-unfold span { position: absolute; top: 0; bottom: 0; width: 33.4%; background: linear-gradient(150deg, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 22%, transparent); animation: darma-loader-darma-b17-map-unfold-map-open calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b17-map-unfold span:nth-of-type(1) { left: 0; transform-origin: 100% 50%; --fold: -78deg; }\n.darma-loader-darma-b17-map-unfold span:nth-of-type(2) { left: 33.3%; --fold: 0deg; }\n.darma-loader-darma-b17-map-unfold span:nth-of-type(3) { left: 66.6%; transform-origin: 0 50%; --fold: 78deg; }\n.darma-loader-darma-b17-map-unfold .darma-loader-darma-b17-map-unfold__route { position: absolute; left: 10%; top: 24%; width: 76%; height: 46%; border-top: 3px dashed var(--accent-2); border-right: 3px dashed var(--accent-2); border-radius: 0 40% 0 0; opacity: 0; animation: darma-loader-darma-b17-map-unfold-map-route calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b17-map-unfold .darma-loader-darma-b17-map-unfold__pin { position: absolute; right: 12%; top: 58%; width: 9%; height: 13%; border-radius: 50% 50% 50% 0; background: var(--accent-2); transform: rotate(-45deg) scale(0); animation: darma-loader-darma-b17-map-unfold-map-pin calc(var(--loader-speed, 1s) * 3.2) cubic-bezier(.3, 1.5, .5, 1) infinite; }\n@keyframes darma-loader-darma-b17-map-unfold-map-open { 0%, 8% { transform: rotateY(var(--fold, 0deg)); } 34%, 74% { transform: rotateY(0deg); } 94%, 100% { transform: rotateY(var(--fold, 0deg)); } }\n@keyframes darma-loader-darma-b17-map-unfold-map-route { 0%, 36% { opacity: 0; } 50%, 74% { opacity: 1; } 88%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b17-map-unfold-map-pin { 0%, 48% { transform: rotate(-45deg) scale(0); } 62%, 74% { transform: rotate(-45deg) scale(1); } 88%, 100% { transform: rotate(-45deg) scale(0); } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#f97316",
+      "size": 128,
+      "speed": 1
     }
   },
   {
@@ -8601,6 +9345,37 @@
       "color": "#0284c7",
       "secondaryColor": "#d97706",
       "size": 88,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-microscope-focus",
+    "name": "Microscope Focus",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "microscope",
+      "focus",
+      "lab",
+      "lens",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-microscope-focus microscope focus creative darma-research-batch-16 darma research batch 16 microscope focus lab lens creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-microscope-focus\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-microscope-focus__field\"><i></i><i></i><i></i></div><div class=\"darma-loader-darma-b16-microscope-focus__rim\"></div><div class=\"darma-loader-darma-b16-microscope-focus__knob\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-microscope-focus { --accent: var(--loader-color, #0d9488); --accent-2: var(--loader-secondary-color, #a7f3d0); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-microscope-focus .darma-loader-darma-b16-microscope-focus__rim { position: absolute; left: 8%; top: 8%; width: 84%; height: 84%; border-radius: 50%; box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--accent) 55%, transparent), inset 0 0 0 10px color-mix(in srgb, var(--accent) 15%, transparent); }\n.darma-loader-darma-b16-microscope-focus .darma-loader-darma-b16-microscope-focus__field { position: absolute; left: 14%; top: 14%; width: 72%; height: 72%; border-radius: 50%; overflow: hidden; background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 72%); animation: darma-loader-darma-b16-microscope-focus-scope-focus calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n.darma-loader-darma-b16-microscope-focus i { position: absolute; border-radius: 50% 40% 55% 45%; background: color-mix(in srgb, var(--accent) 75%, transparent); animation: darma-loader-darma-b16-microscope-focus-scope-swim calc(var(--loader-speed, 1s) * 5) ease-in-out infinite; }\n.darma-loader-darma-b16-microscope-focus i:nth-of-type(1) { left: 18%; top: 24%; width: 26%; height: 20%; }\n.darma-loader-darma-b16-microscope-focus i:nth-of-type(2) { left: 52%; top: 52%; width: 20%; height: 26%; animation-delay: calc(var(--loader-speed, 1s) * -1.7); }\n.darma-loader-darma-b16-microscope-focus i:nth-of-type(3) { left: 30%; top: 62%; width: 16%; height: 14%; animation-delay: calc(var(--loader-speed, 1s) * -3.4); }\n.darma-loader-darma-b16-microscope-focus .darma-loader-darma-b16-microscope-focus__knob { position: absolute; right: 0; top: 42%; width: 12%; height: 16%; border-radius: 3px; background: repeating-linear-gradient(#94a3b8 0 22%, #475569 0 44%); animation: darma-loader-darma-b16-microscope-focus-scope-knob calc(var(--loader-speed, 1s) * 2.8) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-microscope-focus-scope-focus { 0%, 100% { filter: blur(5px); opacity: .55; } 46%, 62% { filter: blur(0); opacity: 1; } }\n@keyframes darma-loader-darma-b16-microscope-focus-scope-swim { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(18%, -14%) rotate(140deg); } }\n@keyframes darma-loader-darma-b16-microscope-focus-scope-knob { 0%, 100% { transform: translateY(0); } 46%, 62% { transform: translateY(-40%); } }",
+    "defaults": {
+      "color": "#0d9488",
+      "secondaryColor": "#a7f3d0",
+      "size": 116,
       "speed": 1
     }
   },
@@ -9377,6 +10152,37 @@
     }
   },
   {
+    "id": "darma-b16-orbital-docking",
+    "name": "Orbital Docking",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "docking",
+      "orbit",
+      "station",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-orbital-docking orbital docking creative darma-research-batch-16 darma research batch 16 docking orbit station space creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-orbital-docking\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-orbital-docking__rig\"><span class=\"darma-loader-darma-b16-orbital-docking__station\"></span><span class=\"darma-loader-darma-b16-orbital-docking__craft\"></span><span class=\"darma-loader-darma-b16-orbital-docking__latch\"></span></div></div>",
+    "previewCss": ".darma-loader-darma-b16-orbital-docking { --accent: var(--loader-color, #4f46e5); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 122px); height: var(--loader-size, 122px); position: relative; }\n.darma-loader-darma-b16-orbital-docking .darma-loader-darma-b16-orbital-docking__rig { position: absolute; inset: 0; animation: darma-loader-darma-b16-orbital-docking-dock-spin calc(var(--loader-speed, 1s) * 6) linear infinite; }\n.darma-loader-darma-b16-orbital-docking .darma-loader-darma-b16-orbital-docking__station { position: absolute; left: 8%; top: 42%; width: 40%; height: 16%; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b16-orbital-docking .darma-loader-darma-b16-orbital-docking__station::after { content: ''; position: absolute; left: 22%; top: -120%; width: 56%; height: 340%; border-radius: 3px; background: color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-b16-orbital-docking .darma-loader-darma-b16-orbital-docking__craft { position: absolute; right: 8%; top: 42%; width: 30%; height: 16%; border-radius: 5px 40% 40% 5px / 5px 50% 50% 5px; background: linear-gradient(color-mix(in srgb, #fff 25%, var(--accent)), var(--accent)); animation: darma-loader-darma-b16-orbital-docking-dock-approach calc(var(--loader-speed, 1s) * 3.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-orbital-docking .darma-loader-darma-b16-orbital-docking__latch { position: absolute; left: 47%; top: 45%; width: 6%; height: 10%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b16-orbital-docking-dock-latch calc(var(--loader-speed, 1s) * 3.4) ease-out infinite; }\n@keyframes darma-loader-darma-b16-orbital-docking-dock-spin { to { transform: rotate(1turn); } }\n@keyframes darma-loader-darma-b16-orbital-docking-dock-approach { 0%, 10% { transform: translateX(0); } 56%, 84% { transform: translateX(-46%); } 98%, 100% { transform: translateX(0); } }\n@keyframes darma-loader-darma-b16-orbital-docking-dock-latch { 0%, 52% { opacity: 0; transform: scale(.4); } 62%, 84% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--accent-2); } 94%, 100% { opacity: 0; transform: scale(.4); } }",
+    "defaults": {
+      "color": "#4f46e5",
+      "secondaryColor": "#a5f3fc",
+      "size": 122,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-080",
     "name": "Orbiting Polygon Core",
     "category": "creative",
@@ -9627,6 +10433,68 @@
     }
   },
   {
+    "id": "darma-b16-periscope-scan",
+    "name": "Periscope Scan",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "periscope",
+      "scan",
+      "sweep",
+      "watch",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-periscope-scan periscope scan creative darma-research-batch-16 darma research batch 16 periscope scan sweep watch creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-periscope-scan\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-periscope-scan__sea\"></div><div class=\"darma-loader-darma-b16-periscope-scan__rig\"><span class=\"darma-loader-darma-b16-periscope-scan__tube\"></span><span class=\"darma-loader-darma-b16-periscope-scan__head\"></span><span class=\"darma-loader-darma-b16-periscope-scan__beam\"></span></div></div>",
+    "previewCss": ".darma-loader-darma-b16-periscope-scan { --accent: var(--loader-color, #0891b2); --accent-2: var(--loader-secondary-color, #a5f3fc); width: var(--loader-size, 118px); height: calc(var(--loader-size, 118px) * .8); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b16-periscope-scan .darma-loader-darma-b16-periscope-scan__sea { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; background: linear-gradient(color-mix(in srgb, var(--accent) 40%, transparent), color-mix(in srgb, var(--accent) 12%, transparent)); }\n.darma-loader-darma-b16-periscope-scan .darma-loader-darma-b16-periscope-scan__rig { position: absolute; left: 0; right: 0; bottom: 46%; height: 54%; animation: darma-loader-darma-b16-periscope-scan-peri-rise calc(var(--loader-speed, 1s) * 4) ease-in-out infinite; }\n.darma-loader-darma-b16-periscope-scan .darma-loader-darma-b16-periscope-scan__tube { position: absolute; left: 47%; bottom: 0; width: 6%; height: 62%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), var(--accent)); }\n.darma-loader-darma-b16-periscope-scan .darma-loader-darma-b16-periscope-scan__head { position: absolute; left: 40%; bottom: 56%; width: 20%; height: 12%; border-radius: 4px; background: var(--accent); transform-origin: 50% 100%; animation: darma-loader-darma-b16-periscope-scan-peri-turn calc(var(--loader-speed, 1s) * 2) ease-in-out infinite alternate; }\n.darma-loader-darma-b16-periscope-scan .darma-loader-darma-b16-periscope-scan__beam { position: absolute; left: 20%; bottom: 40%; width: 60%; height: 34%; background: conic-gradient(from -30deg at 50% 100%, transparent 0deg, color-mix(in srgb, var(--accent-2) 60%, transparent) 20deg, transparent 40deg); transform-origin: 50% 100%; animation: darma-loader-darma-b16-periscope-scan-peri-turn calc(var(--loader-speed, 1s) * 2) ease-in-out infinite alternate; }\n@keyframes darma-loader-darma-b16-periscope-scan-peri-rise { 0%, 100% { transform: translateY(46%); } 26%, 74% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b16-periscope-scan-peri-turn { from { transform: rotate(-40deg); } to { transform: rotate(40deg); } }",
+    "defaults": {
+      "color": "#0891b2",
+      "secondaryColor": "#a5f3fc",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-petri-dish-culture",
+    "name": "Petri Dish Culture",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "petri",
+      "dish",
+      "culture",
+      "biology",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-petri-dish-culture petri dish culture creative darma-research-batch-16 darma research batch 16 petri dish culture biology creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-petri-dish-culture\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-petri-dish-culture__dish\"></div><i></i><i></i><i></i><i></i><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b16-petri-dish-culture { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #bbf7d0); width: var(--loader-size, 114px); height: var(--loader-size, 114px); position: relative; }\n.darma-loader-darma-b16-petri-dish-culture .darma-loader-darma-b16-petri-dish-culture__dish { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, var(--accent-2) 55%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent)); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }\n.darma-loader-darma-b16-petri-dish-culture i { position: absolute; border-radius: 46% 54% 52% 48%; background: color-mix(in srgb, var(--accent) 78%, transparent); transform: scale(0); animation: darma-loader-darma-b16-petri-dish-culture-petri-colony calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(1) { left: 26%; top: 28%; width: 16%; height: 16%; }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(2) { left: 54%; top: 22%; width: 12%; height: 12%; animation-delay: calc(var(--loader-speed, 1s) * .28); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(3) { left: 62%; top: 48%; width: 18%; height: 18%; animation-delay: calc(var(--loader-speed, 1s) * .56); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(4) { left: 34%; top: 58%; width: 14%; height: 14%; animation-delay: calc(var(--loader-speed, 1s) * .84); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(5) { left: 18%; top: 48%; width: 10%; height: 10%; animation-delay: calc(var(--loader-speed, 1s) * 1.12); }\n.darma-loader-darma-b16-petri-dish-culture i:nth-of-type(6) { left: 48%; top: 68%; width: 11%; height: 11%; animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n@keyframes darma-loader-darma-b16-petri-dish-culture-petri-colony { 0%, 4% { transform: scale(0); opacity: 0; } 26%, 66% { transform: scale(1); opacity: 1; } 88%, 100% { transform: scale(1.15); opacity: 0; } }",
+    "defaults": {
+      "color": "#16a34a",
+      "secondaryColor": "#bbf7d0",
+      "size": 114,
+      "speed": 1
+    }
+  },
+  {
     "id": "piano-keys",
     "name": "Piano Keys",
     "category": "creative",
@@ -9855,6 +10723,37 @@
       "size": 140,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b16-punch-card-feed",
+    "name": "Punch Card Feed",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "punch card",
+      "reader",
+      "retro",
+      "mainframe",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-punch-card-feed punch card feed creative darma-research-batch-16 darma research batch 16 punch card reader retro mainframe creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-punch-card-feed\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-punch-card-feed__card\"></div><div class=\"darma-loader-darma-b16-punch-card-feed__card\"></div><div class=\"darma-loader-darma-b16-punch-card-feed__reader\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-punch-card-feed { --accent: var(--loader-color, #a16207); --accent-2: var(--loader-secondary-color, #fde68a); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .52); position: relative; overflow: hidden; border-radius: 6px; }\n.darma-loader-darma-b16-punch-card-feed .darma-loader-darma-b16-punch-card-feed__card { position: absolute; top: 18%; width: 46%; height: 64%; border-radius: 2px 8px 2px 2px; background: color-mix(in srgb, #fff 60%, var(--accent-2)); background-image: repeating-linear-gradient(90deg, transparent 0 6%, color-mix(in srgb, #0f172a 62%, transparent) 0 10%, transparent 0 16%), repeating-linear-gradient(transparent 0 14%, color-mix(in srgb, #0f172a 62%, transparent) 0 24%, transparent 0 38%); box-shadow: 0 2px 6px color-mix(in srgb, #000 25%, transparent); animation: darma-loader-darma-b16-punch-card-feed-card-feed calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b16-punch-card-feed .darma-loader-darma-b16-punch-card-feed__card:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * -1.2); }\n.darma-loader-darma-b16-punch-card-feed .darma-loader-darma-b16-punch-card-feed__reader { position: absolute; left: 46%; top: 0; bottom: 0; width: 8%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 70%, transparent), transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); animation: darma-loader-darma-b16-punch-card-feed-card-read calc(var(--loader-speed, 1s) * .6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-punch-card-feed-card-feed { from { left: 104%; } to { left: -50%; } }\n@keyframes darma-loader-darma-b16-punch-card-feed-card-read { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }",
+    "defaults": {
+      "color": "#a16207",
+      "secondaryColor": "#fde68a",
+      "size": 130,
+      "speed": 1
     }
   },
   {
@@ -10588,6 +11487,37 @@
     }
   },
   {
+    "id": "darma-b15-sand-dune-drift",
+    "name": "Sand Dune Drift",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "sand",
+      "dune",
+      "desert",
+      "drift",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-sand-dune-drift sand dune drift creative darma-research-batch-15 darma research batch 15 sand dune desert drift creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-sand-dune-drift\" aria-label=\"Loading\"><span></span><span></span><span></span><i></i><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b15-sand-dune-drift { --accent: var(--loader-color, #d97706); --accent-2: var(--loader-secondary-color, #fde68a); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .58); position: relative; overflow: hidden; border-radius: 8px; background: color-mix(in srgb, var(--accent-2) 22%, transparent); }\n.darma-loader-darma-b15-sand-dune-drift span { position: absolute; left: -22%; width: 144%; border-radius: 50% 50% 0 0 / 100% 100% 0 0; animation: darma-loader-darma-b15-sand-dune-drift-dune-drift calc(var(--loader-speed, 1s) * 7) linear infinite; }\n.darma-loader-darma-b15-sand-dune-drift span:nth-of-type(1) { bottom: 0; height: 52%; background: var(--accent); }\n.darma-loader-darma-b15-sand-dune-drift span:nth-of-type(2) { bottom: 0; height: 38%; background: color-mix(in srgb, #fff 22%, var(--accent)); animation-duration: calc(var(--loader-speed, 1s) * 5); animation-delay: calc(var(--loader-speed, 1s) * -1.6); }\n.darma-loader-darma-b15-sand-dune-drift span:nth-of-type(3) { bottom: 0; height: 24%; background: var(--accent-2); animation-duration: calc(var(--loader-speed, 1s) * 3.4); }\n.darma-loader-darma-b15-sand-dune-drift i { position: absolute; width: 5%; height: 5%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b15-sand-dune-drift-dune-grain calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b15-sand-dune-drift i:nth-of-type(1) { top: 22%; }\n.darma-loader-darma-b15-sand-dune-drift i:nth-of-type(2) { top: 40%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b15-sand-dune-drift i:nth-of-type(3) { top: 12%; animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n@keyframes darma-loader-darma-b15-sand-dune-drift-dune-drift { 0%, 100% { transform: translateX(-8%); } 50% { transform: translateX(8%); } }\n@keyframes darma-loader-darma-b15-sand-dune-drift-dune-grain { 0% { opacity: 0; left: -6%; } 15%, 80% { opacity: .9; } 100% { opacity: 0; left: 104%; } }",
+    "defaults": {
+      "color": "#d97706",
+      "secondaryColor": "#fde68a",
+      "size": 130,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-b11-saturn-planet",
     "name": "Saturn",
     "category": "creative",
@@ -11082,6 +12012,37 @@
     }
   },
   {
+    "id": "darma-b16-sheet-music-scroll",
+    "name": "Sheet Music Scroll",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "sheet music",
+      "staff",
+      "notes",
+      "score",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-sheet-music-scroll sheet music scroll creative darma-research-batch-16 darma research batch 16 sheet music staff notes score creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-sheet-music-scroll\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-sheet-music-scroll__staff\"></div><i></i><i></i><i></i><i></i><i></i><div class=\"darma-loader-darma-b16-sheet-music-scroll__playhead\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-sheet-music-scroll { --accent: var(--loader-color, #4338ca); --accent-2: var(--loader-secondary-color, #f472b6); width: var(--loader-size, 132px); height: calc(var(--loader-size, 132px) * .48); position: relative; overflow: hidden; border-radius: 6px; }\n.darma-loader-darma-b16-sheet-music-scroll .darma-loader-darma-b16-sheet-music-scroll__staff { position: absolute; left: 0; right: 0; top: 18%; height: 64%; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 50%, transparent) 0 2px, transparent 2px 25%); }\n.darma-loader-darma-b16-sheet-music-scroll i { position: absolute; width: 11%; height: 15%; border-radius: 50%; background: var(--accent-2); transform: rotate(-18deg); animation: darma-loader-darma-b16-sheet-music-scroll-score-scroll calc(var(--loader-speed, 1s) * 3.2) linear infinite; }\n.darma-loader-darma-b16-sheet-music-scroll i::after { content: ''; position: absolute; left: 84%; bottom: 30%; width: 12%; height: 200%; border-radius: 2px; background: var(--accent-2); }\n.darma-loader-darma-b16-sheet-music-scroll i:nth-of-type(1) { top: 22%; }\n.darma-loader-darma-b16-sheet-music-scroll i:nth-of-type(2) { top: 54%; animation-delay: calc(var(--loader-speed, 1s) * -.64); }\n.darma-loader-darma-b16-sheet-music-scroll i:nth-of-type(3) { top: 38%; animation-delay: calc(var(--loader-speed, 1s) * -1.28); }\n.darma-loader-darma-b16-sheet-music-scroll i:nth-of-type(4) { top: 66%; animation-delay: calc(var(--loader-speed, 1s) * -1.92); }\n.darma-loader-darma-b16-sheet-music-scroll i:nth-of-type(5) { top: 30%; animation-delay: calc(var(--loader-speed, 1s) * -2.56); }\n.darma-loader-darma-b16-sheet-music-scroll .darma-loader-darma-b16-sheet-music-scroll__playhead { position: absolute; left: 26%; top: 6%; bottom: 6%; width: 3%; border-radius: 2px; background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent); animation: darma-loader-darma-b16-sheet-music-scroll-score-beat calc(var(--loader-speed, 1s) * .64) ease-in-out infinite; }\n@keyframes darma-loader-darma-b16-sheet-music-scroll-score-scroll { from { left: 104%; } to { left: -14%; } }\n@keyframes darma-loader-darma-b16-sheet-music-scroll-score-beat { 0%, 100% { opacity: .55; transform: scaleY(.9); } 50% { opacity: 1; transform: scaleY(1); } }",
+    "defaults": {
+      "color": "#4338ca",
+      "secondaryColor": "#f472b6",
+      "size": 132,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-b10-shooting-star",
     "name": "Shooting Star",
     "category": "creative",
@@ -11109,6 +12070,37 @@
       "color": "#fde047",
       "secondaryColor": "#a855f7",
       "size": 84,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b17-sierpinski-build",
+    "name": "Sierpinski Build",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "sierpinski",
+      "fractal",
+      "triangle",
+      "recursive",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-sierpinski-build sierpinski build creative darma-research-batch-17 darma research batch 17 sierpinski fractal triangle recursive creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-sierpinski-build\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b17-sierpinski-build { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #f0abfc); width: var(--loader-size, 122px); height: calc(var(--loader-size, 122px) * .88); position: relative; }\n.darma-loader-darma-b17-sierpinski-build span { position: absolute; background: linear-gradient(var(--accent-2), var(--accent)); clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: scale(0); animation: darma-loader-darma-b17-sierpinski-build-sierp-grow calc(var(--loader-speed, 1s) * 3.4) cubic-bezier(.3, 1.4, .5, 1) infinite; }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(1) { left: 25%; top: 0; width: 50%; height: 50%; }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(2) { left: 0; top: 50%; width: 50%; height: 50%; animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(3) { left: 50%; top: 50%; width: 50%; height: 50%; animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(4) { left: 37.5%; top: 0; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(5) { left: 25%; top: 25%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(6) { left: 50%; top: 25%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(7) { left: 12.5%; top: 50%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed, 1s) * .68); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(8) { left: 62.5%; top: 50%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed, 1s) * .68); }\n.darma-loader-darma-b17-sierpinski-build span:nth-of-type(9) { left: 37.5%; top: 75%; width: 25%; height: 25%; animation-delay: calc(var(--loader-speed, 1s) * .92); }\n@keyframes darma-loader-darma-b17-sierpinski-build-sierp-grow { 0%, 4% { transform: scale(0); opacity: 0; } 20%, 72% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#7c3aed",
+      "secondaryColor": "#f0abfc",
+      "size": 122,
       "speed": 1
     }
   },
@@ -11346,6 +12338,37 @@
       "color": "#16a34a",
       "secondaryColor": "#60a5fa",
       "size": 108,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b16-solar-sail-unfurl",
+    "name": "Solar Sail Unfurl",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "solar sail",
+      "unfurl",
+      "panel",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-solar-sail-unfurl solar sail unfurl creative darma-research-batch-16 darma research batch 16 solar sail unfurl panel space creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-solar-sail-unfurl\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b16-solar-sail-unfurl__core\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-solar-sail-unfurl { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fef3c7); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b16-solar-sail-unfurl span { position: absolute; left: 50%; top: 50%; width: 40%; height: 40%; background: repeating-linear-gradient(45deg, var(--accent) 0 12%, color-mix(in srgb, #fff 32%, var(--accent)) 0 24%); box-shadow: inset 0 0 0 2px var(--accent-2); animation: darma-loader-darma-b16-solar-sail-unfurl-sail-open calc(var(--loader-speed, 1s) * 3) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b16-solar-sail-unfurl span:nth-of-type(1) { transform-origin: 0 100%; --to: translate(0, -100%); }\n.darma-loader-darma-b16-solar-sail-unfurl span:nth-of-type(2) { transform-origin: 0 0; --to: translate(0, 0); animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b16-solar-sail-unfurl span:nth-of-type(3) { transform-origin: 100% 100%; --to: translate(-100%, -100%); animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b16-solar-sail-unfurl span:nth-of-type(4) { transform-origin: 100% 0; --to: translate(-100%, 0); animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b16-solar-sail-unfurl .darma-loader-darma-b16-solar-sail-unfurl__core { position: absolute; left: 43%; top: 43%; width: 14%; height: 14%; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 12px color-mix(in srgb, var(--accent-2) 70%, transparent); }\n@keyframes darma-loader-darma-b16-solar-sail-unfurl-sail-open { 0%, 8% { transform: translate(-50%, -50%) scale(.06); opacity: 0; } 40%, 72% { transform: var(--to, none) scale(1); opacity: 1; } 96%, 100% { transform: translate(-50%, -50%) scale(.06); opacity: 0; } }",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fef3c7",
+      "size": 116,
       "speed": 1
     }
   },
@@ -11761,6 +12784,37 @@
     }
   },
   {
+    "id": "darma-b17-stained-glass",
+    "name": "Stained Glass",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "stained glass",
+      "window",
+      "mosaic",
+      "church",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-stained-glass stained glass creative darma-research-batch-17 darma research batch 17 stained glass window mosaic church creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-stained-glass\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-stained-glass__lead\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-stained-glass { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #f59e0b); width: calc(var(--loader-size, 116px) * .8); height: var(--loader-size, 116px); position: relative; border-radius: 50% 50% 6px 6px / 32% 32% 6px 6px; overflow: hidden; background: color-mix(in srgb, #0f172a 60%, transparent); }\n.darma-loader-darma-b17-stained-glass span { position: absolute; border: 2px solid color-mix(in srgb, #0f172a 70%, transparent); animation: darma-loader-darma-b17-stained-glass-glass-lume calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-stained-glass span:nth-of-type(1) { left: 8%; top: 6%; width: 40%; height: 30%; border-radius: 60% 20% 20% 20%; background: var(--accent); }\n.darma-loader-darma-b17-stained-glass span:nth-of-type(2) { right: 8%; top: 6%; width: 40%; height: 30%; border-radius: 20% 60% 20% 20%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b17-stained-glass span:nth-of-type(3) { left: 8%; top: 38%; width: 28%; height: 28%; border-radius: 20%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b17-stained-glass span:nth-of-type(4) { left: 38%; top: 38%; width: 34%; height: 34%; border-radius: 50%; background: color-mix(in srgb, #fff 30%, var(--accent)); animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b17-stained-glass span:nth-of-type(5) { right: 4%; top: 40%; width: 26%; height: 26%; border-radius: 20%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b17-stained-glass span:nth-of-type(6) { left: 10%; bottom: 4%; width: 80%; height: 26%; border-radius: 20% 20% 8% 8%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation-delay: calc(var(--loader-speed, 1s) * 1.5); }\n.darma-loader-darma-b17-stained-glass .darma-loader-darma-b17-stained-glass__lead { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 48%, color-mix(in srgb, #0f172a 65%, transparent) 48% 52%, transparent 52%), linear-gradient(transparent 36%, color-mix(in srgb, #0f172a 65%, transparent) 36% 40%, transparent 40%); }\n@keyframes darma-loader-darma-b17-stained-glass-glass-lume { 0%, 100% { filter: brightness(.55) saturate(.8); } 40% { filter: brightness(1.35) saturate(1.3); } }",
+    "defaults": {
+      "color": "#7c3aed",
+      "secondaryColor": "#f59e0b",
+      "size": 116,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-285",
     "name": "Star Orbit Wheel",
     "category": "creative",
@@ -11969,6 +13023,37 @@
     }
   },
   {
+    "id": "darma-b15-swipe-card-stack",
+    "name": "Swipe Card Stack",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "swipe",
+      "cards",
+      "stack",
+      "deck",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-swipe-card-stack swipe card stack creative darma-research-batch-15 darma research batch 15 swipe cards stack deck creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-swipe-card-stack\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b15-swipe-card-stack { --accent: var(--loader-color, #e11d48); --accent-2: var(--loader-secondary-color, #fecdd3); width: var(--loader-size, 118px); height: calc(var(--loader-size, 118px) * .74); position: relative; overflow: hidden; border-radius: 14px; }\n.darma-loader-darma-b15-swipe-card-stack span { position: absolute; left: 16%; right: 16%; top: 6%; bottom: 18%; border-radius: 12px; background: linear-gradient(150deg, var(--accent), color-mix(in srgb, #000 22%, var(--accent))); box-shadow: 0 6px 14px color-mix(in srgb, #000 22%, transparent); animation: darma-loader-darma-b15-swipe-card-stack-deck-swipe calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b15-swipe-card-stack span::after { content: ''; position: absolute; left: 12%; right: 40%; top: 16%; height: 12%; border-radius: 4px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.darma-loader-darma-b15-swipe-card-stack span:nth-of-type(2) { animation-delay: calc(var(--loader-speed, 1s) * -2); }\n.darma-loader-darma-b15-swipe-card-stack span:nth-of-type(3) { animation-delay: calc(var(--loader-speed, 1s) * -1); }\n@keyframes darma-loader-darma-b15-swipe-card-stack-deck-swipe { 0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; } 18% { transform: translate(150%, -12%) rotate(20deg) scale(1); opacity: 0; } 22% { transform: translate(0, 16%) rotate(0deg) scale(.82); opacity: 0; } 40% { transform: translate(0, 16%) rotate(0deg) scale(.82); opacity: .5; } 70% { transform: translate(0, 8%) rotate(0deg) scale(.91); opacity: .8; } 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; } }",
+    "defaults": {
+      "color": "#e11d48",
+      "secondaryColor": "#fecdd3",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-terminal-typing-panel",
     "name": "Terminal Typing Panel",
     "category": "creative",
@@ -12000,6 +13085,37 @@
       "size": 140,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b17-tic-tac-toe",
+    "name": "Tic Tac Toe",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "tictactoe",
+      "grid",
+      "game",
+      "noughts",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-tic-tac-toe tic tac toe creative darma-research-batch-17 darma research batch 17 tictactoe grid game noughts creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-tic-tac-toe\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-tic-tac-toe__rule\"></div><div class=\"darma-loader-darma-b17-tic-tac-toe__rule\"></div><div class=\"darma-loader-darma-b17-tic-tac-toe__rule\"></div><div class=\"darma-loader-darma-b17-tic-tac-toe__rule\"></div><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-tic-tac-toe__win\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-tic-tac-toe { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; }\n.darma-loader-darma-b17-tic-tac-toe .darma-loader-darma-b17-tic-tac-toe__rule { position: absolute; background: color-mix(in srgb, var(--accent) 55%, transparent); border-radius: 3px; }\n.darma-loader-darma-b17-tic-tac-toe .darma-loader-darma-b17-tic-tac-toe__rule:nth-of-type(1) { left: 32%; top: 4%; width: 3%; height: 92%; }\n.darma-loader-darma-b17-tic-tac-toe .darma-loader-darma-b17-tic-tac-toe__rule:nth-of-type(2) { left: 65%; top: 4%; width: 3%; height: 92%; }\n.darma-loader-darma-b17-tic-tac-toe .darma-loader-darma-b17-tic-tac-toe__rule:nth-of-type(3) { top: 32%; left: 4%; height: 3%; width: 92%; }\n.darma-loader-darma-b17-tic-tac-toe .darma-loader-darma-b17-tic-tac-toe__rule:nth-of-type(4) { top: 65%; left: 4%; height: 3%; width: 92%; }\n.darma-loader-darma-b17-tic-tac-toe span { position: absolute; width: 20%; height: 20%; border-radius: 50%; box-shadow: inset 0 0 0 4px var(--accent); transform: scale(0); animation: darma-loader-darma-b17-tic-tac-toe-ttt-mark calc(var(--loader-speed, 1s) * 3.6) ease-out infinite; }\n.darma-loader-darma-b17-tic-tac-toe span:nth-of-type(1) { left: 7%; top: 7%; border-radius: 3px; box-shadow: none; background: linear-gradient(45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%); }\n.darma-loader-darma-b17-tic-tac-toe span:nth-of-type(2) { left: 40%; top: 40%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b17-tic-tac-toe span:nth-of-type(3) { left: 73%; top: 7%; border-radius: 3px; box-shadow: none; background: linear-gradient(45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%); animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b17-tic-tac-toe span:nth-of-type(4) { left: 7%; top: 73%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b17-tic-tac-toe span:nth-of-type(5) { left: 40%; top: 7%; border-radius: 3px; box-shadow: none; background: linear-gradient(45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, var(--accent-2) 44% 56%, transparent 56%); animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n.darma-loader-darma-b17-tic-tac-toe .darma-loader-darma-b17-tic-tac-toe__win { position: absolute; left: 10%; top: 15%; width: 80%; height: 4%; border-radius: 3px; background: var(--accent-2); transform-origin: 0 50%; transform: scaleX(0); animation: darma-loader-darma-b17-tic-tac-toe-ttt-win calc(var(--loader-speed, 1s) * 3.6) ease-out infinite; }\n@keyframes darma-loader-darma-b17-tic-tac-toe-ttt-mark { 0%, 6% { transform: scale(0); opacity: 0; } 16%, 76% { transform: scale(1); opacity: 1; } 88%, 100% { transform: scale(0); opacity: 0; } }\n@keyframes darma-loader-darma-b17-tic-tac-toe-ttt-win { 0%, 52% { transform: scaleX(0); opacity: 0; } 62%, 78% { transform: scaleX(1); opacity: 1; } 88%, 100% { transform: scaleX(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#334155",
+      "secondaryColor": "#f43f5e",
+      "size": 116,
+      "speed": 1
     }
   },
   {
@@ -12277,6 +13393,37 @@
       "size": 80,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b17-truchet-tiles",
+    "name": "Truchet Tiles",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "truchet",
+      "tiles",
+      "pattern",
+      "generative",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-truchet-tiles truchet tiles creative darma-research-batch-17 darma research batch 17 truchet tiles pattern generative creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-truchet-tiles\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b17-truchet-tiles { --accent: var(--loader-color, #4338ca); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 120px); height: var(--loader-size, 120px); position: relative; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 0; }\n.darma-loader-darma-b17-truchet-tiles span { position: relative; overflow: hidden; background: color-mix(in srgb, var(--accent) 12%, transparent); animation: darma-loader-darma-b17-truchet-tiles-truchet-turn calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b17-truchet-tiles span::before { content: ''; position: absolute; left: -50%; top: -50%; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 4px var(--accent-2); }\n.darma-loader-darma-b17-truchet-tiles span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 4px var(--accent); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(2n) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(3n) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(5n) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b17-truchet-tiles span:nth-of-type(7n) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b17-truchet-tiles-truchet-turn { 0%, 18% { transform: rotate(0deg); } 32%, 68% { transform: rotate(90deg); } 82%, 100% { transform: rotate(0deg); } }",
+    "defaults": {
+      "color": "#4338ca",
+      "secondaryColor": "#22d3ee",
+      "size": 120,
+      "speed": 1
     }
   },
   {
@@ -12746,6 +13893,68 @@
     }
   },
   {
+    "id": "darma-b16-van-de-graaff-spark",
+    "name": "Van De Graaff Spark",
+    "category": "creative",
+    "sourceId": "darma-research-batch-16",
+    "tags": [
+      "static",
+      "spark",
+      "physics",
+      "electricity",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b16-van-de-graaff-spark van de graaff spark creative darma-research-batch-16 darma research batch 16 static spark physics electricity creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b16-van-de-graaff-spark\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b16-van-de-graaff-spark__dome\"></div><div class=\"darma-loader-darma-b16-van-de-graaff-spark__column\"></div><div class=\"darma-loader-darma-b16-van-de-graaff-spark__rod\"></div><i></i><i></i><div class=\"darma-loader-darma-b16-van-de-graaff-spark__halo\"></div></div>",
+    "previewCss": ".darma-loader-darma-b16-van-de-graaff-spark { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 118px); height: var(--loader-size, 118px); position: relative; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__column { position: absolute; left: 42%; bottom: 6%; width: 16%; height: 44%; background: linear-gradient(90deg, #cbd5e1, #475569); border-radius: 3px; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__dome { position: absolute; left: 24%; top: 18%; width: 52%; height: 36%; border-radius: 50%; background: radial-gradient(circle at 36% 30%, color-mix(in srgb, #fff 40%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__halo { position: absolute; left: 20%; top: 14%; width: 60%; height: 44%; border-radius: 50%; box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-2) 55%, transparent); opacity: 0; animation: darma-loader-darma-b16-van-de-graaff-spark-vdg-halo calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b16-van-de-graaff-spark .darma-loader-darma-b16-van-de-graaff-spark__rod { position: absolute; right: 4%; top: 30%; width: 8%; height: 40%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n.darma-loader-darma-b16-van-de-graaff-spark i { position: absolute; right: 12%; top: 34%; width: 20%; height: 10%; background: var(--accent-2); clip-path: polygon(0 40%, 34% 0, 26% 44%, 66% 20%, 54% 62%, 100% 44%, 40% 100%, 46% 58%); opacity: 0; animation: darma-loader-darma-b16-van-de-graaff-spark-vdg-arc calc(var(--loader-speed, 1s) * 1.6) steps(1, end) infinite; }\n.darma-loader-darma-b16-van-de-graaff-spark i:nth-of-type(2) { top: 44%; animation-delay: calc(var(--loader-speed, 1s) * .12); }\n@keyframes darma-loader-darma-b16-van-de-graaff-spark-vdg-arc { 0%, 52% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .1; } 68% { opacity: 1; } 78%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b16-van-de-graaff-spark-vdg-halo { 0%, 50% { opacity: 0; transform: scale(.9); } 62% { opacity: .9; transform: scale(1); } 92%, 100% { opacity: 0; transform: scale(1.12); } }",
+    "defaults": {
+      "color": "#a855f7",
+      "secondaryColor": "#fde047",
+      "size": 118,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b15-vine-climb",
+    "name": "Vine Climb",
+    "category": "creative",
+    "sourceId": "darma-research-batch-15",
+    "tags": [
+      "vine",
+      "climb",
+      "leaf",
+      "growth",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b15-vine-climb vine climb creative darma-research-batch-15 darma research batch 15 vine climb leaf growth creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b15-vine-climb\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b15-vine-climb__trellis\"></div><div class=\"darma-loader-darma-b15-vine-climb__stem\"></div><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b15-vine-climb { --accent: var(--loader-color, #15803d); --accent-2: var(--loader-secondary-color, #a3e635); width: calc(var(--loader-size, 120px) * .72); height: var(--loader-size, 120px); position: relative; }\n.darma-loader-darma-b15-vine-climb .darma-loader-darma-b15-vine-climb__trellis { position: absolute; left: 30%; bottom: 4%; width: 40%; height: 92%; border-radius: 4px; background: repeating-linear-gradient(color-mix(in srgb, var(--accent) 20%, transparent) 0 6%, transparent 0 18%), color-mix(in srgb, var(--accent) 10%, transparent); }\n.darma-loader-darma-b15-vine-climb .darma-loader-darma-b15-vine-climb__stem { position: absolute; left: 45%; bottom: 4%; width: 10%; height: 0; border-radius: 5px; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b15-vine-climb-vine-rise calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n.darma-loader-darma-b15-vine-climb span { position: absolute; width: 30%; height: 12%; background: var(--accent-2); transform: scale(0); animation: darma-loader-darma-b15-vine-climb-vine-leaf calc(var(--loader-speed, 1s) * 3.2) ease-out infinite; }\n.darma-loader-darma-b15-vine-climb span:nth-of-type(1) { left: 55%; bottom: 20%; border-radius: 60% 6% 60% 6%; transform-origin: 0 50%; animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b15-vine-climb span:nth-of-type(2) { right: 55%; bottom: 38%; border-radius: 6% 60% 6% 60%; transform-origin: 100% 50%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b15-vine-climb span:nth-of-type(3) { left: 55%; bottom: 56%; border-radius: 60% 6% 60% 6%; transform-origin: 0 50%; animation-delay: calc(var(--loader-speed, 1s) * 1.1); }\n.darma-loader-darma-b15-vine-climb span:nth-of-type(4) { right: 55%; bottom: 74%; border-radius: 6% 60% 6% 60%; transform-origin: 100% 50%; animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n@keyframes darma-loader-darma-b15-vine-climb-vine-rise { 0%, 4% { height: 0; } 52%, 78% { height: 88%; } 96%, 100% { height: 0; } }\n@keyframes darma-loader-darma-b15-vine-climb-vine-leaf { 0%, 12% { transform: scale(0); opacity: 0; } 32%, 62% { transform: scale(1); opacity: 1; } 82%, 100% { transform: scale(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#15803d",
+      "secondaryColor": "#a3e635",
+      "size": 120,
+      "speed": 1
+    }
+  },
+  {
     "id": "vinyl-record",
     "name": "Vinyl Record",
     "category": "creative",
@@ -12834,6 +14043,37 @@
       "color": "#38bdf8",
       "secondaryColor": "#334155",
       "size": 104,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b17-welding-arc",
+    "name": "Welding Arc",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "welding",
+      "arc",
+      "torch",
+      "sparks",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-welding-arc welding arc creative darma-research-batch-17 darma research batch 17 welding arc torch sparks creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-welding-arc\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-welding-arc__plate\"></div><div class=\"darma-loader-darma-b17-welding-arc__seam\"></div><div class=\"darma-loader-darma-b17-welding-arc__torch\"></div><div class=\"darma-loader-darma-b17-welding-arc__flash\"></div><i></i><i></i><i></i></div>",
+    "previewCss": ".darma-loader-darma-b17-welding-arc { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .62); position: relative; overflow: hidden; border-radius: 6px; }\n.darma-loader-darma-b17-welding-arc .darma-loader-darma-b17-welding-arc__plate { position: absolute; left: 0; right: 0; bottom: 8%; height: 34%; background: linear-gradient(color-mix(in srgb, #000 20%, var(--accent)), color-mix(in srgb, #000 45%, var(--accent))); }\n.darma-loader-darma-b17-welding-arc .darma-loader-darma-b17-welding-arc__seam { position: absolute; left: 6%; bottom: 38%; height: 6%; width: 0; border-radius: 3px; background: linear-gradient(90deg, var(--accent-2), color-mix(in srgb, #fff 40%, var(--accent-2))); box-shadow: 0 0 10px var(--accent-2); animation: darma-loader-darma-b17-welding-arc-weld-seam calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b17-welding-arc .darma-loader-darma-b17-welding-arc__torch { position: absolute; bottom: 44%; left: 6%; width: 9%; height: 46%; border-radius: 3px; background: linear-gradient(#e2e8f0, #475569); transform: rotate(18deg); animation: darma-loader-darma-b17-welding-arc-weld-move calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b17-welding-arc .darma-loader-darma-b17-welding-arc__flash { position: absolute; bottom: 30%; left: 4%; width: 14%; height: 26%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 80%, var(--accent-2)), transparent 68%); animation: darma-loader-darma-b17-welding-arc-weld-flash calc(var(--loader-speed, 1s) * .18) steps(1, end) infinite, darma-loader-darma-b17-welding-arc-weld-move calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b17-welding-arc i { position: absolute; bottom: 38%; left: 8%; width: 4%; height: 4%; border-radius: 50%; background: var(--accent-2); opacity: 0; animation: darma-loader-darma-b17-welding-arc-weld-spark calc(var(--loader-speed, 1s) * .6) ease-out infinite, darma-loader-darma-b17-welding-arc-weld-move calc(var(--loader-speed, 1s) * 3) linear infinite; }\n.darma-loader-darma-b17-welding-arc i:nth-of-type(1) { bottom: 40%; }\n.darma-loader-darma-b17-welding-arc i:nth-of-type(2) { bottom: 34%; left: 11%; animation-delay: calc(var(--loader-speed, 1s) * .2), 0s; }\n.darma-loader-darma-b17-welding-arc i:nth-of-type(3) { bottom: 44%; left: 5%; animation-delay: calc(var(--loader-speed, 1s) * .4), 0s; }\n@keyframes darma-loader-darma-b17-welding-arc-weld-seam { 0% { width: 0; opacity: 1; } 82% { width: 84%; opacity: 1; } 94%, 100% { width: 84%; opacity: 0; } }\n@keyframes darma-loader-darma-b17-welding-arc-weld-move { 0% { transform: translateX(0) rotate(18deg); } 82%, 100% { transform: translateX(calc(var(--loader-size, 128px) * .78)) rotate(18deg); } }\n@keyframes darma-loader-darma-b17-welding-arc-weld-flash { 0%, 49% { opacity: 1; transform: scale(1); } 50%, 100% { opacity: .35; transform: scale(.7); } }\n@keyframes darma-loader-darma-b17-welding-arc-weld-spark { 0% { opacity: 0; } 12% { opacity: 1; } 100% { opacity: 0; }  }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#fde047",
+      "size": 128,
       "speed": 1
     }
   },
@@ -12957,6 +14197,37 @@
       "color": "#64748b",
       "secondaryColor": "#38bdf8",
       "size": 112,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b17-x-ray-scan",
+    "name": "X Ray Scan",
+    "category": "creative",
+    "sourceId": "darma-research-batch-17",
+    "tags": [
+      "xray",
+      "scan",
+      "ribs",
+      "radiology",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b17-x-ray-scan x ray scan creative darma-research-batch-17 darma research batch 17 xray scan ribs radiology creative html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b17-x-ray-scan\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-x-ray-scan__plate\"></div><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-x-ray-scan__spine\"></div><div class=\"darma-loader-darma-b17-x-ray-scan__beam\"></div></div>",
+    "previewCss": ".darma-loader-darma-b17-x-ray-scan { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #e0f2fe); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .82); position: relative; overflow: hidden; border-radius: 8px; }\n.darma-loader-darma-b17-x-ray-scan .darma-loader-darma-b17-x-ray-scan__plate { position: absolute; inset: 0; border-radius: 8px; background: linear-gradient(color-mix(in srgb, var(--accent) 30%, transparent), color-mix(in srgb, var(--accent) 10%, transparent)); }\n.darma-loader-darma-b17-x-ray-scan .darma-loader-darma-b17-x-ray-scan__spine { position: absolute; left: 47%; top: 10%; width: 6%; height: 80%; border-radius: 4px; background: repeating-linear-gradient(color-mix(in srgb, var(--accent-2) 70%, transparent) 0 62%, transparent 0 100%); background-size: 100% 14%; }\n.darma-loader-darma-b17-x-ray-scan span { position: absolute; left: 14%; right: 14%; height: 12%; border: 4px solid color-mix(in srgb, var(--accent-2) 32%, transparent); border-top: 0; border-radius: 0 0 60% 60% / 0 0 100% 100%; animation: darma-loader-darma-b17-x-ray-scan-xray-rib calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b17-x-ray-scan span:nth-of-type(1) { top: 16%; }\n.darma-loader-darma-b17-x-ray-scan span:nth-of-type(2) { top: 32%; animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-darma-b17-x-ray-scan span:nth-of-type(3) { top: 48%; animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b17-x-ray-scan span:nth-of-type(4) { top: 64%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b17-x-ray-scan .darma-loader-darma-b17-x-ray-scan__beam { position: absolute; left: 0; right: 0; height: 16%; background: linear-gradient(transparent, color-mix(in srgb, var(--accent-2) 75%, transparent), transparent); animation: darma-loader-darma-b17-x-ray-scan-xray-beam calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-x-ray-scan-xray-beam { 0%, 100% { top: -12%; } 50% { top: 92%; } }\n@keyframes darma-loader-darma-b17-x-ray-scan-xray-rib { 0%, 100% { border-color: color-mix(in srgb, var(--accent-2) 26%, transparent); border-top-color: transparent; } 46% { border-color: var(--accent-2); border-top-color: transparent; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#e0f2fe",
+      "size": 120,
       "speed": 1
     }
   },

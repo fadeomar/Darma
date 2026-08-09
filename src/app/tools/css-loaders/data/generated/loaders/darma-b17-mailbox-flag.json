@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-mailbox-flag",
+  "name": "Mailbox Flag",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "mailbox",
+    "flag",
+    "post",
+    "delivery",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-mailbox-flag mailbox flag fun darma-research-batch-17 darma research batch 17 mailbox flag post delivery fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-mailbox-flag\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-mailbox-flag__box\"></div><div class=\"darma-loader-darma-b17-mailbox-flag__door\"></div><div class=\"darma-loader-darma-b17-mailbox-flag__flag\"></div><div class=\"darma-loader-darma-b17-mailbox-flag__post\"></div><i></i></div>",
+  "previewCss": ".darma-loader-darma-b17-mailbox-flag { --accent: var(--loader-color, #1d4ed8); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; overflow: hidden; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__post { position: absolute; left: 44%; bottom: 2%; width: 12%; height: 40%; background: linear-gradient(90deg, #a16207, #78350f); border-radius: 3px; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__box { position: absolute; left: 18%; right: 18%; top: 26%; height: 36%; border-radius: 999px 999px 4px 4px / 60% 60% 4px 4px; background: linear-gradient(color-mix(in srgb, #fff 18%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__door { position: absolute; left: 16%; top: 28%; width: 10%; height: 32%; border-radius: 6px 2px 2px 6px; background: color-mix(in srgb, #000 22%, var(--accent)); transform-origin: 100% 50%; animation: darma-loader-darma-b17-mailbox-flag-mail-door calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__flag { position: absolute; right: 16%; top: 14%; width: 6%; height: 30%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: darma-loader-darma-b17-mailbox-flag-mail-flag calc(var(--loader-speed, 1s) * 3) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__flag::after { content: ''; position: absolute; left: -180%; top: 0; width: 190%; height: 52%; border-radius: 2px; background: var(--accent-2); }\n.darma-loader-darma-b17-mailbox-flag i { position: absolute; left: 6%; top: 34%; width: 18%; height: 14%; border-radius: 2px; background: color-mix(in srgb, #fff 82%, var(--accent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 22%, transparent); opacity: 0; animation: darma-loader-darma-b17-mailbox-flag-mail-letter calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-mailbox-flag-mail-door { 0%, 24% { transform: rotate(0deg); } 40%, 60% { transform: rotate(-72deg); } 78%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b17-mailbox-flag-mail-letter { 0%, 26% { opacity: 0; transform: translateX(-40%); } 38% { opacity: 1; transform: translateX(0); } 58% { opacity: 1; transform: translateX(120%); } 66%, 100% { opacity: 0; transform: translateX(140%); } }\n@keyframes darma-loader-darma-b17-mailbox-flag-mail-flag { 0%, 62% { transform: rotate(84deg); } 76%, 100% { transform: rotate(0deg); } }",
+  "defaults": {
+    "color": "#1d4ed8",
+    "secondaryColor": "#ef4444",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-mailbox-flag\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b17-mailbox-flag__box\"></div><div class=\"darma-loader-darma-b17-mailbox-flag__door\"></div><div class=\"darma-loader-darma-b17-mailbox-flag__flag\"></div><div class=\"darma-loader-darma-b17-mailbox-flag__post\"></div><i></i></div>",
+    "css": ".darma-loader-darma-b17-mailbox-flag { --accent: var(--loader-color, #1d4ed8); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 116px); height: var(--loader-size, 116px); position: relative; overflow: hidden; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__post { position: absolute; left: 44%; bottom: 2%; width: 12%; height: 40%; background: linear-gradient(90deg, #a16207, #78350f); border-radius: 3px; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__box { position: absolute; left: 18%; right: 18%; top: 26%; height: 36%; border-radius: 999px 999px 4px 4px / 60% 60% 4px 4px; background: linear-gradient(color-mix(in srgb, #fff 18%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__door { position: absolute; left: 16%; top: 28%; width: 10%; height: 32%; border-radius: 6px 2px 2px 6px; background: color-mix(in srgb, #000 22%, var(--accent)); transform-origin: 100% 50%; animation: darma-loader-darma-b17-mailbox-flag-mail-door calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__flag { position: absolute; right: 16%; top: 14%; width: 6%; height: 30%; border-radius: 3px; background: var(--accent-2); transform-origin: 50% 100%; animation: darma-loader-darma-b17-mailbox-flag-mail-flag calc(var(--loader-speed, 1s) * 3) cubic-bezier(.4, 0, .3, 1) infinite; }\n.darma-loader-darma-b17-mailbox-flag .darma-loader-darma-b17-mailbox-flag__flag::after { content: ''; position: absolute; left: -180%; top: 0; width: 190%; height: 52%; border-radius: 2px; background: var(--accent-2); }\n.darma-loader-darma-b17-mailbox-flag i { position: absolute; left: 6%; top: 34%; width: 18%; height: 14%; border-radius: 2px; background: color-mix(in srgb, #fff 82%, var(--accent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 22%, transparent); opacity: 0; animation: darma-loader-darma-b17-mailbox-flag-mail-letter calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b17-mailbox-flag-mail-door { 0%, 24% { transform: rotate(0deg); } 40%, 60% { transform: rotate(-72deg); } 78%, 100% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b17-mailbox-flag-mail-letter { 0%, 26% { opacity: 0; transform: translateX(-40%); } 38% { opacity: 1; transform: translateX(0); } 58% { opacity: 1; transform: translateX(120%); } 66%, 100% { opacity: 0; transform: translateX(140%); } }\n@keyframes darma-loader-darma-b17-mailbox-flag-mail-flag { 0%, 62% { transform: rotate(84deg); } 76%, 100% { transform: rotate(0deg); } }",
+    "react": "export default function DarmaB17MailboxFlagLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-mailbox-flag\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b17-mailbox-flag__box\"></div><div className=\"darma-loader-darma-b17-mailbox-flag__door\"></div><div className=\"darma-loader-darma-b17-mailbox-flag__flag\"></div><div className=\"darma-loader-darma-b17-mailbox-flag__post\"></div><i></i></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

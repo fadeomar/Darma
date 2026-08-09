@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-lightning-strike",
+  "name": "Lightning Strike",
+  "category": "creative",
+  "tags": [
+    "lightning",
+    "storm",
+    "bolt",
+    "flash",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"cloud\"></div><div class=\"bolt\"></div><div class=\"glow\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .cloud { position: absolute; left: 10%; top: 14%; width: 80%; height: 30%; border-radius: 46% 46% 34% 34% / 60% 60% 40% 40%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 30%, var(--accent-2))); animation: bolt-cloud calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader .cloud::after { content: ''; position: absolute; left: 12%; top: -26%; width: 46%; height: 62%; border-radius: 50%; background: var(--accent-2); }\n.loader .bolt { position: absolute; left: 38%; top: 42%; width: 26%; height: 46%; background: linear-gradient(var(--accent), color-mix(in srgb, #fff 30%, var(--accent))); clip-path: polygon(58% 0, 12% 54%, 46% 54%, 24% 100%, 88% 40%, 52% 40%); animation: bolt-flash calc(var(--loader-speed) * 1.8) steps(1, end) infinite; }\n.loader .glow { position: absolute; left: 24%; top: 46%; width: 52%; height: 46%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent), transparent 68%); animation: bolt-glow calc(var(--loader-speed) * 1.8) ease-out infinite; }\n@keyframes bolt-flash { 0%, 54% { opacity: 0; } 58% { opacity: 1; } 63% { opacity: .15; } 68% { opacity: 1; } 84%, 100% { opacity: 0; } }\n@keyframes bolt-glow { 0%, 54% { opacity: 0; transform: scale(.5); } 62% { opacity: .9; transform: scale(1); } 90%, 100% { opacity: 0; transform: scale(1.3); } }\n@keyframes bolt-cloud { 0%, 100% { transform: translateX(-3%); } 50% { transform: translateX(3%); } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#64748b",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

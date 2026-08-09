@@ -1,0 +1,35 @@
+{
+  "id": "darma-b16-bell-jar-vacuum",
+  "name": "Bell Jar Vacuum",
+  "category": "creative",
+  "tags": [
+    "vacuum",
+    "bell jar",
+    "pump",
+    "lab",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"jar\"></div><div class=\"specimen\"></div><i></i><i></i><i></i><i></i><div class=\"plate\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .jar { position: absolute; left: 14%; right: 14%; top: 6%; bottom: 16%; border-radius: 44% 44% 6px 6px / 40% 40% 6px 6px; background: color-mix(in srgb, var(--accent-2) 12%, transparent); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 45%, transparent); animation: jar-sheen calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .specimen { position: absolute; left: 40%; bottom: 22%; width: 20%; height: 22%; border-radius: 44% 44% 30% 30%; background: linear-gradient(var(--accent-2), var(--accent)); animation: jar-expand calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader i { position: absolute; width: 7%; height: 7%; border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 85%, transparent); animation: jar-evacuate calc(var(--loader-speed) * 3) ease-in infinite; }\n.loader i:nth-of-type(1) { left: 26%; top: 26%; --dx: 190%; --dy: 420%; }\n.loader i:nth-of-type(2) { left: 62%; top: 22%; --dx: -110%; --dy: 480%; animation-delay: calc(var(--loader-speed) * .3); }\n.loader i:nth-of-type(3) { left: 30%; top: 48%; --dx: 160%; --dy: 210%; animation-delay: calc(var(--loader-speed) * .6); }\n.loader i:nth-of-type(4) { left: 66%; top: 50%; --dx: -170%; --dy: 200%; animation-delay: calc(var(--loader-speed) * .9); }\n.loader .plate { position: absolute; left: 6%; right: 6%; bottom: 6%; height: 12%; border-radius: 4px; background: linear-gradient(#94a3b8, #334155); }\n@keyframes jar-evacuate { 0%, 10% { opacity: .9; transform: translate(0, 0) scale(1); } 62%, 100% { opacity: 0; transform: translate(var(--dx, 0%), var(--dy, 0%)) scale(.35); } }\n@keyframes jar-expand { 0%, 14% { transform: scale(1); } 62%, 80% { transform: scale(1.22); } 96%, 100% { transform: scale(1); } }\n@keyframes jar-sheen { 0%, 100% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 35%, transparent); } 60% { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent-2) 85%, transparent); } }",
+  "defaults": {
+    "color": "#64748b",
+    "secondaryColor": "#38bdf8",
+    "size": 114,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 16",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

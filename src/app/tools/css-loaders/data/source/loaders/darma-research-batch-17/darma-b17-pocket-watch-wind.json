@@ -1,0 +1,35 @@
+{
+  "id": "darma-b17-pocket-watch-wind",
+  "name": "Pocket Watch Wind",
+  "category": "spinners",
+  "tags": [
+    "pocket watch",
+    "wind",
+    "crown",
+    "vintage",
+    "spinners"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"crown\"></div><div class=\"bow\"></div><div class=\"case\"><span class=\"hand\"></span><span class=\"hand\"></span><span class=\"pin\"></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .bow { position: absolute; left: 43%; top: 0; width: 14%; height: 11%; border-radius: 999px; box-shadow: inset 0 0 0 3px var(--accent); }\n.loader .crown { position: absolute; left: 44%; top: 9%; width: 12%; height: 8%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent) 0 24%, color-mix(in srgb, #000 25%, var(--accent)) 0 40%); animation: watch-wind calc(var(--loader-speed) * .5) linear infinite; }\n.loader .case { position: absolute; left: 6%; right: 6%; bottom: 2%; height: 82%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); box-shadow: inset 0 0 0 6px var(--accent); }\n.loader .hand { position: absolute; left: 48%; border-radius: 3px; background: color-mix(in srgb, #000 65%, var(--accent)); transform-origin: 50% 100%; }\n.loader .hand:nth-of-type(1) { top: 24%; width: 4%; height: 26%; animation: watch-hour calc(var(--loader-speed) * 12) linear infinite; }\n.loader .hand:nth-of-type(2) { top: 14%; width: 3%; height: 36%; animation: watch-minute calc(var(--loader-speed) * 2) linear infinite; }\n.loader .pin { position: absolute; left: 45%; top: 47%; width: 10%; height: 10%; border-radius: 50%; background: var(--accent); }\n@keyframes watch-wind { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }\n@keyframes watch-hour { to { transform: rotate(1turn); } }\n@keyframes watch-minute { to { transform: rotate(1turn); } }",
+  "defaults": {
+    "color": "#a16207",
+    "secondaryColor": "#fef3c7",
+    "size": 114,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

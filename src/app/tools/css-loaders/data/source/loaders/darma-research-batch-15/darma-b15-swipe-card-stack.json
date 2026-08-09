@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-swipe-card-stack",
+  "name": "Swipe Card Stack",
+  "category": "creative",
+  "tags": [
+    "swipe",
+    "cards",
+    "stack",
+    "deck",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .74); position: relative; overflow: hidden; border-radius: 14px; }\n.loader span { position: absolute; left: 16%; right: 16%; top: 6%; bottom: 18%; border-radius: 12px; background: linear-gradient(150deg, var(--accent), color-mix(in srgb, #000 22%, var(--accent))); box-shadow: 0 6px 14px color-mix(in srgb, #000 22%, transparent); animation: deck-swipe calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; left: 12%; right: 40%; top: 16%; height: 12%; border-radius: 4px; background: color-mix(in srgb, var(--accent-2) 70%, transparent); }\n.loader span:nth-of-type(2) { animation-delay: calc(var(--loader-speed) * -2); }\n.loader span:nth-of-type(3) { animation-delay: calc(var(--loader-speed) * -1); }\n@keyframes deck-swipe { 0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; } 18% { transform: translate(150%, -12%) rotate(20deg) scale(1); opacity: 0; } 22% { transform: translate(0, 16%) rotate(0deg) scale(.82); opacity: 0; } 40% { transform: translate(0, 16%) rotate(0deg) scale(.82); opacity: .5; } 70% { transform: translate(0, 8%) rotate(0deg) scale(.91); opacity: .8; } 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fecdd3",
+    "size": 118,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

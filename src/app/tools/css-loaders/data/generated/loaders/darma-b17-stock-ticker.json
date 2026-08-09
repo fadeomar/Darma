@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-stock-ticker",
+  "name": "Stock Ticker",
+  "category": "bars",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "stock",
+    "candlestick",
+    "market",
+    "trade",
+    "bars"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-stock-ticker stock ticker bars darma-research-batch-17 darma research batch 17 stock candlestick market trade bars html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-stock-ticker\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-stock-ticker__mid\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-stock-ticker { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .52); position: relative; overflow: hidden; }\n.darma-loader-darma-b17-stock-ticker .darma-loader-darma-b17-stock-ticker__mid { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-stock-ticker span { position: absolute; width: 8%; border-radius: 2px; animation: darma-loader-darma-b17-stock-ticker-tick-scroll calc(var(--loader-speed, 1s) * 3.5) linear infinite; }\n.darma-loader-darma-b17-stock-ticker span::after { content: ''; position: absolute; left: 38%; top: -28%; width: 24%; height: 156%; background: inherit; }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(1) { top: 26%; height: 30%; background: var(--accent); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(2) { top: 42%; height: 24%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * -.5); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(3) { top: 18%; height: 38%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * -1); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(4) { top: 34%; height: 20%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(5) { top: 12%; height: 44%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * -2); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(6) { top: 30%; height: 26%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * -2.5); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(7) { top: 20%; height: 40%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * -3); }\n@keyframes darma-loader-darma-b17-stock-ticker-tick-scroll { from { left: 102%; } to { left: -10%; } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#ef4444",
+    "size": 130,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-stock-ticker\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-stock-ticker__mid\"></div></div>",
+    "css": ".darma-loader-darma-b17-stock-ticker { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 130px); height: calc(var(--loader-size, 130px) * .52); position: relative; overflow: hidden; }\n.darma-loader-darma-b17-stock-ticker .darma-loader-darma-b17-stock-ticker__mid { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b17-stock-ticker span { position: absolute; width: 8%; border-radius: 2px; animation: darma-loader-darma-b17-stock-ticker-tick-scroll calc(var(--loader-speed, 1s) * 3.5) linear infinite; }\n.darma-loader-darma-b17-stock-ticker span::after { content: ''; position: absolute; left: 38%; top: -28%; width: 24%; height: 156%; background: inherit; }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(1) { top: 26%; height: 30%; background: var(--accent); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(2) { top: 42%; height: 24%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * -.5); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(3) { top: 18%; height: 38%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * -1); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(4) { top: 34%; height: 20%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * -1.5); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(5) { top: 12%; height: 44%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * -2); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(6) { top: 30%; height: 26%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * -2.5); }\n.darma-loader-darma-b17-stock-ticker span:nth-of-type(7) { top: 20%; height: 40%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * -3); }\n@keyframes darma-loader-darma-b17-stock-ticker-tick-scroll { from { left: 102%; } to { left: -10%; } }",
+    "react": "export default function DarmaB17StockTickerLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-stock-ticker\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><div className=\"darma-loader-darma-b17-stock-ticker__mid\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

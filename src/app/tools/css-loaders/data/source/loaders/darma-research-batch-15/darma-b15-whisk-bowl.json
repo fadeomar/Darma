@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-whisk-bowl",
+  "name": "Whisk Bowl",
+  "category": "fun",
+  "tags": [
+    "whisk",
+    "bowl",
+    "batter",
+    "baking",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"whisk\"><span></span><span></span><span></span></div><div class=\"batter\"></div><div class=\"bowl\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader .bowl { position: absolute; left: 8%; bottom: 6%; width: 84%; height: 44%; border-radius: 6px 6px 46% 46% / 6px 6px 92% 92%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 25%, var(--accent))); }\n.loader .batter { position: absolute; left: 14%; bottom: 30%; width: 72%; height: 16%; border-radius: 50%; background: var(--accent-2); animation: whisk-batter calc(var(--loader-speed) * .9) ease-in-out infinite; }\n.loader .whisk { position: absolute; left: 40%; top: 4%; width: 20%; height: 54%; transform-origin: 50% 10%; animation: whisk-turn calc(var(--loader-speed) * .9) linear infinite; }\n.loader .whisk span { position: absolute; left: 44%; top: 0; width: 12%; height: 100%; border-radius: 40%; background: linear-gradient(#e2e8f0, #94a3b8); transform-origin: 50% 6%; }\n.loader .whisk span:nth-of-type(1) { transform: rotate(-22deg); }\n.loader .whisk span:nth-of-type(3) { transform: rotate(22deg); }\n@keyframes whisk-turn { 0%, 100% { transform: rotate(-16deg) scaleX(1); } 25% { transform: rotate(0deg) scaleX(.3); } 50% { transform: rotate(16deg) scaleX(1); } 75% { transform: rotate(0deg) scaleX(.3); } }\n@keyframes whisk-batter { 0%, 100% { transform: translateX(-4%) scaleX(1); } 50% { transform: translateX(4%) scaleX(1.05); } }",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#fde68a",
+    "size": 114,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

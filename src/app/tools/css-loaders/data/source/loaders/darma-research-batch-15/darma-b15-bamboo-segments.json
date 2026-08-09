@@ -1,0 +1,35 @@
+{
+  "id": "darma-b15-bamboo-segments",
+  "name": "Bamboo Segments",
+  "category": "creative",
+  "tags": [
+    "bamboo",
+    "grow",
+    "segments",
+    "nature",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><i></i><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .56); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; left: 30%; width: 40%; height: 16%; border-radius: 5px; background: linear-gradient(90deg, var(--accent-2), var(--accent) 70%); box-shadow: 0 2px 0 color-mix(in srgb, #000 25%, transparent); transform-origin: 50% 100%; transform: scaleY(0); animation: bam-grow calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-of-type(1) { bottom: 3%; }\n.loader span:nth-of-type(2) { bottom: 22%; animation-delay: calc(var(--loader-speed) * .18); }\n.loader span:nth-of-type(3) { bottom: 41%; animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-of-type(4) { bottom: 60%; animation-delay: calc(var(--loader-speed) * .54); }\n.loader span:nth-of-type(5) { bottom: 79%; animation-delay: calc(var(--loader-speed) * .72); }\n.loader i { position: absolute; width: 34%; height: 11%; border-radius: 60% 6% 60% 6%; background: var(--accent-2); transform: scale(0); animation: bam-leaf calc(var(--loader-speed) * 2.6) ease-out infinite; }\n.loader i:nth-of-type(1) { left: 66%; bottom: 46%; animation-delay: calc(var(--loader-speed) * .5); }\n.loader i:nth-of-type(2) { left: 0; bottom: 66%; border-radius: 6% 60% 6% 60%; animation-delay: calc(var(--loader-speed) * .7); }\n@keyframes bam-grow { 0%, 8% { transform: scaleY(0); opacity: 0; } 26%, 70% { transform: scaleY(1); opacity: 1; } 92%, 100% { transform: scaleY(0); opacity: 0; } }\n@keyframes bam-leaf { 0%, 20% { transform: scale(0); opacity: 0; } 40%, 70% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#166534",
+    "secondaryColor": "#86efac",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 15",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

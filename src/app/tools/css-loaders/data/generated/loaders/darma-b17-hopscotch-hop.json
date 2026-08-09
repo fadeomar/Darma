@@ -1,0 +1,48 @@
+{
+  "id": "darma-b17-hopscotch-hop",
+  "name": "Hopscotch Hop",
+  "category": "fun",
+  "sourceId": "darma-research-batch-17",
+  "tags": [
+    "hopscotch",
+    "playground",
+    "chalk",
+    "hop",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b17-hopscotch-hop hopscotch hop fun darma-research-batch-17 darma research batch 17 hopscotch playground chalk hop fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b17-hopscotch-hop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-hopscotch-hop__marker\"></div></div>",
+  "previewCss": ".darma-loader-darma-b17-hopscotch-hop { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .44); position: relative; }\n.darma-loader-darma-b17-hopscotch-hop span { position: absolute; bottom: 2%; width: 17%; height: 46%; border-radius: 4px; box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 60%, transparent); background: color-mix(in srgb, var(--accent) 12%, transparent); animation: darma-loader-darma-b17-hopscotch-hop-hop-lit calc(var(--loader-speed, 1s) * 2.5) ease-in-out infinite; }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(1) { left: 1%; }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(2) { left: 21%; animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(3) { left: 41%; animation-delay: calc(var(--loader-speed, 1s) * 1); }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(4) { left: 61%; animation-delay: calc(var(--loader-speed, 1s) * 1.5); }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(5) { left: 81%; animation-delay: calc(var(--loader-speed, 1s) * 2); }\n.darma-loader-darma-b17-hopscotch-hop .darma-loader-darma-b17-hopscotch-hop__marker { position: absolute; left: 5%; bottom: 12%; width: 9%; height: 26%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); animation: darma-loader-darma-b17-hopscotch-hop-hop-jump calc(var(--loader-speed, 1s) * 2.5) cubic-bezier(.4, 0, .5, 1) infinite; }\n@keyframes darma-loader-darma-b17-hopscotch-hop-hop-jump { 0%, 6% { transform: translate(0, 0); } 13% { transform: translate(111%, -150%); } 20%, 26% { transform: translate(222%, 0); } 33% { transform: translate(333%, -150%); } 40%, 46% { transform: translate(444%, 0); } 53% { transform: translate(555%, -150%); } 60%, 66% { transform: translate(667%, 0); } 73% { transform: translate(778%, -150%); } 80%, 88% { transform: translate(889%, 0); } 95% { transform: translate(445%, -200%); } 100% { transform: translate(0, 0); } }\n@keyframes darma-loader-darma-b17-hopscotch-hop-hop-lit { 0%, 8% { background: color-mix(in srgb, var(--accent-2) 48%, transparent); } 18%, 100% { background: color-mix(in srgb, var(--accent) 10%, transparent); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f43f5e",
+    "size": 128,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b17-hopscotch-hop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b17-hopscotch-hop__marker\"></div></div>",
+    "css": ".darma-loader-darma-b17-hopscotch-hop { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .44); position: relative; }\n.darma-loader-darma-b17-hopscotch-hop span { position: absolute; bottom: 2%; width: 17%; height: 46%; border-radius: 4px; box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 60%, transparent); background: color-mix(in srgb, var(--accent) 12%, transparent); animation: darma-loader-darma-b17-hopscotch-hop-hop-lit calc(var(--loader-speed, 1s) * 2.5) ease-in-out infinite; }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(1) { left: 1%; }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(2) { left: 21%; animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(3) { left: 41%; animation-delay: calc(var(--loader-speed, 1s) * 1); }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(4) { left: 61%; animation-delay: calc(var(--loader-speed, 1s) * 1.5); }\n.darma-loader-darma-b17-hopscotch-hop span:nth-of-type(5) { left: 81%; animation-delay: calc(var(--loader-speed, 1s) * 2); }\n.darma-loader-darma-b17-hopscotch-hop .darma-loader-darma-b17-hopscotch-hop__marker { position: absolute; left: 5%; bottom: 12%; width: 9%; height: 26%; border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent-2)); animation: darma-loader-darma-b17-hopscotch-hop-hop-jump calc(var(--loader-speed, 1s) * 2.5) cubic-bezier(.4, 0, .5, 1) infinite; }\n@keyframes darma-loader-darma-b17-hopscotch-hop-hop-jump { 0%, 6% { transform: translate(0, 0); } 13% { transform: translate(111%, -150%); } 20%, 26% { transform: translate(222%, 0); } 33% { transform: translate(333%, -150%); } 40%, 46% { transform: translate(444%, 0); } 53% { transform: translate(555%, -150%); } 60%, 66% { transform: translate(667%, 0); } 73% { transform: translate(778%, -150%); } 80%, 88% { transform: translate(889%, 0); } 95% { transform: translate(445%, -200%); } 100% { transform: translate(0, 0); } }\n@keyframes darma-loader-darma-b17-hopscotch-hop-hop-lit { 0%, 8% { background: color-mix(in srgb, var(--accent-2) 48%, transparent); } 18%, 100% { background: color-mix(in srgb, var(--accent) 10%, transparent); } }",
+    "react": "export default function DarmaB17HopscotchHopLoader() {\n  return (\n    <div className=\"darma-loader-darma-b17-hopscotch-hop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><div className=\"darma-loader-darma-b17-hopscotch-hop__marker\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 17",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

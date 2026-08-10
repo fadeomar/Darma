@@ -54,6 +54,10 @@ function makeDownloadName(voiceId: string) {
   return `darma_tts_${safeFilePart(voiceId)}_${stamp}.wav`;
 }
 
+function isAbortError(error: unknown) {
+  return error instanceof DOMException && error.name === "AbortError";
+}
+
 async function readApiError(response: Response, fallback: string) {
   try {
     const data = (await response.json()) as ApiErrorBody;
@@ -76,6 +80,8 @@ export default function TextToSpeechClient() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef<string | null>(null);
   const mountedRef = useRef(true);
+  const voicesAbortRef = useRef<AbortController | null>(null);
+  const synthAbortRef = useRef<AbortController | null>(null);
 
   const trimmedLength = text.trim().length;
   const charactersRemaining = MAX_TEXT_LENGTH - text.length;
@@ -92,6 +98,11 @@ export default function TextToSpeechClient() {
   }, []);
 
   const loadVoices = useCallback(async () => {
+    // A rapid second "Refresh voices" makes the first response irrelevant.
+    voicesAbortRef.current?.abort();
+    const controller = new AbortController();
+    voicesAbortRef.current = controller;
+
     setLoadingVoices(true);
     setError(null);
     setSuccess(null);
@@ -99,6 +110,7 @@ export default function TextToSpeechClient() {
     try {
       const response = await fetch("/api/tools/text-to-speech/voices", {
         cache: "no-store",
+        signal: controller.signal,
         headers: { Accept: "application/json" },
       });
 
@@ -119,11 +131,16 @@ export default function TextToSpeechClient() {
         setError("The TTS service is online, but no Piper voices are installed.");
       }
     } catch (caught) {
+      // A deliberate abort (unmount, or a newer refresh) is not a user-facing error.
+      if (isAbortError(caught)) return;
       setVoices([]);
       setSelectedVoiceId("");
       setError(caught instanceof Error ? caught.message : "Failed to load voices.");
     } finally {
-      setLoadingVoices(false);
+      if (voicesAbortRef.current === controller) {
+        voicesAbortRef.current = null;
+        setLoadingVoices(false);
+      }
     }
   }, []);
 
@@ -137,6 +154,11 @@ export default function TextToSpeechClient() {
   const generate = useCallback(async () => {
     if (!canGenerate) return;
 
+    // Drop any synthesis that is now obsolete before starting the next one.
+    synthAbortRef.current?.abort();
+    const controller = new AbortController();
+    synthAbortRef.current = controller;
+
     setIsGenerating(true);
     setError(null);
     setSuccess(null);
@@ -146,6 +168,7 @@ export default function TextToSpeechClient() {
     try {
       const response = await fetch("/api/tools/text-to-speech/synthesize", {
         method: "POST",
+        signal: controller.signal,
         headers: {
           Accept: "audio/wav, application/json",
           "Content-Type": "application/json",
@@ -162,9 +185,9 @@ export default function TextToSpeechClient() {
 
       const nextUrl = URL.createObjectURL(blob);
 
-      // The request can outlive the page: revoke immediately rather than
-      // stranding the object URL on a component that no longer has a cleanup.
-      if (!mountedRef.current) {
+      // The request can outlive the page, or be superseded by a newer one:
+      // revoke immediately rather than stranding an unreachable object URL.
+      if (!mountedRef.current || synthAbortRef.current !== controller) {
         URL.revokeObjectURL(nextUrl);
         return;
       }
@@ -178,9 +201,15 @@ export default function TextToSpeechClient() {
         void audioRef.current?.play().catch(() => undefined);
       }, 0);
     } catch (caught) {
+      if (isAbortError(caught)) return;
       setError(caught instanceof Error ? caught.message : "Speech generation failed.");
     } finally {
-      setIsGenerating(false);
+      // Only the newest request owns the button state; a superseded one must
+      // not clear the spinner the request that replaced it just set.
+      if (synthAbortRef.current === controller) {
+        synthAbortRef.current = null;
+        setIsGenerating(false);
+      }
     }
   }, [canGenerate, revokeAudioUrl, selectedVoiceId, text]);
 
@@ -190,6 +219,8 @@ export default function TextToSpeechClient() {
 
     return () => {
       mountedRef.current = false;
+      voicesAbortRef.current?.abort();
+      synthAbortRef.current?.abort();
       revokeAudioUrl();
     };
   }, [loadVoices, revokeAudioUrl]);
@@ -263,7 +294,7 @@ export default function TextToSpeechClient() {
               />
               <p id="tts-text-help" className={charactersRemaining < 0 ? "tts-help tts-help--error" : "tts-help"}>
                 {charactersRemaining < 0
-                  ? `Remove ${Math.abs(charactersRemaining).toLocaleString()} characters — the limit is ${MAX_TEXT_LENGTH.toLocaleString()}.`
+                  ? `Remove ${Math.abs(charactersRemaining).toLocaleString()} ${Math.abs(charactersRemaining) === 1 ? "character" : "characters"} — the limit is ${MAX_TEXT_LENGTH.toLocaleString()}.`
                   : "Press Ctrl/⌘ + Enter to generate. Longer text takes more time to synthesize."}
               </p>
             </div>

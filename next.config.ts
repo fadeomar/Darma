@@ -3,8 +3,7 @@ import path from "node:path";
 
 // Browser-only stub for the Node built-ins referenced by the Piper/ONNX WASM
 // glue behind /tools/text-to-speech. See src/lib/emptyNodeModule.js.
-// Forward slashes: Turbopack does not resolve Windows-style `C:\...` aliases.
-const emptyNodeModule = path.resolve(process.cwd(), "src/lib/emptyNodeModule.js").replace(/\\/g, "/");
+const emptyNodeModule = "./src/lib/emptyNodeModule.js";
 
 const nextConfig: NextConfig = {
   // Pin the Turbopack workspace root to this project directory. Without this,
@@ -15,10 +14,10 @@ const nextConfig: NextConfig = {
     // The Piper/ONNX WASM glue behind /tools/text-to-speech ships an Emscripten
     // bundle with a dead `ENVIRONMENT_IS_NODE` branch. It never runs in a
     // browser, but the bundler still resolves its `require()` calls, so these
-    // are stubbed for the browser condition only — server code is unaffected.
-    // Resolved to an absolute path on purpose: a relative or tsconfig-aliased
-    // specifier here is resolved against the *importing* module (deep inside
-    // node_modules), so it silently fails to match.
+    // are stubbed for the browser condition only - server code is unaffected.
+    // Kept project-relative: Turbopack resolves these against `turbopack.root`
+    // above, so it works on Vercel (/vercel/path0) and Windows alike. An
+    // absolute `path.resolve()` value breaks the Vercel build.
     resolveAlias: {
       fs: { browser: emptyNodeModule },
       path: { browser: emptyNodeModule },

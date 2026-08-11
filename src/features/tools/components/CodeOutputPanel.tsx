@@ -61,7 +61,7 @@ export function CodeOutputPanel({
               </span>
             ) : null}
           </div>
-          {description ? <p className="text-xs leading-5 text-[var(--color-code-muted)]">{description}</p> : null}
+          {description ? <p className="max-w-3xl text-xs leading-5 text-[var(--color-code-muted)]">{description}</p> : null}
           {currentTab?.filename ? <p className="font-mono text-xs text-[var(--color-code-muted)]">{currentTab.filename}</p> : null}
         </div>
         <div className="flex shrink-0 flex-wrap items-center gap-2">
@@ -94,7 +94,7 @@ export function CodeOutputPanel({
 
       <div className="p-3.5 sm:p-4">
         {currentTab && hasCode ? (
-          <div className="darma-code-output-pre favicon-code-pre min-h-[22rem] max-h-[32rem] overflow-auto rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] shadow-[inset_0_1px_0_rgba(244,241,234,0.04)]">
+          <div className="darma-code-output-pre favicon-code-pre min-h-[18rem] max-h-[30rem] overflow-auto rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] shadow-[inset_0_1px_0_rgba(244,241,234,0.04)]">
             <SyntaxHighlighter
               language={syntaxLanguage(currentTab.language)}
               style={vscDarkPlus}
@@ -102,7 +102,7 @@ export function CodeOutputPanel({
               wrapLongLines={wrapLines}
               customStyle={{
                 margin: 0,
-                minHeight: "22rem",
+                minHeight: "18rem",
                 padding: "1rem",
                 background: "transparent",
                 fontSize: "0.75rem",
@@ -113,7 +113,7 @@ export function CodeOutputPanel({
             </SyntaxHighlighter>
           </div>
         ) : (
-          <div className="min-h-[22rem] rounded-[var(--radius-md)] border border-dashed border-[var(--color-code-border)] bg-[var(--color-code-surface)] p-6 text-center text-sm text-[var(--color-code-muted)]">
+          <div className="min-h-[18rem] rounded-[var(--radius-md)] border border-dashed border-[var(--color-code-border)] bg-[var(--color-code-surface)] p-6 text-center text-sm text-[var(--color-code-muted)]">
             {emptyMessage}
           </div>
         )}

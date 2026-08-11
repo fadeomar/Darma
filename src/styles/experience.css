@@ -1685,7 +1685,9 @@
   left: 1rem;
   top: 1rem;
   z-index: calc(var(--z-modal) + 10);
-  translate: 0 -160%;
+  transform: translateY(calc(-100% - 2rem));
+  opacity: 0;
+  pointer-events: none;
   padding: .75rem 1rem;
   border: 2px solid var(--color-primary);
   border-radius: .8rem;
@@ -1694,9 +1696,15 @@
   box-shadow: var(--shadow-lg);
   font-size: .84rem;
   font-weight: 900;
-  transition: translate .2s ease;
+  transition: transform .2s ease, opacity .2s ease;
 }
-.darma-skip-link:focus { translate: 0 0; outline: none; }
+.darma-skip-link:focus,
+.darma-skip-link:focus-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  outline: none;
+}
 
 .landing-intent-section {
   position: relative;

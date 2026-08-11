@@ -43,7 +43,7 @@ function ExampleCard({ preset, selected, favorite, onSelect, onToggleFavorite }:
           aria-label={favorite ? `Remove ${preset.name} from favorites` : `Save ${preset.name} to favorites`}
           aria-pressed={favorite}
           onClick={() => onToggleFavorite(preset.id)}
-          className={cn("absolute right-2.5 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-black/10 bg-white/90 text-slate-600 shadow-sm backdrop-blur transition hover:scale-105 hover:text-rose-600", favorite && "text-rose-600")}
+          className={cn("absolute right-2.5 top-2.5 grid h-11 w-11 place-items-center rounded-full border border-black/10 bg-white/90 text-slate-600 shadow-sm backdrop-blur transition hover:scale-105 hover:text-rose-600", favorite && "text-rose-600")}
         >
           <Heart className={cn("h-4 w-4", favorite && "fill-current")} />
         </button>
@@ -58,7 +58,7 @@ function ExampleCard({ preset, selected, favorite, onSelect, onToggleFavorite }:
           {preset.cssOnly ? <span className="shrink-0 rounded-full border border-[var(--color-border-subtle)] px-2 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">CSS only</span> : null}
         </div>
         <div className="flex gap-2">
-          <Button size="sm" className="flex-1" onClick={() => onSelect(preset)}>Customize</Button>
+          <Button size="sm" variant="secondary" className="flex-1" onClick={() => onSelect(preset)}>Use preset</Button>
           <Button size="sm" variant="secondary" aria-label={`Copy ${preset.name} CSS`} title="Copy CSS" onClick={copyCss} leftIcon={<Copy className="h-3.5 w-3.5" />}>{copyState === "copied" ? "Copied" : copyState === "failed" ? "Copy failed" : "CSS"}</Button>
         </div>
       </div>
@@ -97,7 +97,7 @@ export function ButtonExamplesGallery({ selectedPresetId, onSelect }: { selected
       : category === "favorites"
         ? buttonPresets.filter((preset) => favorites.includes(preset.id))
         : buttonPresets.filter((preset) => preset.category === category);
-    return showAll || category !== "all" ? source : source.slice(0, 12);
+    return showAll || category !== "all" ? source : source.slice(0, 6);
   }, [category, favorites, showAll]);
 
   const randomPreset = () => {
@@ -154,7 +154,7 @@ export function ButtonExamplesGallery({ selectedPresetId, onSelect }: { selected
         </div>
       )}
 
-      {category === "all" && buttonPresets.length > 12 ? (
+      {category === "all" && buttonPresets.length > 6 ? (
         <div className="flex justify-center pt-1">
           <Button variant="secondary" size="sm" onClick={() => setShowAll((value) => !value)}>{showAll ? "Show fewer examples" : `View all ${buttonPresets.length} examples`}</Button>
         </div>

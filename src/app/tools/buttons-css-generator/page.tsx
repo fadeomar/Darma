@@ -26,11 +26,11 @@ export default function ButtonsCssGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Explore live button examples, customize and inspect states, import existing CSS, test devices and input modes, generate button families and light/dark variants, share configurations, then export production-ready CSS/HTML plus framework starter output, tokens, and variables.</p>}
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Design, preview, validate, and export production-ready CSS buttons directly in your browser.</p>}
       article={<ToolContentCard title="About CSS button design"><ButtonCSSGeneratorArticle /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Button Studio" description="Discover polished examples first, then customize, import, inspect, share, validate accessibility, and export production-ready CSS/HTML button systems with framework starter snippets in one visual studio.">
+      <ToolContentCard title="Button Studio" description="Customize the button while a live preview stays visible, then copy or export the format you need.">
         <ButtonsCssGeneratorClient />
       </ToolContentCard>
     </ToolPage>

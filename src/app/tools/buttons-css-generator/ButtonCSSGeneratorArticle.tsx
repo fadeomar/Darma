@@ -8,8 +8,8 @@ const cards = [
   },
   {
     icon: MousePointerClick,
-    title: "Test real interaction and device states",
-    description: "Preview mouse, touch, and keyboard behavior across desktop, tablet, and mobile frames, then compare a frozen A baseline against your current B version.",
+    title: "Test interaction and preview sizes",
+    description: "Preview mouse, touch, and keyboard behavior across desktop, tablet, and mobile-sized frames, then compare a frozen A baseline against your current B version.",
   },
   {
     icon: ShieldCheck,
@@ -26,10 +26,10 @@ const cards = [
 export default function ButtonCSSGeneratorArticle() {
   return (
     <div className="space-y-6 text-sm leading-7 text-[var(--color-text-secondary)]">
-      <div className="space-y-3">
+      <div className="max-w-[76ch] space-y-3">
         <h2 className="text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Design buttons that are ready to use, not just pretty in isolation.</h2>
         <p>
-          The CSS Button Generator combines a curated live gallery with a visual Button Studio. Start from a polished example or from scratch, save favorites locally, then tune shape, typography, gradients, borders, shadows, icons, motion, and production states while the preview stays interactive. Desktop, tablet, and mobile frames plus mouse, touch, and keyboard simulation help you test the component beyond a static canvas, while undo, redo, and A/B comparison make exploration safe. Versioned share links, CSS import, searchable icons, mobile-only full-width rules, Learn mode, Inspect mode, keyboard undo/redo, and scoped custom overrides make the same workspace useful for handoff, learning, and reverse-engineering existing buttons.
+          The CSS Button Generator combines a curated live gallery with a visual Button Studio. Start from a polished example or from scratch, save favorites locally, then tune shape, typography, gradients, borders, shadows, icons, motion, and production states while the preview stays interactive. Desktop, tablet, and mobile-sized preview frames plus mouse, touch, and keyboard simulation help you test the component beyond a static canvas. Frame sizes are visual previews rather than isolated browser viewports, while undo, redo, and A/B comparison make exploration safe. Versioned share links, CSS import, searchable icons, mobile-only full-width rules, Learn mode, Inspect mode, keyboard undo/redo, and scoped custom overrides make the same workspace useful for handoff, learning, and reverse-engineering existing buttons.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function ButtonCSSGeneratorArticle() {
         })}
       </div>
 
-      <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface)] p-4">
+      <div className="max-w-4xl rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface)] p-4">
         <h3 className="font-bold text-[var(--color-text-primary)]">Recommended workflow</h3>
         <ol className="mt-3 list-decimal space-y-2 pl-5 text-xs leading-6 text-[var(--color-text-tertiary)]">
           <li>Browse the live examples and pick the closest visual direction before opening the detailed controls.</li>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
-import { BookOpen, Columns2, Download, Link2, Redo2, RotateCcw, ScanSearch, Search, Sparkles, Undo2, Upload, Wand2 } from "lucide-react";
+import { BookOpen, ChevronDown, Columns2, Link2, Redo2, RotateCcw, ScanSearch, Search, Sparkles, Undo2, Upload, Wand2 } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select, Textarea } from "@/components/ui";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -153,11 +153,11 @@ type MotionPreview = "normal" | "reduced";
 type PreviewDevice = "desktop" | "tablet" | "mobile";
 type PreviewInput = "mouse" | "touch" | "keyboard";
 
-function CheckboxRow({ label, checked, onChange }: { label: ReactNode; checked: boolean; onChange: (checked: boolean) => void }) {
+function CheckboxRow({ label, checked, onChange, disabled = false }: { label: ReactNode; checked: boolean; onChange: (checked: boolean) => void; disabled?: boolean }) {
   return (
-    <label className="flex min-h-9 items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] px-3 py-2 text-sm text-[var(--color-text-primary)] shadow-[var(--shadow-xs)]">
-      <span className="min-w-0 text-xs font-semibold leading-5">{label}</span>
-      <input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} className="h-4 w-4 shrink-0 accent-[var(--color-accent)]" />
+    <label className={`flex min-h-10 items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] px-3 py-2 text-sm text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] ${disabled ? "cursor-not-allowed opacity-65" : ""}`}>
+      <span className="min-w-0 text-sm font-semibold leading-5">{label}</span>
+      <input type="checkbox" checked={checked} disabled={disabled} onChange={(event) => onChange(event.target.checked)} className="h-4 w-4 shrink-0 accent-[var(--color-accent)]" />
     </label>
   );
 }
@@ -174,9 +174,9 @@ function StudioSection({ title, description, defaultOpen = false, children }: { 
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-3 text-left [&::-webkit-details-marker]:hidden">
         <div className="min-w-0">
           <h3 className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">{title}</h3>
-          {description ? <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">{description}</p> : null}
+          {description ? <p className="mt-1 text-[13px] leading-5 text-[var(--color-text-tertiary)]">{description}</p> : null}
         </div>
-        <span className="text-sm font-bold text-[var(--color-text-tertiary)] transition group-open:rotate-45">+</span>
+        <ChevronDown className="h-4 w-4 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open:rotate-180" aria-hidden />
       </summary>
       <div className="space-y-3 pb-4">{children}</div>
     </details>
@@ -259,7 +259,7 @@ function ContextPreview({ context, config, state }: { context: PreviewContext; c
           <div><div className="mb-1.5 text-xs font-bold text-slate-600">Email</div><div className="h-10 rounded-lg border border-slate-200 bg-slate-50" /></div>
           <div><div className="mb-1.5 text-xs font-bold text-slate-600">Password</div><div className="h-10 rounded-lg border border-slate-200 bg-slate-50" /></div>
         </div>
-        <div className="mt-5"><ButtonPreviewElement config={config} state={state} className="w-full" /></div>
+        <div className="mt-5"><ButtonPreviewElement config={config} state={state} /></div>
       </div>
     );
   }
@@ -270,7 +270,7 @@ function ContextPreview({ context, config, state }: { context: PreviewContext; c
         <div className="text-xs font-black uppercase tracking-[0.12em] text-indigo-600">Professional</div>
         <div className="mt-2 text-4xl font-black tracking-[-0.06em] text-slate-950">$29<span className="text-sm font-semibold text-slate-500"> / month</span></div>
         <ul className="mt-5 space-y-2 text-sm text-slate-600"><li>✓ Unlimited projects</li><li>✓ Production exports</li><li>✓ Priority support</li></ul>
-        <div className="mt-6"><ButtonPreviewElement config={config} state={state} className="w-full" /></div>
+        <div className="mt-6"><ButtonPreviewElement config={config} state={state} /></div>
       </div>
     );
   }
@@ -294,7 +294,7 @@ function DevicePreviewFrame({
   children: ReactNode;
 }) {
   const width = device === "mobile" ? 390 : device === "tablet" ? 768 : "100%";
-  const label = device === "mobile" ? "390px mobile" : device === "tablet" ? "768px tablet" : "Responsive desktop";
+  const label = device === "mobile" ? "390px preview frame" : device === "tablet" ? "768px preview frame" : "Responsive preview";
   const framed = device !== "desktop";
 
   return (
@@ -309,7 +309,7 @@ function DevicePreviewFrame({
             <span>{label}</span>
           </div>
         ) : null}
-        <div className={device === "mobile" ? "flex min-h-[430px] items-center justify-center p-5" : device === "tablet" ? "flex min-h-[430px] items-center justify-center p-7" : "flex min-h-[390px] items-center justify-center p-6 sm:min-h-[460px] sm:p-10"} style={surface}>
+        <div className={device === "mobile" ? "flex min-h-[300px] items-center justify-center p-5" : device === "tablet" ? "flex min-h-[320px] items-center justify-center p-7" : "flex min-h-[260px] items-center justify-center p-6 sm:min-h-[300px] sm:p-8"} style={surface}>
           {children}
         </div>
       </div>
@@ -386,13 +386,15 @@ export default function ButtonsCssGeneratorClient() {
     }));
   }, [workflowId]);
 
+  const previewClassName = `button-studio-preview-${safeClassName(config.className)}`;
   const responsivePreviewConfig = previewDevice === "mobile" && config.mobileFullWidth && !config.fullWidth ? { ...config, fullWidth: true } : config;
-  const forcedPreviewConfig = previewState === "disabled" ? { ...responsivePreviewConfig, disabled: true } : responsivePreviewConfig;
+  const isolatedPreviewConfig = { ...responsivePreviewConfig, className: previewClassName };
+  const forcedPreviewConfig = previewState === "disabled" ? { ...isolatedPreviewConfig, disabled: true } : isolatedPreviewConfig;
   const comparePreviewConfig = useMemo(() => {
     if (!compareBaseline) return null;
     const responsiveBase = previewDevice === "mobile" && compareBaseline.mobileFullWidth && !compareBaseline.fullWidth ? { ...compareBaseline, fullWidth: true } : compareBaseline;
     const base = previewState === "disabled" ? { ...responsiveBase, disabled: true } : responsiveBase;
-    return { ...base, className: `${safeClassName(compareBaseline.className)}-compare-a` };
+    return { ...base, className: `button-studio-preview-${safeClassName(compareBaseline.className)}-compare-a` };
   }, [compareBaseline, previewDevice, previewState]);
 
   const css = useMemo(() => generateButtonCss(config), [config]);
@@ -424,7 +426,7 @@ export default function ButtonsCssGeneratorClient() {
   );
 
   const reducedMotionSimulationCss = useMemo(() => {
-    const names = [safeClassName(config.className)];
+    const names = [safeClassName(previewClassName)];
     if (comparePreviewConfig) names.push(safeClassName(comparePreviewConfig.className));
     if (familyEnabled) names.push(...buttonFamily.map((member) => safeClassName(member.config.className)));
     if (themePairEnabled) names.push(safeClassName(themeLightPreviewConfig.className), safeClassName(themeDarkPreviewConfig.className));
@@ -436,7 +438,7 @@ export default function ButtonsCssGeneratorClient() {
   transform: none !important;
 }
 .button-studio-reduced .${name}__spinner { animation: none !important; }`).join("\n");
-  }, [buttonFamily, comparePreviewConfig, config.className, familyEnabled, themeDarkPreviewConfig.className, themeLightPreviewConfig.className, themePairEnabled]);
+  }, [buttonFamily, comparePreviewConfig, familyEnabled, previewClassName, themeDarkPreviewConfig.className, themeLightPreviewConfig.className, themePairEnabled]);
 
   const surfaceColor = contextSurfaceColor(previewContext, previewBackground, customPreviewBackground);
   const contrastBackgrounds = useMemo(() => {
@@ -755,38 +757,26 @@ export default function ButtonsCssGeneratorClient() {
       {themePairEnabled ? <style>{themePreviewCss}</style> : null}
       {motionPreview === "reduced" ? <style>{reducedMotionSimulationCss}</style> : null}
       <PreviewToolbar
+        stacked
         title="Button preview"
-        description={selectedPreset ? `${selectedPreset.name}${presetModified ? " · Modified" : ""}. Test states, motion, and real UI contexts before you copy the code.` : "Test states, motion, and real UI contexts before you copy the code."}
+        description={selectedPreset ? `${selectedPreset.name}${presetModified ? " · Modified" : ""}. Test states, motion, and UI contexts before you copy the code.` : "Test states, motion, and UI contexts before you copy the code."}
         actions={
-          <div className="flex flex-wrap items-end gap-2">
-            <Field label="Context" density="compact"><Select size="sm" value={previewContext} onChange={(event) => setPreviewContext(event.target.value as PreviewContext)}>{contextOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</Select></Field>
+          <div className="flex flex-wrap items-center gap-2">
             <Button variant={learnMode ? "primary" : "secondary"} size="sm" onClick={() => setLearnMode((value) => !value)} leftIcon={<BookOpen className="h-3.5 w-3.5" />}>Learn</Button>
             <Button variant={inspectMode ? "primary" : "secondary"} size="sm" onClick={() => setInspectMode((value) => !value)} leftIcon={<ScanSearch className="h-3.5 w-3.5" />}>Inspect</Button>
             <Button variant={compareBaseline ? "primary" : "secondary"} size="sm" onClick={toggleCompare} leftIcon={<Columns2 className="h-3.5 w-3.5" />}>{compareBaseline ? "Exit compare" : "Compare"}</Button>
           </div>
         }
       >
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-col gap-2 xl:flex-row xl:items-center xl:justify-between">
-            <SegmentedControl ariaLabel="Preview state" value={previewState} onChange={(state) => setPreviewState(state)} options={previewStates.map((state) => ({ value: state, label: state }))} />
-            <SegmentedControl ariaLabel="Preview background" value={previewBackground} onChange={(background) => setPreviewBackground(background)} options={backgroundOptions} />
-          </div>
-          <div className="flex flex-col gap-2 xl:flex-row xl:items-center xl:justify-between">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Device</span>
-              <SegmentedControl ariaLabel="Preview device" value={previewDevice} onChange={(device) => setPreviewDevice(device)} options={deviceOptions} />
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Input</span>
-              <SegmentedControl ariaLabel="Input simulation" value={previewInput} onChange={changePreviewInput} options={inputOptions} />
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Motion</span>
-            <SegmentedControl ariaLabel="Motion simulation" value={motionPreview} onChange={(motion) => setMotionPreview(motion)} options={[{ value: "normal", label: "Normal" }, { value: "reduced", label: "Reduced" }]} />
-          </div>
-          <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">{interactionCopy(previewInput)}</p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+          <Field label="State" density="compact"><SegmentedControl layout="grid" columns={3} fullWidth ariaLabel="Preview state" value={previewState} onChange={(state) => setPreviewState(state)} options={previewStates.map((state) => ({ value: state, label: state }))} /></Field>
+          <Field label="Surface" density="compact"><SegmentedControl layout="grid" columns={2} fullWidth ariaLabel="Preview background" value={previewBackground} onChange={(background) => setPreviewBackground(background)} options={backgroundOptions} /></Field>
+          <Field label="Context" density="compact"><Select size="sm" value={previewContext} onChange={(event) => setPreviewContext(event.target.value as PreviewContext)}>{contextOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</Select></Field>
+          <Field label="Preview frame" density="compact"><SegmentedControl layout="grid" columns={3} fullWidth ariaLabel="Preview frame size" value={previewDevice} onChange={(device) => setPreviewDevice(device)} options={deviceOptions} /></Field>
+          <Field label="Input" density="compact"><SegmentedControl layout="grid" columns={3} fullWidth ariaLabel="Input simulation" value={previewInput} onChange={changePreviewInput} options={inputOptions} /></Field>
+          <Field label="Motion" density="compact"><SegmentedControl layout="grid" columns={2} fullWidth ariaLabel="Motion simulation" value={motionPreview} onChange={(motion) => setMotionPreview(motion)} options={[{ value: "normal", label: "Normal" }, { value: "reduced", label: "Reduced" }]} /></Field>
         </div>
+        <p className="mt-3 text-[13px] leading-5 text-[var(--color-text-tertiary)]">{interactionCopy(previewInput)} Frame sizes are visual preview widths; CSS media queries still use the browser viewport.</p>
       </PreviewToolbar>
 
       {previewBackground === "custom" ? (
@@ -857,22 +847,6 @@ export default function ButtonsCssGeneratorClient() {
               <span className="text-xs font-black">{metric.value}</span>
             </div>
           ))}
-          <div className="flex items-center gap-2 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] px-3 py-1.5 text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)]">
-            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] opacity-70">Simulation</span>
-            <span className="text-xs font-black">{motionPreview === "reduced" ? "Reduced motion" : "Normal motion"}</span>
-          </div>
-          <div className="flex items-center gap-2 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] px-3 py-1.5 text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)]">
-            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] opacity-70">Device</span>
-            <span className="text-xs font-black">{previewDevice}</span>
-          </div>
-          <div className="flex items-center gap-2 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] px-3 py-1.5 text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)]">
-            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] opacity-70">Input</span>
-            <span className="text-xs font-black">{previewInput}</span>
-          </div>
-          <div className="flex items-center gap-2 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] px-3 py-1.5 text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)]">
-            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] opacity-70">Output</span>
-            <span className="text-xs font-black">CSS only</span>
-          </div>
         </div>
 
         <details className="mx-4 mt-4 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-strong)] sm:mx-5">
@@ -954,12 +928,12 @@ export default function ButtonsCssGeneratorClient() {
       footer={<span>Live output · .{safeClassName(config.className)} · {config.contentMode} · Ctrl/⌘ Z undo · Shift+Ctrl/⌘ Z redo</span>}
     >
       <StudioSection title="Quick style" description="The fastest path to a production-ready button." defaultOpen>
-        <Field label="Style" density="compact"><SegmentedControl fullWidth ariaLabel="Button style" value={config.style} onChange={(style) => patch({ style, borderEnabled: style === "outline" ? true : config.borderEnabled })} options={styles} /></Field>
+        <Field label="Style" density="compact"><SegmentedControl layout="grid" columns={4} fullWidth ariaLabel="Button style" value={config.style} onChange={(style) => patch({ style, borderEnabled: style === "outline" ? true : config.borderEnabled })} options={styles} /></Field>
         <Field label="Shape" density="compact"><SegmentedControl fullWidth ariaLabel="Button shape" value={config.shape} onChange={(shape) => patch({ shape })} options={shapes} /></Field>
-        <Field label="Size" density="compact"><SegmentedControl fullWidth ariaLabel="Button size" value={sizePreset} onChange={applySize} options={[{ value: "s", label: "S" }, { value: "m", label: "M" }, { value: "l", label: "L" }, { value: "xl", label: "XL" }, { value: "custom", label: "Custom" }]} /></Field>
+        <Field label="Size" density="compact"><SegmentedControl layout="grid" columns={3} fullWidth ariaLabel="Button size" value={sizePreset} onChange={applySize} options={[{ value: "s", label: "S" }, { value: "m", label: "M" }, { value: "l", label: "L" }, { value: "xl", label: "XL" }, { value: "custom", label: "Custom" }]} /></Field>
       </StudioSection>
 
-      <StudioSection title="Content" description="Label, icon treatment, and loading state." defaultOpen>
+      <StudioSection title="Content" description="Label, icon treatment, and loading state.">
         <Field label={config.contentMode === "icon-only" ? "Accessible label" : "Button label"} density="compact"><Input size="sm" maxLength={48} value={config.text} onChange={(event) => patch({ text: event.target.value })} placeholder={config.contentMode === "icon-only" ? "Describe the icon action" : "Button label"} /></Field>
         <Field label="Content" density="compact"><SegmentedControl fullWidth ariaLabel="Button content" value={config.contentMode} onChange={(contentMode) => patch({ contentMode })} options={[{ value: "text", label: "Text" }, { value: "text-icon", label: "Text + icon" }, { value: "icon-only", label: "Icon only" }]} /></Field>
         {config.contentMode !== "text" ? (
@@ -978,7 +952,7 @@ export default function ButtonsCssGeneratorClient() {
         <CheckboxRow label="Loading / busy state" checked={config.loading} onChange={(loading) => patch({ loading, hoverEffect: loading ? "none" : config.hoverEffect })} />
       </StudioSection>
 
-      <StudioSection title="Appearance" description="Colors and gradient direction." defaultOpen>
+      <StudioSection title="Appearance" description="Colors and gradient direction.">
         <ControlGrid columns={2}>
           <ColorField label={config.style === "outline" ? "Fill color" : "Background"} value={config.background} onChange={(background) => patch({ background, shadowColor: shadowPreset === "glow" ? background : config.shadowColor })} />
           {config.style === "gradient" ? <ColorField label="Second color" value={config.background2} onChange={(background2) => patch({ background2 })} /> : null}
@@ -989,7 +963,7 @@ export default function ButtonsCssGeneratorClient() {
       </StudioSection>
 
       <StudioSection title="Border" description="Enable only when the design needs a visible edge.">
-        <CheckboxRow label="Visible border" checked={config.borderEnabled || config.style === "outline"} onChange={(borderEnabled) => patch({ borderEnabled })} />
+        <CheckboxRow label={config.style === "outline" ? "Visible border · required for outline" : "Visible border"} checked={config.borderEnabled || config.style === "outline"} disabled={config.style === "outline"} onChange={(borderEnabled) => patch({ borderEnabled })} />
         {config.borderEnabled || config.style === "outline" ? (
           <>
             <ControlGrid columns={2}>
@@ -1002,7 +976,7 @@ export default function ButtonsCssGeneratorClient() {
       </StudioSection>
 
       <StudioSection title="Shadow" description="Use presets first, then tune the CSS shadow precisely.">
-        <Field label="Shadow preset" density="compact"><SegmentedControl fullWidth ariaLabel="Shadow preset" value={shadowPreset} onChange={applyShadow} options={[{ value: "none", label: "None" }, { value: "soft", label: "Soft" }, { value: "medium", label: "Medium" }, { value: "floating", label: "Float" }, { value: "glow", label: "Glow" }, { value: "custom", label: "Custom" }]} /></Field>
+        <Field label="Shadow preset" density="compact"><SegmentedControl layout="grid" columns={3} fullWidth ariaLabel="Shadow preset" value={shadowPreset} onChange={applyShadow} options={[{ value: "none", label: "None" }, { value: "soft", label: "Soft" }, { value: "medium", label: "Medium" }, { value: "floating", label: "Float" }, { value: "glow", label: "Glow" }, { value: "custom", label: "Custom" }]} /></Field>
         {config.shadowEnabled ? (
           <>
             <ControlGrid columns={2}>
@@ -1032,7 +1006,7 @@ export default function ButtonsCssGeneratorClient() {
         <ControlGrid columns={2}><CheckboxRow label="Full width" checked={config.fullWidth} onChange={(fullWidth) => patch({ fullWidth, mobileFullWidth: fullWidth ? false : config.mobileFullWidth })} /><CheckboxRow label="Full width on mobile" checked={config.mobileFullWidth} onChange={(mobileFullWidth) => patch({ mobileFullWidth, fullWidth: mobileFullWidth ? false : config.fullWidth })} /><CheckboxRow label="Uppercase" checked={config.uppercase} onChange={(uppercase) => patch({ uppercase })} /></ControlGrid>
       </StudioSection>
 
-      <StudioSection title="States & motion" description="Design hover, press, focus, and motion without changing the default state." defaultOpen>
+      <StudioSection title="States & motion" description="Design hover, press, focus, and motion without changing the default state.">
         <Field label="Hover preset" density="compact"><Select size="sm" value={config.hoverEffect} disabled={config.customizeHoverState} onChange={(event) => patch({ hoverEffect: event.target.value as ButtonHoverEffect })}>{hoverOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</Select></Field>
         <ControlGrid columns={2}>
           <SliderNumberField label="Duration" value={config.motionDuration} min={80} max={700} step={10} unit="ms" onChange={(motionDuration) => patch({ motionDuration })} />
@@ -1084,17 +1058,18 @@ export default function ButtonsCssGeneratorClient() {
 
   return (
     <div className="space-y-6">
-      <ButtonExamplesGallery selectedPresetId={selectedPresetId} onSelect={applyPreset} />
-
       <div id="button-studio" className="scroll-mt-24">
         <ToolLayoutVisualGenerator
           previewSlot={previewSlot}
           controlsSlot={controlsSlot}
-          actionsPlacement="under-preview"
+          stickyPreview
+          stickyControls={false}
+          controlsWidth="wide"
+          actionsPlacement="after-grid"
           actionsSlot={
             <div className="flex w-full flex-wrap items-center justify-between gap-2">
               <div className="flex flex-wrap gap-2"><Button variant="secondary" onClick={reset} leftIcon={<RotateCcw className="h-4 w-4" />}>Reset</Button><Button variant="secondary" onClick={undo} disabled={!undoStack.length} leftIcon={<Undo2 className="h-4 w-4" />}>Undo</Button><Button variant="secondary" onClick={redo} disabled={!redoStack.length} leftIcon={<Redo2 className="h-4 w-4" />}>Redo</Button><Button variant="secondary" onClick={inspireMe} leftIcon={<Sparkles className="h-4 w-4" />}>Inspire me</Button></div>
-              <div className="flex flex-wrap items-center justify-end gap-2">{shareStatus ? <span role="status" aria-live="polite" className="max-w-56 text-right text-xs leading-4 text-[var(--color-text-tertiary)]">{shareStatus}</span> : null}<Button variant="secondary" onClick={copyShareLink} leftIcon={<Link2 className="h-4 w-4" />}>Share</Button><CopyButton text={css}>Copy CSS</CopyButton></div>
+              <div className="flex flex-wrap items-center justify-end gap-2">{shareStatus ? <span role="status" aria-live="polite" className="max-w-56 text-right text-xs leading-4 text-[var(--color-text-tertiary)]">{shareStatus}</span> : null}<Button variant="secondary" onClick={copyShareLink} leftIcon={<Link2 className="h-4 w-4" />}>Share</Button></div>
             </div>
           }
           codeSlot={
@@ -1102,16 +1077,17 @@ export default function ButtonsCssGeneratorClient() {
               <WarningPanel title="Production checks" messages={warnings} />
               <CodeOutputPanel
                 title="Generated button code"
-                description="The forced preview state never changes your export. CSS is the source of truth for every state and effect; HTML/JSX pair with it, while React-style and Tailwind tabs are starter representations for the supported subset."
+                description="Preview-only states never alter the export. Copy or download the active format below; CSS remains the complete source for states and effects."
                 tabs={tabs}
                 defaultTab="css"
                 onDownload={(tab) => downloadText(tab.filename ?? `button-${tab.id}.txt`, tab.code)}
-                actions={<Button variant="secondary" size="sm" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => downloadText("button.css", css)}>Download CSS</Button>}
               />
             </div>
           }
         />
       </div>
+
+      <ButtonExamplesGallery selectedPresetId={selectedPresetId} onSelect={applyPreset} />
     </div>
   );
 }

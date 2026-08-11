@@ -9,6 +9,7 @@ import {
   listVoices,
   PiperError,
   type PiperControls,
+  type PiperGenerationProgress,
   type PiperProgress,
   type PiperStage,
   type PiperVoice,
@@ -17,7 +18,6 @@ import {
   synthesize,
 } from "./piper/piperClient";
 
-const MAX_TEXT_LENGTH = 5_000;
 const STARTER_VOICE_IDS = ["en_US-kathleen-low", "en_US-joe-medium"] as const;
 const PIPER_VOICE_REPO_BASE = "https://huggingface.co/diffusionstudio/piper-voices/blob/main";
 const PIPER_SAMPLE_REPO_BASE = "https://huggingface.co/rhasspy/piper-voices/resolve/main";
@@ -35,6 +35,18 @@ type PreviewState = {
   loadingVoiceId: string | null;
   playingVoiceId: string | null;
   unavailableVoiceIds: Set<string>;
+};
+
+type GenerationHistoryItem = {
+  id: string;
+  audioUrl: string;
+  downloadName: string;
+  text: string;
+  voiceId: string;
+  voiceName: string;
+  createdAt: number;
+  bytes: number;
+  controls: PiperControls;
 };
 
 function safeFilePart(value: string) {
@@ -156,6 +168,28 @@ function controlsAreDefault(controls: PiperControls) {
   );
 }
 
+function paceLabel(rate: number) {
+  if (rate <= 0.85) return "Slower";
+  if (rate < 0.97) return "Slightly slower";
+  if (rate <= 1.05) return "Natural";
+  if (rate < 1.25) return "Faster";
+  return "Much faster";
+}
+
+function historyId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") return crypto.randomUUID();
+  return `tts-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function historyTextPreview(value: string) {
+  const normalized = value.replace(/\s+/g, " ").trim();
+  return normalized.length > 110 ? `${normalized.slice(0, 107)}…` : normalized;
+}
+
+function historyTime(timestamp: number) {
+  return new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(timestamp);
+}
+
 export default function TextToSpeechClient() {
   const [support, setSupport] = useState<{ supported: boolean; reason?: string } | null>(null);
   const [voices, setVoices] = useState<PiperVoice[]>([]);
@@ -167,6 +201,7 @@ export default function TextToSpeechClient() {
   const [operationVoiceId, setOperationVoiceId] = useState<string | null>(null);
   const [stage, setStage] = useState<PiperStage | null>(null);
   const [progress, setProgress] = useState<PiperProgress | null>(null);
+  const [generationProgress, setGenerationProgress] = useState<PiperGenerationProgress | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -178,6 +213,8 @@ export default function TextToSpeechClient() {
   const [downloadedOnly, setDownloadedOnly] = useState(false);
   const [controls, setControls] = useState<PiperControls>(DEFAULT_CONTROLS);
   const [lastGenerationControls, setLastGenerationControls] = useState<PiperControls | null>(null);
+  const [history, setHistory] = useState<GenerationHistoryItem[]>([]);
+  const [currentHistoryId, setCurrentHistoryId] = useState<string | null>(null);
   const [previewState, setPreviewState] = useState<PreviewState>({
     loadingVoiceId: null,
     playingVoiceId: null,
@@ -186,11 +223,10 @@ export default function TextToSpeechClient() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const previewAudioRef = useRef<HTMLAudioElement | null>(null);
-  const audioUrlRef = useRef<string | null>(null);
+  const historyRef = useRef<GenerationHistoryItem[]>([]);
   const mountedRef = useRef(true);
 
   const trimmedLength = text.trim().length;
-  const charactersRemaining = MAX_TEXT_LENGTH - text.length;
   const busy = operation !== "idle";
   const hasDownloadedVoices = storedVoiceIds.size > 0;
 
@@ -261,12 +297,19 @@ export default function TextToSpeechClient() {
     return Math.max(0, Math.min(100, Math.round((progress.loaded / progress.total) * 100)));
   }, [progress]);
 
-  const revokeAudioUrl = useCallback(() => {
-    if (audioUrlRef.current) {
-      URL.revokeObjectURL(audioUrlRef.current);
-      audioUrlRef.current = null;
-    }
+  const clearHistoryUrls = useCallback(() => {
+    for (const item of historyRef.current) URL.revokeObjectURL(item.audioUrl);
+    historyRef.current = [];
   }, []);
+
+  const clearSessionHistory = useCallback(() => {
+    clearHistoryUrls();
+    setHistory([]);
+    setCurrentHistoryId(null);
+    setAudioUrl(null);
+    setDownloadName("darma-tts.wav");
+    setLastGenerationControls(null);
+  }, [clearHistoryUrls]);
 
   const stopVoicePreview = useCallback(() => {
     const preview = previewAudioRef.current;
@@ -507,8 +550,7 @@ export default function TextToSpeechClient() {
     !busy &&
     Boolean(selectedVoiceId) &&
     selectedStored &&
-    trimmedLength > 0 &&
-    text.length <= MAX_TEXT_LENGTH;
+    trimmedLength > 0;
 
   const generate = useCallback(async () => {
     if (!canGenerate || !selectedVoice) return;
@@ -518,15 +560,20 @@ export default function TextToSpeechClient() {
     setOperationVoiceId(selectedVoice.key);
     setStage("loading");
     setProgress(null);
+    setGenerationProgress(null);
     resetMessages();
 
     const controlsSnapshot = { ...controls };
+    const textSnapshot = text;
 
     try {
-      const blob = await synthesize(selectedVoice.key, text, {
+      const blob = await synthesize(selectedVoice.key, textSnapshot, {
         controls: controlsSnapshot,
         onStage: (nextStage) => {
           if (mountedRef.current) setStage(nextStage);
+        },
+        onGenerationProgress: (nextProgress) => {
+          if (mountedRef.current) setGenerationProgress(nextProgress);
         },
       });
       if (!blob.size) throw new Error("The local speech engine returned an empty audio file.");
@@ -537,17 +584,38 @@ export default function TextToSpeechClient() {
         return;
       }
 
-      revokeAudioUrl();
-      audioUrlRef.current = nextUrl;
+      const nextDownloadName = makeDownloadName(selectedVoice.key);
+      const item: GenerationHistoryItem = {
+        id: historyId(),
+        audioUrl: nextUrl,
+        downloadName: nextDownloadName,
+        text: textSnapshot,
+        voiceId: selectedVoice.key,
+        voiceName: voiceDisplayName(selectedVoice),
+        createdAt: Date.now(),
+        bytes: blob.size,
+        controls: controlsSnapshot,
+      };
+
+      historyRef.current = [item, ...historyRef.current];
+      setHistory(historyRef.current);
+      setCurrentHistoryId(item.id);
       setAudioUrl(nextUrl);
-      setDownloadName(makeDownloadName(selectedVoice.key));
+      setDownloadName(nextDownloadName);
       setLastGenerationControls(controlsSnapshot);
-      setSuccess("Speech generated locally. Your tuned WAV file is ready.");
+      setSuccess("Speech generated locally. Your WAV is ready and saved in this session history.");
       window.setTimeout(() => void audioRef.current?.play().catch(() => undefined), 0);
     } catch (caught) {
       if (!mountedRef.current) return;
       if (caught instanceof PiperError && caught.code === "CANCELLED") {
         setSuccess("Speech generation cancelled.");
+      } else if (caught instanceof PiperError && caught.code === "VOICE_NOT_DOWNLOADED") {
+        const stored = await storedVoices().catch(() => []);
+        if (!mountedRef.current) return;
+        setStoredVoiceIds(new Set(stored));
+        setError(
+          `${voiceDisplayName(selectedVoice)} is no longer available in this browser storage. Download the voice again to continue.`,
+        );
       } else {
         setError(messageFromError(caught, "Speech generation failed."));
       }
@@ -556,9 +624,37 @@ export default function TextToSpeechClient() {
         setOperation("idle");
         setOperationVoiceId(null);
         setStage(null);
+        setGenerationProgress(null);
       }
     }
-  }, [canGenerate, controls, resetMessages, revokeAudioUrl, selectedVoice, stopVoicePreview, text]);
+  }, [canGenerate, controls, resetMessages, selectedVoice, stopVoicePreview, text]);
+
+  const removeHistoryItem = useCallback((id: string) => {
+    const item = historyRef.current.find((candidate) => candidate.id === id);
+    if (!item) return;
+
+    URL.revokeObjectURL(item.audioUrl);
+    const next = historyRef.current.filter((candidate) => candidate.id !== id);
+    historyRef.current = next;
+    setHistory(next);
+
+    if (currentHistoryId === id) {
+      const replacement = next[0] ?? null;
+      setCurrentHistoryId(replacement?.id ?? null);
+      setAudioUrl(replacement?.audioUrl ?? null);
+      setDownloadName(replacement?.downloadName ?? "darma-tts.wav");
+      setLastGenerationControls(replacement?.controls ?? null);
+    }
+  }, [currentHistoryId]);
+
+  const reuseHistoryItem = useCallback((item: GenerationHistoryItem) => {
+    if (busy) return;
+    setText(item.text);
+    setSelectedVoiceId(item.voiceId);
+    setControls(item.controls);
+    resetMessages();
+    setSuccess(`Restored ${item.voiceName} text and voice settings from this session.`);
+  }, [busy, resetMessages]);
 
   const cancelGeneration = useCallback(() => {
     if (operation !== "generating") return;
@@ -578,9 +674,9 @@ export default function TextToSpeechClient() {
       mountedRef.current = false;
       stopVoicePreview();
       disposePiper("TTS Studio closed.");
-      revokeAudioUrl();
+      clearHistoryUrls();
     };
-  }, [refreshLibrary, revokeAudioUrl, stopVoicePreview]);
+  }, [clearHistoryUrls, refreshLibrary, stopVoicePreview]);
 
   const selectedSize = formatBytes(voiceBytes(selectedVoice));
   const downloadVoiceName = operationVoice ? voiceDisplayName(operationVoice) : "voice";
@@ -657,12 +753,29 @@ export default function TextToSpeechClient() {
   return (
     <div className="tts-studio">
       <div className="tts-studio__status-strip" aria-label="TTS Studio capabilities">
-        <span>Piper neural voices</span>
-        <span>Runs locally in your browser</span>
-        <span>Voice controls</span>
+        <span>100% free</span>
+        <span>No sign up</span>
+        <span>No Darma text quota</span>
+        <span>Private on-device TTS</span>
+        <span>Open source</span>
         <span>WAV export</span>
-        <span>No account or paid TTS API</span>
       </div>
+
+      <section className="tts-free-promise" aria-labelledby="tts-free-promise-title">
+        <div>
+          <p className="tts-eyebrow">Free text to speech</p>
+          <h2 id="tts-free-promise-title">No account. No credits. No Darma character limit.</h2>
+          <p>
+            Generate as much speech as your browser and device can handle. Darma does not impose a word,
+            character, daily-generation, credit, or subscription quota, and your text stays on your device.
+          </p>
+        </div>
+        <ul aria-label="Free TTS benefits">
+          <li><strong>Free</strong><span>No subscription</span></li>
+          <li><strong>Private</strong><span>No Darma text upload</span></li>
+          <li><strong>Open</strong><span>Any available voice</span></li>
+        </ul>
+      </section>
 
       {support && !support.supported ? (
         <div className="tts-alert tts-alert--error" role="alert">
@@ -768,7 +881,7 @@ export default function TextToSpeechClient() {
                   <div className="tts-catalog__header">
                     <div>
                       <strong>Voice browser</strong>
-                      <span>{filteredVoices.length} matching voices</span>
+                      <span>{filteredVoices.length} matching {filteredVoices.length === 1 ? "voice" : "voices"}</span>
                     </div>
                     <span className="tts-help">Preview before downloading when a sample is available.</span>
                   </div>
@@ -959,8 +1072,8 @@ export default function TextToSpeechClient() {
               <div className="tts-controls__grid">
                 <label className="tts-control">
                   <span className="tts-control__title">
-                    <strong>Speaking speed</strong>
-                    <output>{controls.rate.toFixed(2)}×</output>
+                    <strong>Speech pace</strong>
+                    <output>{paceLabel(controls.rate)}</output>
                   </span>
                   <input
                     type="range"
@@ -972,9 +1085,10 @@ export default function TextToSpeechClient() {
                       setControls((current) => ({ ...current, rate: Number(event.target.value) }))
                     }
                     disabled={operation === "generating"}
-                    aria-label="Speaking speed"
+                    aria-label="Speech pace"
                   />
-                  <span className="tts-control__scale"><span>Slower</span><span>Normal</span><span>Faster</span></span>
+                  <span className="tts-control__scale"><span>Slower</span><span>Natural</span><span>Faster</span></span>
+                  <small className="tts-control__hint">Approximate pace — each voice model responds a little differently.</small>
                 </label>
 
                 <label className="tts-control">
@@ -1047,14 +1161,13 @@ export default function TextToSpeechClient() {
             <div className="tts-field">
               <div className="tts-field__label-row">
                 <label htmlFor="tts-text">Text</label>
-                <span className={charactersRemaining < 0 ? "tts-count tts-count--error" : "tts-count"}>
-                  {text.length.toLocaleString()} / {MAX_TEXT_LENGTH.toLocaleString()}
+                <span className="tts-count">
+                  {text.length.toLocaleString()} characters · no Darma limit
                 </span>
               </div>
               <textarea
                 id="tts-text"
                 value={text}
-                maxLength={MAX_TEXT_LENGTH + 500}
                 onChange={(event: { target: { value: string } }) => setText(event.target.value)}
                 onKeyDown={(event: {
                   ctrlKey: boolean;
@@ -1069,20 +1182,12 @@ export default function TextToSpeechClient() {
                 }}
                 placeholder="Paste narration, lesson text, accessibility copy, or any passage you want to hear."
                 aria-describedby="tts-text-help"
-                aria-invalid={charactersRemaining < 0 || undefined}
                 disabled={operation === "generating"}
               />
-              <p
-                id="tts-text-help"
-                className={charactersRemaining < 0 ? "tts-help tts-help--error" : "tts-help"}
-              >
-                {charactersRemaining < 0
-                  ? `Remove ${Math.abs(charactersRemaining).toLocaleString()} ${
-                      Math.abs(charactersRemaining) === 1 ? "character" : "characters"
-                    } — the limit is ${MAX_TEXT_LENGTH.toLocaleString()}.`
-                  : selectedStored
-                    ? "Press Ctrl/⌘ + Enter to generate. Longer text takes more time to synthesize."
-                    : "Choose and download a voice first. The model is stored locally for future generations."}
+              <p id="tts-text-help" className="tts-help">
+                {selectedStored
+                  ? "No Darma word or character quota. Long text is processed in local chunks; generation time depends on your device. Press Ctrl/⌘ + Enter to generate."
+                  : "Choose and download a voice first. The model is stored locally for future generations."}
               </p>
             </div>
 
@@ -1139,8 +1244,14 @@ export default function TextToSpeechClient() {
                 </div>
                 <p className="tts-eyebrow">On-device processing</p>
                 <h3>{stageLabel(stage, operation)}</h3>
+                {generationProgress && generationProgress.total > 1 ? (
+                  <div className="tts-chunk-progress">
+                    <span>Part {generationProgress.current} of {generationProgress.total}</span>
+                    <progress value={generationProgress.current} max={generationProgress.total} />
+                  </div>
+                ) : null}
                 <p>
-                  Piper is generating this audio inside your browser. Your text is not being sent to a Darma TTS server.
+                  Piper is generating this audio inside your browser. Long text is split into local chunks and merged into one WAV; your text is not sent to a Darma TTS server.
                 </p>
                 <ol className="tts-processing__steps">
                   <li data-state={generationStepState("loading", stage)}>
@@ -1149,7 +1260,7 @@ export default function TextToSpeechClient() {
                   </li>
                   <li data-state={generationStepState("generating", stage)}>
                     <span aria-hidden="true" />
-                    <div><strong>Synthesize speech</strong><small>Apply speaking speed and voice variation locally.</small></div>
+                    <div><strong>Synthesize speech</strong><small>{generationProgress && generationProgress.total > 1 ? `Processing part ${generationProgress.current} of ${generationProgress.total}.` : "Apply speech pace and voice variation locally."}</small></div>
                   </li>
                   <li data-state={generationStepState("finalizing", stage)}>
                     <span aria-hidden="true" />
@@ -1169,7 +1280,7 @@ export default function TextToSpeechClient() {
                 <audio ref={audioRef} controls src={audioUrl} className="tts-audio" />
                 {lastGenerationControls ? (
                   <div className="tts-output__settings" aria-label="Generated voice settings">
-                    <span>Speed {lastGenerationControls.rate.toFixed(2)}×</span>
+                    <span>Pace {paceLabel(lastGenerationControls.rate)}</span>
                     <span>Volume {controlPercent(lastGenerationControls.volume)}</span>
                     <span>Variation {lastGenerationControls.expressiveness.toFixed(2)}×</span>
                     <span>{lastGenerationControls.normalize ? "Normalized" : "Original loudness"}</span>
@@ -1197,15 +1308,52 @@ export default function TextToSpeechClient() {
                 </p>
               </div>
             )}
+
+            {history.length > 0 ? (
+              <section className="tts-history" aria-labelledby="tts-history-title">
+                <div className="tts-history__header">
+                  <div>
+                    <p className="tts-eyebrow">This session</p>
+                    <h3 id="tts-history-title">Generation history · {history.length}</h3>
+                    <p>Kept only in this page session. Reloading or closing the tab clears it; nothing is uploaded or saved to a Darma account.</p>
+                  </div>
+                  <button className="tts-button tts-button--quiet tts-button--compact" type="button" onClick={clearSessionHistory}>
+                    Clear session
+                  </button>
+                </div>
+                <div className="tts-history__list">
+                  {history.map((item) => (
+                    <article className={`tts-history__item${item.id === currentHistoryId ? " is-current" : ""}`} key={item.id}>
+                      <div className="tts-history__meta">
+                        <strong>{item.voiceName}</strong>
+                        <span>{historyTime(item.createdAt)} · {formatBytes(item.bytes)}</span>
+                      </div>
+                      <p title={item.text}>{historyTextPreview(item.text)}</p>
+                      <audio controls preload="metadata" src={item.audioUrl} className="tts-audio tts-audio--history" />
+                      <div className="tts-history__settings">
+                        <span>{paceLabel(item.controls.rate)}</span>
+                        <span>{controlPercent(item.controls.volume)} volume</span>
+                        <span>{item.controls.normalize ? "Normalized" : "Original loudness"}</span>
+                      </div>
+                      <div className="tts-history__actions">
+                        <a className="tts-button tts-button--primary tts-button--mini" href={item.audioUrl} download={item.downloadName}>Download</a>
+                        <button className="tts-button tts-button--quiet tts-button--mini" type="button" onClick={() => reuseHistoryItem(item)} disabled={busy}>Use text again</button>
+                        <button className="tts-button tts-button--quiet tts-button--mini" type="button" onClick={() => removeHistoryItem(item.id)} disabled={busy}>Delete</button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ) : null}
           </div>
         </section>
       </div>
 
       <div className="tts-note">
-        <strong>Privacy:</strong> speech synthesis and voice tuning run locally in a Web Worker. Your text and
+        <strong>Free & private:</strong> Darma has no sign-up, subscription, credit, daily-generation, word, or
+        character quota for this tool. Speech synthesis and voice tuning run locally in a Web Worker; your text and
         generated WAV are not uploaded to a Darma TTS service. Piper runtime/model files and optional sample
-        previews are fetched from public asset hosts when needed; downloaded voices are cached in this site&apos;s
-        browser storage for reuse.
+        previews are fetched from public asset hosts when needed, while downloaded voices are cached locally for reuse.
       </div>
     </div>
   );

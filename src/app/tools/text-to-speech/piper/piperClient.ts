@@ -8,9 +8,9 @@
  * never blocks the React thread.
  */
 
-import type { PiperControls, PiperStage } from "./piperWorker";
+import type { PiperControls, PiperGenerationProgress, PiperStage } from "./piperWorker";
 
-export type { PiperControls, PiperStage } from "./piperWorker";
+export type { PiperControls, PiperGenerationProgress, PiperStage } from "./piperWorker";
 
 export type PiperVoice = {
   key: string;
@@ -49,11 +49,13 @@ type Handlers = {
   reject: (error: unknown) => void;
   onProgress?: (progress: PiperProgress) => void;
   onStage?: (stage: PiperStage) => void;
+  onGenerationProgress?: (progress: PiperGenerationProgress) => void;
 };
 
 type RequestOptions = {
   onProgress?: (progress: PiperProgress) => void;
   onStage?: (stage: PiperStage) => void;
+  onGenerationProgress?: (progress: PiperGenerationProgress) => void;
 };
 
 export type SynthesizeOptions = RequestOptions & {
@@ -120,6 +122,7 @@ function getWorker(): Worker {
       loaded?: number;
       total?: number;
       stage?: PiperStage;
+      current?: number;
     };
 
     const handlers = pending.get(data.id);
@@ -131,6 +134,9 @@ function getWorker(): Worker {
         return;
       case "stage":
         if (data.stage) handlers.onStage?.(data.stage);
+        return;
+      case "generation-progress":
+        handlers.onGenerationProgress?.({ current: data.current ?? 1, total: data.total ?? 1 });
         return;
       case "result":
         pending.delete(data.id);
@@ -179,6 +185,7 @@ function call<T>(message: Record<string, unknown>, options: RequestOptions = {})
       reject,
       onProgress: options.onProgress,
       onStage: options.onStage,
+      onGenerationProgress: options.onGenerationProgress,
     });
 
     try {

@@ -10,6 +10,11 @@ import * as tts from "@mintplex-labs/piper-tts-web";
 
 export type PiperStage = "downloading" | "saving" | "loading" | "generating" | "finalizing";
 
+export type PiperGenerationProgress = {
+  current: number;
+  total: number;
+};
+
 export type PiperControls = {
   /** Speaking-rate multiplier. 1 = model default, >1 = faster, <1 = slower. */
   rate: number;
@@ -39,7 +44,8 @@ type Outgoing =
   | { id: number; type: "audio"; buffer: ArrayBuffer }
   | { id: number; type: "error"; message: string; code: string; detail?: string }
   | { id: number; type: "progress"; loaded: number; total: number }
-  | { id: number; type: "stage"; stage: PiperStage };
+  | { id: number; type: "stage"; stage: PiperStage }
+  | { id: number; type: "generation-progress"; current: number; total: number };
 
 const DEFAULT_CONTROLS: PiperControls = {
   rate: 1,
@@ -234,16 +240,13 @@ let ortControlPatchPromise: Promise<void> | null = null;
 async function ensureOrtControlPatch() {
   ortControlPatchPromise ??= (async () => {
     const ort = await import("onnxruntime-web");
-    // onnxruntime-web types `InferenceSession` as a factory value, so `prototype`
-    // is not on the public type even though the runtime export is a class.
-    const sessionClass = ort.InferenceSession as unknown as {
+    const inferenceSessionFactory = ort.InferenceSession as unknown as {
       prototype?: {
         run: (feeds: Record<string, unknown>, ...rest: unknown[]) => Promise<unknown>;
         __darmaPiperControls?: boolean;
       };
     };
-    const prototype = sessionClass.prototype;
-
+    const prototype = inferenceSessionFactory.prototype;
     if (!prototype) {
       throw new WorkerFault("ONNX Runtime does not expose InferenceSession.run.", "VOICE_CONTROLS");
     }
@@ -374,6 +377,188 @@ async function applyWavOutputControls(wav: Blob, controls: PiperControls) {
   return new Blob([buffer], { type: "audio/wav" });
 }
 
+
+const SYNTHESIS_CHUNK_TARGET = 700;
+
+function splitOversizedText(value: string, maxChars: number) {
+  const pieces: string[] = [];
+  let remaining = value.trim();
+
+  while (remaining.length > maxChars) {
+    const window = remaining.slice(0, maxChars + 1);
+    const preferredBreak = Math.max(
+      window.lastIndexOf(" "),
+      window.lastIndexOf("\n"),
+      window.lastIndexOf(","),
+      window.lastIndexOf(";"),
+      window.lastIndexOf(":"),
+    );
+    const cut = preferredBreak >= Math.floor(maxChars * 0.55) ? preferredBreak + 1 : maxChars;
+    pieces.push(remaining.slice(0, cut).trim());
+    remaining = remaining.slice(cut).trim();
+  }
+
+  if (remaining) pieces.push(remaining);
+  return pieces;
+}
+
+/**
+ * Piper models are much more reliable with sentence-sized inputs. Darma does
+ * not impose a product character quota; long text is broken into natural local
+ * chunks and synthesized sequentially inside the same worker/session.
+ */
+function splitTextForSynthesis(text: string, maxChars = SYNTHESIS_CHUNK_TARGET) {
+  const normalized = text.replace(/\r\n?/g, "\n").trim();
+  if (!normalized) return [];
+
+  const chunks: string[] = [];
+  const paragraphs = normalized.split(/\n{2,}/u).map((value) => value.trim()).filter(Boolean);
+
+  for (const paragraph of paragraphs) {
+    const sentenceLike =
+      paragraph.match(/[^.!?…。！？]+[.!?…。！？]+(?:["'”’\])}]+)?|[^.!?…。！？]+$/gu) ?? [paragraph];
+    let current = "";
+
+    const flush = () => {
+      const value = current.trim();
+      if (value) chunks.push(value);
+      current = "";
+    };
+
+    for (const sentence of sentenceLike) {
+      const clean = sentence.trim();
+      if (!clean) continue;
+
+      if (clean.length > maxChars) {
+        flush();
+        chunks.push(...splitOversizedText(clean, maxChars));
+        continue;
+      }
+
+      const candidate = current ? `${current} ${clean}` : clean;
+      if (candidate.length > maxChars) {
+        flush();
+        current = clean;
+      } else {
+        current = candidate;
+      }
+    }
+
+    flush();
+  }
+
+  return chunks;
+}
+
+type PcmWav = {
+  audioFormat: number;
+  channels: number;
+  sampleRate: number;
+  bitsPerSample: number;
+  data: Uint8Array;
+};
+
+async function parsePcmWav(wav: Blob): Promise<PcmWav> {
+  const buffer = await wav.arrayBuffer();
+  const view = new DataView(buffer);
+  if (buffer.byteLength < 44 || readAscii(view, 0, 4) !== "RIFF" || readAscii(view, 8, 4) !== "WAVE") {
+    throw new WorkerFault("Piper returned an unsupported WAV layout.", "WAV_MERGE");
+  }
+
+  let offset = 12;
+  let audioFormat = 0;
+  let channels = 0;
+  let sampleRate = 0;
+  let bitsPerSample = 0;
+  let dataOffset = -1;
+  let dataLength = 0;
+
+  while (offset + 8 <= buffer.byteLength) {
+    const id = readAscii(view, offset, 4);
+    const size = view.getUint32(offset + 4, true);
+    const payloadOffset = offset + 8;
+    if (payloadOffset + size > buffer.byteLength) break;
+
+    if (id === "fmt " && size >= 16) {
+      audioFormat = view.getUint16(payloadOffset, true);
+      channels = view.getUint16(payloadOffset + 2, true);
+      sampleRate = view.getUint32(payloadOffset + 4, true);
+      bitsPerSample = view.getUint16(payloadOffset + 14, true);
+    } else if (id === "data") {
+      dataOffset = payloadOffset;
+      dataLength = size;
+      break;
+    }
+
+    offset = payloadOffset + size + (size % 2);
+  }
+
+  if (audioFormat !== 1 || !channels || !sampleRate || bitsPerSample !== 16 || dataOffset < 0) {
+    throw new WorkerFault("Piper returned an unsupported PCM WAV format.", "WAV_MERGE");
+  }
+
+  return {
+    audioFormat,
+    channels,
+    sampleRate,
+    bitsPerSample,
+    data: new Uint8Array(buffer.slice(dataOffset, dataOffset + dataLength)),
+  };
+}
+
+function writeAscii(view: DataView, offset: number, value: string) {
+  for (let index = 0; index < value.length; index += 1) {
+    view.setUint8(offset + index, value.charCodeAt(index));
+  }
+}
+
+async function mergePcmWavs(wavs: Blob[]) {
+  if (wavs.length === 0) throw new WorkerFault("No audio chunks were generated.", "WAV_MERGE");
+  if (wavs.length === 1) return wavs[0];
+
+  const parts = await Promise.all(wavs.map(parsePcmWav));
+  const first = parts[0];
+  for (const part of parts.slice(1)) {
+    if (
+      part.audioFormat !== first.audioFormat ||
+      part.channels !== first.channels ||
+      part.sampleRate !== first.sampleRate ||
+      part.bitsPerSample !== first.bitsPerSample
+    ) {
+      throw new WorkerFault("Generated speech chunks use incompatible WAV formats.", "WAV_MERGE");
+    }
+  }
+
+  const dataLength = parts.reduce((total, part) => total + part.data.byteLength, 0);
+  const blockAlign = first.channels * (first.bitsPerSample / 8);
+  const byteRate = first.sampleRate * blockAlign;
+  const output = new ArrayBuffer(44 + dataLength);
+  const view = new DataView(output);
+
+  writeAscii(view, 0, "RIFF");
+  view.setUint32(4, 36 + dataLength, true);
+  writeAscii(view, 8, "WAVE");
+  writeAscii(view, 12, "fmt ");
+  view.setUint32(16, 16, true);
+  view.setUint16(20, first.audioFormat, true);
+  view.setUint16(22, first.channels, true);
+  view.setUint32(24, first.sampleRate, true);
+  view.setUint32(28, byteRate, true);
+  view.setUint16(32, blockAlign, true);
+  view.setUint16(34, first.bitsPerSample, true);
+  writeAscii(view, 36, "data");
+  view.setUint32(40, dataLength, true);
+
+  const bytes = new Uint8Array(output);
+  let cursor = 44;
+  for (const part of parts) {
+    bytes.set(part.data, cursor);
+    cursor += part.data.byteLength;
+  }
+
+  return new Blob([output], { type: "audio/wav" });
+}
+
 async function ensureSession(id: number, voiceId: string) {
   if (activeVoiceId !== voiceId) resetSession();
   post({ id, type: "stage", stage: "loading" });
@@ -426,17 +611,31 @@ async function handle(data: Incoming) {
         if (usesNativeScaleOverrides) await ensureOrtControlPatch();
 
         const session = await ensureSession(data.id, data.voiceId);
+        const chunks = splitTextForSynthesis(data.text);
+        if (chunks.length === 0) {
+          throw new WorkerFault("Enter some text before generating speech.", "EMPTY_TEXT");
+        }
+
         post({ id: data.id, type: "stage", stage: "generating" });
 
         currentInferenceControls = controls;
-        let wav: Blob;
+        const chunkWavs: Blob[] = [];
         try {
-          wav = await session.predict(data.text);
+          for (let index = 0; index < chunks.length; index += 1) {
+            post({
+              id: data.id,
+              type: "generation-progress",
+              current: index + 1,
+              total: chunks.length,
+            });
+            chunkWavs.push(await session.predict(chunks[index]));
+          }
         } finally {
           currentInferenceControls = null;
         }
 
         post({ id: data.id, type: "stage", stage: "finalizing" });
+        let wav = await mergePcmWavs(chunkWavs);
         wav = await applyWavOutputControls(wav, controls);
         const buffer = await wav.arrayBuffer();
 

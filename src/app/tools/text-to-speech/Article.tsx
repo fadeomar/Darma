@@ -1,84 +1,113 @@
+import { TTS_FAQS } from "./content";
+
 export default function Article() {
   return (
     <div className="space-y-5 text-sm leading-7 text-[var(--color-text-secondary)]">
       <p>
-        TTS Studio turns text into downloadable WAV speech with Piper neural voices. Preview a small sample before
-        downloading a model, cache the voice locally, tune speaking speed and loudness, generate speech on-device,
-        then preview and export the final WAV.
+        Darma TTS Studio is a free text-to-speech tool for generating downloadable WAV speech with Piper neural
+        voices directly in your browser. There is no sign-up, subscription, credit system, daily generation quota,
+        or Darma-imposed word or character limit. Preview a voice, download its model once, tune the speech, and
+        keep working without sending your text to a Darma TTS server.
       </p>
 
       <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">How local TTS works</h3>
+        <h3 className="font-black text-[var(--color-text-primary)]">Free text to speech without sign up</h3>
         <p className="mt-2">
-          Darma runs Piper and ONNX speech inference inside a browser Web Worker instead of sending your text to a
-          Darma speech server. The worker keeps the heavier speech work away from the page&apos;s main UI thread while
-          your text and generated audio stay in the browser.
+          Open the page and use it. Darma does not require an account, email address, paid plan, API key, or monthly
+          speech credits. Any voice exposed by the catalog can be selected without a premium voice gate. The only
+          larger first-use cost is downloading the Piper model that actually runs the voice on your device.
         </p>
       </div>
 
       <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">Preview before a large download</h3>
+        <h3 className="font-black text-[var(--color-text-primary)]">No Darma character, word, or daily quota</h3>
         <p className="mt-2">
-          Many Piper voices publish a small sample MP3. TTS Studio can play that public sample before you download
-          the full ONNX voice model, so you can compare voices without spending tens of megabytes on every option.
-          A sample is prerecorded by the voice publisher; your text is never sent to create it. Some voices may not
-          provide a sample, in which case the tool marks preview as unavailable.
+          TTS Studio does not stop you at an artificial 500, 1,000, or 5,000 character allowance. Longer passages
+          are divided into sentence-sized chunks, synthesized sequentially in the local worker, and merged back into
+          one WAV file. Very long text naturally takes more time and memory depending on your browser, device, voice
+          quality, and speech settings, but Darma does not meter the text with credits or a product quota.
         </p>
       </div>
 
       <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">Voice downloads and storage</h3>
+        <h3 className="font-black text-[var(--color-text-primary)]">Private, client-side speech generation</h3>
         <p className="mt-2">
-          Piper voice models are larger files, so TTS Studio asks you to download a voice explicitly before local
-          generation. The exact model size is shown in the voice library. Downloaded voices are verified and cached
-          in this site&apos;s browser storage for reuse on later visits. You can remove them from the tool; clearing site
-          data or browser storage cleanup can also remove cached voices.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">Voice controls</h3>
-        <p className="mt-2">
-          Speaking speed and voice variation are applied to Piper&apos;s local inference controls. Output volume and
-          optional loudness normalization are applied to the generated PCM WAV inside the worker, so the audio you
-          hear and the file you download use the same settings. Quality is still a property of the selected model:
-          lower-quality/smaller models are usually the better choice when local generation speed matters most.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">Privacy and network activity</h3>
-        <p className="mt-2">
-          Your text is synthesized locally and the resulting WAV is created in the browser. Network requests are
-          still required to public asset hosts when Piper runtime files, the voice catalog, a sample preview, or a
-          voice model need to be downloaded, so first use is not an offline operation. Those asset requests do not
+          Piper and ONNX inference run inside a browser Web Worker instead of a Darma speech backend. Your text and
+          generated WAV stay on your device. Public runtime files, the voice catalog, voice models, and optional
+          sample previews are still downloaded from public asset hosts when needed; those asset requests do not
           contain the text you ask Darma to synthesize.
         </p>
       </div>
 
       <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">Voice licenses</h3>
+        <h3 className="font-black text-[var(--color-text-primary)]">Preview voices before downloading a model</h3>
         <p className="mt-2">
-          The two starter voices use CC0 source datasets. Additional Piper voices can use different dataset
-          licenses, so TTS Studio links to the selected voice&apos;s model card before you use an extra voice. Review
-          that license for your intended use.
+          Many Piper voices publish a small prerecorded sample. TTS Studio can play that sample before the larger
+          ONNX model is downloaded, so you can compare voices first. If a publisher does not provide a sample, the
+          tool marks preview as unavailable without blocking the actual voice download.
         </p>
       </div>
 
       <div>
-        <h3 className="font-black text-[var(--color-text-primary)]">Good uses</h3>
+        <h3 className="font-black text-[var(--color-text-primary)]">Speech pace, volume, variation, and normalization</h3>
+        <p className="mt-2">
+          Speech pace and voice variation are applied to Piper&apos;s local inference controls. Output volume and
+          optional loudness normalization are applied to the final PCM WAV, so downloaded audio uses the same
+          settings you preview. Pace is intentionally described as approximate because individual voice models do
+          not all change duration by exactly the same ratio.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-black text-[var(--color-text-primary)]">Session history without an account</h3>
+        <p className="mt-2">
+          Every successful generation is kept in the current tab as a private session-history item. Replay older
+          results, download them again, restore their text and settings, or delete them without regenerating. This
+          history uses browser memory only and disappears when the page reloads, the tab closes, or you clear the session.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-black text-[var(--color-text-primary)]">Voice downloads and licenses</h3>
+        <p className="mt-2">
+          Voice models are cached in this site&apos;s browser storage for reuse. You can remove a downloaded voice at
+          any time, and clearing site data may remove it as well. The two starter voices use CC0 source datasets;
+          additional Piper voices can have different dataset licenses, so TTS Studio links to the selected model
+          card for review.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-black text-[var(--color-text-primary)]">Open-source and inspectable</h3>
+        <p className="mt-2">
+          Darma is an open-source project, so the browser-local TTS implementation can be inspected instead of
+          requiring trust in a hidden speech backend. The tool still downloads public Piper/ONNX assets when needed,
+          but the text-to-speech workflow itself does not depend on a Darma account or paid cloud speech service.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-black text-[var(--color-text-primary)]">Common uses</h3>
         <ul className="mt-2 list-disc space-y-1 pl-5">
-          <li>Create narration drafts for videos, lessons, prototypes, and accessibility checks.</li>
-          <li>Compare voice samples before downloading full local models.</li>
-          <li>Tune speaking speed and loudness without sending text to a paid cloud speech provider.</li>
-          <li>Export a standard WAV file for editing, demos, learning material, or local workflows.</li>
+          <li>Create voice-over drafts for videos, demos, presentations, and prototypes.</li>
+          <li>Turn lessons, study notes, articles, and accessibility copy into speech.</li>
+          <li>Compare neural voices before downloading larger local models.</li>
+          <li>Generate longer narration without a Darma credit or character quota.</li>
+          <li>Export standard WAV files for editing or reuse in other local workflows.</li>
         </ul>
       </div>
 
-      <p>
-        The first generation can take longer while the browser initializes the local speech runtime. After a voice
-        is downloaded, future uses can reuse the locally cached model instead of downloading it again.
-      </p>
+      <div>
+        <h3 className="font-black text-[var(--color-text-primary)]">Free TTS FAQ</h3>
+        <div className="mt-3 space-y-4">
+          {TTS_FAQS.map((item) => (
+            <div key={item.question}>
+              <h4 className="font-black text-[var(--color-text-primary)]">{item.question}</h4>
+              <p className="mt-1">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

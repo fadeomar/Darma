@@ -26,11 +26,11 @@ export default function ButtonsCssGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Generate production-ready CSS buttons with live states, accessibility checks, compact controls, and copy-ready CSS, HTML, React, Tailwind, variables, and token exports.</p>}
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Explore live button examples, customize and inspect states, import existing CSS, test devices and input modes, generate button families and light/dark variants, share configurations, then export production-ready CSS/HTML plus framework starter output, tokens, and variables.</p>}
       article={<ToolContentCard title="About CSS button design"><ButtonCSSGeneratorArticle /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Buttons CSS Generator" description="Design button variants, states, colors, spacing, focus styles, and implementation exports in one clean Darma studio.">
+      <ToolContentCard title="Button Studio" description="Discover polished examples first, then customize, import, inspect, share, validate accessibility, and export production-ready CSS/HTML button systems with framework starter snippets in one visual studio.">
         <ButtonsCssGeneratorClient />
       </ToolContentCard>
     </ToolPage>

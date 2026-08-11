@@ -21,15 +21,15 @@ export default function Page() {
   if (!tool) notFound();
 
   const jsonLd = buildToolJsonLd(tool);
-
   return (
     <ToolPage
       tool={tool}
       maxWidth="full"
       intro={
         <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Turn text into downloadable WAV speech with Piper neural voices. Preview the result in your browser,
-          switch between installed voices, and export narration without a paid TTS API.
+          Generate downloadable WAV speech with Piper neural voices directly in your browser. Download a voice
+          once, synthesize text locally, preview the result, and export audio without a Darma TTS server or paid
+          cloud speech API.
         </p>
       }
       article={

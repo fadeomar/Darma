@@ -369,6 +369,13 @@ export const TOOL_PREVIEWS: Record<string, ToolPreviewConfig> = {
     metric: { label: "Presses in 10s", value: "78", delta: "+6 vs last", tone: "up" },
     legend: ["Per second", "Session best"],
   },
+  "text-to-speech": {
+    family: "chart",
+    kind: "bars",
+    series: [22, 54, 37, 81, 62, 90, 45, 26],
+    metric: { label: "Generated WAV", value: "0:07", delta: "in-browser", tone: "up" },
+    legend: ["Kathleen · low", "22 kHz mono", "Piper voice"],
+  },
 
   /* -------------------------------------------------------------- color */
   "color-converter": {

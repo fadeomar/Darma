@@ -1,14 +1,14 @@
 "use client";
 
 /**
- * Main-thread bridge to {@link ./piperWorker}. Keeps one worker for the page
- * and correlates replies by request id so several calls can be in flight.
+ * Main-thread bridge to the Piper worker.
  *
- * The worker (and the ~1 MB of Piper/ONNX glue it pulls in) is only created on
- * first use, so opening the tool costs nothing until the visitor acts.
+ * Piper voice/storage work is isolated from React in a dedicated worker. The
+ * ONNX session itself is initialized only when synthesis starts, so inference
+ * never blocks the React thread.
  */
 
-import type { SynthesisStage } from "./piperWorker";
+import type { PiperStage } from "./piperWorker";
 
 export type PiperVoice = {
   key: string;
@@ -23,6 +23,7 @@ export type PiperVoice = {
   };
   quality: string;
   num_speakers: number;
+  speaker_id_map?: Record<string, number>;
   files: Record<string, { size_bytes: number; md5_digest: string }>;
   aliases: string[];
 };
@@ -33,7 +34,7 @@ export class PiperError extends Error {
   constructor(
     message: string,
     readonly code: string,
-    /** Raw upstream cause. Diagnostics only — never rendered to the visitor. */
+    /** Raw upstream cause. Diagnostics only — never render this to visitors. */
     readonly detail?: string,
   ) {
     super(message);
@@ -45,14 +46,54 @@ type Handlers = {
   resolve: (value: unknown) => void;
   reject: (error: unknown) => void;
   onProgress?: (progress: PiperProgress) => void;
-  onStage?: (stage: SynthesisStage) => void;
+  onStage?: (stage: PiperStage) => void;
+};
+
+type RequestOptions = {
+  onProgress?: (progress: PiperProgress) => void;
+  onStage?: (stage: PiperStage) => void;
 };
 
 let worker: Worker | null = null;
 let nextId = 1;
 const pending = new Map<number, Handlers>();
 
+function rejectAll(error: PiperError) {
+  for (const [, handlers] of pending) handlers.reject(error);
+  pending.clear();
+}
+
+export function getPiperSupport(): { supported: boolean; reason?: string } {
+  if (typeof window === "undefined") return { supported: false, reason: "browser-only" };
+  if (typeof Worker === "undefined" || typeof WebAssembly === "undefined") {
+    return {
+      supported: false,
+      reason: "This browser does not provide the Web Worker and WebAssembly features required for local speech generation.",
+    };
+  }
+
+  const storage = navigator.storage as StorageManager & {
+    getDirectory?: () => Promise<FileSystemDirectoryHandle>;
+  };
+  if (typeof storage?.getDirectory !== "function") {
+    return {
+      supported: false,
+      reason: "This browser does not support the private file storage required to cache Piper voice models.",
+    };
+  }
+
+  return { supported: true };
+}
+
 function getWorker(): Worker {
+  const support = getPiperSupport();
+  if (!support.supported) {
+    throw new PiperError(
+      support.reason ?? "This browser cannot run the local speech engine.",
+      "UNSUPPORTED_BROWSER",
+    );
+  }
+
   if (worker) return worker;
 
   worker = new Worker(new URL("./piperWorker.ts", import.meta.url), {
@@ -71,7 +112,7 @@ function getWorker(): Worker {
       detail?: string;
       loaded?: number;
       total?: number;
-      stage?: SynthesisStage;
+      stage?: PiperStage;
     };
 
     const handlers = pending.get(data.id);
@@ -82,7 +123,7 @@ function getWorker(): Worker {
         handlers.onProgress?.({ loaded: data.loaded ?? 0, total: data.total ?? 0 });
         return;
       case "stage":
-        handlers.onStage?.(data.stage as SynthesisStage);
+        if (data.stage) handlers.onStage?.(data.stage);
         return;
       case "result":
         pending.delete(data.id);
@@ -101,25 +142,24 @@ function getWorker(): Worker {
     }
   });
 
-  worker.addEventListener("error", () => {
-    // A worker-level failure kills every in-flight request; fail them all
-    // rather than leaving the UI spinning forever.
-    const failure = new PiperError(
-      "The speech engine could not start in this browser. Try a recent Chrome, Edge, or Firefox.",
-      "WORKER",
+  const failWorker = () => {
+    rejectAll(
+      new PiperError(
+        "The local speech engine stopped unexpectedly. Reload the tool and try again.",
+        "WORKER",
+      ),
     );
-    for (const [, handlers] of pending) handlers.reject(failure);
-    pending.clear();
+    worker?.terminate();
     worker = null;
-  });
+  };
+
+  worker.addEventListener("error", failWorker);
+  worker.addEventListener("messageerror", failWorker);
 
   return worker;
 }
 
-function call<T>(
-  message: Record<string, unknown>,
-  options: { onProgress?: (progress: PiperProgress) => void; onStage?: (stage: SynthesisStage) => void } = {},
-): Promise<T> {
+function call<T>(message: Record<string, unknown>, options: RequestOptions = {}): Promise<T> {
   const id = nextId++;
 
   return new Promise<T>((resolve, reject) => {
@@ -158,16 +198,21 @@ export function removeVoice(voiceId: string) {
 export async function synthesize(
   voiceId: string,
   text: string,
-  options: { onProgress?: (progress: PiperProgress) => void; onStage?: (stage: SynthesisStage) => void } = {},
+  options: RequestOptions = {},
 ) {
   const buffer = await call<ArrayBuffer>({ type: "synthesize", voiceId, text }, options);
   return new Blob([buffer], { type: "audio/wav" });
 }
 
-/** Frees the worker (and its ONNX session) when the tool unmounts. */
-export function disposePiper() {
-  if (!worker) return;
-  worker.terminate();
+/**
+ * Terminates all local Piper work and rejects every request that was waiting on
+ * the worker. A later call lazily creates a fresh worker, so this doubles as a
+ * safe cancel/retry mechanism for long synthesis runs.
+ */
+export function disposePiper(message = "Speech generation was cancelled.") {
+  if (!worker && pending.size === 0) return;
+
+  rejectAll(new PiperError(message, "CANCELLED"));
+  worker?.terminate();
   worker = null;
-  pending.clear();
 }

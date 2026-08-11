@@ -47,48 +47,35 @@ export function SliderNumberField({
 
   return (
     <div className={cn("min-w-0 space-y-2", className)}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0 space-y-1">
-          <div className="font-mono text-xs font-bold uppercase leading-none tracking-[0.07em] text-[var(--color-text-tertiary)]">
-            {label}
-          </div>
-          {hint ? <div className="text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</div> : null}
+      <div className="min-w-0 space-y-1">
+        <div className="font-mono text-[13px] font-bold uppercase leading-none tracking-[0.06em] text-[var(--color-text-tertiary)]">
+          {label}
         </div>
-        <output
-          aria-live="off"
-          className="shrink-0 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2.5 py-1 font-mono text-xs font-bold tabular-nums text-[var(--color-text-secondary)]"
-        >
-          {formatSliderValue(value, step, unit)}
-        </output>
+        {hint ? <div className="text-[13px] leading-5 text-[var(--color-text-tertiary)]">{hint}</div> : null}
       </div>
 
       <div
         className={cn(
-          "rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]",
+          "rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]",
           disabled && "opacity-60",
         )}
       >
-        <Slider
-          min={min}
-          max={max}
-          step={step}
-          value={value}
-          disabled={disabled}
-          aria-label={ariaLabel}
-          aria-valuetext={formatSliderValue(value, step, unit)}
-          aria-invalid={Boolean(error) || undefined}
-          onChange={(event) => commitValue(Number(event.target.value))}
-          className="w-full"
-        />
-
-        <div className="mt-2 flex min-w-0 items-end justify-between gap-3">
-          <div className="flex min-w-0 flex-1 items-center justify-between gap-2 font-mono text-xs font-semibold tabular-nums text-[var(--color-text-tertiary)]" aria-hidden>
-            <span>{formatSliderValue(min, step, unit)}</span>
-            <span>{formatSliderValue(max, step, unit)}</span>
-          </div>
+        <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2">
+          <Slider
+            min={min}
+            max={max}
+            step={step}
+            value={value}
+            disabled={disabled}
+            aria-label={ariaLabel}
+            aria-valuetext={formatSliderValue(value, step, unit)}
+            aria-invalid={Boolean(error) || undefined}
+            onChange={(event) => commitValue(Number(event.target.value))}
+            className="min-w-[7rem] flex-1"
+          />
 
           {showInput ? (
-            <div className="flex shrink-0 items-center gap-1.5">
+            <div className="ml-auto flex shrink-0 items-center gap-1.5">
               <Input
                 type="number"
                 size="sm"
@@ -106,9 +93,13 @@ export function SliderNumberField({
                 }}
                 className="font-mono tabular-nums"
               />
-              {unit && typeof unit !== "string" ? <span className="text-xs font-bold text-[var(--color-text-tertiary)]">{unit}</span> : null}
+              {unit ? <span className="min-w-fit text-xs font-bold text-[var(--color-text-tertiary)]">{unit}</span> : null}
             </div>
-          ) : null}
+          ) : (
+            <output aria-live="off" className="ml-auto shrink-0 font-mono text-xs font-bold tabular-nums text-[var(--color-text-secondary)]">
+              {formatSliderValue(value, step, unit)}
+            </output>
+          )}
         </div>
       </div>
 

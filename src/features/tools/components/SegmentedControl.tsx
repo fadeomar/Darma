@@ -16,11 +16,18 @@ export type SegmentedControlProps<T extends string> = {
   className?: string;
   fullWidth?: boolean;
   layout?: "wrap" | "grid";
+  columns?: 2 | 3 | 4;
 };
 
 const sizeClass = {
-  sm: "min-h-8 px-2.5 text-xs",
-  md: "min-h-[38px] px-3 text-xs",
+  sm: "min-h-9 px-2.5 text-xs",
+  md: "min-h-[40px] px-3 text-xs",
+};
+
+const gridColumnsClass = {
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
 };
 
 export function SegmentedControl<T extends string>({
@@ -32,6 +39,7 @@ export function SegmentedControl<T extends string>({
   className,
   fullWidth = false,
   layout = "wrap",
+  columns = 3,
 }: SegmentedControlProps<T>) {
   return (
     <div
@@ -39,7 +47,9 @@ export function SegmentedControl<T extends string>({
       aria-label={ariaLabel}
       className={cn(
         "gap-1 border border-[var(--color-border-default)] bg-[var(--color-control-track)] p-1 shadow-[var(--shadow-xs)]",
-        layout === "grid" ? "grid w-full grid-cols-3 rounded-[var(--radius-md)]" : "inline-flex flex-wrap rounded-[var(--radius-full)]",
+        layout === "grid"
+          ? `grid w-full ${gridColumnsClass[columns]} rounded-[var(--radius-md)]`
+          : "inline-flex max-w-full flex-wrap rounded-[var(--radius-full)]",
         fullWidth && layout === "wrap" && "flex w-full [&>button]:flex-1",
         className,
       )}
@@ -55,7 +65,11 @@ export function SegmentedControl<T extends string>({
             disabled={option.disabled}
             onClick={() => onChange(option.value)}
             className={cn(
-              "min-w-0 whitespace-nowrap break-keep rounded-[var(--radius-full)] font-mono font-bold uppercase leading-none tracking-[0.06em] transition duration-[var(--duration-fast)]",
+              "min-w-0 rounded-[var(--radius-full)] text-center font-mono font-bold uppercase tracking-[0.05em] transition duration-[var(--duration-fast)]",
+              // Grid cells and stretched pills can be narrower than a long
+              // label, so let those wrap instead of clipping. Auto-width pills
+              // size to their content and stay on one line.
+              layout === "grid" || fullWidth ? "whitespace-normal break-words py-1 leading-tight" : "whitespace-nowrap break-keep leading-none",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-soft)] disabled:cursor-not-allowed disabled:opacity-45",
               sizeClass[size],
               active

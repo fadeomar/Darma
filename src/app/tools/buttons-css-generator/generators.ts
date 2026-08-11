@@ -1,4 +1,5 @@
 import type { ButtonGeneratorConfig } from "./types";
+import { sanitizeCustomCssOverrides } from "./studio-tools";
 
 function normalizeHex(hex: string) {
   const trimmed = hex.trim();
@@ -37,106 +38,155 @@ export function getContrastRating(ratio: number) {
   return "Fail";
 }
 
+export function getReadableTextColorForBackgrounds(backgrounds: string[]): string {
+  const candidates: string[] = ["#ffffff", "#111827"];
+  const normalizedBackgrounds = backgrounds.length ? backgrounds : ["#ffffff"];
+  return candidates.reduce((best, candidate) => {
+    const candidateScore = Math.min(...normalizedBackgrounds.map((background) => getContrastRatio(candidate, background)));
+    const bestScore = Math.min(...normalizedBackgrounds.map((background) => getContrastRatio(best, background)));
+    return candidateScore > bestScore ? candidate : best;
+  }, candidates[0]);
+}
+
 export function getReadableTextColor(background: string) {
-  return getContrastRatio("#ffffff", background) >= getContrastRatio("#111827", background) ? "#ffffff" : "#111827";
+  return getReadableTextColorForBackgrounds([background]);
 }
 
 export function safeClassName(value: string) {
-  const cleaned = value.trim().replace(/^\./, "").replace(/[^a-zA-Z0-9_-]/g, "-").replace(/-+/g, "-");
-  return cleaned || "darma-button";
+  // Runs of three or more dashes collapse, but a BEM "--modifier" separator is
+  // kept so re-sanitizing a generated family name (darma-button--primary) is a no-op.
+  const cleaned = value.trim().replace(/^\./, "").replace(/[^a-zA-Z0-9_-]/g, "-").replace(/-{3,}/g, "--");
+  if (!cleaned) return "darma-button";
+  if (/^[a-zA-Z_]/.test(cleaned)) return cleaned;
+  return `darma-${cleaned.replace(/^-+/, "") || "button"}`;
 }
 
 function escapeHtml(value: string) {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+function jsxText(value: string) {
+  return `{${JSON.stringify(value)}}`;
+}
+
+function radiusValue(config: ButtonGeneratorConfig) {
+  if (config.shape === "square") return 0;
+  if (config.shape === "pill") return 999;
+  return config.radius;
+}
+
+function borderValue(config: ButtonGeneratorConfig) {
+  if (!config.borderEnabled && config.style !== "outline") return "0 solid transparent";
+  const width = Math.max(1, config.borderWidth);
+  return `${width}px ${config.borderStyle} ${config.borderColor}`;
+}
+
+function shadowValue(config: ButtonGeneratorConfig) {
+  if (!config.shadowEnabled) return "none";
+  const inset = config.shadowInset ? "inset " : "";
+  return `${inset}${config.shadowX}px ${config.shadowY}px ${config.shadowBlur}px ${config.shadowSpread}px rgba(${hexToRgb(config.shadowColor)}, ${config.shadowOpacity})`;
+}
+
 function baseStyles(config: ButtonGeneratorConfig) {
   const width = config.fullWidth ? "width: 100%;" : config.minWidth > 0 ? `min-width: ${config.minWidth}px;` : "";
-  const opacity = config.disabled ? "opacity: 0.55; cursor: not-allowed; pointer-events: none;" : "cursor: pointer;";
+  const opacity = "cursor: pointer;";
   const transform = config.uppercase ? "text-transform: uppercase;" : "";
   const letterSpacing = config.letterSpacing ? `letter-spacing: ${config.letterSpacing}px;` : "letter-spacing: normal;";
-  return `display: inline-flex;
+  const iconOnlySize = config.contentMode === "icon-only" ? `width: ${config.paddingY * 2 + config.fontSize}px; aspect-ratio: 1; padding: 0;` : "";
+  return `position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  min-height: ${config.paddingY * 2 + config.fontSize}px;
+  min-height: ${config.paddingY * 2 + config.fontSize * config.lineHeight}px;
   padding: ${config.paddingY}px ${config.paddingX}px;
-  border-radius: ${config.variant === "pill" ? 999 : config.radius}px;
-  border: 1px solid ${config.borderColor};
+  border-radius: ${radiusValue(config)}px;
+  border: ${borderValue(config)};
   font-size: ${config.fontSize}px;
   font-weight: ${config.fontWeight};
-  line-height: 1;
+  line-height: ${config.lineHeight};
   text-decoration: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease, background 180ms ease, border-color 180ms ease;
+  transition: transform ${config.motionDuration}ms ${config.motionEasing}, box-shadow ${config.motionDuration}ms ${config.motionEasing}, filter ${config.motionDuration}ms ${config.motionEasing}, background ${config.motionDuration}ms ${config.motionEasing}, color ${config.motionDuration}ms ${config.motionEasing}, border-color ${config.motionDuration}ms ${config.motionEasing};
   ${letterSpacing}
   ${transform}
+  ${iconOnlySize}
   ${width}
   ${opacity}`;
 }
 
 function variantStyles(config: ButtonGeneratorConfig) {
-  switch (config.variant) {
+  const shadow = shadowValue(config);
+  switch (config.style) {
     case "outline":
       return `background: transparent;
   color: ${config.textColor};
-  border-color: ${config.borderColor};
-  box-shadow: 0 ${Math.round(config.shadow / 3)}px ${config.shadow}px rgba(${hexToRgb(config.borderColor)}, 0.14);`;
+  box-shadow: ${shadow};`;
     case "ghost":
       return `background: transparent;
   color: ${config.textColor};
   border-color: transparent;
   box-shadow: none;`;
     case "gradient":
-      return `background: linear-gradient(135deg, ${config.background}, ${config.background2});
+      return `background: linear-gradient(${config.gradientAngle}deg, ${config.background}, ${config.background2});
   color: ${config.textColor};
   border-color: transparent;
-  box-shadow: 0 ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(${hexToRgb(config.background)}, 0.32);`;
+  box-shadow: ${shadow};`;
     case "glass":
-      return `background: rgba(255, 255, 255, 0.32);
+      return `background: rgba(${hexToRgb(config.background)}, 0.28);
   color: ${config.textColor};
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(15, 23, 42, 0.16);
+  box-shadow: ${shadow};
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);`;
     case "neumorphic":
       return `background: ${config.background};
   color: ${config.textColor};
   border-color: transparent;
-  box-shadow: ${Math.round(config.shadow / 2)}px ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(15, 23, 42, 0.18), -${Math.round(config.shadow / 2)}px -${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(255, 255, 255, 0.72);`;
+  box-shadow: ${config.shadowEnabled ? `${Math.max(4, Math.abs(config.shadowX || Math.round(config.shadowBlur / 2)))}px ${Math.max(4, Math.abs(config.shadowY || Math.round(config.shadowBlur / 2)))}px ${config.shadowBlur}px rgba(${hexToRgb(config.shadowColor)}, ${Math.min(config.shadowOpacity, 0.28)}), -${Math.max(4, Math.abs(config.shadowX || Math.round(config.shadowBlur / 2)))}px -${Math.max(4, Math.abs(config.shadowY || Math.round(config.shadowBlur / 2)))}px ${config.shadowBlur}px rgba(255, 255, 255, 0.72)` : "none"};`;
     case "three-d":
       return `background: ${config.background};
   color: ${config.textColor};
-  box-shadow: 0 ${Math.max(3, Math.round(config.shadow / 3))}px 0 rgba(0, 0, 0, 0.28), 0 ${config.shadow}px ${Math.round(config.shadow * 1.6)}px rgba(${hexToRgb(config.background)}, 0.22);`;
-    case "icon":
-      return `width: ${config.paddingX * 2 + config.fontSize}px;
-  aspect-ratio: 1;
-  padding: 0;
-  background: ${config.background};
-  color: ${config.textColor};
-  box-shadow: 0 ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(${hexToRgb(config.background)}, 0.24);`;
-    case "loading":
-      return `background: ${config.background};
-  color: ${config.textColor};
-  box-shadow: 0 ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(${hexToRgb(config.background)}, 0.24);`;
-    case "pill":
+  box-shadow: ${config.shadowEnabled ? `0 ${Math.max(3, config.shadowY)}px 0 rgba(${hexToRgb(config.shadowColor)}, ${Math.max(config.shadowOpacity, 0.32)}), ${config.shadowX}px ${Math.max(config.shadowY + 6, 8)}px ${Math.max(config.shadowBlur, 16)}px rgba(${hexToRgb(config.shadowColor)}, ${Math.min(config.shadowOpacity, 0.32)})` : "none"};`;
     case "solid":
     default:
       return `background: ${config.background};
   color: ${config.textColor};
-  box-shadow: 0 ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(${hexToRgb(config.background)}, 0.24);`;
+  box-shadow: ${shadow};`;
   }
 }
 
 function hoverStyles(config: ButtonGeneratorConfig, selector: string) {
-  if (config.disabled || config.hoverEffect === "none") return "";
+  if (config.disabled || config.loading) return "";
+
+  if (config.customizeHoverState) {
+    const customShadow = config.shadowEnabled
+      ? `box-shadow: ${config.shadowX}px ${config.hoverShadowY}px ${config.hoverShadowBlur}px ${config.shadowSpread}px rgba(${hexToRgb(config.shadowColor)}, ${Math.min(1, config.shadowOpacity + 0.12)});`
+      : "";
+    return `${selector}:hover,
+${selector}.is-preview-hover {
+  background: ${config.hoverBackground};
+  color: ${config.hoverTextColor};
+  border-color: ${config.hoverBorderColor};
+  transform: translateY(${config.hoverTranslateY}px) scale(${config.hoverScale});
+  ${customShadow}
+}`;
+  }
+
+  if (config.hoverEffect === "none") return "";
   const effect = {
     lift: "transform: translateY(-2px);",
-    glow: `box-shadow: 0 ${Math.round(config.shadow / 2)}px ${config.shadow * 2}px rgba(${hexToRgb(config.background)}, 0.42);`,
+    glow: `box-shadow: 0 ${Math.max(6, config.shadowY)}px ${Math.max(24, config.shadowBlur * 1.7)}px rgba(${hexToRgb(config.shadowColor)}, ${Math.max(0.32, Math.min(config.shadowOpacity + 0.18, 0.62))});`,
     darken: "filter: brightness(0.92);",
     scale: "transform: scale(1.04);",
-    slide: "transform: translateX(2px);",
+    slide: "transform: translateX(3px);",
+    shine: "filter: brightness(1.04);",
+    fill: `background: ${config.background}; color: ${getReadableTextColor(config.background)};`,
+    pulse: `box-shadow: 0 0 0 7px rgba(${hexToRgb(config.shadowColor)}, ${Math.min(0.2, Math.max(0.1, config.shadowOpacity))});`,
+    bounce: "transform: translateY(-4px) scale(1.02);",
+    "icon-shift": "filter: brightness(1.02);",
     none: "",
   }[config.hoverEffect];
   return `${selector}:hover,
@@ -145,28 +195,88 @@ ${selector}.is-preview-hover {
 }`;
 }
 
+function decorativeEffectStyles(config: ButtonGeneratorConfig, selector: string) {
+  if (config.disabled || config.loading || config.customizeHoverState) return "";
+  if (config.hoverEffect === "shine") {
+    return `
+
+${selector}::after {
+  content: "";
+  position: absolute;
+  inset: -45% auto -45% -35%;
+  width: 28%;
+  transform: rotate(18deg) translateX(-220%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.72), transparent);
+  transition: transform ${Math.max(320, config.motionDuration * 2)}ms ${config.motionEasing};
+  pointer-events: none;
+}
+
+${selector}:hover::after,
+${selector}.is-preview-hover::after {
+  transform: rotate(18deg) translateX(560%);
+}`;
+  }
+  if (config.hoverEffect === "fill" && config.style === "outline") {
+    return `
+
+${selector} {
+  background-image: linear-gradient(${config.background}, ${config.background});
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  background-position: left center;
+  transition: background-size ${config.motionDuration}ms ${config.motionEasing}, color ${config.motionDuration}ms ${config.motionEasing}, transform ${config.motionDuration}ms ${config.motionEasing}, box-shadow ${config.motionDuration}ms ${config.motionEasing};
+}
+
+${selector}:hover,
+${selector}.is-preview-hover {
+  background-size: 100% 100%;
+}`;
+  }
+  if (config.hoverEffect === "icon-shift") {
+    return `
+
+${selector}__icon {
+  transition: transform ${config.motionDuration}ms ${config.motionEasing};
+}
+
+${selector}:hover ${selector}__icon,
+${selector}.is-preview-hover ${selector}__icon {
+  transform: translateX(${config.iconPosition === "right" ? 3 : -3}px);
+}`;
+  }
+  return "";
+}
 export function generateButtonCss(config: ButtonGeneratorConfig) {
   const selector = `.${safeClassName(config.className)}`;
   const focus = config.includeFocusRing
-    ? `\n\n${selector}:focus-visible {\n  outline: 3px solid rgba(${hexToRgb(config.background)}, 0.34);\n  outline-offset: 3px;\n}`
+    ? `\n\n${selector}:focus-visible,\n${selector}.is-preview-focus {\n  outline: ${config.focusRingWidth}px solid ${config.focusRingColor};\n  outline-offset: ${config.focusRingOffset}px;\n}`
     : "";
-  const active = config.activeEffect && !config.disabled
-    ? `\n\n${selector}:active,\n${selector}.is-preview-active {\n  transform: translateY(1px) scale(0.99);\n}`
+  const active = config.activeEffect && !config.disabled && !config.loading
+    ? config.customizeActiveState
+      ? `\n\n${selector}:active,\n${selector}.is-preview-active {\n  background: ${config.activeBackground};\n  color: ${config.activeTextColor};\n  border-color: ${config.activeBorderColor};\n  transform: translateY(${config.activeTranslateY}px) scale(${config.activeScale});\n}`
+      : `\n\n${selector}:active,\n${selector}.is-preview-active {\n  transform: translateY(1px) scale(0.99);\n}`
     : "";
   const reducedMotion = config.includeReducedMotion
-    ? `\n\n@media (prefers-reduced-motion: reduce) {\n  ${selector} {\n    transition: none;\n  }\n\n  ${selector}__spinner {\n    animation: none;\n  }\n}`
+    ? `\n\n@media (prefers-reduced-motion: reduce) {\n  ${selector},\n  ${selector}::after,\n  ${selector}__icon {\n    transition: none;\n    transform: none;\n  }\n\n  ${selector}__spinner {\n    animation: none;\n  }\n}`
+    : "";
+
+  const disabled = `\n\n${selector}:disabled,\n${selector}[aria-disabled="true"] {\n  opacity: ${config.disabledOpacity};\n  cursor: not-allowed;\n  pointer-events: none;\n}`;
+  const responsiveWidth = config.mobileFullWidth && !config.fullWidth
+    ? `\n\n@media (max-width: 640px) {\n  ${selector} {\n    width: 100%;\n  }\n}`
     : "";
 
   return `${selector} {
   ${baseStyles(config)}
   ${variantStyles(config)}
+  ${sanitizeCustomCssOverrides(config.customCss)}
 }
 
-${hoverStyles(config, selector)}${active}${focus}
+${hoverStyles(config, selector)}${decorativeEffectStyles(config, selector)}${active}${focus}${disabled}
 
 ${selector}__spinner {
   width: 1em;
   height: 1em;
+  flex: 0 0 auto;
   border: 2px solid currentColor;
   border-right-color: transparent;
   border-radius: 999px;
@@ -187,33 +297,88 @@ ${selector}__sr-only {
 
 @keyframes darma-button-spin {
   to { transform: rotate(360deg); }
-}${reducedMotion}`;
+}${responsiveWidth}${reducedMotion}`;
 }
 
 export function generateButtonHtml(config: ButtonGeneratorConfig) {
   const className = safeClassName(config.className);
-  const spinner = config.variant === "loading" ? `<span class="${className}__spinner" aria-hidden="true"></span>` : "";
-  const icon = config.variant === "icon" ? `<span aria-hidden="true">${escapeHtml(config.iconSymbol || "→")}</span>` : "";
-  const label = config.variant === "icon" ? `<span class="${className}__sr-only">${escapeHtml(config.text)}</span>` : escapeHtml(config.text);
+  const spinner = config.loading ? `<span class="${className}__spinner" aria-hidden="true"></span>` : "";
+  const usesIcon = config.contentMode === "text-icon" || config.contentMode === "icon-only";
+  const icon = usesIcon ? `<span class="${className}__icon" aria-hidden="true">${escapeHtml(config.iconSymbol || "→")}</span>` : "";
+  const accessibleLabel = config.text.trim() || "Button";
+  const label = config.contentMode === "icon-only" ? `<span class="${className}__sr-only">${escapeHtml(accessibleLabel)}</span>` : escapeHtml(accessibleLabel);
   const content = config.iconPosition === "left" ? `${icon}${spinner}${label}` : `${spinner}${label}${icon}`;
-  const disabled = config.disabled ? " disabled aria-disabled=\"true\"" : "";
-  const busy = config.variant === "loading" ? " aria-busy=\"true\"" : "";
-  return `<button class="${className}"${disabled}${busy}>${content}</button>`;
+  const disabled = config.disabled || config.loading ? " disabled aria-disabled=\"true\"" : "";
+  const busy = config.loading ? " aria-busy=\"true\"" : "";
+  return `<button type="button" class="${className}"${disabled}${busy}>${content}</button>`;
 }
 
 export function generateButtonTailwind(config: ButtonGeneratorConfig) {
-  const width = config.fullWidth ? "w-full" : config.minWidth > 0 ? `min-w-[${config.minWidth}px]` : "";
-  const radius = config.variant === "pill" ? "rounded-full" : `rounded-[${config.radius}px]`;
-  const background = config.variant === "gradient" ? `linear-gradient(135deg, ${config.background}, ${config.background2})` : config.variant === "outline" || config.variant === "ghost" ? "transparent" : config.background;
-  return `<button className="inline-flex items-center justify-center gap-2 ${width} ${radius} border px-[${config.paddingX}px] py-[${config.paddingY}px] text-[${config.fontSize}px] font-[${config.fontWeight}] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: "${background}", color: "${config.textColor}", borderColor: "${config.variant === "ghost" ? "transparent" : config.borderColor}" }}>
-  ${config.text}
+  const width = config.fullWidth ? "w-full" : config.mobileFullWidth ? "w-full sm:w-auto" : config.minWidth > 0 ? `min-w-[${config.minWidth}px]` : "";
+  const iconOnlySize = config.contentMode === "icon-only" ? `h-[${config.paddingY * 2 + config.fontSize}px] w-[${config.paddingY * 2 + config.fontSize}px] p-0` : `px-[${config.paddingX}px] py-[${config.paddingY}px]`;
+  const radius = config.shape === "pill" ? "rounded-full" : config.shape === "square" ? "rounded-none" : `rounded-[${config.radius}px]`;
+  const focus = config.includeFocusRing
+    ? `focus-visible:outline focus-visible:outline-[${config.focusRingWidth}px] focus-visible:outline-[${config.focusRingColor}] focus-visible:outline-offset-[${config.focusRingOffset}px]`
+    : "focus-visible:outline-none";
+  const active = config.activeEffect && !config.loading && !config.disabled
+    ? `active:translate-y-[${config.customizeActiveState ? config.activeTranslateY : 1}px] active:scale-[${config.customizeActiveState ? config.activeScale : 0.99}]`
+    : "";
+  const hover = config.loading || config.disabled
+    ? ""
+    : config.customizeHoverState
+      ? `hover:translate-y-[${config.hoverTranslateY}px] hover:scale-[${config.hoverScale}]`
+      : config.hoverEffect === "none"
+        ? ""
+        : config.hoverEffect === "scale"
+          ? "hover:scale-[1.04]"
+          : config.hoverEffect === "slide"
+            ? "hover:translate-x-[3px]"
+            : config.hoverEffect === "darken"
+              ? "hover:brightness-[0.92]"
+              : "hover:-translate-y-0.5";
+  const background = config.style === "gradient"
+    ? `linear-gradient(${config.gradientAngle}deg, ${config.background}, ${config.background2})`
+    : config.style === "outline" || config.style === "ghost"
+      ? "transparent"
+      : config.style === "glass"
+        ? `rgba(${hexToRgb(config.background)}, 0.28)`
+        : config.background;
+  const backdrop = config.style === "glass" ? ', backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)"' : "";
+  const disabledClasses = `disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-[${config.disabledOpacity}]`;
+  const uppercase = config.uppercase ? "uppercase" : "";
+  const accessibleLabel = config.text.trim() || "Button";
+  const icon = config.contentMode === "text-icon" || config.contentMode === "icon-only"
+    ? `<span aria-hidden="true">${jsxText(config.iconSymbol || "→")}</span>`
+    : "";
+  const spinner = config.loading
+    ? '<span aria-hidden="true" className="h-[1em] w-[1em] shrink-0 animate-spin rounded-full border-2 border-current border-r-transparent" />'
+    : "";
+  const label = config.contentMode === "icon-only" ? `<span className="sr-only">${jsxText(accessibleLabel)}</span>` : jsxText(accessibleLabel);
+  const content = config.iconPosition === "left" ? `${icon}${spinner}${label}` : `${spinner}${label}${icon}`;
+  const disabledAttrs = config.disabled || config.loading ? ' disabled aria-disabled="true"' : "";
+  const busyAttr = config.loading ? ' aria-busy="true"' : "";
+
+  return `<button type="button"${disabledAttrs}${busyAttr} className="relative isolate inline-flex min-h-[${config.paddingY * 2 + config.fontSize * config.lineHeight}px] items-center justify-center gap-2 overflow-hidden select-none ${width} ${iconOnlySize} ${radius} text-[${config.fontSize}px] font-[${config.fontWeight}] leading-[${config.lineHeight}] tracking-[${config.letterSpacing}px] ${uppercase} transition ${hover} ${active} ${focus} ${disabledClasses}" style={{ background: "${background}", color: "${config.textColor}", border: "${borderValue(config)}", boxShadow: "${shadowValue(config)}"${backdrop} }}>
+  ${content}
 </button>`;
 }
 
 export function generateButtonJsx(config: ButtonGeneratorConfig) {
+  const className = safeClassName(config.className);
+  const usesIcon = config.contentMode === "text-icon" || config.contentMode === "icon-only";
+  const icon = usesIcon ? `<span className="${className}__icon" aria-hidden="true">${jsxText(config.iconSymbol || "→")}</span>` : "";
+  const spinner = config.loading ? `<span className="${className}__spinner" aria-hidden="true" />` : "";
+  const accessibleLabel = config.text.trim() || "Button";
+  const label = config.contentMode === "icon-only"
+    ? `<span className="${className}__sr-only">${jsxText(accessibleLabel)}</span>`
+    : jsxText(accessibleLabel);
+  const content = config.iconPosition === "left" ? `${icon}${spinner}${label}` : `${spinner}${label}${icon}`;
+  const disabled = config.disabled || config.loading ? ' disabled aria-disabled="true"' : "";
+  const busy = config.loading ? ' aria-busy="true"' : "";
+
   return `export function GeneratedButton() {
   return (
-    ${generateButtonHtml(config).replace(/class=/g, "className=")}
+    <button type="button" className="${className}"${disabled}${busy}>${content}</button>
   );
 }`;
 }
@@ -223,31 +388,45 @@ export function generateButtonVariables(config: ButtonGeneratorConfig) {
   return `${selector} {
   --button-bg: ${config.background};
   --button-bg-2: ${config.background2};
+  --button-gradient-angle: ${config.gradientAngle}deg;
   --button-text: ${config.textColor};
   --button-border: ${config.borderColor};
-  --button-radius: ${config.variant === "pill" ? 999 : config.radius}px;
+  --button-border-width: ${config.borderWidth}px;
+  --button-radius: ${radiusValue(config)}px;
   --button-px: ${config.paddingX}px;
   --button-py: ${config.paddingY}px;
-  --button-shadow: ${config.shadow}px;
+  --button-shadow-x: ${config.shadowX}px;
+  --button-shadow-y: ${config.shadowY}px;
+  --button-shadow-blur: ${config.shadowBlur}px;
+  --button-shadow-spread: ${config.shadowSpread}px;
+  --button-motion-duration: ${config.motionDuration}ms;
+  --button-focus-ring: ${config.focusRingWidth}px;
+  --button-focus-offset: ${config.focusRingOffset}px;
 }`;
 }
 
 export function generateButtonReactStyle(config: ButtonGeneratorConfig) {
-  const background = config.variant === "gradient" ? `linear-gradient(135deg, ${config.background}, ${config.background2})` : config.variant === "outline" || config.variant === "ghost" ? "transparent" : config.background;
+  const background = config.style === "gradient" ? `linear-gradient(${config.gradientAngle}deg, ${config.background}, ${config.background2})` : config.style === "outline" || config.style === "ghost" ? "transparent" : config.background;
   return `const buttonStyle: React.CSSProperties = {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
   gap: "0.55rem",
+  minHeight: "${config.paddingY * 2 + config.fontSize * config.lineHeight}px",
+  ${config.fullWidth ? 'width: "100%",' : config.minWidth > 0 ? `minWidth: "${config.minWidth}px",` : ''}
   padding: "${config.paddingY}px ${config.paddingX}px",
-  borderRadius: "${config.variant === "pill" ? 999 : config.radius}px",
-  border: "1px solid ${config.variant === "ghost" ? "transparent" : config.borderColor}",
+  borderRadius: "${radiusValue(config)}px",
+  border: "${borderValue(config)}",
   background: "${background}",
   color: "${config.textColor}",
   fontSize: ${config.fontSize},
   fontWeight: ${config.fontWeight},
-  boxShadow: "0 ${Math.round(config.shadow / 2)}px ${config.shadow}px rgba(${hexToRgb(config.background)}, 0.24)",
-};`;
+  lineHeight: ${config.lineHeight},
+  letterSpacing: "${config.letterSpacing}px",
+  textTransform: "${config.uppercase ? 'uppercase' : 'none'}",
+  boxShadow: "${shadowValue(config)}",
+  transition: "transform ${config.motionDuration}ms ${config.motionEasing}, box-shadow ${config.motionDuration}ms ${config.motionEasing}, background ${config.motionDuration}ms ${config.motionEasing}, color ${config.motionDuration}ms ${config.motionEasing}",
+};${config.mobileFullWidth && !config.fullWidth ? `\n\n// Responsive companion CSS:\n// @media (max-width: 640px) { .${safeClassName(config.className)} { width: 100%; } }` : ""}`;
 }
 
 export function generateButtonTokenJson(config: ButtonGeneratorConfig) {
@@ -255,32 +434,81 @@ export function generateButtonTokenJson(config: ButtonGeneratorConfig) {
     {
       button: {
         className: safeClassName(config.className),
-        variant: config.variant,
+        style: config.style,
+        shape: config.shape,
+        contentMode: config.contentMode,
+        loading: config.loading,
+        disabled: config.disabled,
+        disabledWhileLoading: config.loading,
         text: config.text,
         colors: {
           background: config.background,
           background2: config.background2,
           text: config.textColor,
           border: config.borderColor,
+          focusRing: config.focusRingColor,
         },
         typography: {
           fontSize: `${config.fontSize}px`,
           fontWeight: config.fontWeight,
+          lineHeight: config.lineHeight,
           letterSpacing: `${config.letterSpacing}px`,
           uppercase: config.uppercase,
         },
-        shape: {
-          radius: config.variant === "pill" ? "999px" : `${config.radius}px`,
+        dimensions: {
+          radius: `${radiusValue(config)}px`,
           paddingX: `${config.paddingX}px`,
           paddingY: `${config.paddingY}px`,
           minWidth: config.minWidth ? `${config.minWidth}px` : "auto",
+          fullWidth: config.fullWidth,
+          mobileFullWidth: config.mobileFullWidth,
+        },
+        border: {
+          enabled: config.borderEnabled,
+          width: `${config.borderWidth}px`,
+          style: config.borderStyle,
+          color: config.borderColor,
+        },
+        shadow: {
+          enabled: config.shadowEnabled,
+          x: `${config.shadowX}px`,
+          y: `${config.shadowY}px`,
+          blur: `${config.shadowBlur}px`,
+          spread: `${config.shadowSpread}px`,
+          color: config.shadowColor,
+          opacity: config.shadowOpacity,
+          inset: config.shadowInset,
         },
         interaction: {
           hoverEffect: config.hoverEffect,
+          motionDuration: `${config.motionDuration}ms`,
+          motionEasing: config.motionEasing,
+          customHover: config.customizeHoverState
+            ? {
+                background: config.hoverBackground,
+                text: config.hoverTextColor,
+                border: config.hoverBorderColor,
+                translateY: `${config.hoverTranslateY}px`,
+                scale: config.hoverScale,
+              }
+            : null,
           activeEffect: config.activeEffect,
-          focusRing: config.includeFocusRing,
+          customActive: config.customizeActiveState
+            ? {
+                background: config.activeBackground,
+                text: config.activeTextColor,
+                border: config.activeBorderColor,
+                translateY: `${config.activeTranslateY}px`,
+                scale: config.activeScale,
+              }
+            : null,
+          focusRing: config.includeFocusRing
+            ? { color: config.focusRingColor, width: `${config.focusRingWidth}px`, offset: `${config.focusRingOffset}px` }
+            : null,
+          disabledOpacity: config.disabledOpacity,
           reducedMotion: config.includeReducedMotion,
         },
+        customCss: sanitizeCustomCssOverrides(config.customCss) || null,
       },
     },
     null,

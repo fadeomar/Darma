@@ -26,6 +26,8 @@ export function ToolLayoutVisualGenerator({
   presetsPlacement = "after-code",
   controlsPosition = "left",
   stickyPreview = false,
+  stickyControls = true,
+  controlsWidth = "default",
   wrapPreview = true,
 }: {
   previewSlot: ReactNode;
@@ -38,6 +40,8 @@ export function ToolLayoutVisualGenerator({
   presetsPlacement?: PresetsPlacement;
   controlsPosition?: ControlsPosition;
   stickyPreview?: boolean;
+  stickyControls?: boolean;
+  controlsWidth?: "default" | "wide";
   wrapPreview?: boolean;
 }) {
   const desktopActions = actionsSlot ? <ActionBar className="hidden md:flex" align="between">{actionsSlot}</ActionBar> : null;
@@ -75,7 +79,8 @@ export function ToolLayoutVisualGenerator({
     <aside
       data-tool-region="controls"
       className={cn(
-        "min-w-0 lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-1",
+        "min-w-0",
+        stickyControls && "lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-2",
         controlsPosition === "left" ? "order-1" : "order-2",
       )}
     >
@@ -93,8 +98,12 @@ export function ToolLayoutVisualGenerator({
           "grid gap-5 lg:items-start",
           controlsSlot &&
             (controlsPosition === "left"
-              ? "lg:grid-cols-[minmax(300px,var(--tool-controls-width))_minmax(0,1fr)]"
-              : "lg:grid-cols-[minmax(0,1fr)_minmax(300px,var(--tool-controls-width))]"),
+              ? controlsWidth === "wide"
+                ? "lg:grid-cols-[minmax(360px,430px)_minmax(0,1fr)]"
+                : "lg:grid-cols-[minmax(300px,var(--tool-controls-width))_minmax(0,1fr)]"
+              : controlsWidth === "wide"
+                ? "lg:grid-cols-[minmax(0,1fr)_minmax(360px,430px)]"
+                : "lg:grid-cols-[minmax(0,1fr)_minmax(300px,var(--tool-controls-width))]"),
         )}
       >
         {controlsPosition === "left" ? controlsColumn : null}

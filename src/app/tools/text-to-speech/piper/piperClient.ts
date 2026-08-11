@@ -8,7 +8,9 @@
  * never blocks the React thread.
  */
 
-import type { PiperStage } from "./piperWorker";
+import type { PiperControls, PiperStage } from "./piperWorker";
+
+export type { PiperControls, PiperStage } from "./piperWorker";
 
 export type PiperVoice = {
   key: string;
@@ -54,6 +56,10 @@ type RequestOptions = {
   onStage?: (stage: PiperStage) => void;
 };
 
+export type SynthesizeOptions = RequestOptions & {
+  controls?: Partial<PiperControls>;
+};
+
 let worker: Worker | null = null;
 let nextId = 1;
 const pending = new Map<number, Handlers>();
@@ -65,6 +71,7 @@ function rejectAll(error: PiperError) {
 
 export function getPiperSupport(): { supported: boolean; reason?: string } {
   if (typeof window === "undefined") return { supported: false, reason: "browser-only" };
+
   if (typeof Worker === "undefined" || typeof WebAssembly === "undefined") {
     return {
       supported: false,
@@ -136,7 +143,11 @@ function getWorker(): Worker {
       case "error":
         pending.delete(data.id);
         handlers.reject(
-          new PiperError(data.message ?? "Speech generation failed.", data.code ?? "UNKNOWN", data.detail),
+          new PiperError(
+            data.message ?? "Speech generation failed.",
+            data.code ?? "UNKNOWN",
+            data.detail,
+          ),
         );
         return;
     }
@@ -198,9 +209,13 @@ export function removeVoice(voiceId: string) {
 export async function synthesize(
   voiceId: string,
   text: string,
-  options: RequestOptions = {},
+  options: SynthesizeOptions = {},
 ) {
-  const buffer = await call<ArrayBuffer>({ type: "synthesize", voiceId, text }, options);
+  const { controls, ...requestOptions } = options;
+  const buffer = await call<ArrayBuffer>(
+    { type: "synthesize", voiceId, text, controls },
+    requestOptions,
+  );
   return new Blob([buffer], { type: "audio/wav" });
 }
 

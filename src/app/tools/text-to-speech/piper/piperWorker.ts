@@ -8,12 +8,31 @@
  */
 import * as tts from "@mintplex-labs/piper-tts-web";
 
+export type PiperStage = "downloading" | "saving" | "loading" | "generating" | "finalizing";
+
+export type PiperControls = {
+  /** Speaking-rate multiplier. 1 = model default, >1 = faster, <1 = slower. */
+  rate: number;
+  /** Final WAV gain multiplier. */
+  volume: number;
+  /** Piper noise-scale multiplier. 1 = model default. */
+  expressiveness: number;
+  /** Normalize the generated WAV to a consistent peak before volume gain. */
+  normalize: boolean;
+};
+
 type Incoming =
   | { id: number; type: "voices" }
   | { id: number; type: "stored" }
   | { id: number; type: "download"; voiceId: string }
   | { id: number; type: "remove"; voiceId: string }
-  | { id: number; type: "synthesize"; voiceId: string; text: string };
+  | {
+      id: number;
+      type: "synthesize";
+      voiceId: string;
+      text: string;
+      controls?: Partial<PiperControls>;
+    };
 
 type Outgoing =
   | { id: number; type: "result"; payload: unknown }
@@ -22,10 +41,17 @@ type Outgoing =
   | { id: number; type: "progress"; loaded: number; total: number }
   | { id: number; type: "stage"; stage: PiperStage };
 
-export type PiperStage = "downloading" | "saving" | "loading" | "generating";
+const DEFAULT_CONTROLS: PiperControls = {
+  rate: 1,
+  volume: 1,
+  expressiveness: 1,
+  normalize: true,
+};
 
 const ctx = self as unknown as DedicatedWorkerGlobalScope;
 type VoiceId = Parameters<typeof tts.download>[0];
+
+type VoiceRecord = Awaited<ReturnType<typeof tts.voices>>[number];
 
 class WorkerFault extends Error {
   constructor(
@@ -35,6 +61,23 @@ class WorkerFault extends Error {
     super(message);
     this.name = "WorkerFault";
   }
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function normalizeControls(input?: Partial<PiperControls>): PiperControls {
+  return {
+    rate: clamp(Number(input?.rate ?? DEFAULT_CONTROLS.rate) || 1, 0.6, 1.6),
+    volume: clamp(Number(input?.volume ?? DEFAULT_CONTROLS.volume) || 1, 0.25, 1.5),
+    expressiveness: clamp(
+      Number(input?.expressiveness ?? DEFAULT_CONTROLS.expressiveness) || 1,
+      0.6,
+      1.4,
+    ),
+    normalize: input?.normalize ?? DEFAULT_CONTROLS.normalize,
+  };
 }
 
 /**
@@ -86,6 +129,13 @@ function classify(error: unknown): { code: string; message: string } {
     };
   }
 
+  if (/voice control|InferenceSession\.run|scales tensor/i.test(raw)) {
+    return {
+      code: "VOICE_CONTROLS",
+      message: "The local engine could not apply these voice controls. Reset the controls and try again.",
+    };
+  }
+
   return {
     code: "UNKNOWN",
     message: "Speech generation failed. Try again, or choose another voice.",
@@ -96,7 +146,6 @@ function delay(ms: number) {
   return new Promise<void>((resolve) => setTimeout(resolve, ms));
 }
 
-type VoiceRecord = Awaited<ReturnType<typeof tts.voices>>[number];
 let catalogPromise: Promise<VoiceRecord[]> | null = null;
 
 function getCatalog() {
@@ -153,10 +202,9 @@ async function verifiedStoredVoices() {
 }
 
 /**
- * Upstream `download()` starts OPFS writes but does not await `writeBlob()`.
- * Upstream `stored()` only checks for an `.onnx` filename, so it can report a
- * model before the write is complete. Verify both model/config file sizes
- * against Piper voice metadata before Darma reports the voice as Downloaded.
+ * Upstream `download()` can report completion before OPFS has completely
+ * persisted both files. Verify model/config byte sizes before Darma reports a
+ * voice as downloaded.
  */
 async function waitUntilStored(voiceId: string, timeoutMs = 20_000) {
   const deadline = Date.now() + timeoutMs;
@@ -172,9 +220,162 @@ async function waitUntilStored(voiceId: string, timeoutMs = 20_000) {
   );
 }
 
+/**
+ * The pinned Piper web wrapper does not expose Piper's inference scale tensor
+ * as public options. ONNX Runtime does expose InferenceSession.run, however.
+ * Install one worker-local wrapper that adjusts only the well-known Piper
+ * `scales` feed immediately before inference. This keeps the dependency pinned
+ * and avoids patching node_modules while still using Piper's native
+ * length/noise controls.
+ */
+let currentInferenceControls: PiperControls | null = null;
+let ortControlPatchPromise: Promise<void> | null = null;
+
+async function ensureOrtControlPatch() {
+  ortControlPatchPromise ??= (async () => {
+    const ort = await import("onnxruntime-web");
+    // onnxruntime-web types `InferenceSession` as a factory value, so `prototype`
+    // is not on the public type even though the runtime export is a class.
+    const sessionClass = ort.InferenceSession as unknown as {
+      prototype?: {
+        run: (feeds: Record<string, unknown>, ...rest: unknown[]) => Promise<unknown>;
+        __darmaPiperControls?: boolean;
+      };
+    };
+    const prototype = sessionClass.prototype;
+
+    if (!prototype) {
+      throw new WorkerFault("ONNX Runtime does not expose InferenceSession.run.", "VOICE_CONTROLS");
+    }
+
+    if (prototype.__darmaPiperControls) return;
+
+    const originalRun = prototype.run;
+    if (typeof originalRun !== "function") {
+      throw new WorkerFault("ONNX Runtime does not expose InferenceSession.run.", "VOICE_CONTROLS");
+    }
+
+    prototype.run = function runWithDarmaPiperControls(
+      feeds: Record<string, unknown>,
+      ...rest: unknown[]
+    ) {
+      const controls = currentInferenceControls;
+      const typedFeeds = feeds as Record<
+        string,
+        { data?: ArrayLike<number>; dims?: readonly number[] } | undefined
+      >;
+      const scales = typedFeeds.scales;
+
+      if (controls && scales?.data && scales.dims) {
+        const source = Array.from(scales.data);
+        if (source.length < 3) {
+          throw new WorkerFault("Piper scales tensor has an unexpected shape.", "VOICE_CONTROLS");
+        }
+
+        const nextScales = new Float32Array(source);
+        // Piper order: noise_scale, length_scale, noise_w.
+        nextScales[0] = clamp(nextScales[0] * controls.expressiveness, 0.05, 2);
+        // Piper length_scale is inverse to speaking rate: smaller = faster.
+        nextScales[1] = clamp(nextScales[1] / controls.rate, 0.3, 3);
+        nextScales[2] = clamp(nextScales[2] * controls.expressiveness, 0.05, 2);
+
+        feeds = {
+          ...feeds,
+          scales: new ort.Tensor("float32", nextScales, Array.from(scales.dims)),
+        };
+      }
+
+      return originalRun.call(this, feeds, ...rest);
+    };
+
+    Object.defineProperty(prototype, "__darmaPiperControls", {
+      value: true,
+      configurable: false,
+      enumerable: false,
+      writable: false,
+    });
+  })().catch((error) => {
+    ortControlPatchPromise = null;
+    throw error;
+  });
+
+  await ortControlPatchPromise;
+}
+
+function readAscii(view: DataView, offset: number, length: number) {
+  let output = "";
+  for (let index = 0; index < length; index += 1) {
+    output += String.fromCharCode(view.getUint8(offset + index));
+  }
+  return output;
+}
+
+/**
+ * Piper emits 16-bit PCM WAV. Apply local normalization/gain to the generated
+ * file itself (not just the HTML audio element), so playback and downloaded WAV
+ * match. Unknown WAV layouts are returned unchanged rather than breaking TTS.
+ */
+async function applyWavOutputControls(wav: Blob, controls: PiperControls) {
+  if (!controls.normalize && Math.abs(controls.volume - 1) < 0.001) return wav;
+
+  const buffer = await wav.arrayBuffer();
+  const view = new DataView(buffer);
+  if (buffer.byteLength < 44 || readAscii(view, 0, 4) !== "RIFF" || readAscii(view, 8, 4) !== "WAVE") {
+    return wav;
+  }
+
+  let offset = 12;
+  let audioFormat = 0;
+  let bitsPerSample = 0;
+  let dataOffset = -1;
+  let dataLength = 0;
+
+  while (offset + 8 <= view.byteLength) {
+    const id = readAscii(view, offset, 4);
+    const size = view.getUint32(offset + 4, true);
+    const payloadOffset = offset + 8;
+
+    if (id === "fmt " && size >= 16 && payloadOffset + size <= view.byteLength) {
+      audioFormat = view.getUint16(payloadOffset, true);
+      bitsPerSample = view.getUint16(payloadOffset + 14, true);
+    } else if (id === "data" && payloadOffset + size <= view.byteLength) {
+      dataOffset = payloadOffset;
+      dataLength = size;
+      break;
+    }
+
+    offset = payloadOffset + size + (size % 2);
+  }
+
+  if (audioFormat !== 1 || bitsPerSample !== 16 || dataOffset < 0 || dataLength < 2) {
+    return wav;
+  }
+
+  let peak = 0;
+  for (let cursor = dataOffset; cursor + 1 < dataOffset + dataLength; cursor += 2) {
+    peak = Math.max(peak, Math.abs(view.getInt16(cursor, true)) / 32768);
+  }
+
+  let gain = controls.volume;
+  if (controls.normalize && peak > 0.0001) {
+    // 0.78 leaves enough headroom for the user-facing volume control up to 125%.
+    const normalizationGain = clamp(0.78 / peak, 0.2, 6);
+    gain *= normalizationGain;
+  }
+
+  if (Math.abs(gain - 1) < 0.001) return new Blob([buffer], { type: "audio/wav" });
+
+  for (let cursor = dataOffset; cursor + 1 < dataOffset + dataLength; cursor += 2) {
+    const sample = view.getInt16(cursor, true);
+    const nextSample = Math.round(clamp(sample * gain, -32768, 32767));
+    view.setInt16(cursor, nextSample, true);
+  }
+
+  return new Blob([buffer], { type: "audio/wav" });
+}
+
 async function ensureSession(id: number, voiceId: string) {
   if (activeVoiceId !== voiceId) resetSession();
-
   post({ id, type: "stage", stage: "loading" });
   const session = await tts.TtsSession.create({ voiceId: voiceId as VoiceId });
   activeVoiceId = voiceId;
@@ -216,15 +417,27 @@ async function handle(data: Incoming) {
 
       case "synthesize": {
         if (!(await isVoiceFullyStored(data.voiceId))) {
-          throw new WorkerFault(
-            "Download this voice before generating speech.",
-            "VOICE_NOT_DOWNLOADED",
-          );
+          throw new WorkerFault("Download this voice before generating speech.", "VOICE_NOT_DOWNLOADED");
         }
+
+        const controls = normalizeControls(data.controls);
+        const usesNativeScaleOverrides =
+          Math.abs(controls.rate - 1) > 0.001 || Math.abs(controls.expressiveness - 1) > 0.001;
+        if (usesNativeScaleOverrides) await ensureOrtControlPatch();
 
         const session = await ensureSession(data.id, data.voiceId);
         post({ id: data.id, type: "stage", stage: "generating" });
-        const wav = await session.predict(data.text);
+
+        currentInferenceControls = controls;
+        let wav: Blob;
+        try {
+          wav = await session.predict(data.text);
+        } finally {
+          currentInferenceControls = null;
+        }
+
+        post({ id: data.id, type: "stage", stage: "finalizing" });
+        wav = await applyWavOutputControls(wav, controls);
         const buffer = await wav.arrayBuffer();
 
         // Transfer instead of cloning potentially multi-megabyte audio data.
@@ -233,6 +446,7 @@ async function handle(data: Incoming) {
       }
     }
   } catch (error) {
+    currentInferenceControls = null;
     // Failed initialization can leave the upstream singleton half-created.
     resetSession();
     const { code, message } = classify(error);

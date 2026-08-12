@@ -8,7 +8,7 @@ import {
   rectFromDrag,
   triangleVertices,
 } from "./draw";
-import { isShapeTool } from "./types";
+import { isFreeDrawingTool, isShapeTool } from "./types";
 
 describe("clampBrush", () => {
   it("clamps into the supported range and rounds", () => {
@@ -56,7 +56,18 @@ describe("isShapeTool", () => {
   it("distinguishes shape tools from freehand tools", () => {
     expect(isShapeTool("rectangle")).toBe(true);
     expect(isShapeTool("circle")).toBe(true);
+    expect(isShapeTool("arrow")).toBe(true);
     expect(isShapeTool("brush")).toBe(false);
     expect(isShapeTool("eraser")).toBe(false);
+  });
+});
+
+
+describe("isFreeDrawingTool", () => {
+  it("limits free drawing mode to brush and eraser", () => {
+    expect(isFreeDrawingTool("brush")).toBe(true);
+    expect(isFreeDrawingTool("eraser")).toBe(true);
+    expect(isFreeDrawingTool("select")).toBe(false);
+    expect(isFreeDrawingTool("text")).toBe(false);
   });
 });

@@ -73,7 +73,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           # .nvmrc is the single source of truth: the npm that ships with the
           # Node version here must match the one that writes package-lock.json

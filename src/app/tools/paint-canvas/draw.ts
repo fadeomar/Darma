@@ -4,7 +4,16 @@ export const MIN_BRUSH = 1;
 export const MAX_BRUSH = 60;
 
 export function createDefaultSettings(): PaintSettings {
-  return { tool: "brush", color: "#2563eb", size: 6, fill: false };
+  return {
+    tool: "brush",
+    color: "#2563eb",
+    size: 6,
+    fill: false,
+    opacity: 1,
+    brushPreset: "pen",
+    stabilizer: 0.55,
+    dynamicWidth: true,
+  };
 }
 
 export function clampBrush(size: number): number {

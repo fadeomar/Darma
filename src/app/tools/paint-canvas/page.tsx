@@ -30,21 +30,22 @@ export default function PaintCanvasPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          A quick drawing canvas with brush, shapes, colors, undo/redo, and PNG or JPEG export — works with
-          mouse, touch, and pen, all in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Draw and highlight, annotate screenshots, blur or pixelate sensitive regions, add editable text and arrows,
+          import images, draw with stabilized pressure-aware brush presets, multi-select and group editable objects, align
+          annotations, use canvas presets, recover local autosaves, save editable project files, and export locally as PNG, JPEG, or WebP.
         </p>
       }
       article={
-        <ToolContentCard title="About the paint canvas">
+        <ToolContentCard title="About Paint & Annotate">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ToolContentCard
-        title="Paint Canvas"
-        description="Draw freehand and shapes on a canvas with colors, brush sizes, fill, undo/redo, and image export."
+        title="Paint & Annotate"
+        description="A privacy-first browser workspace for pressure-aware drawing, screenshot annotation, multi-select layout, local autosave, editable projects and objects, privacy effects, canvas presets, and local image exports."
       >
         <PaintCanvasClient />
       </ToolContentCard>

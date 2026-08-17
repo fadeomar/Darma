@@ -20,7 +20,7 @@ export function GridCodeOutput({
   return (
     <CodeOutputPanel
       title="Generated grid code"
-      description="Copy production CSS, variables, markup, React, Tailwind starter, design tokens, or a readable area map."
+      description="Copy exact responsive CSS, breakpoint-aware variables, markup, React, Tailwind output, design tokens, or the active breakpoint area map."
       tabs={[
         { id: "css", label: "CSS", language: "css", code: css, filename: "grid.css" },
         { id: "vars", label: "CSS vars", language: "css", code: cssVariables, filename: "grid-variables.css" },

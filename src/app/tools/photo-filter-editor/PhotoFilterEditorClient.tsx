@@ -267,7 +267,7 @@ export default function PhotoFilterEditorClient() {
   const [fileName, setFileName] = useState("edited-image");
   const [presetId, setPresetId] = useState(DEFAULT_PRESET_ID);
   const [presetStrength, setPresetStrength] = useState(1);
-  const [presetCategory, setPresetCategory] = useState<"all" | FilterPresetCategory>("all");
+  const [presetCategory, setPresetCategory] = useState<"all" | FilterPresetCategory>("essentials");
   const [activePanel, setActivePanel] = useState<EditorPanelId>("filters");
   const [compareMode, setCompareMode] = useState<PreviewCompareMode>("edited");
   const [splitPosition, setSplitPosition] = useState(50);
@@ -1275,11 +1275,11 @@ export default function PhotoFilterEditorClient() {
         </div>
       </div>
 
-      <div className="grid min-w-0 xl:grid-cols-[76px_minmax(0,1fr)_360px]">
+      <div className="grid min-w-0 lg:grid-cols-[72px_minmax(0,1fr)_336px]">
         {/* Tool rail */}
         <nav
           aria-label="Photo editor tools"
-          className="order-2 flex overflow-x-auto border-y border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-2 xl:order-none xl:flex-col xl:border-b-0 xl:border-l-0 xl:border-r xl:border-t-0 xl:p-2.5"
+          className="order-2 flex overflow-x-auto border-y border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-2 lg:order-none lg:flex-col lg:overflow-x-visible lg:border-b-0 lg:border-l-0 lg:border-r lg:border-t-0 lg:p-1"
         >
           {PANEL_ITEMS.map((item) => {
             const Icon = item.icon;
@@ -1291,7 +1291,7 @@ export default function PhotoFilterEditorClient() {
                 aria-pressed={active}
                 onClick={() => setActivePanel(item.id)}
                 className={cn(
-                  "flex min-h-14 min-w-[68px] flex-col items-center justify-center gap-1 rounded-[var(--radius-md)] px-2 text-xs font-bold transition",
+                  "flex min-h-14 min-w-[68px] flex-col items-center justify-center gap-1 rounded-[var(--radius-md)] px-2 text-xs font-bold transition lg:w-full lg:min-w-0 lg:px-1",
                   active
                     ? "bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
                     : "text-[var(--color-text-tertiary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
@@ -1305,7 +1305,7 @@ export default function PhotoFilterEditorClient() {
         </nav>
 
         {/* Canvas workspace */}
-        <section className="order-1 min-w-0 bg-[var(--color-surface-subtle)]/55 xl:order-none">
+        <section className="order-1 min-w-0 bg-[var(--color-surface-subtle)]/55 lg:order-none">
           <div
             ref={workspaceRef}
             onDragOver={(event) => {
@@ -1319,7 +1319,7 @@ export default function PhotoFilterEditorClient() {
               loadFile(event.dataTransfer.files?.[0]);
             }}
             className={cn(
-              "relative flex h-[330px] items-center justify-center overflow-auto p-4 sm:h-[480px] sm:p-6 xl:h-[680px]",
+              "relative flex h-[330px] items-center justify-center overflow-auto p-4 sm:h-[480px] sm:p-6 lg:h-[600px] xl:h-[680px]",
               isDragOver && "ring-2 ring-inset ring-[var(--color-primary)]",
             )}
           >
@@ -1465,8 +1465,10 @@ export default function PhotoFilterEditorClient() {
         </section>
 
         {/* Context panel */}
-        <aside className="order-3 min-w-0 border-t border-[var(--color-border-default)] bg-[var(--color-surface-base)] xl:order-none xl:border-l xl:border-t-0">
-          <div className="max-h-[58vh] space-y-4 overflow-y-auto p-3.5 sm:max-h-[62vh] sm:p-4 xl:max-h-[720px]">
+        <aside className="order-3 min-w-0 border-t border-[var(--color-border-default)] bg-[var(--color-surface-base)] lg:order-none lg:border-l lg:border-t-0">
+          {/* Height tracks the canvas at each breakpoint so the panel scrolls on
+              its own and the preview stays put while editing. */}
+          <div className="max-h-[58vh] space-y-4 overflow-y-auto p-3.5 sm:max-h-[62vh] sm:p-4 lg:max-h-[600px] xl:max-h-[680px]">
             {activePanel === "filters" ? (
               <>
                 <PanelTitle title="Filters" description="Start with a visual preset, then adjust its intensity or fine-tune every value." />

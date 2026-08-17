@@ -91,15 +91,15 @@ export function GridControls({
   }, [activeBreakpoint, state]);
 
   useEffect(() => {
-    const items = selectedItem?.nestedGrid?.items ?? [];
-    if (!items.length) {
+    const ids = nestedItemIds ? nestedItemIds.split("|") : [];
+    if (!ids.length) {
       setExpandedNestedId(null);
       return;
     }
-    if (!items.some((item) => item.id === expandedNestedId)) {
-      setExpandedNestedId(items[0].id);
+    if (!ids.includes(expandedNestedId ?? "")) {
+      setExpandedNestedId(ids[0]);
     }
-  }, [expandedNestedId, nestedItemIds, selectedItem?.id]);
+  }, [expandedNestedId, nestedItemIds]);
 
   async function copyShareLink() {
     setResetArmed(false);

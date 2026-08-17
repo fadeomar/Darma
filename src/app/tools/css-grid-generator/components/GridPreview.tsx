@@ -150,6 +150,13 @@ export function GridPreview({
       activeDragId !== null ||
       resizeDraft !== null);
 
+  // The pointer effects below read their live draft from a ref so the window
+  // listeners stay attached for the whole gesture. They depend on the pointer
+  // id alone, so keep it in a local to make that the only reactive input.
+  const drawPointerId = activeDraw?.pointerId ?? null;
+  const resizePointerId = resizeDraft?.pointerId ?? null;
+  const nestedPointerId = nestedMoveDraft?.pointerId ?? null;
+
   useEffect(() => {
     activeDrawRef.current = activeDraw;
   }, [activeDraw]);
@@ -163,7 +170,7 @@ export function GridPreview({
   }, [nestedMoveDraft]);
 
   useEffect(() => {
-    if (!activeDraw) return;
+    if (drawPointerId === null) return;
 
     const finishDraw = (event: PointerEvent) => {
       const draft = activeDrawRef.current;
@@ -186,10 +193,10 @@ export function GridPreview({
       window.removeEventListener("pointerup", finishDraw);
       window.removeEventListener("pointercancel", cancelDraw);
     };
-  }, [activeDraw?.pointerId, onCreateItem]);
+  }, [drawPointerId, onCreateItem]);
 
   useEffect(() => {
-    if (!resizeDraft) return;
+    if (resizePointerId === null) return;
 
     const moveResize = (event: PointerEvent) => {
       const draft = resizeDraftRef.current;
@@ -234,10 +241,10 @@ export function GridPreview({
       window.removeEventListener("pointerup", finishResize);
       window.removeEventListener("pointercancel", cancelResize);
     };
-  }, [onCommitItem, resizeDraft?.pointerId, state.columns, state.rows]);
+  }, [onCommitItem, resizePointerId, state.columns, state.rows]);
 
   useEffect(() => {
-    if (!nestedMoveDraft) return;
+    if (nestedPointerId === null) return;
 
     const moveNested = (event: PointerEvent) => {
       const draft = nestedMoveDraftRef.current;
@@ -268,7 +275,7 @@ export function GridPreview({
       nestedMoveDraftRef.current = null;
       setNestedMoveDraft(null);
       if (!isSameNestedPlacement(draft.baseItem, draft.item)) {
-        commitNestedItem(draft.parentId, draft.item);
+        onCommitNestedItem(draft.parentId, draft.item);
         setInteractionMessage(
           `${draft.item.name} moved to column ${draft.item.columnStart}, row ${draft.item.rowStart}.`,
         );
@@ -290,7 +297,7 @@ export function GridPreview({
       window.removeEventListener("pointerup", finishNested);
       window.removeEventListener("pointercancel", cancelNested);
     };
-  }, [nestedMoveDraft?.pointerId, onCommitNestedItem, state.items]);
+  }, [nestedPointerId, onCommitNestedItem, state.items]);
 
   function handleDragEnd(event: DragEndEvent) {
     setActiveDragId(null);
@@ -411,10 +418,6 @@ export function GridPreview({
     );
   }
 
-  function commitNestedItem(parentId: string, nextItem: GridNestedItem) {
-    onCommitNestedItem(parentId, nextItem);
-  }
-
   function startNestedMove(
     parent: GridItem,
     item: GridNestedItem,
@@ -456,7 +459,7 @@ export function GridPreview({
       parent.nestedGrid.columns,
       parent.nestedGrid.rows,
     );
-    if (!isSameNestedPlacement(item, nextItem)) commitNestedItem(parent.id, nextItem);
+    if (!isSameNestedPlacement(item, nextItem)) onCommitNestedItem(parent.id, nextItem);
     setInteractionMessage(
       `${item.name} moved inside ${parent.name} to column ${nextItem.columnStart}, row ${nextItem.rowStart}.`,
     );

@@ -13,30 +13,39 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const PhotoFilterEditorClient = dynamic(() => import("./PhotoFilterEditorClient"), {
-  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />,
+  loading: () => (
+    <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />
+  ),
 });
 const Article = dynamic(() => import("./Article"));
 
 export default function PhotoFilterEditorPage() {
   const tool = getToolRegistry().getById("photo-filter-editor");
   if (!tool) notFound();
+
   const jsonLd = buildToolJsonLd(tool);
 
   return (
     <ToolPage
       tool={tool}
-      maxWidth="full"
+      maxWidth="wide"
       intro={
-        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Improve, crop, compare, resize, and export photos locally — or generate reusable CSS filter code for the browser.
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Edit photos with visual filters, local background removal, Spot Heal, selective HSL, tone curves, 3D LUTs,
+          stacked looks, crop, batch processing with optional per-image background removal, responsive before-and-after
+          comparison, and full-resolution export — free, private, and without uploading your source image.
         </p>
       }
-      article={<ToolContentCard title="About the Photo Filter & Adjustment Studio"><Article /></ToolContentCard>}
+      article={
+        <ToolContentCard title="About the free photo editor">
+          <Article />
+        </ToolContentCard>
+      }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ToolContentCard
-        title="Photo Filter & Adjustment Studio"
-        description="A privacy-first visual workspace for adjustments, before-and-after comparison, non-destructive crop, resize, project settings, CSS output, and PNG, JPEG, or WebP export."
+        title="Free Photo Filter Editor"
+        description="Professional local photo filters, on-device background removal, Spot Heal, HSL, curves, .cube LUTs, custom presets, batch ZIP processing with optional batch background removal, and PNG, JPEG, or WebP export — no signup, paywall, source-image upload, or watermark."
       >
         <PhotoFilterEditorClient />
       </ToolContentCard>

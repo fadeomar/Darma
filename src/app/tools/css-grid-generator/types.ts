@@ -1,5 +1,9 @@
 export type GridLengthUnit = "px" | "rem" | "%" | "fr" | "auto";
 
+export type GridEditorMode = "select" | "draw" | "inspect";
+
+export type GridBreakpoint = "desktop" | "tablet" | "mobile";
+
 export type GridTrackMode = "equal" | "custom" | "repeat" | "minmax" | "auto-fit" | "auto-fill";
 
 export type GridTrack = {
@@ -17,6 +21,33 @@ export type GridAlignment = "stretch" | "start" | "center" | "end" | "space-betw
 
 export type GridSelfAlignment = "auto" | "stretch" | "start" | "center" | "end";
 
+export type GridAutoFlow = "row" | "column" | "row dense" | "column dense";
+
+export type GridNestedAxisMode = "independent" | "subgrid";
+
+export type GridNestedItem = {
+  id: string;
+  name: string;
+  content: string;
+  columnStart: number;
+  columnEnd: number;
+  rowStart: number;
+  rowEnd: number;
+  background: string;
+  textColor: string;
+};
+
+export type GridNestedGrid = {
+  columnMode: GridNestedAxisMode;
+  rowMode: GridNestedAxisMode;
+  columns: number;
+  rows: number;
+  columnTemplate: string;
+  rowTemplate: string;
+  gap: GridGap;
+  items: GridNestedItem[];
+};
+
 export type GridItem = {
   id: string;
   name: string;
@@ -32,14 +63,40 @@ export type GridItem = {
   content: string;
   justifySelf: GridSelfAlignment;
   alignSelf: GridSelfAlignment;
+  nestedGrid?: GridNestedGrid | null;
+};
+
+export type GridItemPlacement = Pick<
+  GridItem,
+  "columnStart" | "columnEnd" | "rowStart" | "rowEnd"
+>;
+
+export type GridBreakpointLayout = {
+  columns: number;
+  rows: number;
+  columnTemplate: string;
+  rowTemplate: string;
+  gap: GridGap;
+  useTemplateAreas: boolean;
+  justifyItems: GridSelfAlignment;
+  alignItems: GridSelfAlignment;
+  justifyContent: GridAlignment;
+  alignContent: GridAlignment;
+  autoFlow: GridAutoFlow;
+  autoColumns: string;
+  autoRows: string;
+  placements: Record<string, GridItemPlacement>;
 };
 
 export type ResponsiveSettings = {
   enabled: boolean;
   tabletBreakpoint: number;
   mobileBreakpoint: number;
+  /** Legacy settings retained so existing presets/URLs migrate without breaking. */
   tabletColumns: number;
   mobileBehavior: "stack" | "preserve" | "two-column";
+  tabletLayout?: GridBreakpointLayout;
+  mobileLayout?: GridBreakpointLayout;
 };
 
 export type GridGeneratorState = {
@@ -60,6 +117,9 @@ export type GridGeneratorState = {
   alignItems: GridSelfAlignment;
   justifyContent: GridAlignment;
   alignContent: GridAlignment;
+  autoFlow: GridAutoFlow;
+  autoColumns: string;
+  autoRows: string;
   responsive: ResponsiveSettings;
   items: GridItem[];
   selectedItemId: string | null;

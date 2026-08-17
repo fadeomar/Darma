@@ -29,7 +29,7 @@ export default function CssGridGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design responsive CSS Grid layouts visually, tune track templates, switch between line placement and named areas, preview breakpoints, and export CSS, HTML, React, Tailwind starters, variables, and design tokens.
+          Design responsive CSS Grid layouts visually, drag and resize items on real grid lines, edit Desktop, Tablet, and Mobile layouts, import existing Grid CSS, build nested grids and subgrids, and export production-ready CSS, HTML, React, Tailwind, variables, and design tokens.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function CssGridGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSS Grid Generator" description="Build production-ready grid layouts with presets, selectable items, template editing, responsive rules, validation, and copy-ready exports.">
+      <ToolContentCard title="CSS Grid Studio" description="Design, inspect, import, test, and export responsive CSS Grid layouts with direct canvas editing, nested grids, subgrid, validation, and browser-local workspace persistence.">
         <CssGridGeneratorClient />
       </ToolContentCard>
     </ToolPage>

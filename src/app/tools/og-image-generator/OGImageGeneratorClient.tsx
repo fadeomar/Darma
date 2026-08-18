@@ -82,22 +82,46 @@ function PreviewTile({ title, children, meta }: { title: string; children: React
   );
 }
 
+function DisclosurePanel({ title, description, children, defaultOpen = false }: { title: string; description?: string; children: ReactNode; defaultOpen?: boolean }) {
+  return (
+    <details open={defaultOpen} className="group rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-xs)]">
+      <summary className="cursor-pointer list-none p-3 [&::-webkit-details-marker]:hidden">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-sm font-black text-[var(--color-text-primary)]">{title}</p>
+            {description ? <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{description}</p> : null}
+          </div>
+          <span className="mt-0.5 text-xs font-bold text-[var(--color-text-tertiary)] transition group-open:rotate-180">⌄</span>
+        </div>
+      </summary>
+      <div className="border-t border-[var(--color-border-subtle)] p-3">{children}</div>
+    </details>
+  );
+}
+
 function QuickPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAction<OgImageInput>> }) {
   return (
     <ControlSection title="Quick social presets" description="Pick a target use case first, then customize copy, colors, and export pack.">
-      <div className="grid gap-2">
+      <div className="grid gap-2 sm:grid-cols-2">
         {QUICK_PRESETS.map((preset) => (
           <button
             key={preset.id}
             type="button"
             onClick={() => setInput((current) => ({ ...current, ...preset.patch }))}
-            className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
+            className="group overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
           >
-            <span className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
-              {preset.title}
+            <span className="block aspect-[1.91/1] border-b border-[var(--color-border-subtle)] bg-gradient-to-br from-[var(--color-primary-soft)] via-[var(--color-surface-raised)] to-[var(--color-surface-subtle)] p-3">
+              <span className="flex h-full items-end">
+                <span className="h-2 w-3/5 rounded-full bg-[var(--color-text-primary)]/75" />
+              </span>
             </span>
-            <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
+            <span className="block p-3">
+              <span className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]">
+                <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
+                {preset.title}
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
+            </span>
           </button>
         ))}
       </div>
@@ -107,7 +131,15 @@ function QuickPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAct
 
 function UploadBox({ label, hint, accept, onChange, previewUrl }: { label: string; hint: string; accept: string; onChange: (file: File) => void; previewUrl?: string }) {
   return (
-    <label className="flex min-h-28 cursor-pointer flex-col items-center justify-center gap-2 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-3 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
+    <label
+      className="flex min-h-28 cursor-pointer flex-col items-center justify-center gap-2 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-3 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]"
+      onDragOver={(event) => event.preventDefault()}
+      onDrop={(event) => {
+        event.preventDefault();
+        const file = event.dataTransfer.files?.[0];
+        if (file) onChange(file);
+      }}
+    >
       {previewUrl ? <img src={previewUrl} alt="Uploaded preview" className="h-14 w-20 rounded-[var(--radius-sm)] object-cover shadow-[var(--shadow-xs)]" /> : <UploadCloud className="h-6 w-6 text-[var(--color-primary-text-strong)]" />}
       <span className="text-xs font-bold text-[var(--color-text-primary)]">{label}</span>
       <span className="text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</span>
@@ -150,41 +182,45 @@ function DesignControls({ input, setInput }: { input: OgImageInput; setInput: Re
         <ColorField label="Accent" value={input.accentColor} onChange={(accentColor) => updateInput(setInput, { accentColor })} />
       </FieldGroup>
 
-      {input.backgroundMode === "gradient" ? (
-        <FieldGroup>
-          <ColorField label="Gradient from" value={input.gradientFrom} onChange={(gradientFrom) => updateInput(setInput, { gradientFrom })} />
-          <ColorField label="Gradient to" value={input.gradientTo} onChange={(gradientTo) => updateInput(setInput, { gradientTo })} />
-          <SliderNumberField label="Gradient angle" min={0} max={360} value={input.gradientAngle} unit="°" onChange={(gradientAngle) => updateInput(setInput, { gradientAngle })} />
-        </FieldGroup>
-      ) : null}
+      <DisclosurePanel title="Advanced design" description="Typography, alignment, overlays, frame radius, and safe-area guides.">
+        <div className="space-y-3">
+          {input.backgroundMode === "gradient" ? (
+            <FieldGroup>
+              <ColorField label="Gradient from" value={input.gradientFrom} onChange={(gradientFrom) => updateInput(setInput, { gradientFrom })} />
+              <ColorField label="Gradient to" value={input.gradientTo} onChange={(gradientTo) => updateInput(setInput, { gradientTo })} />
+              <SliderNumberField label="Gradient angle" min={0} max={360} value={input.gradientAngle} unit="°" onChange={(gradientAngle) => updateInput(setInput, { gradientAngle })} />
+            </FieldGroup>
+          ) : null}
 
-      {input.backgroundMode === "pattern" ? <SliderNumberField label="Pattern intensity" min={0} max={100} value={input.patternIntensity} unit="%" onChange={(patternIntensity) => updateInput(setInput, { patternIntensity })} /> : null}
-      {input.backgroundMode === "image" ? <SliderNumberField label="Image overlay" min={0} max={95} value={input.imageOverlay} unit="%" onChange={(imageOverlay) => updateInput(setInput, { imageOverlay })} /> : null}
+          {input.backgroundMode === "pattern" ? <SliderNumberField label="Pattern intensity" min={0} max={100} value={input.patternIntensity} unit="%" onChange={(patternIntensity) => updateInput(setInput, { patternIntensity })} /> : null}
+          {input.backgroundMode === "image" ? <SliderNumberField label="Image overlay" min={0} max={95} value={input.imageOverlay} unit="%" onChange={(imageOverlay) => updateInput(setInput, { imageOverlay })} /> : null}
 
-      <FieldGroup>
-        <CompactField label="Text align">
-          <Select value={input.textAlign} onChange={(event) => updateInput(setInput, { textAlign: event.target.value as OgTextAlign })}>
-            {TEXT_ALIGN_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
-          </Select>
-        </CompactField>
-        <CompactField label="Logo position">
-          <Select value={input.logoPosition} onChange={(event) => updateInput(setInput, { logoPosition: event.target.value as OgLogoPosition })}>
-            {LOGO_POSITION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
-          </Select>
-        </CompactField>
-      </FieldGroup>
+          <FieldGroup>
+            <CompactField label="Text align">
+              <Select value={input.textAlign} onChange={(event) => updateInput(setInput, { textAlign: event.target.value as OgTextAlign })}>
+                {TEXT_ALIGN_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+              </Select>
+            </CompactField>
+            <CompactField label="Logo position">
+              <Select value={input.logoPosition} onChange={(event) => updateInput(setInput, { logoPosition: event.target.value as OgLogoPosition })}>
+                {LOGO_POSITION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+              </Select>
+            </CompactField>
+          </FieldGroup>
 
-      <FieldGroup>
-        <SliderNumberField label="Title size" min={42} max={104} value={input.titleSize} unit="px" onChange={(titleSize) => updateInput(setInput, { titleSize })} />
-        <SliderNumberField label="Subtitle size" min={18} max={42} value={input.subtitleSize} unit="px" onChange={(subtitleSize) => updateInput(setInput, { subtitleSize })} />
-        <SliderNumberField label="Badge size" min={14} max={30} value={input.badgeSize} unit="px" onChange={(badgeSize) => updateInput(setInput, { badgeSize })} />
-        <SliderNumberField label="Frame radius" min={0} max={80} value={input.frameRadius} unit="px" onChange={(frameRadius) => updateInput(setInput, { frameRadius })} />
-      </FieldGroup>
+          <FieldGroup>
+            <SliderNumberField label="Title size" min={42} max={104} value={input.titleSize} unit="px" onChange={(titleSize) => updateInput(setInput, { titleSize })} />
+            <SliderNumberField label="Subtitle size" min={18} max={42} value={input.subtitleSize} unit="px" onChange={(subtitleSize) => updateInput(setInput, { subtitleSize })} />
+            <SliderNumberField label="Badge size" min={14} max={30} value={input.badgeSize} unit="px" onChange={(badgeSize) => updateInput(setInput, { badgeSize })} />
+            <SliderNumberField label="Frame radius" min={0} max={80} value={input.frameRadius} unit="px" onChange={(frameRadius) => updateInput(setInput, { frameRadius })} />
+          </FieldGroup>
 
-      <label className="flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs leading-5 text-[var(--color-text-secondary)]">
-        <input type="checkbox" checked={input.safeArea} onChange={(event) => updateInput(setInput, { safeArea: event.target.checked })} className="mt-1" />
-        Show safe-area guide in the generated preview image.
-      </label>
+          <label className="flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs leading-5 text-[var(--color-text-secondary)]">
+            <input type="checkbox" checked={input.safeArea} onChange={(event) => updateInput(setInput, { safeArea: event.target.checked })} className="mt-1" />
+            Show safe-area guide in the generated preview image.
+          </label>
+        </div>
+      </DisclosurePanel>
     </ControlSection>
   );
 }
@@ -199,13 +235,19 @@ function ContentControls({ input, setInput }: { input: OgImageInput; setInput: R
         <Textarea minRows={4} value={input.subtitle} onChange={(event) => updateInput(setInput, { subtitle: event.target.value })} />
       </CompactField>
       <FieldGroup>
-        <CompactField label="Badge"><Input value={input.badge} onChange={(event) => updateInput(setInput, { badge: event.target.value })} /></CompactField>
         <CompactField label="Domain"><Input value={input.domain} onChange={(event) => updateInput(setInput, { domain: event.target.value })} /></CompactField>
         <CompactField label="Author / brand"><Input value={input.author} onChange={(event) => updateInput(setInput, { author: event.target.value })} /></CompactField>
-        <CompactField label="Call to action"><Input value={input.callToAction} onChange={(event) => updateInput(setInput, { callToAction: event.target.value })} /></CompactField>
       </FieldGroup>
-      <CompactField label="Alt text"><Input value={input.altText} onChange={(event) => updateInput(setInput, { altText: event.target.value })} /></CompactField>
-      <CompactField label="Site URL"><Input value={input.siteUrl} onChange={(event) => updateInput(setInput, { siteUrl: event.target.value })} /></CompactField>
+      <DisclosurePanel title="More content & metadata" description="Badge, CTA, alt text, and canonical site URL.">
+        <div className="space-y-3">
+          <FieldGroup>
+            <CompactField label="Badge"><Input value={input.badge} onChange={(event) => updateInput(setInput, { badge: event.target.value })} /></CompactField>
+            <CompactField label="Call to action"><Input value={input.callToAction} onChange={(event) => updateInput(setInput, { callToAction: event.target.value })} /></CompactField>
+          </FieldGroup>
+          <CompactField label="Alt text"><Input value={input.altText} onChange={(event) => updateInput(setInput, { altText: event.target.value })} /></CompactField>
+          <CompactField label="Site URL"><Input value={input.siteUrl} onChange={(event) => updateInput(setInput, { siteUrl: event.target.value })} /></CompactField>
+        </div>
+      </DisclosurePanel>
     </ControlSection>
   );
 }
@@ -233,8 +275,8 @@ function AssetControls({ input, setInput, uploadError, setUploadError }: { input
   return (
     <ControlSection title="Brand assets" description="Upload a logo and optional background image. Everything stays local in your browser.">
       <FieldGroup>
-        <UploadBox label="Upload logo" hint="PNG, JPG, WebP, or SVG image" accept="image/png,image/jpeg,image/webp,image/svg+xml" previewUrl={input.logoDataUrl} onChange={(file) => handleUpload(file, "logo")} />
-        <UploadBox label="Upload background" hint="Best: 1600×900 or larger" accept="image/png,image/jpeg,image/webp,image/svg+xml" previewUrl={input.backgroundImageDataUrl} onChange={(file) => handleUpload(file, "background")} />
+        <UploadBox label="Logo" hint="Drop or choose PNG, JPG, WebP, or SVG" accept="image/png,image/jpeg,image/webp,image/svg+xml" previewUrl={input.logoDataUrl} onChange={(file) => handleUpload(file, "logo")} />
+        <UploadBox label="Background image" hint="Drop or choose · best at 1600×900+" accept="image/png,image/jpeg,image/webp,image/svg+xml" previewUrl={input.backgroundImageDataUrl} onChange={(file) => handleUpload(file, "background")} />
       </FieldGroup>
       {uploadError ? <p className="text-xs font-semibold text-[var(--color-danger-text)]">{uploadError}</p> : null}
     </ControlSection>
@@ -277,8 +319,8 @@ function ProjectControls({
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   return (
-    <ControlSection title="Project backup" description="Save or reopen design settings without embedding uploaded logo or background image data.">
-      <div className="grid gap-2 sm:grid-cols-3">
+    <DisclosurePanel title="Project backup" description="Save, reopen, or reset design settings. Uploaded images stay local and are not embedded.">
+      <div className="grid gap-2 sm:grid-cols-3 xl:grid-cols-1">
         <Button variant="secondary" size="sm" leftIcon={<FileJson className="h-4 w-4" />} onClick={onExport}>
           Export project
         </Button>
@@ -304,7 +346,7 @@ function ProjectControls({
         Settings projects are capped at 1 MB. Uploaded images stay on your device and must be reattached after import.
       </p>
       {message ? <p role="status" className="text-xs font-medium text-[var(--color-text-secondary)]">{message}</p> : null}
-    </ControlSection>
+    </DisclosurePanel>
   );
 }
 
@@ -339,11 +381,11 @@ function ProductionSummary({
 
 function MainPreview({ previewUrl, status, input }: { previewUrl?: string; status: Status; input: OgImageInput }) {
   return (
-    <div className="flex min-h-[520px] flex-col gap-4">
+    <div className="flex min-h-[360px] flex-col gap-4 sm:min-h-[500px]">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Live canvas preview</div>
-          <h3 className="mt-1 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{input.title || "Social preview image"}</h3>
+          <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Live preview</div>
+          <h3 className="mt-1 text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-xl">{input.title || "Social preview image"}</h3>
         </div>
         <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">1200×630</span>
       </div>
@@ -361,29 +403,50 @@ function MainPreview({ previewUrl, status, input }: { previewUrl?: string; statu
 }
 
 function PlatformPreview({ previewUrl, input }: { previewUrl?: string; input: OgImageInput }) {
+  const [activePlatform, setActivePlatform] = useState<"x" | "linkedin" | "chat">("x");
   return (
-    <div className="grid gap-3 lg:grid-cols-3">
-      <PreviewTile title="X / Twitter" meta="summary_large_image">
+    <PreviewTile title="Social previews" meta="X · LinkedIn · Slack / Discord">
+      <div className="mb-3 grid grid-cols-3 gap-1 rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-1">
+        {[
+          { id: "x", label: "X / Twitter" },
+          { id: "linkedin", label: "LinkedIn" },
+          { id: "chat", label: "Slack / Discord" },
+        ].map((platform) => (
+          <button
+            key={platform.id}
+            type="button"
+            onClick={() => setActivePlatform(platform.id as "x" | "linkedin" | "chat")}
+            className={cn(
+              "rounded-[var(--radius-sm)] px-2 py-2 text-xs font-bold transition",
+              activePlatform === platform.id
+                ? "bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] shadow-[var(--shadow-xs)]"
+                : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+            )}
+          >
+            {platform.label}
+          </button>
+        ))}
+      </div>
+
+      {activePlatform === "x" ? (
         <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
           {previewUrl ? <img src={previewUrl} alt="Twitter preview" className="aspect-[1.91/1] w-full object-cover" /> : null}
           <div className="space-y-1 p-3"><p className="text-xs text-[var(--color-text-tertiary)]">{input.domain}</p><p className="text-sm font-bold text-[var(--color-text-primary)]">{input.title}</p><p className="line-clamp-2 text-xs text-[var(--color-text-secondary)]">{input.subtitle}</p></div>
         </div>
-      </PreviewTile>
-      <PreviewTile title="LinkedIn" meta="feed card">
+      ) : activePlatform === "linkedin" ? (
         <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
           {previewUrl ? <img src={previewUrl} alt="LinkedIn preview" className="aspect-[1.91/1] w-full object-cover" /> : null}
           <div className="space-y-1 p-3"><p className="text-sm font-bold text-[var(--color-text-primary)]">{input.title}</p><p className="text-xs text-[var(--color-text-tertiary)]">{input.domain}</p></div>
         </div>
-      </PreviewTile>
-      <PreviewTile title="Discord / Slack" meta="chat unfurl">
+      ) : (
         <div className="rounded-[var(--radius-md)] border-l-4 border-[var(--color-primary)] bg-[var(--color-surface-base)] p-3">
           <p className="text-xs font-bold text-[var(--color-primary-text-strong)]">{input.domain}</p>
           <p className="mt-1 text-sm font-bold text-[var(--color-text-primary)]">{input.title}</p>
           <p className="mt-1 line-clamp-2 text-xs text-[var(--color-text-secondary)]">{input.subtitle}</p>
           {previewUrl ? <img src={previewUrl} alt="Chat preview" className="mt-3 rounded-[var(--radius-sm)]" /> : null}
         </div>
-      </PreviewTile>
-    </div>
+      )}
+    </PreviewTile>
   );
 }
 
@@ -794,28 +857,39 @@ export default function OGImageGeneratorClient() {
 
   const controls = (
     <div className="space-y-4">
-      <ProjectControls message={projectMessage} onExport={exportProject} onImport={importProject} onReset={resetProject} />
       <QuickPresets setInput={setInput} />
       <ContentControls input={input} setInput={setInput} />
       <AssetControls input={input} setInput={setInput} uploadError={uploadError} setUploadError={setUploadError} />
       <DesignControls input={input} setInput={setInput} />
       <ExportControls input={input} setInput={setInput} />
-      <WarningPanel title="Input checks" messages={mapWarnings(inputWarnings)} />
+      {inputWarnings.length ? <WarningPanel title="Input checks" messages={mapWarnings(inputWarnings)} /> : null}
+      <ProjectControls message={projectMessage} onExport={exportProject} onImport={importProject} onReset={resetProject} />
+    </div>
+  );
+
+  const primaryActions = (
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)] sm:p-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-sm font-black text-[var(--color-text-primary)]">Ready to export</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
+            {EXPORT_PACKS.find((pack) => pack.id === input.exportPack)?.label} · {assets.length} files · processed locally
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-2 sm:flex">
+          <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} onClick={downloadPrimary} disabled={!assets.length || !packageIsCurrent}>Download PNG</Button>
+          <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={!assets.length || !packageIsCurrent}>Download ZIP</Button>
+        </div>
+      </div>
     </div>
   );
 
   const preview = (
     <div className="space-y-4">
-      <ProductionSummary input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
       <MainPreview previewUrl={primaryPreview} status={status} input={input} />
+      {primaryActions}
       {error ? <WarningPanel messages={[{ id: "generation-error", severity: "danger", title: "Generation failed", message: error }]} /> : null}
       <PlatformPreview previewUrl={primaryPreview} input={input} />
-      <WarningPanel title="Production checks" messages={mapAuditChecks(productionChecks)} />
-      <ReadinessPanel input={input} assets={assets} />
-      <GeneratedFiles assets={assets} />
-      <WarningPanel title="Export self-check" messages={mapWarnings(generatedWarnings)} />
-      <LocalMetaChecker generatedHtmlSnippet={htmlSnippet} />
-      <PackageChecker />
     </div>
   );
 
@@ -838,18 +912,23 @@ export default function OGImageGeneratorClient() {
     />
   );
 
-  const actions = (
-    <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-      <div className="text-xs leading-5 text-[var(--color-text-secondary)]">
-        Current pack: <strong className="text-[var(--color-text-primary)]">{EXPORT_PACKS.find((pack) => pack.id === input.exportPack)?.label}</strong> · {assets.length} files
+  const developerTools = (
+    <DisclosurePanel
+      title="Developer handoff & QA"
+      description="Production checks, readiness, generated files, install snippets, HTML/meta validation, and package inspection."
+    >
+      <div className="space-y-4">
+        <ProductionSummary input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
+        <WarningPanel title="Production checks" messages={mapAuditChecks(productionChecks)} />
+        <ReadinessPanel input={input} assets={assets} />
+        <GeneratedFiles assets={assets} />
+        <WarningPanel title="Export self-check" messages={mapWarnings(generatedWarnings)} />
+        {code}
+        <LocalMetaChecker generatedHtmlSnippet={htmlSnippet} />
+        <PackageChecker />
       </div>
-      <div className="flex flex-wrap gap-2">
-        <Button variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={exportProject}>Project JSON</Button>
-        <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} onClick={downloadPrimary} disabled={!assets.length || !packageIsCurrent}>Download PNG</Button>
-        <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={!assets.length || !packageIsCurrent}>Download ZIP</Button>
-      </div>
-    </div>
+    </DisclosurePanel>
   );
 
-  return <ToolLayoutVisualGenerator previewSlot={preview} controlsSlot={controls} codeSlot={code} actionsSlot={actions} />;
+  return <ToolLayoutVisualGenerator previewSlot={preview} controlsSlot={controls} codeSlot={developerTools} />;
 }

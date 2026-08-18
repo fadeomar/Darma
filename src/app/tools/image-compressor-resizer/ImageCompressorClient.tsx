@@ -4,6 +4,7 @@ import {
   type ChangeEvent,
   type DragEvent,
   type KeyboardEvent,
+  type ReactNode,
   useEffect,
   useMemo,
   useRef,
@@ -143,6 +144,31 @@ async function makeBatchItem(file: File): Promise<BatchImageItem> {
     height: s.height,
     status: "ready",
   };
+}
+
+function Disclosure({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description?: string;
+  children: ReactNode;
+}) {
+  return (
+    <details className="group overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
+      <summary className="flex cursor-pointer list-none items-start justify-between gap-3 px-3 py-3.5 [&::-webkit-details-marker]:hidden">
+        <span className="min-w-0">
+          <span className="block text-sm font-black text-[var(--color-text-primary)]">{title}</span>
+          {description ? (
+            <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{description}</span>
+          ) : null}
+        </span>
+        <span aria-hidden className="mt-0.5 text-base font-bold text-[var(--color-text-tertiary)] transition group-open:rotate-45">+</span>
+      </summary>
+      <div className="space-y-4 border-t border-[var(--color-border-subtle)] p-3">{children}</div>
+    </details>
+  );
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
@@ -754,12 +780,12 @@ export default function ImageCompressorClient() {
         sticky={false}
       >
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          {QUICK_PRESETS.map((preset) => (
+          {QUICK_PRESETS.slice(0, 4).map((preset) => (
             <button
               key={preset.id}
               type="button"
               onClick={() => applyQuickPreset(preset.settings)}
-              className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+              className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] focus:outline-none focus:shadow-[var(--focus-ring)]"
             >
               <span className="block text-xs font-black text-[var(--color-text-primary)]">
                 {preset.label}
@@ -767,14 +793,27 @@ export default function ImageCompressorClient() {
               <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">
                 {preset.description}
               </span>
-              {preset.note && (
-                <span className="mt-1 block text-xs leading-4 text-[var(--color-accent-text)] opacity-80">
-                  {preset.note}
-                </span>
-              )}
             </button>
           ))}
         </div>
+        {QUICK_PRESETS.length > 4 ? (
+          <Disclosure title="More presets" description="Social, profile, and ecommerce export sizes.">
+            <div className="grid gap-2 sm:grid-cols-2">
+              {QUICK_PRESETS.slice(4).map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  onClick={() => applyQuickPreset(preset.settings)}
+                  className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+                >
+                  <span className="block text-xs font-black text-[var(--color-text-primary)]">{preset.label}</span>
+                  <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  {preset.note ? <span className="mt-1 block text-xs leading-4 text-[var(--color-accent-text)] opacity-80">{preset.note}</span> : null}
+                </button>
+              ))}
+            </div>
+          </Disclosure>
+        ) : null}
       </ToolControlPanel>
 
       {/* Compression */}
@@ -827,8 +866,12 @@ export default function ImageCompressorClient() {
         </ControlSection>
       </ToolControlPanel>
 
+      <Disclosure
+        title="Resize, format & file settings"
+        description="Open when you need exact dimensions, target KB, format conversion, or filename rules."
+      >
       {/* Target file size */}
-      <ToolControlPanel title="Target file size" sticky={false}>
+        <ToolControlPanel title="Target file size" sticky={false}>
         <ControlSection title="Size target">
           <label className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)]">
             <input
@@ -874,10 +917,10 @@ export default function ImageCompressorClient() {
             </div>
           )}
         </ControlSection>
-      </ToolControlPanel>
+        </ToolControlPanel>
 
-      {/* Resize */}
-      <ToolControlPanel title="Resize" sticky={false}>
+        {/* Resize */}
+        <ToolControlPanel title="Resize" sticky={false}>
         <ControlSection title="Dimensions">
           <ControlGrid columns={2}>
             <Field label="Width (px)">
@@ -928,10 +971,10 @@ export default function ImageCompressorClient() {
             </p>
           )}
         </ControlSection>
-      </ToolControlPanel>
+        </ToolControlPanel>
 
-      {/* Output format */}
-      <ToolControlPanel title="Output format" sticky={false}>
+        {/* Output format */}
+        <ToolControlPanel title="Output format" sticky={false}>
         <ControlSection title="Format">
           <Field
             label="Format"
@@ -948,10 +991,10 @@ export default function ImageCompressorClient() {
             </Select>
           </Field>
         </ControlSection>
-      </ToolControlPanel>
+        </ToolControlPanel>
 
-      {/* Output filename */}
-      <ToolControlPanel title="Output filename" sticky={false}>
+        {/* Output filename */}
+        <ToolControlPanel title="Output filename" sticky={false}>
         <ControlSection title="Rename">
           <div className="space-y-2">
             {(
@@ -989,9 +1032,19 @@ export default function ImageCompressorClient() {
             </div>
           )}
         </ControlSection>
-      </ToolControlPanel>
+        </ToolControlPanel>
 
-      <WarningPanel messages={infoMessages} />
+      </Disclosure>
+
+      <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs text-[var(--color-text-secondary)]">
+        <Shield className="h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />
+        <span><strong>Private by default.</strong> Images are processed locally in your browser.</span>
+      </div>
+      {infoMessages.some((message) => message.id !== "privacy") ? (
+        <Disclosure title="Notes & warnings" description="Format, transparency, target-size, and resize guidance for the current image.">
+          <WarningPanel messages={infoMessages.filter((message) => message.id !== "privacy")} />
+        </Disclosure>
+      ) : null}
     </div>
   );
 
@@ -1037,16 +1090,6 @@ export default function ImageCompressorClient() {
                 )}
               </div>
 
-              <SingleOptimizationSummary
-                input={toInputState(singleItem!)}
-                output={singleOutput}
-                estimatedDims={estimatedDims}
-                resolvedMime={resolvedMime}
-                quality={settings.quality}
-                targetEnabled={settings.targetFileSizeEnabled}
-                targetKB={settings.targetFileSizeKB}
-              />
-
               {/* Image preview — full width, no inner padding */}
               <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)]">
                 <PreviewArea
@@ -1078,6 +1121,16 @@ export default function ImageCompressorClient() {
                 </div>
               )}
 
+              <SingleOptimizationSummary
+                input={toInputState(singleItem!)}
+                output={singleOutput}
+                estimatedDims={estimatedDims}
+                resolvedMime={resolvedMime}
+                quality={settings.quality}
+                targetEnabled={settings.targetFileSizeEnabled}
+                targetKB={settings.targetFileSizeKB}
+              />
+
               {/* Result guidance */}
               {singleOutput && singleItem && (
                 <ResultGuidance
@@ -1093,6 +1146,7 @@ export default function ImageCompressorClient() {
 
             {/* RIGHT: Compress button + settings (sticky) */}
             <div className="space-y-4 lg:sticky lg:top-24">
+              <div className="sticky bottom-3 z-20 rounded-[var(--radius-lg)] bg-[var(--color-surface-overlay)]/95 p-2 shadow-[var(--shadow-lg)] backdrop-blur lg:static lg:bg-transparent lg:p-0 lg:shadow-none">
               <Button
                 onClick={compressSingle}
                 loading={processing}
@@ -1100,8 +1154,9 @@ export default function ImageCompressorClient() {
                 leftIcon={<CheckCircle2 className="h-4 w-4" aria-hidden />}
                 className="w-full"
               >
-                {processing ? processingStep || "Optimizing…" : "Compress image"}
+                {processing ? processingStep || "Optimizing…" : "Optimize image"}
               </Button>
+              </div>
               {settingsColumn}
             </div>
             </div>
@@ -1185,7 +1240,7 @@ export default function ImageCompressorClient() {
 
           {/* RIGHT: Primary actions + settings (sticky) */}
           <div className="space-y-4 lg:sticky lg:top-24">
-            <div className="space-y-2">
+            <div className="sticky bottom-3 z-20 space-y-2 rounded-[var(--radius-lg)] bg-[var(--color-surface-overlay)]/95 p-2 shadow-[var(--shadow-lg)] backdrop-blur lg:static lg:bg-transparent lg:p-0 lg:shadow-none">
               <Button
                 onClick={processAll}
                 loading={batchProcessing}
@@ -1271,25 +1326,10 @@ function UploadDropzone({
         JPG, PNG, and WebP. Drop one image for a side-by-side preview, or add up to {MAX_BATCH} images for batch optimization and ZIP export.
       </p>
 
-      <div className="mt-5 grid w-full max-w-2xl gap-2 text-left sm:grid-cols-3">
-        {[
-          ["1", "Choose", "Drop, browse, or paste an image."],
-          ["2", "Optimize", "Pick quality, format, resize, or target KB."],
-          ["3", "Export", "Download one image or a ZIP batch."],
-        ].map(([step, title, description]) => (
-          <div
-            key={step}
-            className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3"
-          >
-            <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-accent-text)]">
-              Step {step}
-            </span>
-            <p className="mt-1 text-xs font-black text-[var(--color-text-primary)]">{title}</p>
-            <p className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">
-              {description}
-            </p>
-          </div>
-        ))}
+      <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs text-[var(--color-text-secondary)]">
+        <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-1.5">1–20 images</span>
+        <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-1.5">Paste supported</span>
+        <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-1.5">JPG · PNG · WebP</span>
       </div>
 
       <Button
@@ -1308,17 +1348,10 @@ function UploadDropzone({
         You can also paste an image from your clipboard (Ctrl+V / ⌘V).
       </p>
 
-      <div className="mt-5 flex flex-wrap justify-center gap-2">
-        {["Browser-only", "No upload to server", "No watermark", "No signup"].map((label) => (
-          <span
-            key={label}
-            className="inline-flex items-center gap-1 rounded-[var(--radius-full)] border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-accent-text)]"
-          >
-            <Shield className="h-3 w-3" aria-hidden />
-            {label}
-          </span>
-        ))}
-      </div>
+      <p className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-[var(--color-success-text)]">
+        <Shield className="h-3.5 w-3.5" aria-hidden />
+        Private browser processing · no upload · no watermark · no signup
+      </p>
     </div>
   );
 }

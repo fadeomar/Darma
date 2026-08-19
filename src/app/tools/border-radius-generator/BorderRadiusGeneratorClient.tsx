@@ -204,22 +204,39 @@ export default function BorderRadiusGeneratorClient() {
     <div className="space-y-4">
       <style>{`@keyframes darma-preview-blob { 0% { border-radius: ${formatAdvancedBorderRadius(state.advancedValues, state.advancedUnit)}; } 50% { border-radius: 62% 38% 54% 46% / 42% 58% 42% 58%; } 100% { border-radius: 35% 65% 66% 34% / 58% 40% 60% 42%; } }`}</style>
       <PreviewToolbar
-        title="Shape preview"
-        description="Preview simple corners, slash syntax, organic blobs, and animated shapes."
+        title="Live shape preview"
+        description="Shape first: adjust the corners while the result stays visible, then copy production-ready CSS."
         actions={
           <div className="flex flex-wrap gap-2">
             <Button variant="secondary" size="sm" leftIcon={<Shuffle className="h-4 w-4" />} onClick={randomizeBlob}>Randomize</Button>
-            <Button variant="secondary" size="sm" leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("border-radius.css", css)}>Download</Button>
+            <Button variant="secondary" size="sm" leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("border-radius.css", css)}>Download CSS</Button>
           </div>
         }
       />
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <QuickMetric label="Radius" value={stats.radius} detail={stats.complexity} />
-        <QuickMetric label="Fit" value={stats.fit} detail={labelize(state.previewContext)} />
-        <QuickMetric label="Range" value={`${stats.min}–${stats.max}${state.mode === "simple" ? state.simpleUnit : state.advancedUnit}`} detail={`Spread ${stats.spread}`} />
-        <QuickMetric label="Output" value={state.animation.enabled || state.mode === "animated" ? "Keyframes" : stats.hasSlashSyntax ? "Slash CSS" : "Simple CSS"} detail={state.animation.includeReducedMotion || state.exportOptions.includeReducedMotion ? "Reduced motion included" : "Static radius"} />
+
+      <div className="relative min-h-[500px] overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[radial-gradient(circle_at_top_left,var(--color-primary-soft),transparent_36%),linear-gradient(135deg,var(--color-preview-bg),var(--color-preview-bg-strong))] p-4 sm:min-h-[580px] sm:p-7">
+        {state.showGrid ? <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(15_23_42_/_0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(15_23_42_/_0.08)_1px,transparent_1px)] bg-[size:32px_32px]" /> : null}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+        <div className="relative flex min-h-[430px] items-center justify-center py-8 sm:min-h-[500px] sm:py-12">
+          <div className="relative flex items-center justify-center overflow-hidden transition-[width,height,border-radius,background,box-shadow] duration-200" style={previewStyle}>
+            {state.previewContext === "card" ? <span className="px-6 text-center text-lg font-black text-[var(--color-text-primary)]">Modern card</span> : null}
+            {state.previewContext === "button" ? <span className="px-6 text-center text-base font-black text-white">Button shape</span> : null}
+            {state.previewContext === "hero-decoration" ? <span className="text-5xl">✦</span> : null}
+            {state.showCornerLabels ? <CornerLabels state={state} /> : null}
+          </div>
+        </div>
+        <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/60 bg-white/85 p-3 text-xs font-bold text-[var(--color-text-secondary)] shadow-sm backdrop-blur dark:border-[var(--color-code-border)] dark:bg-[var(--color-code-surface)]/80">
+          <span>{state.style.width}{state.style.sizeUnit} × {state.style.height}{state.style.sizeUnit}</span>
+          <span className="max-w-full truncate font-mono" title={radiusValue}>{radiusValue}</span>
+          <Badge variant="soft">{labelize(state.mode)}</Badge>
+        </div>
       </div>
-      <div className="grid gap-4 lg:grid-cols-[230px_minmax(0,1fr)]">
+
+      <section aria-labelledby="radius-presets-title" className="space-y-2.5">
+        <div>
+          <h3 id="radius-presets-title" className="text-sm font-black text-[var(--color-text-primary)]">Quick shapes</h3>
+          <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Start from a familiar UI or organic shape, then fine-tune the corners.</p>
+        </div>
         <PresetGallery
           presets={BORDER_RADIUS_PRESETS}
           selectedId={state.exportOptions.className}
@@ -227,119 +244,175 @@ export default function BorderRadiusGeneratorClient() {
           getId={(preset) => preset.state.exportOptions.className}
           getLabel={(preset) => preset.name}
           getDescription={(preset) => preset.description}
-          renderPreview={(preset) => <div className="mx-auto h-16 w-20" style={{ borderRadius: getBorderRadiusValue(preset.state), background: backgroundValue(preset.state) }} />}
-          className="lg:grid-cols-1"
-        />
-        <div className="relative min-h-[520px] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[radial-gradient(circle_at_top_left,var(--color-primary-soft),transparent_36%),linear-gradient(135deg,var(--color-preview-bg),var(--color-preview-bg-strong))] p-6">
-          {state.showGrid ? <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(15_23_42_/_0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(15_23_42_/_0.08)_1px,transparent_1px)] bg-[size:32px_32px]" /> : null}
-          <div className="relative flex min-h-[460px] items-center justify-center">
-            <div className="relative flex items-center justify-center overflow-hidden" style={previewStyle}>
-              {state.previewContext === "card" ? <span className="px-6 text-center text-lg font-black text-[var(--color-text-primary)]">Modern card</span> : null}
-              {state.previewContext === "button" ? <span className="px-6 text-center text-base font-black text-white">Button shape</span> : null}
-              {state.previewContext === "hero-decoration" ? <span className="text-5xl">✦</span> : null}
-              {state.showCornerLabels ? <CornerLabels state={state} /> : null}
+          renderPreview={(preset) => (
+            <div className="flex h-full items-center justify-center p-2">
+              <div className="h-10 w-14" style={{ borderRadius: getBorderRadiusValue(preset.state), background: backgroundValue(preset.state), boxShadow: shadowValue(preset.state) }} />
             </div>
-          </div>
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/60 bg-white/80 p-3 text-xs font-bold text-[var(--color-text-secondary)] shadow-sm backdrop-blur dark:border-[var(--color-code-border)] dark:bg-[var(--color-code-surface)]/75 dark:text-[var(--color-text-secondary)]">
-            <span>{state.style.width}{state.style.sizeUnit} × {state.style.height}{state.style.sizeUnit}</span>
-            <span>{labelize(state.previewContext)}</span>
-            <span>{radiusValue}</span>
-          </div>
+          )}
+          className="sm:grid-cols-3 xl:grid-cols-3"
+          compact
+        />
+      </section>
+
+      <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]">
+        <summary className="cursor-pointer list-none px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] marker:content-none">
+          <span className="flex items-center justify-between gap-3">
+            Output details
+            <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Radius range, fit & CSS type</span>
+            <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+          </span>
+        </summary>
+        <div className="grid gap-2 border-t border-[var(--color-border-subtle)] p-4 sm:grid-cols-2 xl:grid-cols-4">
+          <QuickMetric label="Radius" value={stats.radius} detail={stats.complexity} />
+          <QuickMetric label="Fit" value={stats.fit} detail={labelize(state.previewContext)} />
+          <QuickMetric label="Range" value={`${stats.min}–${stats.max}${state.mode === "simple" ? state.simpleUnit : state.advancedUnit}`} detail={`Spread ${stats.spread}`} />
+          <QuickMetric label="Output" value={state.animation.enabled || state.mode === "animated" ? "Keyframes" : stats.hasSlashSyntax ? "Slash CSS" : "Simple CSS"} detail={state.animation.includeReducedMotion || state.exportOptions.includeReducedMotion ? "Reduced motion included" : "Static radius"} />
         </div>
-      </div>
+      </details>
     </div>
   );
 
   const controlsSlot = (
-    <ToolControlPanel title="Shape settings" description="Compact controls for radius, blob, size, and output." badge={<Badge variant="soft">{labelize(state.mode)}</Badge>}>
-      <ControlSection title="Mode">
-        <SegmentedControl ariaLabel="Border radius mode" value={state.mode} onChange={(mode) => patchState({ mode })} options={modes.map((mode) => ({ value: mode, label: labelize(mode) }))} />
-      </ControlSection>
+    <div className="space-y-4">
+      <ToolControlPanel title="Shape controls" description="Tune the radius first; styling and export options stay out of the way until you need them." badge={<Badge variant="soft">{labelize(state.mode)}</Badge>}>
+        <ControlSection title="Mode">
+          <SegmentedControl ariaLabel="Border radius mode" value={state.mode} onChange={(mode) => patchState({ mode })} options={modes.map((mode) => ({ value: mode, label: labelize(mode) }))} />
+        </ControlSection>
 
-      <ControlSection title="Radius values" action={<Button size="sm" variant="secondary" onClick={randomizeBlob}>Randomize</Button>}>
-        {state.mode === "simple" ? (
-          <>
-            <Field label="Unit" density="compact"><Select size="sm" width="compact" value={state.simpleUnit} onChange={(event) => patchState({ simpleUnit: event.target.value as BorderRadiusState["simpleUnit"] })}><option value="px">px</option><option value="%">%</option><option value="rem">rem</option><option value="em">em</option></Select></Field>
+        <ControlSection title="Radius values" action={<Button size="sm" variant="secondary" onClick={randomizeBlob}>Randomize</Button>}>
+          {state.mode === "simple" ? (
+            <>
+              <Field label="Unit" density="compact"><Select size="sm" width="compact" value={state.simpleUnit} onChange={(event) => patchState({ simpleUnit: event.target.value as BorderRadiusState["simpleUnit"] })}><option value="px">px</option><option value="%">%</option><option value="rem">rem</option><option value="em">em</option></Select></Field>
+              <ControlGrid columns={2}>
+                {corners.map((corner) => <NumberField key={corner} label={labelize(corner)} value={state.simpleValues[corner]} min={0} max={state.simpleUnit === "%" ? 100 : 400} unit={state.simpleUnit} onChange={(value) => setSimpleCorner(corner, value)} />)}
+              </ControlGrid>
+            </>
+          ) : (
+            <>
+              <Field label="Unit" density="compact"><Select size="sm" width="compact" value={state.advancedUnit} onChange={(event) => patchState({ advancedUnit: event.target.value as BorderRadiusState["advancedUnit"] })}><option value="%">%</option><option value="px">px</option><option value="rem">rem</option><option value="em">em</option></Select></Field>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+                <p className="mb-2 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Horizontal radius</p>
+                <ControlGrid columns={2}>
+                  {corners.map((corner) => <NumberField key={`h-${corner}`} label={labelize(corner)} value={state.advancedValues.horizontal[corner]} min={0} max={state.advancedUnit === "%" ? 100 : 400} unit={state.advancedUnit} onChange={(value) => setAdvancedCorner("horizontal", corner, value)} />)}
+                </ControlGrid>
+              </div>
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+                <p className="mb-2 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Vertical radius</p>
+                <ControlGrid columns={2}>
+                  {corners.map((corner) => <NumberField key={`v-${corner}`} label={labelize(corner)} value={state.advancedValues.vertical[corner]} min={0} max={state.advancedUnit === "%" ? 100 : 400} unit={state.advancedUnit} onChange={(value) => setAdvancedCorner("vertical", corner, value)} />)}
+                </ControlGrid>
+              </div>
+              {(state.mode === "blob" || state.mode === "animated" || state.mode === "image") ? (
+                <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
+                  <summary className="cursor-pointer list-none px-3 py-2.5 text-sm font-bold text-[var(--color-text-primary)] marker:content-none">
+                    <span className="flex items-center justify-between gap-3">
+                      Randomize locks
+                      <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Keep selected corners stable</span>
+                      <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+                    </span>
+                  </summary>
+                  <div className="grid gap-2 border-t border-[var(--color-border-subtle)] p-3 sm:grid-cols-2">
+                    {corners.map((corner) => <CheckboxRow key={`lock-${corner}`} label={labelize(corner)} checked={state.locks[corner]} onChange={(checked) => patchLock(corner, checked)} />)}
+                  </div>
+                </details>
+              ) : null}
+            </>
+          )}
+        </ControlSection>
+
+        <ControlSection title="Canvas size">
+          <ControlGrid columns={2}>
+            <SliderNumberField label="Width" value={state.style.width} min={40} max={720} unit={state.style.sizeUnit} onChange={(value) => patchStyle({ width: value })} />
+            <SliderNumberField label="Height" value={state.style.height} min={40} max={720} unit={state.style.sizeUnit} onChange={(value) => patchStyle({ height: value })} />
+          </ControlGrid>
+          <Field label="Preview context" density="compact"><Select size="sm" value={state.previewContext} onChange={(event) => patchState({ previewContext: event.target.value as PreviewContext })}>{contexts.map((context) => <option key={context} value={context}>{labelize(context)}</option>)}</Select></Field>
+        </ControlSection>
+
+        <details className="group border-t border-[var(--color-border-subtle)] pt-4">
+          <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)] marker:content-none">
+            <span className="flex items-center justify-between gap-3">
+              Appearance & preview
+              <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Background, border, shadow & helpers</span>
+              <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+            </span>
+          </summary>
+          <div className="mt-4 space-y-4">
+            <Field label="Background" density="compact"><Select size="sm" value={state.style.backgroundType} onChange={(event) => patchStyle({ backgroundType: event.target.value as BackgroundType })}>{backgrounds.map((background) => <option key={background} value={background}>{labelize(background)}</option>)}</Select></Field>
             <ControlGrid columns={2}>
-              {corners.map((corner) => <NumberField key={corner} label={labelize(corner)} value={state.simpleValues[corner]} min={0} max={state.simpleUnit === "%" ? 100 : 400} unit={state.simpleUnit} onChange={(value) => setSimpleCorner(corner, value)} />)}
+              <ColorField label="Solid" value={state.style.backgroundColor} onChange={(value) => patchStyle({ backgroundColor: value })} />
+              <ColorField label="Gradient from" value={state.style.gradientFrom} onChange={(value) => patchStyle({ gradientFrom: value })} />
+              <ColorField label="Gradient to" value={state.style.gradientTo} onChange={(value) => patchStyle({ gradientTo: value })} />
+              <SliderNumberField label="Angle" value={state.style.gradientAngle} min={0} max={360} unit="deg" onChange={(value) => patchStyle({ gradientAngle: value })} />
+              <NumberField label="Border" value={state.style.borderWidth} min={0} max={24} unit="px" onChange={(value) => patchStyle({ borderWidth: value, borderStyle: value > 0 ? "solid" : "none" })} />
+              <ColorField label="Border color" value={state.style.borderColor} onChange={(value) => patchStyle({ borderColor: value })} />
             </ControlGrid>
-          </>
-        ) : (
-          <>
-            <Field label="Unit" density="compact"><Select size="sm" width="compact" value={state.advancedUnit} onChange={(event) => patchState({ advancedUnit: event.target.value as BorderRadiusState["advancedUnit"] })}><option value="%">%</option><option value="px">px</option><option value="rem">rem</option><option value="em">em</option></Select></Field>
+            <Field label="Shadow" density="compact">
+              <Select size="sm" value={state.style.shadowPreset} onChange={(event) => patchStyle({ shadowPreset: event.target.value as BorderRadiusState["style"]["shadowPreset"] })}>
+                <option value="none">None</option>
+                <option value="soft">Soft</option>
+                <option value="medium">Medium</option>
+                <option value="strong">Strong</option>
+                <option value="custom">Custom</option>
+              </Select>
+            </Field>
+            {state.style.shadowPreset === "custom" ? <Field label="Custom shadow" density="compact"><Input size="sm" value={state.style.customShadow} onChange={(event) => patchStyle({ customShadow: event.target.value })} /></Field> : null}
             <ControlGrid columns={2}>
-              {corners.map((corner) => <NumberField key={`h-${corner}`} label={`H ${labelize(corner)}`} value={state.advancedValues.horizontal[corner]} min={0} max={state.advancedUnit === "%" ? 100 : 400} unit={state.advancedUnit} onChange={(value) => setAdvancedCorner("horizontal", corner, value)} />)}
-              {corners.map((corner) => <NumberField key={`v-${corner}`} label={`V ${labelize(corner)}`} value={state.advancedValues.vertical[corner]} min={0} max={state.advancedUnit === "%" ? 100 : 400} unit={state.advancedUnit} onChange={(value) => setAdvancedCorner("vertical", corner, value)} />)}
+              <CheckboxRow label="Grid" checked={state.showGrid} onChange={(checked) => patchState({ showGrid: checked })} />
+              <CheckboxRow label="Corner labels" checked={state.showCornerLabels} onChange={(checked) => patchState({ showCornerLabels: checked })} />
             </ControlGrid>
-          </>
-        )}
-      </ControlSection>
+          </div>
+        </details>
 
-      <ControlSection title="Size and preview">
-        <ControlGrid columns={2}>
-          <SliderNumberField label="Width" value={state.style.width} min={40} max={720} unit={state.style.sizeUnit} onChange={(value) => patchStyle({ width: value })} />
-          <SliderNumberField label="Height" value={state.style.height} min={40} max={720} unit={state.style.sizeUnit} onChange={(value) => patchStyle({ height: value })} />
-        </ControlGrid>
-        <ControlGrid columns={2}>
-          <Field label="Context" density="compact"><Select size="sm" value={state.previewContext} onChange={(event) => patchState({ previewContext: event.target.value as PreviewContext })}>{contexts.map((context) => <option key={context} value={context}>{labelize(context)}</option>)}</Select></Field>
-          <Field label="Background" density="compact"><Select size="sm" value={state.style.backgroundType} onChange={(event) => patchStyle({ backgroundType: event.target.value as BackgroundType })}>{backgrounds.map((background) => <option key={background} value={background}>{labelize(background)}</option>)}</Select></Field>
-        </ControlGrid>
-        <ControlGrid columns={2}>
-          <CheckboxRow label="Grid" checked={state.showGrid} onChange={(checked) => patchState({ showGrid: checked })} />
-          <CheckboxRow label="Corner labels" checked={state.showCornerLabels} onChange={(checked) => patchState({ showCornerLabels: checked })} />
-        </ControlGrid>
-      </ControlSection>
+        <details className="group border-t border-[var(--color-border-subtle)] pt-4">
+          <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)] marker:content-none">
+            <span className="flex items-center justify-between gap-3">
+              Animation & export
+              <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Motion, reduced motion & class name</span>
+              <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+            </span>
+          </summary>
+          <div className="mt-4 space-y-4">
+            <ControlGrid columns={2}>
+              <CheckboxRow label="Animate" checked={state.animation.enabled} onChange={(checked) => patchAnimation({ enabled: checked })} />
+              <CheckboxRow label="Reduced motion CSS" checked={state.animation.includeReducedMotion} onChange={(checked) => patchAnimation({ includeReducedMotion: checked })} />
+            </ControlGrid>
+            <ControlGrid columns={2}>
+              <NumberField label="Duration" value={state.animation.duration} min={1} max={30} unit="s" onChange={(value) => patchAnimation({ duration: value })} />
+              <Button variant="secondary" onClick={generateKeyframes}>Generate keyframes</Button>
+            </ControlGrid>
+            <Field label="CSS class" density="compact"><Input size="sm" value={state.exportOptions.className} onChange={(event) => patchExport({ className: event.target.value })} /></Field>
+          </div>
+        </details>
+      </ToolControlPanel>
 
-      <ControlSection title="Appearance">
-        <ControlGrid columns={2}>
-          <ColorField label="Solid" value={state.style.backgroundColor} onChange={(value) => patchStyle({ backgroundColor: value })} />
-          <ColorField label="Gradient from" value={state.style.gradientFrom} onChange={(value) => patchStyle({ gradientFrom: value })} />
-          <ColorField label="Gradient to" value={state.style.gradientTo} onChange={(value) => patchStyle({ gradientTo: value })} />
-          <SliderNumberField label="Angle" value={state.style.gradientAngle} min={0} max={360} unit="deg" onChange={(value) => patchStyle({ gradientAngle: value })} />
-          <NumberField label="Border" value={state.style.borderWidth} min={0} max={24} unit="px" onChange={(value) => patchStyle({ borderWidth: value, borderStyle: value > 0 ? "solid" : "none" })} />
-          <ColorField label="Border color" value={state.style.borderColor} onChange={(value) => patchStyle({ borderColor: value })} />
-        </ControlGrid>
-        <Field label="Shadow" density="compact">
-          <Select size="sm" value={state.style.shadowPreset} onChange={(event) => patchStyle({ shadowPreset: event.target.value as BorderRadiusState["style"]["shadowPreset"] })}>
-            <option value="none">None</option>
-            <option value="soft">Soft</option>
-            <option value="medium">Medium</option>
-            <option value="strong">Strong</option>
-            <option value="custom">Custom</option>
-          </Select>
-        </Field>
-        {state.style.shadowPreset === "custom" ? <Field label="Custom shadow" density="compact"><Input size="sm" value={state.style.customShadow} onChange={(event) => patchStyle({ customShadow: event.target.value })} /></Field> : null}
-      </ControlSection>
-
-      <ControlSection title="Animation and export">
-        <ControlGrid columns={2}>
-          <CheckboxRow label="Animate" checked={state.animation.enabled} onChange={(checked) => patchAnimation({ enabled: checked })} />
-          <CheckboxRow label="Reduced motion CSS" checked={state.animation.includeReducedMotion} onChange={(checked) => patchAnimation({ includeReducedMotion: checked })} />
-        </ControlGrid>
-        <ControlGrid columns={2}>
-          <NumberField label="Duration" value={state.animation.duration} min={1} max={30} unit="s" onChange={(value) => patchAnimation({ duration: value })} />
-          <Button variant="secondary" onClick={generateKeyframes}>Generate keyframes</Button>
-        </ControlGrid>
-        <Field label="CSS class" density="compact"><Input size="sm" value={state.exportOptions.className} onChange={(event) => patchExport({ className: event.target.value })} /></Field>
-      </ControlSection>
-    </ToolControlPanel>
+      <details className="group rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]">
+        <summary className="cursor-pointer list-none px-4 py-3.5 marker:content-none">
+          <span className="flex items-center justify-between gap-3">
+            <span className="text-sm font-black text-[var(--color-text-primary)]">Developer handoff & diagnostics</span>
+            <Badge variant={warnings.some((warning) => warning.severity === "danger") ? "danger" : warnings.length ? "warning" : "soft"}>{warnings.length ? `${warnings.length} check${warnings.length === 1 ? "" : "s"}` : "Ready"}</Badge>
+          </span>
+        </summary>
+        <div className="space-y-4 border-t border-[var(--color-border-subtle)] p-4">
+          <WarningPanel title="Helpful warnings" messages={warnings} />
+          <CodeOutputPanel title="Generated radius code" description="CSS, framework snippets, design tokens, and component markup." tabs={tabs} defaultTab="css" onDownload={(tab) => downloadText(tab.filename ?? `${tab.id}.txt`, tab.code)} />
+        </div>
+      </details>
+    </div>
   );
 
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
+      actionsPlacement="under-preview"
       actionsSlot={
-        <div className="flex flex-wrap gap-2">
-          <Button variant="secondary" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={() => setState(createDefaultBorderRadiusState())}>Reset</Button>
-          <CopyButton text={css}>Copy CSS</CopyButton>
-          <CopyButton text={cssVariables}>Copy tokens</CopyButton>
-        </div>
-      }
-      codeSlot={
-        <div className="space-y-4">
-          <WarningPanel title="Helpful warnings" messages={warnings} />
-          <CodeOutputPanel title="Generated radius code" description="Copy production CSS, framework snippets, design tokens, or component markup." tabs={tabs} defaultTab="css" onDownload={(tab) => downloadText(tab.filename ?? `${tab.id}.txt`, tab.code)} />
+        <div className="flex w-full flex-wrap items-center justify-between gap-2">
+          <Button variant="ghost" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={() => setState(createDefaultBorderRadiusState())}>Reset</Button>
+          <div className="flex flex-wrap gap-2">
+            <CopyButton text={radiusValue} variant="secondary">Copy value</CopyButton>
+            <CopyButton text={css}>Copy CSS</CopyButton>
+          </div>
         </div>
       }
     />

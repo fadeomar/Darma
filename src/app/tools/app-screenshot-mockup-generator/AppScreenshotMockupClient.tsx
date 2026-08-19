@@ -904,6 +904,7 @@ export default function AppScreenshotMockupClient() {
 
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
       actionsPlacement="under-preview"
       mobileCodeAfterControls
       actionsClassName="sticky bottom-2 z-20 backdrop-blur xl:static"

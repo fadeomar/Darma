@@ -93,49 +93,63 @@ export function ResponsiveImageProductionPanel({
     }
   }
 
+  const statusLabel = blocked ? "Blocked" : counts.warning ? "Review" : "Ready";
+
   return (
-    <section className="space-y-4 rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-card)]" aria-labelledby="responsive-image-production-heading">
-      <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-        {summary.map((card) => <SummaryCard key={card.label} {...card} />)}
-      </div>
-
-      <div className="flex flex-wrap items-start justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-4">
-        <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="accent">Production handoff</Badge>
-            <Badge variant={blocked ? "danger" : counts.warning ? "warning" : "success"}>{blocked ? "Blocked" : counts.warning ? "Review" : "Ready"}</Badge>
+    <details className="rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-card)]" aria-labelledby="responsive-image-production-heading">
+      <summary className="cursor-pointer list-none px-4 py-4 [&::-webkit-details-marker]:hidden">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="accent">Developer handoff & QA</Badge>
+              <Badge variant={blocked ? "danger" : counts.warning ? "warning" : "success"}>{statusLabel}</Badge>
+            </div>
+            <p className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Production pack, audit, and project backup</p>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Open only when you need readiness checks, reports, metrics, project import/export, or the full delivery ZIP.</p>
           </div>
-          <h2 id="responsive-image-production-heading" className="mt-2 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Project, audit, and delivery pack</h2>
-          <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Save a reopenable candidate plan, review responsive-delivery checks, and export standalone HTML, CSS, Next.js, reports, and metrics.</p>
+          <span className="text-xs font-bold text-[var(--color-text-tertiary)]">{counts.error} errors · {counts.warning} warnings</span>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <input ref={importRef} className="sr-only" type="file" accept="application/json,.json" onChange={(event) => void handleImport(event.target.files?.[0])} />
-          <Button size="sm" variant="secondary" leftIcon={<Upload className="h-4 w-4" aria-hidden />} onClick={() => importRef.current?.click()}>Import project</Button>
-          <Button size="sm" variant="secondary" leftIcon={<FileJson className="h-4 w-4" aria-hidden />} onClick={() => downloadTextFile({ content: `${JSON.stringify(createResponsiveImageProject(state), null, 2)}\n`, filename: "responsive-image-project.json", mimeType: "application/json;charset=utf-8" })}>Project JSON</Button>
-          <Button size="sm" variant="primary" disabled={blocked || isPacking} leftIcon={<Package className="h-4 w-4" aria-hidden />} onClick={() => void downloadPack()}>{isPacking ? "Packing…" : "Production ZIP"}</Button>
+      </summary>
+
+      <div className="space-y-4 border-t border-[var(--color-border-subtle)] p-4">
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          {summary.map((card) => <SummaryCard key={card.label} {...card} />)}
         </div>
-      </div>
 
-      {message ? <p className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-2 text-xs leading-5 text-[var(--color-text-secondary)]" role="status">{message}</p> : null}
+        <div className="flex flex-wrap items-start justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-4">
+          <div>
+            <h2 id="responsive-image-production-heading" className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Production delivery</h2>
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Save a reopenable candidate plan or export standalone HTML, CSS, Next.js, reports, and metrics.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <input ref={importRef} className="sr-only" type="file" accept="application/json,.json" onChange={(event) => void handleImport(event.target.files?.[0])} />
+            <Button size="sm" variant="secondary" leftIcon={<Upload className="h-4 w-4" aria-hidden />} onClick={() => importRef.current?.click()}>Import project</Button>
+            <Button size="sm" variant="secondary" leftIcon={<FileJson className="h-4 w-4" aria-hidden />} onClick={() => downloadTextFile({ content: `${JSON.stringify(createResponsiveImageProject(state), null, 2)}\n`, filename: "responsive-image-project.json", mimeType: "application/json;charset=utf-8" })}>Project JSON</Button>
+            <Button size="sm" variant="primary" disabled={blocked || isPacking} leftIcon={<Package className="h-4 w-4" aria-hidden />} onClick={() => void downloadPack()}>{isPacking ? "Packing…" : "Production ZIP"}</Button>
+          </div>
+        </div>
 
-      <div className="grid gap-2 sm:grid-cols-2" aria-label="Responsive image production checks">
-        {checks.map((check) => (
-          <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}>
-            <div className="flex items-start gap-2">
-              <CheckIcon severity={check.severity} />
-              <div className="min-w-0">
-                <p className="text-xs font-black">{check.title}</p>
-                <p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p>
+        {message ? <p className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-2 text-xs leading-5 text-[var(--color-text-secondary)]" role="status">{message}</p> : null}
+
+        <div className="grid gap-2 sm:grid-cols-2" aria-label="Responsive image production checks">
+          {checks.map((check) => (
+            <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}>
+              <div className="flex items-start gap-2">
+                <CheckIcon severity={check.severity} />
+                <div className="min-w-0">
+                  <p className="text-xs font-black">{check.title}</p>
+                  <p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="flex flex-wrap gap-2 border-t border-[var(--color-border-subtle)] pt-4">
-        <Button size="sm" variant="ghost" leftIcon={<Download className="h-4 w-4" aria-hidden />} onClick={() => downloadTextFile({ content: buildResponsiveImageMarkdownReport(state, checks), filename: "responsive-image-production-report.md", mimeType: "text/markdown;charset=utf-8" })}>Markdown report</Button>
-        <Button size="sm" variant="ghost" leftIcon={<Download className="h-4 w-4" aria-hidden />} onClick={() => downloadTextFile({ content: buildResponsiveImageMetricsCsv(state, checks), filename: "responsive-image-production-metrics.csv", mimeType: "text/csv;charset=utf-8" })}>Metrics CSV</Button>
+        <div className="flex flex-wrap gap-2 border-t border-[var(--color-border-subtle)] pt-4">
+          <Button size="sm" variant="ghost" leftIcon={<Download className="h-4 w-4" aria-hidden />} onClick={() => downloadTextFile({ content: buildResponsiveImageMarkdownReport(state, checks), filename: "responsive-image-production-report.md", mimeType: "text/markdown;charset=utf-8" })}>Markdown report</Button>
+          <Button size="sm" variant="ghost" leftIcon={<Download className="h-4 w-4" aria-hidden />} onClick={() => downloadTextFile({ content: buildResponsiveImageMetricsCsv(state, checks), filename: "responsive-image-production-metrics.csv", mimeType: "text/csv;charset=utf-8" })}>Metrics CSV</Button>
+        </div>
       </div>
-    </section>
+    </details>
   );
 }

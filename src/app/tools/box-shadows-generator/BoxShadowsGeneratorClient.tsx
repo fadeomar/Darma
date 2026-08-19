@@ -622,6 +622,7 @@ export default function BoxShadowsGeneratorClient() {
   );
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
       actionsPlacement="under-preview"

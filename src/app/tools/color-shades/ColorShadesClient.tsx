@@ -2,14 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import tinycolor from "tinycolor2";
-import { Button, CopyButton, Tabs } from "@/components/ui";
+import { Button, CopyButton } from "@/components/ui";
 import { CodeOutputPanel, ColorField, NumberField, WarningPanel } from "@/features/tools/components";
 import type { ColorShade, ColorShadesParams } from "@/types";
 import { generateShades } from "@/utils/color-shades";
 import { COLOR_WORKFLOW_ID, readColorWorkflowState, writeColorWorkflowState } from "@/features/tools/workflows/browserState";
 import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
-
-type ActiveTab = "overview" | "accessibility" | "exports";
 
 type EnrichedShade = ColorShade & {
   label: string;
@@ -157,7 +155,7 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
   const workflowId = useActiveWorkflowId();
   const [params, setParams] = useState<ColorShadesParams>(initialParams);
   const [workflowReady, setWorkflowReady] = useState(false);
-  const [activeTab, setActiveTab] = useState<ActiveTab>("overview");
+  const [copiedShade, setCopiedShade] = useState<string | null>(null);
 
   useEffect(() => {
     function handleSuggestion(event: Event) {
@@ -223,94 +221,69 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
     setParams({ color1: preset.color1, color2: preset.color2, steps: preset.steps });
   }
 
+  async function copyShade(hex: string) {
+    await navigator.clipboard.writeText(hex);
+    setCopiedShade(hex);
+    window.setTimeout(() => setCopiedShade((current) => (current === hex ? null : current)), 1200);
+  }
+
   return (
     <div className="space-y-5">
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-        <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_330px]">
-          <div className="min-w-0 border-b border-[var(--color-border-subtle)] lg:border-b-0 lg:border-r">
-            <div className="h-28 border-b border-[var(--color-border-subtle)]" style={{ background: gradient }} />
-            <div className="grid gap-3 p-4 sm:grid-cols-3">
-              <div>
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] p-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live shade scale</p>
+            <h2 className="mt-1 text-lg font-bold text-[var(--color-text-primary)]">{params.steps} generated shades</h2>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Click any shade to copy it. Build the scale first; accessibility and developer exports stay available below.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <CopyButton text={hexList} size="sm" variant="secondary">Copy HEX list</CopyButton>
+            <CopyButton text={cssVars} size="sm">Copy CSS</CopyButton>
+          </div>
+        </div>
+
+        {isValid ? (
+          <>
+            <div className="grid min-h-52" style={{ gridTemplateColumns: `repeat(${Math.max(shades.length, 1)}, minmax(0, 1fr))` }}>
+              {shades.map((shade) => (
+                <button
+                  key={`hero-${shade.label}-${shade.hex}`}
+                  type="button"
+                  onClick={() => copyShade(shade.hex)}
+                  aria-label={`Copy ${shade.label} ${shade.hex}`}
+                  className="group relative min-w-0 overflow-hidden text-left focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-strong)]"
+                >
+                  <span className="absolute inset-0" style={{ background: shade.hex }} />
+                  <span
+                    className="relative z-10 flex h-full min-h-52 flex-col justify-between p-2"
+                    style={{ color: shade.textColor }}
+                  >
+                    <span className="font-mono text-xs font-bold">{shade.label}</span>
+                    <span className="hidden -rotate-90 whitespace-nowrap font-mono text-xs font-bold opacity-0 transition group-hover:opacity-100 sm:block">
+                      {copiedShade === shade.hex ? "Copied" : shade.hex}
+                    </span>
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="grid border-t border-[var(--color-border-subtle)] sm:grid-cols-3">
+              <div className="p-3 sm:p-4">
                 <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Start</p>
                 <p className="mt-1 font-mono text-sm font-bold text-[var(--color-text-primary)]">{normalizeHex(params.color1)}</p>
               </div>
-              <div>
-                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Steps</p>
+              <div className="border-y border-[var(--color-border-subtle)] p-3 sm:border-x sm:border-y-0 sm:p-4">
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Scale</p>
                 <p className="mt-1 text-sm font-bold text-[var(--color-text-primary)]">{params.steps} shades</p>
               </div>
-              <div>
+              <div className="p-3 sm:p-4">
                 <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">End</p>
                 <p className="mt-1 font-mono text-sm font-bold text-[var(--color-text-primary)]">{normalizeHex(params.color2)}</p>
               </div>
             </div>
-          </div>
-
-          <aside className="min-w-0 p-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <span
-                className={
-                  health.tone === "good"
-                    ? "rounded-[var(--radius-full)] bg-emerald-500/10 px-2.5 py-1 text-xs font-bold text-emerald-700"
-                    : health.tone === "warn"
-                      ? "rounded-[var(--radius-full)] bg-amber-500/10 px-2.5 py-1 text-xs font-bold text-amber-700"
-                      : "rounded-[var(--radius-full)] bg-red-500/10 px-2.5 py-1 text-xs font-bold text-red-700"
-                }
-              >
-                {health.label}
-              </span>
-              <span className="rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2.5 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">
-                avg {formatRatio(averageContrast(shades))}
-              </span>
-            </div>
-            <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{health.detail}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <CopyButton text={cssVars} size="sm">Copy CSS</CopyButton>
-              <CopyButton text={tailwind} size="sm" variant="secondary">Tailwind</CopyButton>
-              <CopyButton text={hexList} size="sm" variant="secondary">HEX list</CopyButton>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section className="grid gap-5 xl:grid-cols-[minmax(0,0.92fr)_minmax(360px,1.08fr)] xl:items-start">
-        <div className="min-w-0 space-y-4">
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Palette controls</h2>
-                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Pick a start and end color. The generated tokens update instantly.</p>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {STEP_PRESETS.map((step) => (
-                  <Button key={step} size="sm" variant={params.steps === step ? "soft" : "secondary"} onClick={() => patch({ steps: step })}>
-                    {step}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <ColorField label="Start color" value={params.color1} onChange={(color1) => patch({ color1 })} />
-              <ColorField label="End color" value={params.color2} onChange={(color2) => patch({ color2 })} />
-              <NumberField label="Number of shades" value={params.steps} min={2} max={20} onChange={(steps) => patch({ steps })} className="sm:col-span-2" width="full" />
-            </div>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              {QUICK_PRESETS.map((preset) => (
-                <button
-                  key={preset.label}
-                  type="button"
-                  onClick={() => applyPreset(preset)}
-                  className="overflow-hidden rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-track)] pr-3 text-left text-xs font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
-                >
-                  <span className="mr-2 inline-flex h-7 w-12 align-middle" style={{ background: `linear-gradient(90deg, ${preset.color1}, ${preset.color2})` }} />
-                  {preset.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {!isValid ? (
+          </>
+        ) : (
+          <div className="p-5">
             <WarningPanel
               messages={[
                 {
@@ -321,94 +294,134 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
                 },
               ]}
             />
-          ) : null}
-        </div>
+          </div>
+        )}
+      </section>
 
-        <div className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Generated shades</h2>
-              <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Click copy buttons or export the full scale.</p>
+      <section className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_360px] xl:items-start">
+        <div className="order-2 min-w-0 space-y-4 xl:order-1">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Shade tokens</h2>
+                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">The generated scale stays copy-first. HEX is always visible; RGB and HSL remain available without dominating the card.</p>
+              </div>
+              <span className="w-fit rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2.5 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">
+                {shades.length} tokens
+              </span>
             </div>
-            <Tabs<ActiveTab>
-              ariaLabel="Color shade details"
-              items={[
-                { value: "overview", label: "Overview" },
-                { value: "accessibility", label: "A11y" },
-                { value: "exports", label: "Exports" },
-              ]}
-              value={activeTab}
-              onChange={setActiveTab}
-            />
+
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
+              {shades.map((shade) => (
+                <article key={`${shade.label}-${shade.hex}`} className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
+                  <div className="flex h-24 items-start justify-between p-2.5" style={{ background: shade.hex, color: shade.textColor }}>
+                    <span className="rounded-[var(--radius-full)] bg-black/20 px-2 py-1 font-mono text-xs font-bold backdrop-blur-sm">{shade.label}</span>
+                    <span className="rounded-[var(--radius-full)] bg-black/20 px-2 py-1 font-mono text-xs font-bold backdrop-blur-sm">{shade.rating}</span>
+                  </div>
+                  <div className="space-y-2 p-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]" title={shade.hex}>{shade.hex}</p>
+                      <CopyButton text={shade.hex} size="sm" variant="secondary">Copy</CopyButton>
+                    </div>
+                    <details>
+                      <summary className="cursor-pointer text-xs font-bold text-[var(--color-text-tertiary)]">More formats</summary>
+                      <div className="mt-2 space-y-1">
+                        <p className="truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={shade.rgb}>{compactColorValue(shade.rgb)}</p>
+                        <p className="truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={shade.hsl}>{compactColorValue(shade.hsl)}</p>
+                      </div>
+                    </details>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
 
-          {activeTab === "overview" ? (
-            <div className="mt-4 space-y-4">
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Design preview</h2>
+                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">See how the scale behaves in a small interface before exporting it.</p>
+              </div>
+            </div>
+
+            <div className="mt-4 grid gap-3 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)]">
+              <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4" style={{ background: shades[0]?.hex, color: shades[shades.length - 1]?.hex }}>
+                <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-overlay)] p-4 text-[var(--color-text-primary)] shadow-[var(--shadow-sm)]">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Preview card</p>
+                  <h3 className="mt-2 text-lg font-bold">Shade scale ready</h3>
+                  <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Use lighter tones for surfaces, middle tones for accents, and stronger tones for emphasis.</p>
+                  <button className="mt-4 rounded-[var(--radius-sm)] px-3 py-2 text-xs font-bold" style={{ background: shades[Math.floor(shades.length * 0.65)]?.hex, color: shades[Math.floor(shades.length * 0.65)]?.textColor }}>
+                    Sample button
+                  </button>
+                </div>
+              </div>
+
+              <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Recommended roles</p>
+                <div className="mt-3 grid gap-2 text-sm">
+                  <RoleRow label="Background" shade={shades[0]} />
+                  <RoleRow label="Surface" shade={shades[Math.min(1, shades.length - 1)]} />
+                  <RoleRow label="Primary" shade={shades[Math.floor(shades.length * 0.6)]} />
+                  <RoleRow label="Hover" shade={shades[Math.min(shades.length - 1, Math.floor(shades.length * 0.75))]} />
+                  <RoleRow label="Strong" shade={shades[shades.length - 1]} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <details className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+            <summary className="cursor-pointer list-none p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Palette health & accessibility</h2>
+                  <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">WCAG text recommendations stay available without interrupting shade generation.</p>
+                </div>
+                <span
+                  className={
+                    health.tone === "good"
+                      ? "shrink-0 rounded-[var(--radius-full)] bg-emerald-500/10 px-2.5 py-1 text-xs font-bold text-emerald-700"
+                      : health.tone === "warn"
+                        ? "shrink-0 rounded-[var(--radius-full)] bg-amber-500/10 px-2.5 py-1 text-xs font-bold text-amber-700"
+                        : "shrink-0 rounded-[var(--radius-full)] bg-red-500/10 px-2.5 py-1 text-xs font-bold text-red-700"
+                  }
+                >
+                  {health.label}
+                </span>
+              </div>
+            </summary>
+            <div className="border-t border-[var(--color-border-subtle)] p-4">
+              <div className="mb-4 flex flex-wrap items-center gap-2">
+                <span className="rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2.5 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">
+                  avg {formatRatio(averageContrast(shades))}
+                </span>
+                <p className="text-sm text-[var(--color-text-secondary)]">{health.detail}</p>
+              </div>
+              <div className="space-y-3">
                 {shades.map((shade) => (
-                  <article key={`${shade.label}-${shade.hex}`} className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
-                    <div className="flex h-20 items-end p-2" style={{ background: shade.hex, color: shade.textColor }}>
-                      <span className="rounded-[var(--radius-full)] bg-black/20 px-2 py-1 font-mono text-xs font-bold backdrop-blur-sm">{shade.label}</span>
+                  <div key={`a11y-${shade.label}`} className="grid gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 sm:grid-cols-[72px_minmax(0,1fr)_auto] sm:items-center">
+                    <div className="h-12 rounded-[var(--radius-sm)] border border-[var(--color-border-default)]" style={{ background: shade.hex }} />
+                    <div className="min-w-0">
+                      <p className="font-mono text-xs font-bold text-[var(--color-text-primary)]">{shade.label} · {shade.hex}</p>
+                      <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Use {shade.textLabel.toLowerCase()} text · contrast {formatRatio(shade.contrast)}</p>
                     </div>
-                    <div className="space-y-2 p-3">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]" title={shade.hex}>{shade.hex}</p>
-                        <CopyButton text={shade.hex} size="sm" variant="secondary">Copy</CopyButton>
-                      </div>
-                      <p className="truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={shade.rgb}>{compactColorValue(shade.rgb)}</p>
-                      <p className="truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={shade.hsl}>{compactColorValue(shade.hsl)}</p>
-                    </div>
-                  </article>
+                    <span className="w-fit rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-3 py-1 font-mono text-xs font-bold text-[var(--color-text-primary)]">{shade.rating}</span>
+                  </div>
                 ))}
               </div>
-
-              <div className="grid gap-3 md:grid-cols-2">
-                <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">UI preview</p>
-                  <div className="mt-3 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4" style={{ background: shades[0]?.hex, color: shades[shades.length - 1]?.hex }}>
-                    <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-overlay)] p-4 text-[var(--color-text-primary)] shadow-[var(--shadow-sm)]">
-                      <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Preview card</p>
-                      <h3 className="mt-2 text-lg font-bold">Shade scale ready</h3>
-                      <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Use the middle tones for accents and validate text over each shade.</p>
-                      <button className="mt-4 rounded-[var(--radius-sm)] px-3 py-2 text-xs font-bold" style={{ background: shades[Math.floor(shades.length * 0.65)]?.hex, color: shades[Math.floor(shades.length * 0.65)]?.textColor }}>
-                        Sample button
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Recommended roles</p>
-                  <div className="mt-3 grid gap-2 text-sm">
-                    <RoleRow label="Background" shade={shades[0]} />
-                    <RoleRow label="Surface" shade={shades[Math.min(1, shades.length - 1)]} />
-                    <RoleRow label="Primary" shade={shades[Math.floor(shades.length * 0.6)]} />
-                    <RoleRow label="Hover" shade={shades[Math.min(shades.length - 1, Math.floor(shades.length * 0.75))]} />
-                    <RoleRow label="Strong" shade={shades[shades.length - 1]} />
-                  </div>
-                </div>
+              <div className="mt-4">
+                <CopyButton text={accessibility} size="sm" variant="secondary">Copy a11y report</CopyButton>
               </div>
             </div>
-          ) : null}
+          </details>
 
-          {activeTab === "accessibility" ? (
-            <div className="mt-4 space-y-3">
-              {shades.map((shade) => (
-                <div key={`a11y-${shade.label}`} className="grid gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 sm:grid-cols-[72px_minmax(0,1fr)_auto] sm:items-center">
-                  <div className="h-12 rounded-[var(--radius-sm)] border border-[var(--color-border-default)]" style={{ background: shade.hex }} />
-                  <div className="min-w-0">
-                    <p className="font-mono text-xs font-bold text-[var(--color-text-primary)]">{shade.label} · {shade.hex}</p>
-                    <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Use {shade.textLabel.toLowerCase()} text · contrast {formatRatio(shade.contrast)}</p>
-                  </div>
-                  <span className="w-fit rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-3 py-1 font-mono text-xs font-bold text-[var(--color-text-primary)]">{shade.rating}</span>
-                </div>
-              ))}
-              <CopyButton text={accessibility} size="sm" variant="secondary">Copy a11y report</CopyButton>
-            </div>
-          ) : null}
-
-          {activeTab === "exports" ? (
-            <div className="mt-4">
+          <details className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+            <summary className="cursor-pointer list-none p-4">
+              <div>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Developer exports</h2>
+                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">CSS variables, Tailwind, JSON, SCSS, and the full gradient stay one click away.</p>
+              </div>
+            </summary>
+            <div className="border-t border-[var(--color-border-subtle)] p-4">
               <CodeOutputPanel
                 title="Export palette"
                 description="Copy the generated scale for CSS, Tailwind, design tokens, or documentation."
@@ -423,8 +436,59 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
                 className="[&_pre]:min-h-[16rem] [&_pre]:max-h-[24rem]"
               />
             </div>
-          ) : null}
+          </details>
         </div>
+
+        <aside className="order-1 min-w-0 space-y-4 xl:order-2 xl:sticky xl:top-24">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <div>
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Build your scale</h2>
+              <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Choose the endpoints and number of shades. The scale updates instantly.</p>
+            </div>
+
+            <div className="mt-4 grid gap-3">
+              <ColorField label="Start color" value={params.color1} onChange={(color1) => patch({ color1 })} />
+              <ColorField label="End color" value={params.color2} onChange={(color2) => patch({ color2 })} />
+              <NumberField label="Number of shades" value={params.steps} min={2} max={20} onChange={(steps) => patch({ steps })} width="full" />
+            </div>
+
+            <div className="mt-4">
+              <p className="text-xs font-bold text-[var(--color-text-secondary)]">Common scale sizes</p>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {STEP_PRESETS.map((step) => (
+                  <Button key={step} size="sm" variant={params.steps === step ? "soft" : "secondary"} onClick={() => patch({ steps: step })}>
+                    {step}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <details className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+            <summary className="cursor-pointer list-none p-4">
+              <div>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Quick scale presets</h2>
+                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Start from a familiar visual direction, then refine the endpoints.</p>
+              </div>
+            </summary>
+            <div className="grid gap-2 border-t border-[var(--color-border-subtle)] p-4">
+              {QUICK_PRESETS.map((preset) => (
+                <button
+                  key={preset.label}
+                  type="button"
+                  onClick={() => applyPreset(preset)}
+                  className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-left transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+                >
+                  <span className="block h-10" style={{ background: `linear-gradient(90deg, ${preset.color1}, ${preset.color2})` }} />
+                  <span className="flex items-center justify-between gap-2 px-3 py-2">
+                    <span className="text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
+                    <span className="font-mono text-xs text-[var(--color-text-tertiary)]">{preset.steps} shades</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </details>
+        </aside>
       </section>
     </div>
   );

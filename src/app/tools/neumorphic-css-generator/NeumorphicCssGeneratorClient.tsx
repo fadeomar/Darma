@@ -399,21 +399,54 @@ export default function NeumorphicCssGeneratorClient() {
   const previewSlot = (
     <div className="space-y-4">
       <PreviewToolbar
-        title="Neumorphic preview"
-        description="Soft UI surface with production checks, readable exports, and preview-only styling."
+        title="Live soft UI preview"
+        description="Shape the surface visually first. Production metrics and implementation code stay available when you need them."
         actions={
           <div className="flex flex-wrap gap-2">
             <Button variant="secondary" size="sm" leftIcon={<Shuffle className="h-4 w-4" />} onClick={() => setState((current) => randomizeState(current))}>Randomize</Button>
-            <Button variant="secondary" size="sm" leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("neumorphic.css", css)}>Download</Button>
+            <Button variant="secondary" size="sm" leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("neumorphic.css", css)}>Download CSS</Button>
           </div>
         }
       />
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {metrics.map((metric) => <MetricCard key={metric.label} metric={metric} />)}
+      <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] p-4 sm:p-6" style={{ background: state.previewBackground }}>
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="soft">{labelize(state.previewMode)}</Badge>
+          <Badge variant="soft">{labelize(state.shape)}</Badge>
+          <Badge variant="soft">Light: {values.lightLabel}</Badge>
+        </div>
+
+        <div className="mt-4 flex min-h-[440px] items-center justify-center rounded-[var(--radius-md)] border border-white/25 bg-white/15 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-black/10">
+          {state.previewMode === "dashboard" ? (
+            <div className="grid w-full max-w-[700px] gap-4 sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+              <section className="min-w-0 space-y-4 p-5" style={previewStyle}>
+                <p className="font-mono text-xs font-black uppercase tracking-[0.14em] opacity-70">Dashboard card</p>
+                <h3 className="text-2xl font-black">{state.label}</h3>
+                <p className="text-sm font-semibold opacity-75">Soft depth works best for calm admin surfaces and low-density controls.</p>
+                <div className="h-2 rounded-full bg-black/10"><div className="h-2 w-2/3 rounded-full bg-current opacity-50" /></div>
+              </section>
+              <div className="grid gap-4">
+                <div className="h-24 rounded-[var(--radius-md)]" style={{ ...previewStyle, width: "100%", height: "auto" }} />
+                <div className="h-24 rounded-[var(--radius-md)]" style={{ ...previewStyle, width: "100%", height: "auto", filter: "saturate(0.9)" }} />
+              </div>
+            </div>
+          ) : state.previewMode === "button" ? (
+            <button type="button" className="cursor-default text-center text-sm font-black" style={previewStyle}>{state.label}</button>
+          ) : (
+            <article className="flex flex-col items-center justify-center gap-3 text-center text-sm font-black" style={previewStyle}>
+              <span className="font-mono text-xs uppercase tracking-[0.14em] opacity-70">Soft UI</span>
+              <span className="text-2xl">{state.label}</span>
+              <span className="max-w-[18rem] text-xs font-semibold leading-5 opacity-70">Raised and inset shadows are generated from the surface color.</span>
+            </article>
+          )}
+        </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
+      <section className="space-y-2">
+        <div>
+          <p className="text-sm font-black text-[var(--color-text-primary)]">Quick styles</p>
+          <p className="text-xs text-[var(--color-text-tertiary)]">Start visually, then fine-tune the depth controls.</p>
+        </div>
         <PresetGallery
           presets={presets}
           selectedId={state.presetId}
@@ -421,50 +454,31 @@ export default function NeumorphicCssGeneratorClient() {
           getId={(preset) => preset.id}
           getLabel={(preset) => preset.name}
           getDescription={(preset) => preset.description}
-          renderPreview={(preset) => <div className="h-14 rounded-[var(--radius-md)]" style={{ background: preset.state.color, boxShadow: buildValues(preset.state).boxShadow }} />}
-          className="lg:grid-cols-1"
+          renderPreview={(preset) => <div className="h-16 rounded-[var(--radius-md)]" style={{ background: preset.state.color, boxShadow: buildValues(preset.state).boxShadow }} />}
+          className="sm:grid-cols-2 xl:grid-cols-5"
         />
+      </section>
 
-        <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] p-4 sm:p-6" style={{ background: state.previewBackground }}>
+      <details className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)]">
+        <summary className="cursor-pointer list-none px-4 py-3 text-sm font-black text-[var(--color-text-primary)]">Output details</summary>
+        <div className="space-y-3 border-t border-[var(--color-border)] p-4">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {metrics.map((metric) => <MetricCard key={metric.label} metric={metric} />)}
+          </div>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <InfoPill label="Surface" value={state.color} />
             <InfoPill label="Shadow" value={`${state.distance}px / ${state.blur}px`} />
             <InfoPill label="Shape" value={labelize(state.shape)} />
             <InfoPill label="Light" value={values.lightLabel} />
           </div>
-
-          <div className="mt-5 flex min-h-[340px] items-center justify-center rounded-[var(--radius-md)] border border-white/25 bg-white/15 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-black/10">
-            {state.previewMode === "dashboard" ? (
-              <div className="grid w-full max-w-[620px] gap-4 sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-                <section className="min-w-0 space-y-4 p-5" style={previewStyle}>
-                  <p className="font-mono text-xs font-black uppercase tracking-[0.14em] opacity-70">Dashboard card</p>
-                  <h3 className="text-2xl font-black">{state.label}</h3>
-                  <p className="text-sm font-semibold opacity-75">Soft depth works best for calm admin surfaces and low-density controls.</p>
-                  <div className="h-2 rounded-full bg-black/10"><div className="h-2 w-2/3 rounded-full bg-current opacity-50" /></div>
-                </section>
-                <div className="grid gap-4">
-                  <div className="h-24 rounded-[var(--radius-md)]" style={{ ...previewStyle, width: "100%", height: "auto" }} />
-                  <div className="h-24 rounded-[var(--radius-md)]" style={{ ...previewStyle, width: "100%", height: "auto", filter: "saturate(0.9)" }} />
-                </div>
-              </div>
-            ) : state.previewMode === "button" ? (
-              <button type="button" className="cursor-default text-center text-sm font-black" style={previewStyle}>{state.label}</button>
-            ) : (
-              <article className="flex flex-col items-center justify-center gap-3 text-center text-sm font-black" style={previewStyle}>
-                <span className="font-mono text-xs uppercase tracking-[0.14em] opacity-70">Soft UI</span>
-                <span className="text-2xl">{state.label}</span>
-                <span className="max-w-[18rem] text-xs font-semibold leading-5 opacity-70">Raised and inset shadows are generated from the surface color.</span>
-              </article>
-            )}
-          </div>
         </div>
-      </div>
+      </details>
     </div>
   );
 
   const controlsSlot = (
-    <ToolControlPanel title="Neumorphic settings" description="Tune depth, light direction, radius, and production output without global CSS side effects." badge={<Badge variant="soft">Scoped</Badge>}>
-      <ControlSection title="Preview mode">
+    <ToolControlPanel title="Neumorphic settings" description="Tune the visible soft-UI effect first; advanced preview and export options stay out of the way." badge={<Badge variant="soft">Live</Badge>}>
+      <ControlSection title="Preview">
         <SegmentedControl ariaLabel="Preview mode" value={state.previewMode} onChange={(previewMode) => patch({ previewMode })} options={(["card", "button", "dashboard"] as const).map((mode) => ({ value: mode, label: mode }))} />
       </ControlSection>
 
@@ -475,49 +489,73 @@ export default function NeumorphicCssGeneratorClient() {
       <ControlSection title="Surface">
         <ControlGrid columns={2}>
           <ColorField label="Surface" value={state.color} onChange={(color) => patch({ color, previewBackground: color })} />
-          <ColorField label="Preview bg" value={state.previewBackground} onChange={(previewBackground) => patch({ previewBackground })} />
-          <SliderNumberField label="Size" value={state.size} min={120} max={480} unit="px" onChange={(size) => patch({ size, radius: Math.min(state.radius, Math.round(size / 2)) })} />
           <SliderNumberField label="Radius" value={state.radius} min={0} max={240} unit="px" onChange={(radius) => patch({ radius })} />
         </ControlGrid>
       </ControlSection>
 
-      <ControlSection title="Shadow">
+      <ControlSection title="Depth & softness">
         <ControlGrid columns={2}>
           <SliderNumberField label="Distance" value={state.distance} min={2} max={60} unit="px" onChange={(distance) => patch({ distance })} />
           <SliderNumberField label="Blur" value={state.blur} min={4} max={120} unit="px" onChange={(blur) => patch({ blur })} />
-          <SliderNumberField label="Spread" value={state.spread} min={-12} max={18} unit="px" onChange={(spread) => patch({ spread })} />
           <SliderNumberField label="Intensity" value={state.intensity} min={0.03} max={0.36} step={0.01} onChange={(intensity) => patch({ intensity })} />
         </ControlGrid>
       </ControlSection>
 
-      <ControlSection title="Light source">
+      <ControlSection title="Light direction">
         <SegmentedControl ariaLabel="Light source" value={state.lightSource} onChange={(lightSource) => patch({ lightSource })} options={(["top-left", "top-right", "bottom-right", "bottom-left"] as const).map((source) => ({ value: source, label: labelize(source) }))} />
       </ControlSection>
 
-      <ControlSection title="Content & export">
-        <ControlGrid columns={1}>
-          <Field label="Label" density="compact"><Input value={state.label} onChange={(event) => patch({ label: event.target.value })} /></Field>
-          <Field label="CSS class" density="compact"><Input value={state.className} onChange={(event) => patch({ className: event.target.value })} /></Field>
-          <CheckboxRow label="Include transition" checked={state.includeTransition} onChange={(includeTransition) => patch({ includeTransition })} />
-          <CheckboxRow label="Include focus-visible ring" checked={state.includeFocusRing} onChange={(includeFocusRing) => patch({ includeFocusRing })} />
-          <CheckboxRow label="Include reduced-motion guard" checked={state.includeReducedMotion} onChange={(includeReducedMotion) => patch({ includeReducedMotion })} />
-        </ControlGrid>
-      </ControlSection>
+      <details className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)]">
+        <summary className="cursor-pointer list-none px-3 py-2.5 text-sm font-black text-[var(--color-text-primary)]">Advanced surface & shadow</summary>
+        <div className="space-y-3 border-t border-[var(--color-border)] p-3">
+          <ControlGrid columns={2}>
+            <ColorField label="Preview bg" value={state.previewBackground} onChange={(previewBackground) => patch({ previewBackground })} />
+            <SliderNumberField label="Size" value={state.size} min={120} max={480} unit="px" onChange={(size) => patch({ size, radius: Math.min(state.radius, Math.round(size / 2)) })} />
+            <SliderNumberField label="Spread" value={state.spread} min={-12} max={18} unit="px" onChange={(spread) => patch({ spread })} />
+          </ControlGrid>
+        </div>
+      </details>
+
+      <details className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)]">
+        <summary className="cursor-pointer list-none px-3 py-2.5 text-sm font-black text-[var(--color-text-primary)]">Content & export options</summary>
+        <div className="space-y-3 border-t border-[var(--color-border)] p-3">
+          <ControlGrid columns={1}>
+            <Field label="Label" density="compact"><Input value={state.label} onChange={(event) => patch({ label: event.target.value })} /></Field>
+            <Field label="CSS class" density="compact"><Input value={state.className} onChange={(event) => patch({ className: event.target.value })} /></Field>
+            <CheckboxRow label="Include transition" checked={state.includeTransition} onChange={(includeTransition) => patch({ includeTransition })} />
+            <CheckboxRow label="Include focus-visible ring" checked={state.includeFocusRing} onChange={(includeFocusRing) => patch({ includeFocusRing })} />
+            <CheckboxRow label="Include reduced-motion guard" checked={state.includeReducedMotion} onChange={(includeReducedMotion) => patch({ includeReducedMotion })} />
+          </ControlGrid>
+        </div>
+      </details>
     </ToolControlPanel>
   );
 
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
+      actionsPlacement="under-preview"
+      mobileCodeAfterControls
       actionsSlot={
         <div className="flex flex-wrap gap-2">
           <Button variant="secondary" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={() => setState(defaultState)}>Reset</Button>
           <CopyButton text={css}>Copy CSS</CopyButton>
-          <CopyButton text={generateTokenJson(state)}>Copy tokens</CopyButton>
         </div>
       }
-      codeSlot={<div className="space-y-4"><WarningPanel title="Production notes" messages={warnings} /><CodeOutputPanel title="Generated neumorphic code" tabs={tabs} defaultTab="css" /></div>}
+      codeSlot={
+        <details className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)]">
+          <summary className="cursor-pointer list-none px-4 py-3 text-sm font-black text-[var(--color-text-primary)]">Developer handoff & diagnostics</summary>
+          <div className="space-y-4 border-t border-[var(--color-border)] p-4">
+            <WarningPanel title="Production notes" messages={warnings} />
+            <CodeOutputPanel title="Generated neumorphic code" tabs={tabs} defaultTab="css" />
+            <div className="flex flex-wrap gap-2">
+              <CopyButton text={generateTokenJson(state)}>Copy tokens</CopyButton>
+            </div>
+          </div>
+        </details>
+      }
     />
   );
 }

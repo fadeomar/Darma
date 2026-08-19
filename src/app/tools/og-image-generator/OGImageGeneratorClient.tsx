@@ -930,5 +930,5 @@ export default function OGImageGeneratorClient() {
     </DisclosurePanel>
   );
 
-  return <ToolLayoutVisualGenerator previewSlot={preview} controlsSlot={controls} codeSlot={developerTools} />;
+  return <ToolLayoutVisualGenerator controlsPosition="right" previewSlot={preview} controlsSlot={controls} codeSlot={developerTools} />;
 }

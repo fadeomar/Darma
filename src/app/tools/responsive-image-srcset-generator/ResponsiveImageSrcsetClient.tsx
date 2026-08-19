@@ -60,6 +60,8 @@ export default function ResponsiveImageSrcsetClient() {
 
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
+      actionsPlacement="under-preview"
       previewSlot={<ResponsiveImagePreview state={normalized} onPatch={patchState} />}
       controlsSlot={
         <ResponsiveImageControls
@@ -79,8 +81,12 @@ export default function ResponsiveImageSrcsetClient() {
           onRegeneratePictureSource={regeneratePictureSource}
         />
       }
-      codeSlot={<ResponsiveImageCodeOutput img={img} picture={picture} nextImage={nextImage} css={css} manifest={manifest} />}
-      presetsSlot={<ResponsiveImageProductionPanel state={normalized} checks={checks} onImport={(next) => setState(normalizeResponsiveImageState(next))} />}
+      presetsSlot={
+        <div className="space-y-4">
+          <ResponsiveImageCodeOutput img={img} picture={picture} nextImage={nextImage} css={css} manifest={manifest} />
+          <ResponsiveImageProductionPanel state={normalized} checks={checks} onImport={(next) => setState(normalizeResponsiveImageState(next))} />
+        </div>
+      }
     />
   );
 }

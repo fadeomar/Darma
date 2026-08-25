@@ -61,7 +61,7 @@
 /* ─── Workbench layout ────────────────────────────────────────────────────── */
 .svg-editor-workbench {
   display: grid;
-  grid-template-columns: minmax(280px, 340px) minmax(520px, 1fr) minmax(300px, 380px);
+  grid-template-columns: minmax(270px, 310px) minmax(560px, 1fr) minmax(290px, 340px);
   gap: 16px;
   margin-top: var(--space-5);
   align-items: start;
@@ -692,7 +692,7 @@
 
 /* ─── Canvas card ─────────────────────────────────────────────────────────── */
 .svg-editor-canvas-card {
-  min-height: 720px;
+  min-height: 740px;
   padding: var(--space-4);
 }
 
@@ -713,6 +713,14 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text);
+}
+
+.svg-editor-canvas-title small {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .svg-editor-canvas-actions {
@@ -1054,10 +1062,95 @@
   font-size: 13px;
 }
 
+/* ─── Progressive disclosure ─────────────────────────────────────────────── */
+.svg-editor-disclosure,
+.svg-editor-summary-details {
+  border-top: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface-muted) 45%, transparent);
+}
+
+.svg-editor-disclosure > summary,
+.svg-editor-summary-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.svg-editor-disclosure > summary::-webkit-details-marker,
+.svg-editor-summary-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.svg-editor-disclosure > summary::after,
+.svg-editor-summary-details > summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.svg-editor-disclosure[open] > summary::after,
+.svg-editor-summary-details[open] > summary::after {
+  content: "−";
+}
+
+.svg-editor-disclosure > summary small,
+.svg-editor-summary-details > summary small {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 650;
+  text-align: right;
+}
+
+.svg-editor-disclosure .svg-editor-section:first-of-type {
+  border-top: 1px solid var(--color-border);
+}
+
+.svg-editor-summary-details {
+  width: min(1800px, 100%);
+  margin: 14px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.svg-editor-summary-details .svg-editor-summary-grid {
+  width: auto;
+  margin: 0;
+  padding: 0 14px 14px;
+}
+
 /* ─── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 1280px) {
   .svg-editor-workbench {
     grid-template-columns: 1fr;
+  }
+  .svg-editor-canvas-card {
+    order: -1;
+  }
+  .svg-editor-left-panel {
+    order: 1;
+  }
+  .svg-editor-right-panel {
+    order: 2;
   }
   .svg-editor-panel {
     max-height: none;
@@ -1073,16 +1166,29 @@
     grid-column: 1 / -1;
   }
   .svg-editor-left-panel .svg-editor-examples-panel,
-  .svg-editor-left-panel .svg-editor-saved-panel {
+  .svg-editor-left-panel .svg-editor-saved-panel,
+  .svg-editor-right-panel .svg-editor-disclosure {
     grid-column: 1 / -1;
   }
   .svg-editor-section + .svg-editor-section {
     border-top: 0;
     border-left: 1px solid var(--color-border);
   }
+  .svg-editor-disclosure .svg-editor-section + .svg-editor-section {
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
 }
 
 @media (max-width: 760px) {
+  .svg-editor-disclosure > summary,
+  .svg-editor-summary-details > summary {
+    align-items: flex-start;
+  }
+  .svg-editor-disclosure > summary small,
+  .svg-editor-summary-details > summary small {
+    display: none;
+  }
   .svg-editor-topbar {
     display: block;
     padding: var(--space-4);

@@ -13,7 +13,7 @@ import { createReadme, generateMockupAssets, revokeMockupAssetUrls } from "./gen
 import MockupProductionPanel from "./components/MockupProductionPanel";
 import { DEFAULT_MOCKUP_INPUT, DEVICE_OPTIONS, EXPORT_PACKS, MAX_UPLOAD_BYTES, QUICK_PRESETS } from "./presets";
 import { createCssSnippet, createCssVariablesSnippet, createDesignTokenSnippet, createHtmlFigureSnippet, createNextImageSnippet, createResponsivePictureSnippet } from "./snippets";
-import type { GeneratedMockupAsset, MockupAlignment, MockupBackgroundMode, MockupDevice, MockupExportPackId, MockupFitMode, MockupInput, MockupOrientation, MockupShadowStyle, MockupWarning, PackageCheckResult } from "./types";
+import type { GeneratedMockupAsset, MockupAlignment, MockupBackgroundMode, MockupDevice, MockupFitMode, MockupInput, MockupOrientation, MockupShadowStyle, MockupWarning, PackageCheckResult } from "./types";
 import { createReadinessChecks, scoreReadiness, validateExistingPackage, validateGeneratedAssets, validateMockupInput } from "./validation";
 import { MAX_MOCKUP_PROJECT_BYTES, createMockupFingerprint, createMockupMarkdownReport, createMockupMetricsCsv, createMockupProjectJson, parseMockupProjectJson, summarizeMockupProduction } from "./studio";
 import { createZipArchive } from "./zip";
@@ -56,6 +56,26 @@ function updateInput(setInput: Dispatch<SetStateAction<MockupInput>>, patch: Par
   setInput((current) => ({ ...current, ...patch }));
 }
 
+async function loadScreenshotFile(
+  file: File,
+  setInput: Dispatch<SetStateAction<MockupInput>>,
+  setStatusMessage: (message: string) => void,
+) {
+  if (file.size > MAX_UPLOAD_BYTES) {
+    setStatusMessage("Screenshot is too large. Try an image below 12 MB.");
+    return;
+  }
+  const dataUrl = await fileToDataUrl(file);
+  const image = await loadImageFromDataUrl(dataUrl);
+  updateInput(setInput, {
+    screenshotDataUrl: dataUrl,
+    screenshotName: file.name,
+    screenshotWidth: image.width,
+    screenshotHeight: image.height,
+  });
+  setStatusMessage(`Loaded ${file.name} (${image.width}×${image.height}).`);
+}
+
 function formatBytes(bytes?: number) {
   if (!bytes) return "0 B";
   if (bytes < 1024) return `${bytes} B`;
@@ -80,11 +100,6 @@ function formatRatio(width: number, height: number) {
   return `${Math.round(width / divisor)}:${Math.round(height / divisor)}`;
 }
 
-function formatMegapixels(width: number, height: number) {
-  if (!width || !height) return "0 MP";
-  return `${((width * height) / 1_000_000).toFixed(width * height > 9_000_000 ? 1 : 2)} MP`;
-}
-
 function getCropSummary(input: MockupInput) {
   if (!input.screenshotWidth || !input.screenshotHeight) return input.fitMode === "cover" ? "Placeholder crop" : "Placeholder fit";
   if (input.fitMode === "contain") return "No crop";
@@ -95,16 +110,6 @@ function getCropSummary(input: MockupInput) {
   if (difference < 0.18) return "Medium crop";
   return "High crop";
 }
-
-function getSourceSummary(input: MockupInput) {
-  if (!input.screenshotDataUrl) return "Placeholder";
-  return `${input.screenshotWidth}×${input.screenshotHeight}`;
-}
-
-function getCanvasSummary(input: MockupInput) {
-  return `${formatRatio(input.canvasWidth, input.canvasHeight)} · ${formatMegapixels(input.canvasWidth, input.canvasHeight)}`;
-}
-
 
 function FieldGroup({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cn("grid gap-3 sm:grid-cols-2", className)}>{children}</div>;
@@ -180,22 +185,41 @@ function UploadBox({ label, hint, accept, onChange, previewUrl }: { label: strin
 
 function QuickPresets({ setInput }: { setInput: Dispatch<SetStateAction<MockupInput>> }) {
   return (
-    <ControlSection title="Quick presets" description="Apply a practical starting point, then fine-tune it.">
+    <ControlSection title="Looks" description="Start with a polished visual direction, then fine-tune only what you need.">
       <div className="grid grid-cols-2 gap-2">
-        {QUICK_PRESETS.map((preset) => (
-          <button
-            key={preset.id}
-            type="button"
-            title={preset.description}
-            onClick={() => setInput((current) => ({ ...current, ...preset.patch }))}
-            className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
-          >
-            <span className="flex items-start gap-1.5 text-xs font-bold leading-4 text-[var(--color-text-primary)]">
-              <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-primary-text-strong)]" />
-              {preset.title}
-            </span>
-          </button>
-        ))}
+        {QUICK_PRESETS.map((preset) => {
+          const from = preset.patch.gradientFrom ?? "#0f172a";
+          const to = preset.patch.gradientTo ?? preset.patch.backgroundColor ?? "#475569";
+          const device = preset.patch.device ?? "card";
+          return (
+            <button
+              key={preset.id}
+              type="button"
+              title={preset.description}
+              onClick={() => setInput((current) => ({ ...current, ...preset.patch }))}
+              className="group overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-left transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-sm)]"
+            >
+              <div
+                className="flex h-20 items-center justify-center overflow-hidden border-b border-[var(--color-border-subtle)]"
+                style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
+              >
+                <div className={cn(
+                  "bg-white/95 shadow-lg ring-1 ring-black/10",
+                  device === "phone" && "h-14 w-7 rounded-[7px]",
+                  device === "tablet" && "h-12 w-9 rounded-[6px]",
+                  (device === "laptop" || device === "desktop" || device === "browser") && "h-9 w-14 rounded-[5px]",
+                  device === "card" && "h-9 w-14 rounded-[5px]",
+                )} />
+              </div>
+              <div className="p-2.5">
+                <span className="flex items-start gap-1.5 text-xs font-bold leading-4 text-[var(--color-text-primary)]">
+                  <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-primary-text-strong)]" />
+                  {preset.title}
+                </span>
+              </div>
+            </button>
+          );
+        })}
       </div>
     </ControlSection>
   );
@@ -203,14 +227,7 @@ function QuickPresets({ setInput }: { setInput: Dispatch<SetStateAction<MockupIn
 
 function SourceControls({ input, setInput, setStatusMessage }: { input: MockupInput; setInput: Dispatch<SetStateAction<MockupInput>>; setStatusMessage: (message: string) => void }) {
   async function handleScreenshot(file: File) {
-    if (file.size > MAX_UPLOAD_BYTES) {
-      setStatusMessage("Screenshot is too large. Try an image below 12 MB.");
-      return;
-    }
-    const dataUrl = await fileToDataUrl(file);
-    const image = await loadImageFromDataUrl(dataUrl);
-    updateInput(setInput, { screenshotDataUrl: dataUrl, screenshotName: file.name, screenshotWidth: image.width, screenshotHeight: image.height });
-    setStatusMessage(`Loaded ${file.name} (${image.width}×${image.height}).`);
+    await loadScreenshotFile(file, setInput, setStatusMessage);
   }
 
   return (
@@ -229,16 +246,45 @@ function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dis
   const radiusMin = effectiveFrameRadius(input.device, input.showDeviceChrome);
 
   return (
-    <ControlSection title="Device frame" description="Choose the presentation frame and how the screenshot fits inside it.">
-      <SegmentedControl<MockupDevice>
-        ariaLabel="Device frame"
-        layout="grid"
-        size="md"
-        value={input.device}
-        onChange={(device) => updateInput(setInput, { device, frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(device, input.showDeviceChrome)) })}
-        options={DEVICE_OPTIONS.map((option) => ({ value: option.value, label: option.value === "card" ? "Card" : option.label }))}
-      />
-      <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">{DEVICE_OPTIONS.find((option) => option.value === input.device)?.description}</p>
+    <ControlSection title="Device" description="Pick the frame visually, then choose how the screenshot should sit inside it.">
+      <div className="grid grid-cols-3 gap-2">
+        {DEVICE_OPTIONS.map((option) => {
+          const selected = input.device === option.value;
+          return (
+            <button
+              key={option.value}
+              type="button"
+              aria-pressed={selected}
+              title={option.description}
+              onClick={() => updateInput(setInput, {
+                device: option.value,
+                frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(option.value, input.showDeviceChrome)),
+              })}
+              className={cn(
+                "group rounded-[var(--radius-md)] border p-2.5 text-center transition",
+                selected
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] shadow-[var(--shadow-xs)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-default)] hover:bg-[var(--color-control-hover)]",
+              )}
+            >
+              <div className="flex h-10 items-center justify-center">
+                <div className={cn(
+                  "border-2 transition",
+                  selected ? "border-[var(--color-primary)] bg-[var(--color-surface-raised)]" : "border-[var(--color-text-tertiary)] bg-[var(--color-surface-subtle)]",
+                  option.value === "phone" && "h-9 w-5 rounded-[5px]",
+                  option.value === "tablet" && "h-8 w-6 rounded-[5px]",
+                  option.value === "laptop" && "h-5 w-9 rounded-[3px] border-b-4",
+                  option.value === "desktop" && "h-6 w-9 rounded-[3px] after:mx-auto after:mt-1 after:block after:h-1.5 after:w-3 after:border-x-2 after:border-current",
+                  option.value === "browser" && "h-7 w-10 rounded-[4px] before:block before:h-2 before:border-b before:border-current before:content-['']",
+                  option.value === "card" && "h-7 w-10 rounded-[5px]",
+                )} />
+              </div>
+              <span className="mt-1 block text-xs font-bold text-[var(--color-text-primary)]">{option.value === "card" ? "Card" : option.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
       <FieldGroup>
         <CompactField label="Orientation">
           <Select value={input.orientation} onChange={(event) => updateInput(setInput, { orientation: event.target.value as MockupOrientation })}>
@@ -250,43 +296,41 @@ function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dis
             {FIT_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
           </Select>
         </CompactField>
-        <CompactField label="Shadow">
-          <Select value={input.shadow} onChange={(event) => updateInput(setInput, { shadow: event.target.value as MockupShadowStyle })}>
-            {SHADOW_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
-          </Select>
-        </CompactField>
-        <CompactField label="Alignment">
-          <Select value={input.alignment} onChange={(event) => updateInput(setInput, { alignment: event.target.value as MockupAlignment })}>
-            {ALIGN_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
-          </Select>
-        </CompactField>
       </FieldGroup>
-      <Disclosure title="Frame adjustments" description="Scale, rotation, radius, padding, and rendering details.">
+
+      <Disclosure title="Advanced frame" description="Shadow, alignment, scale, rotation, radius, padding, and rendering details.">
         <FieldGroup>
+          <CompactField label="Shadow">
+            <Select value={input.shadow} onChange={(event) => updateInput(setInput, { shadow: event.target.value as MockupShadowStyle })}>
+              {SHADOW_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+            </Select>
+          </CompactField>
+          <CompactField label="Alignment">
+            <Select value={input.alignment} onChange={(event) => updateInput(setInput, { alignment: event.target.value as MockupAlignment })}>
+              {ALIGN_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+            </Select>
+          </CompactField>
           <SliderNumberField label="Device scale" min={35} max={115} value={input.deviceScale} unit="%" onChange={(deviceScale) => updateInput(setInput, { deviceScale })} />
           <SliderNumberField label="Rotation" min={-12} max={12} value={input.rotate} unit="°" onChange={(rotate) => updateInput(setInput, { rotate })} />
           <SliderNumberField label="Frame radius" min={radiusMin} max={72} value={Math.max(input.frameRadius, radiusMin)} unit="px" onChange={(frameRadius) => updateInput(setInput, { frameRadius })} />
           <SliderNumberField label="Canvas padding" min={32} max={180} value={input.padding} unit="px" onChange={(padding) => updateInput(setInput, { padding })} />
         </FieldGroup>
-      <div className="grid gap-2 text-xs text-[var(--color-text-secondary)]">
-        {input.device !== "card" ? (
+        <div className="grid gap-2 text-xs text-[var(--color-text-secondary)]">
+          {input.device !== "card" ? (
+            <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+              <input type="checkbox" checked={input.showDeviceChrome} onChange={(event) => updateInput(setInput, { showDeviceChrome: event.target.checked, frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(input.device, event.target.checked)) })} />
+              Show device/browser chrome
+            </label>
+          ) : <p className="rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-3">Card mode intentionally has no device chrome.</p>}
           <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-            <input type="checkbox" checked={input.showDeviceChrome} onChange={(event) => updateInput(setInput, { showDeviceChrome: event.target.checked, frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(input.device, event.target.checked)) })} />
-            Show device/browser chrome
+            <input type="checkbox" checked={input.showReflection} onChange={(event) => updateInput(setInput, { showReflection: event.target.checked })} />
+            Add subtle glass reflection
           </label>
-        ) : <p className="rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-3">Card mode intentionally has no device chrome.</p>}
-        <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-          <input type="checkbox" checked={input.showReflection} onChange={(event) => updateInput(setInput, { showReflection: event.target.checked })} />
-          Add subtle glass reflection
-        </label>
-        <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-          <input type="checkbox" checked={input.showSafeArea} onChange={(event) => updateInput(setInput, { showSafeArea: event.target.checked })} />
-          Show export safe-area guide
-        </label>
-      </div>
-      <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">
-        {radiusMin ? `This frame uses a ${radiusMin}px minimum radius while chrome is shown.` : "This frame supports the full radius range from square to rounded."}
-      </p>
+          <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+            <input type="checkbox" checked={input.showSafeArea} onChange={(event) => updateInput(setInput, { showSafeArea: event.target.checked })} />
+            Show export safe-area guide
+          </label>
+        </div>
       </Disclosure>
     </ControlSection>
   );
@@ -304,7 +348,7 @@ function DesignControls({ input, setInput, setStatusMessage }: { input: MockupIn
   }
 
   return (
-    <Disclosure title="Appearance and copy" description="Background, colors, marketing text, and optional details.">
+    <ControlSection title="Style" description="Choose the canvas background first. Copy and production details stay out of the way until you need them.">
       <SegmentedControl<MockupBackgroundMode>
         ariaLabel="Background mode"
         fullWidth
@@ -313,71 +357,65 @@ function DesignControls({ input, setInput, setStatusMessage }: { input: MockupIn
         onChange={(backgroundMode) => updateInput(setInput, { backgroundMode })}
         options={BACKGROUND_OPTIONS.map((option) => ({ value: option.value, label: option.label }))}
       />
+
       {input.backgroundMode === "solid" ? (
-        <CompactField hint="Used only by Solid background mode.">
-          <ColorField label="Background color" value={input.backgroundColor} onChange={(backgroundColor) => updateInput(setInput, { backgroundColor })} />
-        </CompactField>
+        <CompactField><ColorField label="Background color" value={input.backgroundColor} onChange={(backgroundColor) => updateInput(setInput, { backgroundColor })} /></CompactField>
       ) : null}
       {input.backgroundMode === "image" ? (
-        <UploadBox label={input.backgroundImageDataUrl ? "Replace background image" : "Upload background image"} hint={input.backgroundImageDataUrl ? "This image fills the canvas." : "Image mode needs a local PNG, JPG, or WebP."} accept="image/png,image/jpeg,image/webp" onChange={handleBackground} previewUrl={input.backgroundImageDataUrl} />
+        <UploadBox label={input.backgroundImageDataUrl ? "Replace background image" : "Upload background image"} hint="Local PNG, JPG, or WebP. Nothing is uploaded." accept="image/png,image/jpeg,image/webp" onChange={handleBackground} previewUrl={input.backgroundImageDataUrl} />
       ) : null}
       {input.backgroundMode === "gradient" || input.backgroundMode === "mesh" ? (
+        <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+          <div className="mb-3 h-12 rounded-[var(--radius-sm)] border border-black/5" style={{ background: `linear-gradient(${input.gradientAngle}deg, ${input.gradientFrom}, ${input.gradientTo})` }} />
+          <FieldGroup>
+            <ColorField label="From" value={input.gradientFrom} onChange={(gradientFrom) => updateInput(setInput, { gradientFrom })} />
+            <ColorField label="To" value={input.gradientTo} onChange={(gradientTo) => updateInput(setInput, { gradientTo })} />
+          </FieldGroup>
+        </div>
+      ) : null}
+
+      <Disclosure title="Content" description="Optional title, subtitle, badge, and footer text.">
+        <div className="grid gap-2 text-xs text-[var(--color-text-secondary)] sm:grid-cols-3">
+          <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+            <input type="checkbox" checked={input.showText} onChange={(event) => updateInput(setInput, { showText: event.target.checked })} />
+            Text overlay
+          </label>
+          {input.showText ? <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+            <input type="checkbox" checked={input.showBadge} onChange={(event) => updateInput(setInput, { showBadge: event.target.checked })} />
+            Badge
+          </label> : null}
+          <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+            <input type="checkbox" checked={input.showFooter} onChange={(event) => updateInput(setInput, { showFooter: event.target.checked })} />
+            Footer
+          </label>
+        </div>
+        {input.showText ? (
+          <>
+            <CompactField label="Title"><Input value={input.title} onChange={(event) => updateInput(setInput, { title: event.target.value })} /></CompactField>
+            <CompactField label="Subtitle"><Textarea minRows={3} value={input.subtitle} onChange={(event) => updateInput(setInput, { subtitle: event.target.value })} /></CompactField>
+          </>
+        ) : null}
         <FieldGroup>
-          <ColorField label="Gradient from" value={input.gradientFrom} onChange={(gradientFrom) => updateInput(setInput, { gradientFrom })} />
-          <ColorField label="Gradient to" value={input.gradientTo} onChange={(gradientTo) => updateInput(setInput, { gradientTo })} />
+          {input.showText && input.showBadge ? <CompactField label="Badge"><Input value={input.badge} onChange={(event) => updateInput(setInput, { badge: event.target.value })} /></CompactField> : null}
+          {input.showFooter ? <CompactField label="Footer"><Input value={input.footer} onChange={(event) => updateInput(setInput, { footer: event.target.value })} /></CompactField> : null}
+        </FieldGroup>
+      </Disclosure>
+
+      <Disclosure title="Advanced appearance" description="Fine-tune colors, angle, browser chrome text, and filenames.">
+        {input.backgroundMode === "gradient" || input.backgroundMode === "mesh" ? (
           <SliderNumberField label="Gradient angle" min={0} max={360} value={input.gradientAngle} unit="°" onChange={(gradientAngle) => updateInput(setInput, { gradientAngle })} />
-        </FieldGroup>
-      ) : null}
-      <CompactField hint="Used by badges, mesh highlights, and the safe-area guide.">
-        <ColorField label="Accent color" value={input.accentColor} onChange={(accentColor) => updateInput(setInput, { accentColor })} />
-      </CompactField>
-      {input.showText || input.showFooter || input.backgroundMode === "mesh" ? (
-        <FieldGroup>
-          <CompactField hint={input.backgroundMode === "mesh" ? "Used by overlay text and a subtle mesh highlight." : "Used by overlay text and footer."}>
-            <ColorField label="Foreground" value={input.foregroundColor} onChange={(foregroundColor) => updateInput(setInput, { foregroundColor })} />
-          </CompactField>
-          {input.showText ? (
-            <CompactField hint="Used by the subtitle text.">
-              <ColorField label="Muted text" value={input.mutedColor} onChange={(mutedColor) => updateInput(setInput, { mutedColor })} />
-            </CompactField>
-          ) : null}
-        </FieldGroup>
-      ) : null}
-      {input.showText ? (
-        <>
-          <CompactField label="Title"><Input value={input.title} onChange={(event) => updateInput(setInput, { title: event.target.value })} /></CompactField>
-          <CompactField label="Subtitle"><Textarea minRows={3} value={input.subtitle} onChange={(event) => updateInput(setInput, { subtitle: event.target.value })} /></CompactField>
-        </>
-      ) : null}
-      <FieldGroup>
-        {input.showText && input.showBadge ? <CompactField label="Badge">
-          <Input value={input.badge} onChange={(event) => updateInput(setInput, { badge: event.target.value })} />
-        </CompactField> : null}
-        {input.showFooter ? <CompactField label="Footer">
-          <Input value={input.footer} onChange={(event) => updateInput(setInput, { footer: event.target.value })} />
-        </CompactField> : null}
-        {input.device === "browser" && input.showDeviceChrome ? <CompactField label="Browser URL" hint="Visible only in Browser frame chrome.">
-          <Input value={input.browserUrl} onChange={(event) => updateInput(setInput, { browserUrl: event.target.value })} />
-        </CompactField> : null}
-        <CompactField label="File prefix">
-          <Input value={input.filePrefix} onChange={(event) => updateInput(setInput, { filePrefix: event.target.value })} />
-        </CompactField>
-      </FieldGroup>
-      <div className="grid gap-2 text-xs text-[var(--color-text-secondary)] sm:grid-cols-3">
-        <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-          <input type="checkbox" checked={input.showText} onChange={(event) => updateInput(setInput, { showText: event.target.checked })} />
-          Text overlay
-        </label>
-        {input.showText ? <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-          <input type="checkbox" checked={input.showBadge} onChange={(event) => updateInput(setInput, { showBadge: event.target.checked })} />
-          Badge
-        </label> : null}
-        <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-          <input type="checkbox" checked={input.showFooter} onChange={(event) => updateInput(setInput, { showFooter: event.target.checked })} />
-          Footer
-        </label>
-      </div>
-    </Disclosure>
+        ) : null}
+        <CompactField><ColorField label="Accent color" value={input.accentColor} onChange={(accentColor) => updateInput(setInput, { accentColor })} /></CompactField>
+        {input.showText || input.showFooter || input.backgroundMode === "mesh" ? (
+          <FieldGroup>
+            <CompactField><ColorField label="Foreground" value={input.foregroundColor} onChange={(foregroundColor) => updateInput(setInput, { foregroundColor })} /></CompactField>
+            {input.showText ? <CompactField><ColorField label="Muted text" value={input.mutedColor} onChange={(mutedColor) => updateInput(setInput, { mutedColor })} /></CompactField> : null}
+          </FieldGroup>
+        ) : null}
+        {input.device === "browser" && input.showDeviceChrome ? <CompactField label="Browser URL"><Input value={input.browserUrl} onChange={(event) => updateInput(setInput, { browserUrl: event.target.value })} /></CompactField> : null}
+        <CompactField label="File prefix"><Input value={input.filePrefix} onChange={(event) => updateInput(setInput, { filePrefix: event.target.value })} /></CompactField>
+      </Disclosure>
+    </ControlSection>
   );
 }
 
@@ -387,102 +425,151 @@ function ExportControls({ input, setInput }: { input: MockupInput; setInput: Dis
   const previewMatchesFirstSize = firstSize ? input.canvasWidth === firstSize.width && input.canvasHeight === firstSize.height : false;
 
   return (
-    <ControlSection title="Export pack" description="Choose the output sizes and tune the live preview canvas before generating PNGs.">
-      <CompactField label="Pack">
-        <Select value={input.exportPackId} onChange={(event) => updateInput(setInput, { exportPackId: event.target.value as MockupExportPackId })}>
-          {EXPORT_PACKS.map((option) => <option key={option.id} value={option.id}>{option.title}</option>)}
-        </Select>
-      </CompactField>
-      <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-xs font-bold text-[var(--color-text-primary)]">{pack.title}</p>
-            <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{pack.description}</p>
-          </div>
-          <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">{pack.sizes.length} sizes</span>
-        </div>
-        <div className="mt-3 grid gap-2">
+    <ControlSection title="Export" description="Choose the destination pack. The primary export buttons stay directly below the preview.">
+      <div className="grid grid-cols-2 gap-2">
+        {EXPORT_PACKS.filter((option) => option.id !== "complete").map((option) => {
+          const selected = option.id === input.exportPackId;
+          const ratio = option.sizes[0] ? option.sizes[0].width / option.sizes[0].height : 1;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              aria-pressed={selected}
+              onClick={() => updateInput(setInput, { exportPackId: option.id })}
+              className={cn(
+                "rounded-[var(--radius-md)] border p-2.5 text-left transition",
+                selected
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-default)]",
+              )}
+            >
+              <div className="mb-2 flex h-9 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)]">
+                <div className="max-h-7 max-w-12 rounded-[3px] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" style={{ width: ratio >= 1 ? 42 : 22, height: ratio >= 1 ? Math.max(18, 42 / ratio) : 30 }} />
+              </div>
+              <span className="block text-xs font-bold leading-4 text-[var(--color-text-primary)]">{option.title.replace(" Pack", "")}</span>
+              <span className="mt-0.5 block text-xs text-[var(--color-text-tertiary)]">{option.sizes.length} sizes</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => updateInput(setInput, { exportPackId: "complete" })}
+        className={cn(
+          "flex w-full items-center justify-between rounded-[var(--radius-md)] border px-3 py-2.5 text-left transition",
+          input.exportPackId === "complete"
+            ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
+            : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-default)]",
+        )}
+      >
+        <span className="text-xs font-bold text-[var(--color-text-primary)]">Complete mockup kit</span>
+        <span className="font-mono text-xs font-bold text-[var(--color-text-tertiary)]">{EXPORT_PACKS.find((option) => option.id === "complete")?.sizes.length ?? 0} sizes</span>
+      </button>
+
+      <Disclosure title="Pack sizes & preview canvas" description={`${pack.title} · ${pack.sizes.length} output sizes`}>
+        <div className="grid gap-2">
           {pack.sizes.slice(0, 4).map((size) => (
-            <div key={size.id} className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs">
+            <div key={size.id} className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-sm)] bg-[var(--color-surface-base)] px-3 py-2 text-xs">
               <span className="min-w-0 truncate font-bold text-[var(--color-text-primary)]">{size.label}</span>
               <span className="shrink-0 font-mono text-[var(--color-text-tertiary)]">{size.width}×{size.height}</span>
             </div>
           ))}
         </div>
-        {pack.sizes.length > 4 ? <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">Plus {pack.sizes.length - 4} more outputs in the ZIP.</p> : null}
-      </div>
-
-      <Disclosure title="Live preview canvas" description="Controls the working preview. Export pack sizes are still generated from the selected pack.">
         <FieldGroup>
           <SliderNumberField label="Preview width" min={640} max={3000} step={10} value={input.canvasWidth} unit="px" onChange={(canvasWidth) => updateInput(setInput, { canvasWidth })} />
           <SliderNumberField label="Preview height" min={480} max={3000} step={10} value={input.canvasHeight} unit="px" onChange={(canvasHeight) => updateInput(setInput, { canvasHeight })} />
         </FieldGroup>
-        <div className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs">
-          <span className="text-[var(--color-text-secondary)]">Preview: <strong className="text-[var(--color-text-primary)]">{formatRatio(input.canvasWidth, input.canvasHeight)}</strong> · {formatMegapixels(input.canvasWidth, input.canvasHeight)}</span>
-          {firstSize ? (
-            <Button size="sm" variant={previewMatchesFirstSize ? "secondary" : "ghost"} onClick={() => updateInput(setInput, { canvasWidth: firstSize.width, canvasHeight: firstSize.height })}>
-              {previewMatchesFirstSize ? "Matched" : `Match ${firstSize.label}`}
-            </Button>
-          ) : null}
-        </div>
+        {firstSize ? (
+          <Button size="sm" variant={previewMatchesFirstSize ? "secondary" : "ghost"} onClick={() => updateInput(setInput, { canvasWidth: firstSize.width, canvasHeight: firstSize.height })}>
+            {previewMatchesFirstSize ? "Preview matches first size" : `Match ${firstSize.label}`}
+          </Button>
+        ) : null}
       </Disclosure>
     </ControlSection>
   );
 }
 
 
-function PreviewPanel({ previewUrl, input, status }: { previewUrl: string; input: MockupInput; status: Status }) {
+function PreviewPanel({ previewUrl, input, status, onScreenshot }: { previewUrl: string; input: MockupInput; status: Status; onScreenshot: (file: File) => void }) {
+  const [dragging, setDragging] = useState(false);
   const aspect = input.canvasWidth / input.canvasHeight;
-  const statusLabel = status === "generating" ? "Rendering…" : status === "error" ? "Preview error" : "Client-only";
+  const statusLabel = status === "generating" ? "Rendering…" : status === "error" ? "Preview error" : "Private · local";
+  const pack = EXPORT_PACKS.find((item) => item.id === input.exportPackId);
+
+  function handleDrop(event: DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    setDragging(false);
+    const file = event.dataTransfer.files?.[0];
+    if (file) onScreenshot(file);
+  }
 
   return (
-    <div className="flex h-full min-h-[420px] flex-col gap-4 bg-[radial-gradient(circle_at_top,var(--color-primary-soft),transparent_34%),var(--color-surface-subtle)] p-4 sm:p-5">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live mockup preview</p>
-          <h3 className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{input.canvasWidth}×{input.canvasHeight} canvas</h3>
-          <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">{getCanvasSummary(input)}</p>
+    <div className="flex h-full min-h-[420px] flex-col bg-[radial-gradient(circle_at_top,var(--color-primary-soft),transparent_34%),var(--color-surface-subtle)] p-3 sm:p-4">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-2 shadow-[var(--shadow-xs)]">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-text-secondary)]">
+          <span className="font-black text-[var(--color-text-primary)]">Preview</span>
+          <span className="text-[var(--color-text-tertiary)]">{formatRatio(input.canvasWidth, input.canvasHeight)}</span>
+          <span className="capitalize text-[var(--color-text-tertiary)]">{input.device}</span>
+          <span className="capitalize text-[var(--color-text-tertiary)]">{input.fitMode}</span>
+          <span className="hidden text-[var(--color-text-tertiary)] sm:inline">{pack?.title ?? input.exportPackId}</span>
         </div>
-        <div className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-1.5 text-xs font-bold text-[var(--color-text-secondary)]">
-          {statusLabel}
-        </div>
+        <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-bold text-[var(--color-text-secondary)]">{statusLabel}</span>
       </div>
 
-      <div className="grid gap-2 sm:grid-cols-4">
-        <PreviewStat title="Source" value={getSourceSummary(input)} />
-        <PreviewStat title="Frame" value={input.device} />
-        <PreviewStat title="Pack" value={input.exportPackId} />
-        <PreviewStat title="Fit" value={getCropSummary(input)} />
-      </div>
-
-      <div className="flex min-h-[300px] flex-1 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-card)]">
-        {previewUrl ? (
+      <div
+        onDragEnter={(event) => { event.preventDefault(); setDragging(true); }}
+        onDragOver={(event) => event.preventDefault()}
+        onDragLeave={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDragging(false);
+        }}
+        onDrop={handleDrop}
+        className={cn(
+          "relative flex min-h-[330px] flex-1 items-center justify-center overflow-hidden rounded-[var(--radius-lg)] border bg-[var(--color-surface-raised)] p-3 transition sm:p-4",
+          dragging ? "border-[var(--color-primary)] ring-4 ring-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)]",
+        )}
+      >
+        {input.screenshotDataUrl && previewUrl ? (
           <img
             src={previewUrl}
             alt="Generated app screenshot mockup preview"
-            className="max-h-[58vh] w-full max-w-full rounded-[var(--radius-md)] object-contain shadow-[var(--shadow-lg)]"
+            className="max-h-[66vh] w-full max-w-full rounded-[var(--radius-md)] object-contain shadow-[var(--shadow-lg)]"
             style={{ aspectRatio: String(aspect) }}
           />
         ) : (
-          <div className="flex flex-col items-center gap-3 text-center text-sm text-[var(--color-text-secondary)]">
-            <MonitorSmartphone className="h-10 w-10 text-[var(--color-primary-text-strong)]" />
-            <span>Upload a screenshot or use the placeholder preview.</span>
-          </div>
+          <label className="flex w-full max-w-md cursor-pointer flex-col items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-6 py-12 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
+              <MonitorSmartphone className="h-8 w-8" />
+            </div>
+            <span className="text-base font-black text-[var(--color-text-primary)]">Drop your screenshot here</span>
+            <span className="mt-1 text-sm text-[var(--color-text-secondary)]">or click to choose an image</span>
+            <span className="mt-4 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">PNG · JPG · WebP · processed locally</span>
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/webp"
+              className="sr-only"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) onScreenshot(file);
+                event.target.value = "";
+              }}
+            />
+          </label>
         )}
+
+        {dragging ? (
+          <div className="pointer-events-none absolute inset-3 flex items-center justify-center rounded-[var(--radius-lg)] bg-[var(--color-primary-soft)]/95 backdrop-blur-sm">
+            <div className="text-center">
+              <UploadCloud className="mx-auto h-9 w-9 text-[var(--color-primary-text-strong)]" />
+              <p className="mt-2 text-sm font-black text-[var(--color-text-primary)]">Drop to replace screenshot</p>
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
 }
 
-
-function PreviewStat({ title, value }: { title: string; value: string }) {
-  return (
-    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3">
-      <MiniLabel>{title}</MiniLabel>
-      <p className="mt-1 truncate text-sm font-bold capitalize text-[var(--color-text-primary)]" title={value}>{value.replace(/-/g, " ")}</p>
-    </div>
-  );
-}
 
 function ReadinessPanel({ input, assets }: { input: MockupInput; assets: GeneratedMockupAsset[] }) {
   const checks = createReadinessChecks(input, assets);
@@ -782,11 +869,10 @@ export default function AppScreenshotMockupClient() {
   const controls = (
     <div className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
       <SourceControls input={input} setInput={setInput} setStatusMessage={setStatusMessage} />
-      <QuickPresets setInput={setInput} />
       <DeviceControls input={input} setInput={setInput} />
-      <ExportControls input={input} setInput={setInput} />
+      <QuickPresets setInput={setInput} />
       <DesignControls input={input} setInput={setInput} setStatusMessage={setStatusMessage} />
-      <PackageChecker onResult={setCheckerResults} />
+      <ExportControls input={input} setInput={setInput} />
     </div>
   );
 
@@ -794,13 +880,13 @@ export default function AppScreenshotMockupClient() {
     <>
       <div className="flex min-w-0 flex-col gap-1 text-xs text-[var(--color-text-secondary)]">
         <span className="font-bold text-[var(--color-text-primary)]">{statusMessage}</span>
-        <span>{assets.length ? `${assets.length} generated files · ${formatBytes(assets.reduce((sum, asset) => sum + asset.blob.size, 0))}${packageIsFresh ? " · current" : " · stale"}` : "Generate a pack when the preview looks right."}</span>
+        <span>{assets.length ? `${assets.length} PNG files · ${formatBytes(assets.reduce((sum, asset) => sum + asset.blob.size, 0))}${packageIsFresh ? " · ready to download" : " · update required"}` : "Your screenshot stays local. Prepare the export when the preview looks right."}</span>
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Button variant="secondary" leftIcon={status === "generating" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageIcon className="h-4 w-4" />} onClick={generateAssets} disabled={status === "generating"}>
-          Generate pack
+        <Button variant="primary" leftIcon={status === "generating" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageIcon className="h-4 w-4" />} onClick={generateAssets} disabled={status === "generating"}>
+          {packageIsFresh ? "Refresh export" : "Prepare export"}
         </Button>
-        <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={status === "generating" || !packageIsFresh}>
+        <Button variant="secondary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={status === "generating" || !packageIsFresh}>
           Download ZIP
         </Button>
       </div>
@@ -818,28 +904,62 @@ export default function AppScreenshotMockupClient() {
 
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
       actionsPlacement="under-preview"
-      previewSlot={<PreviewPanel previewUrl={previewUrl} input={input} status={status} />}
+      mobileCodeAfterControls
+      actionsClassName="sticky bottom-2 z-20 backdrop-blur xl:static"
+      previewSlot={
+        <PreviewPanel
+          previewUrl={previewUrl}
+          input={input}
+          status={status}
+          onScreenshot={(file) => void loadScreenshotFile(file, setInput, setStatusMessage)}
+        />
+      }
       controlsSlot={controls}
       actionsSlot={actions}
       codeSlot={
         <div className="space-y-5">
-          {warnings.length ? <WarningPanel title="Mockup readiness warnings" messages={mapWarnings(warnings)} /> : null}
-          <MockupProductionPanel
-            input={input}
-            assets={assets}
-            generatedFingerprint={generatedFingerprint}
-            message={projectMessage}
-            onExportProject={exportProject}
-            onImportProject={importProject}
-            onExportReport={exportReport}
-            onExportCsv={exportCsv}
-            onReset={resetProject}
-          />
-          <ProductionHandoffPanel input={input} assets={assets} warnings={warnings} />
-          <ReadinessPanel input={input} assets={packageIsFresh ? assets : []} />
-          <GeneratedFilesPanel assets={assets} checks={checkerResults.length ? checkerResults : generatedChecks} downloadsEnabled={packageIsFresh} onDownload={(asset) => downloadBlobFile({ blob: asset.blob, filename: asset.filename })} />
-          <CodeOutputPanel title="Install snippets" description="Copy the generated mockup into a landing page, documentation page, or Next.js component." tabs={codeTabs} onDownload={downloadCodeFile} actions={<CopyInlineButton value={assets.map((asset) => asset.filename).join("\n") || input.filePrefix} />} />
+          {assets.length ? (
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] p-4 shadow-[var(--shadow-xs)]">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-sm font-black text-[var(--color-text-primary)]">{packageIsFresh ? "Export ready" : "Export needs refresh"}</p>
+                  <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{assets.length} PNG files · {formatBytes(assets.reduce((sum, asset) => sum + asset.blob.size, 0))}</p>
+                </div>
+                <Button variant="primary" size="sm" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={!packageIsFresh}>Download ZIP</Button>
+              </div>
+            </div>
+          ) : null}
+
+          <details className="group overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-xs)]">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 [&::-webkit-details-marker]:hidden">
+              <div>
+                <p className="text-sm font-black text-[var(--color-text-primary)]">Developer handoff & QA</p>
+                <p className="mt-1 text-xs text-[var(--color-text-secondary)]">Readiness checks, generated files, package validation, project import/export, and install snippets.</p>
+              </div>
+              <ChevronDown className="h-5 w-5 shrink-0 text-[var(--color-text-tertiary)] transition group-open:rotate-180" />
+            </summary>
+            <div className="space-y-5 border-t border-[var(--color-border-subtle)] p-4">
+              {warnings.length ? <WarningPanel title="Mockup readiness warnings" messages={mapWarnings(warnings)} /> : null}
+              <MockupProductionPanel
+                input={input}
+                assets={assets}
+                generatedFingerprint={generatedFingerprint}
+                message={projectMessage}
+                onExportProject={exportProject}
+                onImportProject={importProject}
+                onExportReport={exportReport}
+                onExportCsv={exportCsv}
+                onReset={resetProject}
+              />
+              <ProductionHandoffPanel input={input} assets={assets} warnings={warnings} />
+              <ReadinessPanel input={input} assets={packageIsFresh ? assets : []} />
+              <PackageChecker onResult={setCheckerResults} />
+              <GeneratedFilesPanel assets={assets} checks={checkerResults.length ? checkerResults : generatedChecks} downloadsEnabled={packageIsFresh} onDownload={(asset) => downloadBlobFile({ blob: asset.blob, filename: asset.filename })} />
+              <CodeOutputPanel title="Install snippets" description="Copy the generated mockup into a landing page, documentation page, or Next.js component." tabs={codeTabs} onDownload={downloadCodeFile} actions={<CopyInlineButton value={assets.map((asset) => asset.filename).join("\n") || input.filePrefix} />} />
+            </div>
+          </details>
         </div>
       }
     />

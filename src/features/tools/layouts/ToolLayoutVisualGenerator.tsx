@@ -29,6 +29,8 @@ export function ToolLayoutVisualGenerator({
   stickyControls = true,
   controlsWidth = "default",
   wrapPreview = true,
+  actionsClassName,
+  mobileCodeAfterControls = false,
 }: {
   previewSlot: ReactNode;
   controlsSlot?: ReactNode;
@@ -43,8 +45,15 @@ export function ToolLayoutVisualGenerator({
   stickyControls?: boolean;
   controlsWidth?: "default" | "wide";
   wrapPreview?: boolean;
+  actionsClassName?: string;
+  /**
+   * Stacked layouts read better when the generated code sits after the controls
+   * instead of directly under the preview. Above the grid breakpoint the code
+   * stays in the preview column where there is room for it.
+   */
+  mobileCodeAfterControls?: boolean;
 }) {
-  const desktopActions = actionsSlot ? <ActionBar className="hidden md:flex" align="between">{actionsSlot}</ActionBar> : null;
+  const desktopActions = actionsSlot ? <ActionBar className={cn("hidden md:flex", actionsClassName)} align="between">{actionsSlot}</ActionBar> : null;
   const mobileActions = actionsSlot ? <ToolMobileActions>{actionsSlot}</ToolMobileActions> : null;
 
   // When the caller opts out of the frame it owns the whole preview column, so
@@ -52,7 +61,7 @@ export function ToolLayoutVisualGenerator({
   const preview = wrapPreview ? (
     <div>
       <RegionLabel label="Live preview" hint="The result updates from the current controls" />
-      <PreviewFrame className="min-h-[280px] sm:min-h-[360px] lg:min-h-[460px]">
+      <PreviewFrame className="min-h-[360px] sm:min-h-[460px] lg:min-h-[540px]">
         {previewSlot}
       </PreviewFrame>
     </div>
@@ -71,7 +80,9 @@ export function ToolLayoutVisualGenerator({
     >
       {preview}
       {actionsPlacement === "under-preview" ? desktopActions : null}
-      {actionsPlacement === "under-preview" && codeSlot ? <section className="min-w-0">{codeSlot}</section> : null}
+      {actionsPlacement === "under-preview" && codeSlot ? (
+        <section className={cn("min-w-0", mobileCodeAfterControls && "hidden lg:block")}>{codeSlot}</section>
+      ) : null}
     </section>
   );
 
@@ -112,6 +123,9 @@ export function ToolLayoutVisualGenerator({
       </div>
 
       {actionsPlacement === "after-grid" ? desktopActions : null}
+      {actionsPlacement === "under-preview" && mobileCodeAfterControls && codeSlot ? (
+        <section className="min-w-0 lg:hidden">{codeSlot}</section>
+      ) : null}
       {actionsPlacement !== "under-preview" && codeSlot ? <section className="min-w-0">{codeSlot}</section> : null}
       {presetsPlacement === "after-code" && presetsSlot ? <section className="min-w-0">{presetsSlot}</section> : null}
       {articleSlot ? <section className="min-w-0">{articleSlot}</section> : null}

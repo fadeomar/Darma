@@ -19,6 +19,7 @@ import {
   validateClampInput,
 } from "./clamp";
 import { DEFAULT_CLAMP_INPUT, DEFAULT_TOKENS, PRESET_INPUTS, PROPERTY_PRESETS, SPACING_TOKENS, TYPOGRAPHY_TOKENS } from "./presets";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import type { ClampExportTab, ClampInput, ClampPropertyPreset, ClampToken, ClampUnit } from "./types";
 
 type Mode = "single" | "tokens";
@@ -225,42 +226,39 @@ export default function CssClampClient() {
   const minViewport = Math.max(1, input.minViewport);
   const maxViewport = Math.max(minViewport + 1, input.maxViewport);
 
-  return (
-    <div className="space-y-5">
+  const previewSlot = (
+    <div className="space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <div className="min-w-0">
+        <div>
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="text-xl font-black text-[var(--color-text)]">CSS Clamp Generator</h2>
-            <Badge variant="success">Browser-only</Badge>
+            <h3 className="font-black text-[var(--color-text)]">Responsive preview</h3>
             <Badge variant={validation.valid ? "success" : "danger"}>{validation.valid ? "Ready" : "Needs changes"}</Badge>
           </div>
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-[var(--color-text-muted)]">
-            Generate production-ready fluid CSS for typography, spacing, widths, and design tokens with previews and exports in one screen.
+          <p className="mt-1 text-sm text-[var(--color-text-muted)]">
+            Viewport <span className="font-mono font-bold">{viewport}px</span> · value <span className="font-mono font-bold">{computedValue}{input.unit}</span>
           </p>
         </div>
-        <Tabs
-          value={mode}
-          onChange={(value) => setMode(value as Mode)}
-          ariaLabel="Clamp mode"
-          items={[{ value: "single", label: "Single" }, { value: "tokens", label: "Tokens" }]}
-        />
+        <div className="flex flex-wrap gap-2">
+          {[input.minViewport, Math.round((input.minViewport + input.maxViewport) / 2), input.maxViewport].map((point) => (
+            <Button key={point} variant="secondary" size="sm" onClick={() => setViewport(point)}>{point}px</Button>
+          ))}
+        </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
-        {PRESET_INPUTS.map((item) => (
-          <button
-            key={item.label}
-            type="button"
-            onClick={() => loadPreset(item.input)}
-            className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-surface-strong)]"
-          >
-            <span className="block truncate text-sm font-black text-[var(--color-text)]">{item.label}</span>
-            <span className="mt-1 block truncate text-xs text-[var(--color-text-muted)]">{item.description}</span>
-          </button>
+      <Slider min={minViewport} max={maxViewport} value={Math.min(Math.max(viewport, minViewport), maxViewport)} onChange={(event) => setViewport(Number(event.target.value))} />
+
+      <PreviewSample input={input} computedValue={computedValue} />
+
+      <div className="grid gap-2 sm:grid-cols-5">
+        {sampleValues.map((item) => (
+          <div key={item.viewport} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-2 text-center">
+            <p className="truncate font-mono text-xs font-black text-[var(--color-text)]">{item.value}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-soft)]">{item.viewport}px</p>
+          </div>
         ))}
       </div>
 
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <SummaryCard label="Range" value={`${input.minViewport}px → ${input.maxViewport}px`} note="Viewport boundaries" />
         <SummaryCard label="Value" value={`${input.minValue}${input.unit} → ${input.maxValue}${input.unit}`} note={`${input.property} output`} />
         <SummaryCard label="Current" value={`${computedValue}${input.unit}`} note={`${viewport}px preview`} />
@@ -273,157 +271,177 @@ export default function CssClampClient() {
           {validation.warnings.map((warning) => <p key={warning} className="font-semibold text-[var(--color-warning-text)]">{warning}</p>)}
         </div>
       )}
-
-      {/* min-w-0 on both children is required, not decorative: below `xl` this
-          grid collapses to a single auto-sized track, and grid items default to
-          `min-width: auto`. Without it the track resolves to the children's
-          min-content width (383px at a 390px viewport) and the page scrolls
-          sideways. Same pattern as beam-calculator. */}
-      <div className="grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)]">
-        <div className="min-w-0 space-y-5">
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <h3 className="font-black text-[var(--color-text)]">Fluid value controls</h3>
-                <p className="text-sm text-[var(--color-text-muted)]">Set the viewport and value boundaries for one clamp expression.</p>
-              </div>
-              <Tabs
-                value={input.unit}
-                onChange={(value) => updateInput("unit", value as ClampUnit)}
-                ariaLabel="Output unit"
-                items={[{ value: "rem", label: "rem" }, { value: "px", label: "px" }]}
-              />
-            </div>
-
-            <div className="grid gap-4 lg:grid-cols-[180px_minmax(0,1fr)]">
-              <Field label="Preset" description={PROPERTY_PRESETS.find((item) => item.value === preset)?.description}>
-                <Select value={preset} onChange={(event) => updatePreset(event.target.value as ClampPropertyPreset)}>
-                  {PROPERTY_PRESETS.map((item) => (
-                    <option key={item.value} value={item.value}>{item.label}</option>
-                  ))}
-                </Select>
-              </Field>
-
-              <Field label="CSS property" description={preset === "custom" ? "Type any CSS property name." : "Switch to custom to edit this field."}>
-                <Input value={preset === "custom" ? customProperty : input.property} onChange={(event) => updateCustomProperty(event.target.value)} disabled={preset !== "custom"} />
-              </Field>
-            </div>
-
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <NumericField label="Min viewport" value={input.minViewport} min={1} step="1" suffix="px" onChange={(value) => updateInput("minViewport", value)} />
-              <NumericField label="Max viewport" value={input.maxViewport} min={1} step="1" suffix="px" onChange={(value) => updateInput("maxViewport", value)} />
-              <NumericField label="Min value" value={input.minValue} min={0} suffix={input.unit} onChange={(value) => updateInput("minValue", value)} />
-              <NumericField label="Max value" value={input.maxValue} min={0} suffix={input.unit} onChange={(value) => updateInput("maxValue", value)} />
-              <div className="md:col-span-2">
-                <NumericField label="Root font size" value={input.rootFontSize} min={1} step="1" suffix="px" onChange={(value) => updateInput("rootFontSize", value)} description="Used for rem ↔ px calculations." />
-              </div>
-            </div>
-          </section>
-
-          {mode === "tokens" && (
-            <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
-              <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <h3 className="font-black text-[var(--color-text)]">Token scale</h3>
-                  <p className="text-sm text-[var(--color-text-muted)]">Build a fluid variable scale without creating one clamp manually at a time.</p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <Button variant="secondary" onClick={loadTypographyTokens}>Typography</Button>
-                  <Button variant="secondary" onClick={loadSpacingTokens}>Spacing</Button>
-                  <Button variant="secondary" onClick={() => setTokens(DEFAULT_TOKENS)} leftIcon={<RefreshCw className="h-4 w-4" />}>Reset</Button>
-                  <Button onClick={addToken} leftIcon={<Plus className="h-4 w-4" />}>Add</Button>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                {tokens.map((token, index) => (
-                  <div key={`${token.name}-${index}`} className="grid gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-3 lg:grid-cols-[minmax(120px,1.2fr)_0.8fr_0.8fr_0.9fr_0.9fr_auto]">
-                    <Input aria-label="Token name" value={token.name} onChange={(event) => updateToken(index, { name: event.target.value })} />
-                    <Input type="number" step="0.125" aria-label="Token min value" value={token.minValue} onChange={(event) => updateToken(index, { minValue: numberOrFallback(event.target.value, token.minValue) })} />
-                    <Input type="number" step="0.125" aria-label="Token max value" value={token.maxValue} onChange={(event) => updateToken(index, { maxValue: numberOrFallback(event.target.value, token.maxValue) })} />
-                    <Input type="number" step="1" aria-label="Token min viewport" value={token.minViewport} onChange={(event) => updateToken(index, { minViewport: numberOrFallback(event.target.value, token.minViewport) })} />
-                    <Input type="number" step="1" aria-label="Token max viewport" value={token.maxViewport} onChange={(event) => updateToken(index, { maxViewport: numberOrFallback(event.target.value, token.maxViewport) })} />
-                    <Button size="icon" variant="ghost" onClick={() => removeToken(index)} leftIcon={<Trash2 className="h-4 w-4" />} aria-label={`Remove ${token.name}`}>Remove</Button>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                {TOKEN_NAME_SHORTCUTS.map((name, index) => (
-                  <Button key={name} variant="secondary" onClick={() => updateToken(index, { name: `text-${name}` })} disabled={!tokens[index]}>
-                    text-{name}
-                  </Button>
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
-
-        <div className="min-w-0 space-y-5 xl:sticky xl:top-24 xl:self-start">
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
-            <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <h3 className="font-black text-[var(--color-text)]">Responsive preview</h3>
-                <p className="text-sm text-[var(--color-text-muted)]">Viewport <span className="font-mono font-bold">{viewport}px</span> · value <span className="font-mono font-bold">{computedValue}{input.unit}</span></p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {[input.minViewport, Math.round((input.minViewport + input.maxViewport) / 2), input.maxViewport].map((point) => (
-                  <Button key={point} variant="secondary" size="sm" onClick={() => setViewport(point)}>{point}px</Button>
-                ))}
-              </div>
-            </div>
-            <Slider min={minViewport} max={maxViewport} value={Math.min(Math.max(viewport, minViewport), maxViewport)} onChange={(event) => setViewport(Number(event.target.value))} />
-            <div className="mt-4">
-              <PreviewSample input={input} computedValue={computedValue} />
-            </div>
-            <div className="mt-4 grid gap-2 sm:grid-cols-5">
-              {sampleValues.map((item) => (
-                <div key={item.viewport} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-2 text-center">
-                  <p className="truncate font-mono text-xs font-black text-[var(--color-text)]">{item.value}</p>
-                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-soft)]">{item.viewport}px</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <h3 className="font-black text-[var(--color-text)]">Production export</h3>
-                <p className="text-sm text-[var(--color-text-muted)]">Copy CSS, variables, Tailwind snippets, or token JSON.</p>
-              </div>
-              <Tabs
-                value={outputTab}
-                onChange={(value) => setOutputTab(value as ClampExportTab)}
-                ariaLabel="Output format"
-                className="max-w-full overflow-x-auto"
-                items={[
-                  { value: "css", label: "CSS" },
-                  { value: "variables", label: "Vars" },
-                  { value: "tokens", label: "Tokens" },
-                  { value: "tailwind", label: "Tailwind" },
-                  { value: "json", label: "JSON" },
-                  { value: "scss", label: "SCSS" },
-                ]}
-              />
-            </div>
-            <Textarea value={output} readOnly rows={9} variant="output" className="font-mono text-xs" />
-            <div className="mt-3 flex flex-wrap gap-2">
-              <CopyButton text={output}>Copy output</CopyButton>
-              <Button variant="secondary" onClick={() => downloadFile("darma-fluid-clamp.css", output)} leftIcon={<Download className="h-4 w-4" />}>
-                Download
-              </Button>
-            </div>
-            {result && (
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                <SummaryCard label="Min" value={result.min} />
-                <SummaryCard label="Preferred" value={result.preferred} />
-                <SummaryCard label="Max" value={result.max} />
-              </div>
-            )}
-          </section>
-        </div>
-      </div>
     </div>
+  );
+
+  const controlsSlot = (
+    <div className="space-y-4">
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-lg font-black text-[var(--color-text)]">CSS Clamp Generator</h2>
+              <Badge variant="success">Browser-only</Badge>
+            </div>
+            <p className="mt-1 text-sm leading-6 text-[var(--color-text-muted)]">
+              Generate fluid CSS for typography, spacing, widths, and reusable design tokens.
+            </p>
+          </div>
+        </div>
+        <div className="mt-4">
+          <Tabs
+            value={mode}
+            onChange={(value) => setMode(value as Mode)}
+            ariaLabel="Clamp mode"
+            items={[{ value: "single", label: "Single" }, { value: "tokens", label: "Tokens" }]}
+          />
+        </div>
+      </section>
+
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
+        <div className="mb-3">
+          <h3 className="font-black text-[var(--color-text)]">Quick presets</h3>
+          <p className="text-sm text-[var(--color-text-muted)]">Start from a common production range.</p>
+        </div>
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
+          {PRESET_INPUTS.map((item) => (
+            <button
+              key={item.label}
+              type="button"
+              onClick={() => loadPreset(item.input)}
+              className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-surface-strong)]"
+            >
+              <span className="block truncate text-sm font-black text-[var(--color-text)]">{item.label}</span>
+              <span className="mt-1 block text-xs leading-5 text-[var(--color-text-muted)]">{item.description}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 className="font-black text-[var(--color-text)]">Fluid value controls</h3>
+            <p className="text-sm text-[var(--color-text-muted)]">Set viewport and value boundaries.</p>
+          </div>
+          <Tabs
+            value={input.unit}
+            onChange={(value) => updateInput("unit", value as ClampUnit)}
+            ariaLabel="Output unit"
+            items={[{ value: "rem", label: "rem" }, { value: "px", label: "px" }]}
+          />
+        </div>
+
+        <div className="space-y-4">
+          <Field label="Preset" description={PROPERTY_PRESETS.find((item) => item.value === preset)?.description}>
+            <Select value={preset} onChange={(event) => updatePreset(event.target.value as ClampPropertyPreset)}>
+              {PROPERTY_PRESETS.map((item) => (
+                <option key={item.value} value={item.value}>{item.label}</option>
+              ))}
+            </Select>
+          </Field>
+
+          <Field label="CSS property" description={preset === "custom" ? "Type any CSS property name." : "Switch to custom to edit this field."}>
+            <Input value={preset === "custom" ? customProperty : input.property} onChange={(event) => updateCustomProperty(event.target.value)} disabled={preset !== "custom"} />
+          </Field>
+
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+            <NumericField label="Min viewport" value={input.minViewport} min={1} step="1" suffix="px" onChange={(value) => updateInput("minViewport", value)} />
+            <NumericField label="Max viewport" value={input.maxViewport} min={1} step="1" suffix="px" onChange={(value) => updateInput("maxViewport", value)} />
+            <NumericField label="Min value" value={input.minValue} min={0} suffix={input.unit} onChange={(value) => updateInput("minValue", value)} />
+            <NumericField label="Max value" value={input.maxValue} min={0} suffix={input.unit} onChange={(value) => updateInput("maxValue", value)} />
+          </div>
+          <NumericField label="Root font size" value={input.rootFontSize} min={1} step="1" suffix="px" onChange={(value) => updateInput("rootFontSize", value)} description="Used for rem ↔ px calculations." />
+        </div>
+      </section>
+    </div>
+  );
+
+  const codeSlot = (
+    <div className="space-y-5">
+      {mode === "tokens" && (
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 className="font-black text-[var(--color-text)]">Token scale</h3>
+              <p className="text-sm text-[var(--color-text-muted)]">Build a fluid variable scale without creating one clamp manually at a time.</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button variant="secondary" onClick={loadTypographyTokens}>Typography</Button>
+              <Button variant="secondary" onClick={loadSpacingTokens}>Spacing</Button>
+              <Button variant="secondary" onClick={() => setTokens(DEFAULT_TOKENS)} leftIcon={<RefreshCw className="h-4 w-4" />}>Reset</Button>
+              <Button onClick={addToken} leftIcon={<Plus className="h-4 w-4" />}>Add</Button>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {tokens.map((token, index) => (
+              <div key={`${token.name}-${index}`} className="grid gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-3 lg:grid-cols-[minmax(120px,1.2fr)_0.8fr_0.8fr_0.9fr_0.9fr_auto]">
+                <Input aria-label="Token name" value={token.name} onChange={(event) => updateToken(index, { name: event.target.value })} />
+                <Input type="number" step="0.125" aria-label="Token min value" value={token.minValue} onChange={(event) => updateToken(index, { minValue: numberOrFallback(event.target.value, token.minValue) })} />
+                <Input type="number" step="0.125" aria-label="Token max value" value={token.maxValue} onChange={(event) => updateToken(index, { maxValue: numberOrFallback(event.target.value, token.maxValue) })} />
+                <Input type="number" step="1" aria-label="Token min viewport" value={token.minViewport} onChange={(event) => updateToken(index, { minViewport: numberOrFallback(event.target.value, token.minViewport) })} />
+                <Input type="number" step="1" aria-label="Token max viewport" value={token.maxViewport} onChange={(event) => updateToken(index, { maxViewport: numberOrFallback(event.target.value, token.maxViewport) })} />
+                <Button size="icon" variant="ghost" onClick={() => removeToken(index)} leftIcon={<Trash2 className="h-4 w-4" />} aria-label={`Remove ${token.name}`}>Remove</Button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-3 flex flex-wrap gap-2">
+            {TOKEN_NAME_SHORTCUTS.map((name, index) => (
+              <Button key={name} variant="secondary" onClick={() => updateToken(index, { name: `text-${name}` })} disabled={!tokens[index]}>
+                text-{name}
+              </Button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 className="font-black text-[var(--color-text)]">Production export</h3>
+            <p className="text-sm text-[var(--color-text-muted)]">Copy CSS, variables, Tailwind snippets, or token JSON.</p>
+          </div>
+          <Tabs
+            value={outputTab}
+            onChange={(value) => setOutputTab(value as ClampExportTab)}
+            ariaLabel="Output format"
+            className="max-w-full overflow-x-auto"
+            items={[
+              { value: "css", label: "CSS" },
+              { value: "variables", label: "Vars" },
+              { value: "tokens", label: "Tokens" },
+              { value: "tailwind", label: "Tailwind" },
+              { value: "json", label: "JSON" },
+              { value: "scss", label: "SCSS" },
+            ]}
+          />
+        </div>
+        <Textarea value={output} readOnly rows={9} variant="output" className="font-mono text-xs" />
+        <div className="mt-3 flex flex-wrap gap-2">
+          <CopyButton text={output}>Copy output</CopyButton>
+          <Button variant="secondary" onClick={() => downloadFile("darma-fluid-clamp.css", output)} leftIcon={<Download className="h-4 w-4" />}>
+            Download
+          </Button>
+        </div>
+        {result && (
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <SummaryCard label="Min" value={result.min} />
+            <SummaryCard label="Preferred" value={result.preferred} />
+            <SummaryCard label="Max" value={result.max} />
+          </div>
+        )}
+      </section>
+    </div>
+  );
+
+  return (
+    <ToolLayoutVisualGenerator
+      previewSlot={previewSlot}
+      controlsSlot={controlsSlot}
+      codeSlot={codeSlot}
+      actionsPlacement="under-preview"
+    />
   );
 }

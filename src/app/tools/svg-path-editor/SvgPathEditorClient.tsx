@@ -725,22 +725,27 @@ export default function SvgPathEditorClient() {
             {isSaved ? <BookmarkCheck size={15} /> : <Bookmark size={15} />}{isSaved ? "Saved" : "Save"}
           </Button>
           <Button onClick={() => copy("Path copied", formattedPath)} disabled={Boolean(error)}><Clipboard size={15} /> Copy path</Button>
-          <Button onClick={() => copy("SVG copied", fullSvg)} disabled={Boolean(error)}><Code2 size={15} /> Copy SVG</Button>
-          <Button onClick={downloadSvg} disabled={Boolean(error)}><Download size={15} /> SVG</Button>
+          <Button onClick={downloadSvg} disabled={Boolean(error)}><Download size={15} /> Download SVG</Button>
           <Button onClick={() => setShowShortcuts(true)} title="Keyboard shortcuts"><Keyboard size={15} /></Button>
         </div>
       </section>
 
-      <section className="svg-editor-summary-grid" aria-label="SVG path summary">
-        <SummaryCard label="Commands" value={analysis?.commandCount ?? "—"} hint={`${analysis?.subpathCount ?? 0} subpath${analysis?.subpathCount === 1 ? "" : "s"}`} />
-        <SummaryCard label="Editable points" value={analysis?.editablePointCount ?? "—"} hint={`${analysis?.controlPointCount ?? 0} curve controls`} />
-        <SummaryCard
-          label="Geometry"
-          value={analysis?.bounds ? `${round(analysis.bounds.width)} × ${round(analysis.bounds.height)}` : "—"}
-          hint="Approximate path bounds"
-        />
-        <SummaryCard label="Path payload" value={analysis ? `${analysis.outputBytes.toLocaleString()} B` : "—"} hint={minify ? "Minified output" : "Formatted output"} />
-      </section>
+      <details className="svg-editor-summary-details">
+        <summary>
+          <span>Path details</span>
+          <small>{analysis ? `${analysis.commandCount} commands · ${analysis.editablePointCount} editable points` : "Inspect geometry and payload"}</small>
+        </summary>
+        <section className="svg-editor-summary-grid" aria-label="SVG path summary">
+          <SummaryCard label="Commands" value={analysis?.commandCount ?? "—"} hint={`${analysis?.subpathCount ?? 0} subpath${analysis?.subpathCount === 1 ? "" : "s"}`} />
+          <SummaryCard label="Editable points" value={analysis?.editablePointCount ?? "—"} hint={`${analysis?.controlPointCount ?? 0} curve controls`} />
+          <SummaryCard
+            label="Geometry"
+            value={analysis?.bounds ? `${round(analysis.bounds.width)} × ${round(analysis.bounds.height)}` : "—"}
+            hint="Approximate path bounds"
+          />
+          <SummaryCard label="Path payload" value={analysis ? `${analysis.outputBytes.toLocaleString()} B` : "—"} hint={minify ? "Minified output" : "Formatted output"} />
+        </section>
+      </details>
 
       {/* Workbench */}
       <section className="svg-editor-workbench">
@@ -808,7 +813,12 @@ export default function SvgPathEditorClient() {
                 )}
               </div>
 
-              <div className="svg-editor-section">
+                            <details className="svg-editor-disclosure">
+                <summary>
+                  <span>Transform & precision</span>
+                  <small>ViewBox, scale, move, rotate, and rounding</small>
+                </summary>
+<div className="svg-editor-section">
                 <SectionTitle icon={<Eye size={14} />}>ViewBox</SectionTitle>
                 <div className="svg-editor-grid-two">
                   <NumberField label="X" value={box.x} onChange={(v) => setBox((c) => ({ ...c, x: v }))} />
@@ -852,8 +862,14 @@ export default function SvgPathEditorClient() {
                   <Button onClick={() => { if (svg && !error) commit(svg.asString(decimals, minify)); }} disabled={Boolean(error)}>Round output</Button>
                 </div>
               </div>
+              </details>
 
-              <div className="svg-editor-section">
+                            <details className="svg-editor-disclosure">
+                <summary>
+                  <span>Path & canvas options</span>
+                  <small>Optimize, reverse, minify, fill, stroke, and reset</small>
+                </summary>
+<div className="svg-editor-section">
                 <SectionTitle icon={<Wand2 size={14} />}>Path actions</SectionTitle>
                 <div className="svg-editor-button-grid">
                   <Button onClick={() => run((path) => path.setRelative(false))} disabled={Boolean(error)}>Absolute</Button>
@@ -877,6 +893,7 @@ export default function SvgPathEditorClient() {
                 </div>
                 <NumberField label="Stroke width" value={strokeWidth} step={0.5} onChange={(v) => setStrokeWidth(Math.max(0.5, v))} />
               </div>
+              </details>
             </>
           )}
 
@@ -949,7 +966,7 @@ export default function SvgPathEditorClient() {
         {/* ── Canvas ── */}
         <section className="svg-editor-canvas-card">
           <div className="svg-editor-canvas-toolbar">
-            <div className="svg-editor-canvas-title">Canvas</div>
+            <div className="svg-editor-canvas-title">Canvas <small>Drag anchors and curve handles</small></div>
             <div className="svg-editor-canvas-actions">
               <Button onClick={() => zoom(0.77)} title="Zoom in (or scroll up)"><ZoomIn size={15} /></Button>
               <Button onClick={() => zoom(1.3)} title="Zoom out (or scroll down)"><ZoomOut size={15} /></Button>
@@ -1093,7 +1110,12 @@ export default function SvgPathEditorClient() {
             </div>
           </div>
 
-          <div className="svg-editor-section">
+                        <details className="svg-editor-disclosure">
+                <summary>
+                  <span>Developer handoff & exports</span>
+                  <small>Checks, React, CSS mask, JSON, and production ZIP</small>
+                </summary>
+<div className="svg-editor-section">
             <SectionTitle icon={<ShieldCheck size={14} />}>Production checks</SectionTitle>
             <div className="svg-editor-check-list">
               {productionChecks.map((check) => (
@@ -1120,6 +1142,7 @@ export default function SvgPathEditorClient() {
               <Button onClick={() => void downloadProductionPack()} disabled={!analysis || isPacking}><FileArchive size={13} /> {isPacking ? "Packing…" : "ZIP pack"}</Button>
             </div>
           </div>
+              </details>
 
           <div className="svg-editor-section svg-editor-license-note">
             <strong>Attribution</strong>

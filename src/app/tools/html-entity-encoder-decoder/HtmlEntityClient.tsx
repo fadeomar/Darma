@@ -157,33 +157,12 @@ export default function HtmlEntityClient() {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <SummaryCard
-          label="Conversion"
-          value={input ? (mode === "encode" ? "Encoded" : "Decoded") : "Waiting"}
-          hint={`${mode}${mode === "decode" ? ` · ${decodePasses} pass${decodePasses === 1 ? "" : "es"}` : ` · ${options.context}`}`}
-        />
-        <SummaryCard
-          label="Entities"
-          value={occurrences.length.toLocaleString()}
-          hint={`${invalidCount.toLocaleString()} unknown or invalid`}
-        />
-        <SummaryCard
-          label="Output size"
-          value={`${stats.outputCharacters.toLocaleString()} chars`}
-          hint={stats.expansionRatio ? `${stats.expansionRatio.toFixed(2)}× input size` : "No input yet"}
-        />
-        <SummaryCard
-          label="Production review"
-          value={reviewCount ? `${reviewCount} to review` : "Clear"}
-          hint={`${stats.nonAsciiCharacters.toLocaleString()} non-ASCII input characters`}
-        />
-      </div>
-
+    <div className="space-y-5">
       <Card>
-        <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          <div>
+            <MiniLabel>Transform setup</MiniLabel>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
             <SegmentedControl<EntityMode>
               ariaLabel="HTML entity conversion mode"
               value={mode}
@@ -214,47 +193,26 @@ export default function HtmlEntityClient() {
               onClick={swapDirection}
               disabled={!output}
             >
-              Swap
+              Swap direction
             </Button>
+            </div>
+            <p className="mt-2 max-w-2xl text-xs leading-5 text-[var(--color-text-tertiary)]">
+              Convert HTML entities locally in your browser, then inspect the result before copying or shipping it.
+            </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            <CopyButton text={output} size="sm" variant="secondary" disabled={!output}>
-              Copy output
-            </CopyButton>
-            <Button
-              size="sm"
-              variant="secondary"
-              leftIcon={<Download className="h-3.5 w-3.5" />}
-              disabled={!output}
-              onClick={() => downloadText("html-entity-output.txt", output)}
-            >
-              Output
-            </Button>
-            <Button
-              size="sm"
-              variant="secondary"
-              leftIcon={<Braces className="h-3.5 w-3.5" />}
-              onClick={() => downloadText("html-entity-audit.json", reportJson, "application/json;charset=utf-8")}
-            >
-              JSON
-            </Button>
-            <Button
-              size="sm"
-              leftIcon={<FileArchive className="h-3.5 w-3.5" />}
-              onClick={downloadPack}
-            >
-              ZIP pack
-            </Button>
+          <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-2 text-xs font-bold text-[var(--color-success-text)]">
+            <ShieldCheck className="h-4 w-4 shrink-0" />
+            Local only · no upload
           </div>
         </div>
       </Card>
 
-      <div className="grid gap-4 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <Card>
           <div className="mb-3 flex items-start justify-between gap-3">
             <div>
-              <MiniLabel>Source</MiniLabel>
+              <MiniLabel>1. Source</MiniLabel>
               <h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Input text</h2>
             </div>
             <Button size="sm" variant="ghost" onClick={() => setInput("")}>Clear</Button>
@@ -269,14 +227,14 @@ export default function HtmlEntityClient() {
           />
           <div className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
             <span>{stats.inputCharacters.toLocaleString()} characters · {stats.lines.toLocaleString()} lines</span>
-            <span>Browser-local processing</span>
+            <span>{mode === "encode" ? options.context : `${decodePasses} decode pass${decodePasses === 1 ? "" : "es"}`}</span>
           </div>
         </Card>
 
         <Card>
           <div className="mb-3 flex items-start justify-between gap-3">
             <div>
-              <MiniLabel>Converted result</MiniLabel>
+              <MiniLabel>2. Converted result</MiniLabel>
               <h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Output</h2>
             </div>
             <CopyButton text={output} size="sm" variant="secondary" disabled={!output}>Copy</CopyButton>
@@ -296,11 +254,45 @@ export default function HtmlEntityClient() {
         </Card>
       </div>
 
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-        <Card>
+      <section aria-label="Conversion summary">
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <div>
+            <MiniLabel>3. Analysis summary</MiniLabel>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Review size, entity inventory, and anything that needs production attention.</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <SummaryCard
+            label="Conversion"
+            value={input ? (mode === "encode" ? "Encoded" : "Decoded") : "Waiting"}
+            hint={`${mode}${mode === "decode" ? ` · ${decodePasses} pass${decodePasses === 1 ? "" : "es"}` : ` · ${options.context}`}`}
+          />
+          <SummaryCard
+            label="Entities"
+            value={occurrences.length.toLocaleString()}
+            hint={`${invalidCount.toLocaleString()} unknown or invalid`}
+          />
+          <SummaryCard
+            label="Output size"
+            value={`${stats.outputCharacters.toLocaleString()} chars`}
+            hint={stats.expansionRatio ? `${stats.expansionRatio.toFixed(2)}× input size` : "No input yet"}
+          />
+          <SummaryCard
+            label="Production review"
+            value={reviewCount ? `${reviewCount} to review` : "Clear"}
+            hint={`${stats.nonAsciiCharacters.toLocaleString()} non-ASCII input characters`}
+          />
+        </div>
+      </section>
+
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] xl:items-start">
+        <Card className="xl:sticky xl:top-24">
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
-            <h2 className="text-base font-black text-[var(--color-text-primary)]">Presets & controls</h2>
+            <div>
+              <MiniLabel>4. Configure</MiniLabel>
+              <h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Presets & controls</h2>
+            </div>
           </div>
 
           <label className="mt-4 block text-xs font-semibold text-[var(--color-text-muted)]">
@@ -321,7 +313,7 @@ export default function HtmlEntityClient() {
 
           {mode === "encode" ? (
             <div className="mt-4 space-y-4">
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
                 <label className="text-xs font-semibold text-[var(--color-text-muted)]">
                   Context
                   <Select size="sm" className="mt-1" value={options.context} onChange={(event) => patchOptions({ context: event.target.value as EntityContext })}>
@@ -389,7 +381,10 @@ export default function HtmlEntityClient() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
               {detailTab === "inspector" ? <Search className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> : detailTab === "checks" ? <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> : <Code2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />}
-              <h2 className="text-base font-black text-[var(--color-text-primary)]">Entity workbench</h2>
+              <div>
+                <MiniLabel>5. Inspect &amp; validate</MiniLabel>
+                <h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Entity workbench</h2>
+              </div>
             </div>
             <SegmentedControl<DetailTab>
               ariaLabel="Entity detail view"
@@ -492,6 +487,47 @@ export default function HtmlEntityClient() {
           ) : null}
         </Card>
       </div>
+
+      <Card>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <MiniLabel>6. Production handoff</MiniLabel>
+            <h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Copy or export the reviewed result</h2>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
+              Export the converted text alone, the audit report, or a complete implementation pack.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <CopyButton text={output} size="sm" variant="secondary" disabled={!output}>
+              Copy output
+            </CopyButton>
+            <Button
+              size="sm"
+              variant="secondary"
+              leftIcon={<Download className="h-3.5 w-3.5" />}
+              disabled={!output}
+              onClick={() => downloadText("html-entity-output.txt", output)}
+            >
+              Output
+            </Button>
+            <Button
+              size="sm"
+              variant="secondary"
+              leftIcon={<Braces className="h-3.5 w-3.5" />}
+              onClick={() => downloadText("html-entity-audit.json", reportJson, "application/json;charset=utf-8")}
+            >
+              JSON
+            </Button>
+            <Button
+              size="sm"
+              leftIcon={<FileArchive className="h-3.5 w-3.5" />}
+              onClick={downloadPack}
+            >
+              ZIP pack
+            </Button>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }

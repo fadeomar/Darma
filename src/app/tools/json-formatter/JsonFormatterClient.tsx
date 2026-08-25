@@ -228,7 +228,7 @@ function ProductionAudit({ checks }: { checks: JsonAuditCheck[] }) {
         <div>
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
-            <h3 className="text-base font-black text-[var(--color-text-primary)]">Production checks</h3>
+            <h3 className="text-base font-black text-[var(--color-text-primary)]">4. Production checks</h3>
           </div>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
             Syntax, precision, payload size, risky keys, privacy, and downstream contract reminders.
@@ -771,14 +771,15 @@ export default function JsonFormatterClient() {
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="accent">JSON Studio</Badge>
+                <Badge variant="success">Local only</Badge>
                 <StatusPill validation={validation} />
                 {sortKeys ? <Badge variant="outline">Sort keys on</Badge> : null}
               </div>
               <h2 className="mt-3 text-xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-2xl">
-                Format, validate, repair, and inspect JSON
+                Paste JSON, transform it, then inspect the result
               </h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--color-text-secondary)]">
-                A browser-only JSON workspace with live validation, line numbers, syntax highlighting, tree/table views, stats, drag-and-drop upload, and safe repair for common syntax mistakes.
+                Keep the payload in view while you format, validate, repair, sort, and inspect it across text, tree, table, and stats views — entirely in your browser.
               </p>
             </div>
 
@@ -792,8 +793,10 @@ export default function JsonFormatterClient() {
             </div>
           </div>
 
-          <div className="mt-5 flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)] lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-wrap items-center gap-2">
+          <div className="mt-5 flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)] lg:flex-row lg:items-start lg:justify-between">
+            <div className="min-w-0">
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transform</p>
+              <div className="flex flex-wrap items-center gap-2">
               <Button size="sm" onClick={() => runAction("format")} leftIcon={<FileJson2 className="h-4 w-4" />}>
                 Format
               </Button>
@@ -815,9 +818,12 @@ export default function JsonFormatterClient() {
               <Button size="sm" variant="ghost" onClick={() => runAction("unescape")}>
                 Unescape string
               </Button>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="min-w-0">
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Format &amp; output</p>
+              <div className="flex flex-wrap items-center gap-2">
               <Select
                 size="sm"
                 width="short"
@@ -839,6 +845,7 @@ export default function JsonFormatterClient() {
               <Button size="sm" variant="secondary" disabled={!outputForCopy} leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("formatted.json", outputForCopy, "application/json;charset=utf-8")}>
                 Download
               </Button>
+              </div>
             </div>
           </div>
 
@@ -857,12 +864,12 @@ export default function JsonFormatterClient() {
           </div>
         </div>
 
-        <div className="grid gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="grid gap-4 p-4 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
           <div data-tool-region="input" className="min-w-0 space-y-3 rounded-[var(--radius-lg)] border border-[var(--color-tool-input-border)] bg-[var(--color-tool-input-bg)] p-3 shadow-[var(--shadow-tool-controls)]">
             <div className="space-y-3">
               <div>
                 <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Input</span>
-                <h3 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Input JSON</h3>
+                <h3 className="mt-1 text-base font-black text-[var(--color-text-primary)]">1. Input JSON</h3>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Paste, edit, or drop a .json file here.</p>
               </div>
               <div className="flex min-w-0 flex-wrap items-center gap-2">
@@ -908,7 +915,7 @@ export default function JsonFormatterClient() {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Output</span>
-                  <h3 className="text-base font-black text-[var(--color-text-primary)]">Output & Inspector</h3>
+                  <h3 className="text-base font-black text-[var(--color-text-primary)]">2. Output & Inspector</h3>
                   {isLiveFormattedPreview ? <Badge variant="info">Live formatted preview</Badge> : null}
                 </div>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Switch between text, tree, table, and stats views.</p>
@@ -966,9 +973,16 @@ export default function JsonFormatterClient() {
         <a href="#json-result" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 text-sm font-bold text-[var(--color-text-primary)]">View output</a>
       </ToolMobileActions>
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="JSON production summary">
-        {summaryCards.map((card) => <SummaryCard key={card.label} {...card} />)}
-      </div>
+      <section aria-labelledby="json-payload-summary" className="space-y-3">
+        <div>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Step 3</p>
+          <h3 id="json-payload-summary" className="mt-1 text-base font-black text-[var(--color-text-primary)]">Payload summary</h3>
+          <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Review the result after transforming or inspecting the payload, not before you start.</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="JSON production summary">
+          {summaryCards.map((card) => <SummaryCard key={card.label} {...card} />)}
+        </div>
+      </section>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)]">
         <ProductionAudit checks={productionChecks} />
@@ -976,7 +990,7 @@ export default function JsonFormatterClient() {
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
           <div className="flex items-center gap-2">
             <Archive className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
-            <h3 className="text-base font-black text-[var(--color-text-primary)]">Production exports</h3>
+            <h3 className="text-base font-black text-[var(--color-text-primary)]">5. Production exports</h3>
           </div>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
             Export the payload for developers, or share a settings-only profile and metrics-only audit without JSON values.

@@ -171,19 +171,22 @@ export default function WordCounterClient() {
 
   return (
     <div className="space-y-4">
-      <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-        <SummaryCard label="Writing goal" value={goalStatusLabel(stats.goal.status)} hint={`${stats.goal.current.toLocaleString()} · ${goalHint(goal)}`} />
-        <SummaryCard label="Document size" value={`${stats.words.toLocaleString()} words`} hint={`${stats.characters.toLocaleString()} characters · ${stats.paragraphs} paragraphs`} />
-        <SummaryCard label="Delivery time" value={formatDuration(stats.readingTimeSec)} hint={`${formatDuration(stats.speakingTimeSec)} spoken · ${stats.estimatedPages.toFixed(1)} pages`} />
-        <SummaryCard label="Production review" value={reviewCount ? `${reviewCount} flag${reviewCount === 1 ? "" : "s"}` : "Ready"} hint={`${stats.uniqueWords.toLocaleString()} unique words · ${stats.lexicalDiversity.toFixed(1)}% diversity`} />
-      </div>
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]"><TextCursorInput className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Write, measure, then review</div>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Paste or import a draft first. Live counts stay beside the writing task; deeper keyword, structure, goal, and production review come after the text is in place.</p>
+          </div>
+          <div className="rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-1 text-xs font-bold text-[var(--color-success-text)]">Local only · no upload</div>
+        </div>
+      </section>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_340px]">
         <section className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-sm)]">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-4 py-3">
             <div>
-              <h2 className="font-bold text-[var(--color-text-primary)]">Text analysis workspace</h2>
-              <p className="text-xs text-[var(--color-text-tertiary)]">Count structure, inspect repetition, and review the exact sentences that need attention.</p>
+              <h2 className="font-bold text-[var(--color-text-primary)]">1. Write or paste text</h2>
+              <p className="text-xs text-[var(--color-text-tertiary)]">Start with the draft. Counts update immediately, then use the inspector below for repetition, structure, and readiness.</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <input
@@ -331,16 +334,16 @@ export default function WordCounterClient() {
           )}
         </section>
 
-        <aside className="space-y-4">
+        <aside className="space-y-4 xl:sticky xl:top-24 xl:self-start">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Quick starts</div>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {WORD_COUNTER_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)]"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span></button>)}
             </div>
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Writing target</div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4 text-[var(--color-primary-text-strong)]" />2. Set a writing target</div>
             <label className="mt-3 block text-xs font-semibold text-[var(--color-text-muted)]">Target preset<Select className="mt-1" value={goalId} onChange={(event) => setGoalId(event.target.value)}>{WORD_COUNTER_GOALS.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</Select></label>
             <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">{goal.description}</p>
             {goalId === "custom" && <div className="mt-3 space-y-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><label className="block text-xs font-semibold text-[var(--color-text-muted)]">Metric<Select className="mt-1" value={customMetric} onChange={(event) => setCustomMetric(event.target.value as WordCounterMetric)}><option value="words">Words</option><option value="characters">Characters</option><option value="characters-no-spaces">Characters without spaces</option></Select></label><div className="grid grid-cols-2 gap-2"><label className="text-xs font-semibold text-[var(--color-text-muted)]">Minimum<Input className="mt-1" type="number" min="0" value={customMin} onChange={(event) => setCustomMin(event.target.value)} /></label><label className="text-xs font-semibold text-[var(--color-text-muted)]">Maximum<Input className="mt-1" type="number" min="0" value={customMax} onChange={(event) => setCustomMax(event.target.value)} /></label></div></div>}
@@ -352,23 +355,45 @@ export default function WordCounterClient() {
             <label className="mt-3 flex cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><input type="checkbox" checked={includeStopWords} onChange={(event) => setIncludeStopWords(event.target.checked)} className="mt-0.5" /><span><span className="block text-xs font-bold text-[var(--color-text-primary)]">Include common stop words</span><span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">Show words such as “the”, “and”, “في”, and “من” in keyword rankings.</span></span></label>
           </section>
 
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Files className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Exports</div>
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              <CopyButton text={markdownReport} size="sm" variant="secondary"><FileText className="h-4 w-4" />Copy report</CopyButton>
-              <Button size="sm" variant="secondary" onClick={() => downloadText("word-count-report.md", markdownReport)}><FileText className="h-4 w-4" />Markdown</Button>
-              <Button size="sm" variant="secondary" onClick={() => downloadText("word-count-report.json", jsonReport)}><FileJson className="h-4 w-4" />JSON</Button>
-              <Button size="sm" variant="secondary" onClick={() => downloadText("keyword-density.csv", keywordCsv)}><FileSpreadsheet className="h-4 w-4" />Keywords CSV</Button>
-              <Button size="sm" variant="secondary" onClick={() => downloadText("sentence-review.csv", sentenceCsv)}><ListChecks className="h-4 w-4" />Sentences CSV</Button>
-              <Button size="sm" variant="primary" onClick={downloadAuditPack}><Download className="h-4 w-4" />ZIP pack</Button>
-            </div>
-          </section>
-
           <div className="rounded-[var(--radius-md)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] p-3 text-xs leading-5 text-[var(--color-info-text)]">
             <div className="flex items-start gap-2"><Clock3 className="mt-0.5 h-4 w-4 shrink-0" /><p>Reading and speaking times are estimates based on your selected words-per-minute rates. All analysis stays in your browser.</p></div>
           </div>
         </aside>
       </div>
+
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><BarChart3 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />3. Document snapshot</div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Review the main writing, timing, target, and production signals after the draft workspace.</p>
+          </div>
+          <Button size="sm" variant="secondary" onClick={() => setView("checks")}><ListChecks className="h-4 w-4" />Open production checks</Button>
+        </div>
+        <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          <SummaryCard label="Writing goal" value={goalStatusLabel(stats.goal.status)} hint={`${stats.goal.current.toLocaleString()} · ${goalHint(goal)}`} />
+          <SummaryCard label="Document size" value={`${stats.words.toLocaleString()} words`} hint={`${stats.characters.toLocaleString()} characters · ${stats.paragraphs} paragraphs`} />
+          <SummaryCard label="Delivery time" value={formatDuration(stats.readingTimeSec)} hint={`${formatDuration(stats.speakingTimeSec)} spoken · ${stats.estimatedPages.toFixed(1)} pages`} />
+          <SummaryCard label="Production review" value={reviewCount ? `${reviewCount} flag${reviewCount === 1 ? "" : "s"}` : "Ready"} hint={`${stats.uniqueWords.toLocaleString()} unique words · ${stats.lexicalDiversity.toFixed(1)}% diversity`} />
+        </div>
+      </section>
+
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Files className="h-4 w-4 text-[var(--color-primary-text-strong)]" />4. Production handoff</div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Export the source evidence and the analysis separately, or package the complete local audit for handoff.</p>
+          </div>
+          <span className="text-xs text-[var(--color-text-tertiary)]">The ZIP includes source text, reports, keywords, and sentence review.</span>
+        </div>
+        <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          <CopyButton text={markdownReport} size="sm" variant="secondary"><FileText className="h-4 w-4" />Copy report</CopyButton>
+          <Button size="sm" variant="secondary" onClick={() => downloadText("word-count-report.md", markdownReport)}><FileText className="h-4 w-4" />Markdown</Button>
+          <Button size="sm" variant="secondary" onClick={() => downloadText("word-count-report.json", jsonReport)}><FileJson className="h-4 w-4" />JSON</Button>
+          <Button size="sm" variant="secondary" onClick={() => downloadText("keyword-density.csv", keywordCsv)}><FileSpreadsheet className="h-4 w-4" />Keywords CSV</Button>
+          <Button size="sm" variant="secondary" onClick={() => downloadText("sentence-review.csv", sentenceCsv)}><ListChecks className="h-4 w-4" />Sentences CSV</Button>
+          <Button size="sm" variant="primary" onClick={downloadAuditPack}><Download className="h-4 w-4" />ZIP pack</Button>
+        </div>
+      </section>
     </div>
   );
 }

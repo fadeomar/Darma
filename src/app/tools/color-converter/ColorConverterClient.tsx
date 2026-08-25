@@ -19,10 +19,10 @@ import {
 type TabId = "overview" | "scale" | "accessibility" | "exports";
 
 const TABS: Array<{ id: TabId; label: string }> = [
-  { id: "overview", label: "Overview" },
-  { id: "scale", label: "Scale" },
-  { id: "accessibility", label: "A11y" },
-  { id: "exports", label: "Exports" },
+  { id: "overview", label: "Design preview" },
+  { id: "scale", label: "Shade scale" },
+  { id: "accessibility", label: "Contrast" },
+  { id: "exports", label: "Developer exports" },
 ];
 
 function compactFormatLabel(format: string) {
@@ -131,7 +131,7 @@ function ColorInputPanel({
   return (
     <SurfaceCard className="min-w-0 overflow-hidden p-0">
       <div
-        className="min-h-[230px] p-5 text-white sm:p-6"
+        className="min-h-[280px] p-5 text-white sm:p-6"
         style={{
           background: parsed.ok ? parsed.hex : "var(--color-surface-subtle)",
           color: parsed.ok ? parsed.bestTextColor : "var(--color-text-primary)",
@@ -139,7 +139,7 @@ function ColorInputPanel({
       >
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <p className="font-mono text-xs font-black uppercase tracking-[0.12em] opacity-80">Preview</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.12em] opacity-80">Live color</p>
             <h3 className="mt-4 break-words text-4xl font-black leading-none tracking-[-0.05em] sm:text-5xl">
               {parsed.ok ? parsed.hex : "Invalid"}
             </h3>
@@ -177,13 +177,18 @@ function ColorInputPanel({
           </div>
         </label>
 
-        <div className="flex flex-wrap gap-2">
-          {COLOR_EXAMPLES.map((item) => (
-            <Button key={item.value} size="sm" variant="secondary" onClick={() => setInput(item.value)}>
-              {item.label}
-            </Button>
-          ))}
-        </div>
+        <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)]">
+          <summary className="cursor-pointer list-none px-3 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] marker:hidden">
+            Try example formats
+          </summary>
+          <div className="flex flex-wrap gap-2 border-t border-[var(--color-border-subtle)] p-3">
+            {COLOR_EXAMPLES.map((item) => (
+              <Button key={item.value} size="sm" variant="secondary" onClick={() => setInput(item.value)}>
+                {item.label}
+              </Button>
+            ))}
+          </div>
+        </details>
 
         {parsed.ok ? (
           <div className="flex flex-wrap gap-2">
@@ -194,6 +199,30 @@ function ColorInputPanel({
         ) : null}
       </div>
     </SurfaceCard>
+  );
+}
+
+function ColorFacts({ parsed }: { parsed: Extract<ParsedColorResult, { ok: true }> }) {
+  return (
+    <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
+      <summary className="cursor-pointer list-none px-4 py-3 marker:hidden">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="font-black text-[var(--color-text-primary)]">Color details</p>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
+              Detected format, alpha, and recommended black-or-white foreground.
+            </p>
+          </div>
+          <span className="text-xs font-bold text-[var(--color-text-tertiary)] group-open:hidden">Show</span>
+          <span className="hidden text-xs font-bold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+        </div>
+      </summary>
+      <div className="grid gap-3 border-t border-[var(--color-border-subtle)] p-4 sm:grid-cols-3">
+        <MiniMetric label="Format" value={compactFormatLabel(parsed.detectedFormat)} />
+        <MiniMetric label="Alpha" value={`${Math.round(parsed.alpha * 100)}%`} tone={parsed.hasAlpha ? "warning" : "good"} />
+        <MiniMetric label="Best text" value={parsed.bestTextColor === "#ffffff" ? "White" : "Black"} tone="good" />
+      </div>
+    </details>
   );
 }
 
@@ -386,7 +415,7 @@ function ResultTabs({ parsed }: { parsed: Extract<ParsedColorResult, { ok: true 
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2">
+      <div className="flex flex-wrap gap-2 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2">
         {TABS.map((tab) => (
           <Button
             key={tab.id}
@@ -440,12 +469,15 @@ export default function ColorConverterClient() {
         <div className="min-w-0 space-y-4">
           {parsed.ok ? (
             <>
-              <div className="grid gap-3 sm:grid-cols-3">
-                <MiniMetric label="Format" value={compactFormatLabel(parsed.detectedFormat)} />
-                <MiniMetric label="Alpha" value={`${Math.round(parsed.alpha * 100)}%`} tone={parsed.hasAlpha ? "warning" : "good"} />
-                <MiniMetric label="Best text" value={parsed.bestTextColor === "#ffffff" ? "White" : "Black"} tone="good" />
+              <div>
+                <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Converted values</p>
+                <h3 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Copy the format you need</h3>
+                <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+                  Common CSS formats first, with modern and design-oriented color spaces alongside them.
+                </p>
               </div>
               <ConversionGrid parsed={parsed} />
+              <ColorFacts parsed={parsed} />
             </>
           ) : (
             <InvalidState parsed={parsed as Extract<ParsedColorResult, { ok: false }>} />

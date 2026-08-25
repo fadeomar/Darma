@@ -25,20 +25,20 @@ type PanelId = "overview" | "palette" | "accessibility" | "exports";
 const PANELS: Array<{ id: PanelId; label: string; description: string }> = [
   {
     id: "overview",
-    label: "Overview",
-    description: "Production preview and role guidance",
+    label: "Design preview",
+    description: "See the named color in a real interface",
   },
   {
     id: "palette",
-    label: "Palette",
-    description: "Relationships and shade scale",
+    label: "Related colors",
+    description: "Harmony and shade relationships",
   },
   {
     id: "accessibility",
     label: "Accessibility",
-    description: "Contrast, vision, and alpha checks",
+    description: "Contrast and vision checks",
   },
-  { id: "exports", label: "Exports", description: "Tokens for developers" },
+  { id: "exports", label: "Developer exports", description: "Tokens and framework handoff" },
 ];
 
 function MiniCard({
@@ -330,44 +330,40 @@ export default function ColorNameFinderClient() {
 
   return (
     <div className="space-y-4">
-      <div className="grid gap-4 xl:grid-cols-[minmax(320px,380px)_minmax(0,1fr)]">
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.08fr)_minmax(320px,.72fr)]">
         <section className="overflow-hidden rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)]">
           <div
-            className="min-h-[190px] p-5"
+            className="min-h-[260px] p-5 sm:p-7"
             style={{ background: parsed.hex, color: parsed.bestTextColor }}
           >
-            <div className="flex items-start justify-between gap-3">
+            <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0">
-                <p className="text-xs font-bold uppercase tracking-[0.12em] opacity-75">
-                  Closest match
+                <p className="text-xs font-black uppercase tracking-[0.12em] opacity-75">
+                  Closest color name
                 </p>
-                <h2 className="mt-2 truncate text-4xl font-black tracking-[-0.04em]">
+                <h2 className="mt-2 break-words text-4xl font-black tracking-[-0.045em] sm:text-5xl">
                   {top.name}
                 </h2>
-                <p className="mt-1 font-mono text-sm opacity-85">
-                  {parsed.hex}
-                </p>
+                <p className="mt-2 font-mono text-sm opacity-85">{parsed.hex}</p>
               </div>
-              <div className="shrink-0 rounded-2xl bg-white/20 px-3 py-2 text-right backdrop-blur">
-                <p className="text-xs font-bold uppercase opacity-75">
-                  Confidence
+              <div className="rounded-2xl bg-white/20 px-4 py-3 text-right backdrop-blur">
+                <p className="text-xs font-black uppercase tracking-[0.08em] opacity-75">
+                  Match confidence
                 </p>
-                <p className="text-2xl font-black">{top.confidence}%</p>
+                <p className="mt-1 text-3xl font-black tabular-nums">{top.confidence}%</p>
               </div>
             </div>
-            <p className="mt-7 max-w-sm text-sm leading-6 opacity-90">
-              A {profile?.depth.toLowerCase()} {profile?.vibrance.toLowerCase()}{" "}
-              {profile?.family.toLowerCase()} tone. Start with the name, then
-              use the tabs below for production checks, palettes, accessibility,
-              and exports.
+            <p className="mt-8 max-w-xl text-sm leading-6 opacity-90">
+              A {profile?.depth.toLowerCase()} {profile?.vibrance.toLowerCase()} {profile?.family.toLowerCase()} tone. Use the closest human-readable name, then compare nearby alternatives before you copy it into design or handoff notes.
             </p>
           </div>
-          <div className="space-y-3 p-4">
+
+          <div className="space-y-4 p-4 sm:p-5">
             <div className="flex items-center justify-between gap-3">
-              <label className="text-xs font-bold text-[var(--color-text-secondary)]">
-                Color input
+              <label className="text-xs font-black text-[var(--color-text-secondary)]">
+                Find a color name
               </label>
-              <span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 {parsed.detectedFormat}
               </span>
             </div>
@@ -385,197 +381,119 @@ export default function ColorNameFinderClient() {
                 className="h-11 w-14 cursor-pointer rounded-xl border border-[var(--color-border)] bg-transparent p-1"
               />
             </div>
+
             {parsed.alphaNotice ? (
               <div className="rounded-2xl border border-amber-200 bg-amber-50 p-3 text-xs font-bold leading-5 text-amber-900 dark:border-amber-900/40 dark:bg-amber-950/30 dark:text-amber-200">
                 {parsed.alphaNotice} Alpha: {Math.round(parsed.alpha * 100)}%.
               </div>
             ) : null}
-            {parsed.matchedInputName ? (
-              <p className="text-xs text-[var(--color-text-tertiary)]">
-                Matched input name:{" "}
-                <strong className="text-[var(--color-text-secondary)]">
-                  {parsed.matchedInputName}
-                </strong>
-              </p>
-            ) : null}
+
             <div className="flex flex-wrap gap-2">
-              {COLOR_NAME_EXAMPLES.map((x) => (
-                <button
-                  key={x}
-                  type="button"
-                  onClick={() => setInput(x)}
-                  className="rounded-full bg-[var(--color-surface-subtle)] px-3 py-1.5 font-mono text-xs font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-border-subtle)]"
-                >
-                  {x}
-                </button>
-              ))}
+              <CopyButton text={top.name} size="sm">Copy name</CopyButton>
+              <CopyButton text={parsed.hex} size="sm" variant="secondary">Copy HEX</CopyButton>
+              <CopyButton text={`${top.name} ${parsed.hex}`} size="sm" variant="secondary">Copy both</CopyButton>
             </div>
-            <div className="flex flex-wrap gap-2 pt-1">
-              <CopyButton text={parsed.hex} size="sm">
-                Copy HEX
-              </CopyButton>
-              <CopyButton text={top.name} size="sm" variant="secondary">
-                Copy name
-              </CopyButton>
-            </div>
+
+            <details className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)]">
+              <summary className="cursor-pointer list-none px-4 py-3 text-sm font-black text-[var(--color-text-primary)] [&::-webkit-details-marker]:hidden">
+                Try example colors
+              </summary>
+              <div className="flex flex-wrap gap-2 border-t border-[var(--color-border-subtle)] p-3">
+                {COLOR_NAME_EXAMPLES.map((x) => (
+                  <button
+                    key={x}
+                    type="button"
+                    onClick={() => setInput(x)}
+                    className="rounded-full bg-[var(--color-surface)] px-3 py-1.5 font-mono text-xs font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-border-subtle)]"
+                  >
+                    {x}
+                  </button>
+                ))}
+              </div>
+            </details>
           </div>
         </section>
 
-        <section className="grid content-start gap-4">
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
-            {conversionCards.map((card) => (
-              <MiniCard
-                key={card.label}
-                label={card.label}
-                value={card.value}
-                title={card.title}
-              />
-            ))}
-          </div>
+        <aside className="grid content-start gap-4 xl:sticky xl:top-24 xl:self-start">
+          <section className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <SectionHeader
+              title="Nearby names"
+              description="Similar named colors you may prefer for clearer communication."
+            />
+            <div className="mt-3 space-y-2">
+              {alternativeMatches.slice(0, 6).map((m) => (
+                <button
+                  key={`${m.name}-${m.hex}`}
+                  type="button"
+                  onClick={() => setInput(m.hex)}
+                  className="grid w-full grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-border)] hover:bg-[var(--color-surface-subtle)]"
+                >
+                  <span
+                    className="h-11 w-11 rounded-xl border border-black/10 shadow-sm"
+                    style={{ background: m.hex }}
+                  />
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-black text-[var(--color-text-primary)]">{m.name}</span>
+                    <span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]">{m.hex} · {m.source}</span>
+                  </span>
+                  <span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-1 text-xs font-black tabular-nums text-[var(--color-text-secondary)]">{m.confidence}%</span>
+                </button>
+              ))}
+            </div>
+          </section>
 
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(260px,.72fr)]">
-            <div className="grid gap-4">
-              <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-                <SectionHeader
-                  title="Name sources"
-                  description="Closest result by dataset when CSS, human, and design names disagree."
-                  action={
-                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                      4 datasets
-                    </span>
-                  }
-                />
-                <div className="mt-3 grid gap-2 sm:grid-cols-2 2xl:grid-cols-4">
+          <section className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+            <SectionHeader
+              title="Color formats"
+              description="Useful values for design and handoff."
+            />
+            <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
+              {conversionCards.map((card) => (
+                <MiniCard key={card.label} label={card.label} value={card.value} title={card.title} />
+              ))}
+            </div>
+          </section>
+
+          <details className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)]">
+            <summary className="cursor-pointer list-none px-4 py-4 text-sm font-black text-[var(--color-text-primary)] [&::-webkit-details-marker]:hidden">
+              Naming & framework details
+            </summary>
+            <div className="space-y-4 border-t border-[var(--color-border-subtle)] p-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Name sources</p>
+                <div className="mt-2 grid gap-2">
                   {sourceMatches.map((item) =>
                     item.match ? (
-                      <button
-                        key={item.source}
-                        type="button"
-                        onClick={() => setInput(item.match!.hex)}
-                        className="group text-left"
-                      >
+                      <button key={item.source} type="button" onClick={() => setInput(item.match!.hex)} className="group text-left">
                         <SourcePill match={item.match} />
                       </button>
                     ) : null,
                   )}
                 </div>
               </div>
-
-              <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-                <SectionHeader
-                  title="Framework matches"
-                  description="Nearest available Tailwind, Bootstrap, and Material tokens. Low scores mean no exact token exists."
-                  action={
-                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                      UI systems
-                    </span>
-                  }
-                />
-                <div className="mt-3 space-y-2">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Framework matches</p>
+                <div className="mt-2 space-y-2">
                   {frameworkMatches.map((item) => (
                     <button
                       key={`${item.system}-${item.name}`}
                       type="button"
                       onClick={() => setInput(item.hex)}
-                      className="grid w-full min-w-0 grid-cols-[42px_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-2.5 text-left transition hover:border-[var(--color-border)] hover:bg-[var(--color-surface-subtle)]"
+                      className="grid w-full min-w-0 grid-cols-[36px_minmax(0,1fr)_auto] items-center gap-2 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-2 text-left transition hover:bg-[var(--color-surface-subtle)]"
                     >
-                      <span
-                        className="h-10 w-10 rounded-xl border border-black/10 shadow-sm"
-                        style={{ background: item.hex }}
-                      />
+                      <span className="h-9 w-9 rounded-xl border border-black/10" style={{ background: item.hex }} />
                       <span className="min-w-0">
-                        <span className="block truncate text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                          {item.system}
-                        </span>
-                        <span className="block truncate text-sm font-black leading-5 text-[var(--color-text-primary)]">
-                          {item.name}
-                        </span>
-                        <span className="block truncate font-mono text-xs leading-4 text-[var(--color-text-tertiary)]">
-                          {item.hex} · ΔE {item.distance}
-                        </span>
+                        <span className="block truncate text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{item.system}</span>
+                        <span className="block truncate text-sm font-black text-[var(--color-text-primary)]">{item.name}</span>
                       </span>
-                      <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black tabular-nums text-[var(--color-text-secondary)]">
-                        {item.confidence}%
-                      </span>
+                      <span className="text-xs font-black tabular-nums text-[var(--color-text-secondary)]">{item.confidence}%</span>
                     </button>
                   ))}
                 </div>
               </div>
             </div>
-
-            <div className="grid gap-4">
-              <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-                <SectionHeader
-                  title="Alternative names"
-                  description="Nearest readable names after the main match."
-                  action={
-                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                      LAB
-                    </span>
-                  }
-                />
-                <div className="mt-3 space-y-2">
-                  {alternativeMatches.slice(0, 4).map((m) => (
-                    <button
-                      key={`${m.name}-${m.hex}`}
-                      type="button"
-                      onClick={() => setInput(m.hex)}
-                      title={`Use ${m.name} ${m.hex}`}
-                      className="grid w-full grid-cols-[40px_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] p-2 text-left transition hover:border-[var(--color-border)] hover:bg-[var(--color-surface-subtle)]"
-                    >
-                      <span
-                        className="h-10 w-10 rounded-xl border border-black/10 shadow-sm"
-                        style={{ background: m.hex }}
-                      />
-                      <span className="min-w-0">
-                        <span className="block truncate text-sm font-black leading-5 text-[var(--color-text-primary)]">
-                          {m.name}
-                        </span>
-                        <span className="block truncate font-mono text-xs leading-4 text-[var(--color-text-tertiary)]">
-                          {m.hex} · {m.source}
-                        </span>
-                      </span>
-                      <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black tabular-nums text-[var(--color-text-secondary)]">
-                        {m.confidence}%
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-                <h3 className="font-black text-[var(--color-text-primary)]">
-                  Design profile
-                </h3>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <Badge>{profile?.family}</Badge>
-                  <Badge>{profile?.temperature}</Badge>
-                  <Badge>{profile?.vibrance}</Badge>
-                  <Badge>{profile?.depth}</Badge>
-                </div>
-                <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">
-                  {usage?.summary}
-                </p>
-                <div className="mt-4 rounded-2xl bg-[var(--color-surface-subtle)] p-3">
-                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                    Accessibility
-                  </p>
-                  <p className="mt-1 text-sm font-black text-[var(--color-text-primary)]">
-                    {accessibility.label}
-                  </p>
-                  <p className="text-xs text-[var(--color-text-secondary)]">
-                    Contrast ratio: {accessibility.ratio}:1 ·{" "}
-                    {accessibility.ratio >= 7
-                      ? "AAA"
-                      : accessibility.ratio >= 4.5
-                        ? "AA"
-                        : "Needs care"}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+          </details>
+        </aside>
       </div>
 
       <section className="rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 sm:p-4">

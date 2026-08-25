@@ -383,199 +383,259 @@ export default function BoxShadowsGeneratorClient() {
 
   const previewSlot = (
     <div className="space-y-4">
-      <PreviewToolbar title="Shadow preview" description="Check the shadow as a card, UI surface, and production component before copying CSS." />
+      <PreviewToolbar
+        title="Live shadow preview"
+        description="Design the shadow against a real UI surface, then copy production-ready CSS when it feels right."
+      />
 
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard label="Layers" value={`${state.shadows.length}`} detail={state.shadows.length === 1 ? "Single shadow" : "Layered shadow"} />
-        <StatCard label="Character" value={getShadowCharacter(state)} detail={`${getMaxBlur(state)}px max blur`} />
-        <StatCard label="Light" value={lightSourceVector[activeLightSourceId].label} detail="Affects distance layers" />
-        <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-          <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Paint cost</div>
-          <div className="mt-1 flex min-w-0 items-center gap-2">
-            <Badge variant={paintRating.variant}>{paintRating.label}</Badge>
-          </div>
-          <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]" title={paintRating.detail}>{paintRating.detail}</div>
-        </div>
-      </div>
-
-      <div className="relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[radial-gradient(circle_at_22%_15%,var(--color-primary-soft),transparent_32%),linear-gradient(135deg,var(--color-preview-bg),var(--color-preview-bg-strong))] p-5 sm:p-8">
+      <div className="relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[radial-gradient(circle_at_18%_12%,var(--color-primary-soft),transparent_30%),linear-gradient(135deg,var(--color-preview-bg),var(--color-preview-bg-strong))] p-4 sm:p-7">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-        <div className="grid min-h-[430px] items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)]">
-          <div className="flex min-w-0 items-center justify-center">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="soft">{state.shadows.length} layer{state.shadows.length === 1 ? "" : "s"}</Badge>
+            <Badge variant={paintRating.variant}>{paintRating.label} paint</Badge>
+          </div>
+          <span className="text-xs font-semibold text-[var(--color-text-tertiary)]">
+            Light: {lightSourceVector[activeLightSourceId].label}
+          </span>
+        </div>
+
+        <div className="grid min-h-[470px] items-center gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(240px,0.8fr)] sm:min-h-[540px]">
+          <div className="flex min-w-0 items-center justify-center py-8 sm:py-12">
             <div
-              className="flex items-center justify-center text-center text-sm font-black tracking-[-0.01em] text-[var(--color-text-tertiary)]"
+              className="flex items-center justify-center text-center text-sm font-black tracking-[-0.01em] text-[var(--color-text-tertiary)] transition-[box-shadow,border-radius,background] duration-200"
               style={{
-                width: `min(${state.boxSize}px, 100%)`,
-                maxWidth: 360,
+                width: `min(${state.boxSize}px, 86%)`,
+                maxWidth: 380,
                 aspectRatio: "1 / 1",
                 borderRadius: state.borderRadius,
                 background: normalizeHex(state.backgroundColor),
                 boxShadow: shadowValue,
               }}
             >
-              box-shadow
+              Shadow preview
             </div>
           </div>
 
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] backdrop-blur-sm">
-            <div className="rounded-[var(--radius-md)] p-4" style={{ background: normalizeHex(state.backgroundColor), boxShadow: shadowValue }}>
+          <div className="space-y-3">
+            <div className="rounded-[var(--radius-lg)] p-4" style={{ background: normalizeHex(state.backgroundColor), boxShadow: shadowValue }}>
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Production preview</p>
-                  <h3 className="mt-2 text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">UI surface</h3>
-                  <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Card, button, and badge preview using the same shadow token.</p>
+                  <p className="text-xs font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Component check</p>
+                  <h3 className="mt-2 text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Product card</h3>
+                  <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">See the same token on a realistic UI surface before you ship it.</p>
                 </div>
                 <span className="rounded-full bg-[var(--color-primary-soft)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">Live</span>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                <button type="button" className="rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-3 py-2 text-xs font-bold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)]">Button</button>
-                <button type="button" className="rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-3 py-2 text-xs font-bold text-[var(--color-text-primary)]">Secondary</button>
+                <button type="button" className="rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-3 py-2 text-xs font-bold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)]">Primary</button>
+                <span className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-2.5 py-1 text-xs font-bold text-[var(--color-text-secondary)]">Badge</span>
               </div>
+            </div>
+
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)] backdrop-blur-sm">
+              <p className="text-xs font-bold text-[var(--color-text-primary)]">Active layer</p>
+              <p className="mt-1 break-all font-mono text-xs leading-5 text-[var(--color-text-tertiary)]">
+                {activeShadow ? layerPreviewValue(activeShadow, state) : shadowValue}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 font-mono text-xs leading-6 text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)]">
-        <span className="font-bold text-[var(--color-text-primary)]">box-shadow:</span>{" "}
-        <span className="break-all">{shadowValue}</span>
-      </div>
-    </div>
-  );
-
-  const controlsSlot = (
-    <ToolControlPanel
-      title="Shadow settings"
-      description="Start from a production preset, tune layers, then copy the exact CSS token."
-      badge={<Badge variant="soft">{state.shadows.length} layer{state.shadows.length === 1 ? "" : "s"}</Badge>}
-    >
-      <ControlSection title="Quick presets" description="Each preset is editable after you apply it.">
-        <div className="grid gap-2">
+      <section aria-labelledby="shadow-presets-title" className="space-y-2.5">
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <h3 id="shadow-presets-title" className="text-sm font-black text-[var(--color-text-primary)]">Quick styles</h3>
+            <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Start visually, then fine-tune the individual layers.</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {presets.map((preset) => (
             <button
               key={preset.id}
               type="button"
               onClick={() => applyPreset(preset)}
-              className="group grid grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 text-left transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+              className="group min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-left transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
             >
-              <span className="h-10 w-10 rounded-[var(--radius-sm)] bg-white" style={{ boxShadow: boxShadowValue(preset.state), background: normalizeHex(preset.state.backgroundColor) }} />
-              <span className="min-w-0">
-                <span className="block truncate text-sm font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                <span className="mt-0.5 block truncate text-xs text-[var(--color-text-tertiary)]">{preset.description}</span>
+              <span className="mb-3 flex h-16 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-preview-bg)]">
+                <span className="h-9 w-9 rounded-[10px]" style={{ boxShadow: boxShadowValue(preset.state), background: normalizeHex(preset.state.backgroundColor) }} />
               </span>
-              <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{preset.usage}</span>
+              <span className="block truncate text-xs font-black text-[var(--color-text-primary)]">{preset.name}</span>
+              <span className="mt-0.5 block truncate text-xs font-semibold text-[var(--color-text-tertiary)]">{preset.usage}</span>
             </button>
           ))}
         </div>
-      </ControlSection>
+      </section>
 
-      <ControlSection title="Light source" description="Distance layers follow this source. Manual X/Y offsets remain editable.">
-        <SegmentedControl<LightSourceId>
-          ariaLabel="Shadow light source"
-          value={activeLightSourceId}
-          onChange={(value) => setState((current) => ({ ...current, activeLightSource: lightSourceIdToNumber[value] }))}
-          layout="grid"
-          fullWidth
-          options={([
-            { value: "top-left", label: "↖" },
-            { value: "top-right", label: "↗" },
-            { value: "bottom-right", label: "↘" },
-            { value: "bottom-left", label: "↙" },
-          ] satisfies { value: LightSourceId; label: string }[])}
-          className="grid-cols-4"
-        />
-      </ControlSection>
-
-      <ControlSection title="Layers" action={<Button size="sm" variant="secondary" leftIcon={<Plus className="h-4 w-4" />} onClick={addShadow}>Add</Button>}>
-        <div className="space-y-2">
-          {state.shadows.map((shadow, index) => {
-            const active = activeId === shadow.id;
-            return (
-              <div
-                key={shadow.id}
-                className={`grid w-full grid-cols-[minmax(0,1fr)_32px] items-center gap-2 rounded-[var(--radius-md)] border px-2.5 py-2 text-sm transition ${
-                  active ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"
-                }`}
-              >
-                <button type="button" onClick={() => setActiveId(shadow.id)} className="grid min-w-0 grid-cols-[34px_minmax(0,1fr)] items-center gap-2 text-left">
-                  <span className="h-8 w-8 rounded-[var(--radius-sm)] bg-white" style={{ boxShadow: layerPreviewValue(shadow, state), background: normalizeHex(state.backgroundColor) }} />
-                  <span className="min-w-0">
-                    <span className="block font-bold text-[var(--color-text-primary)]">Layer {index + 1}</span>
-                    <span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={layerPreviewValue(shadow, state)}>{layerPreviewValue(shadow, state)}</span>
-                  </span>
-                </button>
-                <button
-                  type="button"
-                  aria-label={`Remove layer ${index + 1}`}
-                  className="inline-grid h-8 w-8 place-items-center rounded-[var(--radius-sm)] text-[var(--color-text-tertiary)] hover:bg-[var(--color-danger-bg)] hover:text-[var(--color-danger-text)]"
-                  onClick={() => removeShadow(shadow.id)}
-                >
-                  <Trash2 className="h-4 w-4" />
-                </button>
-              </div>
-            );
-          })}
+      <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]">
+        <summary className="cursor-pointer list-none px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] marker:content-none">
+          <span className="flex items-center justify-between gap-3">
+            Output details
+            <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Layers, character & raw value</span>
+            <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+          </span>
+        </summary>
+        <div className="space-y-3 border-t border-[var(--color-border-subtle)] p-4">
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            <StatCard label="Layers" value={`${state.shadows.length}`} detail={state.shadows.length === 1 ? "Single shadow" : "Layered shadow"} />
+            <StatCard label="Character" value={getShadowCharacter(state)} detail={`${getMaxBlur(state)}px max blur`} />
+            <StatCard label="Light" value={lightSourceVector[activeLightSourceId].label} detail="Affects distance layers" />
+            <StatCard label="Paint cost" value={paintRating.label} detail={paintRating.detail} />
+          </div>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-surface)] px-3 py-2 font-mono text-xs leading-6 text-white/80">
+            <span className="font-bold text-white">box-shadow:</span>{" "}
+            <span className="break-all">{shadowValue}</span>
+          </div>
         </div>
-      </ControlSection>
-
-      {activeShadow ? (
-        <ControlSection title="Selected layer" action={<Button size="sm" variant="ghost" leftIcon={<Copy className="h-4 w-4" />} onClick={duplicateShadow}>Duplicate</Button>}>
-          <ControlGrid columns={2}>
-            <SliderNumberField label="X offset" value={activeShadow.offsetX} min={-100} max={100} unit="px" onChange={(value) => updateShadow(activeShadow.id, { offsetX: value })} />
-            <SliderNumberField label="Y offset" value={activeShadow.offsetY} min={-100} max={100} unit="px" onChange={(value) => updateShadow(activeShadow.id, { offsetY: value })} />
-            <SliderNumberField label="Distance" value={activeShadow.distance} min={-80} max={80} unit="px" hint="Follows light source" onChange={(value) => updateShadow(activeShadow.id, { distance: value })} />
-            <SliderNumberField label="Blur" value={activeShadow.blur} min={0} max={140} unit="px" onChange={(value) => updateShadow(activeShadow.id, { blur: value })} />
-            <SliderNumberField label="Spread" value={activeShadow.spread} min={-60} max={80} unit="px" onChange={(value) => updateShadow(activeShadow.id, { spread: value })} />
-            <SliderNumberField label="Opacity" value={activeShadow.opacity} min={0} max={1} step={0.01} onChange={(value) => updateShadow(activeShadow.id, { opacity: value })} />
-            <ColorField label="Color" value={activeShadow.color} onChange={(value) => updateShadow(activeShadow.id, { color: value })} />
-          </ControlGrid>
-          <SegmentedControl
-            ariaLabel="Inset mode"
-            value={activeShadow.inset ? "inset" : "outset"}
-            onChange={(value) => updateShadow(activeShadow.id, { inset: value === "inset" })}
-            fullWidth
-            options={[{ value: "outset", label: "Outset" }, { value: "inset", label: "Inset" }]}
-          />
-        </ControlSection>
-      ) : null}
-
-      <ControlSection title="Preview object">
-        <ControlGrid columns={2}>
-          <SliderNumberField label="Size" value={state.boxSize} min={80} max={420} unit="px" onChange={(value) => setState((current) => ({ ...current, boxSize: value }))} />
-          <SliderNumberField label="Radius" value={state.borderRadius} min={0} max={160} unit="px" onChange={(value) => setState((current) => ({ ...current, borderRadius: value }))} />
-          <ColorField label="Surface" value={state.backgroundColor} onChange={(value) => setState((current) => ({ ...current, backgroundColor: value }))} />
-        </ControlGrid>
-      </ControlSection>
-    </ToolControlPanel>
+      </details>
+    </div>
   );
 
+  const controlsSlot = (
+    <div className="space-y-4">
+      <ToolControlPanel
+        title="Shadow controls"
+        description="Select a layer, tune its shape, and keep the preview visible while you work."
+        badge={<Badge variant="soft">{state.shadows.length} layer{state.shadows.length === 1 ? "" : "s"}</Badge>}
+      >
+        <ControlSection title="Layers" action={<Button size="sm" variant="secondary" leftIcon={<Plus className="h-4 w-4" />} onClick={addShadow}>Add</Button>}>
+          <div className="space-y-2">
+            {state.shadows.map((shadow, index) => {
+              const active = activeId === shadow.id;
+              return (
+                <div
+                  key={shadow.id}
+                  className={`grid w-full grid-cols-[minmax(0,1fr)_32px] items-center gap-2 rounded-[var(--radius-md)] border px-2.5 py-2 text-sm transition ${
+                    active ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"
+                  }`}
+                >
+                  <button type="button" onClick={() => setActiveId(shadow.id)} className="grid min-w-0 grid-cols-[34px_minmax(0,1fr)] items-center gap-2 text-left">
+                    <span className="h-8 w-8 rounded-[var(--radius-sm)] bg-white" style={{ boxShadow: layerPreviewValue(shadow, state), background: normalizeHex(state.backgroundColor) }} />
+                    <span className="min-w-0">
+                      <span className="block font-bold text-[var(--color-text-primary)]">Layer {index + 1}</span>
+                      <span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={layerPreviewValue(shadow, state)}>{layerPreviewValue(shadow, state)}</span>
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={`Remove layer ${index + 1}`}
+                    className="inline-grid h-8 w-8 place-items-center rounded-[var(--radius-sm)] text-[var(--color-text-tertiary)] hover:bg-[var(--color-danger-bg)] hover:text-[var(--color-danger-text)]"
+                    onClick={() => removeShadow(shadow.id)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </ControlSection>
+
+        {activeShadow ? (
+          <ControlSection title="Selected layer" action={<Button size="sm" variant="ghost" leftIcon={<Copy className="h-4 w-4" />} onClick={duplicateShadow}>Duplicate</Button>}>
+            <ControlGrid columns={2}>
+              <SliderNumberField label="X offset" value={activeShadow.offsetX} min={-100} max={100} unit="px" onChange={(value) => updateShadow(activeShadow.id, { offsetX: value })} />
+              <SliderNumberField label="Y offset" value={activeShadow.offsetY} min={-100} max={100} unit="px" onChange={(value) => updateShadow(activeShadow.id, { offsetY: value })} />
+              <SliderNumberField label="Blur" value={activeShadow.blur} min={0} max={140} unit="px" onChange={(value) => updateShadow(activeShadow.id, { blur: value })} />
+              <SliderNumberField label="Spread" value={activeShadow.spread} min={-60} max={80} unit="px" onChange={(value) => updateShadow(activeShadow.id, { spread: value })} />
+              <SliderNumberField label="Opacity" value={activeShadow.opacity} min={0} max={1} step={0.01} onChange={(value) => updateShadow(activeShadow.id, { opacity: value })} />
+              <ColorField label="Color" value={activeShadow.color} onChange={(value) => updateShadow(activeShadow.id, { color: value })} />
+            </ControlGrid>
+            <SegmentedControl
+              ariaLabel="Inset mode"
+              value={activeShadow.inset ? "inset" : "outset"}
+              onChange={(value) => updateShadow(activeShadow.id, { inset: value === "inset" })}
+              fullWidth
+              options={[{ value: "outset", label: "Outset" }, { value: "inset", label: "Inset" }]}
+            />
+          </ControlSection>
+        ) : null}
+
+        <details className="group border-t border-[var(--color-border-subtle)] pt-4">
+          <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)] marker:content-none">
+            <span className="flex items-center justify-between gap-3">
+              Directional controls
+              <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Light source & distance</span>
+              <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+            </span>
+          </summary>
+          <div className="mt-4 space-y-4">
+            <SegmentedControl<LightSourceId>
+              ariaLabel="Shadow light source"
+              value={activeLightSourceId}
+              onChange={(value) => setState((current) => ({ ...current, activeLightSource: lightSourceIdToNumber[value] }))}
+              layout="grid"
+              fullWidth
+              options={([ 
+                { value: "top-left", label: "↖" },
+                { value: "top-right", label: "↗" },
+                { value: "bottom-right", label: "↘" },
+                { value: "bottom-left", label: "↙" },
+              ] satisfies { value: LightSourceId; label: string }[])}
+              className="grid-cols-4"
+            />
+            {activeShadow ? (
+              <SliderNumberField label="Distance" value={activeShadow.distance} min={-80} max={80} unit="px" hint="Follows the selected light source" onChange={(value) => updateShadow(activeShadow.id, { distance: value })} />
+            ) : null}
+          </div>
+        </details>
+
+        <details className="group border-t border-[var(--color-border-subtle)] pt-4">
+          <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)] marker:content-none">
+            <span className="flex items-center justify-between gap-3">
+              Preview object
+              <span className="text-xs font-semibold text-[var(--color-text-tertiary)] group-open:hidden">Size, radius & surface</span>
+              <span className="hidden text-xs font-semibold text-[var(--color-text-tertiary)] group-open:inline">Hide</span>
+            </span>
+          </summary>
+          <div className="mt-4">
+            <ControlGrid columns={2}>
+              <SliderNumberField label="Size" value={state.boxSize} min={80} max={420} unit="px" onChange={(value) => setState((current) => ({ ...current, boxSize: value }))} />
+              <SliderNumberField label="Radius" value={state.borderRadius} min={0} max={160} unit="px" onChange={(value) => setState((current) => ({ ...current, borderRadius: value }))} />
+              <ColorField label="Surface" value={state.backgroundColor} onChange={(value) => setState((current) => ({ ...current, backgroundColor: value }))} />
+            </ControlGrid>
+          </div>
+        </details>
+      </ToolControlPanel>
+
+      <details className="group rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]">
+        <summary className="cursor-pointer list-none px-4 py-3.5 marker:content-none">
+          <span className="flex items-center justify-between gap-3">
+            <span className="flex min-w-0 items-center gap-2 text-sm font-black text-[var(--color-text-primary)]">
+              <Layers3 className="h-4 w-4 shrink-0" />
+              Developer handoff & diagnostics
+            </span>
+            <Badge variant={paintRating.variant}>{paintRating.label}</Badge>
+          </span>
+        </summary>
+        <div className="space-y-4 border-t border-[var(--color-border-subtle)] p-4">
+          <WarningPanel title="Production checks" messages={warnings} />
+          <CodeOutputPanel
+            title="Generated shadow code"
+            description="CSS declaration, reusable variable, Tailwind extension, React style object, and token JSON."
+            tabs={tabs}
+            defaultTab="css"
+          />
+        </div>
+      </details>
+    </div>
+  );
   return (
     <ToolLayoutVisualGenerator
+      controlsPosition="right"
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
       actionsPlacement="under-preview"
       actionsSlot={
         <div className="flex w-full flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap gap-2">
-            <Button variant="secondary" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={resetTool}>Reset</Button>
             <Button variant="secondary" leftIcon={<Shuffle className="h-4 w-4" />} onClick={randomizeTool}>Random</Button>
+            <Button variant="ghost" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={resetTool}>Reset</Button>
           </div>
           <div className="flex flex-wrap gap-2">
             <CopyButton text={shadowValue} variant="secondary">Copy value</CopyButton>
             <CopyButton text={css}>Copy CSS</CopyButton>
           </div>
-        </div>
-      }
-      codeSlot={
-        <div className="space-y-4">
-          <WarningPanel title="Production checks" messages={warnings} />
-          <CodeOutputPanel
-            title="Generated shadow code"
-            description="Copy a CSS declaration, reusable variable, Tailwind extension, React style object, or token JSON."
-            tabs={tabs}
-            defaultTab="css"
-            actions={<Badge variant={paintRating.variant}><Layers3 className="mr-1 h-3 w-3" />{paintRating.label}</Badge>}
-          />
         </div>
       }
     />

@@ -611,22 +611,20 @@ export default function CssGradientGeneratorClient() {
         <aside data-tool-region="controls" className="gs-left-panel">
           <header className="gs-brand">
             <div className="gs-gradient-logo" style={{ background: previewBackground }} />
-            <h1>
-              HDR G<b>rad</b>ients
-            </h1>
+            <div>
+              <h1>CSS Gradients</h1>
+              <p>Layers & geometry</p>
+            </div>
           </header>
 
           <section className="gs-left-scroll">
             <div className="gs-layer-menu">
-              <div className="gs-type-row" aria-label="Gradient type">
-                {(["linear", "radial", "conic"] as GradientType[]).map((type) => (
-                  <button key={type} className={activeLayer.type === type ? "active" : ""} type="button" title={`${type} gradient`} onClick={() => patchActiveLayer((layer) => ({ ...layer, type }))}>
-                    <TypeIcon type={type} />
-                  </button>
-                ))}
+              <div>
+                <b>Layers</b>
+                <small>{state.layers.length} total · {visibleCount} visible</small>
               </div>
               <button className="gs-round-button" type="button" onClick={() => setState((current) => addLayer(current, "new"))} title="New layer">
-                <Plus size={24} />
+                <Plus size={22} />
               </button>
             </div>
 
@@ -667,23 +665,37 @@ export default function CssGradientGeneratorClient() {
             </div>
           </section>
 
-          <footer className="gs-presets">
-            <p>HD EXAMPLES</p>
-            <div>
-              {GRADIENT_PRESETS.map((preset) => (
-                <button key={preset.label} type="button" title={preset.label} style={{ background: buildBackgroundCss(preset.state).modern }} onClick={() => setState(cloneState(preset.state))} />
-              ))}
-            </div>
-          </footer>
+
         </aside>
 
         <main data-tool-region="preview" className="gs-center-panel">
           <section className={centerPane === "preview" ? "gs-preview-panel is-active" : "gs-preview-panel"}>
-            <div className="gs-pane-label">Live preview <span>{validation.ok ? "Updated" : "Needs review"}</span></div>
-            <div className="gs-panel-actions">
-              <button type="button" onClick={() => setCenterPane("code")} title="Get the CSS code" aria-label="Get the CSS code">
-                <Code2 size={23} />
-              </button>
+            <div className="gs-preview-toolbar">
+              <div className="gs-preview-heading">
+                <b>Live preview</b>
+                <span>{activeLayer.type} · {activeLayer.space}</span>
+              </div>
+              <div className="gs-type-row gs-preview-types" aria-label="Gradient type">
+                {(["linear", "radial", "conic"] as GradientType[]).map((type) => (
+                  <button key={type} className={activeLayer.type === type ? "active" : ""} type="button" title={`${type} gradient`} onClick={() => patchActiveLayer((layer) => ({ ...layer, type }))}>
+                    <TypeIcon type={type} />
+                    <span>{type}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="gs-preview-actions">
+                <button type="button" onClick={() => setState(createRandomGradient())} title="Random gradient">
+                  <Shuffle size={18} />
+                  <span>Random</span>
+                </button>
+                <button className="gs-primary-action" type="button" onClick={() => copyText("modern", `background: ${backgroundCss.modern};`)} disabled={!validation.ok}>
+                  <Copy size={18} />
+                  <span>Copy CSS</span>
+                </button>
+                <button type="button" onClick={() => setCenterPane("code")} title="More export formats" aria-label="More export formats">
+                  <Code2 size={19} />
+                </button>
+              </div>
             </div>
             <div className="gs-preview-stage">
               {/* The resizer defines the preview box. Checkerboard lives on this
@@ -698,10 +710,22 @@ export default function CssGradientGeneratorClient() {
                 <PreviewOverlay layer={activeLayer} patchActiveLayer={patchActiveLayer} onAddStop={addStopAtPercent} />
               </div>
             </div>
+            <div className="gs-preview-presets" aria-label="Gradient presets">
+              <div>
+                <b>Presets</b>
+                <span>Start with a polished gradient</span>
+              </div>
+              <div className="gs-preview-preset-list">
+                {GRADIENT_PRESETS.map((preset) => (
+                  <button key={preset.label} type="button" title={preset.label} aria-label={`Use ${preset.label} preset`} style={{ background: buildBackgroundCss(preset.state).modern }} onClick={() => setState(cloneState(preset.state))}>
+                    <span>{preset.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </section>
 
           <section className={centerPane === "code" ? "gs-code-panel is-active" : "gs-code-panel"}>
-            <div className="gs-pane-label">Generated output <span>Copy-ready CSS</span></div>
             <div className="gs-panel-actions gs-back-action">
               <button type="button" onClick={() => setCenterPane("preview")} title="Back to editor" aria-label="Back to editor">
                 ←
@@ -743,7 +767,11 @@ export default function CssGradientGeneratorClient() {
             </button>
           </div>
 
-          <section className="gs-summary-panel" aria-label="Gradient summary">
+          <details className="gs-disclosure gs-summary-panel">
+            <summary>
+              <span>Output details</span>
+              <small>{colorStopCount} stops · {visibleCount} layers · {validation.ok ? "CSS ready" : "Needs fix"}</small>
+            </summary>
             <div className="gs-summary-grid">
               <SummaryCard label="Layers" value={`${visibleCount}/${state.layers.length}`} detail="visible / total" />
               <SummaryCard label="Stops" value={String(colorStopCount)} detail={`${hintCount} hints`} />
@@ -757,42 +785,54 @@ export default function CssGradientGeneratorClient() {
                 </span>
               ))}
             </div>
-          </section>
+          </details>
 
-          <section className="gs-control-set gs-color-space">
-            <div className="gs-label-select-combo">
-              <label>
-                <span className="gs-info-icon">i</span>
-                Color Space
-              </label>
-              <select value={activeLayer.space} onChange={(event) => patchActiveLayer((layer) => ({ ...layer, space: event.target.value }))}>
-                {COLOR_SPACES.map((group) => (
-                  <optgroup key={group.label} label={group.label}>
-                    {group.options.map((space) => (
-                      <option key={space} value={space}>
-                        {space}
-                      </option>
-                    ))}
-                  </optgroup>
-                ))}
-              </select>
-            </div>
-          </section>
-
-          {isCylindricalSpace(activeLayer.space) ? (
-            <section className="gs-control-set">
+          <details className="gs-disclosure gs-interpolation-panel">
+            <summary>
+              <span>Color interpolation</span>
+              <small>{activeLayer.space}{isCylindricalSpace(activeLayer.space) ? ` · ${activeLayer.interpolation} hue` : ""}</small>
+            </summary>
+            <section className="gs-control-set gs-color-space">
               <div className="gs-label-select-combo">
-                <label>Hue path</label>
-                <select value={activeLayer.interpolation} onChange={(event) => patchActiveLayer((layer) => ({ ...layer, interpolation: event.target.value as GradientLayer["interpolation"] }))}>
-                  {HUE_INTERPOLATIONS.map((interpolation) => (
-                    <option key={interpolation} value={interpolation}>
-                      {interpolation} hue
-                    </option>
+                <label>Color space</label>
+                <select value={activeLayer.space} onChange={(event) => patchActiveLayer((layer) => ({ ...layer, space: event.target.value }))}>
+                  {COLOR_SPACES.map((group) => (
+                    <optgroup key={group.label} label={group.label}>
+                      {group.options.map((space) => (
+                        <option key={space} value={space}>
+                          {space}
+                        </option>
+                      ))}
+                    </optgroup>
                   ))}
                 </select>
               </div>
             </section>
-          ) : null}
+            {isCylindricalSpace(activeLayer.space) ? (
+              <section className="gs-control-set">
+                <div className="gs-label-select-combo">
+                  <label>Hue path</label>
+                  <select value={activeLayer.interpolation} onChange={(event) => patchActiveLayer((layer) => ({ ...layer, interpolation: event.target.value as GradientLayer["interpolation"] }))}>
+                    {HUE_INTERPOLATIONS.map((interpolation) => (
+                      <option key={interpolation} value={interpolation}>
+                        {interpolation} hue
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </section>
+            ) : null}
+          </details>
+
+          <div className="gs-stops-heading">
+            <div>
+              <b>Color stops</b>
+              <small>Drag handles on the preview or edit exact values below.</small>
+            </div>
+            <button type="button" onClick={addColorStop}>
+              <Plus size={16} /> Add stop
+            </button>
+          </div>
 
           <section className="gs-gradient-stops">
             {activeLayer.stops.map((stop, index) =>
@@ -818,8 +858,8 @@ export default function CssGradientGeneratorClient() {
                   <ColorTextField color={stop.color} onChange={(color) => patchStop(index, { color })} />
 
                   <div className="gs-stop-sliders">
-                    <SliderField label="" value={stop.position1 ?? 0} min={0} max={100} unit="%" onChange={(position1) => patchStop(index, { position1 })} />
-                    <SliderField label="" value={stop.position2 ?? stop.position1 ?? 0} min={0} max={100} unit="%" onChange={(position2) => patchStop(index, { position2 })} />
+                    <SliderField label="Start" value={stop.position1 ?? 0} min={0} max={100} unit="%" onChange={(position1) => patchStop(index, { position1 })} />
+                    <SliderField label="End" value={stop.position2 ?? stop.position1 ?? 0} min={0} max={100} unit="%" onChange={(position2) => patchStop(index, { position2 })} />
                   </div>
 
                   <div className="gs-stop-footer">
@@ -856,8 +896,8 @@ export default function CssGradientGeneratorClient() {
 
           <footer className="gs-right-footer">
             <button className="gs-add-color" type="button" onClick={addColorStop}>
-              Add a random color
-              <Shuffle size={21} />
+              <Plus size={19} />
+              Add color stop
             </button>
           </footer>
         </aside>
@@ -1367,35 +1407,6 @@ export default function CssGradientGeneratorClient() {
 
         .gs-code-panel {
           background: var(--gs-surface-2);
-        }
-
-        .gs-pane-label {
-          position: absolute;
-          top: 22px;
-          left: 22px;
-          z-index: 4;
-          display: inline-flex;
-          align-items: center;
-          gap: 9px;
-          border: 1px solid var(--gs-line);
-          border-radius: 999px;
-          background: color-mix(in srgb, var(--gs-surface-3) 88%, transparent);
-          padding: 8px 11px;
-          color: var(--gs-text-1);
-          font-size: 11px;
-          font-weight: 900;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
-          backdrop-filter: blur(12px);
-        }
-
-        .gs-pane-label span {
-          color: var(--gs-text-2);
-          font-size: 10px;
-          font-weight: 750;
-          letter-spacing: 0;
-          text-transform: none;
         }
 
         .gs-panel-actions {
@@ -2026,6 +2037,315 @@ export default function CssGradientGeneratorClient() {
 
         .gs-error-toast { background: #b42318; }
 
+        /* P0 UI refresh: preview-first workspace with progressive disclosure. */
+        .gs-builder {
+          grid-template-columns: minmax(250px, 300px) minmax(620px, 1fr) minmax(310px, 350px);
+        }
+
+        .gs-left-panel {
+          grid-template-rows: auto 1fr;
+        }
+
+        .gs-right-panel {
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
+        }
+
+        .gs-brand {
+          grid-template-columns: 44px 1fr;
+          place-items: center start;
+          align-content: initial;
+          gap: 12px;
+          min-height: 76px;
+          padding: 14px 18px;
+        }
+
+        .gs-gradient-logo {
+          width: 44px;
+        }
+
+        .gs-brand h1 {
+          font-size: 18px;
+        }
+
+        .gs-brand p {
+          margin: 4px 0 0;
+          color: var(--gs-text-3);
+          font-size: 11px;
+          font-weight: 750;
+        }
+
+        .gs-layer-menu > div:first-child {
+          display: grid;
+          gap: 3px;
+        }
+
+        .gs-layer-menu > div:first-child b {
+          font-size: 13px;
+        }
+
+        .gs-layer-menu > div:first-child small {
+          color: var(--gs-text-3);
+          font-size: 10px;
+        }
+
+        .gs-center-panel {
+          background: color-mix(in srgb, #cfd5dc 86%, var(--gs-surface-3));
+        }
+
+        .gs-preview-panel {
+          place-content: stretch;
+          grid-template-rows: auto minmax(0, 1fr) auto;
+        }
+
+        .gs-preview-toolbar {
+          z-index: 8;
+          display: grid;
+          grid-template-columns: minmax(120px, 1fr) auto auto;
+          align-items: center;
+          gap: 14px;
+          padding: 14px 18px;
+          border-bottom: 1px solid var(--gs-line);
+          background: color-mix(in srgb, var(--gs-surface-3) 88%, transparent);
+          backdrop-filter: blur(18px);
+        }
+
+        .gs-preview-heading {
+          display: grid;
+          gap: 2px;
+          min-width: 0;
+        }
+
+        .gs-preview-heading b {
+          font-size: 13px;
+        }
+
+        .gs-preview-heading span {
+          overflow: hidden;
+          color: var(--gs-text-3);
+          font-size: 10px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-transform: capitalize;
+        }
+
+        .gs-preview-types {
+          padding: 3px;
+          border: 1px solid var(--gs-line);
+          border-radius: 12px;
+          background: var(--gs-surface-2);
+          gap: 2px;
+        }
+
+        .gs-preview-types button {
+          width: auto;
+          height: 36px;
+          display: inline-flex;
+          gap: 6px;
+          padding: 0 10px;
+          border-radius: 9px;
+          font-size: 14px;
+        }
+
+        .gs-preview-types button span:last-child {
+          font-size: 11px;
+          font-weight: 800;
+          text-transform: capitalize;
+        }
+
+        .gs-preview-actions {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .gs-preview-actions button {
+          min-height: 38px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          border: 1px solid var(--gs-line);
+          border-radius: 10px;
+          background: var(--gs-surface-3);
+          color: var(--gs-text-1);
+          padding: 0 11px;
+          font-size: 11px;
+          font-weight: 850;
+          cursor: pointer;
+        }
+
+        .gs-preview-actions .gs-primary-action {
+          border-color: #101828;
+          background: #101828;
+          color: white;
+        }
+
+        :root[data-mode="dark"] .gs-preview-actions .gs-primary-action {
+          border-color: #f8fafc;
+          background: #f8fafc;
+          color: #101828;
+        }
+
+        .gs-preview-stage {
+          width: 100%;
+          min-height: 0;
+          padding: 26px;
+        }
+
+        .gs-resizer {
+          width: min(88%, 900px);
+          height: min(66vh, 650px);
+          min-height: 340px;
+          max-width: calc(100% - 30px);
+          max-height: calc(100% - 18px);
+        }
+
+        .gs-preview-presets {
+          display: grid;
+          grid-template-columns: auto minmax(0, 1fr);
+          align-items: center;
+          gap: 16px;
+          padding: 12px 18px 14px;
+          border-top: 1px solid var(--gs-line);
+          background: color-mix(in srgb, var(--gs-surface-3) 90%, transparent);
+        }
+
+        .gs-preview-presets > div:first-child {
+          display: grid;
+          gap: 2px;
+        }
+
+        .gs-preview-presets > div:first-child b { font-size: 12px; }
+        .gs-preview-presets > div:first-child span { color: var(--gs-text-3); font-size: 10px; }
+
+        .gs-preview-preset-list {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          padding: 2px;
+          scrollbar-width: thin;
+        }
+
+        .gs-preview-preset-list button {
+          position: relative;
+          width: 74px;
+          height: 46px;
+          flex: 0 0 auto;
+          overflow: hidden;
+          border: 2px solid rgba(255,255,255,.72);
+          border-radius: 11px;
+          box-shadow: 0 3px 9px rgba(15, 23, 42, .16);
+          cursor: pointer;
+        }
+
+        .gs-preview-preset-list button span {
+          position: absolute;
+          inset: auto 4px 4px;
+          overflow: hidden;
+          border-radius: 6px;
+          background: rgba(15,23,42,.68);
+          color: white;
+          padding: 3px 4px;
+          font-size: 8px;
+          font-weight: 800;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .gs-menu-bar {
+          padding: 12px 16px 8px;
+        }
+
+        .gs-disclosure {
+          border-bottom: 1px solid var(--gs-line);
+          background: var(--gs-surface-1);
+        }
+
+        .gs-disclosure > summary {
+          display: grid;
+          gap: 3px;
+          padding: 12px 18px;
+          cursor: pointer;
+          list-style: none;
+        }
+
+        .gs-disclosure > summary::-webkit-details-marker { display: none; }
+        .gs-disclosure > summary span { font-size: 12px; font-weight: 900; }
+        .gs-disclosure > summary small { color: var(--gs-text-3); font-size: 10px; }
+        .gs-disclosure[open] > summary { background: color-mix(in srgb, var(--gs-surface-3) 62%, transparent); }
+
+        .gs-summary-panel {
+          padding: 0;
+        }
+
+        .gs-summary-panel .gs-summary-grid,
+        .gs-summary-panel .gs-check-row {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+
+        .gs-summary-panel .gs-summary-grid { margin-top: 4px; }
+        .gs-summary-panel .gs-check-row { margin-bottom: 14px; }
+
+        .gs-interpolation-panel .gs-control-set {
+          padding: 12px 18px;
+        }
+
+        .gs-stops-heading {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          padding: 14px 18px 10px;
+        }
+
+        .gs-stops-heading > div { display: grid; gap: 3px; }
+        .gs-stops-heading b { font-size: 13px; }
+        .gs-stops-heading small { color: var(--gs-text-3); font-size: 10px; line-height: 1.35; }
+        .gs-stops-heading button {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          flex: 0 0 auto;
+          border: 1px solid var(--gs-line);
+          border-radius: 9px;
+          background: var(--gs-surface-3);
+          color: var(--gs-text-1);
+          padding: 7px 9px;
+          font-size: 10px;
+          font-weight: 850;
+          cursor: pointer;
+        }
+
+        .gs-gradient-stops {
+          flex: 1 1 auto;
+          min-height: 0;
+        }
+
+        .gs-stop-card, .gs-hint-card {
+          padding: 14px 18px;
+        }
+
+        .gs-stop-card legend {
+          margin-bottom: 10px;
+        }
+
+        .gs-stop-sliders {
+          margin-top: 10px;
+        }
+
+        .gs-right-footer {
+          flex: 0 0 auto;
+          padding: 10px 16px 16px;
+        }
+
+        .gs-add-color {
+          padding: 11px 14px;
+          font-size: 13px;
+        }
+
         @media (max-width: 1240px) {
           .gs-shell { overflow: auto; }
           .gs-builder {
@@ -2041,13 +2361,42 @@ export default function CssGradientGeneratorClient() {
         }
 
         @media (max-width: 820px) {
-          .gs-shell { padding: 10px; overflow: auto; }
-          .gs-builder { display: block; min-height: auto; overflow: visible; }
+          .gs-shell { padding: 8px; overflow: auto; }
+          .gs-builder {
+            display: flex;
+            flex-direction: column;
+            min-height: auto;
+            overflow: visible;
+            border-radius: 18px;
+          }
           .gs-left-panel, .gs-right-panel, .gs-center-panel { min-height: auto; border: 0; }
-          .gs-left-panel { grid-template-rows: 180px auto 120px; }
-          .gs-center-panel { min-height: 520px; }
-          .gs-preview-stage { min-height: 460px; }
-          .gs-resizer { width: 86%; height: 360px; max-width: calc(100% - 24px); }
+          .gs-center-panel { order: 1; min-height: 600px; border-bottom: 1px solid var(--gs-line); }
+          .gs-right-panel { order: 2; max-height: none; border-bottom: 1px solid var(--gs-line); }
+          .gs-left-panel { order: 3; display: grid; grid-template-rows: auto auto; }
+          .gs-left-scroll, .gs-gradient-stops { overflow: visible; }
+          .gs-preview-panel { min-height: 600px; }
+          .gs-preview-toolbar {
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            padding: 10px 12px;
+          }
+          .gs-preview-heading { display: none; }
+          .gs-preview-types { justify-self: start; }
+          .gs-preview-types button { padding: 0 9px; }
+          .gs-preview-types button span:last-child { display: none; }
+          .gs-preview-actions { justify-self: end; }
+          .gs-preview-actions button span { display: none; }
+          .gs-preview-actions .gs-primary-action span { display: inline; }
+          .gs-preview-stage { min-height: 430px; padding: 18px 10px; }
+          .gs-resizer { width: 92%; height: 350px; min-width: 0; min-height: 280px; max-width: calc(100% - 12px); }
+          .gs-preview-presets { grid-template-columns: 1fr; gap: 8px; padding: 10px 12px 12px; }
+          .gs-preview-presets > div:first-child span { display: none; }
+          .gs-preview-preset-list button { width: 64px; height: 42px; }
+          .gs-menu-bar { position: static; }
+          .gs-stops-heading { padding: 14px 14px 8px; }
+          .gs-stop-card, .gs-hint-card { padding-left: 14px; padding-right: 14px; }
+          .gs-brand { min-height: 68px; }
+          .gs-code-card { width: calc(100% - 24px); max-height: 560px; padding: 18px; }
         }
       `}</style>
     </div>

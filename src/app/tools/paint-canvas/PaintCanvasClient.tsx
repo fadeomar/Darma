@@ -36,7 +36,13 @@ export default function PaintCanvasClient() {
           canvas below the tool rail. */}
       <div className="flex flex-col gap-4 xl:grid xl:grid-cols-[188px_minmax(0,1fr)_268px] xl:items-start">
         <ToolRail activeTool={editor.settings.tool} onToolChange={editor.selectTool} />
-        <CanvasStage canvasRef={canvasElementRef} viewportRef={viewportRef} ready={editor.ready} status={editor.status} zoom={editor.zoom} background={editor.background} size={editor.canvasSize} settings={editor.settings} onDrop={editor.handleDrop} />
+        <div className="flex min-w-0 flex-col gap-2">
+          <CanvasStage canvasRef={canvasElementRef} viewportRef={viewportRef} ready={editor.ready} status={editor.status} zoom={editor.zoom} background={editor.background} size={editor.canvasSize} settings={editor.settings} onDrop={editor.handleDrop} />
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-xs text-[var(--color-text-tertiary)]">Drop an image on the canvas, or use the tool rail to draw.</p>
+            <Button size="sm" variant="ghost" leftIcon={<Trash2 className="h-4 w-4" />} onClick={editor.clearCanvas}>Clear canvas</Button>
+          </div>
+        </div>
         <aside className="flex flex-col gap-4" data-tool-region="controls">
           <CanvasSizePanel size={editor.canvasSize} onResize={editor.resizeCanvas} />
           <PropertiesPanel settings={editor.settings} onChange={editor.updateSetting} onBrushPresetChange={editor.selectBrushPreset} />
@@ -58,7 +64,6 @@ export default function PaintCanvasClient() {
           />
           <ArrangePanel count={editor.selected.count} onAlign={editor.alignSelection} onDistribute={editor.distributeSelection} />
           <ObjectsPanel objects={editor.objects} onSelect={editor.selectObject} onToggleSelection={editor.toggleObjectSelection} onSelectAll={editor.selectAll} onRename={editor.renameObject} onToggleVisibility={editor.toggleObjectVisibility} onToggleLock={editor.toggleObjectLock} onMove={editor.moveObject} />
-          <Button size="sm" variant="ghost" leftIcon={<Trash2 className="h-4 w-4" />} onClick={editor.clearCanvas}>Clear canvas</Button>
         </aside>
       </div>
 

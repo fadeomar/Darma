@@ -52,6 +52,21 @@ function FieldGroup({ children, className }: { children: ReactNode; className?: 
   return <div className={cn("grid gap-3 sm:grid-cols-2", className)}>{children}</div>;
 }
 
+function Disclosure({ title, description, children, defaultOpen = false }: { title: string; description?: string; children: ReactNode; defaultOpen?: boolean }) {
+  return (
+    <details open={defaultOpen} className="group overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]">
+      <summary className="flex cursor-pointer list-none items-start justify-between gap-3 px-3 py-3.5 [&::-webkit-details-marker]:hidden">
+        <span className="min-w-0">
+          <span className="block text-sm font-black text-[var(--color-text-primary)]">{title}</span>
+          {description ? <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{description}</span> : null}
+        </span>
+        <span aria-hidden="true" className="mt-0.5 text-base font-bold text-[var(--color-text-tertiary)] transition group-open:rotate-45">+</span>
+      </summary>
+      <div className="space-y-4 border-t border-[var(--color-border-subtle)] p-3">{children}</div>
+    </details>
+  );
+}
+
 function MiniLabel({ children }: { children: ReactNode }) {
   return <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
 }
@@ -78,7 +93,7 @@ function QuickStartPresets({ setInput }: { setInput: React.Dispatch<React.SetSta
   const badges: Record<string, string> = { "website-launch": "Minimal", "nextjs-app": "Next.js", "installable-pwa": "PWA", "ios-heavy": "iOS", "brand-kit": "Brand" };
 
   return (
-    <ControlSection title="Quick setup" description="Apply a sensible platform preset, then fine-tune it.">
+    <ControlSection title="What are you creating?" description="Start with a platform preset, then fine-tune only what you need.">
       <div className="grid grid-cols-2 gap-2">
         {visiblePresets.map((preset) => (
           <button
@@ -786,7 +801,17 @@ function PreviewPanel({ input, assets, status, error }: { input: FaviconInput; a
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)]">
             <PreviewTile title="Large icon" meta="actual 512×512 output">
               <div className="grid min-h-64 place-items-center rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[linear-gradient(45deg,rgba(148,163,184,0.15)_25%,transparent_25%),linear-gradient(-45deg,rgba(148,163,184,0.15)_25%,transparent_25%),linear-gradient(45deg,transparent_75%,rgba(148,163,184,0.15)_75%),linear-gradient(-45deg,transparent_75%,rgba(148,163,184,0.15)_75%)] bg-[length:22px_22px] bg-[position:0_0,0_11px,11px_-11px,-11px_0] p-6">
-                {icon512?.previewUrl ? <img src={icon512.previewUrl} alt="Generated icon preview" className="h-44 w-44 rounded-[24%] object-cover shadow-[0_28px_80px_rgba(15,23,42,0.22)]" /> : <ImageIcon className="h-16 w-16 text-[var(--color-text-tertiary)]" />}
+                {icon512?.previewUrl ? (
+                  <img src={icon512.previewUrl} alt="Generated icon preview" className="h-44 w-44 rounded-[24%] object-cover shadow-[0_28px_80px_rgba(15,23,42,0.22)]" />
+                ) : (
+                  <div className="max-w-xs text-center">
+                    <span className="mx-auto grid h-16 w-16 place-items-center rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-xs)]">
+                      <ImageIcon className="h-7 w-7 text-[var(--color-primary-text-strong)]" />
+                    </span>
+                    <div className="mt-4 text-sm font-black text-[var(--color-text-primary)]">Your icon preview appears here</div>
+                    <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Choose a source below. Darma generates browser, iOS, Android, and PWA previews locally.</p>
+                  </div>
+                )}
               </div>
             </PreviewTile>
 
@@ -1539,7 +1564,7 @@ export default function FaviconAppIconClient() {
           <span>{packageIsCurrent ? `${assets.length} files ready` : assets.length ? "Regenerating current files" : "No files generated yet"}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} disabled={!packageIsCurrent} onClick={downloadZip}>Download ZIP</Button>
+          <Button variant="primary" leftIcon={<Download className="h-4 w-4" />} disabled={!packageIsCurrent} onClick={downloadZip}>Download icon pack</Button>
           <Button variant="ghost" onClick={resetProject}>Reset</Button>
         </div>
       </>
@@ -1548,26 +1573,31 @@ export default function FaviconAppIconClient() {
 
   const controls = (
     <>
-      <FaviconProjectControls message={projectMessage} onExport={exportProject} onImport={importProject} onReset={resetProject} />
+      <QuickStartPresets setInput={setInput} />
       <SourceControls input={input} setInput={setInput} uploadError={uploadError} setUploadError={setUploadError} />
       <ColorControls input={input} setInput={setInput} />
-      <SourceFramingControls input={input} setInput={setInput} />
       <ShapeSpacingControls input={input} setInput={setInput} />
-      <AppSettingsControls input={input} setInput={setInput} />
-      <QuickStartPresets setInput={setInput} />
       <ExportControls input={input} setInput={setInput} />
+
+      <Disclosure title="Advanced design & app settings" description="Fine-tune source framing, transforms, manifest metadata, and install behavior.">
+        <SourceFramingControls input={input} setInput={setInput} />
+        <AppSettingsControls input={input} setInput={setInput} />
+      </Disclosure>
+
+      <Disclosure title="Project backup" description="Save, reopen, or reset Darma project settings.">
+        <FaviconProjectControls message={projectMessage} onExport={exportProject} onImport={importProject} onReset={resetProject} />
+      </Disclosure>
     </>
   );
 
   return (
     <div className="space-y-5">
-      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
-        <h2 className="text-sm font-black text-[var(--color-text-primary)]">How this tool works</h2>
-        <ol className="mt-3 grid gap-2 text-xs leading-5 text-[var(--color-text-secondary)]">
+      <Disclosure title="How this tool works" description="Choose a source, tune the icon, then download a production-ready package.">
+        <ol className="grid gap-2 text-xs leading-5 text-[var(--color-text-secondary)] sm:grid-cols-3">
           {[
             ["1", "Choose a source", "Upload an image, paste SVG, type initials, or choose an emoji."],
-            ["2", "Tune the design", "Adjust colors, padding, scale, border radius, shape, and maskable safe area."],
-            ["3", "Export and install", "Copy the install code or download the complete favicon and app icon ZIP."],
+            ["2", "Tune the design", "Adjust colors, shape, spacing, and only open advanced controls when needed."],
+            ["3", "Export and install", "Download the icon pack, then open developer handoff only if you need implementation details."],
           ].map(([number, title, detail]) => (
             <li key={number} className="flex items-start gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-2.5">
               <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-soft)] font-mono text-xs font-black text-[var(--color-primary-text-strong)]">{number}</span>
@@ -1575,42 +1605,41 @@ export default function FaviconAppIconClient() {
             </li>
           ))}
         </ol>
-      </section>
-
-      <div className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-sm)] lg:hidden">
-        {controls}
-      </div>
+      </Disclosure>
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
         <main className="min-w-0 space-y-5">
-          <FaviconProductionSummary input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
           <PreviewPanel input={input} assets={assets} status={status} error={generationError} />
-          <FaviconProductionChecks input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
 
-          <ActionBar align="between" className="lg:hidden">
+          <ActionBar align="between" className="sticky bottom-3 z-20 shadow-[var(--shadow-lg)] lg:static lg:shadow-none">
             <ActionContent />
           </ActionBar>
 
-          <CodeOutputPanel
-            title="Generated install code"
-            description="Copy snippets for a standard HTML site, manifest, or Next.js App Router setup."
-            tabs={snippets}
-            defaultTab="html"
-            className="favicon-code-panel [&_.darma-code-output-pre]:min-h-64"
-            onDownload={(tab) => downloadBlobFile({ blob: new Blob([tab.code], { type: "text/plain;charset=utf-8" }), filename: tab.filename ?? `${tab.id}.txt` })}
-          />
-          <FileChecklist assets={assets} />
-          <InstallChecklistPanel input={input} assets={assets} />
-          <ReadinessPanel input={input} assets={assets} setInput={setInput} />
-          <GeneratedSelfCheckPanel input={input} assets={assets} />
-          <ValidatorPanel />
-          <WarningPanel title="Readiness warnings" messages={warningMessages} />
+          <div className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-sm)] lg:hidden">
+            {controls}
+          </div>
+
+          <Disclosure title="Developer handoff & QA" description="Install code, generated files, readiness checks, validation, and production diagnostics.">
+            <FaviconProductionSummary input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
+            <FaviconProductionChecks input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
+            <CodeOutputPanel
+              title="Generated install code"
+              description="Copy snippets for a standard HTML site, manifest, or Next.js App Router setup."
+              tabs={snippets}
+              defaultTab="html"
+              className="favicon-code-panel [&_.darma-code-output-pre]:min-h-64"
+              onDownload={(tab) => downloadBlobFile({ blob: new Blob([tab.code], { type: "text/plain;charset=utf-8" }), filename: tab.filename ?? `${tab.id}.txt` })}
+            />
+            <FileChecklist assets={assets} />
+            <InstallChecklistPanel input={input} assets={assets} />
+            <ReadinessPanel input={input} assets={assets} setInput={setInput} />
+            <GeneratedSelfCheckPanel input={input} assets={assets} />
+            <ValidatorPanel />
+            <WarningPanel title="Readiness warnings" messages={warningMessages} />
+          </Disclosure>
         </main>
 
         <aside className="sticky top-24 hidden max-h-[calc(100vh-120px)] min-w-0 overflow-y-auto rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-sm)] lg:block">
-          <ActionBar align="between" className="sticky top-0 z-10 rounded-none border-x-0 border-t-0 bg-[var(--color-surface-overlay)]/95 backdrop-blur">
-            <ActionContent />
-          </ActionBar>
           <div className="space-y-4 p-4">
             {controls}
           </div>

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Button, CopyButton, Input, Select } from "@/components/ui";
 import { ControlGrid, ControlSection, ToolControlPanel, WarningPanel } from "@/features/tools/components";
-import { ToolLayoutTextWorkbench } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import {
   closestPreset,
   cropToRatio,
@@ -298,8 +298,48 @@ export function RatioCard({ src, alt }: RatioCardProps) {
   }, [cropLoss, height, nearest, simplified, valid, width]);
 
   return (
-    <ToolLayoutTextWorkbench
-      inputSlot={
+    <ToolLayoutVisualGenerator
+      actionsPlacement="under-preview"
+      previewSlot={
+        <div className="flex min-h-full flex-col gap-4 p-4 sm:p-5">
+          <div>
+            <h2 className="text-sm font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">Design-ready preview</h2>
+            <p className="text-xs text-[var(--color-text-tertiary)]">Ratio, crop, fit, and delivery dimensions update live from the controls.</p>
+          </div>
+
+          {valid && simplified ? (
+            <>
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                <MetricCard label="Ratio" value={simplified.label} sub={`Decimal ${roundDimension(simplified.decimal)}`} />
+                <MetricCard label="Canvas" value={`${compactNumber(width)} × ${compactNumber(height)}`} sub={pixelCount(width, height)} />
+                <MetricCard label="Orientation" value={labelCase(simplified.orientation)} sub={nearest ? `Near ${nearest.label}` : "Custom ratio"} />
+                <MetricCard label="Fallback" value={formatPercent(paddingFallback)} sub="padding-top" />
+              </div>
+
+              <div className="grid flex-1 gap-4 2xl:grid-cols-[minmax(0,1.15fr)_minmax(250px,0.85fr)]">
+                <PreviewCard
+                  width={width}
+                  height={height}
+                  ratio={simplified.decimal}
+                  previewMode={previewMode}
+                  overlayMode={overlayMode}
+                  cropLoss={cropLoss}
+                />
+
+                <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-1">
+                  <InfoPanel title="Closest preset" lines={[nearest ? `${nearest.label} — ${nearest.hint}` : "No close preset found"]} />
+                  <InfoPanel title="Long edge result" lines={[longEdgeResult ? formatDimensionPair(longEdgeResult.width, longEdgeResult.height) : "Enter a valid long edge"]} />
+                  <InfoPanel title={`${fitMode === "contain" ? "Fit inside" : "Cover"} bounds`} lines={[fit ? `${formatDimensionPair(fit.width, fit.height)} (${roundDimension(fit.scale * 100)}%)` : "Enter valid bounds"]} />
+                  <InfoPanel title="Centered crop" lines={crop ? [`${formatDimensionPair(crop.cropWidth, crop.cropHeight)} crop area`, `Offset X ${crop.cropX}px / Y ${crop.cropY}px`, `${formatPercent(cropLoss)} area removed`] : ["Enter valid dimensions"]} />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="flex min-h-[360px] flex-1 items-center justify-center text-sm text-[var(--color-text-tertiary)]">Enter a width and height to see the ratio studio.</div>
+          )}
+        </div>
+      }
+      controlsSlot={
         <ToolControlPanel title="Aspect ratio studio" description="Solve creator dimensions, preview crops, fit inside bounds, and export production snippets without uploading files.">
           <ControlSection title="Quick targets">
             <div className="mb-3 flex flex-wrap gap-2">
@@ -309,7 +349,7 @@ export function RatioCard({ src, alt }: RatioCardProps) {
                 </Button>
               ))}
             </div>
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
               {filteredTargets.slice(0, 8).map((target) => (
                 <button
                   key={target.id}
@@ -420,101 +460,69 @@ export function RatioCard({ src, alt }: RatioCardProps) {
           {!valid ? <p className="mt-2 text-xs font-semibold text-[var(--color-danger)]">Enter positive width and height values.</p> : null}
         </ToolControlPanel>
       }
-      outputSlot={
-        <section className="flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
-            <div>
-              <h2 className="text-sm font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">Design-ready output</h2>
-              <p className="text-xs text-[var(--color-text-tertiary)]">Ratio, crop, fit, CSS, exports, and production checks.</p>
-            </div>
+      actionsSlot={
+        <div className="flex w-full flex-wrap items-center justify-between gap-2">
+          <span className="text-xs text-[var(--color-text-tertiary)]">Current output: {valid && simplified ? `${simplified.label} · ${formatDimensionPair(width, height)}` : "Waiting for valid dimensions"}</span>
+          <div className="flex flex-wrap gap-2">
+            <CopyButton text={cssSnippet} size="sm" variant="secondary" disabled={!cssSnippet}>Copy ratio CSS</CopyButton>
             <CopyButton text={summary} size="sm" variant="secondary" disabled={!valid}>Copy report</CopyButton>
           </div>
-
-          <div className="flex flex-1 flex-col gap-4 overflow-auto p-4">
-            {valid && simplified ? (
-              <>
-                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-                  <MetricCard label="Ratio" value={simplified.label} sub={`Decimal ${roundDimension(simplified.decimal)}`} />
-                  <MetricCard label="Canvas" value={`${compactNumber(width)} × ${compactNumber(height)}`} sub={pixelCount(width, height)} />
-                  <MetricCard label="Orientation" value={labelCase(simplified.orientation)} sub={nearest ? `Near ${nearest.label}` : "Custom ratio"} />
-                  <MetricCard label="Fallback" value={formatPercent(paddingFallback)} sub="padding-top" />
-                </div>
-
-                <div className="grid gap-4 xl:grid-cols-[minmax(0,1.05fr)_minmax(260px,0.95fr)]">
-                  <PreviewCard
-                    width={width}
-                    height={height}
-                    ratio={simplified.decimal}
-                    previewMode={previewMode}
-                    overlayMode={overlayMode}
-                    cropLoss={cropLoss}
-                  />
-
-                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
-                    <InfoPanel title="Closest preset" lines={[nearest ? `${nearest.label} — ${nearest.hint}` : "No close preset found"]} />
-                    <InfoPanel title="Long edge result" lines={[longEdgeResult ? formatDimensionPair(longEdgeResult.width, longEdgeResult.height) : "Enter a valid long edge"]} />
-                    <InfoPanel title={`${fitMode === "contain" ? "Fit inside" : "Cover"} bounds`} lines={[fit ? `${formatDimensionPair(fit.width, fit.height)} (${roundDimension(fit.scale * 100)}%)` : "Enter valid bounds"]} />
-                    <InfoPanel title="Centered crop" lines={crop ? [`${formatDimensionPair(crop.cropWidth, crop.cropHeight)} crop area`, `Offset X ${crop.cropX}px / Y ${crop.cropY}px`, `${formatPercent(cropLoss)} area removed`] : ["Enter valid dimensions"]} />
-                  </div>
-                </div>
-
-                <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(280px,0.8fr)]">
-                  <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h3 className="text-sm font-black text-[var(--color-text-primary)]">Responsive scale ladder</h3>
-                      <CopyButton text={scaleText} size="sm" variant="secondary">Copy sizes</CopyButton>
-                    </div>
-                    <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-                      {SCALE_OPTIONS.map((scale) => {
-                        const scaled = scaledDimensions(width, height, scale);
-                        return (
-                          <div key={scale} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-2 text-xs">
-                            <div className="font-black text-[var(--color-text-primary)]">{scale}%</div>
-                            <div className="mt-1 truncate font-mono text-[var(--color-text-secondary)]">{scaled ? `${scaled.width} × ${scaled.height}` : "—"}</div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                    <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h3>
-                    <div className="mt-3 space-y-2">
-                      {checks.slice(0, 5).map((check) => (
-                        <div key={check.id} className={`rounded-[var(--radius-sm)] border p-2 text-xs ${statusClasses(check.severity)}`}>
-                          <div className="font-black">{check.title}</div>
-                          <div className="mt-1 leading-5 opacity-85">{check.message}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div>
-                      <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production export</h3>
-                      <p className="text-xs text-[var(--color-text-tertiary)]">Copy modern CSS, markup, React, or design tokens.</p>
-                    </div>
-                    <CopyButton text={exportMap[activeExport]} size="sm" variant="secondary">Copy {activeExport.toUpperCase()}</CopyButton>
-                  </div>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {(["css", "html", "react", "tokens"] as ExportTab[]).map((tab) => (
-                      <Button key={tab} size="sm" variant={activeExport === tab ? "soft" : "secondary"} aria-pressed={activeExport === tab} onClick={() => setActiveExport(tab)}>
-                        {labelCase(tab)}
-                      </Button>
-                    ))}
-                  </div>
-                  <pre className="mt-3 max-h-[280px] overflow-auto rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] p-3 text-xs text-[var(--color-text-primary)]"><code>{exportMap[activeExport]}</code></pre>
-                </div>
-              </>
-            ) : (
-              <div className="flex min-h-[360px] items-center justify-center text-sm text-[var(--color-text-tertiary)]">Enter a width and height to see the ratio studio.</div>
-            )}
-          </div>
-        </section>
+        </div>
       }
-      statsSlot={
+      codeSlot={
+        <div className="space-y-4">
+          <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(280px,0.8fr)]">
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-sm font-black text-[var(--color-text-primary)]">Responsive scale ladder</h3>
+                <CopyButton text={scaleText} size="sm" variant="secondary">Copy sizes</CopyButton>
+              </div>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                {SCALE_OPTIONS.map((scale) => {
+                  const scaled = scaledDimensions(width, height, scale);
+                  return (
+                    <div key={scale} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-2 text-xs">
+                      <div className="font-black text-[var(--color-text-primary)]">{scale}%</div>
+                      <div className="mt-1 truncate font-mono text-[var(--color-text-secondary)]">{scaled ? `${scaled.width} × ${scaled.height}` : "—"}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+              <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h3>
+              <div className="mt-3 space-y-2">
+                {checks.slice(0, 5).map((check) => (
+                  <div key={check.id} className={`rounded-[var(--radius-sm)] border p-2 text-xs ${statusClasses(check.severity)}`}>
+                    <div className="font-black">{check.title}</div>
+                    <div className="mt-1 leading-5 opacity-85">{check.message}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production export</h3>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Copy modern CSS, markup, React, or design tokens.</p>
+              </div>
+              <CopyButton text={exportMap[activeExport]} size="sm" variant="secondary">Copy {activeExport.toUpperCase()}</CopyButton>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {(["css", "html", "react", "tokens"] as ExportTab[]).map((tab) => (
+                <Button key={tab} size="sm" variant={activeExport === tab ? "soft" : "secondary"} aria-pressed={activeExport === tab} onClick={() => setActiveExport(tab)}>
+                  {labelCase(tab)}
+                </Button>
+              ))}
+            </div>
+            <pre className="mt-3 max-h-[280px] overflow-auto rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] p-3 text-xs text-[var(--color-text-primary)]"><code>{exportMap[activeExport]}</code></pre>
+          </div>
+        </div>
+      }
+      presetsSlot={
         <WarningPanel
           messages={[
             { id: "workflow", severity: "info", title: "Designer workflow", message: "Pick a real target size, verify the crop, then copy CSS or tokens for implementation." },

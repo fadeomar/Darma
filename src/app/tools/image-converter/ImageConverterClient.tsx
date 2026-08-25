@@ -7,7 +7,6 @@ import {
   ControlGrid,
   ControlSection,
   ResultPanel,
-  ToolActionBar,
   ToolControlPanel,
   WarningPanel,
 } from "@/features/tools/components";
@@ -158,9 +157,6 @@ export default function ImageConverterClient() {
   const selectedConverted = selectedSource ? converted.find((item) => item.id === selectedSource.id) ?? null : null;
   const totalOriginalSize = sources.reduce((sum, source) => sum + source.file.size, 0);
   const totalOutputSize = converted.reduce((sum, item) => sum + item.size, 0);
-  const convertedSummary = converted.length
-    ? `${converted.length} converted image${converted.length === 1 ? "" : "s"} / ${formatBytes(totalOutputSize)}`
-    : "";
 
   const estimatedDimensions = useMemo(() => {
     if (!selectedSource) return null;
@@ -301,18 +297,100 @@ export default function ImageConverterClient() {
     setError("");
   }
 
-  function samplePreset() {
-    applyPreset(IMAGE_CONVERTER_PRESETS.find((preset) => preset.id === "website-hero") ?? IMAGE_CONVERTER_PRESETS[0]);
-  }
-
   return (
     <ToolLayoutSingleUtility
       resultSlot={
         <ResultPanel
-          title="Image workbench"
-          description="Upload images, choose conversion and resize settings, then export optimized files locally."
+          title="Image converter"
+          description="Convert, resize, and compare images locally before you download them."
           value={
-            <div className="grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(280px,1.05fr)]">
+            sources.length ? (
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 sm:p-4">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="truncate text-sm font-black text-[var(--color-text-primary)]">
+                        {selectedSource?.file.name ?? "Selected image"}
+                      </p>
+                      <Badge variant="outline">{sources.length} image{sources.length === 1 ? "" : "s"}</Badge>
+                      <Badge variant="success">Browser-only</Badge>
+                    </div>
+                    <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
+                      Choose the destination format, preview the result, then fine-tune quality or dimensions only if needed.
+                    </p>
+                  </div>
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() => inputRef.current?.click()}
+                    leftIcon={<Images className="h-4 w-4" aria-hidden />}
+                  >
+                    Add images
+                  </Button>
+                </div>
+
+                <div className="flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4">
+                  <div className="min-w-0">
+                    <p className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Convert to</p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {exportFormatOptions.map((item) => (
+                        <button
+                          key={item.value}
+                          type="button"
+                          onClick={() => patchSettings({ format: item.value })}
+                          className={`rounded-full border px-3 py-1.5 text-xs font-black transition focus:outline-none focus:shadow-[var(--focus-ring)] ${
+                            settings.format === item.value
+                              ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                              : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
+                          }`}
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <Button
+                    onClick={convertAll}
+                    loading={converting}
+                    leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}
+                    className="sm:self-end"
+                  >
+                    Convert {sources.length > 1 ? `${sources.length} images` : "image"}
+                  </Button>
+                </div>
+
+                <div className="grid gap-4 lg:grid-cols-2">
+                  <PreviewCard title="Original" source={selectedSource} />
+                  <OutputPreviewCard source={selectedSource} converted={selectedConverted} />
+                </div>
+
+                {converted.length ? (
+                  <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 sm:p-4">
+                    <div className="grid gap-2 sm:grid-cols-4">
+                      <Stat label="Original" value={formatBytes(totalOriginalSize)} />
+                      <Stat label="Converted" value={formatBytes(totalOutputSize)} />
+                      <Stat label="Savings" value={`${savingsPercent(totalOriginalSize, totalOutputSize)}%`} />
+                      <Stat label="Ready" value={`${converted.length}/${sources.length}`} />
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {selectedConverted ? (
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => downloadOne(selectedConverted)}
+                          leftIcon={<Download className="h-4 w-4" aria-hidden />}
+                        >
+                          Download selected
+                        </Button>
+                      ) : null}
+                      <Button size="sm" onClick={downloadAll} leftIcon={<Download className="h-4 w-4" aria-hidden />}>
+                        Download all
+                      </Button>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            ) : (
               <div
                 onDragOver={(event) => {
                   event.preventDefault();
@@ -320,10 +398,11 @@ export default function ImageConverterClient() {
                 }}
                 onDragLeave={() => setIsDragging(false)}
                 onDrop={handleDrop}
-                className={`flex min-h-[260px] flex-col items-center justify-center rounded-[var(--radius-lg)] border border-dashed p-6 text-center transition ${
+                onClick={() => inputRef.current?.click()}
+                className={`flex min-h-[380px] cursor-pointer flex-col items-center justify-center rounded-[var(--radius-lg)] border border-dashed p-6 text-center transition sm:min-h-[440px] ${
                   isDragging
                     ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
-                    : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"
+                    : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"
                 }`}
               >
                 <input
@@ -334,175 +413,193 @@ export default function ImageConverterClient() {
                   multiple
                   onChange={handlePicker}
                 />
-                <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)]">
-                  <Upload className="h-6 w-6" aria-hidden />
+                <div className="flex h-16 w-16 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-tertiary)] shadow-[var(--shadow-sm)]">
+                  <Upload className="h-7 w-7" aria-hidden />
                 </div>
-                <h2 className="mt-4 text-xl font-black text-[var(--color-text-primary)]">Drop images here</h2>
-                <p className="mt-2 max-w-sm text-sm leading-6 text-[var(--color-text-secondary)]">
-                  Pick PNG, JPEG, WebP, GIF, BMP, or other browser-readable images. Conversion stays in your browser.
+                <h2 className="mt-5 text-2xl font-black text-[var(--color-text-primary)]">Drop images here</h2>
+                <p className="mt-2 max-w-md text-sm leading-6 text-[var(--color-text-secondary)]">
+                  PNG, JPEG, WebP, GIF, BMP, or another browser-readable image. Add one image or a whole batch.
                 </p>
-                <Button className="mt-4" onClick={() => inputRef.current?.click()} leftIcon={<ImageIcon className="h-4 w-4" aria-hidden />}>
+                <Button
+                  className="mt-5"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    inputRef.current?.click();
+                  }}
+                  leftIcon={<ImageIcon className="h-4 w-4" aria-hidden />}
+                >
                   Choose images
                 </Button>
-                <p className="mt-3 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-                  Up to {formatBytes(MAX_IMAGE_FILE_SIZE_BYTES)} each
-                </p>
+                <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold text-[var(--color-text-tertiary)]">
+                  <span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1">Up to {formatBytes(MAX_IMAGE_FILE_SIZE_BYTES)} each</span>
+                  <span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1">Batch supported</span>
+                  <span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1">Processed locally</span>
+                </div>
               </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <PreviewCard title="Original" source={selectedSource} />
-                <OutputPreviewCard source={selectedSource} converted={selectedConverted} />
-              </div>
-            </div>
+            )
           }
-          actions={
-            <Button size="sm" variant="secondary" disabled={!converted.length} onClick={downloadAll} leftIcon={<Download className="h-4 w-4" aria-hidden />}>
-              Download all
-            </Button>
-          }
-        />
-      }
-      actionsSlot={
-        <ToolActionBar
-          copyText={convertedSummary}
-          onDownload={downloadAll}
-          onReset={reset}
-          onSample={samplePreset}
         />
       }
       controlsSlot={
-        <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(320px,380px)]">
-          <ToolControlPanel title="Conversion options" description="Choose output format, size, crop behavior, and compression." sticky={false}>
-            <ControlSection title="Files">
-              {sources.length ? (
-                <div className="grid gap-2">
-                  {sources.map((source) => {
-                    const output = converted.find((item) => item.id === source.id);
-                    return (
-                      <button
-                        key={source.id}
-                        type="button"
-                        onClick={() => setSelectedId(source.id)}
-                        className={`rounded-[var(--radius-md)] border p-3 text-left transition focus:outline-none focus:shadow-[var(--focus-ring)] ${
-                          selectedSource?.id === source.id
-                            ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
-                            : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between gap-3">
-                          <span className="min-w-0 truncate text-sm font-black text-[var(--color-text-primary)]">{source.file.name}</span>
-                          {output ? <Badge variant="success">Converted</Badge> : null}
-                        </div>
-                        <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
-                          {source.width} x {source.height} / {formatBytes(source.file.size)}
-                        </p>
-                      </button>
-                    );
-                  })}
+        sources.length ? (
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(300px,360px)] lg:items-start">
+            <ToolControlPanel title="Fine tune" description="Defaults are ready to use. Open only the settings you need." sticky={false}>
+              <ControlSection title="Compression">
+                <Field
+                  label={`Quality: ${Math.round(settings.quality * 100)}%`}
+                  description="Used for JPEG and WebP. PNG ignores quality because it is lossless."
+                >
+                  <Slider
+                    min={35}
+                    max={100}
+                    step={1}
+                    value={Math.round(settings.quality * 100)}
+                    disabled={settings.format === "image/png"}
+                    onChange={(event) => patchSettings({ quality: Number(event.target.value) / 100 })}
+                  />
+                </Field>
+              </ControlSection>
+
+              <details className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
+                <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+                  Resize & fit
+                  {estimatedDimensions ? (
+                    <span className="ml-2 text-xs font-semibold text-[var(--color-text-tertiary)]">
+                      {estimatedDimensions.width} x {estimatedDimensions.height}
+                    </span>
+                  ) : null}
+                </summary>
+                <div className="mt-4 space-y-4">
+                  <ControlGrid columns={2}>
+                    <Field label="Width">
+                      <Input
+                        type="number"
+                        min={0}
+                        value={settings.width || ""}
+                        onChange={(event) => updateWidth(event.target.value)}
+                        placeholder={selectedSource ? String(selectedSource.width) : "Auto"}
+                      />
+                    </Field>
+                    <Field label="Height">
+                      <Input
+                        type="number"
+                        min={0}
+                        value={settings.height || ""}
+                        onChange={(event) => updateHeight(event.target.value)}
+                        placeholder={selectedSource ? String(selectedSource.height) : "Auto"}
+                      />
+                    </Field>
+                  </ControlGrid>
+                  <label className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)]">
+                    <input
+                      type="checkbox"
+                      checked={settings.keepAspectRatio}
+                      onChange={(event) => patchSettings({ keepAspectRatio: event.target.checked })}
+                      className="h-4 w-4 accent-[var(--color-primary)]"
+                    />
+                    Keep aspect ratio
+                  </label>
+                  <Field label={`Scale: ${settings.scalePercent}%`} description="Used when width and height are left empty.">
+                    <Slider
+                      min={10}
+                      max={200}
+                      step={5}
+                      value={settings.scalePercent}
+                      onChange={(event) => patchSettings({ scalePercent: Number(event.target.value), width: 0, height: 0 })}
+                    />
+                  </Field>
+                  <Field label="Fit mode" description="Contain keeps everything, cover crops, stretch fills exactly.">
+                    <Select value={settings.fitMode} onChange={(event) => patchSettings({ fitMode: event.target.value as ImageFitMode })}>
+                      <option value="contain">Contain</option>
+                      <option value="cover">Cover</option>
+                      <option value="stretch">Stretch</option>
+                    </Select>
+                  </Field>
                 </div>
-              ) : (
-                <Card padding="sm" className="text-sm leading-6 text-[var(--color-text-secondary)]">
-                  Upload images to see file details and conversion previews.
-                </Card>
-              )}
-            </ControlSection>
+              </details>
 
-            <ControlSection title="Format">
-              <Field label="Output format" description="Keep original uses PNG, JPEG, or WebP when the source is supported.">
-                <Select value={settings.format} onChange={(event) => patchSettings({ format: event.target.value as ImageExportFormat })}>
-                  {exportFormatOptions.map((item) => (
-                    <option key={item.value} value={item.value}>{item.label}</option>
+              <details className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
+                <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+                  Quick presets
+                </summary>
+                <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {IMAGE_CONVERTER_PRESETS.map((preset) => (
+                    <button
+                      key={preset.id}
+                      type="button"
+                      onClick={() => applyPreset(preset)}
+                      className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-3 text-left transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+                    >
+                      <span className="block text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
+                      <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
+                    </button>
                   ))}
-                </Select>
-              </Field>
-            </ControlSection>
+                </div>
+              </details>
 
-            <ControlSection title="Resize">
-              <ControlGrid columns={2}>
-                <Field label="Width">
-                  <Input type="number" min={0} value={settings.width || ""} onChange={(event) => updateWidth(event.target.value)} placeholder={selectedSource ? String(selectedSource.width) : "Auto"} />
-                </Field>
-                <Field label="Height">
-                  <Input type="number" min={0} value={settings.height || ""} onChange={(event) => updateHeight(event.target.value)} placeholder={selectedSource ? String(selectedSource.height) : "Auto"} />
-                </Field>
-              </ControlGrid>
-              <label className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)]">
-                <input type="checkbox" checked={settings.keepAspectRatio} onChange={(event) => patchSettings({ keepAspectRatio: event.target.checked })} className="h-4 w-4 accent-[var(--color-primary)]" />
-                Keep aspect ratio
-              </label>
-              <Field label={`Scale: ${settings.scalePercent}%`} description="Used when width and height are left empty.">
-                <Slider min={10} max={200} step={5} value={settings.scalePercent} onChange={(event) => patchSettings({ scalePercent: Number(event.target.value), width: 0, height: 0 })} />
-              </Field>
-              <Field label="Fit mode" description="Contain keeps the whole image, cover crops, stretch fills exactly.">
-                <Select value={settings.fitMode} onChange={(event) => patchSettings({ fitMode: event.target.value as ImageFitMode })}>
-                  <option value="contain">Contain</option>
-                  <option value="cover">Cover</option>
-                  <option value="stretch">Stretch</option>
-                </Select>
-              </Field>
-              {estimatedDimensions ? (
-                <p className="text-xs font-semibold text-[var(--color-text-tertiary)]">
-                  Estimated output: {estimatedDimensions.width} x {estimatedDimensions.height}
-                </p>
-              ) : null}
-            </ControlSection>
-
-            <ControlSection title="Compression">
-              <Field label={`Quality: ${Math.round(settings.quality * 100)}%`} description="Applies to JPEG and WebP. Canvas export naturally strips most metadata.">
-                <Slider min={35} max={100} step={1} value={Math.round(settings.quality * 100)} disabled={settings.format === "image/png"} onChange={(event) => patchSettings({ quality: Number(event.target.value) / 100 })} />
-              </Field>
-            </ControlSection>
-
-            <div className="flex flex-wrap gap-2">
-              <Button onClick={convertAll} loading={converting} disabled={!sources.length} leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}>
-                Convert images
-              </Button>
-              <Button variant="secondary" onClick={() => inputRef.current?.click()} leftIcon={<Images className="h-4 w-4" aria-hidden />}>
-                Add more
-              </Button>
-            </div>
-          </ToolControlPanel>
-
-          <div className="space-y-5">
-            <ToolControlPanel title="Presets" description="Start from common creator, web, and sharing sizes." sticky={false}>
-              <div className="grid gap-2">
-                {IMAGE_CONVERTER_PRESETS.map((preset) => (
-                  <button
-                    key={preset.id}
-                    type="button"
-                    onClick={() => applyPreset(preset)}
-                    className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-                  >
-                    <span className="block text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
-                    <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
-                  </button>
-                ))}
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  onClick={convertAll}
+                  loading={converting}
+                  leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}
+                >
+                  Convert images
+                </Button>
+                <Button variant="secondary" onClick={() => inputRef.current?.click()} leftIcon={<Images className="h-4 w-4" aria-hidden />}>
+                  Add more
+                </Button>
+                <Button variant="ghost" onClick={reset}>Reset</Button>
               </div>
             </ToolControlPanel>
 
-            <ToolControlPanel title="File size comparison" description="After conversion, compare original and output sizes." sticky={false}>
-              <div className="grid grid-cols-2 gap-3 text-sm">
-                <Stat label="Original" value={formatBytes(totalOriginalSize)} />
-                <Stat label="Converted" value={converted.length ? formatBytes(totalOutputSize) : "-"} />
-                <Stat label="Savings" value={converted.length ? `${savingsPercent(totalOriginalSize, totalOutputSize)}%` : "-"} />
-                <Stat label="Files" value={`${converted.length}/${sources.length}`} />
+            <ToolControlPanel title="Images" description="Select an image to compare its original and converted versions." sticky>
+              <div className="grid gap-2">
+                {sources.map((source) => {
+                  const output = converted.find((item) => item.id === source.id);
+                  return (
+                    <button
+                      key={source.id}
+                      type="button"
+                      onClick={() => setSelectedId(source.id)}
+                      className={`rounded-[var(--radius-md)] border p-3 text-left transition focus:outline-none focus:shadow-[var(--focus-ring)] ${
+                        selectedSource?.id === source.id
+                          ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
+                          : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="min-w-0 truncate text-sm font-black text-[var(--color-text-primary)]">{source.file.name}</span>
+                        {output ? <Badge variant="success">Ready</Badge> : null}
+                      </div>
+                      <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
+                        {source.width} x {source.height} · {formatBytes(source.file.size)}
+                      </p>
+                    </button>
+                  );
+                })}
               </div>
-              {selectedSource && selectedConverted ? (
-                <Button className="mt-4" size="sm" variant="secondary" onClick={() => downloadOne(selectedConverted)} leftIcon={<Download className="h-4 w-4" aria-hidden />}>
-                  Download selected
-                </Button>
+
+              {converted.length ? (
+                <details className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
+                  <summary className="cursor-pointer list-none text-sm font-black text-[var(--color-text-primary)]">Batch result</summary>
+                  <div className="mt-3 grid grid-cols-2 gap-2">
+                    <Stat label="Original" value={formatBytes(totalOriginalSize)} />
+                    <Stat label="Converted" value={formatBytes(totalOutputSize)} />
+                    <Stat label="Savings" value={`${savingsPercent(totalOriginalSize, totalOutputSize)}%`} />
+                    <Stat label="Files" value={`${converted.length}/${sources.length}`} />
+                  </div>
+                </details>
               ) : null}
             </ToolControlPanel>
           </div>
-        </div>
+        ) : null
       }
       infoSlot={
-        <WarningPanel
-          messages={[
-            ...(error ? [{ id: "error", severity: "warning" as const, title: "Image note", message: error }] : []),
-            { id: "privacy", severity: "info" as const, title: "Browser-only", message: "Images are decoded, resized, and exported locally with canvas. Files are not uploaded to a server." },
-          ]}
-        />
+        error ? (
+          <WarningPanel
+            messages={[{ id: "error", severity: "warning" as const, title: "Image note", message: error }]}
+          />
+        ) : null
       }
     />
   );
@@ -510,21 +607,26 @@ export default function ImageConverterClient() {
 
 function PreviewCard({ title, source }: { title: string; source: SourceImage | null }) {
   return (
-    <Card padding="md" className="min-w-0">
-      <h3 className="text-sm font-black text-[var(--color-text-primary)]">{title}</h3>
+    <Card padding="md" className="min-w-0 overflow-hidden">
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="text-sm font-black text-[var(--color-text-primary)]">{title}</h3>
+        {source ? <Badge variant="outline">{source.width} x {source.height}</Badge> : null}
+      </div>
       {source ? (
         <>
           {/* Plain img is appropriate here because object URLs are local browser blobs. */}
-          <img src={source.url} alt="Original upload preview" className="mt-3 h-64 w-full rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] object-contain" />
-          <dl className="mt-3 grid grid-cols-2 gap-2 text-xs leading-5 text-[var(--color-text-secondary)]">
-            <div><dt className="font-bold">File</dt><dd className="truncate">{source.file.name}</dd></div>
-            <div><dt className="font-bold">Size</dt><dd>{formatBytes(source.file.size)}</dd></div>
-            <div><dt className="font-bold">Dimensions</dt><dd>{source.width} x {source.height}</dd></div>
-            <div><dt className="font-bold">Type</dt><dd>{source.file.type || "Image"}</dd></div>
-          </dl>
+          <img
+            src={source.url}
+            alt="Original upload preview"
+            className="mt-3 h-72 w-full rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] object-contain sm:h-80 lg:h-[360px]"
+          />
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs leading-5 text-[var(--color-text-secondary)]">
+            <span className="min-w-0 truncate font-semibold">{source.file.name}</span>
+            <span>{formatBytes(source.file.size)} · {source.file.type || "Image"}</span>
+          </div>
         </>
       ) : (
-        <div className="mt-3 flex h-64 items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] text-sm text-[var(--color-text-tertiary)]">
+        <div className="mt-3 flex h-72 items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] text-sm text-[var(--color-text-tertiary)] sm:h-80 lg:h-[360px]">
           No image selected.
         </div>
       )}
@@ -534,21 +636,34 @@ function PreviewCard({ title, source }: { title: string; source: SourceImage | n
 
 function OutputPreviewCard({ source, converted }: { source: SourceImage | null; converted: ConvertedImage | null }) {
   return (
-    <Card padding="md" className="min-w-0">
-      <h3 className="text-sm font-black text-[var(--color-text-primary)]">Output preview</h3>
+    <Card padding="md" className="min-w-0 overflow-hidden">
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="text-sm font-black text-[var(--color-text-primary)]">Converted</h3>
+        {converted ? (
+          <Badge variant={source && savingsPercent(source.file.size, converted.size) >= 0 ? "success" : "outline"}>
+            {source ? `${savingsPercent(source.file.size, converted.size)}% smaller` : "Ready"}
+          </Badge>
+        ) : null}
+      </div>
       {converted ? (
         <>
-          <img src={converted.url} alt="Converted output preview" className="mt-3 h-64 w-full rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] object-contain" />
-          <dl className="mt-3 grid grid-cols-2 gap-2 text-xs leading-5 text-[var(--color-text-secondary)]">
-            <div><dt className="font-bold">File</dt><dd className="truncate">{converted.name}</dd></div>
-            <div><dt className="font-bold">Size</dt><dd>{formatBytes(converted.size)}</dd></div>
-            <div><dt className="font-bold">Dimensions</dt><dd>{converted.width} x {converted.height}</dd></div>
-            <div><dt className="font-bold">Savings</dt><dd>{source ? `${savingsPercent(source.file.size, converted.size)}%` : "-"}</dd></div>
-          </dl>
+          <img
+            src={converted.url}
+            alt="Converted output preview"
+            className="mt-3 h-72 w-full rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] object-contain sm:h-80 lg:h-[360px]"
+          />
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs leading-5 text-[var(--color-text-secondary)]">
+            <span className="min-w-0 truncate font-semibold">{converted.name}</span>
+            <span>{formatBytes(converted.size)} · {converted.width} x {converted.height}</span>
+          </div>
         </>
       ) : (
-        <div className="mt-3 flex h-64 items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] px-4 text-center text-sm leading-6 text-[var(--color-text-tertiary)]">
-          Converted preview appears after export.
+        <div className="mt-3 flex h-72 flex-col items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] px-4 text-center sm:h-80 lg:h-[360px]">
+          <RefreshCw className="h-6 w-6 text-[var(--color-text-tertiary)]" aria-hidden />
+          <p className="mt-3 text-sm font-black text-[var(--color-text-primary)]">Ready to convert</p>
+          <p className="mt-1 max-w-xs text-xs leading-5 text-[var(--color-text-tertiary)]">
+            Choose a format above and convert to compare the result side by side.
+          </p>
         </div>
       )}
     </Card>

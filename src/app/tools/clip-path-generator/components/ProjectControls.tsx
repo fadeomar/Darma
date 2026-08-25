@@ -62,38 +62,54 @@ export function ProjectControls({
 }) {
   return (
     <section aria-labelledby="project-controls-title" className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <h2 id="project-controls-title" className="text-sm font-black text-[var(--color-text-primary)]">Project controls</h2>
+      <div>
+        <h2 id="project-controls-title" className="text-sm font-black text-[var(--color-text-primary)]">Canvas</h2>
+        <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Undo edits and choose the working ratio.</p>
+      </div>
+
       <div className="mt-3 grid grid-cols-3 gap-2">
         <Button size="sm" variant="secondary" leftIcon={<Undo2 className="h-4 w-4" />} onClick={onUndo} disabled={!canUndo}>Undo</Button>
         <Button size="sm" variant="secondary" leftIcon={<Redo2 className="h-4 w-4" />} onClick={onRedo} disabled={!canRedo}>Redo</Button>
         <Button size="sm" variant="secondary" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={onReset}>Reset</Button>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2">
-        <label className="text-xs font-bold text-[var(--color-text-secondary)]">
-          Canvas ratio
-          <Select className="mt-1" size="sm" value={aspectRatio} onChange={(event) => onAspectRatioChange(event.target.value as CanvasAspectRatio)}>
-            <option value="square">Square</option>
-            <option value="4:3">4:3</option>
-            <option value="16:9">16:9</option>
-            <option value="9:16">9:16</option>
-            <option value="free">Free</option>
-          </Select>
-        </label>
-        <label className="text-xs font-bold text-[var(--color-text-secondary)]">
-          Snap size (%)
-          <Input className="mt-1" size="sm" type="number" min={MIN_SNAP_SIZE} max={MAX_SNAP_SIZE} value={snapSize} disabled={!snapEnabled} title={!snapEnabled ? "Enable snapping from the stage toolbar first" : "Grid spacing in percent"} onChange={(event) => onSnapSizeChange(Number(event.target.value))} />
-        </label>
-      </div>
+      <label className="mt-4 block text-xs font-bold text-[var(--color-text-secondary)]">
+        Canvas ratio
+        <Select className="mt-1" size="sm" value={aspectRatio} onChange={(event) => onAspectRatioChange(event.target.value as CanvasAspectRatio)}>
+          <option value="square">Square</option>
+          <option value="4:3">4:3</option>
+          <option value="16:9">16:9</option>
+          <option value="9:16">9:16</option>
+          <option value="free">Free</option>
+        </Select>
+      </label>
       {aspectRatio === "free" ? (
         <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">
           Free adapts to the available workspace; manual canvas resizing is not available.
         </p>
       ) : null}
 
-      <div className="mt-4">
-        <h3 className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transforms</h3>
-        <div className="mt-2 grid grid-cols-2 gap-2">
+      <details className="mt-4 border-t border-[var(--color-border-subtle)] pt-3">
+        <summary className="cursor-pointer text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-secondary)] outline-none focus-visible:shadow-[var(--focus-ring)]">
+          Shape transforms & snapping
+        </summary>
+
+        <label className="mt-3 block text-xs font-bold text-[var(--color-text-secondary)]">
+          Snap size (%)
+          <Input
+            className="mt-1"
+            size="sm"
+            type="number"
+            min={MIN_SNAP_SIZE}
+            max={MAX_SNAP_SIZE}
+            value={snapSize}
+            disabled={!snapEnabled}
+            title={!snapEnabled ? "Enable snapping from the stage toolbar first" : "Grid spacing in percent"}
+            onChange={(event) => onSnapSizeChange(Number(event.target.value))}
+          />
+        </label>
+
+        <div className="mt-3 grid grid-cols-2 gap-2">
           <Button size="sm" variant="ghost" leftIcon={<Shuffle className="h-4 w-4" />} onClick={onReverse}>Reverse</Button>
           <Button size="sm" variant="ghost" leftIcon={<AlignCenter className="h-4 w-4" />} onClick={onCenter} disabled={!validShape} title={!validShape ? "Fix validation errors first" : undefined}>Center</Button>
           <Button size="sm" variant="ghost" leftIcon={<FlipHorizontal2 className="h-4 w-4" />} onClick={onMirrorX}>Mirror X</Button>
@@ -102,15 +118,16 @@ export function ProjectControls({
           <Button size="sm" variant="ghost" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={onRotateCounterclockwise} disabled={!validShape} title={!validShape ? "Fix validation errors first" : "Rotate 90 degrees counterclockwise"}>Rotate CCW</Button>
           <Button className="col-span-2" size="sm" variant="ghost" leftIcon={<Maximize className="h-4 w-4" />} onClick={onFit} disabled={!validShape} title={!validShape ? "Fix validation errors first" : "Fit the shape inside safe bounds"}>Fit safe bounds</Button>
         </div>
+
         <div className="mt-3 grid grid-cols-[1fr_auto_auto] items-end gap-2">
           <label className="text-xs font-bold text-[var(--color-text-secondary)]">
             Scale step (%)
             <Input className="mt-1" size="sm" type="number" min={1} max={40} value={scaleStep} onChange={(event) => onScaleStepChange(Math.min(40, Math.max(1, Number(event.target.value) || 1)))} />
           </label>
-          <Button size="sm" variant="secondary" onClick={() => onScale(-scaleStep)} disabled={!validShape} title={!validShape ? "Fix validation errors first" : `Scale inward by ${scaleStep}%`}>Inward</Button>
-          <Button size="sm" variant="secondary" onClick={() => onScale(scaleStep)} disabled={!validShape} title={!validShape ? "Fix validation errors first" : `Scale outward by ${scaleStep}%`}>Outward</Button>
+          <Button size="sm" variant="secondary" onClick={() => onScale(-scaleStep)} disabled={!validShape} title={!validShape ? "Fix validation errors first" : `Scale inward by ${scaleStep}%`}>In</Button>
+          <Button size="sm" variant="secondary" onClick={() => onScale(scaleStep)} disabled={!validShape} title={!validShape ? "Fix validation errors first" : `Scale outward by ${scaleStep}%`}>Out</Button>
         </div>
-      </div>
+      </details>
     </section>
   );
 }

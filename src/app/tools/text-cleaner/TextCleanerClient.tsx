@@ -5,8 +5,8 @@ import { useMemo, useRef, useState } from "react";
 import {
   Archive,
   Braces,
-  ChevronLeft,
-  ChevronRight,
+  ChevronDown,
+  ChevronUp,
   FileJson,
   FileText,
   Play,
@@ -313,7 +313,7 @@ export default function TextCleanerClient({
     <ToolLayoutTextWorkbench
       inputSlot={
         <EditorPanel
-          title="Input text"
+          title="1. Source text"
           language="Text"
           value={input}
           onChange={setInput}
@@ -324,7 +324,7 @@ export default function TextCleanerClient({
       }
       outputSlot={
         <EditorPanel
-          title="Output"
+          title="2. Cleaned result"
           language="Text"
           value={output}
           readOnly
@@ -365,8 +365,8 @@ export default function TextCleanerClient({
       }
       optionsSlot={
         <ToolControlPanel
-          title="Text Cleaner Studio"
-          description="Build an ordered workflow, compare the result, and export a reusable local production pack."
+          title="3. Build the cleaning workflow"
+          description="Choose a preset or assemble ordered cleanup steps. Processing stays in this browser; workflow exports never include your source text."
           sticky={false}
         >
           <ControlSection
@@ -423,7 +423,7 @@ export default function TextCleanerClient({
                       onClick={() => movePipelineAction(index, -1)}
                       aria-label={`Move ${transform.label} earlier`}
                       leftIcon={
-                        <ChevronLeft className="h-3.5 w-3.5" aria-hidden />
+                        <ChevronUp className="h-3.5 w-3.5" aria-hidden />
                       }
                     >
                       Move earlier
@@ -436,7 +436,7 @@ export default function TextCleanerClient({
                       onClick={() => movePipelineAction(index, 1)}
                       aria-label={`Move ${transform.label} later`}
                       leftIcon={
-                        <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+                        <ChevronDown className="h-3.5 w-3.5" aria-hidden />
                       }
                     >
                       Move later
@@ -574,19 +574,25 @@ export default function TextCleanerClient({
       }
       statsSlot={
         <div className="space-y-4">
-          <section
-            className="grid grid-cols-2 gap-3"
-            aria-label="Text Cleaner summary"
-          >
-            {summaryCards.map((card) => (
-              <SummaryCard key={card.label} {...card} />
-            ))}
-          </section>
-
           {importMessage ? <WarningPanel messages={[importMessage]} /> : null}
 
           <ToolControlPanel
-            title="Production checks"
+            title="4. Cleanup snapshot"
+            description="Compare the current source and the last generated result before shipping or chaining another pass."
+            sticky={false}
+          >
+            <section
+              className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1"
+              aria-label="Text Cleaner summary"
+            >
+              {summaryCards.map((card) => (
+                <SummaryCard key={card.label} {...card} />
+              ))}
+            </section>
+          </ToolControlPanel>
+
+          <ToolControlPanel
+            title="5. Production checks"
             description="Review workflow order, result freshness, destructive steps, performance, and export privacy."
             sticky={false}
           >
@@ -594,8 +600,8 @@ export default function TextCleanerClient({
           </ToolControlPanel>
 
           <ToolControlPanel
-            title="Workflow and exports"
-            description="Workflow JSON excludes text. Reports exclude source content; the ZIP intentionally includes the cleaned result."
+            title="6. Production handoff"
+            description="Export the reusable workflow, audit artifacts, or the cleaned result pack. Workflow JSON and reports exclude source content; the ZIP intentionally includes the cleaned result."
             sticky={false}
           >
             <input

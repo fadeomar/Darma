@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import QRCode from "qrcode";
 import {
@@ -75,6 +75,54 @@ const qrTypes: Array<{ value: QRContentType; label: string; description: string;
   { value: "event", label: "Calendar event", description: "Share event details", icon: <CalendarDays className="h-4 w-4" aria-hidden /> },
 ];
 
+// The primary field of the active QR type. It has to read as an editable input
+// before it is focused, so it sits on an inset surface with a strong border
+// instead of the near-panel-coloured control background.
+const primaryFieldClass =
+  "border-[var(--color-border-strong)] bg-[var(--color-surface-inset)] font-medium shadow-[var(--shadow-sm)]";
+
+type PrimaryField = HTMLInputElement | HTMLTextAreaElement;
+
+/** Nearest ancestor that actually scrolls, stopping before the page itself. */
+function findScrollableAncestor(node: HTMLElement) {
+  let current = node.parentElement;
+  while (current && current !== document.body) {
+    const overflowY = window.getComputedStyle(current).overflowY;
+    if ((overflowY === "auto" || overflowY === "scroll" || overflowY === "overlay") && current.scrollHeight > current.clientHeight + 1) {
+      return current;
+    }
+    current = current.parentElement;
+  }
+  return null;
+}
+
+/**
+ * Scrolls only the Controls panel so the active field's section is in view.
+ * Never touches page scroll: no scrollIntoView, and focus uses preventScroll.
+ * Returns false when the panel is not measurable yet, so the caller can retry.
+ */
+function revealInControlsPanel(node: PrimaryField, behavior: ScrollBehavior) {
+  const container = findScrollableAncestor(node);
+  if (!container) return false;
+
+  // Leaves a sliver of the previous section on screen so the panel still reads
+  // as scrollable and the QR type list is obviously just above.
+  const headroom = 56;
+  const containerRect = container.getBoundingClientRect();
+  const section = node.closest("section") ?? node;
+  const sectionOffset = section.getBoundingClientRect().top - containerRect.top;
+  const nodeRect = node.getBoundingClientRect();
+
+  let top = container.scrollTop + sectionOffset - headroom;
+  // If the section header pushes the field itself below the fold, prefer the field.
+  if (nodeRect.bottom - containerRect.top - (sectionOffset - headroom) > container.clientHeight) {
+    top = container.scrollTop + (nodeRect.bottom - containerRect.top) - container.clientHeight + 16;
+  }
+
+  container.scrollTo({ top: Math.max(0, top), behavior });
+  return true;
+}
+
 function normalizeHex(value: string) {
   if (/^#[0-9a-fA-F]{3}$/.test(value)) {
     const [, r, g, b] = value;
@@ -126,6 +174,8 @@ function auditVariant(severity: QRAuditCheck["severity"]): "danger" | "warning" 
 
 export default function QRCodeClient() {
   const importInputRef = useRef<HTMLInputElement>(null);
+  const primaryFieldRef = useRef<PrimaryField | null>(null);
+  const hasRevealedRef = useRef(false);
   const [form, setForm] = useState<QRFormState>(DEFAULT_QR_FORM);
   const [options, setOptions] = useState<QROptions>(DEFAULT_QR_OPTIONS);
   const [pngUrl, setPngUrl] = useState("");
@@ -149,6 +199,49 @@ export default function QRCodeClient() {
   const auditCounts = useMemo(() => summarizeQRAudit(auditChecks), [auditChecks]);
   const projectJson = useMemo(() => JSON.stringify(createQRProject(form, options), null, 2), [form, options]);
   const markdownReport = useMemo(() => buildQRMarkdownReport(form, options, auditChecks), [auditChecks, form, options]);
+
+  const setPrimaryField = useCallback((node: PrimaryField | null) => {
+    primaryFieldRef.current = node;
+  }, []);
+
+  // On load, and whenever the QR type changes, bring that type's primary field
+  // into view inside the Controls panel and hand it the caret so a paste works
+  // straight away. Desktop only: on narrow screens the panel is not a separate
+  // scroll area and stealing focus would open the on-screen keyboard.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(min-width: 1024px)").matches) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior: ScrollBehavior = hasRevealedRef.current && !reduceMotion ? "smooth" : "auto";
+    let attempts = 0;
+    let frame = 0;
+    let cancelled = false;
+
+    const run = () => {
+      if (cancelled) return;
+      const node = primaryFieldRef.current;
+      if (!node) return;
+
+      const revealed = revealInControlsPanel(node, attempts === 0 ? behavior : "auto");
+      if (document.activeElement !== node) node.focus({ preventScroll: true });
+      attempts += 1;
+
+      // During hydration the panel can still be unmeasured; retry a few frames.
+      if (!revealed && attempts < 6) {
+        frame = window.requestAnimationFrame(run);
+        return;
+      }
+      hasRevealedRef.current = true;
+    };
+
+    run();
+
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(frame);
+    };
+  }, [form.type]);
 
   const patchForm = (patch: Partial<QRFormState>) => {
     setImportMessage("");
@@ -352,10 +445,10 @@ export default function QRCodeClient() {
         />
       }
       controlsSlot={
-        <div className="grid gap-5 xl:grid-cols-[minmax(0,1.2fr)_minmax(300px,0.8fr)]">
+        <div className="grid min-w-0 gap-5">
           <ToolControlPanel title="Create your QR code" description="Choose what happens when someone scans, then enter only the fields that matter." sticky={false}>
             <ControlSection title="QR type">
-              <div className="grid gap-2 sm:grid-cols-2">
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
                 {qrTypes.map((type) => (
                   <button
                     key={type.value}
@@ -374,7 +467,7 @@ export default function QRCodeClient() {
               </div>
             </ControlSection>
             <ControlSection title={`${activeType.label} details`}>
-              <QRFields form={form} patchForm={patchForm} />
+              <QRFields form={form} patchForm={patchForm} primaryFieldRef={setPrimaryField} />
             </ControlSection>
           </ToolControlPanel>
 
@@ -488,14 +581,26 @@ export default function QRCodeClient() {
 function QRFields({
   form,
   patchForm,
+  primaryFieldRef,
 }: {
   form: QRFormState;
   patchForm: (patch: Partial<QRFormState>) => void;
+  primaryFieldRef: (node: PrimaryField | null) => void;
 }) {
   if (form.type === "url") {
     return (
-      <Field label="Website URL">
-        <Input value={form.url} onChange={(event) => patchForm({ url: event.target.value })} placeholder="https://example.com" />
+      <Field label="Website URL" hint="Paste a full link, including https://">
+        <Input
+          ref={primaryFieldRef}
+          value={form.url}
+          onChange={(event) => patchForm({ url: event.target.value })}
+          placeholder="Paste your website URL here"
+          className={primaryFieldClass}
+          type="url"
+          inputMode="url"
+          autoComplete="url"
+          spellCheck={false}
+        />
       </Field>
     );
   }
@@ -503,7 +608,7 @@ function QRFields({
   if (form.type === "text") {
     return (
       <Field label="Text">
-        <Textarea value={form.text} onChange={(event) => patchForm({ text: event.target.value })} minRows={6} placeholder="Type the note, code, or message to encode." />
+        <Textarea ref={primaryFieldRef} value={form.text} onChange={(event) => patchForm({ text: event.target.value })} minRows={6} placeholder="Type the note, code, or message to encode." className={primaryFieldClass} />
       </Field>
     );
   }
@@ -512,7 +617,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="WhatsApp phone">
-          <Input value={form.whatsappPhone} onChange={(event) => patchForm({ whatsappPhone: event.target.value })} placeholder="+15551234567" />
+          <Input ref={primaryFieldRef} value={form.whatsappPhone} onChange={(event) => patchForm({ whatsappPhone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
         </Field>
         <Field label="Message">
           <Textarea value={form.whatsappMessage} onChange={(event) => patchForm({ whatsappMessage: event.target.value })} minRows={4} placeholder="Hi, I would like to..." />
@@ -525,7 +630,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="Email address">
-          <Input value={form.emailTo} onChange={(event) => patchForm({ emailTo: event.target.value })} placeholder="hello@example.com" />
+          <Input ref={primaryFieldRef} value={form.emailTo} onChange={(event) => patchForm({ emailTo: event.target.value })} placeholder="hello@example.com" className={primaryFieldClass} />
         </Field>
         <Field label="Subject">
           <Input value={form.emailSubject} onChange={(event) => patchForm({ emailSubject: event.target.value })} placeholder="Question about..." />
@@ -540,7 +645,7 @@ function QRFields({
   if (form.type === "phone") {
     return (
       <Field label="Phone number">
-        <Input value={form.phone} onChange={(event) => patchForm({ phone: event.target.value })} placeholder="+15551234567" />
+        <Input ref={primaryFieldRef} value={form.phone} onChange={(event) => patchForm({ phone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
       </Field>
     );
   }
@@ -549,7 +654,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="SMS phone number">
-          <Input value={form.smsPhone} onChange={(event) => patchForm({ smsPhone: event.target.value })} placeholder="+15551234567" />
+          <Input ref={primaryFieldRef} value={form.smsPhone} onChange={(event) => patchForm({ smsPhone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
         </Field>
         <Field label="Message">
           <Textarea value={form.smsMessage} onChange={(event) => patchForm({ smsMessage: event.target.value })} minRows={4} placeholder="Optional SMS message." />
@@ -562,7 +667,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="Network name">
-          <Input value={form.wifiSsid} onChange={(event) => patchForm({ wifiSsid: event.target.value })} placeholder="Guest WiFi" />
+          <Input ref={primaryFieldRef} value={form.wifiSsid} onChange={(event) => patchForm({ wifiSsid: event.target.value })} placeholder="Guest WiFi" className={primaryFieldClass} />
         </Field>
         <ControlGrid columns={2}>
           <Field label="Security">
@@ -589,7 +694,7 @@ function QRFields({
       <div className="grid gap-3">
         <ControlGrid columns={2}>
           <Field label="First name">
-            <Input value={form.contactFirstName} onChange={(event) => patchForm({ contactFirstName: event.target.value })} />
+            <Input ref={primaryFieldRef} value={form.contactFirstName} onChange={(event) => patchForm({ contactFirstName: event.target.value })} className={primaryFieldClass} />
           </Field>
           <Field label="Last name">
             <Input value={form.contactLastName} onChange={(event) => patchForm({ contactLastName: event.target.value })} />
@@ -626,7 +731,7 @@ function QRFields({
       <div className="grid gap-3">
         <ControlGrid columns={2}>
           <Field label="Latitude">
-            <Input value={form.latitude} onChange={(event) => patchForm({ latitude: event.target.value })} placeholder="31.7683" />
+            <Input ref={primaryFieldRef} value={form.latitude} onChange={(event) => patchForm({ latitude: event.target.value })} placeholder="31.7683" className={primaryFieldClass} />
           </Field>
           <Field label="Longitude">
             <Input value={form.longitude} onChange={(event) => patchForm({ longitude: event.target.value })} placeholder="35.2137" />
@@ -642,7 +747,7 @@ function QRFields({
   return (
     <div className="grid gap-3">
       <Field label="Event title">
-        <Input value={form.eventTitle} onChange={(event) => patchForm({ eventTitle: event.target.value })} placeholder="Open Studio" />
+        <Input ref={primaryFieldRef} value={form.eventTitle} onChange={(event) => patchForm({ eventTitle: event.target.value })} placeholder="Open Studio" className={primaryFieldClass} />
       </Field>
       <ControlGrid columns={2}>
         <Field label="Start">

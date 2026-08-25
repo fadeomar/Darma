@@ -232,21 +232,14 @@ export default function RegexTesterClient() {
 
   return (
     <div className="space-y-4">
-      <section className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label="Regex summary">
-        <SummaryCard label="Status" value={status} hint={statusHint} />
-        <SummaryCard label="Matches" value={matches.length.toLocaleString()} hint={`${patternStats.captureGroups} capture group(s) · ${coverage.toFixed(1)}% coverage`} />
-        <SummaryCard label="Backtracking" value={risk.level[0].toUpperCase() + risk.level.slice(1)} hint={executionBlocked ? "Browser preview guarded" : "Preview within guardrails"} />
-        <SummaryCard label="Readiness" value={`${metrics.readinessScore}/100`} hint={`${metrics.dangerChecks} blocking · ${metrics.warningChecks} warning(s)`} />
-      </section>
-
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
         <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical presets</h2>
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Quick starts</h2>
             </div>
-            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start from a real extraction, cleanup, validation, or transform pattern.</p>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start from a real extraction, cleanup, validation, or transform pattern, then refine it in the workbench below.</p>
           </div>
           <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
         </div>
@@ -267,52 +260,12 @@ export default function RegexTesterClient() {
         </div>
       </section>
 
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <FileArchive className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Project and production handoff</h2>
-            </div>
-            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Reopen the exact pattern later or export code, evidence, and audit files together.</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <input
-              ref={importInputRef}
-              type="file"
-              accept="application/json,.json"
-              className="hidden"
-              onChange={(event) => {
-                const file = event.target.files?.[0];
-                if (file) void importProject(file);
-                event.target.value = "";
-              }}
-            />
-            <Button size="sm" variant="secondary" leftIcon={<FileUp className="h-3.5 w-3.5" />} onClick={() => importInputRef.current?.click()}>Import project</Button>
-            <Button size="sm" variant="secondary" leftIcon={<FileJson className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-project.json", projectJson, "application/json;charset=utf-8")}>Project JSON</Button>
-            <Button size="sm" variant="secondary" leftIcon={<FileText className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-report.md", markdownReport, "text/markdown;charset=utf-8")}>Audit</Button>
-            <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-matches.csv", matchesCsv, "text/csv;charset=utf-8")}>CSV</Button>
-            <Button size="sm" variant="primary" leftIcon={<FileArchive className="h-3.5 w-3.5" />} loading={packBusy} disabled={!metrics.valid} onClick={() => void downloadProductionPack()}>Production ZIP</Button>
-          </div>
-        </div>
-        {importStatus ? (
-          <div role="status" className={`border-b px-4 py-2 text-xs font-semibold ${importStatus.tone === "success" ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]"}`}>
-            {importStatus.message}
-          </div>
-        ) : null}
-        <div className="grid gap-2 p-3 text-xs text-[var(--color-text-secondary)] sm:grid-cols-3">
-          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Portable project</strong><span className="mt-1 block leading-5">Includes pattern, flags, replacement, and test text. Maximum import size: 1 MB.</span></div>
-          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Developer modules</strong><span className="mt-1 block leading-5">The ZIP includes standalone JavaScript and typed TypeScript modules.</span></div>
-          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Privacy review</strong><span className="mt-1 block leading-5">Exports contain the sample input and replacement output. Remove real credentials first.</span></div>
-        </div>
-      </section>
-
       <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:items-stretch">
         <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
           <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
-                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Pattern and test input</h2>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">1. Pattern and test input</h2>
                 <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Uses the native JavaScript RegExp engine.</p>
               </div>
               <CopyButton text={`/${pattern}/${flags}`} size="sm" variant="secondary">Copy regex</CopyButton>
@@ -405,7 +358,7 @@ export default function RegexTesterClient() {
         <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-code-border)] [border-top:2px_solid_var(--color-primary)] bg-[var(--color-code-bg)] shadow-[var(--shadow-md)]" aria-live="polite">
           <div className="flex flex-col gap-3 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-sm font-bold text-[var(--color-code-text)]">Live regex inspector</h2>
+              <h2 className="text-sm font-bold text-[var(--color-code-text)]">2. Live regex inspector</h2>
               <p className="mt-1 text-xs text-[var(--color-code-muted)]">Highlight matches, inspect captures, preview replacement, or export code.</p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -537,11 +490,27 @@ export default function RegexTesterClient() {
         </section>
       </div>
 
+      <section className="space-y-2" aria-label="Regex analysis summary">
+        <div className="flex flex-wrap items-end justify-between gap-2 px-1">
+          <div>
+            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">3. Analysis summary</h2>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Review match coverage, backtracking risk, and readiness after testing the pattern.</p>
+          </div>
+          <span className="text-xs font-semibold text-[var(--color-text-tertiary)]">JavaScript RegExp · browser-local</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+          <SummaryCard label="Status" value={status} hint={statusHint} />
+          <SummaryCard label="Matches" value={matches.length.toLocaleString()} hint={`${patternStats.captureGroups} capture group(s) · ${coverage.toFixed(1)}% coverage`} />
+          <SummaryCard label="Backtracking" value={risk.level[0].toUpperCase() + risk.level.slice(1)} hint={executionBlocked ? "Browser preview guarded" : "Preview within guardrails"} />
+          <SummaryCard label="Readiness" value={`${metrics.readinessScore}/100`} hint={`${metrics.dangerChecks} blocking · ${metrics.warningChecks} warning(s)`} />
+        </div>
+      </section>
+
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2>
+            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">4. Production checks</h2>
           </div>
           <span className="text-xs text-[var(--color-text-tertiary)]">Heuristics supplement tests; they do not prove a regex is ReDoS-safe.</span>
         </div>
@@ -555,6 +524,46 @@ export default function RegexTesterClient() {
               <p className="mt-1.5 text-xs leading-5 opacity-90">{check.message}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <FileArchive className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">5. Project and production handoff</h2>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Reopen the exact pattern later or export code, evidence, and audit files together.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) void importProject(file);
+                event.target.value = "";
+              }}
+            />
+            <Button size="sm" variant="secondary" leftIcon={<FileUp className="h-3.5 w-3.5" />} onClick={() => importInputRef.current?.click()}>Import project</Button>
+            <Button size="sm" variant="secondary" leftIcon={<FileJson className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-project.json", projectJson, "application/json;charset=utf-8")}>Project JSON</Button>
+            <Button size="sm" variant="secondary" leftIcon={<FileText className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-report.md", markdownReport, "text/markdown;charset=utf-8")}>Audit</Button>
+            <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-matches.csv", matchesCsv, "text/csv;charset=utf-8")}>CSV</Button>
+            <Button size="sm" variant="primary" leftIcon={<FileArchive className="h-3.5 w-3.5" />} loading={packBusy} disabled={!metrics.valid} onClick={() => void downloadProductionPack()}>Production ZIP</Button>
+          </div>
+        </div>
+        {importStatus ? (
+          <div role="status" className={`border-b px-4 py-2 text-xs font-semibold ${importStatus.tone === "success" ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]"}`}>
+            {importStatus.message}
+          </div>
+        ) : null}
+        <div className="grid gap-2 p-3 text-xs text-[var(--color-text-secondary)] sm:grid-cols-3">
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Portable project</strong><span className="mt-1 block leading-5">Includes pattern, flags, replacement, and test text. Maximum import size: 1 MB.</span></div>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Developer modules</strong><span className="mt-1 block leading-5">The ZIP includes standalone JavaScript and typed TypeScript modules.</span></div>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Privacy review</strong><span className="mt-1 block leading-5">Exports contain the sample input and replacement output. Remove real credentials first.</span></div>
         </div>
       </section>
     </div>

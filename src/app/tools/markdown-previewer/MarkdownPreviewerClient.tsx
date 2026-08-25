@@ -242,16 +242,45 @@ export default function MarkdownPreviewerClient() {
 
   return (
     <div className="space-y-4">
-      <div className="grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Start with a document or preset</h2>
+              <span className="rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-success-text)]">Local only</span>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Choose a practical starting point, then write, preview, inspect, and export without sending Markdown to a server.</p>
+          </div>
+          <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
+        </div>
+        <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {MARKDOWN_PRESETS.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              aria-pressed={selectedPreset === preset.id}
+              onClick={() => applyPreset(preset)}
+              className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === preset.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
+            >
+              <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
+              <span className="mt-1 block truncate font-mono text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
+              <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <div className="grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <section data-tool-region="input" className="order-1 flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-input-border)] bg-[var(--color-tool-input-bg)] shadow-[var(--shadow-tool-controls)] lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
           <div className="flex flex-col gap-3 border-b border-[var(--color-tool-input-border)] bg-[var(--color-tool-input-header)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
                 <FileText className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Markdown source</h2>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">1. Write Markdown</h2>
                 <span className={`rounded-full border px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] ${options.livePreview ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] text-[var(--color-text-tertiary)]"}`}>{options.livePreview ? "Live" : "Manual"}</span>
               </div>
-              <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Edit locally. Press Ctrl/⌘ + Enter to refresh the preview.</p>
+              <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Edit locally, import a file, or insert common syntax. Press Ctrl/⌘ + Enter to refresh when live preview is off.</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <input ref={fileInputRef} type="file" accept=".md,.markdown,.mdown,.mkd,.txt,text/markdown,text/plain" className="hidden" onChange={importMarkdown} />
@@ -300,7 +329,7 @@ export default function MarkdownPreviewerClient() {
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
                 <Eye className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Document preview</h2>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">2. Preview &amp; inspect</h2>
                 {previewStale ? <span className="rounded-full border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-warning-text)]">Stale</span> : null}
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Always sanitized before rendering. Raw HTML never executes.</p>
@@ -365,38 +394,19 @@ export default function MarkdownPreviewerClient() {
         secondary={!options.livePreview ? <Button size="sm" variant="secondary" onClick={renderNow}>Render</Button> : <CopyButton text={rendered.sanitizedHtml} size="sm" variant="secondary">Copy HTML</CopyButton>}
       />
 
-      <section className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label="Markdown summary">
+      <section className="space-y-3" aria-label="Markdown analysis summary">
+        <div className="flex flex-wrap items-end justify-between gap-2 px-1">
+          <div>
+            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">3. Document snapshot</h2>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Review quality and structure after you have seen the rendered document.</p>
+          </div>
+          <span className="text-xs text-[var(--color-text-tertiary)]">Analysis follows the latest editor content.</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
         <SummaryCard label="Quality" value={`${analysis.score}/100`} hint={`${qualityLabel} · ${problemCount} review item${problemCount === 1 ? "" : "s"}`} tone={qualityTone(analysis.score)} />
         <SummaryCard label="Document" value={`${analysis.stats.words.toLocaleString()} words`} hint={`${analysis.stats.readingTimeMinutes} min read · ${analysis.stats.lines} lines`} />
         <SummaryCard label="Structure" value={`${analysis.stats.headings} headings`} hint={`${analysis.stats.listItems} list items · ${analysis.stats.tables} tables`} />
         <SummaryCard label="Assets" value={`${analysis.stats.links} links`} hint={`${analysis.stats.codeBlocks} code blocks · ${analysis.stats.images} images`} />
-      </section>
-
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical document presets</h2>
-            </div>
-            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start with a real README, API reference, release note, runbook, article, or meeting format.</p>
-          </div>
-          <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
-        </div>
-        <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {MARKDOWN_PRESETS.map((preset) => (
-            <button
-              key={preset.id}
-              type="button"
-              aria-pressed={selectedPreset === preset.id}
-              onClick={() => applyPreset(preset)}
-              className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === preset.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
-            >
-              <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
-              <span className="mt-1 block truncate font-mono text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
-              <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
-            </button>
-          ))}
         </div>
       </section>
 
@@ -405,9 +415,9 @@ export default function MarkdownPreviewerClient() {
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <Gauge className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Workflow controls and exports</h2>
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">4. Preview behavior &amp; document outline</h2>
             </div>
-            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Control refresh behavior, link output, and downloadable deliverables.</p>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Tune refresh and link behavior, then use the generated outline to inspect document structure.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <CopyButton text={input} size="sm" variant="secondary">Copy Markdown</CopyButton>
@@ -415,27 +425,19 @@ export default function MarkdownPreviewerClient() {
           </div>
         </div>
         <div className="grid gap-4 p-3.5 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.8fr)] sm:p-4">
-          <div className="space-y-4">
-            <div className="grid gap-2 sm:grid-cols-3">
-              <button type="button" aria-pressed={options.livePreview} onClick={() => toggleOption("livePreview")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.livePreview ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
-                <span className="block text-xs font-bold text-[var(--color-text-primary)]">Live preview</span>
-                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.livePreview ? "Refreshes while typing" : "Refresh only on command"}</span>
-              </button>
-              <button type="button" aria-pressed={options.githubLineBreaks} onClick={() => toggleOption("githubLineBreaks")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.githubLineBreaks ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
-                <span className="block text-xs font-bold text-[var(--color-text-primary)]">GitHub line breaks</span>
-                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.githubLineBreaks ? "Single newlines render" : "Paragraphs wrap normally"}</span>
-              </button>
-              <button type="button" aria-pressed={options.openLinksInNewTab} onClick={() => toggleOption("openLinksInNewTab")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.openLinksInNewTab ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
-                <span className="block text-xs font-bold text-[var(--color-text-primary)]">External link tabs</span>
-                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.openLinksInNewTab ? "Adds noopener + noreferrer" : "Links use the same tab"}</span>
-              </button>
-            </div>
-
-            <div className="grid gap-2 sm:grid-cols-3">
-              <Button variant="secondary" leftIcon={<FileText className="h-4 w-4" />} onClick={downloadMarkdown}>Download .md</Button>
-              <Button variant="secondary" leftIcon={<FileCode2 className="h-4 w-4" />} onClick={downloadHtml}>Standalone HTML</Button>
-              <Button variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={downloadReport}>JSON report</Button>
-            </div>
+          <div className="grid gap-2 sm:grid-cols-3">
+            <button type="button" aria-pressed={options.livePreview} onClick={() => toggleOption("livePreview")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.livePreview ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
+              <span className="block text-xs font-bold text-[var(--color-text-primary)]">Live preview</span>
+              <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.livePreview ? "Refreshes while typing" : "Refresh only on command"}</span>
+            </button>
+            <button type="button" aria-pressed={options.githubLineBreaks} onClick={() => toggleOption("githubLineBreaks")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.githubLineBreaks ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
+              <span className="block text-xs font-bold text-[var(--color-text-primary)]">GitHub line breaks</span>
+              <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.githubLineBreaks ? "Single newlines render" : "Paragraphs wrap normally"}</span>
+            </button>
+            <button type="button" aria-pressed={options.openLinksInNewTab} onClick={() => toggleOption("openLinksInNewTab")} className={`rounded-[var(--radius-md)] border p-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${options.openLinksInNewTab ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"}`}>
+              <span className="block text-xs font-bold text-[var(--color-text-primary)]">External link tabs</span>
+              <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{options.openLinksInNewTab ? "Adds noopener + noreferrer" : "Links use the same tab"}</span>
+            </button>
           </div>
 
           <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
@@ -463,7 +465,7 @@ export default function MarkdownPreviewerClient() {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
-            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2>
+            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">5. Production checks</h2>
           </div>
           <span className="text-xs text-[var(--color-text-tertiary)]">Structure, safety, portability, links, accessibility, and editor size.</span>
         </div>
@@ -477,6 +479,24 @@ export default function MarkdownPreviewerClient() {
               <p className="mt-1.5 text-xs leading-5 opacity-90">{check.message}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <FileCode2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">6. Production handoff</h2>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Download the source, a portable sanitized HTML document, or a structured analysis report.</p>
+          </div>
+          <span className="rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-success-text)]">Safe local export</span>
+        </div>
+        <div className="grid gap-2 p-3 sm:grid-cols-3">
+          <Button variant="secondary" leftIcon={<FileText className="h-4 w-4" />} onClick={downloadMarkdown}>Download .md</Button>
+          <Button variant="secondary" leftIcon={<FileCode2 className="h-4 w-4" />} onClick={downloadHtml}>Standalone HTML</Button>
+          <Button variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={downloadReport}>JSON report</Button>
         </div>
       </section>
     </div>

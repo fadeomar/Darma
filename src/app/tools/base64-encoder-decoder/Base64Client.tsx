@@ -295,24 +295,29 @@ export default function Base64Client() {
     : decodeResult?.ok ? decodeResult.mimeType.split(";")[0] : decodeOptions.alphabet === "auto" ? "Auto detect" : decodeOptions.alphabet;
 
   return <div className="space-y-4">
-    <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-      <SummaryCard label="Source" value={formatBytes(mode === "encode" ? sourceBytes : new TextEncoder().encode(input).length)} hint={sourceKind === "file" && fileState ? fileState.name : `${input.length.toLocaleString()} characters`} />
-      <SummaryCard label={mode === "encode" ? "Encoded output" : "Decoded bytes"} value={mode === "encode" ? `${stats.encodedCharacters.toLocaleString()} chars` : formatBytes(decodedBytes)} hint={mode === "encode" ? `${stats.overheadPercent}% Base64 overhead` : decodeResult?.text === null ? "Binary payload" : "UTF-8 text payload"} />
-      <SummaryCard label="Profile" value={profileValue} hint={mode === "encode" ? `${activeEncodeOptions.outputKind === "data-url" ? "No" : activeEncodeOptions.lineWrap || "No"} line wrap${activeEncodeOptions.removePadding ? " · no padding" : ""}` : `${decodeResult?.detectedAlphabet ?? "neutral"} alphabet`} />
-      <SummaryCard label="Production review" value={reviewCount ? `${reviewCount} flag${reviewCount === 1 ? "" : "s"}` : "Ready"} hint={`${checks.length} checks · local only`} />
-    </div>
-
-    <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
       <main className="min-w-0 space-y-4">
         <Card>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <SegmentedControl<Base64Mode>
-              ariaLabel="Base64 operation"
-              value={mode}
-              onChange={changeMode}
-              options={[{ value: "encode", label: "Encode" }, { value: "decode", label: "Decode" }]}
-            />
-            <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transform setup</div>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <SegmentedControl<Base64Mode>
+                  ariaLabel="Base64 operation"
+                  value={mode}
+                  onChange={changeMode}
+                  options={[{ value: "encode", label: "Encode" }, { value: "decode", label: "Decode" }]}
+                />
+                {mode === "encode" ? <SegmentedControl<Base64SourceKind>
+                  ariaLabel="Encode source"
+                  value={sourceKind}
+                  onChange={(value) => { setSourceKind(value); setFileError(""); }}
+                  options={[{ value: "text", label: "Text" }, { value: "file", label: "File" }]}
+                /> : null}
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center justify-end gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-info-border)] bg-[var(--color-info-bg)] px-2.5 py-1 text-xs font-bold text-[var(--color-info-text)]"><ShieldCheck className="h-3.5 w-3.5" />Local only</span>
               <Button size="sm" variant="secondary" disabled={!canSwap} onClick={swapDirection}><RefreshCw className="h-4 w-4" />Swap direction</Button>
               <Button size="sm" variant="ghost" onClick={() => { setInput(""); setFileState(null); setFileError(""); }}>Clear</Button>
             </div>
@@ -325,12 +330,7 @@ export default function Base64Client() {
               <h2 className="font-bold text-[var(--color-text-primary)]">{mode === "encode" ? "Source data" : "Base64 input"}</h2>
               <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">{mode === "encode" ? "Encode UTF-8 text or raw file bytes without uploading them." : "Paste standard Base64, Base64URL, wrapped MIME content, or a Data URL."}</p>
             </div>
-            {mode === "encode" ? <SegmentedControl<Base64SourceKind>
-              ariaLabel="Encode source"
-              value={sourceKind}
-              onChange={(value) => { setSourceKind(value); setFileError(""); }}
-              options={[{ value: "text", label: "Text" }, { value: "file", label: "File" }]}
-            /> : <Button size="sm" variant="secondary" onClick={() => textFileInputRef.current?.click()}><FileUp className="h-4 w-4" />Import .txt</Button>}
+            {mode === "decode" ? <Button size="sm" variant="secondary" onClick={() => textFileInputRef.current?.click()}><FileUp className="h-4 w-4" />Import .txt</Button> : <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-bold text-[var(--color-text-tertiary)]">{sourceKind === "file" ? "Raw file bytes" : "UTF-8 text"}</span>}
           </div>
 
           {mode === "encode" && sourceKind === "file" ? <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-subtle)] p-5 text-center">
@@ -403,6 +403,13 @@ export default function Base64Client() {
             <pre className="max-h-[420px] overflow-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-surface)] p-4 text-xs leading-6 text-[var(--color-code-text)]"><code>{codeSnippet}</code></pre>
           </div> : null}
         </Card>
+
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          <SummaryCard label="Source" value={formatBytes(mode === "encode" ? sourceBytes : new TextEncoder().encode(input).length)} hint={sourceKind === "file" && fileState ? fileState.name : `${input.length.toLocaleString()} characters`} />
+          <SummaryCard label={mode === "encode" ? "Encoded output" : "Decoded bytes"} value={mode === "encode" ? `${stats.encodedCharacters.toLocaleString()} chars` : formatBytes(decodedBytes)} hint={mode === "encode" ? `${stats.overheadPercent}% Base64 overhead` : decodeResult?.text === null ? "Binary payload" : "UTF-8 text payload"} />
+          <SummaryCard label="Profile" value={profileValue} hint={mode === "encode" ? `${activeEncodeOptions.outputKind === "data-url" ? "No" : activeEncodeOptions.lineWrap || "No"} line wrap${activeEncodeOptions.removePadding ? " · no padding" : ""}` : `${decodeResult?.detectedAlphabet ?? "neutral"} alphabet`} />
+          <SummaryCard label="Production review" value={reviewCount ? `${reviewCount} flag${reviewCount === 1 ? "" : "s"}` : "Ready"} hint={`${checks.length} checks · local only`} />
+        </div>
       </main>
 
       <aside className="min-w-0 space-y-4">

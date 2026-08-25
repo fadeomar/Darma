@@ -292,8 +292,8 @@ function SettingsPanel({
     <section data-tool-region="controls" className="order-1 rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-5 shadow-[var(--shadow-tool-controls)] sm:p-6 lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Policy and generator</p>
-          <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Settings</h2>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">2. Configure policy</p>
+          <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Generation settings</h2>
         </div>
         <Badge variant="outline">Secrets never exported</Badge>
       </div>
@@ -619,13 +619,27 @@ export default function PasswordGeneratorClient() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 sm:space-y-8">
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-4 py-3 sm:px-5">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Secure workflow</p>
+            <p className="mt-1 text-sm font-semibold text-[var(--color-text-primary)]">Generate → configure → audit → hand off safely</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="accent">Local only</Badge>
+            <Badge variant="soft">Web Crypto</Badge>
+            <Badge variant="outline">Secret never exported</Badge>
+          </div>
+        </div>
+      </section>
+
       <section className="grid gap-5 lg:grid-cols-[minmax(320px,var(--tool-controls-width))_minmax(0,1fr)] lg:items-start">
         <div id="password-result" data-tool-region="result" className="order-2 rounded-[var(--radius-xl)] border border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-bg)] p-3 shadow-[var(--shadow-tool-result)] sm:p-4">
           <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-result-border)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-sm)]">
             <div className="border-b border-[var(--color-tool-result-border)] bg-[linear-gradient(135deg,var(--color-tool-result-header),var(--color-accent-soft))] p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Generated secret</p>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">1. Generate and copy</p>
                   <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">
                     {error ? "Generation unavailable" : "Ready to copy"}
                   </h2>
@@ -694,17 +708,23 @@ export default function PasswordGeneratorClient() {
         <Button variant="secondary" onClick={regenerate} leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}>Regenerate</Button>
       </ToolMobileActions>
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {summary.map((card) => (
-          <SummaryCard key={card.label} {...card} />
-        ))}
-      </div>
+      <section aria-labelledby="password-policy-snapshot" className="space-y-3">
+        <div>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Policy snapshot</p>
+          <h2 id="password-policy-snapshot" className="mt-2 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Review the current configuration</h2>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {summary.map((card) => (
+            <SummaryCard key={card.label} {...card} />
+          ))}
+        </div>
+      </section>
 
       <section className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)]">
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Production audit</p>
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">3. Readiness audit</p>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Security readiness</h2>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
                 The audit compares current settings with the selected use case. It never checks the secret against an online breach service or sends it anywhere.
@@ -720,7 +740,7 @@ export default function PasswordGeneratorClient() {
         </div>
 
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Policy portability</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">4. Safe handoff</p>
           <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Import and export</h2>
           <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
             Downloads contain settings, code starters, and audit guidance only. The generated secret is never included.

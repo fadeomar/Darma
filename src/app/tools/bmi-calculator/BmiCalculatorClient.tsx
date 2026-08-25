@@ -537,7 +537,10 @@ export default function BmiCalculatorClient() {
             />
           </ControlSection>
 
-          <ControlSection title="Measurements">
+          <ControlSection
+            title="Core measurements"
+            description="Weight and height are the only values required to calculate BMI."
+          >
             {system === "metric" ? (
               <ControlGrid columns={2}>
                 <label className="text-xs font-semibold text-[var(--color-text-muted)]">
@@ -556,24 +559,6 @@ export default function BmiCalculatorClient() {
                     inputMode="decimal"
                     value={cm}
                     onChange={(event) => setCm(event.target.value)}
-                  />
-                </label>
-                <label className="text-xs font-semibold text-[var(--color-text-muted)]">
-                  Waist, optional (cm)
-                  <Input
-                    className="mt-1"
-                    inputMode="decimal"
-                    value={waistMetric}
-                    onChange={(event) => setWaistMetric(event.target.value)}
-                  />
-                </label>
-                <label className="text-xs font-semibold text-[var(--color-text-muted)]">
-                  Target weight, optional (kg)
-                  <Input
-                    className="mt-1"
-                    inputMode="decimal"
-                    value={targetMetric}
-                    onChange={(event) => setTargetMetric(event.target.value)}
                   />
                 </label>
               </ControlGrid>
@@ -608,26 +593,42 @@ export default function BmiCalculatorClient() {
                     />
                   </label>
                 </div>
-                <label className="text-xs font-semibold text-[var(--color-text-muted)]">
-                  Waist, optional (in)
-                  <Input
-                    className="mt-1"
-                    inputMode="decimal"
-                    value={waistImperial}
-                    onChange={(event) => setWaistImperial(event.target.value)}
-                  />
-                </label>
-                <label className="text-xs font-semibold text-[var(--color-text-muted)]">
-                  Target weight, optional (lb)
-                  <Input
-                    className="mt-1"
-                    inputMode="decimal"
-                    value={targetImperial}
-                    onChange={(event) => setTargetImperial(event.target.value)}
-                  />
-                </label>
               </ControlGrid>
             )}
+          </ControlSection>
+
+          <ControlSection
+            title="Optional measurements"
+            description="Add waist context or preview a target weight without changing the core BMI calculation."
+          >
+            <ControlGrid columns={2}>
+              <label className="text-xs font-semibold text-[var(--color-text-muted)]">
+                Waist, optional ({system === "metric" ? "cm" : "in"})
+                <Input
+                  className="mt-1"
+                  inputMode="decimal"
+                  value={system === "metric" ? waistMetric : waistImperial}
+                  onChange={(event) =>
+                    system === "metric"
+                      ? setWaistMetric(event.target.value)
+                      : setWaistImperial(event.target.value)
+                  }
+                />
+              </label>
+              <label className="text-xs font-semibold text-[var(--color-text-muted)]">
+                Target weight, optional ({system === "metric" ? "kg" : "lb"})
+                <Input
+                  className="mt-1"
+                  inputMode="decimal"
+                  value={system === "metric" ? targetMetric : targetImperial}
+                  onChange={(event) =>
+                    system === "metric"
+                      ? setTargetMetric(event.target.value)
+                      : setTargetImperial(event.target.value)
+                  }
+                />
+              </label>
+            </ControlGrid>
           </ControlSection>
 
           <ControlSection
@@ -680,21 +681,16 @@ export default function BmiCalculatorClient() {
             <Badge variant={statusVariant}>{auditSummary.label}</Badge>
           </div>
           <div className="flex flex-1 flex-col gap-4 p-4">
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              {summaryCards.map((card) => (
-                <SummaryCard key={card.label} {...card} />
-              ))}
-            </div>
             {valid && snapshot.category ? (
               <>
-                <div className="grid gap-3 lg:grid-cols-[1fr_1.15fr]">
-                  <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-5">
+                <div className="grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
+                  <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-5 shadow-[var(--shadow-xs)]">
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                           BMI score
                         </div>
-                        <div className="mt-1 text-6xl font-black tracking-tight text-[var(--color-text-primary)]">
+                        <div className="mt-1 text-6xl font-black tracking-tight text-[var(--color-text-primary)] sm:text-7xl">
                           {round1(snapshot.bmi)}
                         </div>
                       </div>
@@ -705,36 +701,50 @@ export default function BmiCalculatorClient() {
                     <p className="mt-4 text-sm leading-6 text-[var(--color-text-secondary)]">
                       {CATEGORY_EXPLANATION[snapshot.category]}
                     </p>
+                    <div className="mt-4 border-t border-[var(--color-border-subtle)] pt-3 text-sm text-[var(--color-text-secondary)]">
+                      <span className="font-bold text-[var(--color-text-primary)]">
+                        Healthy-range comparison:
+                      </span>{" "}
+                      {formatWeightDelta(snapshot.delta, system)}
+                    </div>
                   </div>
-                  <BmiScale bmi={snapshot.bmi} />
+
+                  <div className="space-y-3">
+                    <BmiScale bmi={snapshot.bmi} />
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-sm text-[var(--color-text-secondary)]">
+                        <div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                          Waist context
+                        </div>
+                        <p className="mt-1 font-semibold text-[var(--color-text-primary)]">
+                          {waistToHeightMessage(snapshot.waistRatio)}
+                        </p>
+                      </div>
+                      <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-sm text-[var(--color-text-secondary)]">
+                        <div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                          Target preview
+                        </div>
+                        <p className="mt-1 font-semibold text-[var(--color-text-primary)]">
+                          {Number.isFinite(snapshot.targetBmi)
+                            ? `BMI ${round1(snapshot.targetBmi)}${snapshot.targetCategory ? ` · ${CATEGORY_LABEL[snapshot.targetCategory]}` : ""}`
+                            : "Not set"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="grid gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm text-[var(--color-text-secondary)] sm:grid-cols-2">
-                  <div>
-                    <span className="font-bold text-[var(--color-text-primary)]">
-                      Healthy-range comparison:
-                    </span>{" "}
-                    {formatWeightDelta(snapshot.delta, system)}
-                  </div>
-                  <div>
-                    <span className="font-bold text-[var(--color-text-primary)]">
-                      Waist context:
-                    </span>{" "}
-                    {waistToHeightMessage(snapshot.waistRatio)}
-                  </div>
-                  <div>
-                    <span className="font-bold text-[var(--color-text-primary)]">
-                      Target preview:
-                    </span>{" "}
-                    {Number.isFinite(snapshot.targetBmi)
-                      ? `BMI ${round1(snapshot.targetBmi)}${snapshot.targetCategory ? ` · ${CATEGORY_LABEL[snapshot.targetCategory]}` : ""}`
-                      : "Not set"}
-                  </div>
-                  <div>
-                    <span className="font-bold text-[var(--color-text-primary)]">
-                      Method:
-                    </span>{" "}
-                    weight ÷ height²; waist ÷ height.
-                  </div>
+
+                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                  {summaryCards.map((card) => (
+                    <SummaryCard key={card.label} {...card} />
+                  ))}
+                </div>
+
+                <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-4 py-3 text-xs leading-5 text-[var(--color-text-secondary)]">
+                  <span className="font-bold text-[var(--color-text-primary)]">
+                    Method:
+                  </span>{" "}
+                  BMI uses weight ÷ height². Waist-to-height context uses waist ÷ height.
                 </div>
               </>
             ) : (

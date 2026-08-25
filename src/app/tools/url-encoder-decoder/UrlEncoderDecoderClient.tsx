@@ -175,31 +175,26 @@ export default function UrlEncoderDecoderClient() {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <SummaryCard
-          label="Conversion"
-          value={result.ok ? result.status : result.status}
-          hint={`${mode} · ${type}`}
-        />
-        <SummaryCard
-          label="Input type"
-          value={INPUT_KIND_LABELS[inspection.kind]}
-          hint={inspection.parseable ? "Structured inspection available" : "Processed as text"}
-        />
-        <SummaryCard
-          label="Query params"
-          value={stats.queryParameters.toLocaleString()}
-          hint={`${stats.uniqueQueryKeys.toLocaleString()} unique key${stats.uniqueQueryKeys === 1 ? "" : "s"}`}
-        />
-        <SummaryCard
-          label="Production review"
-          value={reviewCount ? `${reviewCount} to review` : "Clear"}
-          hint={`${stats.outputCharacters.toLocaleString()} output characters`}
-        />
-      </div>
-
       <Card>
-        <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-primary-soft)] px-2 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">
+                Step 1 · Transform setup
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-1 text-xs font-bold text-[var(--color-success-text)]">
+                <ShieldCheck className="h-3 w-3" />
+                Local only
+              </span>
+            </div>
+            <h2 className="mt-2 text-base font-black tracking-tight text-[var(--color-text-primary)]">
+              Choose how this value should be encoded or decoded
+            </h2>
+            <p className="mt-1 max-w-2xl text-xs leading-5 text-[var(--color-text-tertiary)]">
+              Pick a conversion direction and encoding strategy first, then work through the source, result, inspection, and production checks below.
+            </p>
+          </div>
+
           <div className="flex flex-wrap items-center gap-2">
             <SegmentedControl<UrlMode>
               ariaLabel="URL conversion mode"
@@ -233,39 +228,14 @@ export default function UrlEncoderDecoderClient() {
               Swap
             </Button>
           </div>
-
-          <div className="flex flex-wrap gap-2">
-            <CopyButton text={result.output} size="sm" variant="secondary" disabled={!result.output}>
-              Copy output
-            </CopyButton>
-            <Button
-              size="sm"
-              variant="secondary"
-              leftIcon={<Download className="h-3.5 w-3.5" />}
-              disabled={!result.output}
-              onClick={() => downloadText("url-output.txt", result.output)}
-            >
-              Output
-            </Button>
-            <Button
-              size="sm"
-              variant="secondary"
-              leftIcon={<Braces className="h-3.5 w-3.5" />}
-              onClick={() => downloadText("url-audit-report.json", reportJson, "application/json;charset=utf-8")}
-            >
-              JSON
-            </Button>
-            <Button
-              size="sm"
-              leftIcon={<FileArchive className="h-3.5 w-3.5" />}
-              onClick={downloadPack}
-            >
-              ZIP pack
-            </Button>
-          </div>
         </div>
 
-        <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+        <div className="mt-4 border-t border-[var(--color-border-subtle)] pt-3">
+          <div className="mb-2 flex items-center justify-between gap-3">
+            <MiniLabel>Quick starts</MiniLabel>
+            <span className="text-xs text-[var(--color-text-tertiary)]">Presets keep their matching mode and encoding type.</span>
+          </div>
+          <div className="flex gap-2 overflow-x-auto pb-1">
           {URL_PRESETS.map((preset) => (
             <button
               key={preset.id}
@@ -279,16 +249,17 @@ export default function UrlEncoderDecoderClient() {
               </span>
             </button>
           ))}
+          </div>
         </div>
       </Card>
 
-      <div className="grid gap-4 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
         <Card className="min-w-0">
-          <div className="mb-3 flex items-center justify-between gap-3">
+          <div className="mb-3 flex items-start justify-between gap-3">
             <div>
               <div className="flex items-center gap-2">
                 <Link2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
-                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Input</h2>
+                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Step 2 · Source input</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
                 Paste a full URL, path, query string, or individual value.
@@ -321,17 +292,21 @@ export default function UrlEncoderDecoderClient() {
         </Card>
 
         <Card className="min-w-0">
-          <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
                 <Code2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
-                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Output workspace</h2>
+                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Step 3 · Result &amp; inspector</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
                 Review the transformed value, parsed URL components, or implementation code.
               </p>
             </div>
-            <div className="flex rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-0.5">
+            <div className="flex flex-wrap items-center gap-2">
+              <CopyButton text={result.output} size="sm" variant="secondary" disabled={!result.output}>
+                Copy output
+              </CopyButton>
+              <div className="flex rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-0.5">
               {([
                 ["result", "Result"],
                 ["inspector", "Inspector"],
@@ -350,6 +325,7 @@ export default function UrlEncoderDecoderClient() {
                   {label}
                 </button>
               ))}
+              </div>
             </div>
           </div>
 
@@ -427,13 +403,44 @@ export default function UrlEncoderDecoderClient() {
         </Card>
       </div>
 
+      <div>
+        <div className="mb-2 flex items-center justify-between gap-3 px-1">
+          <div>
+            <MiniLabel>Step 4 · Analysis summary</MiniLabel>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">A compact readout after the conversion, not before it.</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <SummaryCard
+            label="Conversion"
+            value={result.status}
+            hint={`${mode} · ${type}`}
+          />
+          <SummaryCard
+            label="Input type"
+            value={INPUT_KIND_LABELS[inspection.kind]}
+            hint={inspection.parseable ? "Structured inspection available" : "Processed as text"}
+          />
+          <SummaryCard
+            label="Query params"
+            value={stats.queryParameters.toLocaleString()}
+            hint={`${stats.uniqueQueryKeys.toLocaleString()} unique key${stats.uniqueQueryKeys === 1 ? "" : "s"}`}
+          />
+          <SummaryCard
+            label="Production review"
+            value={reviewCount ? `${reviewCount} to review` : "Clear"}
+            hint={`${stats.outputCharacters.toLocaleString()} output characters`}
+          />
+        </div>
+      </div>
+
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
         <Card className="min-w-0">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
-                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Query parameter editor</h2>
+                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Step 5 · Query parameter editor</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
                 Edit decoded keys and values. The source URL is rebuilt with URLSearchParams encoding.
@@ -513,7 +520,7 @@ export default function UrlEncoderDecoderClient() {
             <div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
-                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h2>
+                <h2 className="text-sm font-black text-[var(--color-text-primary)]">Step 6 · Production checks</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Compatibility, parsing, and leakage risks.</p>
             </div>
@@ -541,6 +548,46 @@ export default function UrlEncoderDecoderClient() {
           </div>
         </Card>
       </div>
+
+      <Card>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <div className="flex items-center gap-2">
+              <FileArchive className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
+              <h2 className="text-sm font-black text-[var(--color-text-primary)]">Step 7 · Production handoff</h2>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
+              Export the transformed value, redacted audit report, or a complete local production pack.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              size="sm"
+              variant="secondary"
+              leftIcon={<Download className="h-3.5 w-3.5" />}
+              disabled={!result.output}
+              onClick={() => downloadText("url-output.txt", result.output)}
+            >
+              Output
+            </Button>
+            <Button
+              size="sm"
+              variant="secondary"
+              leftIcon={<Braces className="h-3.5 w-3.5" />}
+              onClick={() => downloadText("url-audit-report.json", reportJson, "application/json;charset=utf-8")}
+            >
+              JSON report
+            </Button>
+            <Button
+              size="sm"
+              leftIcon={<FileArchive className="h-3.5 w-3.5" />}
+              onClick={downloadPack}
+            >
+              ZIP pack
+            </Button>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }

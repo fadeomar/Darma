@@ -131,17 +131,29 @@ export default function JsonToTypescriptClient() {
     : undefined;
 
   return <div className="space-y-4">
-    <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-      <SummaryCard label="Root contract" value={output?.rootName ?? "—"} hint={stats ? `${stats.rootKind} root` : "Waiting for valid JSON"} />
-      <SummaryCard label="Declarations" value={output ? String(output.declarationCount) : "—"} hint={output ? `${options.outputStyle} output` : "Nested types appear here"} />
-      <SummaryCard label="Structure" value={stats ? `${stats.nodeCount} nodes` : "—"} hint={stats ? `Depth ${stats.maxDepth} · ${stats.propertyCount} properties` : "Local structural analysis"} />
-      <SummaryCard label="Production review" value={parsed.ok ? (reviewCount ? `${reviewCount} flag${reviewCount === 1 ? "" : "s"}` : "Ready") : "Invalid"} hint={parsed.ok ? `${checks.length} checks · ${output?.warnings.length ?? 0} inference notes` : "Fix JSON syntax first"} />
-    </div>
+    <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 shadow-[var(--shadow-sm)]">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Contract workflow</div>
+          <h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Representative JSON → generated contract → production review</h2>
+          <p className="mt-1 max-w-3xl text-xs leading-5 text-[var(--color-text-tertiary)]">Paste a realistic payload, tune inference rules, then review compile-time and runtime artifacts before handoff.</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2.5 py-1 text-xs font-bold text-[var(--color-success-text)]">Local only</span>
+          <span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1 font-mono text-xs text-[var(--color-text-tertiary)]">{parsed.ok ? `${checks.length} checks` : "Waiting for valid JSON"}</span>
+        </div>
+      </div>
+    </section>
 
     <div className="grid gap-4 2xl:grid-cols-[minmax(0,1fr)_350px]">
       <main className="min-w-0 space-y-4">
-        <div className="grid min-w-0 gap-4 xl:grid-cols-2">
-          <EditorPanel
+        <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          <div className="min-w-0">
+            <div className="mb-2 flex items-center justify-between gap-2 px-1">
+              <div><div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Step 1</div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Representative JSON</h2></div>
+              <span className="font-mono text-xs text-[var(--color-text-tertiary)]">{input.length.toLocaleString()} chars</span>
+            </div>
+            <EditorPanel
             title="Input JSON"
             language="JSON"
             value={input}
@@ -157,8 +169,14 @@ export default function JsonToTypescriptClient() {
             </>}
             footer={`${input.length.toLocaleString()} / ${JSON_TO_TS_INPUT_LIMIT.toLocaleString()} characters · browser-only parsing`}
           />
+          </div>
 
-          <div className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+          <div className="min-w-0">
+            <div className="mb-2 flex items-center justify-between gap-2 px-1">
+              <div><div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Step 2</div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Generated contract</h2></div>
+              <span className="font-mono text-xs text-[var(--color-text-tertiary)]">{output ? `${output.declarationCount} declarations` : "—"}</span>
+            </div>
+            <div className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-3 py-2.5">
               <div className="flex flex-wrap gap-1">
                 {ARTIFACTS.map((artifact) => <Button key={artifact.id} size="sm" variant={activeArtifact === artifact.id ? "primary" : "ghost"} onClick={() => setActiveArtifact(artifact.id)}>{artifact.label}</Button>)}
@@ -176,16 +194,45 @@ export default function JsonToTypescriptClient() {
               footer={activeArtifact === "zod" ? "Zod runtime-validation starter; review refinements and API error shapes." : activeArtifact === "json-schema" ? "Draft 2020-12 starter; review required fields and formats." : activeArtifact === "report" ? "No secrets are transmitted; the report is generated in this tab." : `${output?.declarationCount ?? 0} generated declaration${output?.declarationCount === 1 ? "" : "s"}.`}
               className="rounded-none border-0 shadow-none"
             />
+            </div>
           </div>
         </div>
 
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] p-3 text-xs leading-5 text-[var(--color-info-text)]">
+          <div className="flex items-center gap-2 font-bold"><ShieldCheck className="h-4 w-4" />Compile-time vs runtime</div>
+          <p className="mt-1">TypeScript types do not validate network responses. Use the generated runtime-schema starter and test it against documented success and error payloads.</p>
+        </section>
+
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div><div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Step 3</div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Structure &amp; inference summary</h2></div>
+            <span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1 text-xs text-[var(--color-text-tertiary)]">{parsed.ok ? (reviewCount ? `${reviewCount} review flag${reviewCount === 1 ? "" : "s"}` : "Ready to review") : "Invalid JSON"}</span>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+            <SummaryCard label="Root contract" value={output?.rootName ?? "—"} hint={stats ? `${stats.rootKind} root` : "Waiting for valid JSON"} />
+            <SummaryCard label="Declarations" value={output ? String(output.declarationCount) : "—"} hint={output ? `${options.outputStyle} output` : "Nested types appear here"} />
+            <SummaryCard label="Structure" value={stats ? `${stats.nodeCount} nodes` : "—"} hint={stats ? `Depth ${stats.maxDepth} · ${stats.propertyCount} properties` : "Local structural analysis"} />
+            <SummaryCard label="Production review" value={parsed.ok ? (reviewCount ? `${reviewCount} flag${reviewCount === 1 ? "" : "s"}` : "Ready") : "Invalid"} hint={parsed.ok ? `${checks.length} checks · ${output?.warnings.length ?? 0} inference notes` : "Fix JSON syntax first"} />
+          </div>
+        </section>
+
         <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-sm)]">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] px-4 py-3"><div><h2 className="font-bold text-[var(--color-text-primary)]">Production checks</h2><p className="text-xs text-[var(--color-text-tertiary)]">Inference is a starting point—not proof that every production response follows the same shape.</p></div><span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1 font-mono text-xs text-[var(--color-text-tertiary)]">{checks.length} checks</span></div>
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] px-4 py-3"><div><div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Step 4</div><h2 className="font-bold text-[var(--color-text-primary)]">Production checks</h2><p className="text-xs text-[var(--color-text-tertiary)]">Inference is a starting point—not proof that every production response follows the same shape.</p></div><span className="rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1 font-mono text-xs text-[var(--color-text-tertiary)]">{checks.length} checks</span></div>
           {!parsed.ok ? <div className="p-5 text-sm text-[var(--color-danger-text)]">Fix the JSON syntax to run structural checks.</div> : <div className="grid gap-2 p-4 md:grid-cols-2">{checks.map((check) => <article key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}><div className="flex items-start gap-2">{check.level === "success" ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> : check.level === "warning" || check.level === "danger" ? <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" /> : <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0" />}<div><h3 className="font-bold">{check.title}</h3><p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p></div></div></article>)}</div>}
+        </section>
+
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <div className="mb-3"><div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Step 5</div><div className="mt-1 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><PackageCheck className="h-4 w-4" /><h2 className="font-bold text-[var(--color-text-primary)]">Production handoff</h2></div><p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Copy the compile-time contract or package runtime-schema starters and the audit report for implementation review.</p></div>
+          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+            <CopyButton className="w-full" text={artifacts?.typescript ?? ""} disabled={!artifacts}>Copy TypeScript</CopyButton>
+            <Button className="w-full" variant="secondary" disabled={!artifacts} onClick={() => artifacts && downloadText(`${output?.rootName ?? "types"}.schema.json`, artifacts.jsonSchema, "application/json;charset=utf-8")}><FileJson className="h-4 w-4" />JSON Schema</Button>
+            <Button className="w-full" variant="secondary" disabled={!artifacts} onClick={() => artifacts && downloadText(`${output?.rootName ?? "types"}.schema.ts`, artifacts.zod, "text/typescript;charset=utf-8")}><FileCode2 className="h-4 w-4" />Zod starter</Button>
+            <Button className="w-full" disabled={!artifacts} onClick={downloadPack}><Download className="h-4 w-4" />Contract pack</Button>
+          </div>
         </section>
       </main>
 
-      <aside className="space-y-3">
+      <aside className="space-y-3 2xl:sticky 2xl:top-4 2xl:self-start">
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Practical presets</div>
           <div className="space-y-2">{JSON_EXAMPLES.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
@@ -205,21 +252,6 @@ export default function JsonToTypescriptClient() {
             ["readonlyProperties", "Readonly fields"],
             ["useSemicolons", "Semicolons"],
           ] as const).map(([key, label]) => <Button key={key} size="sm" variant={options[key] ? "primary" : "secondary"} aria-pressed={options[key]} onClick={() => updateOption(key, !options[key])}>{label}</Button>)}</div>
-        </section>
-
-        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-          <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><PackageCheck className="h-4 w-4" />Production exports</div>
-          <div className="space-y-2">
-            <CopyButton className="w-full" text={artifacts?.typescript ?? ""} disabled={!artifacts}>Copy TypeScript</CopyButton>
-            <Button className="w-full" variant="secondary" disabled={!artifacts} onClick={() => artifacts && downloadText(`${output?.rootName ?? "types"}.schema.json`, artifacts.jsonSchema, "application/json;charset=utf-8")}><FileJson className="h-4 w-4" />Download JSON Schema</Button>
-            <Button className="w-full" variant="secondary" disabled={!artifacts} onClick={() => artifacts && downloadText(`${output?.rootName ?? "types"}.schema.ts`, artifacts.zod, "text/typescript;charset=utf-8")}><FileCode2 className="h-4 w-4" />Download Zod starter</Button>
-            <Button className="w-full" disabled={!artifacts} onClick={downloadPack}><Download className="h-4 w-4" />Download contract pack</Button>
-          </div>
-        </section>
-
-        <section className="rounded-[var(--radius-lg)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] p-3 text-xs leading-5 text-[var(--color-info-text)]">
-          <div className="flex items-center gap-2 font-bold"><ShieldCheck className="h-4 w-4" />Compile-time vs runtime</div>
-          <p className="mt-1">TypeScript types do not validate network responses. Use the generated runtime-schema starter and test it against documented success and error payloads.</p>
         </section>
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs text-[var(--color-text-tertiary)]">

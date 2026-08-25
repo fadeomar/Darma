@@ -37,7 +37,7 @@ import { CspAdvanced } from "./components/CspAdvanced";
 import { CspWarnings } from "./components/CspWarnings";
 import { CspOutput } from "./components/CspOutput";
 
-const HOW_IT_WORKS = ["Preset", "Services", "Domains", "Copy"];
+const HOW_IT_WORKS = ["Configure", "Preview", "Validate", "Ship"];
 
 const META_REPORT_ONLY_NOTICE = [
   "<!--",
@@ -179,15 +179,18 @@ export default function CspGeneratorClient() {
         </ol>
       </div>
 
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        <SummaryCard label="Directives" value={policyStats.directives} hint="Enabled in output" />
-        <SummaryCard label="Sources" value={policyStats.sources} hint="Allowed source tokens" />
-        <SummaryCard label="Services" value={builderStats.services} hint="Third-party presets" />
-        <SummaryCard label="Review" value={policyStats.risky || policyStats.contextual ? `${policyStats.risky}/${policyStats.contextual}` : "0"} hint="Risky / contextual" />
-      </div>
-
       <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(380px,460px)] xl:items-start">
-        <div className="order-2 min-w-0 space-y-4 xl:order-1">
+        <section className="min-w-0 space-y-4" aria-labelledby="csp-builder-heading">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Configure</p>
+            <div className="mt-1 flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h2 id="csp-builder-heading" className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Build the policy first</h2>
+                <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Start from a deployment preset, choose the services you actually use, then add only the domains your app needs.</p>
+              </div>
+              <span className="rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-success-text)]">Local only</span>
+            </div>
+          </div>
           <CspStepCard
             step={1}
             title="Quick start"
@@ -242,9 +245,14 @@ export default function CspGeneratorClient() {
             onRemoveSource={removeSource}
             getError={sourceError}
           />
-        </div>
+        </section>
 
-        <aside className="order-1 min-w-0 space-y-4 xl:order-2 xl:sticky xl:top-24">
+        <aside className="min-w-0 space-y-4 xl:sticky xl:top-24" aria-labelledby="csp-preview-heading">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Preview</p>
+            <h2 id="csp-preview-heading" className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Live policy & deployment output</h2>
+            <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Review policy strength while you configure it, then copy the implementation format for your deployment target.</p>
+          </div>
           <CspOutput
             mode={builder.mode}
             risk={risk}
@@ -262,10 +270,27 @@ export default function CspGeneratorClient() {
             explanation={explanation}
           />
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <div className="mb-3">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Validate</p>
+              <h3 className="mt-1 text-sm font-black text-[var(--color-text-primary)]">Review before enforcing</h3>
+            </div>
             <CspWarnings messages={messages} />
           </div>
         </aside>
       </div>
+
+      <section className="space-y-3" aria-labelledby="csp-summary-heading">
+        <div>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Policy snapshot</p>
+          <h2 id="csp-summary-heading" className="mt-1 text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">What the generated policy currently contains</h2>
+        </div>
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          <SummaryCard label="Directives" value={policyStats.directives} hint="Enabled in output" />
+          <SummaryCard label="Sources" value={policyStats.sources} hint="Allowed source tokens" />
+          <SummaryCard label="Services" value={builderStats.services} hint="Third-party presets" />
+          <SummaryCard label="Review" value={policyStats.risky || policyStats.contextual ? `${policyStats.risky}/${policyStats.contextual}` : "0"} hint="Risky / contextual" />
+        </div>
+      </section>
     </div>
   );
 }

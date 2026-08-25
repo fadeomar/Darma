@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Button, CopyButton } from "@/components/ui";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import { analyzeBeam } from "./lib/beamAnalysis";
 import { validateBeam } from "./lib/beamValidation";
 import {
@@ -615,10 +616,9 @@ export default function BeamCalculatorClient() {
     : "Fix the highlighted issues to enable export";
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 sm:space-y-6">
       <BeamHowTo />
 
-      {/* Disclaimer */}
       <WarningPanel
         messages={[
           {
@@ -631,340 +631,362 @@ export default function BeamCalculatorClient() {
         ]}
       />
 
-      <section
-        className="grid grid-cols-2 gap-2.5 lg:grid-cols-4"
-        aria-label="Beam analysis summary"
-      >
-        <SummaryCard
-          label="Beam type"
-          value={studioSummary.beamType}
-          detail={`${model.length} ${units.length} analysis span`}
-        />
-        <SummaryCard
-          label="Applied loads"
-          value={`${model.loads.length}`}
-          detail={studioSummary.loadSummary}
-        />
-        <SummaryCard
-          label="Max |moment|"
-          value={studioSummary.maxMoment}
-          detail={
-            result
-              ? `at x = ${roundTo(result.maxAbsMoment.x, 3)} ${units.length}`
-              : "Solve the configuration to calculate"
-          }
-        />
-        <SummaryCard
-          label="Readiness"
-          value={
-            studioSummary.readiness === "ready"
-              ? "Ready"
-              : studioSummary.readiness === "review"
-                ? "Review"
-                : "Blocked"
-          }
-          detail="Input, equilibrium, complexity, and scope audit"
-        />
-      </section>
-
-      {/* Action bar */}
-      <div className="flex flex-wrap items-center gap-2">
-        <Button
-          variant="primary"
-          size="sm"
-          leftIcon={<Shapes className="h-4 w-4" />}
-          onClick={loadExample}
-        >
-          Load example
-        </Button>
-        <Button
-          variant="secondary"
-          size="sm"
-          leftIcon={<RotateCcw className="h-4 w-4" />}
-          onClick={reset}
-        >
-          Reset
-        </Button>
-        <div className="mx-1 hidden h-5 w-px bg-[var(--color-border-default)] sm:block" />
-        <CopyButton
-          variant="secondary"
-          size="sm"
-          text={resultsText}
-          disabled={!result}
-          title={noResultsHint}
-        >
-          Copy results
-        </CopyButton>
-        <Button
-          variant="secondary"
-          size="sm"
-          leftIcon={<Download className="h-4 w-4" />}
-          disabled={!result}
-          title={noResultsHint}
-          onClick={() =>
-            result &&
-            download(
-              "beam-results.json",
-              serializeResultsJson(model, result),
-              "application/json",
-            )
-          }
-        >
-          Results JSON
-        </Button>
-        <Button
-          variant="secondary"
-          size="sm"
-          leftIcon={<FileText className="h-4 w-4" />}
-          disabled={!result}
-          title={noResultsHint}
-          onClick={() =>
-            result &&
-            download(
-              "beam-report.md",
-              buildBeamAuditMarkdown(model, result, productionChecks),
-              "text/markdown",
-            )
-          }
-        >
-          Report
-        </Button>
-        <Button
-          variant="secondary"
-          size="sm"
-          leftIcon={<FileSpreadsheet className="h-4 w-4" />}
-          disabled={!result}
-          title={noResultsHint}
-          onClick={() =>
-            result &&
-            download(
-              "beam-stations.csv",
-              buildStationsCsv(model, result),
-              "text/csv;charset=utf-8",
-            )
-          }
-        >
-          CSV
-        </Button>
-        <Button
-          variant="secondary"
-          size="sm"
-          leftIcon={<ImageDown className="h-4 w-4" />}
-          disabled={!result}
-          title={noResultsHint}
-          onClick={() =>
-            result &&
-            download(
-              "beam-diagrams.svg",
-              buildBeamDiagramsSvg(model, result),
-              "image/svg+xml",
-            )
-          }
-        >
-          SVG
-        </Button>
-        <Button
-          variant="soft"
-          size="sm"
-          leftIcon={
-            exportingPack ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <FileArchive className="h-4 w-4" />
-            )
-          }
-          disabled={!result || exportingPack}
-          title={noResultsHint}
-          onClick={() => void downloadProductionPack()}
-        >
-          {exportingPack ? "Packing…" : "ZIP pack"}
-        </Button>
-        <div className="mx-1 hidden h-5 w-px bg-[var(--color-border-default)] sm:block" />
-        <CopyButton
-          variant="ghost"
-          size="sm"
-          text={configText}
-          copiedLabel="Copied config"
-        >
-          Copy config
-        </CopyButton>
-        <Button
-          variant="ghost"
-          size="sm"
-          leftIcon={<FolderOpen className="h-4 w-4" />}
-          onClick={handleImportClick}
-        >
-          Import
-        </Button>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="application/json,.json"
-          onChange={handleImportFile}
-          className="hidden"
-          aria-hidden
-          tabIndex={-1}
-        />
-        {notice ? (
-          <span
-            className={
-              notice.severity === "danger"
-                ? "ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-danger-text)]"
-                : notice.severity === "info"
-                  ? "ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-info-text)]"
-                  : "ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-success-text)]"
-            }
-            role={notice.severity === "danger" ? "alert" : "status"}
-          >
-            <Share2 className="h-3.5 w-3.5" /> {notice.message}
-          </span>
-        ) : null}
-      </div>
-
-      {/* Workspace */}
-      {/* min-w-0 on both children is required, not decorative: below `lg` this
-          grid collapses to a single auto-sized track, and grid items default to
-          `min-width: auto`. Without it the track resolves to the children's
-          min-content width (484px at a 390px viewport) and the whole page
-          scrolls sideways. */}
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:items-start">
-        {/* Left: inputs + presets */}
-        <div className="min-w-0 space-y-5">
-          <BeamInputs
-            model={model}
-            units={units}
-            mode={beamMode}
-            fieldErrors={fieldErrors}
-            beamLengthError={beamLengthError}
-            selected={selected}
-            onSelect={setSelected}
-            onModeChange={changeMode}
-            onLengthChange={updateLength}
-            onSupportUpdate={updateSupport}
-            onSupportRemove={removeSupport}
-            onSupportAdd={addSupport}
-            onLoadUpdate={updateLoad}
-            onLoadRemove={removeLoad}
-            onLoadAdd={addLoad}
-          />
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-            <h2 className="mb-1 text-sm font-bold text-[var(--color-text-primary)]">
-              Presets
-            </h2>
-            <p className="mb-3 text-xs text-[var(--color-text-tertiary)]">
-              Start from a valid scenario, then tweak it.
-            </p>
-            <BeamPresetCards activeId={activePresetId} onSelect={applyPreset} />
-          </section>
-        </div>
-
-        {/* Right: preview + diagrams + results (sticky on desktop) */}
-        <div className="min-w-0 space-y-5 lg:sticky lg:top-24 lg:self-start">
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
-                Beam preview
-              </h2>
-              <p className="text-xs text-[var(--color-text-tertiary)]">
-                Drag the orange handles, or select an item and click the beam to
-                place it.
-              </p>
-            </div>
-            <BeamCanvas
-              model={model}
-              result={result}
-              units={units}
-              selected={selected}
-              onSelect={setSelected}
-              onSupportPosition={(id, x) => updateSupport(id, { x })}
-              onLoadPosition={updateLoad}
-              supportsDraggable={beamMode === "advanced"}
-            />
-          </section>
-
-          {warningMessages.length > 0 ? (
-            <WarningPanel messages={warningMessages} />
-          ) : null}
-
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="mb-3 flex items-start gap-3">
-              <span className="grid size-9 shrink-0 place-items-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
-                <ShieldCheck className="h-4 w-4" />
-              </span>
+      <ToolLayoutVisualGenerator
+        actionsPlacement="under-preview"
+        previewSlot={
+          <div className="flex min-h-full flex-col gap-4 p-4 sm:p-5">
+            <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
-                  Production checks
+                <h2 className="text-sm font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+                  Live beam analysis
                 </h2>
-                <p className="mt-0.5 text-xs leading-5 text-[var(--color-text-secondary)]">
-                  Separate solver validity from handoff quality and the limits
-                  of preliminary statics.
+                <p className="mt-0.5 max-w-2xl text-xs leading-5 text-[var(--color-text-tertiary)]">
+                  Review the beam, loads, supports, and solved response in one workspace. Drag orange handles, or select an item and click the beam to place it.
                 </p>
               </div>
+              <span
+                className={
+                  studioSummary.readiness === "ready"
+                    ? "rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2.5 py-1 text-xs font-bold text-[var(--color-success-text)]"
+                    : studioSummary.readiness === "review"
+                      ? "rounded-[var(--radius-full)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] px-2.5 py-1 text-xs font-bold text-[var(--color-warning-text)]"
+                      : "rounded-[var(--radius-full)] border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] px-2.5 py-1 text-xs font-bold text-[var(--color-danger-text)]"
+                }
+              >
+                {studioSummary.readiness === "ready"
+                  ? "Ready to hand off"
+                  : studioSummary.readiness === "review"
+                    ? "Review recommended"
+                    : "Fix inputs to solve"}
+              </span>
             </div>
-            <WarningPanel messages={productionMessages} />
-          </section>
 
-          {result ? (
-            <>
-              <section className="grid gap-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] sm:grid-cols-2">
-                <BeamDiagram
-                  title="Shear force diagram (SFD)"
-                  description={`Shear force along the beam in ${units.force}. Positive plotted above the zero line.`}
-                  samples={result.samples}
-                  metric="shear"
-                  length={model.length}
-                  lengthUnit={units.length}
-                  valueUnit={units.force}
-                  extreme={result.maxShear}
-                />
-                <BeamDiagram
-                  title="Bending moment diagram (BMD)"
-                  description={`Bending moment along the beam in ${units.moment}. Positive (sagging) plotted above the zero line.`}
-                  samples={result.samples}
-                  metric="moment"
-                  length={model.length}
-                  lengthUnit={units.length}
-                  valueUnit={units.moment}
-                  extreme={result.maxAbsMoment}
-                  secondaryExtreme={
-                    result.maxPositiveMoment.value > 1e-9 &&
-                    result.maxNegativeMoment.value < -1e-9
-                      ? result.maxPositiveMoment
-                      : undefined
-                  }
-                />
-              </section>
-
-              <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-                <BeamResults model={model} result={result} units={units} />
-              </section>
-            </>
-          ) : (
-            <section className="rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-8 text-center">
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
-                No results yet
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-secondary)]">
-                The current configuration can&apos;t be solved. Use a one-click
-                fix above, or start from a working preset.
-              </p>
-              {suggestionPresetId ? (
-                <Button
-                  className="mt-4"
-                  variant="soft"
-                  size="sm"
-                  onClick={() => {
-                    const preset = getPreset(suggestionPresetId);
-                    if (preset) applyPreset(preset);
-                  }}
-                >
-                  Load a suggested preset
-                </Button>
-              ) : null}
+            <section
+              className="grid grid-cols-2 gap-2.5 xl:grid-cols-4"
+              aria-label="Beam analysis summary"
+            >
+              <SummaryCard
+                label="Beam type"
+                value={studioSummary.beamType}
+                detail={`${model.length} ${units.length} analysis span`}
+              />
+              <SummaryCard
+                label="Applied loads"
+                value={`${model.loads.length}`}
+                detail={studioSummary.loadSummary}
+              />
+              <SummaryCard
+                label="Max |moment|"
+                value={studioSummary.maxMoment}
+                detail={
+                  result
+                    ? `at x = ${roundTo(result.maxAbsMoment.x, 3)} ${units.length}`
+                    : "Solve the configuration to calculate"
+                }
+              />
+              <SummaryCard
+                label="Readiness"
+                value={
+                  studioSummary.readiness === "ready"
+                    ? "Ready"
+                    : studioSummary.readiness === "review"
+                      ? "Review"
+                      : "Blocked"
+                }
+                detail="Input, equilibrium, complexity, and scope audit"
+              />
             </section>
-          )}
-        </div>
-      </div>
+
+            <div className="min-h-[320px] flex-1 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)] sm:min-h-[380px] sm:p-4">
+              <BeamCanvas
+                model={model}
+                result={result}
+                units={units}
+                selected={selected}
+                onSelect={setSelected}
+                onSupportPosition={(id, x) => updateSupport(id, { x })}
+                onLoadPosition={updateLoad}
+                supportsDraggable={beamMode === "advanced"}
+              />
+            </div>
+          </div>
+        }
+        controlsSlot={
+          <div className="space-y-4">
+            <BeamInputs
+              model={model}
+              units={units}
+              mode={beamMode}
+              fieldErrors={fieldErrors}
+              beamLengthError={beamLengthError}
+              selected={selected}
+              onSelect={setSelected}
+              onModeChange={changeMode}
+              onLengthChange={updateLength}
+              onSupportUpdate={updateSupport}
+              onSupportRemove={removeSupport}
+              onSupportAdd={addSupport}
+              onLoadUpdate={updateLoad}
+              onLoadRemove={removeLoad}
+              onLoadAdd={addLoad}
+            />
+
+            <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
+                Presets
+              </h2>
+              <p className="mb-3 mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
+                Start from a valid scenario, then tweak the span, supports, and loads.
+              </p>
+              <BeamPresetCards activeId={activePresetId} onSelect={applyPreset} />
+            </section>
+          </div>
+        }
+        actionsSlot={
+          <>
+            <div className="flex flex-wrap items-center gap-2">
+              <Button
+                variant="primary"
+                size="sm"
+                leftIcon={<Shapes className="h-4 w-4" />}
+                onClick={loadExample}
+              >
+                Load example
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                leftIcon={<RotateCcw className="h-4 w-4" />}
+                onClick={reset}
+              >
+                Reset
+              </Button>
+              <CopyButton
+                variant="secondary"
+                size="sm"
+                text={resultsText}
+                disabled={!result}
+                title={noResultsHint}
+              >
+                Copy results
+              </CopyButton>
+              <Button
+                variant="soft"
+                size="sm"
+                leftIcon={
+                  exportingPack ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <FileArchive className="h-4 w-4" />
+                  )
+                }
+                disabled={!result || exportingPack}
+                title={noResultsHint}
+                onClick={() => void downloadProductionPack()}
+              >
+                {exportingPack ? "Packing…" : "ZIP pack"}
+              </Button>
+            </div>
+
+            {notice ? (
+              <span
+                className={
+                  notice.severity === "danger"
+                    ? "inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-danger-text)]"
+                    : notice.severity === "info"
+                      ? "inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-info-text)]"
+                      : "inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-success-text)]"
+                }
+                role={notice.severity === "danger" ? "alert" : "status"}
+              >
+                <Share2 className="h-3.5 w-3.5" /> {notice.message}
+              </span>
+            ) : null}
+          </>
+        }
+        codeSlot={
+          <div className="space-y-5">
+            {warningMessages.length > 0 ? (
+              <WarningPanel messages={warningMessages} />
+            ) : null}
+
+            <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+              <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
+                    <ShieldCheck className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
+                      Production checks
+                    </h2>
+                    <p className="mt-0.5 max-w-xl text-xs leading-5 text-[var(--color-text-secondary)]">
+                      Separate solver validity from handoff quality and the limits of preliminary statics.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    leftIcon={<Download className="h-4 w-4" />}
+                    disabled={!result}
+                    title={noResultsHint}
+                    onClick={() =>
+                      result &&
+                      download(
+                        "beam-results.json",
+                        serializeResultsJson(model, result),
+                        "application/json",
+                      )
+                    }
+                  >
+                    Results JSON
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    leftIcon={<FileText className="h-4 w-4" />}
+                    disabled={!result}
+                    title={noResultsHint}
+                    onClick={() =>
+                      result &&
+                      download(
+                        "beam-report.md",
+                        buildBeamAuditMarkdown(model, result, productionChecks),
+                        "text/markdown",
+                      )
+                    }
+                  >
+                    Report
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    leftIcon={<FileSpreadsheet className="h-4 w-4" />}
+                    disabled={!result}
+                    title={noResultsHint}
+                    onClick={() =>
+                      result &&
+                      download(
+                        "beam-stations.csv",
+                        buildStationsCsv(model, result),
+                        "text/csv;charset=utf-8",
+                      )
+                    }
+                  >
+                    CSV
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    leftIcon={<ImageDown className="h-4 w-4" />}
+                    disabled={!result}
+                    title={noResultsHint}
+                    onClick={() =>
+                      result &&
+                      download(
+                        "beam-diagrams.svg",
+                        buildBeamDiagramsSvg(model, result),
+                        "image/svg+xml",
+                      )
+                    }
+                  >
+                    SVG
+                  </Button>
+                  <CopyButton
+                    variant="ghost"
+                    size="sm"
+                    text={configText}
+                    copiedLabel="Copied config"
+                  >
+                    Copy config
+                  </CopyButton>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    leftIcon={<FolderOpen className="h-4 w-4" />}
+                    onClick={handleImportClick}
+                  >
+                    Import
+                  </Button>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="application/json,.json"
+                    onChange={handleImportFile}
+                    className="hidden"
+                    aria-hidden
+                    tabIndex={-1}
+                  />
+                </div>
+              </div>
+
+              <WarningPanel messages={productionMessages} />
+            </section>
+
+            {result ? (
+              <>
+                <section className="grid gap-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] 2xl:grid-cols-2">
+                  <BeamDiagram
+                    title="Shear force diagram (SFD)"
+                    description={`Shear force along the beam in ${units.force}. Positive plotted above the zero line.`}
+                    samples={result.samples}
+                    metric="shear"
+                    length={model.length}
+                    lengthUnit={units.length}
+                    valueUnit={units.force}
+                    extreme={result.maxShear}
+                  />
+                  <BeamDiagram
+                    title="Bending moment diagram (BMD)"
+                    description={`Bending moment along the beam in ${units.moment}. Positive (sagging) plotted above the zero line.`}
+                    samples={result.samples}
+                    metric="moment"
+                    length={model.length}
+                    lengthUnit={units.length}
+                    valueUnit={units.moment}
+                    extreme={result.maxAbsMoment}
+                    secondaryExtreme={
+                      result.maxPositiveMoment.value > 1e-9 &&
+                      result.maxNegativeMoment.value < -1e-9
+                        ? result.maxPositiveMoment
+                        : undefined
+                    }
+                  />
+                </section>
+
+                <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+                  <BeamResults model={model} result={result} units={units} />
+                </section>
+              </>
+            ) : (
+              <section className="rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-8 text-center">
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
+                  No results yet
+                </h2>
+                <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-secondary)]">
+                  The current configuration can&apos;t be solved. Use a one-click fix above, or start from a working preset.
+                </p>
+                {suggestionPresetId ? (
+                  <Button
+                    className="mt-4"
+                    variant="soft"
+                    size="sm"
+                    onClick={() => {
+                      const preset = getPreset(suggestionPresetId);
+                      if (preset) applyPreset(preset);
+                    }}
+                  >
+                    Load a suggested preset
+                  </Button>
+                ) : null}
+              </section>
+            )}
+          </div>
+        }
+      />
     </div>
   );
 }

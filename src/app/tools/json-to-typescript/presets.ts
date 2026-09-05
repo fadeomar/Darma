@@ -116,6 +116,156 @@ export const JSON_EXAMPLES: JsonExample[] = [
   "permissions": []
 }`,
   },
+  {
+    id: "graphql-response",
+    label: "GraphQL response",
+    description: "Nested data wrapper with nullable nodes and page information.",
+    rootName: "ProductsQuery",
+    value: `{
+  "data": {
+    "products": {
+      "nodes": [
+        { "id": "p_1", "name": "Desk lamp", "price": 49.9 },
+        { "id": "p_2", "name": "Monitor arm", "price": null }
+      ],
+      "pageInfo": { "hasNextPage": true, "endCursor": "cursor_2" }
+    }
+  }
+}`,
+  },
+  {
+    id: "search-results",
+    label: "Search results",
+    description: "Result list with facets, highlights, paging, and optional metadata.",
+    rootName: "SearchResponse",
+    value: `{
+  "query": "browser tools",
+  "results": [
+    { "id": "r1", "title": "Tool one", "score": 0.94, "highlights": ["browser", "tools"] },
+    { "id": "r2", "title": "Tool two", "score": 0.81, "highlights": [] }
+  ],
+  "facets": { "category": { "developer": 12, "design": 7 } },
+  "nextCursor": null
+}`,
+  },
+  {
+    id: "cms-article",
+    label: "CMS article",
+    description: "Editorial content with author, taxonomy, rich blocks, and publication timestamps.",
+    rootName: "Article",
+    value: `{
+  "id": "post_42",
+  "slug": "designing-for-content-density",
+  "title": "Designing for content density",
+  "author": { "id": "u_7", "name": "Maya" },
+  "tags": ["design", "content"],
+  "publishedAt": "2026-08-20T12:00:00Z",
+  "blocks": [
+    { "type": "paragraph", "text": "Start with the user task." },
+    { "type": "image", "url": "https://cdn.example.com/image.jpg", "alt": "Dashboard example" }
+  ]
+}`,
+  },
+  {
+    id: "analytics-event",
+    label: "Analytics event",
+    description: "Event envelope with actor, properties, context, and optional experiment data.",
+    rootName: "AnalyticsEvent",
+    value: `{
+  "event": "checkout_started",
+  "timestamp": "2026-08-20T12:03:10Z",
+  "anonymousId": "anon_123",
+  "properties": { "cartValue": 89.5, "currency": "USD", "itemCount": 3 },
+  "context": { "locale": "en", "device": "mobile" },
+  "experiment": null
+}`,
+  },
+  {
+    id: "error-response",
+    label: "API error response",
+    description: "Structured error code, message, field errors, and request identifier.",
+    rootName: "ApiError",
+    value: `{
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message": "Some fields are invalid",
+    "fields": [
+      { "field": "email", "message": "Enter a valid email address" },
+      { "field": "name", "message": "Name is required" }
+    ]
+  },
+  "requestId": "req_8ad2"
+}`,
+  },
+  {
+    id: "localization-map",
+    label: "Localization map",
+    description: "Nested locale dictionaries with placeholders and plural-like keys.",
+    rootName: "Translations",
+    value: `{
+  "en": { "nav.home": "Home", "nav.tools": "Tools", "items.one": "1 item", "items.other": "{count} items" },
+  "ar": { "nav.home": "الرئيسية", "nav.tools": "الأدوات", "items.one": "عنصر واحد", "items.other": "{count} عناصر" }
+}`,
+    options: { readonlyProperties: true },
+  },
+  {
+    id: "feature-flags",
+    label: "Feature flags",
+    description: "Environment and user-facing feature configuration with rollout percentages.",
+    rootName: "FeatureConfig",
+    value: `{
+  "environment": "production",
+  "flags": {
+    "savedViews": { "enabled": true, "rollout": 100 },
+    "newSearch": { "enabled": true, "rollout": 25 },
+    "betaExport": { "enabled": false, "rollout": 0 }
+  }
+}`,
+    options: { readonlyProperties: true },
+  },
+  {
+    id: "geo-response",
+    label: "Location response",
+    description: "Coordinates, address components, bounding box, and optional place metadata.",
+    rootName: "PlaceResult",
+    value: `{
+  "id": "place_123",
+  "name": "Central Library",
+  "coordinates": { "lat": 31.5, "lng": 34.46 },
+  "address": { "city": "Example City", "region": null, "countryCode": "PS" },
+  "bbox": [34.45, 31.49, 34.47, 31.51],
+  "categories": ["library", "public-service"]
+}`,
+  },
+  {
+    id: "payment-record",
+    label: "Payment record",
+    description: "Payment-like object with money fields, customer reference, status, and nullable failure data.",
+    rootName: "Payment",
+    value: `{
+  "id": "pay_123",
+  "amount": 4900,
+  "currency": "usd",
+  "status": "succeeded",
+  "customer": { "id": "cus_123", "email": "customer@example.com" },
+  "failure": null,
+  "createdAt": "2026-08-20T14:00:00Z"
+}`,
+  },
+  {
+    id: "dashboard-widgets",
+    label: "Dashboard widgets",
+    description: "Heterogeneous dashboard sections with metrics, trends, and optional comparison values.",
+    rootName: "DashboardResponse",
+    value: `{
+  "period": { "from": "2026-08-01", "to": "2026-08-31" },
+  "widgets": [
+    { "id": "revenue", "label": "Revenue", "value": 12450, "change": 8.2 },
+    { "id": "activeUsers", "label": "Active users", "value": 824, "change": null }
+  ],
+  "alerts": []
+}`,
+  },
 ];
 
 export const OPTION_HELP = [

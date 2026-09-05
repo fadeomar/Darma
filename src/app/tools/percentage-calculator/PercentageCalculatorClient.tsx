@@ -108,6 +108,7 @@ export default function PercentageCalculatorClient() {
   const [rawB, setRawB] = useState(String(initialPreset.b));
   const [precision, setPrecision] = useState(4);
   const [activeTab, setActiveTab] = useState<PercentTab>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const inputs = useMemo(() => ({ a: parseNumericInput(rawA), b: parseNumericInput(rawB) }), [rawA, rawB]);
   const outcome = useMemo(() => computePercent(mode, inputs), [mode, inputs]);
@@ -171,13 +172,18 @@ export default function PercentageCalculatorClient() {
               <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              {PERCENT_PRESETS.map((preset) => (
+              {(showAllPresets ? PERCENT_PRESETS : PERCENT_PRESETS.slice(0, 6)).map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                   <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
+            {PERCENT_PRESETS.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer use cases" : `Show all ${PERCENT_PRESETS.length} use cases`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">

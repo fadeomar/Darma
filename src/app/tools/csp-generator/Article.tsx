@@ -41,6 +41,12 @@ export default function Article() {
         Test in modern browsers, inspect the console for violations, try report-only mode first, and use external header testing tools after deployment. Vendor domains often vary by product configuration, so verify Google, Stripe, YouTube, analytics, and monitoring domains against their current documentation before production.
       </p>
 
+
+      <h2>Start from the services your page actually uses</h2>
+      <p>
+        The quick-start library now includes static sites, analytics pages, Next.js SaaS, Supabase, Firebase, Auth0, maps, media, Cloudinary, Stripe, PayPal, reCAPTCHA, monitoring, and strict-policy starters. Treat every preset as a reviewable baseline: remove services you do not use, add exact tenant domains where possible, validate in report-only mode, and confirm vendor requirements before enforcement.
+      </p>
+
       <h2>Privacy note</h2>
       <p>
         This tool runs in your browser. It does not send your pasted CSP or generated policy to a server.

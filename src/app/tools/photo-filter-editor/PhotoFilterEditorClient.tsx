@@ -1471,7 +1471,14 @@ export default function PhotoFilterEditorClient() {
           <div className="max-h-[58vh] space-y-4 overflow-y-auto p-3.5 sm:max-h-[62vh] sm:p-4 lg:max-h-[600px] xl:max-h-[680px]">
             {activePanel === "filters" ? (
               <>
-                <PanelTitle title="Filters" description="Start with a visual preset, then adjust its intensity or fine-tune every value." />
+                <PanelTitle
+                  title="Filters"
+                  description={
+                    presetId === "custom"
+                      ? "Fine-tune any slider to turn the selected look into your own custom filter."
+                      : getFilterPreset(presetId)?.description ?? "Start with a visual preset, then adjust its intensity or fine-tune every value."
+                  }
+                />
                 <div className="-mx-1 flex gap-1 overflow-x-auto px-1 pb-1">
                   {PRESET_CATEGORIES.map((category) => (
                     <button

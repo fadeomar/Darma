@@ -46,6 +46,20 @@ export default function JsonToTypescriptArticle() {
           JSON parsing, TypeScript inference, schema generation, checks, and ZIP creation run locally in the browser. Nothing is intentionally uploaded by this tool. Local processing does not make a real secret safe to paste into screenshots, issue trackers, or exported files, so sanitize production payloads first.
         </p>
       </section>
+      <section>
+        <h2 className="mb-3 text-xl font-black text-[var(--color-text-primary)]">Choose an example that stresses the same data shape</h2>
+        <p>
+          The preset library includes REST pagination, webhooks, app configuration, mixed arrays, GraphQL responses, search results, CMS articles, analytics events, API errors, localization maps, feature flags, geolocation responses, payments, and dashboard payloads. Start from a structurally similar example to see how arrays, nulls, optional fields, nested objects, and unions change the generated declarations.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-black text-[var(--color-text-primary)]">Prefer several representative samples over one perfect-looking sample</h2>
+        <p>
+          A single JSON response can hide optional fields and variant object shapes. When designing a durable type, collect representative success, empty, partial, and error payloads, then compare the generated output with the API contract. Generated TypeScript is a discovery aid; runtime validation is still needed at untrusted boundaries.
+        </p>
+      </section>
+
     </div>
   );
 }

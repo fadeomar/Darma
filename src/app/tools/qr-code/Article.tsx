@@ -63,6 +63,17 @@ export default function Article() {
           and calendar details as public once the code is distributed.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Start from the job the QR code must perform</h2>
+        <p>
+          Use-case presets cover menus, packaging, feedback forms, portfolios,
+          support contacts, phone and SMS actions, guest WiFi, event check-in,
+          locations, calendar events, and offline text. Pick the destination intent
+          first, then replace the sample details with final production content:
+          every preset value is placeholder example data, never a real destination.
+        </p>
+      </section>
     </div>
   );
 }

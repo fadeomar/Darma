@@ -119,6 +119,7 @@ export default function CssClampClient() {
   const [viewport, setViewport] = useState(768);
   const [outputTab, setOutputTab] = useState<ClampExportTab>("css");
   const [mode, setMode] = useState<Mode>("single");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const [tokens, setTokens] = useState<ClampToken[]>(DEFAULT_TOKENS);
 
   const validation = useMemo(() => validateClampInput(input), [input]);
@@ -304,7 +305,7 @@ export default function CssClampClient() {
           <p className="text-sm text-[var(--color-text-muted)]">Start from a common production range.</p>
         </div>
         <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
-          {PRESET_INPUTS.map((item) => (
+          {(showAllPresets ? PRESET_INPUTS : PRESET_INPUTS.slice(0, 6)).map((item) => (
             <button
               key={item.label}
               type="button"
@@ -316,6 +317,11 @@ export default function CssClampClient() {
             </button>
           ))}
         </div>
+        {PRESET_INPUTS.length > 6 ? (
+          <Button size="sm" variant="ghost" className="mt-2 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+            {showAllPresets ? "Show fewer starters" : `Show all ${PRESET_INPUTS.length} starters`}
+          </Button>
+        ) : null}
       </section>
 
       <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">

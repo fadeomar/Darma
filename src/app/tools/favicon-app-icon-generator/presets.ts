@@ -107,34 +107,18 @@ export const ICO_SIZES = [16, 32, 48] as const;
 export const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
 
 export const FAVICON_QUICK_PRESETS: Array<{ id: string; title: string; description: string; patch: Partial<FaviconInput> }> = [
-  {
-    id: "website-launch",
-    title: "Website launch",
-    description: "Lean modern favicon package for a normal marketing or content website.",
-    patch: { exportPack: "modern", projectProfile: "plain-html", includeMaskable: true, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" },
-  },
-  {
-    id: "nextjs-app",
-    title: "Next.js app",
-    description: "Routes files into app and public paths for App Router projects.",
-    patch: { exportPack: "nextjs", projectProfile: "next-app", includeMaskable: true, includeMonochrome: false, display: "standalone", orientation: "any", pathPrefix: "/" },
-  },
-  {
-    id: "installable-pwa",
-    title: "Installable PWA",
-    description: "Full install prompt coverage with maskable icons and manifest-first output.",
-    patch: { exportPack: "pwa", projectProfile: "pwa-complete", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/icons/" },
-  },
-  {
-    id: "ios-heavy",
-    title: "iOS shortcuts",
-    description: "Legacy Apple sizes plus favicon fallbacks for home-screen shortcuts.",
-    patch: { exportPack: "legacy", projectProfile: "legacy-full", includeMaskable: false, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" },
-  },
-  {
-    id: "brand-kit",
-    title: "Complete brand kit",
-    description: "Everything enabled for audits, handoff, QA, and broad platform coverage.",
-    patch: { exportPack: "complete", projectProfile: "plain-html", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/" },
-  },
+  { id: "website-launch", title: "Website launch", description: "Lean modern favicon package for a normal marketing or content website.", patch: { exportPack: "modern", projectProfile: "plain-html", includeMaskable: true, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" } },
+  { id: "nextjs-app", title: "Next.js app", description: "Routes files into app and public paths for App Router projects.", patch: { exportPack: "nextjs", projectProfile: "next-app", includeMaskable: true, includeMonochrome: false, display: "standalone", orientation: "any", pathPrefix: "/" } },
+  { id: "installable-pwa", title: "Installable PWA", description: "Full install prompt coverage with maskable icons and manifest-first output.", patch: { exportPack: "pwa", projectProfile: "pwa-complete", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/icons/" } },
+  { id: "ios-heavy", title: "iOS shortcuts", description: "Legacy Apple sizes plus favicon fallbacks for home-screen shortcuts.", patch: { exportPack: "legacy", projectProfile: "legacy-full", includeMaskable: false, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" } },
+  { id: "brand-kit", title: "Complete brand kit", description: "Everything enabled for audits, handoff, QA, and broad platform coverage.", patch: { exportPack: "complete", projectProfile: "plain-html", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/" } },
+  { id: "vite-react", title: "React / Vite app", description: "Modern web assets and paths suited to a public-folder Vite project.", patch: { exportPack: "modern", projectProfile: "vite-react", includeMaskable: true, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" } },
+  { id: "astro-site", title: "Astro site", description: "Static-friendly icon package for Astro content and marketing sites.", patch: { exportPack: "modern", projectProfile: "astro", includeMaskable: true, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" } },
+  { id: "nuxt-app", title: "Nuxt app", description: "Public-folder icon starter for Nuxt applications and sites.", patch: { exportPack: "modern", projectProfile: "nuxt", includeMaskable: true, includeMonochrome: false, display: "standalone", orientation: "any", pathPrefix: "/" } },
+  { id: "sveltekit-app", title: "SvelteKit app", description: "Static-folder package for SvelteKit projects with PWA-ready extras.", patch: { exportPack: "modern", projectProfile: "sveltekit", includeMaskable: true, includeMonochrome: false, display: "standalone", orientation: "any", pathPrefix: "/" } },
+  { id: "wordpress-site", title: "WordPress site", description: "Legacy-friendly setup for themes, media libraries, and site icons.", patch: { exportPack: "legacy", projectProfile: "wordpress", includeMaskable: false, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" } },
+  { id: "monogram-brand", title: "Monogram brand", description: "Text-first icon with generous padding for initials and compact wordmarks.", patch: { sourceMode: "text", text: "D", shape: "rounded", padding: 22, scale: 92, borderRadius: 24, transparentBackground: false, includeMaskable: true, includeMonochrome: true, exportPack: "complete" } },
+  { id: "emoji-project", title: "Emoji project", description: "Fast friendly favicon for prototypes, side projects, and internal tools.", patch: { sourceMode: "emoji", emoji: "✨", shape: "circle", padding: 16, scale: 94, transparentBackground: false, includeMaskable: true, includeMonochrome: false, exportPack: "modern" } },
+  { id: "maskable-safe", title: "Maskable-safe app icon", description: "Extra breathing room for Android launchers that crop icons into device shapes.", patch: { exportPack: "pwa", projectProfile: "pwa-complete", includeMaskable: true, includeMonochrome: false, padding: 28, scale: 86, shape: "squircle", display: "standalone", pathPrefix: "/icons/" } },
+  { id: "transparent-logo", title: "Transparent logo", description: "Preserve transparent artwork for browser tabs while keeping a modern web pack.", patch: { sourceMode: "image", transparentBackground: true, shape: "square", padding: 14, scale: 96, exportPack: "modern", projectProfile: "plain-html", includeMaskable: false, includeMonochrome: false, display: "browser" } },
 ];

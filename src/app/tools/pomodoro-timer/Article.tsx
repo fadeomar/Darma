@@ -32,6 +32,24 @@ export default function PomodoroTimerArticle() {
       </section>
 
       <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Choose a cycle that matches the work</h2>
+        <p>
+          The preset library covers the classic 25/5 cycle plus deep work, study, quick
+          sprints, creative flow, meeting recovery, exam revision, writing sprints, code
+          review, language practice, a low-friction 12/6 cycle for days when starting is the
+          hard part, deep reading, admin batching, instrument practice, evening wind-down,
+          and pair programming. Each one loads a complete configuration: focus and break
+          lengths, sessions before a long break, auto-start behaviour, a suggested task, and
+          a daily session target.
+        </p>
+        <p>
+          Longer is not better by default. A cycle only works if you can finish it without
+          breaking concentration, so pick the shortest block that still fits the task and
+          adjust upward once it feels comfortable.
+        </p>
+      </section>
+
+      <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Sound, notifications, and browser limits</h2>
         <p>
           Completion sounds use the Web Audio API, while desktop notifications require explicit

@@ -528,7 +528,11 @@ export function buildScale(hsl: HslColor) {
   return stops.map((l, i) => ({ label: i === 10 ? "950" : String((i + 1) * 100 - 50), hex: rgbToHex(hslToRgb({ ...hsl, l })) }));
 }
 
-export const COLOR_NAME_EXAMPLES = ["#800020", "#800020cc", "rgb(128 0 32 / .8)", "Burgundy", "#3b82f6", "hsl(24 95% 53%)"];
+export const COLOR_NAME_EXAMPLES = [
+  "#800020", "#800020cc", "rgb(128 0 32 / .8)", "Burgundy", "#3b82f6", "hsl(24 95% 53%)",
+  "#0f172a", "#22c55e", "#f97316", "#e11d48", "#8b5cf6", "#06b6d4",
+  "rebeccapurple", "tomato", "slateblue", "rgba(15, 23, 42, .72)", "hsl(160 84% 39%)", "#f8fafc",
+];
 
 export type WcagStatus = "AAA" | "AA" | "Large text only" | "Fail";
 export type ShadeAccessibility = { label: string; hex: string; recommendedText: "#000000" | "#ffffff"; contrast: number; status: WcagStatus };

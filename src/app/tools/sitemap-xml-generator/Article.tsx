@@ -20,6 +20,18 @@ export default function Article() {
       <p>
         Use <code>lastmod</code> only when it reflects a meaningful page change. Search engines may ignore <code>changefreq</code> and <code>priority</code>, so accurate canonical URLs and useful content remain more important than aggressive values.
       </p>
+      <h3>Use a starter that matches the URL inventory</h3>
+      <p>
+        Presets cover blogs, SaaS marketing sites, local businesses, knowledge bases, portfolios, event calendars, job boards, multilingual
+        sites, media galleries, news, documentation, and large catalogs. They are intentionally small examples: replace the sample URLs with
+        canonical production URLs, then use splitting only when the real inventory requires it.
+      </p>
+      <h3>Do not add every reachable URL</h3>
+      <p>
+        A sitemap is most useful when it represents canonical pages you actually want indexed. Avoid filling it with account pages, internal
+        search results, filtered duplicates, preview routes, redirects, or URLs blocked from indexing. Keep the sitemap aligned with canonical
+        tags, robots controls, redirects, and your application routing.
+      </p>
     </article>
   );
 }

@@ -51,6 +51,26 @@ export default function TipCalculatorArticle() {
 
       <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+          Start from a receipt that looks like yours
+        </h2>
+        <p>
+          The preset library covers casual dinners, large groups with a service charge, weighted
+          family splits, quick cafe bills, takeaway and delivery orders, office coffee runs, bar
+          tabs, birthday meals where one person is not charged, expense-claim business lunches,
+          UK discretionary service, hotel breakfasts, uneven orders, salon appointments,
+          no-tipping regions, team catering, and shared taxis. Load the closest one, then correct
+          the subtotal and percentages from the receipt in front of you.
+        </p>
+        <p>
+          The presets deliberately vary the parts people get wrong: whether the tip is calculated
+          before or after tax, whether a service charge is already included, whether rounding is
+          fair or always upward, and whether the split is equal or weighted. Switching between two
+          presets is often the fastest way to see why two people calculated different shares.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy and limitations
         </h2>
         <p>

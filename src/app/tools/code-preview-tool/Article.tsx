@@ -35,6 +35,13 @@ export default function Article() {
           Scripts and forms run without same-origin access to the Darma application. This is a front-end smoke-test environment, not a package bundler or backend runtime. Validate dependencies, CSP, accessibility, cross-browser behavior, APIs, and server integration in the target application before deployment.
         </p>
       </section>
+
+      <section className="space-y-2">
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Start from a complete interaction pattern</h2>
+        <p>
+          The preset library covers product and pricing cards, forms, dashboards, navigation, search filtering, progress steps, dialogs, toasts, FAQs, counters, and empty states. Each starter includes HTML, CSS, and JavaScript together so you can test a realistic pattern before replacing it with your own source.
+        </p>
+      </section>
     </div>
   );
 }

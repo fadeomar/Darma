@@ -48,6 +48,13 @@ export default function TimezoneConverterArticle() {
           date. Working-hours indicators are planning hints rather than proof that a participant is available.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Plan around people, not UTC offsets</h2>
+        <p>
+          The expanded scenarios cover remote interviews, MENA–Europe work, Asia and Americas teams, follow-the-sun handoffs, launches, training, board meetings, travel, and daylight-saving reviews. Start from the geography and meeting purpose that resembles your situation, then change participants and working hours.
+        </p>
+      </section>
     </div>
   );
 }

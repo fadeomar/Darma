@@ -23,6 +23,13 @@ export default function Article() {
       </section>
 
       <section className="space-y-2">
+        <h2 className="text-lg font-black text-[var(--color-text)]">Choose a starter by the UI job</h2>
+        <p>
+          The starter library now includes body copy, hero and section headings, card titles, lead paragraphs, section and hero spacing, card padding, grid gaps, content containers, article measure, sidebar width, button height, icons, avatars, border radius, and logo sizing. These are intentionally use-case specific even when two presets produce similar math.
+        </p>
+      </section>
+
+      <section className="space-y-2">
         <h2 className="text-lg font-black text-[var(--color-text)]">Accessibility notes</h2>
         <p>
           Keep minimum font sizes readable, test zoom behavior, and avoid huge jumps between the min and max values. For spacing, make sure small screens do not lose critical content because of oversized padding.

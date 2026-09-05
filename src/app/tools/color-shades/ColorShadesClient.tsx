@@ -24,6 +24,17 @@ const QUICK_PRESETS: Array<{ label: string; color1: string; color2: string; step
   { label: "Emerald", color1: "#ecfdf5", color2: "#047857", steps: 9 },
   { label: "Burgundy", color1: "#fff1f2", color2: "#800020", steps: 9 },
   { label: "Dark mode", color1: "#f8fafc", color2: "#020617", steps: 10 },
+  { label: "Indigo SaaS", color1: "#eef2ff", color2: "#3730a3", steps: 10 },
+  { label: "Rose commerce", color1: "#fff1f2", color2: "#be123c", steps: 10 },
+  { label: "Teal healthcare", color1: "#f0fdfa", color2: "#0f766e", steps: 10 },
+  { label: "Amber warning", color1: "#fffbeb", color2: "#b45309", steps: 10 },
+  { label: "Slate neutral", color1: "#f8fafc", color2: "#334155", steps: 10 },
+  { label: "Violet creator", color1: "#f5f3ff", color2: "#6d28d9", steps: 10 },
+  { label: "Cyan data", color1: "#ecfeff", color2: "#0e7490", steps: 10 },
+  { label: "Lime success", color1: "#f7fee7", color2: "#4d7c0f", steps: 10 },
+  { label: "Orange food", color1: "#fff7ed", color2: "#ea580c", steps: 10 },
+  { label: "Pink campaign", color1: "#fdf2f8", color2: "#be185d", steps: 10 },
+  { label: "High contrast", color1: "#ffffff", color2: "#111827", steps: 11 },
 ];
 
 const STEP_PRESETS = [5, 7, 9, 10, 11];
@@ -156,6 +167,7 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
   const [params, setParams] = useState<ColorShadesParams>(initialParams);
   const [workflowReady, setWorkflowReady] = useState(false);
   const [copiedShade, setCopiedShade] = useState<string | null>(null);
+  const [showAllQuickPresets, setShowAllQuickPresets] = useState(false);
 
   useEffect(() => {
     function handleSuggestion(event: Event) {
@@ -468,11 +480,11 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
             <summary className="cursor-pointer list-none p-4">
               <div>
                 <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Quick scale presets</h2>
-                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Start from a familiar visual direction, then refine the endpoints.</p>
+                <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Start from the closest product role, then replace the endpoints with your real brand colors.</p>
               </div>
             </summary>
             <div className="grid gap-2 border-t border-[var(--color-border-subtle)] p-4">
-              {QUICK_PRESETS.map((preset) => (
+              {(showAllQuickPresets ? QUICK_PRESETS : QUICK_PRESETS.slice(0, 6)).map((preset) => (
                 <button
                   key={preset.label}
                   type="button"
@@ -486,6 +498,14 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
                   </span>
                 </button>
               ))}
+              <button
+                type="button"
+                onClick={() => setShowAllQuickPresets((value) => !value)}
+                aria-expanded={showAllQuickPresets}
+                className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] px-3 py-2 text-xs font-bold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+              >
+                {showAllQuickPresets ? "Show fewer" : `Show all ${QUICK_PRESETS.length} scales`}
+              </button>
             </div>
           </details>
         </aside>

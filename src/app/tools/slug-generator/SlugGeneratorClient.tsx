@@ -91,6 +91,7 @@ export default function SlugGeneratorClient() {
   const [reservedInput, setReservedInput] = useState(DEFAULT_RESERVED_WORDS.join(", "));
   const [options, setOptions] = useState<SlugOptions>({ ...DEFAULT_SLUG_OPTIONS, ...defaultPreset.options });
   const [activeTab, setActiveTab] = useState<SlugTab>("routes");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const reservedWords = useMemo(() => reservedInput.split(",").map((value) => value.trim()).filter(Boolean), [reservedInput]);
   const effectiveInput = mode === "single" && previousPath.trim() ? `${input}\t${previousPath}` : input;
@@ -179,13 +180,18 @@ export default function SlugGeneratorClient() {
               <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RefreshCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              {SLUG_PRESETS.map((preset) => (
+              {(showAllPresets ? SLUG_PRESETS : SLUG_PRESETS.slice(0, 6)).map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                   <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
+            {SLUG_PRESETS.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer workflows" : `Show all ${SLUG_PRESETS.length} workflows`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

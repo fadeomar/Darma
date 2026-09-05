@@ -149,6 +149,7 @@ export default function ImageConverterClient() {
   const [error, setError] = useState("");
   const [converting, setConverting] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const sourcesRef = useRef<SourceImage[]>([]);
   const convertedRef = useRef<ConvertedImage[]>([]);
@@ -523,7 +524,7 @@ export default function ImageConverterClient() {
                   Quick presets
                 </summary>
                 <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                  {IMAGE_CONVERTER_PRESETS.map((preset) => (
+                  {(showAllPresets ? IMAGE_CONVERTER_PRESETS : IMAGE_CONVERTER_PRESETS.slice(0, 6)).map((preset) => (
                     <button
                       key={preset.id}
                       type="button"
@@ -535,6 +536,11 @@ export default function ImageConverterClient() {
                     </button>
                   ))}
                 </div>
+                {IMAGE_CONVERTER_PRESETS.length > 6 ? (
+                  <Button className="mt-3 w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+                    {showAllPresets ? "Show fewer presets" : `Show all ${IMAGE_CONVERTER_PRESETS.length} presets`}
+                  </Button>
+                ) : null}
               </details>
 
               <div className="flex flex-wrap gap-2">

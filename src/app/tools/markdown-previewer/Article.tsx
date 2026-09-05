@@ -32,6 +32,22 @@ export default function MarkdownPreviewerArticle() {
         <li>Blockquotes, horizontal rules, fenced code blocks, and tables.</li>
         <li>Optional GitHub-style single-line breaks and safe new-tab links.</li>
       </ul>
+      <h2>Start from the document you are actually writing</h2>
+      <p>
+        The preset library includes repository READMEs, pull requests, bug reports, API references,
+        release notes, runbooks, architecture decisions, QA plans, project briefs, support articles,
+        onboarding guides, comparison notes, study notes, meeting notes, and decision logs. These
+        are intentionally opinionated starting structures: replace the sample content, keep the
+        useful headings, and remove sections that do not apply to the document.
+      </p>
+
+      <h2>Use examples to learn structure, not to create filler</h2>
+      <p>
+        A good Markdown document is easier to scan when its headings reflect the reader's task.
+        Presets demonstrate common combinations of tables, checklists, code fences, blockquotes,
+        and links, but the strongest document is usually the shortest structure that communicates
+        the decision, instructions, or reference material clearly.
+      </p>
     </article>
   );
 }

@@ -37,6 +37,7 @@ import {
   type PaintDocumentSnapshot,
 } from "./projectDocument";
 import { clampCanvasSize, clampZoom, fitZoom, normalizeRegion, ZOOM_STEP } from "./geometry";
+import type { PaintStarter } from "./starters";
 import {
   createImportedImage,
   createPrivacyDraft,
@@ -134,6 +135,22 @@ export function usePaintEditor() {
     });
   }, []);
 
+
+  /**
+   * Quick starting styles only change tool settings. Canvas objects are never
+   * added, replaced, or cleared, so a starter is safe on in-progress artwork.
+   */
+  const applyStarter = useCallback((starter: PaintStarter) => {
+    const previous = settingsRef.current;
+    const nextTool = starter.settings.tool ?? previous.tool;
+    if (nextTool === "highlight" && previous.tool !== "highlight") {
+      highlightPreviousRef.current = { color: previous.color, size: previous.size, opacity: previous.opacity };
+    } else if (previous.tool === "highlight" && nextTool !== "highlight") {
+      highlightPreviousRef.current = null;
+    }
+    setSettings((current) => ({ ...current, ...starter.settings }));
+    setStatus(`${starter.label} settings applied. Your artwork was not changed.`);
+  }, []);
   const syncHistoryFlags = useCallback(() => {
     setCanUndo(historyRef.current.length > 1);
     setCanRedo(futureRef.current.length > 0);
@@ -810,6 +827,7 @@ export function usePaintEditor() {
     updateSetting,
     selectBrushPreset,
     selectTool,
+    applyStarter,
     background,
     setBackground,
     canvasSize,

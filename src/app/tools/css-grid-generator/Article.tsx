@@ -26,6 +26,24 @@ export default function CssGridGeneratorArticle() {
       </section>
 
       <section>
+        <h2 className="text-xl font-bold text-[var(--color-text)]">Start from a real layout, not an empty grid</h2>
+        <p className="mt-3">
+          The preset library covers common product layouts such as landing pages, pricing comparisons, dashboards, app shells, blog pages,
+          e-commerce catalogs, portfolios, settings forms, Kanban boards, galleries, and comparison matrices. Pick the closest intent first,
+          then change tracks and item placement instead of rebuilding the whole structure from scratch.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-bold text-[var(--color-text)]">Which starter should I choose?</h2>
+        <p className="mt-3">
+          Use Bento or Magazine for varied card spans, Dashboard or Analytics for dense data layouts, Landing page for marketing sections,
+          Blog + sidebar for long-form content, E-commerce catalog for a fixed filter rail, and Holy grail or App shell for full application
+          structure. The presets are deliberately practical starting points, so similar-looking layouts can still exist when their use cases differ.
+        </p>
+      </section>
+
+      <section>
         <h2 className="text-xl font-bold text-[var(--color-text)]">Line placement vs named template areas</h2>
         <p className="mt-3">
           Line placement uses values like <code>grid-column: 1 / 3</code> and is useful for precise component layouts. Named template areas

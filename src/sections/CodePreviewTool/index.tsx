@@ -434,6 +434,9 @@ export default function CodePreviewTool() {
                 getDescription={(preset: CodePreviewPreset) => preset.description}
                 compact
                 className="lg:grid-cols-3"
+                initialVisibleCount={6}
+                showMoreLabel="Show all patterns"
+                showLessLabel="Show fewer patterns"
               />
             </ControlSection>
           </div>

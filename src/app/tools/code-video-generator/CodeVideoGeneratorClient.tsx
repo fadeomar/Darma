@@ -45,7 +45,7 @@ import {
   selectProjectSources,
   type ImportedCodeFile,
 } from "./project";
-import { CODE_VIDEO_PRESETS, DEFAULT_CODE_VIDEO_PROJECT } from "./presets";
+import { CODE_VIDEO_PRESET_CATEGORIES, CODE_VIDEO_PRESETS, DEFAULT_CODE_VIDEO_PROJECT } from "./presets";
 import { buildPreviewDocument } from "./preview";
 import {
   DEFAULT_CODE_VIDEO_SETTINGS,
@@ -580,7 +580,11 @@ export default function CodeVideoGeneratorClient() {
               <Button variant="secondary" size="sm" onClick={() => fileInputRef.current?.click()} leftIcon={<FolderOpen className="h-4 w-4" aria-hidden />}>Choose files</Button>
               <input ref={fileInputRef} type="file" accept=".zip,.html,.css,.js,text/html,text/css,text/javascript" multiple className="sr-only" onChange={handleFileInput} />
             </div>
-            <label className="code-video-field"><span>Starter project</span><Select defaultValue={DEFAULT_CODE_VIDEO_PROJECT.id} onChange={(event) => selectPreset(event.target.value)}>{CODE_VIDEO_PRESETS.map((preset) => <option key={preset.id} value={preset.id}>{preset.title}</option>)}</Select></label>
+            <label className="code-video-field"><span>Starter project</span><Select defaultValue={DEFAULT_CODE_VIDEO_PROJECT.id} onChange={(event) => selectPreset(event.target.value)}>{CODE_VIDEO_PRESET_CATEGORIES.map((category) => (
+              <optgroup key={category} label={category}>
+                {CODE_VIDEO_PRESETS.filter((preset) => preset.category === category).map((preset) => <option key={preset.id} value={preset.id}>{preset.title}</option>)}
+              </optgroup>
+            ))}</Select><small>{CODE_VIDEO_PRESETS.length} short starter projects, grouped by what they demonstrate.</small></label>
             <label className="code-video-field"><span>Project title</span><Input value={project.title} onChange={(event) => setProject((current) => ({ ...current, title: event.target.value }))} /></label>
             <StatusMessage status={importStatus} />
           </ControlSection>

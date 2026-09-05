@@ -20,10 +20,22 @@ export const DEFAULT_CLAMP_INPUT: ClampInput = {
 export const PRESET_INPUTS: Array<{ label: string; description: string; input: ClampInput }> = [
   { label: "Body text", description: "Readable fluid copy", input: { ...DEFAULT_CLAMP_INPUT, minValue: 1, maxValue: 1.125 } },
   { label: "Hero heading", description: "Large display title", input: { ...DEFAULT_CLAMP_INPUT, minValue: 2, maxValue: 5 } },
+  { label: "Section heading", description: "Responsive H2 scale", input: { ...DEFAULT_CLAMP_INPUT, minValue: 1.5, maxValue: 3 } },
+  { label: "Card title", description: "Compact component heading", input: { ...DEFAULT_CLAMP_INPUT, minValue: 1.125, maxValue: 1.5 } },
+  { label: "Lead paragraph", description: "Larger intro copy", input: { ...DEFAULT_CLAMP_INPUT, minValue: 1.125, maxValue: 1.375 } },
   { label: "Section space", description: "Fluid vertical rhythm", input: { ...DEFAULT_CLAMP_INPUT, property: "padding-block", minValue: 2, maxValue: 6 } },
+  { label: "Hero padding", description: "Large landing spacing", input: { ...DEFAULT_CLAMP_INPUT, property: "padding-block", minValue: 3, maxValue: 8 } },
+  { label: "Card padding", description: "Responsive card inset", input: { ...DEFAULT_CLAMP_INPUT, property: "padding", minValue: 1, maxValue: 2 } },
   { label: "Card gap", description: "Responsive layout gap", input: { ...DEFAULT_CLAMP_INPUT, property: "gap", minValue: 0.75, maxValue: 2 } },
-  { label: "Container", description: "Fluid max width", input: { ...DEFAULT_CLAMP_INPUT, property: "width", minValue: 20, maxValue: 72, unit: "rem" } },
+  { label: "Grid gap", description: "Gallery and dashboard gap", input: { ...DEFAULT_CLAMP_INPUT, property: "gap", minValue: 1, maxValue: 2.5 } },
+  { label: "Container", description: "Fluid content width", input: { ...DEFAULT_CLAMP_INPUT, property: "width", minValue: 20, maxValue: 72, unit: "rem" } },
+  { label: "Article measure", description: "Readable prose width", input: { ...DEFAULT_CLAMP_INPUT, property: "max-width", minValue: 20, maxValue: 44, unit: "rem" } },
+  { label: "Sidebar width", description: "Adaptive sidebar sizing", input: { ...DEFAULT_CLAMP_INPUT, property: "inline-size", minValue: 14, maxValue: 22, unit: "rem" } },
+  { label: "Button height", description: "Touch-friendly control size", input: { ...DEFAULT_CLAMP_INPUT, property: "min-block-size", minValue: 2.75, maxValue: 3.25, unit: "rem" } },
   { label: "Icon size", description: "Compact UI sizing", input: { ...DEFAULT_CLAMP_INPUT, property: "inline-size", minValue: 1.5, maxValue: 3 } },
+  { label: "Avatar size", description: "Profile image scale", input: { ...DEFAULT_CLAMP_INPUT, property: "inline-size", minValue: 2.5, maxValue: 5 } },
+  { label: "Border radius", description: "Fluid corner treatment", input: { ...DEFAULT_CLAMP_INPUT, property: "border-radius", minValue: 0.75, maxValue: 2 } },
+  { label: "Logo width", description: "Responsive brand mark", input: { ...DEFAULT_CLAMP_INPUT, property: "inline-size", minValue: 7, maxValue: 12, unit: "rem" } },
 ];
 
 export const TYPOGRAPHY_TOKENS: ClampToken[] = [

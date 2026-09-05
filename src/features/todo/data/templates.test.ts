@@ -10,8 +10,8 @@ import {
 } from "./seedTemplates";
 
 describe("seed templates", () => {
-  it("ships at least 20 templates", () => {
-    expect(SEED_TEMPLATES.length).toBeGreaterThanOrEqual(20);
+  it("ships at least 30 templates", () => {
+    expect(SEED_TEMPLATES.length).toBeGreaterThanOrEqual(30);
   });
 
   it("has unique ids and non-empty tasks", () => {

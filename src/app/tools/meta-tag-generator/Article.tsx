@@ -23,6 +23,20 @@ export default function Article() {
       </section>
 
       <section className="space-y-2">
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Choose a preset by page intent</h2>
+        <p>
+          The starter library covers product pages, documentation, open-source projects, local businesses, events, jobs, newsletters, mobile apps, case studies, changelog entries, and profiles. Start with the page type closest to what you are publishing, then replace every example URL, handle, image, title, and description with production values. This keeps the expected metadata shape visible while you write real copy.
+        </p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">One page can have several previews</h2>
+        <p>
+          Search engines and social platforms apply their own truncation, caching, image cropping, and fallback rules. Use the in-tool previews to catch obvious content problems, but treat deployed platform debuggers and the final rendered page as the source of truth for release verification.
+        </p>
+      </section>
+
+      <section className="space-y-2">
         <h2 className="text-base font-bold text-[var(--color-text-primary)]">Privacy and final verification</h2>
         <p>
           All generation and validation happen locally in the browser. Darma does not fetch the canonical URL or social image, so no remote page content is inspected. After deployment, verify the real public URL with the preview tools used by the search and social platforms relevant to your release.

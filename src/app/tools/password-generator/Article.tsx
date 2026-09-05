@@ -73,6 +73,16 @@ export default function Article() {
       </section>
 
       <section>
+        <h2 className={sectionTitle}>Start from where the secret will be used</h2>
+        <p>
+          The preset library distinguishes ordinary accounts, password-manager logins, important accounts, legacy form constraints, shared Wi-Fi, privileged access, temporary bootstrap credentials, human-entered passphrases, and machine secrets such as database or CI/CD credentials. Start with the destination, then adjust only for a documented compatibility requirement.
+        </p>
+        <p className="mt-3">
+          Presets describe generation settings, not storage policy. A strong generated value can still be mishandled if it is reused, committed to source control, pasted into tickets, or left in an insecure environment file.
+        </p>
+      </section>
+
+      <section>
         <h2 className={sectionTitle}>Safe handling after generation</h2>
         <ul className="list-inside list-disc space-y-2">
           <li>Use a unique secret for every account or service.</li>

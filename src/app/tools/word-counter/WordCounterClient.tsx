@@ -100,6 +100,7 @@ export default function WordCounterClient() {
   const [customMetric, setCustomMetric] = useState<WordCounterMetric>("words");
   const [customMin, setCustomMin] = useState("0");
   const [customMax, setCustomMax] = useState("1000");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const [readingWpm, setReadingWpm] = useState("200");
   const [speakingWpm, setSpeakingWpm] = useState("130");
   const [includeStopWords, setIncludeStopWords] = useState(false);
@@ -338,8 +339,13 @@ export default function WordCounterClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Quick starts</div>
             <div className="mt-3 grid grid-cols-2 gap-2">
-              {WORD_COUNTER_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)]"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span></button>)}
+              {(showAllPresets ? WORD_COUNTER_PRESETS : WORD_COUNTER_PRESETS.slice(0, 6)).map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)]"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span></button>)}
             </div>
+            {WORD_COUNTER_PRESETS.length > 6 ? (
+              <Button className="mt-2 w-full" size="sm" variant="ghost" aria-expanded={showAllPresets} onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer samples" : `Show all ${WORD_COUNTER_PRESETS.length} samples`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

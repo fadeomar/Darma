@@ -6,7 +6,15 @@ export type RobotsPresetId =
   | "wordpress"
   | "ecommerce"
   | "documentation"
-  | "crawler-split";
+  | "crawler-split"
+  | "saas-app"
+  | "blog-cms"
+  | "local-business"
+  | "search-site"
+  | "media-site"
+  | "multilingual"
+  | "api-docs"
+  | "preview-with-assets";
 
 export type RobotsRule = {
   id: string;

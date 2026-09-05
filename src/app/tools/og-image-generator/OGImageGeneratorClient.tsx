@@ -100,10 +100,13 @@ function DisclosurePanel({ title, description, children, defaultOpen = false }: 
 }
 
 function QuickPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAction<OgImageInput>> }) {
+  const [showAll, setShowAll] = useState(false);
+  const visiblePresets = showAll ? QUICK_PRESETS : QUICK_PRESETS.slice(0, 6);
+
   return (
-    <ControlSection title="Quick social presets" description="Pick a target use case first, then customize copy, colors, and export pack.">
+    <ControlSection title="Quick social presets" description="Pick the page or announcement type first, then customize copy, colors, and export pack.">
       <div className="grid gap-2 sm:grid-cols-2">
-        {QUICK_PRESETS.map((preset) => (
+        {visiblePresets.map((preset) => (
           <button
             key={preset.id}
             type="button"
@@ -125,6 +128,11 @@ function QuickPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAct
           </button>
         ))}
       </div>
+      {QUICK_PRESETS.length > 6 ? (
+        <Button size="sm" variant="ghost" className="w-full" onClick={() => setShowAll((value) => !value)}>
+          {showAll ? "Show fewer social scenarios" : `Show all ${QUICK_PRESETS.length} scenarios`}
+        </Button>
+      ) : null}
     </ControlSection>
   );
 }

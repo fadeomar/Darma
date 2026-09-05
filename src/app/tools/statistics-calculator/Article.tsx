@@ -42,6 +42,13 @@ export default function StatisticsCalculatorArticle() {
           All parsing, calculations, charts, and downloads run locally. Browser-based descriptive analysis is designed for compact and medium data sets; very large files, inferential statistics, weighted samples, or regulated decisions should use a dedicated statistical environment with documented methodology.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Learn from distributions, not only one sample</h2>
+        <p>
+          The preset library includes tight sensor data, skewed commerce values, latency outliers, bimodal data, ratings, mixed gains and losses, near-constant readings, operational durations, and larger business metrics. Switching between these examples makes the effect of outliers, skew, modes, variance, and percentile choices easier to see before analysing your own data.
+        </p>
+      </section>
     </div>
   );
 }

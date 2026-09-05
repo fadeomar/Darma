@@ -77,6 +77,7 @@ export default function ReadabilityClient() {
   const [text, setText] = useState(INITIAL_PRESET.text);
   const [targetId, setTargetId] = useState<ReadabilityTargetId>(INITIAL_PRESET.targetId);
   const [view, setView] = useState<WorkspaceView>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const target = useMemo(() => getReadabilityTarget(targetId), [targetId]);
@@ -235,7 +236,12 @@ export default function ReadabilityClient() {
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><BookOpen className="h-4 w-4" />Practical presets</div>
-          <div className="space-y-2">{READABILITY_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          <div className="space-y-2">{(showAllPresets ? READABILITY_PRESETS : READABILITY_PRESETS.slice(0, 6)).map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          {READABILITY_PRESETS.length > 6 ? (
+            <Button className="mt-2 w-full" size="sm" variant="ghost" aria-expanded={showAllPresets} onClick={() => setShowAllPresets((value) => !value)}>
+              {showAllPresets ? "Show fewer samples" : `Show all ${READABILITY_PRESETS.length} samples`}
+            </Button>
+          ) : null}
         </section>
 
         <section className="space-y-2 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

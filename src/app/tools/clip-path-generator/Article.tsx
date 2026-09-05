@@ -24,6 +24,20 @@ export default function Article() {
         This tool is for producing the CSS shape, not for exporting a cut-out file.
       </p>
 
+      <h2>Ready-made shapes and practical use cases</h2>
+      <p>
+        The preset library is intentionally broader than a list of regular polygons. Alongside triangles, diamonds, pentagons, hexagons,
+        and stars, you can start from hero diagonals, slanted image frames, arrows, bookmarks, price tags, shields, tickets, speech bubbles,
+        cut-corner cards, and other UI-oriented shapes. Pick the closest visual intent and then move individual points.
+      </p>
+
+      <h2>Good places to use clip-path</h2>
+      <p>
+        Clip-path works well for marketing hero media, decorative section edges, avatar or product-image masks, badges, labels, directional
+        callouts, coupon shapes, and editorial image treatments. Avoid using a complex clipped shape when a normal border radius would communicate
+        the same thing more clearly.
+      </p>
+
       <h2>Browser support and the -webkit- fallback</h2>
       <p>
         Modern browsers support <code>clip-path: polygon()</code>. Older Safari versions need the{" "}

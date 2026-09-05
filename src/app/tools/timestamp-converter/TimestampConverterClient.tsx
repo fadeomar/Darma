@@ -113,6 +113,7 @@ export default function TimestampConverterClient() {
   const [selectedZoneIds, setSelectedZoneIds] = useState<string[]>(["browser", "utc", "hebron", "new-york"]);
   const [activeTab, setActiveTab] = useState<TimestampTab>("overview");
   const [zipBusy, setZipBusy] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const zoneOptions = useMemo(() => [makeBrowserZone(), ...COMMON_TIME_ZONES], []);
   const timestampResult = useMemo(() => convertTimestampInput(timestamp, unitMode), [timestamp, unitMode]);
@@ -244,7 +245,7 @@ export default function TimestampConverterClient() {
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Practical presets</h2>
             </div>
             <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
-              {TIMESTAMP_PRESETS.map((preset) => (
+              {(showAllPresets ? TIMESTAMP_PRESETS : TIMESTAMP_PRESETS.slice(0, 6)).map((preset) => (
                 <button
                   key={preset.id}
                   type="button"
@@ -256,6 +257,11 @@ export default function TimestampConverterClient() {
                 </button>
               ))}
             </div>
+            {TIMESTAMP_PRESETS.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer sources" : `Show all ${TIMESTAMP_PRESETS.length} sources`}
+              </Button>
+            ) : null}
           </div>
 
           <div className="border-t border-[var(--color-border-subtle)] pt-4">

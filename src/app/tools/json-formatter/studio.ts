@@ -81,34 +81,18 @@ export const JSON_FORMATTER_PRESETS: Array<{
   settings: JsonFormatterSettings;
   operation: "format" | "minify" | "sort";
 }> = [
-  {
-    id: "api-readable",
-    title: "Readable API",
-    description: "Two-space formatting without changing key order.",
-    settings: { indent: 2, sortKeys: false, preferredView: "text" },
-    operation: "format",
-  },
-  {
-    id: "review-diff",
-    title: "Stable review",
-    description: "Four-space formatting with recursively sorted keys.",
-    settings: { indent: 4, sortKeys: true, preferredView: "text" },
-    operation: "sort",
-  },
-  {
-    id: "compact-transport",
-    title: "Compact transport",
-    description: "Minified JSON for payload size checks.",
-    settings: { indent: 2, sortKeys: false, preferredView: "stats" },
-    operation: "minify",
-  },
-  {
-    id: "data-inspection",
-    title: "Data inspection",
-    description: "Readable formatting with the tree inspector selected.",
-    settings: { indent: 2, sortKeys: false, preferredView: "tree" },
-    operation: "format",
-  },
+  { id: "api-readable", title: "Readable API", description: "Two-space formatting without changing key order.", settings: { indent: 2, sortKeys: false, preferredView: "text" }, operation: "format" },
+  { id: "review-diff", title: "Stable review", description: "Four-space formatting with recursively sorted keys.", settings: { indent: 4, sortKeys: true, preferredView: "text" }, operation: "sort" },
+  { id: "compact-transport", title: "Compact transport", description: "Minified JSON for payload size checks.", settings: { indent: 2, sortKeys: false, preferredView: "stats" }, operation: "minify" },
+  { id: "data-inspection", title: "Data inspection", description: "Readable formatting with the tree inspector selected.", settings: { indent: 2, sortKeys: false, preferredView: "tree" }, operation: "format" },
+  { id: "table-dataset", title: "Table dataset", description: "Format arrays of records and jump to the table view.", settings: { indent: 2, sortKeys: false, preferredView: "table" }, operation: "format" },
+  { id: "config-file", title: "Config file", description: "Stable two-space output with sorted keys for configuration review.", settings: { indent: 2, sortKeys: true, preferredView: "text" }, operation: "sort" },
+  { id: "log-payload", title: "Log payload", description: "Compact a log event and review size/statistics.", settings: { indent: 2, sortKeys: false, preferredView: "stats" }, operation: "minify" },
+  { id: "deep-object", title: "Deep object", description: "Format nested objects and open the tree inspector.", settings: { indent: 4, sortKeys: false, preferredView: "tree" }, operation: "format" },
+  { id: "snapshot-review", title: "Snapshot review", description: "Sort keys for deterministic snapshots and fixture diffs.", settings: { indent: 2, sortKeys: true, preferredView: "text" }, operation: "sort" },
+  { id: "copy-paste", title: "Copy-ready", description: "Readable two-space formatting for tickets, docs, and chat.", settings: { indent: 2, sortKeys: false, preferredView: "text" }, operation: "format" },
+  { id: "tab-indented", title: "Tab indented", description: "Use tabs for teams or files that follow tab-based formatting.", settings: { indent: "tab", sortKeys: false, preferredView: "text" }, operation: "format" },
+  { id: "sorted-table", title: "Sorted table", description: "Sort object keys and inspect record arrays in a table.", settings: { indent: 2, sortKeys: true, preferredView: "table" }, operation: "sort" },
 ];
 
 type JsonRecord = Record<string, unknown>;

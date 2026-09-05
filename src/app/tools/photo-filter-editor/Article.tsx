@@ -33,6 +33,21 @@ export default function Article() {
         blur, grayscale, sepia, invert, and opacity.
       </p>
 
+      <h2>Choose a preset by what the image is for</h2>
+      <p>
+        The preset library includes purpose-driven starting points for portraits, product photos, food, landscapes, low-light images, web
+        screenshots, editorial images, golden-hour scenes, cinematic looks, matte finishes, soft focus, black and white, and vintage
+        treatments. Similar presets are kept when they solve different user intents, because choosing &ldquo;Product Clean&rdquo; is easier
+        than guessing which three sliders create a clean marketplace image.
+      </p>
+
+      <h2>Fast adjustment recipes</h2>
+      <p>
+        For product imagery, start with brightness and moderate contrast. For food and landscapes, saturation can help but should be checked
+        against skin tones and brand colors. For low-light photos, raise brightness before increasing contrast. For a softer editorial look,
+        reduce contrast and saturation slightly instead of relying on blur alone.
+      </p>
+
 
       <h2>Advanced controls without a Pro paywall</h2>
       <p>

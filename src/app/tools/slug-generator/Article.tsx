@@ -91,6 +91,13 @@ Documentation/API authentication`}
           your browser. Titles and previous paths are not uploaded to a server.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Route presets by content type</h2>
+        <p>
+          Different content systems need different slug policies. The expanded starters cover blogs, products, documentation, news, help centers, events, courses, jobs, taxonomies, campaigns, API-style identifiers, migrations, Arabic routes, and user-generated titles. Start from the content type, then tune stop words, Unicode, separators, collisions, and maximum length.
+        </p>
+      </section>
     </div>
   );
 }

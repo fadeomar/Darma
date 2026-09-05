@@ -49,6 +49,16 @@ export default function Article() {
       </section>
 
       <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Start from the component you need to stress</h2>
+        <p>
+          The expanded presets include SaaS and mobile heroes, dashboard cards, review quotes, support FAQs, product grids, team profiles, pricing comparisons, CMS previews, microcopy sets, and long-form stress tests. Pick the closest component so the generated content has approximately the right density before you tune paragraph length or quantity.
+        </p>
+        <p className="mt-3">
+          For responsive QA, reuse the same seed across desktop and mobile. That separates layout changes from random content changes and makes screenshots easier to compare.
+        </p>
+      </section>
+
+      <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Production checklist</h2>
         <p>
           Placeholder content must be removed before publishing. Replace fake

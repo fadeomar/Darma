@@ -109,6 +109,20 @@ export default function BeamCalculatorArticle() {
           construction, assessment, or any safety-critical decision.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Use the scenario library to learn load behavior
+        </h2>
+        <p>
+          The expanded presets deliberately cover centered and off-center point
+          loads, full and partial UDLs, applied moments, upward loads, combined
+          loading, and cantilevers. Pick the closest loading pattern first, then
+          change span and magnitudes instead of rebuilding every support and load
+          from a blank model. Every scenario stays an educational starting point
+          for preliminary analysis, not a structural design recommendation.
+        </p>
+      </section>
     </div>
   );
 }

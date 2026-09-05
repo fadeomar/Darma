@@ -133,7 +133,21 @@ export default function CssGradientGeneratorArticle() {
           </div>
         </Section>
 
-        {/* 5) Tips for better gradients */}
+        {/* 5) Start from a UI use case */}
+        <Section title="Start from a UI use case">
+          <p className="max-w-[70ch] text-sm leading-7 text-[var(--color-text-secondary)]">
+            The ready-made examples include both expressive color studies and practical product starters: SaaS hero backgrounds, CTA bands,
+            dark dashboard surfaces, success glows, product spotlights, subtle surfaces, warm landing-page gradients, warning banners, aurora
+            effects, and brand-focused purple or ocean palettes. Pick the closest role first, then change color stops and interpolation.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <InfoCard title="Marketing">SaaS Hero, Sunset Hero, Warm Landing, Aurora, and Purple Brand are good starting points for high-visibility sections.</InfoCard>
+            <InfoCard title="Product UI">Dark Dashboard, Subtle Surface, Product Spotlight, and Success Glow are tuned for interface surfaces and states.</InfoCard>
+            <InfoCard title="Calls to action">Ocean CTA, Warning Banner, and compact brand gradients work well behind buttons, banners, and promotional strips.</InfoCard>
+          </div>
+        </Section>
+
+        {/* 6) Tips for better gradients */}
         <Section title="Tips for better gradients">
           <ul className="max-w-[70ch] list-disc space-y-2 pl-5 text-sm leading-7 text-[var(--color-text-secondary)]">
             <li>Use OKLCH or OKLab for smoother color transitions.</li>
@@ -145,7 +159,7 @@ export default function CssGradientGeneratorArticle() {
           </ul>
         </Section>
 
-        {/* 6) Related tools */}
+        {/* 7) Related tools */}
         <Section title="Related tools">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RELATED_TOOLS.map((tool) => (
@@ -163,7 +177,7 @@ export default function CssGradientGeneratorArticle() {
           </div>
         </Section>
 
-        {/* 7) FAQ */}
+        {/* 8) FAQ */}
         <Section title="Frequently asked questions">
           <div className="space-y-3">
             {FAQ.map((item) => (

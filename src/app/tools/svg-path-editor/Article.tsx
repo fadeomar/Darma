@@ -66,6 +66,19 @@ export default function Article() {
           with redistributed versions.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+          Use examples as geometry starters
+        </h2>
+        <p>
+          The example library includes primitive shapes, arrows, icons, interface
+          elements, and decorative paths such as chat bubbles, tickets, cut-corner
+          cards, upload and download symbols, blobs, and dividers. Load the closest
+          geometry, fit the viewBox, then edit points instead of reconstructing
+          familiar shapes from scratch.
+        </p>
+      </section>
     </div>
   );
 }

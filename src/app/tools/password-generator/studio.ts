@@ -150,6 +150,55 @@ export const PASSWORD_PRESETS: PasswordPreset[] = [
       seedText: "",
     },
   },
+  {
+    id: "password-manager",
+    title: "Password manager default",
+    description: "20 random characters for accounts saved and autofilled by a password manager.",
+    policyId: "important",
+    config: { ...DEFAULT_PASSWORD_CONFIG, length: 20 },
+  },
+  {
+    id: "legacy-compatible",
+    title: "Legacy-compatible login",
+    description: "20 characters without symbols for older sites that reject punctuation; review the destination policy first.",
+    policyId: "important",
+    config: { ...DEFAULT_PASSWORD_CONFIG, length: 20, symbols: false },
+  },
+  {
+    id: "shared-wifi",
+    title: "Shared Wi-Fi password",
+    description: "24 readable random characters for a network password that may need occasional manual entry.",
+    policyId: "important",
+    config: { ...DEFAULT_PASSWORD_CONFIG, length: 24, excludeSimilar: true, excludeAmbiguous: true },
+  },
+  {
+    id: "database",
+    title: "Database credential",
+    description: "40 random characters for application-to-database authentication stored in a secret manager.",
+    policyId: "machine",
+    config: { ...DEFAULT_PASSWORD_CONFIG, length: 40, excludeSimilar: false, excludeAmbiguous: false },
+  },
+  {
+    id: "cicd",
+    title: "CI/CD secret",
+    description: "48 random characters for automation credentials and deployment pipelines.",
+    policyId: "machine",
+    config: { ...DEFAULT_PASSWORD_CONFIG, length: 48, excludeSimilar: false, excludeAmbiguous: false },
+  },
+  {
+    id: "bootstrap",
+    title: "Temporary bootstrap login",
+    description: "22 random characters for a one-time setup credential that should be rotated after first use.",
+    policyId: "privileged",
+    config: { ...DEFAULT_PASSWORD_CONFIG, length: 22 },
+  },
+  {
+    id: "typed-passphrase",
+    title: "Strong typed passphrase",
+    description: "Six randomized words for an important credential that a human may need to enter manually.",
+    policyId: "privileged",
+    config: { ...DEFAULT_PASSWORD_CONFIG, mode: "passphrase", wordCount: 6, separator: "-", capitalizeWords: true, includeNumber: true, includeSymbol: true, seedText: "" },
+  },
 ];
 
 function isRecord(value: unknown): value is JsonRecord {

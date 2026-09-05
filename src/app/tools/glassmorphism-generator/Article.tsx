@@ -6,6 +6,11 @@ export default function Article() {
         Glassmorphism is a UI style that combines translucent layers, backdrop blur, soft borders, shadows, and rich backgrounds to create a frosted-glass effect. It works best when the glass panel sits over visible color, imagery, or motion.
       </p>
 
+      <h2>Start with a real component use case</h2>
+      <p>
+        Glass settings depend heavily on where the surface will live. Start from a navbar, modal, sidebar, pricing card, login panel, dashboard widget, toast, command palette, profile card, floating toolbar, media overlay, or hero panel, then fine-tune blur and tint. A compact toast usually needs stronger tint and less blur than a large decorative hero surface.
+      </p>
+
       <h2>How backdrop-filter creates frosted glass</h2>
       <p>
         The key CSS property is <code>backdrop-filter</code>. It applies visual effects to the pixels behind an element, so the element itself needs a transparent or semi-transparent background. A fully opaque background will hide the blur.

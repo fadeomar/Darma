@@ -26,6 +26,15 @@ export default function Article() {
         </div>
       </ToolArticleSection>
 
+      <ToolArticleSection title="Choose a starter by deployment target">
+        <p>
+          The quick setup library covers plain websites, Next.js, React/Vite, Astro, Nuxt, SvelteKit, WordPress, installable PWAs, iOS-heavy support, and complete brand handoff. It also includes source-oriented starters for monograms, emoji prototypes, transparent logos, and maskable-safe artwork.
+        </p>
+        <p>
+          Framework presets mainly change packaging and install paths. Source presets mainly change how artwork is fitted and protected. Choose the dimension that is currently hardest for you instead of manually reconstructing both at once.
+        </p>
+      </ToolArticleSection>
+
       <ToolArticleSection title="Recommended production workflow">
         <ol className="space-y-1 pl-5 [&>li]:list-decimal">
           <li>Start with a square image or safe SVG when possible and keep important artwork centered.</li>

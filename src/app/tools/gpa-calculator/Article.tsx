@@ -44,6 +44,19 @@ const SECTIONS = [
       </p>
     ),
   },
+  {
+    title: "Start from a semester that resembles yours",
+    content: (
+      <p>
+        The preset library covers balanced and STEM-heavy terms, scholarship and Dean&rsquo;s list
+        targets, probation recovery, grade-replacement retakes, transfers with no prior grade points,
+        part-time and summer loads, honors thesis terms, withdrawals, a failed course, a 21-credit
+        overload, and a graduate program. Load the closest one, then replace the course names,
+        grades, and credit hours with your own. Starting from a realistic shape makes it much easier
+        to see whether a target average is actually reachable this term.
+      </p>
+    ),
+  },
 ];
 
 export default function GpaCalculatorArticle() {

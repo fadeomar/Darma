@@ -41,6 +41,12 @@ export default function Article() {
           <li>Keep a project JSON beside the deployed code so the visual can be reproduced later.</li>
         </ul>
       </ToolArticleSection>
+
+      <ToolArticleSection title="Choose by page intent before tuning sliders">
+        <p>
+          Start from the closest real page type (documentation, commerce, healthcare, events, portfolios, dashboards, or apps), then tune motion. Two presets can use similar colors yet need very different density, blur, and speed because the content above them has a different readability budget.
+        </p>
+      </ToolArticleSection>
     </ToolArticle>
   );
 }

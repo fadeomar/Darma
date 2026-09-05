@@ -184,10 +184,13 @@ function UploadBox({ label, hint, accept, onChange, previewUrl }: { label: strin
 }
 
 function QuickPresets({ setInput }: { setInput: Dispatch<SetStateAction<MockupInput>> }) {
+  const [showAll, setShowAll] = useState(false);
+  const visiblePresets = showAll ? QUICK_PRESETS : QUICK_PRESETS.slice(0, 6);
+
   return (
-    <ControlSection title="Looks" description="Start with a polished visual direction, then fine-tune only what you need.">
+    <ControlSection title="Looks" description="Choose the communication goal first, then fine-tune the frame and brand styling.">
       <div className="grid grid-cols-2 gap-2">
-        {QUICK_PRESETS.map((preset) => {
+        {visiblePresets.map((preset) => {
           const from = preset.patch.gradientFrom ?? "#0f172a";
           const to = preset.patch.gradientTo ?? preset.patch.backgroundColor ?? "#475569";
           const device = preset.patch.device ?? "card";
@@ -221,6 +224,11 @@ function QuickPresets({ setInput }: { setInput: Dispatch<SetStateAction<MockupIn
           );
         })}
       </div>
+      {QUICK_PRESETS.length > 6 ? (
+        <Button size="sm" variant="ghost" className="w-full" onClick={() => setShowAll((value) => !value)}>
+          {showAll ? "Show fewer mockup scenarios" : `Show all ${QUICK_PRESETS.length} scenarios`}
+        </Button>
+      ) : null}
     </ControlSection>
   );
 }

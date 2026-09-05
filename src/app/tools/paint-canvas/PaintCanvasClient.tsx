@@ -9,6 +9,7 @@ import CanvasStage from "./components/CanvasStage";
 import ObjectsPanel from "./components/ObjectsPanel";
 import PropertiesPanel from "./components/PropertiesPanel";
 import SelectionPanel from "./components/SelectionPanel";
+import StartersPanel from "./components/StartersPanel";
 import ToolRail from "./components/ToolRail";
 import TopBar from "./components/TopBar";
 import { usePaintEditor } from "./editor/usePaintEditor";
@@ -45,6 +46,7 @@ export default function PaintCanvasClient() {
         </div>
         <aside className="flex flex-col gap-4" data-tool-region="controls">
           <CanvasSizePanel size={editor.canvasSize} onResize={editor.resizeCanvas} />
+          <StartersPanel settings={editor.settings} onApply={editor.applyStarter} />
           <PropertiesPanel settings={editor.settings} onChange={editor.updateSetting} onBrushPresetChange={editor.selectBrushPreset} />
           <BackgroundPanel background={editor.background} onChange={editor.setBackground} />
           <SelectionPanel

@@ -29,6 +29,7 @@ export default function SitemapXmlClient() {
   const [entries, setEntries] = useState<SitemapUrlEntry[]>(() => parseUrlList(SITEMAP_SAMPLE_INPUT));
   const [activeFile, setActiveFile] = useState(0);
   const [view, setView] = useState<"table" | "xml" | "checks">("table");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const result = useMemo(() => buildSitemap(entries, options), [entries, options]);
   const selectedFile = result.files[Math.min(activeFile, result.files.length - 1)];
@@ -76,7 +77,7 @@ export default function SitemapXmlClient() {
       </section>
 
       <aside className="space-y-3">
-        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]"><div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><ListChecks className="h-4 w-4" />Practical presets</div><div className="space-y-2">{SITEMAP_PRESETS.map((preset) => <button key={preset.id} onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div></section>
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]"><div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><ListChecks className="h-4 w-4" />Practical presets</div><div className="space-y-2">{(showAllPresets ? SITEMAP_PRESETS : SITEMAP_PRESETS.slice(0, 6)).map((preset) => <button key={preset.id} onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>{SITEMAP_PRESETS.length > 6 ? <Button className="mt-2 w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>{showAllPresets ? "Show fewer presets" : `Show all ${SITEMAP_PRESETS.length} presets`}</Button> : null}</section>
 
         <section className="space-y-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]"><div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Globe2 className="h-4 w-4" />Defaults & splitting</div>
           <label className="block text-xs font-semibold text-[var(--color-text-muted)]">Last modified<Select size="sm" className="mt-1" value={options.defaultLastmodMode} onChange={(event) => setOptions((current) => ({ ...current, defaultLastmodMode: event.target.value as SitemapOptions["defaultLastmodMode"] }))}>{LASTMOD_OPTIONS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</Select></label>

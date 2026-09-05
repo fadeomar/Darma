@@ -80,6 +80,14 @@ export default function Article() {
         or compatible stylus. Freehand strokes remain part of the editable document when you switch back to Select.
       </p>
 
+      <h2>Start from a drawing intent</h2>
+      <p>
+        Quick starting styles configure the tool, color, size, fill, opacity, and brush feel for common jobs such as
+        wireframing, redline review, highlighting a passage, diagram lines, status dots, labels, and redacting sensitive
+        details. They do not draw anything for you and never replace or clear existing canvas objects, so applying one
+        mid-drawing is always safe. Six are shown by default; use <strong>Show all</strong> to reveal the rest.
+      </p>
+
       <h2>Privacy</h2>
       <p>
         There is no account, cloud project, or server upload in the editing flow. Image import, annotation, privacy

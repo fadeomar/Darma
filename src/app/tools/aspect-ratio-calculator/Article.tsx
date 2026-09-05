@@ -54,6 +54,13 @@ export default function AspectRatioCalculatorArticle() {
           images, or design data.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Choose a target before tuning numbers</h2>
+        <p>
+          Start from the platform or deliverable you actually need—social cover, dashboard screenshot, product photo, video frame, or print page—then adjust the ratio and dimensions. Two targets can share nearly the same ratio while still needing different pixel dimensions, so the target library is intentionally use-case driven rather than mathematically unique.
+        </p>
+      </section>
     </div>
   );
 }

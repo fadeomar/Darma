@@ -45,6 +45,17 @@ export default function RegexTesterArticle() {
       <p>
         Patterns, samples, matches, replacements, imports, and ZIP generation are processed locally in the browser. No input is uploaded and the tool requires no server route.
       </p>
+      <h2>Start with a pattern that demonstrates the technique</h2>
+      <p>
+        The example library covers extraction, cleanup, transformation, and lightweight validation: email-like strings, URLs, UUIDs, dates,
+        CSS dimensions, Markdown links, query parameters, log lines, slugs, semantic versions, whitespace cleanup, and more. Use a nearby
+        example to learn the capture groups and flags, then replace both the pattern and sample text with representative production-shaped data.
+      </p>
+      <h2>Regex is not always the validator</h2>
+      <p>
+        Several examples deliberately say “finder” or “-like” because a regular expression can recognize shape without proving semantic validity.
+        IP addresses, phone numbers, URLs, HTML, and complex identifiers often need a parser or domain-specific validator after the initial match.
+      </p>
     </article>
   );
 }

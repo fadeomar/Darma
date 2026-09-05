@@ -67,6 +67,7 @@ export default function JsonToTypescriptClient() {
   const [input, setInput] = useState(initialPreset.value);
   const [options, setOptions] = useState<InferOptions>({ ...DEFAULT_OPTIONS, rootName: initialPreset.rootName });
   const [activeArtifact, setActiveArtifact] = useState<GeneratedArtifactId>("typescript");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const parsed = useMemo(() => parseJsonInput(input), [input]);
@@ -235,7 +236,7 @@ export default function JsonToTypescriptClient() {
       <aside className="space-y-3 2xl:sticky 2xl:top-4 2xl:self-start">
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Practical presets</div>
-          <div className="space-y-2">{JSON_EXAMPLES.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          <div className="space-y-2">{(showAllPresets ? JSON_EXAMPLES : JSON_EXAMPLES.slice(0, 6)).map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>{JSON_EXAMPLES.length > 6 ? <Button className="mt-2 w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>{showAllPresets ? "Show fewer presets" : `Show all ${JSON_EXAMPLES.length} presets`}</Button> : null}
         </section>
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

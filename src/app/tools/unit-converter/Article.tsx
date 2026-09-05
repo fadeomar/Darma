@@ -61,6 +61,13 @@ export default function UnitConverterArticle() {
           never uploaded.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Start from the thing you are measuring</h2>
+        <p>
+          The preset library is organized around real tasks such as room dimensions, monitor sizes, travel distance, shipping weight, body height, recipes, weather, freezer settings, and decimal-versus-binary storage. This keeps unit-system differences visible and gives you a safer starting point than choosing symbols from two long lists without context.
+        </p>
+      </section>
     </div>
   );
 }

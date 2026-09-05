@@ -185,6 +185,33 @@ export default function ColorShadesArticle() {
         </p>
       </section>
 
+      <section className="my-10">
+        <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mb-4">
+          Start from a product role, not a random color
+        </h2>
+        <p>
+          The quick scales cover common product roles such as brand systems, SaaS
+          indigo, commerce rose, healthcare teal, warning amber, neutral slate,
+          creator violet, data cyan, success lime, and high-contrast UI. Pick the
+          closest intent first, then replace the endpoints with your real brand
+          colors. This is usually faster and safer than guessing intermediate
+          shades one by one.
+        </p>
+      </section>
+
+      <section className="my-10">
+        <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mb-4">
+          Choosing 9, 10, or 11 shade tokens
+        </h2>
+        <p>
+          Nine-step scales are compact and easy to scan. Ten-step scales match the
+          familiar 50&ndash;900 token shape used by many design systems, while eleven
+          steps add a 950 endpoint for very dark surfaces and borders. More steps are
+          useful only when each token has a clear semantic role; otherwise they add
+          maintenance without improving the interface.
+        </p>
+      </section>
+
       <footer className="mt-12 text-center text-[var(--color-text-secondary)]">
         <p>
           Elevate your design game today with our free Color Shades

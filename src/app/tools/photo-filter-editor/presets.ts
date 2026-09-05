@@ -24,6 +24,10 @@ export const FILTER_PRESETS: FilterPreset[] = [
   { id: "clean", name: "Clean", description: "Small lift with natural color.", category: "essentials", filters: withFilters({ brightness: 1.04, contrast: 1.04, vibrance: 10 }) },
   { id: "bright", name: "Bright", description: "Airy and crisp for everyday photos.", category: "essentials", filters: withFilters({ exposure: 0.2, brightness: 1.05, shadows: 12, vibrance: 8 }) },
   { id: "punch", name: "Punch", description: "Stronger contrast and color.", category: "essentials", filters: withFilters({ contrast: 1.18, saturate: 1.12, vibrance: 16, blacks: -8 }) },
+  { id: "product-clean", name: "Product Clean", description: "Bright, crisp treatment for catalog and marketplace product photos.", category: "essentials", filters: withFilters({ brightness: 1.12, contrast: 1.12, saturate: 1.05, highlights: -6 }) },
+  { id: "crisp-web", name: "Crisp Web", description: "Subtle clarity boost for screenshots, thumbnails, and web graphics.", category: "essentials", filters: withFilters({ brightness: 1.03, contrast: 1.18, saturate: 1.08 }) },
+  { id: "low-light-lift", name: "Low-light Lift", description: "Raises dark photos without pushing saturation too hard.", category: "essentials", filters: withFilters({ brightness: 1.28, contrast: 0.92, saturate: 1.08, shadows: 16 }) },
+  { id: "landscape-vivid", name: "Landscape Vivid", description: "Extra contrast and saturation for travel and outdoor scenes.", category: "essentials", filters: withFilters({ brightness: 1.03, contrast: 1.2, saturate: 1.5, vibrance: 14 }) },
 
   { id: "soft-portrait", name: "Soft Portrait", description: "Soft contrast and gentle warmth.", category: "portrait", filters: withFilters({ contrast: 0.93, brightness: 1.05, temperature: 10, highlights: -8, shadows: 12, fade: 0.04 }) },
   { id: "studio-skin", name: "Studio Skin", description: "Balanced portrait tone with protected highlights.", category: "portrait", filters: withFilters({ exposure: 0.12, contrast: 1.03, highlights: -14, shadows: 8, vibrance: 7, temperature: 5 }) },
@@ -45,6 +49,7 @@ export const FILTER_PRESETS: FilterPreset[] = [
   { id: "grayscale", name: "Classic B&W", description: "Clean black and white.", category: "bw", filters: withFilters({ grayscale: 1 }) },
   { id: "noir", name: "Noir", description: "High-contrast black and white.", category: "bw", filters: withFilters({ grayscale: 1, contrast: 1.36, brightness: 0.96, blacks: -10, vignette: 0.18 }) },
   { id: "matte-bw", name: "Matte B&W", description: "Soft lifted monochrome.", category: "bw", filters: withFilters({ grayscale: 1, contrast: 0.94, fade: 0.16, grain: 0.12 }) },
+  { id: "warm-bw", name: "Warm B&W", description: "Black-and-white base with a subtle warm sepia finish.", category: "bw", filters: withFilters({ grayscale: 0.92, sepia: 0.2, contrast: 1.18, brightness: 1.02 }) },
 
   { id: "forest", name: "Forest", description: "Muted natural greens and deep shadows.", category: "moody", filters: withFilters({ contrast: 1.12, saturate: 0.82, temperature: -4, tint: -8, shadows: -10, vignette: 0.14 }) },
   { id: "urban", name: "Urban", description: "Cool concrete tones and crisp contrast.", category: "moody", filters: withFilters({ contrast: 1.16, saturate: 0.78, temperature: -12, blacks: -10, grain: 0.1 }) },
@@ -53,6 +58,7 @@ export const FILTER_PRESETS: FilterPreset[] = [
   { id: "golden-hour", name: "Golden Hour", description: "Warm sunlit highlights.", category: "warm", filters: withFilters({ exposure: 0.1, temperature: 28, tint: 3, saturate: 1.08, highlights: -8 }) },
   { id: "summer", name: "Summer", description: "Bright warm color for travel and food.", category: "warm", filters: withFilters({ brightness: 1.06, saturate: 1.12, vibrance: 16, temperature: 16, shadows: 8 }) },
   { id: "sunset", name: "Sunset", description: "Rich warm color with deeper contrast.", category: "warm", filters: withFilters({ contrast: 1.1, saturate: 1.18, temperature: 24, tint: 8, highlights: -12, vignette: 0.08 }) },
+  { id: "food-pop", name: "Food Pop", description: "Warm, saturated treatment that makes food photography feel richer.", category: "warm", filters: withFilters({ brightness: 1.04, contrast: 1.12, saturate: 1.45, temperature: 14, vibrance: 12 }) },
 
   { id: "blue-hour", name: "Blue Hour", description: "Cool evening tone.", category: "cool", filters: withFilters({ temperature: -26, tint: 2, contrast: 1.06, saturate: 0.96, shadows: 6 }) },
   { id: "arctic", name: "Arctic", description: "Clean bright cool grade.", category: "cool", filters: withFilters({ exposure: 0.08, temperature: -20, saturate: 0.88, highlights: -8, whites: 6 }) },
@@ -62,6 +68,7 @@ export const FILTER_PRESETS: FilterPreset[] = [
   { id: "duotone", name: "Duotone", description: "Graphic high-color treatment.", category: "creative", filters: withFilters({ grayscale: 0.35, contrast: 1.22, saturate: 1.7, hueRotate: 305, tint: 20 }) },
   { id: "negative", name: "Negative", description: "Classic color negative.", category: "creative", filters: withFilters({ invert: 1 }) },
   { id: "washed", name: "Washed", description: "Low-contrast faded editorial look.", category: "creative", filters: withFilters({ contrast: 0.82, saturate: 0.78, fade: 0.22, highlights: -8 }) },
+  { id: "editorial-muted", name: "Editorial Muted", description: "Restrained saturation with firmer contrast for editorial layouts.", category: "creative", filters: withFilters({ brightness: 1.01, contrast: 1.16, saturate: 0.68 }) },
 ];
 
 export const DEFAULT_PRESET_ID = "original";

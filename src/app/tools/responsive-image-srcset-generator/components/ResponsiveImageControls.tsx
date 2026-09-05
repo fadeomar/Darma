@@ -87,8 +87,21 @@ export function ResponsiveImageControls({
 
       <details className={DISCLOSURE_CLASS}>
         <summary className={SUMMARY_CLASS}><span>Quick setups</span><span className="text-xs font-medium text-[var(--color-text-tertiary)]">{state.presetId === "custom" ? "Custom" : "Preset active"}</span></summary>
-        <div className="border-t border-[var(--color-border-subtle)] p-3">
-          <PresetGallery presets={RESPONSIVE_IMAGE_PRESETS} selectedId={state.presetId} onSelect={(_, preset) => onLoadPreset(preset.state)} getId={(preset) => preset.id} getLabel={(preset) => preset.name} getDescription={(preset) => preset.description} renderPreview={(preset) => <PresetPreview candidateCount={preset.state.candidates.length} mode={preset.state.mode} />} compact />
+        <div className="space-y-2 border-t border-[var(--color-border-subtle)] p-3">
+          <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">Choose the closest delivery scenario first, then match the URLs and sizes to your real layout.</p>
+          <PresetGallery
+            presets={RESPONSIVE_IMAGE_PRESETS}
+            selectedId={state.presetId}
+            onSelect={(_, preset) => onLoadPreset(preset.state)}
+            getId={(preset) => preset.id}
+            getLabel={(preset) => preset.name}
+            getDescription={(preset) => preset.description}
+            renderPreview={(preset) => <PresetPreview candidateCount={preset.state.candidates.length} mode={preset.state.mode} />}
+            initialVisibleCount={6}
+            showMoreLabel="Show all image scenarios"
+            showLessLabel="Show fewer image scenarios"
+            compact
+          />
         </div>
       </details>
 

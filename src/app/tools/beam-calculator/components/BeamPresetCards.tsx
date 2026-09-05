@@ -15,6 +15,9 @@ export function BeamPresetCards({ activeId, onSelect }: BeamPresetCardsProps) {
       getId={(preset) => preset.id}
       getLabel={(preset) => preset.name}
       getDescription={(preset) => preset.description}
+      initialVisibleCount={6}
+      showMoreLabel="Show all scenarios"
+      showLessLabel="Show fewer scenarios"
     />
   );
 }

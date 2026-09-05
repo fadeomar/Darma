@@ -108,8 +108,74 @@ const presets: { id: string; name: string; description: string; state: NeumoStat
   {
     id: "clay-card",
     name: "Clay card",
-    description: "More playful depth with stronger light and shadow.",
+    description: "Playful depth for creative cards and marketing UI.",
     state: { ...defaultState, presetId: "clay-card", color: "#f2d7ff", previewBackground: "#f2d7ff", radius: 48, distance: 22, blur: 42, spread: -2, intensity: 0.2, shape: "convex", label: "Creative" },
+  },
+  {
+    id: "search-field",
+    name: "Search field",
+    description: "Inset search or filter field on a matching soft surface.",
+    state: { ...defaultState, presetId: "search-field", shape: "pressed", size: 300, radius: 999, distance: 8, blur: 18, intensity: 0.12, previewMode: "button", label: "Search products" },
+  },
+  {
+    id: "selected-toggle",
+    name: "Selected toggle",
+    description: "Pressed state for segmented controls, toggles, and selected filters.",
+    state: { ...defaultState, presetId: "selected-toggle", shape: "pressed", size: 190, radius: 999, distance: 7, blur: 16, intensity: 0.15, previewMode: "button", label: "Selected" },
+  },
+  {
+    id: "stat-tile",
+    name: "Stat tile",
+    description: "Compact raised metric tile for calm analytics dashboards.",
+    state: { ...defaultState, presetId: "stat-tile", size: 220, radius: 28, distance: 12, blur: 28, intensity: 0.13, previewMode: "dashboard", label: "12.4k users" },
+  },
+  {
+    id: "pricing-card",
+    name: "Pricing card",
+    description: "Large soft panel for pricing, plan, or subscription summaries.",
+    state: { ...defaultState, presetId: "pricing-card", size: 300, radius: 36, distance: 20, blur: 42, intensity: 0.17, previewMode: "card", label: "Pro plan" },
+  },
+  {
+    id: "floating-action",
+    name: "Floating action",
+    description: "Circular elevated action that remains soft rather than material-heavy.",
+    state: { ...defaultState, presetId: "floating-action", size: 96, radius: 999, distance: 13, blur: 26, intensity: 0.18, shape: "convex", previewMode: "button", label: "+" },
+  },
+  {
+    id: "music-control",
+    name: "Media control",
+    description: "Round transport control for media players and device dashboards.",
+    state: { ...defaultState, presetId: "music-control", size: 112, radius: 999, distance: 11, blur: 24, intensity: 0.16, shape: "convex", previewMode: "button", label: "Play" },
+  },
+  {
+    id: "settings-panel",
+    name: "Settings panel",
+    description: "Low-contrast grouped surface for preferences and device controls.",
+    state: { ...defaultState, presetId: "settings-panel", color: "#dbe4ea", previewBackground: "#dbe4ea", size: 300, radius: 30, distance: 16, blur: 34, intensity: 0.14, previewMode: "card", label: "Preferences" },
+  },
+  {
+    id: "notification-card",
+    name: "Notification card",
+    description: "Compact raised alert or status surface without harsh borders.",
+    state: { ...defaultState, presetId: "notification-card", color: "#e7edf7", previewBackground: "#e7edf7", size: 280, radius: 24, distance: 12, blur: 30, intensity: 0.14, previewMode: "card", label: "New message" },
+  },
+  {
+    id: "profile-chip",
+    name: "Profile chip",
+    description: "Pill-shaped identity or account switcher control.",
+    state: { ...defaultState, presetId: "profile-chip", size: 230, radius: 999, distance: 9, blur: 22, intensity: 0.13, previewMode: "button", label: "Alex Morgan" },
+  },
+  {
+    id: "hero-panel",
+    name: "Hero panel",
+    description: "Large soft surface for a calm product hero or feature callout.",
+    state: { ...defaultState, presetId: "hero-panel", color: "#e6eef5", previewBackground: "#e6eef5", size: 320, radius: 52, distance: 24, blur: 52, intensity: 0.17, shape: "convex", previewMode: "card", label: "Focus mode" },
+  },
+  {
+    id: "dark-control",
+    name: "Dark pressed control",
+    description: "Inset control designed for dark media and dashboard interfaces.",
+    state: { ...defaultState, presetId: "dark-control", color: "#202936", previewBackground: "#111827", size: 220, radius: 22, distance: 10, blur: 24, intensity: 0.28, shape: "pressed", previewMode: "button", label: "Active" },
   },
 ];
 
@@ -455,6 +521,9 @@ export default function NeumorphicCssGeneratorClient() {
           getLabel={(preset) => preset.name}
           getDescription={(preset) => preset.description}
           renderPreview={(preset) => <div className="h-16 rounded-[var(--radius-md)]" style={{ background: preset.state.color, boxShadow: buildValues(preset.state).boxShadow }} />}
+          initialVisibleCount={6}
+          showMoreLabel="Show all use cases"
+          showLessLabel="Show fewer use cases"
           className="sm:grid-cols-2 xl:grid-cols-5"
         />
       </section>

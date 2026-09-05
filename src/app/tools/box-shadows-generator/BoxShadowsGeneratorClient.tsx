@@ -17,15 +17,21 @@ import {
   type CodeOutputTab,
   type WarningMessage,
 } from "@/features/tools/components";
+import { shadowsArray } from "@/data/shadowsData";
 import type { BoxShadowState, Shadow } from "@/types";
 
 type LightSourceId = "top-left" | "top-right" | "bottom-right" | "bottom-left";
+
+type PresetCategory = "Cards" | "Overlays" | "Navigation" | "Forms" | "Buttons" | "Marketing" | "Special";
+
+type GalleryCategory = "Crisp" | "Soft" | "Floating" | "Layered" | "Inset";
 
 type ShadowPreset = {
   id: string;
   name: string;
   description: string;
   usage: string;
+  category: PresetCategory;
   state: BoxShadowState;
 };
 
@@ -74,15 +80,17 @@ const presets: ShadowPreset[] = [
   {
     id: "soft-card",
     name: "Soft card",
-    description: "Balanced app-card elevation.",
+    description: "Balanced elevation for everyday product surfaces.",
     usage: "Cards / panels",
+    category: "Cards",
     state: defaultState,
   },
   {
     id: "dashboard-crisp",
     name: "Dashboard crisp",
     description: "Two lightweight layers for clean SaaS UI.",
-    usage: "Dashboards",
+    usage: "Dashboard cards",
+    category: "Cards",
     state: {
       ...defaultState,
       shadows: [
@@ -92,10 +100,193 @@ const presets: ShadowPreset[] = [
     },
   },
   {
+    id: "pricing-card",
+    name: "Pricing card",
+    description: "A slightly stronger lift for highlighted plans.",
+    usage: "Pricing / plans",
+    category: "Cards",
+    state: {
+      ...defaultState,
+      borderRadius: 20,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 6, blur: 18, spread: -4, opacity: 0.12 },
+        { ...defaultShadow, id: "2", offsetY: 22, blur: 52, spread: -12, color: "#1e293b", opacity: 0.18 },
+      ],
+    },
+  },
+  {
+    id: "product-card",
+    name: "Product card",
+    description: "Soft depth that keeps product imagery feeling light.",
+    usage: "Commerce cards",
+    category: "Cards",
+    state: {
+      ...defaultState,
+      borderRadius: 18,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 4, blur: 12, spread: -2, opacity: 0.09 },
+        { ...defaultShadow, id: "2", offsetY: 16, blur: 38, spread: -10, color: "#334155", opacity: 0.14 },
+      ],
+    },
+  },
+  {
+    id: "dropdown",
+    name: "Dropdown",
+    description: "Compact elevation that separates menus from content.",
+    usage: "Menus / selects",
+    category: "Overlays",
+    state: {
+      ...defaultState,
+      borderRadius: 12,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 4, blur: 10, spread: -2, opacity: 0.11 },
+        { ...defaultShadow, id: "2", offsetY: 12, blur: 28, spread: -8, color: "#0f172a", opacity: 0.16 },
+      ],
+    },
+  },
+  {
+    id: "popover",
+    name: "Popover",
+    description: "Clear floating separation without a dramatic halo.",
+    usage: "Popovers / tooltips",
+    category: "Overlays",
+    state: {
+      ...defaultState,
+      borderRadius: 14,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 3, blur: 10, spread: -3, opacity: 0.1 },
+        { ...defaultShadow, id: "2", offsetY: 18, blur: 38, spread: -10, color: "#111827", opacity: 0.2 },
+      ],
+    },
+  },
+  {
+    id: "modal",
+    name: "Modal",
+    description: "Broad layered shadow for dialogs above dimmed content.",
+    usage: "Dialogs / sheets",
+    category: "Overlays",
+    state: {
+      ...defaultState,
+      boxSize: 250,
+      borderRadius: 22,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 12, blur: 32, spread: -8, opacity: 0.14 },
+        { ...defaultShadow, id: "2", offsetY: 32, blur: 72, spread: -18, color: "#0f172a", opacity: 0.24 },
+      ],
+    },
+  },
+  {
+    id: "toast",
+    name: "Toast notification",
+    description: "Small, readable lift for transient feedback surfaces.",
+    usage: "Toasts / alerts",
+    category: "Overlays",
+    state: {
+      ...defaultState,
+      borderRadius: 14,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 4, blur: 12, spread: -3, opacity: 0.12 },
+        { ...defaultShadow, id: "2", offsetY: 14, blur: 32, spread: -8, color: "#1e293b", opacity: 0.16 },
+      ],
+    },
+  },
+  {
+    id: "sticky-header",
+    name: "Sticky header",
+    description: "Directional shadow that separates a fixed header while scrolling.",
+    usage: "Navigation",
+    category: "Navigation",
+    state: {
+      ...defaultState,
+      boxSize: 240,
+      borderRadius: 8,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 5, blur: 14, spread: -8, opacity: 0.2 },
+      ],
+    },
+  },
+  {
+    id: "floating-nav",
+    name: "Floating navigation",
+    description: "Rounded navigation elevation for docked or floating bars.",
+    usage: "Nav bars / docks",
+    category: "Navigation",
+    state: {
+      ...defaultState,
+      borderRadius: 28,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 8, blur: 22, spread: -7, opacity: 0.13 },
+        { ...defaultShadow, id: "2", offsetY: 20, blur: 48, spread: -15, color: "#0f172a", opacity: 0.14 },
+      ],
+    },
+  },
+  {
+    id: "input-focus",
+    name: "Input focus",
+    description: "A crisp focus ring plus a soft supporting shadow.",
+    usage: "Form focus",
+    category: "Forms",
+    state: {
+      ...defaultState,
+      borderRadius: 10,
+      backgroundColor: "#ffffff",
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 0, blur: 0, spread: 3, color: "#3b82f6", opacity: 0.28 },
+        { ...defaultShadow, id: "2", offsetY: 4, blur: 12, spread: -4, color: "#1d4ed8", opacity: 0.14 },
+      ],
+    },
+  },
+  {
+    id: "input-inset",
+    name: "Input inset",
+    description: "Subtle inner depth for recessed form controls.",
+    usage: "Inputs / fields",
+    category: "Forms",
+    state: {
+      ...defaultState,
+      borderRadius: 10,
+      backgroundColor: "#f8fafc",
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 2, blur: 5, spread: 0, opacity: 0.14, inset: true },
+        { ...defaultShadow, id: "2", offsetY: -1, blur: 3, spread: 0, color: "#ffffff", opacity: 0.9, inset: true },
+      ],
+    },
+  },
+  {
+    id: "button-hover",
+    name: "Button hover",
+    description: "A compact lift that reads clearly on interactive controls.",
+    usage: "Buttons / CTAs",
+    category: "Buttons",
+    state: {
+      ...defaultState,
+      borderRadius: 12,
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 4, blur: 10, spread: -3, color: "#1d4ed8", opacity: 0.26 },
+      ],
+    },
+  },
+  {
+    id: "pressed-inset",
+    name: "Pressed button",
+    description: "Inner shadow for pressed and selected control states.",
+    usage: "Buttons / toggles",
+    category: "Buttons",
+    state: {
+      ...defaultState,
+      backgroundColor: "#f1f5f9",
+      shadows: [
+        { ...defaultShadow, id: "1", offsetY: 4, blur: 16, opacity: 0.22, inset: true },
+        { ...defaultShadow, id: "2", offsetY: -2, blur: 8, opacity: 0.08, color: "#ffffff", inset: true },
+      ],
+    },
+  },
+  {
     id: "floating-product",
     name: "Floating product",
-    description: "Large airy shadow for hero/mockup cards.",
+    description: "Large airy shadow for hero mockups and product shots.",
     usage: "Hero assets",
+    category: "Marketing",
     state: {
       ...defaultState,
       boxSize: 240,
@@ -107,39 +298,41 @@ const presets: ShadowPreset[] = [
     },
   },
   {
-    id: "focus-glow",
-    name: "Focus glow",
-    description: "Accessible focus or active-state glow.",
-    usage: "Focus states",
+    id: "brand-glow",
+    name: "Brand glow",
+    description: "Colored ambient glow for a hero CTA or highlighted object.",
+    usage: "Hero / CTA",
+    category: "Marketing",
     state: {
       ...defaultState,
-      borderRadius: 18,
+      borderRadius: 24,
       backgroundColor: "#f8fbff",
       shadows: [
-        { ...defaultShadow, id: "1", offsetY: 0, blur: 0, spread: 3, color: "#3b82f6", opacity: 0.35 },
-        { ...defaultShadow, id: "2", offsetY: 10, blur: 28, spread: 0, color: "#1d4ed8", opacity: 0.18 },
+        { ...defaultShadow, id: "1", offsetY: 18, blur: 52, spread: 2, color: "#6366f1", opacity: 0.28 },
+        { ...defaultShadow, id: "2", offsetY: 4, blur: 14, spread: -4, color: "#2563eb", opacity: 0.2 },
       ],
     },
   },
   {
-    id: "pressed-inset",
-    name: "Pressed inset",
-    description: "Subtle inner shadow for pressed surfaces.",
-    usage: "Inputs / toggles",
+    id: "neo-brutal",
+    name: "Neo-brutal",
+    description: "Hard offset shadow for bold editorial and playful UI.",
+    usage: "Posters / playful UI",
+    category: "Special",
     state: {
       ...defaultState,
-      backgroundColor: "#f1f5f9",
+      borderRadius: 8,
       shadows: [
-        { ...defaultShadow, id: "1", offsetY: 4, blur: 16, opacity: 0.22, inset: true },
-        { ...defaultShadow, id: "2", offsetY: -2, blur: 8, opacity: 0.08, color: "#ffffff", inset: true },
+        { ...defaultShadow, id: "1", offsetX: 8, offsetY: 8, blur: 0, spread: 0, color: "#111827", opacity: 1 },
       ],
     },
   },
   {
     id: "directional-soft",
     name: "Directional soft",
-    description: "Uses light-source distance for fast direction changes.",
+    description: "Light-source driven soft UI with a bright counter-shadow.",
     usage: "Soft UI",
+    category: "Special",
     state: {
       ...defaultState,
       backgroundColor: "#f8fafc",
@@ -151,6 +344,26 @@ const presets: ShadowPreset[] = [
     },
   },
 ];
+
+const presetCategories: Array<"All" | PresetCategory> = ["All", "Cards", "Overlays", "Navigation", "Forms", "Buttons", "Marketing", "Special"];
+const galleryCategories: Array<"All" | GalleryCategory> = ["All", "Crisp", "Soft", "Floating", "Layered", "Inset"];
+
+function getGalleryCategory(shadows: Shadow[]): GalleryCategory {
+  if (shadows.some((shadow) => shadow.inset)) return "Inset";
+  if (shadows.length >= 3) return "Layered";
+  const maxBlur = Math.max(...shadows.map((shadow) => shadow.blur), 0);
+  if (maxBlur <= 8) return "Crisp";
+  if (maxBlur >= 48) return "Floating";
+  if (shadows.length >= 2) return "Layered";
+  return "Soft";
+}
+
+function galleryState(shadows: Shadow[]): BoxShadowState {
+  return {
+    ...defaultState,
+    shadows: normalizeIds(shadows.map((shadow) => ({ ...shadow }))),
+  };
+}
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
@@ -293,12 +506,34 @@ function StatCard({ label, value, detail }: { label: string; value: string; deta
 export default function BoxShadowsGeneratorClient() {
   const [state, setState] = useState<BoxShadowState>(() => cloneState(defaultState));
   const [activeId, setActiveId] = useState(state.shadows[0]?.id ?? "1");
+  const [selectedPresetId, setSelectedPresetId] = useState<string>("soft-card");
+  const [presetCategory, setPresetCategory] = useState<"All" | PresetCategory>("All");
+  const [galleryCategory, setGalleryCategory] = useState<"All" | GalleryCategory>("All");
+  const [showAllGallery, setShowAllGallery] = useState(false);
 
   const activeShadow = state.shadows.find((shadow) => shadow.id === activeId) ?? state.shadows[0];
   const shadowValue = useMemo(() => boxShadowValue(state), [state]);
   const css = useMemo(() => generateCss(state), [state]);
   const paintRating = useMemo(() => getPaintRating(state), [state]);
   const activeLightSourceId = getLightSourceId(state);
+  const filteredPresets = useMemo(
+    () => presets.filter((preset) => presetCategory === "All" || preset.category === presetCategory),
+    [presetCategory],
+  );
+  const galleryItems = useMemo(
+    () => shadowsArray.boxShadows.map((item, index) => ({
+      id: `gallery-${item.name}`,
+      index: index + 1,
+      category: getGalleryCategory(item.shadows),
+      state: galleryState(item.shadows),
+    })),
+    [],
+  );
+  const filteredGalleryItems = useMemo(
+    () => galleryItems.filter((item) => galleryCategory === "All" || item.category === galleryCategory),
+    [galleryCategory, galleryItems],
+  );
+  const visibleGalleryItems = showAllGallery ? filteredGalleryItems : filteredGalleryItems.slice(0, 18);
 
   const tabs = useMemo<CodeOutputTab[]>(
     () => [
@@ -367,18 +602,29 @@ export default function BoxShadowsGeneratorClient() {
     next.shadows = normalizeIds(next.shadows);
     setState(next);
     setActiveId(next.shadows[0]?.id ?? "1");
+    setSelectedPresetId(preset.id);
+  }
+
+  function applyGalleryItem(id: string, nextState: BoxShadowState) {
+    const next = cloneState(nextState);
+    next.shadows = normalizeIds(next.shadows);
+    setState(next);
+    setActiveId(next.shadows[0]?.id ?? "1");
+    setSelectedPresetId(id);
   }
 
   function resetTool() {
     const next = cloneState(defaultState);
     setState(next);
     setActiveId("1");
+    setSelectedPresetId("soft-card");
   }
 
   function randomizeTool() {
     const next = createRandomShadowState();
     setState(next);
     setActiveId(next.shadows[0]?.id ?? "1");
+    setSelectedPresetId("");
   }
 
   const previewSlot = (
@@ -447,16 +693,20 @@ export default function BoxShadowsGeneratorClient() {
         <div className="flex items-end justify-between gap-3">
           <div>
             <h3 id="shadow-presets-title" className="text-sm font-black text-[var(--color-text-primary)]">Quick styles</h3>
-            <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Start visually, then fine-tune the individual layers.</p>
+            <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Six common starting points. The full use-case and example libraries are below.</p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {presets.map((preset) => (
+          {presets.slice(0, 6).map((preset) => (
             <button
               key={preset.id}
               type="button"
               onClick={() => applyPreset(preset)}
-              className="group min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-left transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+              className={`group min-w-0 rounded-[var(--radius-md)] border p-3 text-left transition hover:-translate-y-0.5 ${
+                selectedPresetId === preset.id
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+              }`}
             >
               <span className="mb-3 flex h-16 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-preview-bg)]">
                 <span className="h-9 w-9 rounded-[10px]" style={{ boxShadow: boxShadowValue(preset.state), background: normalizeHex(preset.state.backgroundColor) }} />
@@ -489,6 +739,123 @@ export default function BoxShadowsGeneratorClient() {
           </div>
         </div>
       </details>
+
+      <section className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-4 sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h3 className="text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Use-case starters</h3>
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Choose the component you are designing first, then fine-tune the exact shadow in the controls. Similar-looking options are intentionally kept because the use case matters more than mathematical uniqueness.</p>
+          </div>
+          <Badge variant="soft">{filteredPresets.length} presets</Badge>
+        </div>
+
+        <div className="flex flex-wrap gap-2" aria-label="Filter shadow presets by use case">
+          {presetCategories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setPresetCategory(category)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-bold transition ${
+                presetCategory === category
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+          {filteredPresets.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              onClick={() => applyPreset(preset)}
+              className={`group grid grid-cols-[46px_minmax(0,1fr)] items-center gap-3 rounded-[var(--radius-md)] border p-3 text-left transition ${
+                selectedPresetId === preset.id
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+              }`}
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-[var(--radius-sm)] bg-[var(--color-preview-bg)]">
+                <span className="h-7 w-7 rounded-[8px]" style={{ boxShadow: boxShadowValue(preset.state), background: normalizeHex(preset.state.backgroundColor) }} />
+              </span>
+              <span className="min-w-0">
+                <span className="flex items-center gap-2">
+                  <span className="truncate text-sm font-bold text-[var(--color-text-primary)]">{preset.name}</span>
+                  <span className="darma-eyebrow shrink-0 rounded-full border border-[var(--color-border-subtle)] px-1.5 py-0.5">{preset.category}</span>
+                </span>
+                <span className="mt-0.5 block text-xs leading-5 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                <span className="mt-1 block">
+                  <span className="darma-eyebrow">Best for: {preset.usage}</span>
+                </span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-4 sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h3 className="text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Shadow style gallery</h3>
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">The broader visual library from the original Darma tool is preserved here for fast visual selection. Pick the closest result first; exact values stay fully editable.</p>
+          </div>
+          <Badge variant="soft">{shadowsArray.boxShadows.length} examples</Badge>
+        </div>
+
+        <div className="flex flex-wrap gap-2" aria-label="Filter shadow style examples">
+          {galleryCategories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => {
+                setGalleryCategory(category);
+                setShowAllGallery(false);
+              }}
+              className={`rounded-full border px-3 py-1.5 text-xs font-bold transition ${
+                galleryCategory === category
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
+          {visibleGalleryItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => applyGalleryItem(item.id, item.state)}
+              className={`group min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition ${
+                selectedPresetId === item.id
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
+                  : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+              }`}
+            >
+              <span className="grid h-16 place-items-center overflow-hidden rounded-[var(--radius-sm)] bg-[var(--color-preview-bg)]">
+                <span className="h-8 w-8 rounded-[9px] bg-white" style={{ boxShadow: boxShadowValue(item.state) }} />
+              </span>
+              <span className="mt-2 flex min-w-0 items-center justify-between gap-1">
+                <span className="truncate text-xs font-bold text-[var(--color-text-primary)]">{item.category} {String(item.index).padStart(2, "0")}</span>
+                <span className="shrink-0 font-mono text-xs text-[var(--color-text-tertiary)]">{item.state.shadows.length}L</span>
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {filteredGalleryItems.length > 18 ? (
+          <div className="flex justify-center">
+            <Button size="sm" variant="secondary" onClick={() => setShowAllGallery((current) => !current)}>
+              {showAllGallery ? "Show fewer examples" : `Show all ${filteredGalleryItems.length} examples`}
+            </Button>
+          </div>
+        ) : null}
+      </section>
     </div>
   );
 

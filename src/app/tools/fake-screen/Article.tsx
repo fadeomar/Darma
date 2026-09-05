@@ -28,6 +28,20 @@ export default function Article() {
 
       <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+          Start by purpose
+        </h2>
+        <p>
+          Intent shortcuts sit above the full scene library: dead-pixel checks, display
+          cleaning, soft desk light, presentation update demos, developer streams,
+          no-signal scenes, broken-screen overlays, desk clocks, classroom messages,
+          ambient backdrops, tech-event visuals, and celebration screens. Each shortcut
+          selects a real editable preset from the same library rather than locking you
+          into a special mode, so every control stays available afterwards.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Complete share links and JSON import
         </h2>
         <p>

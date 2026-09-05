@@ -90,6 +90,13 @@ export default function Article() {
           <li>Process very large datasets in streamed or server-side batches.</li>
         </ul>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Use realistic timestamp sources</h2>
+        <p>
+          Presets now represent API fields, JavaScript events, database microseconds, tracing nanoseconds, webhooks with offsets, release dates, incident logs, historical values, the 2038 boundary, and mixed validation batches. Use them to recognize timestamp length and precision patterns before processing production data.
+        </p>
+      </section>
     </div>
   );
 }

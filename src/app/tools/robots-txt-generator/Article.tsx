@@ -40,6 +40,20 @@ export default function Article() {
         Next.js App Router projects can deploy a static <code>app/robots.txt</code> file or generate the policy from <code>app/robots.ts</code> using <code>MetadataRoute.Robots</code>. The generated starter in this tool mirrors the editable crawler groups and sitemap references.
       </p>
 
+      <h3>Start from the deployment scenario</h3>
+      <p>
+        The presets now cover public sites, staging hosts, WordPress, commerce, documentation, SaaS applications, blogs, local businesses,
+        search-heavy catalogs, media sites, multilingual sites, and API documentation. Pick the closest deployment shape, then review every
+        generated path against your real routes before publishing. Presets intentionally use example domains and cannot know which private or
+        duplicate paths exist in your application.
+      </p>
+
+      <h3>Review destructive presets before launch</h3>
+      <p>
+        Block-all preview and staging policies are useful while a host should stay out of discovery, but they are dangerous when copied to a
+        production origin. Make robots.txt part of the release checklist so a staging rule cannot silently survive a domain or environment change.
+      </p>
+
       <h3>Browser-only privacy</h3>
       <p>
         Generation, import parsing, route testing, and exports run locally in your browser. The tool does not fetch your website or submit rules to a remote validation service.

@@ -163,6 +163,26 @@ export default function JsonFormatterArticle() {
           </div>
         </div>
       </section>
+      <section>
+        <h2 className={sectionTitle}>Use presets to choose the review lens</h2>
+        <p>
+          The practical presets now cover readable API payloads, stable review diffs, compact
+          transport, tree inspection, record tables, configuration files, log payloads, deep
+          objects, deterministic snapshots, copy-ready JSON, tab-indented files, and sorted table
+          data. They deliberately change only formatter settings and the preferred inspector view;
+          they do not invent or replace payload content.
+        </p>
+      </section>
+
+      <section>
+        <h2 className={sectionTitle}>Formatting intent matters more than indentation preference</h2>
+        <p>
+          Two-space and four-space output are both readable, but review tasks often benefit more
+          from deterministic key ordering, data exploration benefits from tree or table views, and
+          transport checks benefit from minification and payload metrics. Start with the task you
+          are performing, then change indentation only when a team or target file requires it.
+        </p>
+      </section>
     </article>
   );
 }

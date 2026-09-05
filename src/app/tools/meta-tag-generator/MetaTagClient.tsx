@@ -99,6 +99,7 @@ export default function MetaTagClient() {
   const [input, setInput] = useState<MetaTagInput>(DEFAULT_META_INPUT);
   const [importMessage, setImportMessage] = useState("");
   const [isPacking, setIsPacking] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const preview = useMemo(() => getPreviewModel(input), [input]);
   const auditChecks = useMemo(() => buildMetaAudit(input), [input]);
@@ -275,13 +276,18 @@ export default function MetaTagClient() {
 
             <ControlSection title="Practical presets">
               <div className="grid gap-2 sm:grid-cols-3">
-                {META_PRESETS.map((preset) => (
+                {(showAllPresets ? META_PRESETS : META_PRESETS.slice(0, 6)).map((preset) => (
                   <button key={preset.label} type="button" onClick={() => setInput(preset.input)} className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]">
                     <span className="block text-sm font-black text-[var(--color-text-primary)]">{preset.label}</span>
                     <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
                   </button>
                 ))}
               </div>
+              {META_PRESETS.length > 6 ? (
+                <Button className="mt-2 w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+                  {showAllPresets ? "Show fewer presets" : `Show all ${META_PRESETS.length} presets`}
+                </Button>
+              ) : null}
             </ControlSection>
           </ToolControlPanel>
         </div>

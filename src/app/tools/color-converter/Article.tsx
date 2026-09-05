@@ -42,6 +42,12 @@ export default function ColorConverterArticle() {
         tokens, or SCSS maps directly from the export tab.
       </p>
 
+
+      <h2>Try formats and UI roles side by side</h2>
+      <p>
+        The example library now mixes HEX, alpha HEX, modern RGB, modern HSL, and CSS color names with familiar UI roles such as success, warning, danger, slate, violet, and translucent brand colors. Use the examples to learn format syntax and to see how the same parsed color behaves in contrast, scale, relationship, and export views.
+      </p>
+
       <h2>Privacy</h2>
       <p>
         Color conversion happens fully in your browser. The color you type is not

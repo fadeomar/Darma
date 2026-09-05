@@ -63,6 +63,13 @@ export default function PercentageCalculatorArticle() {
           browser and are not uploaded.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Use-case starters reduce formula mistakes</h2>
+        <p>
+          Start with a preset that matches the question you are asking: tax or tip amount, discount, conversion rate, growth or decline, reverse change, markup and margin, peer difference, or capacity share. The preset chooses the calculation mode as well as example inputs, making it easier to distinguish similar-sounding percentage formulas before you enter real values.
+        </p>
+      </section>
     </div>
   );
 }

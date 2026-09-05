@@ -165,6 +165,22 @@ export default function ImageCompressorArticle() {
         like "Instagram square" sets 1080 × 1080 with "Keep aspect ratio" off, it resizes to
         those dimensions without cropping. Cropping will be added in a later update.
       </p>
+      <h3>Choose a preset by delivery constraint</h3>
+      <p>
+        The expanded quick presets cover different constraints instead of only different dimensions:
+        strict upload limits, support-ticket screenshots, email attachments, mobile web images,
+        Open Graph cards, CMS thumbnails, archive-quality copies, and tiny previews. Start from the
+        real destination, then adjust one setting at a time so it is clear which change affects the
+        final file size or visual quality.
+      </p>
+
+      <h3>File-size targets and pixel dimensions solve different problems</h3>
+      <p>
+        A target such as 200 KB or 500 KB is useful when a form rejects larger files, while a width
+        such as 960 px or 1600 px controls how many pixels the browser or recipient must process.
+        When an image is far larger than its final display size, reducing dimensions first usually
+        preserves more visible quality than repeatedly lowering compression quality.
+      </p>
     </article>
   );
 }

@@ -10,6 +10,11 @@ export default function Article() {
         <ol className="list-decimal space-y-2 pl-5"><li>Upload a small ZIP or select the HTML, CSS, and JavaScript files directly.</li><li>Choose YouTube or Shorts format, the stage layout, editor theme, and typing rhythm.</li><li>Review the generated timeline and edit the final source when a teaching step needs improvement.</li><li>Play the sequence, then use Record &amp; export video and select the current Darma tab.</li><li>Export the production ZIP for the timeline, captions, voice-over notes, and original source.</li></ol>
       </section>
       <section className="space-y-2">
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Start from a starter project that matches the lesson</h2>
+        <p>The starter picker is grouped by what each project demonstrates: Motion for loaders, shimmer, and pure-CSS title effects; Interface for pricing, profile, button, and dashboard tiles; Interaction for counters, tabs, theme switches, count-ups, and a mini todo list; Layout for hero sections and responsive navigation. Load the closest one, record it as-is, or edit the source before generating the timeline.</p>
+        <p>Every starter is deliberately short. The timeline types each character, so a compact file produces a watchable clip while a long file produces a slow recording. When you bring your own project, trim it to the part the lesson is actually about.</p>
+      </section>
+      <section className="space-y-2">
         <h2 className="text-base font-bold text-[var(--color-text-primary)]">Why the export asks to capture a tab</h2>
         <p>Browsers do not allow a website to silently record another tab or the whole screen. Darma uses the standard tab-capture permission, crops only the clean production stage, and records that crop into an exact 16:9 or 9:16 canvas. MP4 is used when the browser exposes a compatible encoder; otherwise the tool safely exports WebM.</p>
       </section>

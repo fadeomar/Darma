@@ -37,6 +37,25 @@ export default function WordCounterArticle() {
       </section>
 
       <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Start from the piece you are actually writing</h2>
+        <p>
+          Each sample is paired with a matching target, so loading one sets both the text and
+          the goal it should be measured against. The library covers student essays and
+          research abstracts, cover letters and job-search writing, SEO titles and meta
+          descriptions, social and thread posts, LinkedIn updates, product listings, press
+          releases, README introductions, meeting summaries, long-form guide openings, and
+          five- and ten-minute speech scripts.
+        </p>
+        <p>
+          Two samples exist to test the counter rather than to be imitated: a deliberately
+          keyword-heavy draft that triggers density warnings, and a punctuation stress test
+          full of hyphenated words, ellipses, abbreviations, and grouped numerals that naive
+          word counting handles badly. An Arabic sample covers non-Latin script and
+          right-to-left punctuation.
+        </p>
+      </section>
+
+      <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Exporting the audit</h2>
         <p>
           Copy or download a Markdown summary, JSON audit, keyword-density CSV, sentence-review CSV, or a ZIP pack containing the source text and all reports. These exports are useful for editorial handoff, assignment evidence, SEO review, or comparing revisions over time.

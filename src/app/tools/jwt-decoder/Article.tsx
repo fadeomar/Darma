@@ -53,6 +53,13 @@ export default function JwtDecoderArticle() {
           The optional verifier uses the project&apos;s existing <code>jose</code> library in your browser. Shared secrets and pasted JWK values remain in component memory, are cleared when requested, and are excluded from downloaded reports. For real systems, verification still belongs on a trusted server or edge runtime where keys, issuer configuration, and authorization policy are controlled.
         </p>
       </section>
+
+      <section className="space-y-2">
+        <h2 className="text-xl font-black text-[var(--color-text)]">Inspect claims by scenario</h2>
+        <p>
+          The sample library now covers access, refresh, service-account, OIDC, mobile, admin, scoped, multi-audience, expired, future, unsigned, missing-expiration, sensitive, and nested-claim tokens. These are synthetic examples for learning and debugging; use them to understand claim shape and lifecycle signals without pasting a real credential.
+        </p>
+      </section>
     </div>
   );
 }

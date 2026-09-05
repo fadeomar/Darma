@@ -286,6 +286,7 @@ export default function JsonFormatterClient() {
   const [lastOperation, setLastOperation] = useState<JsonFormatterOperation>("preview");
   const [repairChanges, setRepairChanges] = useState<string[]>([]);
   const [isExporting, setIsExporting] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   useEffect(() => {
     if (!input.trim()) {
@@ -855,11 +856,16 @@ export default function JsonFormatterClient() {
               <p className="text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-text-secondary)]">Practical presets</p>
             </div>
             <div className="flex min-w-0 flex-wrap gap-2">
-              {JSON_FORMATTER_PRESETS.map((preset) => (
+              {(showAllPresets ? JSON_FORMATTER_PRESETS : JSON_FORMATTER_PRESETS.slice(0, 6)).map((preset) => (
                 <Button key={preset.id} size="sm" variant="ghost" onClick={() => applyPreset(preset)} title={preset.description}>
                   {preset.title}
                 </Button>
               ))}
+              {JSON_FORMATTER_PRESETS.length > 6 ? (
+                <Button size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+                  {showAllPresets ? "Show fewer" : `Show all ${JSON_FORMATTER_PRESETS.length}`}
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>

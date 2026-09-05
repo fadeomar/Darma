@@ -713,7 +713,7 @@ export default function CssGradientGeneratorClient() {
             <div className="gs-preview-presets" aria-label="Gradient presets">
               <div>
                 <b>Presets</b>
-                <span>Start with a polished gradient</span>
+                <span>Start with a polished gradient · {GRADIENT_PRESETS.length} ready-made</span>
               </div>
               <div className="gs-preview-preset-list">
                 {GRADIENT_PRESETS.map((preset) => (

@@ -131,6 +131,7 @@ export default function TextCleanerClient({
   const [suffixText, setSuffixText] = useState(DEFAULT_SUFFIX_TEXT);
   const [lastRun, setLastRun] = useState<LastRun | null>(null);
   const [exporting, setExporting] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const [importMessage, setImportMessage] = useState<WarningMessage | null>(
     null,
   );
@@ -374,7 +375,7 @@ export default function TextCleanerClient({
             description="Presets select an ordered workflow and run immediately when input is available."
           >
             <ControlGrid columns={3}>
-              {TEXT_CLEANER_PRESETS.map((preset) => (
+              {(showAllPresets ? TEXT_CLEANER_PRESETS : TEXT_CLEANER_PRESETS.slice(0, 6)).map((preset) => (
                 <Button
                   key={preset.id}
                   size="sm"
@@ -386,6 +387,11 @@ export default function TextCleanerClient({
                 </Button>
               ))}
             </ControlGrid>
+            {TEXT_CLEANER_PRESETS.length > 6 ? (
+              <Button className="mt-2" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer presets" : `Show all ${TEXT_CLEANER_PRESETS.length} presets`}
+              </Button>
+            ) : null}
           </ControlSection>
 
           <ControlSection

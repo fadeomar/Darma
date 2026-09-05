@@ -225,6 +225,9 @@ export function GridControls({
           getId={(preset) => preset.id}
           getLabel={(preset) => preset.name}
           getDescription={(preset) => preset.description}
+          initialVisibleCount={6}
+          showMoreLabel="Show all layouts"
+          showLessLabel="Show fewer layouts"
         />
       </ControlSection>
 

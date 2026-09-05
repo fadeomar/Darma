@@ -35,7 +35,7 @@ function presetContrast(preset: (typeof buttonPresets)[number]) {
 
 describe("button studio final preset quality", () => {
   it("keeps every curated preset unique and output-safe", () => {
-    expect(buttonPresets).toHaveLength(35);
+    expect(buttonPresets).toHaveLength(41);
     expect(new Set(buttonPresets.map((preset) => preset.id)).size).toBe(buttonPresets.length);
     expect(new Set(buttonPresets.map((preset) => preset.name)).size).toBe(buttonPresets.length);
 

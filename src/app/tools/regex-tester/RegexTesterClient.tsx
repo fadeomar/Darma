@@ -96,6 +96,7 @@ export default function RegexTesterClient() {
   const [text, setText] = useState(SAMPLE_TEXT);
   const [replacement, setReplacement] = useState(DEFAULT_REPLACEMENT);
   const [selectedPreset, setSelectedPreset] = useState("");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const [activeTab, setActiveTab] = useState<RegexTab>("highlight");
   const [selectedMatch, setSelectedMatch] = useState(0);
   const [importStatus, setImportStatus] = useState<{ tone: "success" | "danger"; message: string } | null>(null);
@@ -103,6 +104,14 @@ export default function RegexTesterClient() {
   const importInputRef = useRef<HTMLInputElement>(null);
 
   const studioState = useMemo<RegexStudioState>(() => ({ pattern, flags, text, replacement }), [flags, pattern, replacement, text]);
+  // Collapsed to the first six, but never hide the example the user has loaded.
+  const visibleExamples = useMemo(
+    () =>
+      showAllPresets
+        ? REGEX_EXAMPLES
+        : REGEX_EXAMPLES.slice(0, 6).concat(REGEX_EXAMPLES.slice(6).filter((preset) => preset.id === selectedPreset)),
+    [selectedPreset, showAllPresets],
+  );
   const analysis = useMemo(() => analyzeRegexStudio(studioState), [studioState]);
   const { built, risk, executionBlocked, matches, output: replaced, checks, metrics } = analysis;
   const segments = useMemo(() => buildHighlightSegments(text, matches), [matches, text]);
@@ -244,7 +253,7 @@ export default function RegexTesterClient() {
           <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
         </div>
         <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {REGEX_EXAMPLES.map((preset) => (
+          {visibleExamples.map((preset) => (
             <button
               key={preset.id}
               type="button"
@@ -258,6 +267,13 @@ export default function RegexTesterClient() {
             </button>
           ))}
         </div>
+        {REGEX_EXAMPLES.length > 6 ? (
+          <div className="border-t border-[var(--color-border-subtle)] px-3 py-2">
+            <Button className="w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+              {showAllPresets ? "Show fewer presets" : `Show all ${REGEX_EXAMPLES.length} presets`}
+            </Button>
+          </div>
+        ) : null}
       </section>
 
       <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:items-stretch">

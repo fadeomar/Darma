@@ -34,6 +34,14 @@ export default function Article() {
         Next.js generates its own optimized candidate URLs, so the exported component does not copy the manual <code>srcset</code>. The important handoff is the source image, intrinsic dimensions, loading hints, and an accurate <code>sizes</code> value that matches the component&apos;s real layout.
       </p>
 
+      <h2>Start from the image's real job</h2>
+      <p>
+        A hero, product thumbnail, testimonial avatar, documentation screenshot, gallery item, logo strip, and full-bleed campaign image should not share the same candidate widths or <code>sizes</code> strategy. Use the scenario presets as a delivery starting point, then replace the example URLs and match the slot widths to your actual CSS.
+      </p>
+      <p>
+        The art-direction starters demonstrate when <code>&lt;picture&gt;</code> is justified, while the Next.js starters focus on accurate <code>sizes</code> values rather than hand-authored framework <code>srcset</code> URLs.
+      </p>
+
       <h2>Production verification</h2>
       <p>
         Treat the analyzer as a planning estimate. Before shipping, serve real files, inspect network requests at several viewports, test at high device pixel ratio, disable cache, and verify the fallback when a modern format is unavailable. The production report records candidate coverage, syntax warnings, accessibility checks, and the current readiness state.

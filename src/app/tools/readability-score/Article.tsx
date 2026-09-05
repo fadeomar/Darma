@@ -34,6 +34,25 @@ export default function ReadabilityArticle() {
       </section>
 
       <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Start from a sample that matches your audience</h2>
+        <p>
+          The sample library pairs each text with the writing profile it should be judged
+          against: plain-language samples such as patient instructions, a public notice, a
+          safety notice, and recipe steps; general-web samples such as a support article,
+          onboarding email, school newsletter, news summary, release notes, and a terms
+          excerpt; professional samples such as product documentation, a job description, a
+          grant proposal, and an API changelog; plus a middle-school study passage and two
+          deliberately dense academic samples.
+        </p>
+        <p>
+          Several samples are included precisely because they score badly. The terms
+          excerpt, the dense policy draft, and the literature review show what the review
+          flags look like when sentence length and complex-word density climb well above the
+          selected profile.
+        </p>
+      </section>
+
+      <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Important limitations</h2>
         <p>
           Readability formulas do not verify facts, tone, accessibility, cultural clarity, or whether a technical term is necessary. Syllable counts and passive-voice flags are browser-based heuristics. Use the report to locate review candidates, then make the final decision with the intended audience and subject matter in mind.

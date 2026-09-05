@@ -23,6 +23,15 @@ export default function Article() {
         </ol>
       </ToolArticleSection>
 
+      <ToolArticleSection title="Choose the mockup by communication goal">
+        <p>
+          A landing hero, dashboard showcase, changelog screenshot, support guide, app-store onboarding screen, portfolio case study, founder demo, and social announcement need different framing even when they use the same raw screenshot. Start from the preset that matches where the image will be seen, then adjust device, crop, copy, and export pack.
+        </p>
+        <p>
+          Use the minimal frame-only starter when the interface itself is the message. Use marketing presets when the screenshot needs a headline and context around it rather than treating every output as a decorative device mockup.
+        </p>
+      </ToolArticleSection>
+
       <ToolArticleSection title="Choose the right export pack">
         <p><strong className="text-[var(--color-text-primary)]">Landing Page</strong> is the best default for website heroes and feature sections. <strong className="text-[var(--color-text-primary)]">Social Promo</strong> provides square, story, and sharing-card formats. <strong className="text-[var(--color-text-primary)]">App Store Preview</strong> produces tall phone-first drafts. <strong className="text-[var(--color-text-primary)]">Documentation</strong> favors clean README, guide, and changelog dimensions. Choose <strong className="text-[var(--color-text-primary)]">Complete Mockup Kit</strong> when several channels need the same campaign artwork.</p>
         <p>Store requirements change, so treat marketplace outputs as design-ready drafts and confirm the current publishing specifications before submission.</p>

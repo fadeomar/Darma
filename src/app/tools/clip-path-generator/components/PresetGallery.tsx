@@ -23,7 +23,9 @@ export function PresetGallery({ activePresetId, onApply }: { activePresetId: str
     <section aria-labelledby="clip-presets-title" className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
       <div className="mb-3">
         <h2 id="clip-presets-title" className="text-sm font-black text-[var(--color-text-primary)]">Quick shapes</h2>
-        <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Pick a starting shape, then refine it directly on the canvas.</p>
+        <p className="mt-0.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
+          {activePreset?.description ?? "Choose a ready-made shape, then drag any point to customize it."}
+        </p>
       </div>
 
       <label className="block text-xs font-bold text-[var(--color-text-secondary)] sm:hidden">

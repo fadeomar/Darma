@@ -6,6 +6,11 @@ export default function Article() {
         CSS <code>border-radius</code> rounds the outer border edge of an element. It is commonly used for cards, buttons, inputs, avatars, app icons, media masks, and decorative shapes.
       </p>
 
+      <h2>Choose the shape by use case first</h2>
+      <p>
+        The preset library includes practical UI shapes such as compact dashboard cards, modal panels, bottom sheets, chat bubbles, filter chips, product thumbnails, hero images, avatars, app icons, and pill buttons, plus organic blobs and animated shapes. Pick the closest component first, then adjust individual corners only when the design actually needs it.
+      </p>
+
       <h2>Simple rounded corners</h2>
       <p>
         A single value rounds all corners equally, while four values target the corners in clockwise order: top-left, top-right, bottom-right, and bottom-left. This is the best mode for practical UI work.

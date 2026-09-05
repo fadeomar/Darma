@@ -97,6 +97,18 @@ export default function Article() {
           user and should be handled accordingly.
         </p>
       </section>
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Pick the preset that matches the URL boundary
+        </h2>
+        <p>
+          The expanded examples cover full URLs, individual query values, nested redirects,
+          form-encoded bodies, path segments, OAuth state, Unicode paths, API filter strings,
+          hash routes, and deliberately double-encoded values. The important decision is not the
+          text itself but whether you are encoding a complete URL, one component inside a URL,
+          or form data where plus signs have special meaning.
+        </p>
+      </section>
     </div>
   );
 }

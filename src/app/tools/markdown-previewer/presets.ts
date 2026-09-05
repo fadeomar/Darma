@@ -43,12 +43,7 @@ Read more in the [MDN documentation](https://developer.mozilla.org/).
 `;
 
 export const MARKDOWN_PRESETS: MarkdownPreset[] = [
-  {
-    id: "readme",
-    label: "Project README",
-    category: "GitHub",
-    description: "A repository overview with setup, scripts, and contribution notes.",
-    content: `# Atlas UI
+  { id: "readme", label: "Project README", category: "GitHub", description: "Repository overview with setup, scripts, and contribution notes.", content: `# Atlas UI
 
 A small component library for internal product teams.
 
@@ -66,29 +61,13 @@ npm install
 npm run dev
 \`\`\`
 
-## Available scripts
-
-| Command | Purpose |
-| --- | --- |
-| \`npm run dev\` | Start the local app |
-| \`npm run test\` | Run the test suite |
-| \`npm run build\` | Create a production build |
-
 ## Contributing
 
 1. Create a focused branch.
 2. Add tests for behavior changes.
 3. Open a pull request with screenshots when UI changes.
-
-> Do not commit secrets or local environment files.
-`,
-  },
-  {
-    id: "api-docs",
-    label: "API Reference",
-    category: "Developer docs",
-    description: "Endpoint documentation with request, response, and error tables.",
-    content: `# Orders API
+` },
+  { id: "api-docs", label: "API Reference", category: "Developer docs", description: "Endpoint documentation with request, response, and error sections.", content: `# Orders API
 
 ## Create an order
 
@@ -102,7 +81,6 @@ Creates a draft order for the authenticated workspace.
 | --- | --- | --- |
 | customerId | string | Yes |
 | items | array | Yes |
-| note | string | No |
 
 \`\`\`json
 {
@@ -111,144 +89,246 @@ Creates a draft order for the authenticated workspace.
 }
 \`\`\`
 
-### Response
-
-\`\`\`json
-{
-  "id": "ord_2026",
-  "status": "draft",
-  "total": 48
-}
-\`\`\`
-
 ### Errors
 
 - \`400\` — invalid payload
 - \`401\` — missing or expired token
 - \`409\` — inventory conflict
-`,
-  },
-  {
-    id: "release-notes",
-    label: "Release Notes",
-    category: "Product",
-    description: "A clear changelog entry for features, fixes, and upgrade notes.",
-    content: `# Release 2.4.0
+` },
+  { id: "release-notes", label: "Release Notes", category: "Product", description: "A changelog entry for features, fixes, and upgrade notes.", content: `# Release 2.4.0
 
-Released on July 12, 2026.
+Released on September 4, 2026.
 
 ## Highlights
 
 - Added saved filters to the activity feed.
-- Improved keyboard navigation in command menus.
-- Reduced dashboard loading time on large workspaces.
+- Improved keyboard navigation.
+- Reduced dashboard loading time.
 
-## Fixed
+## Fixes
 
-- Resolved duplicated notifications after reconnecting.
-- Prevented table headers from overflowing on mobile.
-- Corrected timezone labels in CSV exports.
+- Fixed duplicate notifications.
+- Corrected mobile spacing in the settings page.
 
 ## Upgrade notes
 
-No database migration is required.
+No migration is required for this release.
+` },
+  { id: "runbook", label: "Incident Runbook", category: "Operations", description: "Operational checklist with symptoms, mitigations, and escalation.", content: `# Checkout latency runbook
 
-> Teams using custom themes should verify contrast on the new status badges.
-`,
-  },
-  {
-    id: "runbook",
-    label: "Incident Runbook",
-    category: "Operations",
-    description: "A practical response checklist with commands and escalation steps.",
-    content: `# API Latency Runbook
+## Trigger
 
-Use this runbook when p95 latency exceeds 800 ms for more than five minutes.
+Use this runbook when p95 checkout latency exceeds 2 seconds for 10 minutes.
 
-## Immediate checks
+## First checks
 
-- [ ] Confirm the alert window and affected region.
-- [ ] Check error rate and database saturation.
-- [ ] Compare the latest deployment timestamp.
-- [ ] Open an incident channel and assign an owner.
-
-## Diagnostic commands
-
-\`\`\`bash
-kubectl get pods -n production
-kubectl top pods -n production
-kubectl logs deploy/api --since=15m
-\`\`\`
+- [ ] Confirm the alert window.
+- [ ] Check database connections.
+- [ ] Compare API error rate.
 
 ## Mitigation
 
-1. Roll back the latest deployment when errors correlate with release time.
-2. Scale the API only when database capacity is healthy.
-3. Disable expensive background jobs if queue pressure is the cause.
+1. Disable expensive recommendations.
+2. Reduce background worker concurrency.
+3. Escalate if latency remains high.
+` },
+  { id: "blog-draft", label: "Blog Draft", category: "Content", description: "Article structure with summary, sections, examples, and CTA.", content: `# A practical guide to browser-only tools
 
-## Escalation
+Browser-only utilities can keep simple workflows fast and private.
 
-Contact the database owner after 10 minutes without recovery.
-`,
-  },
-  {
-    id: "blog-draft",
-    label: "Blog Draft",
-    category: "Content",
-    description: "An article structure with a clear opening, sections, and conclusion.",
-    content: `# Designing Faster Feedback Loops
+## Why local processing matters
 
-Teams rarely need more dashboards. They need faster ways to notice a problem, understand it, and act with confidence.
+Explain the user problem, then show a concrete workflow.
 
-## Start with the decision
+## Example
 
-Before adding a metric, write down the decision it should support. A useful signal changes what someone does next.
+> Convert or inspect data locally before sharing it.
 
-## Keep context beside the signal
+## Takeaway
 
-A number without comparison creates unnecessary investigation. Pair current performance with a target, a previous period, or an expected range.
+Choose the simplest tool that keeps the user in control.
+` },
+  { id: "meeting-notes", label: "Meeting Notes", category: "Team", description: "Agenda, decisions, owners, and follow-up actions.", content: `# Product sync — September 4
 
-## Make ownership visible
+## Agenda
 
-Every recurring alert or report should have an owner who can explain the signal and improve it when it becomes noisy.
-
-## Conclusion
-
-Good feedback loops are small, specific, and connected to action. Build the shortest loop that helps the team make a better decision.
-`,
-  },
-  {
-    id: "meeting-notes",
-    label: "Meeting Notes",
-    category: "Team",
-    description: "A reusable format for decisions, actions, and unresolved questions.",
-    content: `# Product Sync — July 12, 2026
-
-## Attendees
-
-- Product
-- Design
-- Engineering
-- Support
+- Context recovery sprint
+- QA ownership
+- Release timing
 
 ## Decisions
 
-- Ship the compact navigation behind a feature flag.
-- Keep the current onboarding copy for this release.
-- Measure task completion before changing the dashboard layout.
+1. Keep richer use-case libraries.
+2. Show only the first group by default.
 
-## Action items
+## Actions
 
-- [ ] Engineering: add analytics events by July 15.
-- [ ] Design: prepare mobile QA screenshots.
-- [ ] Support: collect the top five navigation complaints.
+- [ ] Fadi — review preview deployment
+- [ ] Team — confirm regression coverage
+` },
+  { id: "pull-request", label: "Pull Request", category: "GitHub", description: "Concise PR body with intent, changes, testing, and screenshots.", content: `# Context recovery batch
 
-## Open questions
+## What changed
 
-1. Should saved views sync across workspaces?
-2. Do guests need access to export actions?
-`,
-  },
+- Expanded practical presets.
+- Restored missing examples.
+- Preserved the current control UI.
+
+## Testing
+
+- [x] Typecheck
+- [x] Relevant unit tests
+- [ ] Browser QA
+
+## Screenshots
+
+Add before/after screenshots for visual changes.
+` },
+  { id: "issue-report", label: "Bug Report", category: "GitHub", description: "Reproduction-focused issue with expected and actual behavior.", content: `# Preview controls cover the image
+
+## Steps to reproduce
+
+1. Open the photo filter editor.
+2. Upload a landscape image.
+3. Resize the browser to laptop width.
+
+## Expected
+
+The image preview remains visible while editing.
+
+## Actual
+
+The controls cover most of the preview.
+
+## Environment
+
+- Browser: Chrome
+- Viewport: 1440 × 900
+` },
+  { id: "architecture-decision", label: "ADR", category: "Engineering", description: "Architecture decision record with context and consequences.", content: `# ADR: Keep image processing client-side
+
+## Status
+
+Accepted
+
+## Context
+
+The tool handles user-selected images and does not require shared storage.
+
+## Decision
+
+Use browser APIs for decoding, processing, and export.
+
+## Consequences
+
+- Better privacy
+- No upload latency
+- Browser memory limits apply
+` },
+  { id: "test-plan", label: "QA Test Plan", category: "Quality", description: "Structured manual test scenarios with clear pass criteria.", content: `# Image converter QA
+
+## Core flow
+
+- [ ] Upload PNG, JPEG, and WebP.
+- [ ] Convert each output format.
+- [ ] Verify dimensions and filenames.
+
+## Edge cases
+
+- [ ] Transparent PNG to JPEG
+- [ ] Very small source image
+- [ ] Multiple files
+
+## Pass criteria
+
+No crash, output opens correctly, and privacy messaging is accurate.
+` },
+  { id: "project-brief", label: "Project Brief", category: "Product", description: "Short product brief with problem, users, scope, and success criteria.", content: `# Darma context recovery
+
+## Problem
+
+Recent UI improvements reduced the number of practical examples in several tools.
+
+## Users
+
+People who want a useful result quickly without designing settings from scratch.
+
+## Scope
+
+Restore guided starting points without reintroducing UI clutter.
+
+## Success
+
+Users can find a relevant starting point before touching advanced controls.
+` },
+  { id: "support-article", label: "Support Article", category: "Support", description: "Help-center article with symptoms, steps, and escalation guidance.", content: `# Why did my image become larger?
+
+A converted image can grow when the chosen format is less efficient for the source content.
+
+## Try this
+
+1. Use WebP for photos and web graphics.
+2. Reduce dimensions before lowering quality heavily.
+3. Compare output size before downloading.
+
+## Still stuck?
+
+Keep the original and try a different preset.
+` },
+  { id: "onboarding-guide", label: "Onboarding Guide", category: "Team", description: "New-team-member checklist with setup and first-week milestones.", content: `# Engineering onboarding
+
+## Day 1
+
+- [ ] Clone the repository.
+- [ ] Configure local environment variables.
+- [ ] Run the test suite.
+
+## First week
+
+- [ ] Ship one small fix.
+- [ ] Review one pull request.
+- [ ] Read the architecture notes.
+` },
+  { id: "comparison-table", label: "Comparison Note", category: "Research", description: "Feature comparison with a compact table and decision summary.", content: `# Image format comparison
+
+| Format | Best for | Transparency | Typical size |
+| --- | --- | --- | --- |
+| PNG | UI assets | Yes | Larger |
+| JPEG | Photos | No | Small |
+| WebP | Modern web | Yes | Small |
+
+## Recommendation
+
+Prefer WebP for web delivery unless compatibility or lossless requirements point elsewhere.
+` },
+  { id: "learning-notes", label: "Study Notes", category: "Learning", description: "Topic summary with concepts, examples, and review questions.", content: `# CSS container queries
+
+## Core idea
+
+A component can respond to the size of its containing element instead of only the viewport.
+
+## Example
+
+\`\`\`css
+.card-shell { container-type: inline-size; }
+@container (min-width: 36rem) { .card { grid-template-columns: 1fr 2fr; } }
+\`\`\`
+
+## Review questions
+
+1. When is a container query better than a media query?
+2. Which element establishes the query container?
+` },
+  { id: "decision-log", label: "Decision Log", category: "Team", description: "Small running record of decisions, reasons, and follow-ups.", content: `# Decision log
+
+## 2026-09-04 — Preserve example density
+
+**Decision:** Keep larger preset libraries and collapse them visually instead of deleting examples.
+
+**Reason:** Users should be able to select a close use case before tuning controls manually.
+
+**Follow-up:** Validate the pattern across the next tool batches.
+` },
 ];
 
 export const QUICK_EXAMPLES: MarkdownExample[] = [

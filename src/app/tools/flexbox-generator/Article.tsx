@@ -26,6 +26,20 @@ export default function Article() {
         <code>flex-wrap: wrap</code> is helpful for card rows. For navigation, toolbars, and form actions, a mobile stack rule is often clearer than forcing every item to remain on one line. This generator includes tablet and mobile behaviors so you can copy safer responsive CSS.
       </p>
 
+      <h2>Ready-made Flexbox patterns</h2>
+      <p>
+        Start from a real interface pattern before touching the low-level controls. The library includes navbars, toolbars, form actions,
+        split heroes, profile headers, notification rows, tabs, button groups, chat messages, footer link groups, pricing cards, wrapping card
+        rows, media objects, centered states, breadcrumbs, and app shells. Each starter remains fully editable.
+      </p>
+
+      <h2>Pick by intent</h2>
+      <p>
+        Choose Toolbar or Breadcrumb + actions when one control needs to be pushed to the edge, Form actions for right-aligned buttons,
+        Wrapping cards or Pricing cards when children should share space responsively, Media object or Chat message for avatar-and-copy rows,
+        and Split hero when two flexible regions should stack naturally on smaller screens.
+      </p>
+
       <h2>Production exports</h2>
       <p>
         The generator can export CSS, CSS variables, HTML, React JSX, Tailwind starter markup, JSON layout tokens, and a plain-language explanation. These outputs are useful for handoff between designers and developers.

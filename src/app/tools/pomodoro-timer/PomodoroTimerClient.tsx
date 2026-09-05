@@ -211,6 +211,7 @@ export default function PomodoroTimerClient() {
   const [completedFocus, setCompletedFocus] = useState(0);
   const [history, setHistory] = useState<PomodoroSessionEntry[]>([]);
   const [activeTab, setActiveTab] = useState<TimerTab>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const [notificationPermission, setNotificationPermission] = useState<NotificationPermission | "unsupported">("unsupported");
   const completionLock = useRef(false);
   const originalTitleRef = useRef("");
@@ -510,13 +511,18 @@ export default function PomodoroTimerClient() {
               <Button size="sm" variant="ghost" onClick={() => applyPreset(DEFAULT_POMODORO_PRESET_ID)} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              {POMODORO_PRESETS.map((preset) => (
+              {(showAllPresets ? POMODORO_PRESETS : POMODORO_PRESETS.slice(0, 6)).map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                   <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
+            {POMODORO_PRESETS.length > 6 ? (
+              <Button className="mt-2 w-full" size="sm" variant="ghost" aria-expanded={showAllPresets} onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer cycles" : `Show all ${POMODORO_PRESETS.length} cycles`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

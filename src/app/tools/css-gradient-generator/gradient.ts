@@ -119,6 +119,18 @@ const PRESET_CSS = [
   { label: "Sunburst", css: "conic-gradient(from 0deg at bottom left in oklab, #fff, 2%, #f00 0%, 8%, #fff 0%, 13%, #f00 0%, 18%, #fff 0%, 21%, #f00 0%, 24%, #fff 0%)" },
   { label: "LearnUI", css: "linear-gradient(to right in lch, color(display-p3 25% 25% 100%), color(display-p3 100% 85% 30%))" },
   { label: "Neon Stripe", css: "linear-gradient(to right in oklab, #0ff, #0ff 0% 12%, #111 0% 24%, #ff0 0% 36%, #111 0% 48%, #f0f 0% 60%, #111 0% 72%, #0ff 0% 84%, #111 0% 100%)" },
+  { label: "SaaS Hero", css: "linear-gradient(to bottom right in oklab, #4f46e5, #7c3aed 52%, #ec4899)" },
+  { label: "Ocean CTA", css: "linear-gradient(to right in oklab, #0f766e, #0891b2 55%, #2563eb)" },
+  { label: "Sunset Hero", css: "linear-gradient(to bottom right in oklab, #f97316, #ec4899 55%, #7c3aed)" },
+  { label: "Dark Dashboard", css: "linear-gradient(to bottom in oklab, #0f172a, #111827 55%, #312e81)" },
+  { label: "Success Glow", css: "radial-gradient(farthest-corner circle at top right in oklab, #86efac, #10b981 45%, #064e3b)" },
+  { label: "Purple Brand", css: "linear-gradient(to right in oklab, #6d28d9, #8b5cf6 50%, #c084fc)" },
+  { label: "Warm Landing", css: "linear-gradient(to bottom right in oklab, #fff7ed, #fdba74 45%, #fb7185)" },
+  { label: "Glass Glow", css: "radial-gradient(farthest-corner circle at top left in oklab, #67e8f9, #a78bfa 55%, #f0abfc)" },
+  { label: "Aurora", css: "linear-gradient(to right in oklab, #22d3ee, #34d399 38%, #a3e635 68%, #facc15)" },
+  { label: "Product Spotlight", css: "radial-gradient(farthest-corner circle at center in oklab, #ffffff, #dbeafe 45%, #818cf8)" },
+  { label: "Subtle Surface", css: "linear-gradient(to bottom in oklab, #ffffff, #f8fafc 55%, #e2e8f0)" },
+  { label: "Warning Banner", css: "linear-gradient(to right in oklab, #fef3c7, #f59e0b 58%, #ea580c)" },
 ];
 
 export const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));

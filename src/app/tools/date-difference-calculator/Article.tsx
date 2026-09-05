@@ -61,6 +61,13 @@ export default function DateDifferenceArticle() {
           browser. The dates you enter are not uploaded to Darma or another service.
         </p>
       </section>
+
+      <section>
+        <h2 className={sectionTitle}>Choose the date workflow first</h2>
+        <p>
+          The expanded presets cover deadlines, trials, invoices, employment periods, release cycles, holiday-aware workdays, overnight windows, and cross-offset handoffs. Start from the scenario closest to your task, then change the dates, weekend rule, holidays, or offsets instead of rebuilding the calculation from scratch.
+        </p>
+      </section>
     </div>
   );
 }

@@ -29,6 +29,21 @@ export default function Article() {
       <p>
         Conversion, entity inspection, Unicode analysis, reports, and exports run locally in the browser. Your source text is not uploaded to a Darma server.
       </p>
+      <h2>Use a preset that matches the HTML sink</h2>
+      <p>
+        The examples now distinguish text content, double-quoted attributes, single-quoted
+        attributes, documentation snippets, existing entities, legal symbols, multilingual numeric
+        output, mixed entity formats, malformed references, and known double-encoded input. The
+        correct escaping rules depend on where the value will be inserted, so copy the preset that
+        matches the sink before changing format or scope.
+      </p>
+
+      <h2>Decoding can reveal active markup</h2>
+      <p>
+        A decoded string that contains angle brackets is still only text inside this tool, but the
+        same result can become executable markup if another application later inserts it as HTML.
+        Treat decoded untrusted content as untrusted, especially after a second decoding pass.
+      </p>
     </div>
   );
 }

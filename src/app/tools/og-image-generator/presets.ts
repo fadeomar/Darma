@@ -78,36 +78,22 @@ export const EXPORT_PACKS: Array<{ id: OgExportPackId; label: string; descriptio
 ];
 
 export const QUICK_PRESETS: OgQuickPreset[] = [
-  {
-    id: "website-launch",
-    title: "Website launch",
-    description: "Clean launch card with domain, badge, title, and CTA.",
-    patch: { templateId: "product-launch", badge: "Launching now", callToAction: "Visit website", exportPack: "complete", backgroundMode: "gradient", titleSize: 78 },
-  },
-  {
-    id: "developer-tool",
-    title: "Developer tool",
-    description: "Technical layout with strong title, terminal-style accents, and code-like details.",
-    patch: { templateId: "developer-tool", badge: "Free tool", callToAction: "Use in browser", exportPack: "basic", backgroundMode: "gradient", textAlign: "left" },
-  },
-  {
-    id: "blog-post",
-    title: "Blog article",
-    description: "Editorial style for tutorials, changelogs, and SEO articles.",
-    patch: { templateId: "blog-article", badge: "Article", callToAction: "Read more", exportPack: "article", titleSize: 68, subtitleSize: 28 },
-  },
-  {
-    id: "nextjs-app",
-    title: "Next.js app",
-    description: "Files and snippets aligned with App Router metadata conventions.",
-    patch: { templateId: "minimal-saas", exportPack: "nextjs", badge: "Next.js", callToAction: "Open app", backgroundMode: "gradient" },
-  },
-  {
-    id: "social-kit",
-    title: "Social kit",
-    description: "Multiple platform image sizes for sharing across social and chat apps.",
-    patch: { templateId: "announcement", exportPack: "social", badge: "Announcement", callToAction: "Share now", textAlign: "center" },
-  },
+  { id: "website-launch", title: "Website launch", description: "Clean launch card with domain, badge, title, and CTA.", patch: { templateId: "product-launch", badge: "Launching now", callToAction: "Visit website", exportPack: "complete", backgroundMode: "gradient", titleSize: 78 } },
+  { id: "developer-tool", title: "Developer tool", description: "Technical layout with strong title, terminal-style accents, and code-like details.", patch: { templateId: "developer-tool", badge: "Free tool", callToAction: "Use in browser", exportPack: "basic", backgroundMode: "gradient", textAlign: "left" } },
+  { id: "blog-post", title: "Blog article", description: "Editorial style for tutorials, changelogs, and SEO articles.", patch: { templateId: "blog-article", badge: "Article", callToAction: "Read more", exportPack: "article", titleSize: 68, subtitleSize: 28 } },
+  { id: "nextjs-app", title: "Next.js app", description: "Files and snippets aligned with App Router metadata conventions.", patch: { templateId: "minimal-saas", exportPack: "nextjs", badge: "Next.js", callToAction: "Open app", backgroundMode: "gradient" } },
+  { id: "social-kit", title: "Social kit", description: "Multiple platform image sizes for sharing across social and chat apps.", patch: { templateId: "announcement", exportPack: "social", badge: "Announcement", callToAction: "Share now", textAlign: "center" } },
+  { id: "saas-feature", title: "SaaS feature page", description: "Product-focused preview for a feature or solution landing page.", patch: { templateId: "minimal-saas", badge: "Product feature", callToAction: "Explore feature", exportPack: "complete", backgroundMode: "gradient", textAlign: "left", titleSize: 72 } },
+  { id: "docs-page", title: "Documentation page", description: "Restrained technical card for guides, API docs, and reference pages.", patch: { templateId: "documentation", badge: "Documentation", callToAction: "Read docs", exportPack: "basic", backgroundMode: "solid", backgroundColor: "#0f172a", textAlign: "left", titleSize: 64 } },
+  { id: "changelog", title: "Changelog release", description: "Release-note card with version badge and concise update copy.", patch: { templateId: "announcement", badge: "Version 2.4", callToAction: "See what changed", exportPack: "article", backgroundMode: "gradient", textAlign: "left", titleSize: 66 } },
+  { id: "open-source", title: "Open-source project", description: "Developer-friendly social card for repositories, libraries, and releases.", patch: { templateId: "terminal", badge: "Open source", callToAction: "View repository", exportPack: "social", backgroundMode: "pattern", textAlign: "left", titleSize: 66 } },
+  { id: "portfolio-project", title: "Portfolio project", description: "Editorial project card for case studies and personal websites.", patch: { templateId: "portfolio", badge: "Case study", callToAction: "View project", exportPack: "social", backgroundMode: "gradient", textAlign: "left", titleSize: 70 } },
+  { id: "newsletter", title: "Newsletter issue", description: "Readable editorial preview for newsletters and recurring publications.", patch: { templateId: "blog-article", badge: "Newsletter", callToAction: "Read issue", exportPack: "article", backgroundMode: "solid", backgroundColor: "#faf7f2", foregroundColor: "#1f2937", mutedColor: "#6b7280", accentColor: "#b45309", titleSize: 64 } },
+  { id: "event-announcement", title: "Event announcement", description: "Centered high-energy preview for webinars, launches, and community events.", patch: { templateId: "announcement", badge: "Live event", callToAction: "Save your spot", exportPack: "social", backgroundMode: "gradient", gradientFrom: "#4c1d95", gradientTo: "#db2777", textAlign: "center", titleSize: 72 } },
+  { id: "product-update", title: "Product update", description: "Compact announcement card for shipped features and product news.", patch: { templateId: "product-launch", badge: "New update", callToAction: "Try it now", exportPack: "social", backgroundMode: "gradient", textAlign: "left", titleSize: 70 } },
+  { id: "job-listing", title: "Hiring announcement", description: "Clear brand card for open roles and team-growth announcements.", patch: { templateId: "announcement", badge: "We are hiring", callToAction: "View open roles", exportPack: "social", backgroundMode: "solid", backgroundColor: "#111827", textAlign: "center", titleSize: 70 } },
+  { id: "course-resource", title: "Course or guide", description: "Educational preview for tutorials, downloadable guides, and learning resources.", patch: { templateId: "documentation", badge: "Free guide", callToAction: "Start learning", exportPack: "article", backgroundMode: "gradient", textAlign: "left", titleSize: 68 } },
+  { id: "minimal-link", title: "Minimal link card", description: "Low-noise title-and-domain preview when the brand should stay understated.", patch: { templateId: "minimal-saas", badge: "", callToAction: "", exportPack: "basic", backgroundMode: "solid", backgroundColor: "#f8fafc", foregroundColor: "#0f172a", mutedColor: "#64748b", accentColor: "#2563eb", textAlign: "left", titleSize: 64 } },
 ];
 
 export function getExportSizes(packId: OgExportPackId): OgExportSize[] {

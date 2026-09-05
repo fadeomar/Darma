@@ -47,6 +47,13 @@ export default function ButtonCSSGeneratorArticle() {
       </div>
 
       <div className="max-w-4xl rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface)] p-4">
+        <h3 className="font-bold text-[var(--color-text-primary)]">Choose by job, not just by visual style</h3>
+        <p className="mt-2 text-xs leading-6 text-[var(--color-text-tertiary)]">
+          The gallery covers hero CTAs, secondary actions, form submits, full-width checkout buttons, loading states, ecommerce actions, social sign-in, navbar CTAs, toolbar controls, destructive actions, status pills, icon buttons, glass, neumorphic, gradient, and playful 3D buttons. Similar-looking presets are intentional because the component context changes the recommended spacing, radius, emphasis, and interaction.
+        </p>
+      </div>
+
+      <div className="max-w-4xl rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface)] p-4">
         <h3 className="font-bold text-[var(--color-text-primary)]">Recommended workflow</h3>
         <ol className="mt-3 list-decimal space-y-2 pl-5 text-xs leading-6 text-[var(--color-text-tertiary)]">
           <li>Browse the live examples and pick the closest visual direction before opening the detailed controls.</li>

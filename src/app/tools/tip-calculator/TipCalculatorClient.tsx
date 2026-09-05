@@ -114,6 +114,7 @@ export default function TipCalculatorClient() {
   const [splitMode, setSplitMode] = useState<TipSplitMode>(initialPreset.input.splitMode);
   const [guests, setGuests] = useState<TipGuestInput[]>(cloneGuests(initialPreset.input.guests));
   const [activeTab, setActiveTab] = useState<TipTab>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const input = useMemo<TipScenarioInput>(() => ({
     subtotal: parseNumber(rawSubtotal),
@@ -228,13 +229,18 @@ export default function TipCalculatorClient() {
               <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              {TIP_PRESETS.map((preset) => (
+              {(showAllPresets ? TIP_PRESETS : TIP_PRESETS.slice(0, 6)).map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                   <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
+            {TIP_PRESETS.length > 6 ? (
+              <Button className="mt-2 w-full" size="sm" variant="ghost" aria-expanded={showAllPresets} onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer receipts" : `Show all ${TIP_PRESETS.length} receipts`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

@@ -103,6 +103,25 @@ const CANVAS_TEMPLATES: { label: string; value: CanvasTemplate }[] = [
   { label: "Confetti", value: "confetti" },
 ];
 
+/**
+ * Intent shortcuts. Every entry maps to an existing FAKE_SCREEN_PRESETS id, so
+ * no scene is implemented twice: picking a goal simply applies that preset.
+ */
+const FAKE_SCREEN_QUICK_GOALS: Array<{ id: string; label: string; note: string }> = [
+  { id: "dead-pixel-test", label: "Check dead pixels", note: "Cycle solid diagnostic colors." },
+  { id: "screen-cleaner", label: "Clean a display", note: "Bright surface with a cleaning timer." },
+  { id: "soft-light", label: "Soft desk light", note: "Warm low-glare ambient screen." },
+  { id: "update-win11", label: "Presentation update demo", note: "Familiar update-style visual simulation." },
+  { id: "update-terminal", label: "Developer stream", note: "Terminal progress for demos and recordings." },
+  { id: "error-no-signal", label: "No-signal scene", note: "TV-style bars for filming and mockups." },
+  { id: "error-broken", label: "Broken-screen overlay", note: "Harmless cracked-display visual effect." },
+  { id: "saver-flip-clock", label: "Desk clock", note: "Minimal fullscreen ambient clock." },
+  { id: "saver-floating", label: "Classroom message", note: "Custom bouncing text visible across a room." },
+  { id: "canvas-aurora", label: "Ambient backdrop", note: "Calm moving gradient for a display or stream." },
+  { id: "canvas-network", label: "Tech event backdrop", note: "Connected particles for demos and stages." },
+  { id: "canvas-confetti", label: "Celebration screen", note: "Festive motion for wins, launches, and streams." },
+];
+
 const SPEEDS: { label: string; value: ScreensaverSpeed }[] = [
   { label: "Slow", value: "slow" },
   { label: "Medium", value: "medium" },
@@ -802,6 +821,7 @@ export default function FakeScreenClient() {
   const [now, setNow] = useState(Date.now());
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [isPacking, setIsPacking] = useState(false);
+  const [showAllQuickGoals, setShowAllQuickGoals] = useState(false);
   const [importStatus, setImportStatus] = useState<{ tone: "success" | "error"; message: string } | null>(null);
   const [state, setState] = useState<FakeScreenState>(() => readFakeScreenQuery(params));
 
@@ -928,7 +948,35 @@ export default function FakeScreenClient() {
         }
         examplesSlot={
           <>
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">Examples</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">Start by goal</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Pick what you are trying to do first; Darma jumps to a representative scene you can still customize.</p>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {(showAllQuickGoals ? FAKE_SCREEN_QUICK_GOALS : FAKE_SCREEN_QUICK_GOALS.slice(0, 6)).map((goal) => {
+              const preset = FAKE_SCREEN_PRESETS.find((item) => item.id === goal.id);
+              if (!preset) return null;
+              return (
+                <button
+                  key={goal.id}
+                  type="button"
+                  onClick={() => { patch({ ...preset.state, mode: preset.mode }); setStartedAt(Date.now()); }}
+                  className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
+                >
+                  <span className="block text-sm font-bold text-[var(--color-text-primary)]">{goal.label}</span>
+                  <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{goal.note}</span>
+                </button>
+              );
+            })}
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowAllQuickGoals((value) => !value)}
+            aria-expanded={showAllQuickGoals}
+            className="mt-3 text-xs font-bold text-[var(--color-primary-text-strong)] hover:underline"
+          >
+            {showAllQuickGoals ? "Show fewer goals" : `Show all ${FAKE_SCREEN_QUICK_GOALS.length} goals`}
+          </button>
+
+          <p className="mt-6 text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">Examples</p>
           <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Choose a ready-made screen, then fine-tune it in the controls.</p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {activePresets.map((preset) => {

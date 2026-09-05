@@ -16,6 +16,15 @@ export default function Article() {
         </p>
       </ToolArticleSection>
 
+      <ToolArticleSection title="Choose the card by page intent">
+        <p>
+          The preset library covers website launches, SaaS features, developer tools, documentation, blog posts, changelogs, open-source projects, portfolio work, newsletters, events, product updates, hiring posts, courses, Next.js handoff, and minimal link cards. Pick the closest sharing intent before changing typography or colors.
+        </p>
+        <p>
+          This keeps the tool focused on the message a viewer should understand in a feed or chat preview. Two presets may use the same template but differ in badge, CTA, alignment, export pack, and copy hierarchy because those decisions belong to different real-world use cases.
+        </p>
+      </ToolArticleSection>
+
       <ToolArticleSection title="Use the four production signals">
         <p>
           The summary cards expose the selected template, title length, main text contrast, and package

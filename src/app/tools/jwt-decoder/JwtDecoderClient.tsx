@@ -93,6 +93,15 @@ export default function JwtDecoderClient() {
   const [audience, setAudience] = useState("");
   const [verification, setVerification] = useState<JwtVerificationResult>(EMPTY_VERIFICATION);
   const [verifying, setVerifying] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
+  // Collapsed to the first six, but never hide the scenario the user has loaded.
+  const visibleSamples = useMemo(
+    () =>
+      showAllPresets
+        ? samples
+        : samples.slice(0, 6).concat(samples.slice(6).filter((sample) => sample.id === selectedPreset)),
+    [samples, selectedPreset, showAllPresets],
+  );
 
   const decoded = useMemo(() => decodeJwt(token), [token]);
   const checks = useMemo(() => buildJwtChecks(decoded).map((check) => {
@@ -307,7 +316,7 @@ export default function JwtDecoderClient() {
               <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
             </div>
             <div className="grid gap-2 p-3 sm:grid-cols-2 xl:grid-cols-1">
-                {samples.map((sample) => (
+                {visibleSamples.map((sample) => (
                   <button
                     key={sample.id}
                     type="button"
@@ -321,6 +330,11 @@ export default function JwtDecoderClient() {
                   </button>
                 ))}
             </div>
+            {samples.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer scenarios" : `Show all ${samples.length} scenarios`}
+              </Button>
+            ) : null}
           </section>
         </aside>
       </div>

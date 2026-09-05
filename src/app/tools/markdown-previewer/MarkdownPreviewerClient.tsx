@@ -112,6 +112,7 @@ export default function MarkdownPreviewerClient() {
   const [previewWidth, setPreviewWidth] = useState<MarkdownPreviewWidth>("reading");
   const [selectedPreset, setSelectedPreset] = useState("");
   const [fileError, setFileError] = useState("");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -131,6 +132,14 @@ export default function MarkdownPreviewerClient() {
     return () => window.removeEventListener("keydown", handleShortcut);
   }, [input]);
 
+  // Collapsed to the first six, but never hide the preset the user has loaded.
+  const visibleMarkdownPresets = useMemo(
+    () =>
+      showAllPresets
+        ? MARKDOWN_PRESETS
+        : MARKDOWN_PRESETS.slice(0, 6).concat(MARKDOWN_PRESETS.slice(6).filter((preset) => preset.id === selectedPreset)),
+    [selectedPreset, showAllPresets],
+  );
   const rendered = useMemo(() => renderMarkdownToHtml(committedInput, options), [committedInput, options]);
   const analysis = useMemo(() => analyzeMarkdown(input), [input]);
   const previewAnalysis = useMemo(() => analyzeMarkdown(committedInput), [committedInput]);
@@ -255,7 +264,7 @@ export default function MarkdownPreviewerClient() {
           <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
         </div>
         <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {MARKDOWN_PRESETS.map((preset) => (
+          {visibleMarkdownPresets.map((preset) => (
             <button
               key={preset.id}
               type="button"
@@ -269,6 +278,13 @@ export default function MarkdownPreviewerClient() {
             </button>
           ))}
         </div>
+        {MARKDOWN_PRESETS.length > 6 ? (
+          <div className="border-t border-[var(--color-border-subtle)] px-3 py-2 text-center">
+            <Button size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+              {showAllPresets ? "Show fewer presets" : `Show all ${MARKDOWN_PRESETS.length} document presets`}
+            </Button>
+          </div>
+        ) : null}
       </section>
 
       <div className="grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">

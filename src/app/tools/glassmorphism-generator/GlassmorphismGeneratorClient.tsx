@@ -201,6 +201,9 @@ export default function GlassmorphismGeneratorClient() {
               <div className="h-10 w-16" style={{ ...(getGlassPreviewStyle(preset.state) as CSSProperties), width: 64, minHeight: 40, padding: 0 }} />
             </div>
           )}
+          initialVisibleCount={6}
+          showMoreLabel="Show all glass use cases"
+          showLessLabel="Show fewer glass use cases"
           className="sm:grid-cols-2 xl:grid-cols-4"
         />
       </section>

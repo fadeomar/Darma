@@ -59,6 +59,13 @@ export default function Article() {
         </section>
 
         <section>
+          <h2 className="text-xl font-bold text-[var(--color-text)]">Choose the loader by user intent</h2>
+          <p className="mt-3">
+            The quick collections are shortcuts into the full loader library rather than a separate set of loaders: button submission, skeleton content, authentication and redirect waits, dashboard refreshes, AI typing, uploads and progress, full-page transitions, playful products, branded moments, live status, data processing, React and Tailwind output, and your own saved loaders. Start from where the loader will appear, then customize animation details only after the interaction pattern feels right.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-xl font-bold text-[var(--color-text)]">Accessibility tips for loading states</h2>
           <p className="mt-3">
             Loading animations should support the user instead of distracting them. Use clear text such as “Saving…” or “Loading dashboard…” beside important loaders, avoid endless blocking overlays when partial content can render, keep color contrast readable on light and dark backgrounds, and respect reduced-motion preferences. This gallery includes a pause control and reduced-motion CSS so the page remains usable for motion-sensitive users.

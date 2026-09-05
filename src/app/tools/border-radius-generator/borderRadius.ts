@@ -63,7 +63,7 @@ export function createDefaultBorderRadiusState(): BorderRadiusState {
       gradientFrom: "#7c3aed",
       gradientTo: "#06b6d4",
       gradientAngle: 135,
-      imageUrl: "/images/profile.jpg",
+      imageUrl: "/assets/tools/border-radius-generator/preset-photo.svg",
       objectFit: "cover",
       borderWidth: 0,
       borderColor: "#ffffff",

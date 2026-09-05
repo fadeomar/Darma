@@ -780,7 +780,7 @@ export default function ImageCompressorClient() {
         sticky={false}
       >
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          {QUICK_PRESETS.slice(0, 4).map((preset) => (
+          {QUICK_PRESETS.slice(0, 6).map((preset) => (
             <button
               key={preset.id}
               type="button"
@@ -796,10 +796,10 @@ export default function ImageCompressorClient() {
             </button>
           ))}
         </div>
-        {QUICK_PRESETS.length > 4 ? (
-          <Disclosure title="More presets" description="Social, profile, and ecommerce export sizes.">
+        {QUICK_PRESETS.length > 6 ? (
+          <Disclosure title="More presets" description="Social, profile, ecommerce, email, CMS, and size-limited export targets.">
             <div className="grid gap-2 sm:grid-cols-2">
-              {QUICK_PRESETS.slice(4).map((preset) => (
+              {QUICK_PRESETS.slice(6).map((preset) => (
                 <button
                   key={preset.id}
                   type="button"

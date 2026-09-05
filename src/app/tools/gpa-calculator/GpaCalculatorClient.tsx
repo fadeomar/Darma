@@ -139,6 +139,7 @@ export default function GpaCalculatorClient() {
   const [courseForms, setCourseForms] = useState<CourseForm[]>(() => toCourseForms(DEFAULT_GPA_COURSES));
   const [contextForm, setContextForm] = useState<ContextForm>(() => toContextForm(DEFAULT_GPA_CONTEXT));
   const [activeTab, setActiveTab] = useState<GpaTab>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const courses = useMemo(() => parseCourses(courseForms), [courseForms]);
   const context = useMemo(() => parseContext(contextForm), [contextForm]);
@@ -244,13 +245,18 @@ export default function GpaCalculatorClient() {
                 <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
               </div>
               <div className="grid grid-cols-2 gap-2">
-              {GPA_PRESETS.map((preset) => (
+              {(showAllPresets ? GPA_PRESETS : GPA_PRESETS.slice(0, 6)).map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-h-24 min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                   <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
               </div>
+              {GPA_PRESETS.length > 6 ? (
+                <Button className="mt-2 w-full" size="sm" variant="ghost" aria-expanded={showAllPresets} onClick={() => setShowAllPresets((value) => !value)}>
+                  {showAllPresets ? "Show fewer semesters" : `Show all ${GPA_PRESETS.length} semesters`}
+                </Button>
+              ) : null}
             </div>
           </details>
         </aside>

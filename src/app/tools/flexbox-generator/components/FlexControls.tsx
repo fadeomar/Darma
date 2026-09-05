@@ -37,7 +37,7 @@ export function FlexControls({
   return (
     <ToolControlPanel title="Flex settings" description="Tune axes, wrapping, alignment, item sizing, responsive behavior, and production exports.">
       <ControlSection title="Presets">
-        <PresetGallery presets={FLEX_PRESETS} selectedId={activePreset} onSelect={(_, preset) => onLoadPreset(preset)} getId={(preset) => preset.id} getLabel={(preset) => preset.name} getDescription={(preset) => preset.description} />
+        <PresetGallery presets={FLEX_PRESETS} selectedId={activePreset} onSelect={(_, preset) => onLoadPreset(preset)} getId={(preset) => preset.id} getLabel={(preset) => preset.name} getDescription={(preset) => preset.description} initialVisibleCount={6} showMoreLabel="Show all patterns" showLessLabel="Show fewer patterns" />
       </ControlSection>
 
       <ControlSection title="Quick actions">

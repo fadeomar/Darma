@@ -180,6 +180,8 @@ const tokenName = (name: string) =>
 export default function ColorNameFinderClient() {
   const [input, setInput] = useState("#800020");
   const [activePanel, setActivePanel] = useState<PanelId>("overview");
+  const [showAllExamples, setShowAllExamples] = useState(false);
+  const visibleExamples = showAllExamples ? COLOR_NAME_EXAMPLES : COLOR_NAME_EXAMPLES.slice(0, 6);
   const parsed = useMemo(() => parseColor(input), [input]);
   const matches = useMemo(
     () => (parsed.ok ? findClosestColors(parsed.rgb, 14) : []),
@@ -248,7 +250,7 @@ export default function ColorNameFinderClient() {
             placeholder="#800020"
           />
           <div className="mt-3 flex flex-wrap gap-2">
-            {COLOR_NAME_EXAMPLES.map((x) => (
+            {visibleExamples.map((x) => (
               <button
                 key={x}
                 type="button"
@@ -258,6 +260,14 @@ export default function ColorNameFinderClient() {
                 {x}
               </button>
             ))}
+            <button
+              type="button"
+              onClick={() => setShowAllExamples((value) => !value)}
+              aria-expanded={showAllExamples}
+              className="rounded-full border border-[var(--color-border-subtle)] px-3 py-1.5 text-xs font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-subtle)]"
+            >
+              {showAllExamples ? "Show fewer" : `Show all ${COLOR_NAME_EXAMPLES.length}`}
+            </button>
           </div>
         </div>
         <div className="rounded-[28px] border border-red-200 bg-red-50 p-6 text-red-800 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200">
@@ -399,7 +409,7 @@ export default function ColorNameFinderClient() {
                 Try example colors
               </summary>
               <div className="flex flex-wrap gap-2 border-t border-[var(--color-border-subtle)] p-3">
-                {COLOR_NAME_EXAMPLES.map((x) => (
+                {visibleExamples.map((x) => (
                   <button
                     key={x}
                     type="button"
@@ -409,6 +419,14 @@ export default function ColorNameFinderClient() {
                     {x}
                   </button>
                 ))}
+                <button
+                  type="button"
+                  onClick={() => setShowAllExamples((value) => !value)}
+                  aria-expanded={showAllExamples}
+                  className="rounded-full border border-[var(--color-border-subtle)] px-3 py-1.5 text-xs font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-subtle)]"
+                >
+                  {showAllExamples ? "Show fewer" : `Show all ${COLOR_NAME_EXAMPLES.length}`}
+                </button>
               </div>
             </details>
           </div>

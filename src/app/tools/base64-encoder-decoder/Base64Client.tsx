@@ -90,6 +90,7 @@ export default function Base64Client() {
   });
   const [decodeOptions, setDecodeOptions] = useState<Base64DecodeOptions>({ alphabet: "auto", strict: false });
   const [outputTab, setOutputTab] = useState<OutputTab>("result");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const rawFileInputRef = useRef<HTMLInputElement>(null);
   const textFileInputRef = useRef<HTMLInputElement>(null);
 
@@ -415,10 +416,15 @@ export default function Base64Client() {
       <aside className="min-w-0 space-y-4">
         <Card>
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Practical presets</div>
-          <div className="space-y-2">{BASE64_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]">
+          <div className="space-y-2">{(showAllPresets ? BASE64_PRESETS : BASE64_PRESETS.slice(0, 6)).map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]">
             <div className="flex items-center justify-between gap-2"><span className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-xs uppercase text-[var(--color-text-tertiary)]">{preset.mode}</span></div>
             <div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div>
           </button>)}</div>
+          {BASE64_PRESETS.length > 6 ? (
+            <Button className="mt-3 w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+              {showAllPresets ? "Show fewer presets" : `Show all ${BASE64_PRESETS.length} presets`}
+            </Button>
+          ) : null}
         </Card>
 
         <Card>

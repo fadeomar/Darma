@@ -156,6 +156,28 @@ export default function TextCleanerArticle() {
           </div>
         </div>
       </section>
+      <section>
+        <h2 className={sectionTitle}>Start from the text source or the output you need</h2>
+        <p>
+          The preset library now covers copied PDFs, captions, developer lists,
+          Arabic normalization, recipient extraction, phone and hashtag lists,
+          CSV-style columns, keyword cleanup, comma-list conversion, bullets,
+          numbered lists, slug seeds, and constant names. A preset is only a
+          starting workflow: inspect the selected actions and remove any step
+          that changes meaning you need to preserve.
+        </p>
+      </section>
+
+      <section>
+        <h2 className={sectionTitle}>Extraction presets intentionally discard surrounding text</h2>
+        <p>
+          Link, email, phone, hashtag, mention, and number extraction produce a
+          focused list rather than a cleaned version of the original prose. Use
+          them when the list itself is the deliverable. For editing paragraphs or
+          documents, prefer cleanup and normalization actions that preserve the
+          original sentence content.
+        </p>
+      </section>
     </article>
   );
 }

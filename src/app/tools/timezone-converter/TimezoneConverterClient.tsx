@@ -333,6 +333,7 @@ export default function TimezoneConverterClient() {
     "Release | 2026-10-01 14:00 UTC",
   ].join("\n"));
   const [zipBusy, setZipBusy] = useState(false);
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   useEffect(() => {
     const detectedZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
@@ -475,7 +476,7 @@ export default function TimezoneConverterClient() {
       <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-sm)]">
         <div className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" /><h2 className="text-xs font-black text-[var(--color-text-primary)]">Practical presets</h2></div>
         <div className="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-6">
-          {TIMEZONE_PRESETS.map((preset) => (
+          {(showAllPresets ? TIMEZONE_PRESETS : TIMEZONE_PRESETS.slice(0, 6)).map((preset) => (
             <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 text-left transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-primary-soft)] focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]">
               <span className="text-base" aria-hidden>{preset.icon}</span>
               <span className="mt-1 block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
@@ -483,6 +484,11 @@ export default function TimezoneConverterClient() {
             </button>
           ))}
         </div>
+        {TIMEZONE_PRESETS.length > 6 ? (
+          <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+            {showAllPresets ? "Show fewer scenarios" : `Show all ${TIMEZONE_PRESETS.length} scenarios`}
+          </Button>
+        ) : null}
       </section>
 
       <div className="grid gap-4 xl:grid-cols-[350px_minmax(0,1fr)] xl:items-start">

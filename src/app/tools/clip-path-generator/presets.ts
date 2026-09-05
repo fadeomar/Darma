@@ -155,6 +155,20 @@ export const CLIP_PATH_PRESETS: ClipPathPreset[] = [
       { x: 35, y: 35 },
     ],
   },
+  { id: "decagon", name: "Decagon", category: "polygon", description: "Regular 10-sided polygon for badges and medallions.", points: regularPolygon(10) },
+  { id: "dodecagon", name: "Dodecagon", category: "polygon", description: "Regular 12-sided polygon with a softer circular feel.", points: regularPolygon(12) },
+  { id: "arrow-left", name: "Arrow left", category: "arrow", description: "Left-pointing navigation or directional arrow.", points: [{x:100,y:30},{x:40,y:30},{x:40,y:0},{x:0,y:50},{x:40,y:100},{x:40,y:70},{x:100,y:70}] },
+  { id: "arrow-up", name: "Arrow up", category: "arrow", description: "Upward arrow for scroll-to-top or directional UI.", points: [{x:30,y:100},{x:30,y:40},{x:0,y:40},{x:50,y:0},{x:100,y:40},{x:70,y:40},{x:70,y:100}] },
+  { id: "arrow-down", name: "Arrow down", category: "arrow", description: "Downward arrow for scroll cues and callouts.", points: [{x:30,y:0},{x:70,y:0},{x:70,y:60},{x:100,y:60},{x:50,y:100},{x:0,y:60},{x:30,y:60}] },
+  { id: "hero-diagonal", name: "Hero diagonal", category: "basic", description: "Diagonal lower edge for hero images and section separators.", points: [{x:0,y:0},{x:100,y:0},{x:100,y:78},{x:0,y:100}] },
+  { id: "image-slant", name: "Image slant", category: "basic", description: "Slanted image frame for editorial and marketing media.", points: [{x:12,y:0},{x:100,y:0},{x:88,y:100},{x:0,y:100}] },
+  { id: "cut-corners", name: "Cut corners", category: "basic", description: "Chamfered card shape with all four corners clipped.", points: [{x:10,y:0},{x:90,y:0},{x:100,y:10},{x:100,y:90},{x:90,y:100},{x:10,y:100},{x:0,y:90},{x:0,y:10}] },
+  { id: "bookmark", name: "Bookmark", category: "decorative", description: "Bookmark or ribbon shape for saved-state UI.", points: [{x:15,y:0},{x:85,y:0},{x:85,y:100},{x:50,y:76},{x:15,y:100}] },
+  { id: "tag", name: "Price tag", category: "decorative", description: "Tag silhouette for labels, pricing, and promotional graphics.", points: [{x:0,y:20},{x:70,y:20},{x:100,y:50},{x:70,y:80},{x:0,y:80}] },
+  { id: "shield", name: "Shield", category: "decorative", description: "Shield shape for security, trust, and achievement badges.", points: [{x:50,y:0},{x:95,y:15},{x:88,y:68},{x:50,y:100},{x:12,y:68},{x:5,y:15}] },
+  { id: "house", name: "House", category: "decorative", description: "Simple house silhouette for home and property UI.", points: [{x:0,y:45},{x:50,y:0},{x:100,y:45},{x:88,y:45},{x:88,y:100},{x:12,y:100},{x:12,y:45}] },
+  { id: "lightning", name: "Lightning", category: "decorative", description: "Angular lightning bolt for energy and speed accents.", points: [{x:58,y:0},{x:20,y:55},{x:48,y:55},{x:35,y:100},{x:82,y:40},{x:55,y:40}] },
+  { id: "notched-card", name: "Notched card", category: "decorative", description: "Card with side notches for tickets, coupons, and vouchers.", points: [{x:0,y:0},{x:100,y:0},{x:100,y:35},{x:90,y:50},{x:100,y:65},{x:100,y:100},{x:0,y:100},{x:0,y:65},{x:10,y:50},{x:0,y:35}] }
 ];
 
 export const DEFAULT_PRESET_ID = "hexagon";

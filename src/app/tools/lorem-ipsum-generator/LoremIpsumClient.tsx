@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import JSZip from "jszip";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -163,10 +163,26 @@ export default function LoremIpsumClient() {
   const [generationVersion, setGenerationVersion] = useState(0);
   const [activeTab, setActiveTab] = useState<LoremResultTab>("preview");
   const [viewport, setViewport] = useState<PreviewViewport>("desktop");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [checksOpen, setChecksOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<"settings" | "preview">("settings");
   const [zipBusy, setZipBusy] = useState(false);
+
+  // A featured preset counts as selected when every value it sets matches the draft.
+  const isFeaturedPresetSelected = useCallback(
+    (preset: (typeof FEATURED_PRESETS)[number]) =>
+      Object.entries(preset.config).every(([key, value]) => draftConfig[key as keyof LoremConfig] === value),
+    [draftConfig],
+  );
+  // Collapsed to the first six, but never hide the preset that is currently applied.
+  const visibleFeaturedPresets = useMemo(
+    () =>
+      showAllPresets
+        ? FEATURED_PRESETS
+        : FEATURED_PRESETS.slice(0, 6).concat(FEATURED_PRESETS.slice(6).filter(isFeaturedPresetSelected)),
+    [isFeaturedPresetSelected, showAllPresets],
+  );
 
   const output = useMemo(() => generate(generatedConfig), [generatedConfig]);
   const stats = useMemo(() => computeStats(output.plain), [output.plain]);
@@ -292,10 +308,8 @@ export default function LoremIpsumClient() {
           </div>
 
           <div className="-mx-1 mt-4 flex gap-2 overflow-x-auto px-1 pb-1">
-            {FEATURED_PRESETS.map((preset) => {
-              const selected = Object.entries(preset.config).every(
-                ([key, value]) => draftConfig[key as keyof LoremConfig] === value,
-              );
+            {visibleFeaturedPresets.map((preset) => {
+              const selected = isFeaturedPresetSelected(preset);
               return (
                 <button
                   key={preset.id}
@@ -313,6 +327,16 @@ export default function LoremIpsumClient() {
                 </button>
               );
             })}
+            {FEATURED_PRESETS.length > 6 ? (
+              <button
+                type="button"
+                onClick={() => setShowAllPresets((value) => !value)}
+                aria-expanded={showAllPresets}
+                className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-full border border-dashed border-[var(--color-border-default)] px-3.5 text-xs font-bold text-[var(--color-text-secondary)] outline-none transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus-visible:shadow-[var(--focus-ring)]"
+              >
+                {showAllPresets ? "Show fewer presets" : `Show all ${FEATURED_PRESETS.length} presets`}
+              </button>
+            ) : null}
           </div>
         </div>
 

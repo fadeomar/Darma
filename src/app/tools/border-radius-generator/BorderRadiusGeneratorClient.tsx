@@ -249,6 +249,9 @@ export default function BorderRadiusGeneratorClient() {
               <div className="h-10 w-14" style={{ borderRadius: getBorderRadiusValue(preset.state), background: backgroundValue(preset.state), boxShadow: shadowValue(preset.state) }} />
             </div>
           )}
+          initialVisibleCount={6}
+          showMoreLabel="Show all radius use cases"
+          showLessLabel="Show fewer radius use cases"
           className="sm:grid-cols-3 xl:grid-cols-3"
           compact
         />

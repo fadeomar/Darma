@@ -13,7 +13,17 @@ export type ComponentPresetId =
   | "sidebar-module"
   | "media-object"
   | "stats-card"
-  | "feature-panel";
+  | "feature-panel"
+  | "search-result"
+  | "checkout-summary"
+  | "notification-panel"
+  | "team-member-card"
+  | "video-card"
+  | "filter-panel"
+  | "comment-thread"
+  | "comparison-row"
+  | "calendar-event"
+  | "cta-banner";
 
 export type ContainerStyleRule = {
   id: string;

@@ -138,6 +138,7 @@ export default function UnitConverterClient() {
   const [format, setFormat] = useState<ConversionFormat>(DEFAULT_FORMAT);
   const [batchInput, setBatchInput] = useState("1\n2.5\n10");
   const [activeTab, setActiveTab] = useState<UnitTab>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const category = getCategory(categoryId) ?? CATEGORIES[0];
   const value = parseInput(rawValue);
@@ -233,13 +234,18 @@ export default function UnitConverterClient() {
               <Button size="sm" variant="ghost" onClick={reset}>Reset</Button>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              {UNIT_PRESETS.map((preset) => (
+              {(showAllPresets ? UNIT_PRESETS : UNIT_PRESETS.slice(0, 6)).map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                   <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
+            {UNIT_PRESETS.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer conversions" : `Show all ${UNIT_PRESETS.length} conversions`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4 shadow-[var(--shadow-tool-controls)]">

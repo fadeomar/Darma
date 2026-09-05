@@ -282,6 +282,12 @@ function SettingsPanel({
   setPolicyId: (policyId: PasswordPolicyId) => void;
   applyPreset: (id: string) => void;
 }) {
+  const [showAllPresets, setShowAllPresets] = useState(false);
+  // Collapsed to the first six, but never hide the preset that is currently active.
+  const visiblePresets = showAllPresets
+    ? PASSWORD_PRESETS
+    : PASSWORD_PRESETS.slice(0, 6).concat(PASSWORD_PRESETS.slice(6).filter((preset) => preset.id === activePreset));
+
   function togglePasswordOption(key: PasswordToggleKey) {
     const characterSetKeys: PasswordToggleKey[] = ["uppercase", "lowercase", "numbers", "symbols"];
     if (characterSetKeys.includes(key) && config[key] && getActiveCharacterSetCount(config) === 1) return;
@@ -317,7 +323,7 @@ function SettingsPanel({
       <div className="mt-5 space-y-3">
         <FieldLabel label="Practical presets" hint="Start from a use case, then customize only when the destination has specific requirements." />
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          {PASSWORD_PRESETS.map((preset) => (
+          {visiblePresets.map((preset) => (
             <PresetCard
               key={preset.id}
               title={preset.title}
@@ -327,6 +333,11 @@ function SettingsPanel({
             />
           ))}
         </div>
+        {PASSWORD_PRESETS.length > 6 ? (
+          <Button className="w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+            {showAllPresets ? "Show fewer presets" : `Show all ${PASSWORD_PRESETS.length} presets`}
+          </Button>
+        ) : null}
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">

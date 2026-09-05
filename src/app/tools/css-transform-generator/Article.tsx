@@ -6,6 +6,11 @@ export default function Article() {
         CSS transforms visually move, rotate, scale, skew, and project elements without changing the surrounding document flow. They are ideal for hover states, entrance motion, card tilt effects, image zooms, and small interaction feedback.
       </p>
 
+      <h2>Start from an interaction pattern</h2>
+      <p>
+        Use the preset library as a catalog of familiar interaction patterns: card lift, pressed button, image zoom, floating-action hover, icon rotation, thumbnail nudge, tooltip pop, dropdown hinge, modal entrance, drawer slide, subtle card tilt, image tilt, skewed labels, offset badges, and translate-based centering. Starting from a component pattern is usually faster and safer than inventing transform values from scratch.
+      </p>
+
       <h2>Production transform workflow</h2>
       <p>
         Start with a small base transform, test the hover or active state, then check motion safety. The generator now shows summary cards, production checks, and export tabs so you can see whether the effect is ready for UI use before copying code.

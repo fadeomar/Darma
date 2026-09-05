@@ -48,6 +48,13 @@ export default function UuidGeneratorArticle() {
           UUIDs provide practical uniqueness, not secrecy or authorization. Never use a UUID alone as a password, API key, session token, reset token, or access-control decision. Generation, inspection, and exports run locally in the browser and are not uploaded to Darma.
         </p>
       </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Choose a UUID workflow, not just a version</h2>
+        <p>
+          Start from API fixtures, database keys, event streams, CSV imports, JSON mocks, compact legacy IDs, URNs, braced GUID-style values, or sortable v7 batches. The starter config sets version, quantity, representation, and output format together so you can generate the shape the receiving system expects with fewer manual steps.
+        </p>
+      </section>
     </div>
   );
 }

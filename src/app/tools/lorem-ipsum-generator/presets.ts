@@ -57,6 +57,14 @@ export const DESIGN_PRESETS: Preset[] = [
     description: "Tier names, pricing, benefits, and CTA labels.",
     config: { mode: "structured", structuredBlock: "pricing", outputFormat: "html", amount: 3, seed: "pricing-tiers" },
   },
+  { id: "saas-hero", label: "SaaS hero", icon: "🚀", description: "Product-led hero copy with a concise value proposition and CTA pair.", config: { mode: "structured", structuredBlock: "hero", style: "startup", outputFormat: "html", amount: 1, seed: "saas-hero" } },
+  { id: "mobile-hero", label: "Mobile hero", icon: "📱", description: "Shorter hero copy for narrow mobile layouts and app landing pages.", config: { mode: "structured", structuredBlock: "hero", style: "readable", outputFormat: "html", amount: 1, blockLength: "short", seed: "mobile-hero" } },
+  { id: "dashboard-cards", label: "Dashboard cards", icon: "📊", description: "Compact card copy for dashboard widgets and overview grids.", config: { mode: "structured", structuredBlock: "card", style: "startup", outputFormat: "html", amount: 4, seed: "dashboard-cards" } },
+  { id: "review-quotes", label: "Review quotes", icon: "⭐", description: "Short testimonial content for ratings, carousels, and proof sections.", config: { mode: "structured", structuredBlock: "testimonial", style: "ecommerce", outputFormat: "html", amount: 4, seed: "review-quotes" } },
+  { id: "support-faq", label: "Support FAQ", icon: "🛟", description: "Straightforward help-center questions and answers for support layouts.", config: { mode: "structured", structuredBlock: "faq", style: "readable", outputFormat: "html", amount: 6, seed: "support-faq" } },
+  { id: "product-cards", label: "Product cards", icon: "🛒", description: "Denser product-card content for an e-commerce results grid.", config: { mode: "structured", structuredBlock: "product", style: "ecommerce", outputFormat: "html", amount: 4, seed: "product-grid" } },
+  { id: "team-profile", label: "Team profile", icon: "🧑‍💻", description: "Professional profile copy for team directories and contributor pages.", config: { mode: "structured", structuredBlock: "about", style: "profile", outputFormat: "plain", amount: 1, seed: "team-profile" } },
+  { id: "pricing-comparison", label: "Pricing comparison", icon: "⚖️", description: "Three pricing tiers with enough copy to test feature density and CTA alignment.", config: { mode: "structured", structuredBlock: "pricing", style: "startup", outputFormat: "html", amount: 3, seed: "pricing-comparison" } },
 ];
 
 export const LENGTH_PRESETS: Preset[] = [
@@ -95,6 +103,9 @@ export const LENGTH_PRESETS: Preset[] = [
     description: "Eight long paragraphs with section headings.",
     config: { mode: "paragraphs", amount: 8, blockLength: "long", includeHeadings: true, seed: "article-layout" },
   },
+  { id: "microcopy", label: "Microcopy", icon: "·", description: "Eight short sentences for helper text, status copy, and compact UI states.", config: { mode: "sentences", amount: 8, blockLength: "short", seed: "microcopy-set" } },
+  { id: "cms-preview", label: "CMS preview", icon: "·", description: "Six medium paragraphs with headings and a list for editorial layout testing.", config: { mode: "paragraphs", amount: 6, blockLength: "medium", includeHeadings: true, includeLists: true, seed: "cms-preview" } },
+  { id: "stress-test", label: "Content stress test", icon: "·", description: "Twelve long paragraphs for overflow, rhythm, and long-page performance checks.", config: { mode: "paragraphs", amount: 12, blockLength: "long", includeHeadings: true, includeLists: true, seed: "content-stress" } },
 ];
 
 export const FEATURED_PRESETS = [
@@ -102,6 +113,12 @@ export const FEATURED_PRESETS = [
   DESIGN_PRESETS[1],
   DESIGN_PRESETS[3],
   DESIGN_PRESETS[4],
+  DESIGN_PRESETS[8],
+  DESIGN_PRESETS[9],
+  DESIGN_PRESETS[10],
+  DESIGN_PRESETS[12],
+  DESIGN_PRESETS[13],
+  DESIGN_PRESETS[15],
   LENGTH_PRESETS[2],
-  LENGTH_PRESETS[4],
+  LENGTH_PRESETS[5],
 ];

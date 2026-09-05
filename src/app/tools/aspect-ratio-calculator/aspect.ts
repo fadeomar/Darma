@@ -25,6 +25,15 @@ export const RATIO_PRESETS: RatioPreset[] = [
   { id: "2-1", label: "2:1", w: 2, h: 1, hint: "Wide cards, open graph previews, panoramic banners", group: "web", useCases: ["Open Graph", "Wide card"] },
   { id: "3-1", label: "3:1", w: 3, h: 1, hint: "Website banners and thin hero strips", group: "web", useCases: ["Web banner", "Header"] },
   { id: "1-91-1", label: "1.91:1", w: 1.91, h: 1, hint: "Common link preview / ad card crop", group: "web", useCases: ["Link preview", "Ad card"] },
+  { id: "5-3", label: "5:3", w: 5, h: 3, hint: "Wide editorial cards and landscape photography", group: "photo", useCases: ["Editorial image", "Landscape card"] },
+  { id: "8-5", label: "8:5", w: 8, h: 5, hint: "Common 16:10 display and screenshot framing", group: "web", useCases: ["Laptop screenshot", "Product demo"] },
+  { id: "7-5", label: "7:5", w: 7, h: 5, hint: "Classic print and medium-format photography crop", group: "print", useCases: ["Photo print", "Portfolio"] },
+  { id: "1-2", label: "1:2", w: 1, h: 2, hint: "Tall banners, narrow posters, and mobile artwork", group: "print", useCases: ["Tall poster", "Mobile banner"] },
+  { id: "4-1", label: "4:1", w: 4, h: 1, hint: "Ultra-wide website mastheads and profile covers", group: "web", useCases: ["Profile cover", "Masthead"] },
+  { id: "5-2", label: "5:2", w: 5, h: 2, hint: "Wide product hero and campaign banner crop", group: "web", useCases: ["Product hero", "Campaign banner"] },
+  { id: "10-16", label: "10:16", w: 10, h: 16, hint: "Portrait editorial and mobile-first card layouts", group: "social", useCases: ["Editorial portrait", "Mobile card"] },
+  { id: "6-5", label: "6:5", w: 6, h: 5, hint: "Compact landscape cards and gallery thumbnails", group: "photo", useCases: ["Gallery card", "Thumbnail"] },
+
 ];
 
 export type Dimension = {

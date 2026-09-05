@@ -89,6 +89,7 @@ export default function StatisticsCalculatorClient() {
   const [text, setText] = useState(initialPreset.value);
   const [options, setOptions] = useState<StatsOptions>(DEFAULT_STATS_OPTIONS);
   const [activeTab, setActiveTab] = useState<AnalysisTab>("overview");
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const parsed = useMemo(() => parseDataset(text), [text]);
@@ -222,7 +223,12 @@ export default function StatisticsCalculatorClient() {
       <aside className="min-w-0 space-y-4">
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
           <div className="mb-3 flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4" />Practical presets</div>
-          <div className="space-y-2">{STATS_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          <div className="space-y-2">{(showAllPresets ? STATS_PRESETS : STATS_PRESETS.slice(0, 6)).map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] p-2.5 text-left transition hover:border-[var(--color-accent)]"><div className="text-sm font-bold text-[var(--color-text-primary)]">{preset.label}</div><div className="mt-0.5 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div></button>)}</div>
+          {STATS_PRESETS.length > 6 ? (
+            <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+              {showAllPresets ? "Show fewer data sets" : `Show all ${STATS_PRESETS.length} data sets`}
+            </Button>
+          ) : null}
         </section>
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">

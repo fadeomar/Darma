@@ -137,18 +137,101 @@ const QUICK_COLLECTIONS: QuickCollection[] = [
     filters: { category: "progress", format: "all", query: "", savedOnly: false, sort: "popular" },
     mode: "compact",
   },
+  {
+    id: "auth-wait",
+    title: "Auth & redirect",
+    description: "Compact spinners for sign-in, verification, redirects, and route changes.",
+    filters: { category: "spinners", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+  {
+    id: "typing-ai",
+    title: "Typing / AI response",
+    description: "Dots and pulse patterns for chat, assistants, and generated responses.",
+    filters: { category: "dots", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+  {
+    id: "pulse-status",
+    title: "Live status",
+    description: "Pulse-based indicators for sync, recording, presence, and live processing.",
+    filters: { category: "pulse", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+  {
+    id: "bars-data",
+    title: "Data processing",
+    description: "Bar loaders for analytics, imports, exports, transforms, and batch work.",
+    filters: { category: "bars", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+  {
+    id: "dashboard-refresh",
+    title: "Dashboard refresh",
+    description: "Low-noise loaders that sit beside metrics, charts, and data refresh actions.",
+    filters: { category: "minimal", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+  {
+    id: "tailwind-classes",
+    title: "Tailwind classes",
+    description: "Loaders that ship a utility-class version you can paste straight into markup.",
+    filters: { category: "all", format: "tailwind", query: "", savedOnly: false, sort: "popular" },
+    mode: "grid",
+  },
+  {
+    id: "full-page",
+    title: "Full-page wait",
+    description: "Stronger visual loaders for initial app boot and blocking transitions.",
+    filters: { category: "popular", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "grid",
+  },
+  {
+    id: "playful",
+    title: "Playful products",
+    description: "Characterful animations for education, games, creator, and youth products.",
+    filters: { category: "fun", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "grid",
+  },
+  {
+    id: "creative-brand",
+    title: "Brand moment",
+    description: "Expressive loaders for landing pages, campaigns, launches, and showcases.",
+    filters: { category: "creative", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "grid",
+  },
+  {
+    id: "saved-favorites",
+    title: "My saved loaders",
+    description: "Jump straight to loaders you previously saved in this browser.",
+    filters: { category: "all", format: "all", query: "", savedOnly: true, sort: "popular" },
+    mode: "grid",
+  },
 ];
 
 function QuickLoaderCollections({ onApply }: { onApply: (collection: QuickCollection) => void }) {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? QUICK_COLLECTIONS : QUICK_COLLECTIONS.slice(0, 6);
+
   return (
-    <section className="css-loaders-quick-collections" aria-label="Quick loader use cases">
-      {QUICK_COLLECTIONS.map((collection) => (
-        <button key={collection.id} type="button" onClick={() => onApply(collection)} className="css-loaders-quick-card">
-          <strong>{collection.title}</strong>
-          <span>{collection.description}</span>
-        </button>
-      ))}
-    </section>
+    <div>
+      <section className="css-loaders-quick-collections" aria-label="Quick loader use cases">
+        {visible.map((collection) => (
+          <button key={collection.id} type="button" onClick={() => onApply(collection)} className="css-loaders-quick-card">
+            <strong>{collection.title}</strong>
+            <span>{collection.description}</span>
+          </button>
+        ))}
+      </section>
+      <button
+        type="button"
+        onClick={() => setShowAll((value) => !value)}
+        aria-expanded={showAll}
+        className="mt-3 text-xs font-bold text-[var(--color-primary-text-strong)] hover:underline"
+      >
+        {showAll ? "Show fewer use cases" : `Show all ${QUICK_COLLECTIONS.length} use cases`}
+      </button>
+    </div>
   );
 }
 

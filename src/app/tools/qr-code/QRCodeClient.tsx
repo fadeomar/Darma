@@ -472,7 +472,7 @@ export default function QRCodeClient() {
           </ToolControlPanel>
 
           <div className="space-y-5">
-            <ToolControlPanel title="Quick starts" description="Use a common setup and replace the example details." sticky={false}>
+            <ToolControlPanel title="Quick starts" description="Pick the closest use case, then replace every sample value with your real destination." sticky={false}>
               <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
                 {QR_PRESETS.slice(0, 4).map((preset) => (
                   <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]">
@@ -483,7 +483,7 @@ export default function QRCodeClient() {
               </div>
               {QR_PRESETS.length > 4 ? (
                 <details className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)]">
-                  <summary className="cursor-pointer list-none px-3 py-2 text-xs font-bold text-[var(--color-text-secondary)]">More presets</summary>
+                  <summary className="cursor-pointer list-none px-3 py-2 text-xs font-bold text-[var(--color-text-secondary)]">Show all {QR_PRESETS.length} use cases</summary>
                   <div className="grid gap-2 border-t border-[var(--color-border-default)] p-2">
                     {QR_PRESETS.slice(4).map((preset) => (
                       <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-sm)] p-2 text-left hover:bg-[var(--color-surface-subtle)]">

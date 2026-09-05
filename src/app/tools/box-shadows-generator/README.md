@@ -6,6 +6,15 @@ Build and preview CSS `box-shadow` declarations visually, with a directional lig
 
 `local-only` — all CSS is generated in the browser. No data is sent anywhere.
 
+## Guided starting points
+
+The current UI keeps two complementary libraries instead of forcing users to build a shadow from empty controls:
+
+- **18 named use-case starters** for cards, overlays, navigation, forms, buttons, marketing surfaces, and special effects. The first six are also mirrored in the compact "Quick styles" strip directly under the preview.
+- **66 visual shadow examples** from `src/data/shadowsData.ts`, grouped by visual character (crisp, soft, floating, layered, and inset).
+
+Selecting any example loads its values into the same editable layer controls, so presets are starting points rather than locked styles.
+
 ## Logic
 
 ### `generateShadowStyle(state: BoxShadowState): string`

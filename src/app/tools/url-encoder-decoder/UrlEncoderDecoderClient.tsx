@@ -96,6 +96,7 @@ export default function UrlEncoderDecoderClient() {
   const [type, setType] = useState<UrlEncodingType>(firstPreset.type);
   const [outputTab, setOutputTab] = useState<OutputTab>("result");
   const [codeTab, setCodeTab] = useState<CodeTab>("javascript");
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const result = useMemo(() => processUrlText(input, mode, type), [input, mode, type]);
   const inspection = useMemo(() => inspectUrlInput(input), [input]);
@@ -236,7 +237,7 @@ export default function UrlEncoderDecoderClient() {
             <span className="text-xs text-[var(--color-text-tertiary)]">Presets keep their matching mode and encoding type.</span>
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1">
-          {URL_PRESETS.map((preset) => (
+          {(showAllPresets ? URL_PRESETS : URL_PRESETS.slice(0, 6)).map((preset) => (
             <button
               key={preset.id}
               type="button"
@@ -250,6 +251,13 @@ export default function UrlEncoderDecoderClient() {
             </button>
           ))}
           </div>
+          {URL_PRESETS.length > 6 ? (
+            <div className="mt-2 flex justify-end">
+              <Button size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer presets" : `Show all ${URL_PRESETS.length} presets`}
+              </Button>
+            </div>
+          ) : null}
         </div>
       </Card>
 

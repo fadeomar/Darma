@@ -49,6 +49,7 @@ export default function ColorPaletteClient() {
   const [uiMode, setUiMode] = useState<PaletteUiMode>("light");
   const [activeTab, setActiveTab] = useState<DetailsTab>("overview");
   const [lockedColors, setLockedColors] = useState<Record<number, PaletteColor>>({});
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const normalizedBase = normalizeHex(baseColor);
 
@@ -357,7 +358,7 @@ export default function ColorPaletteClient() {
           Quick palette presets
         </summary>
         <div className="grid gap-2 border-t border-[var(--color-border-subtle)] p-3">
-          {PALETTE_PRESETS.map((preset) => {
+          {(showAllPresets ? PALETTE_PRESETS : PALETTE_PRESETS.slice(0, 6)).map((preset) => {
             const presetColors = generatePalette(preset.baseColor, { harmony: preset.harmony, size: preset.size, lockedColors: {} });
             return (
               <button
@@ -381,6 +382,11 @@ export default function ColorPaletteClient() {
               </button>
             );
           })}
+          {PALETTE_PRESETS.length > 6 ? (
+            <Button className="mt-1 w-full" size="sm" variant="ghost" onClick={() => setShowAllPresets((value) => !value)}>
+              {showAllPresets ? "Show fewer presets" : `Show all ${PALETTE_PRESETS.length} presets`}
+            </Button>
+          ) : null}
         </div>
       </details>
 

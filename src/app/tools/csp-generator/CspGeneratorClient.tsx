@@ -73,6 +73,7 @@ function SummaryCard({ label, value, hint }: { label: string; value: string | nu
 
 export default function CspGeneratorClient() {
   const [builder, setBuilder] = useState<CspBuilderState>(() => createDefaultBuilderState());
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const state = useMemo(() => buildCspState(builder), [builder]);
   const risk = useMemo(() => calculateCspRiskLevel(state), [state]);
@@ -198,7 +199,7 @@ export default function CspGeneratorClient() {
             action={<Button type="button" size="sm" variant="ghost" onClick={() => setBuilder(createDefaultBuilderState())}>Reset</Button>}
           >
             <div className="grid gap-2.5 md:grid-cols-2 2xl:grid-cols-5">
-              {CSP_QUICK_PRESETS.map((preset) => {
+              {(showAllPresets ? CSP_QUICK_PRESETS : CSP_QUICK_PRESETS.slice(0, 6)).map((preset) => {
                 const active =
                   builder.mode === preset.mode &&
                   builder.reportOnly === Boolean(preset.reportOnly) &&
@@ -224,6 +225,11 @@ export default function CspGeneratorClient() {
                 );
               })}
             </div>
+            {CSP_QUICK_PRESETS.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer policies" : `Show all ${CSP_QUICK_PRESETS.length} policies`}
+              </Button>
+            ) : null}
           </CspStepCard>
 
           <CspStepCard step={2} title="Choose policy mode" description="Use Standard for most apps. Strict requires nonce wiring, so test before enforcing.">

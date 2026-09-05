@@ -83,6 +83,9 @@ const EXAMPLES: Example[] = [
   { label: "Rounded rect", category: "Shapes", path: "M 20 5 H 80 A 15 15 0 0 1 95 20 V 80 A 15 15 0 0 1 80 95 H 20 A 15 15 0 0 1 5 80 V 20 A 15 15 0 0 1 20 5 Z" },
   { label: "Crescent", category: "Shapes", path: "M 50 10 A 40 40 0 1 1 50 90 A 28 28 0 1 0 50 10 Z" },
   { label: "Cross", category: "Shapes", path: "M 35 5 H 65 V 35 H 95 V 65 H 65 V 95 H 35 V 65 H 5 V 35 H 35 Z" },
+  { label: "Ticket", category: "Shapes", path: "M 8 22 H 92 V 40 A 10 10 0 0 0 92 60 V 78 H 8 V 60 A 10 10 0 0 0 8 40 Z" },
+  { label: "Cut-corner card", category: "Shapes", path: "M 16 5 H 84 L 95 16 V 84 L 84 95 H 16 L 5 84 V 16 Z" },
+  { label: "Speech tail panel", category: "Shapes", path: "M 10 10 H 90 V 72 H 58 L 42 92 V 72 H 10 Z" },
   // Arrows
   { label: "Arrow right", category: "Arrows", path: "M 10 40 H 60 L 60 20 L 90 50 L 60 80 L 60 60 H 10 Z" },
   { label: "Arrow left", category: "Arrows", path: "M 90 40 H 40 L 40 20 L 10 50 L 40 80 L 40 60 H 90 Z" },
@@ -91,6 +94,8 @@ const EXAMPLES: Example[] = [
   { label: "Chevron right", category: "Arrows", path: "M 30 10 L 70 50 L 30 90" },
   { label: "Chevron left", category: "Arrows", path: "M 70 10 L 30 50 L 70 90" },
   { label: "Curved arrow", category: "Arrows", path: "M 20 70 C 20 30 80 30 80 60 L 72 52 M 80 62 L 88 52" },
+  { label: "Long arrow right", category: "Arrows", path: "M 8 44 H 72 V 28 L 94 50 L 72 72 V 56 H 8 Z" },
+  { label: "External link arrow", category: "Arrows", path: "M 18 30 V 84 H 72 M 42 16 H 86 V 60 M 86 16 L 48 54" },
   // Icons
   { label: "Heart", category: "Icons", path: "M 50 85 C 15 60 5 35 5 28 C 5 15 15 8 25 8 C 35 8 43 14 50 22 C 57 14 65 8 75 8 C 85 8 95 15 95 28 C 95 35 85 60 50 85 Z" },
   { label: "Cloud", category: "Icons", path: "M 25 60 A 20 20 0 0 1 25 20 A 15 15 0 0 1 50 12 A 22 22 0 0 1 88 30 A 18 18 0 1 1 80 65 Z" },
@@ -100,6 +105,10 @@ const EXAMPLES: Example[] = [
   { label: "Location pin", category: "Icons", path: "M 50 5 A 30 30 0 0 1 80 35 C 80 60 50 90 50 90 C 50 90 20 60 20 35 A 30 30 0 0 1 50 5 Z M 50 25 A 10 10 0 1 0 50 45 A 10 10 0 0 0 50 25 Z" },
   { label: "Bell", category: "Icons", path: "M 50 5 C 50 5 45 5 45 10 C 30 13 20 25 20 40 V 65 H 10 V 72 H 90 V 65 H 80 V 40 C 80 25 70 13 55 10 C 55 5 50 5 50 5 Z M 42 72 A 8 8 0 0 0 58 72 Z" },
   { label: "Music note", category: "Icons", path: "M 55 10 V 60 A 15 15 0 1 1 45 55 V 28 L 75 20 V 38 L 55 44 Z" },
+  { label: "Upload icon", category: "Icons", path: "M 50 12 L 72 34 H 58 V 66 H 42 V 34 H 28 Z M 20 72 V 88 H 80 V 72" },
+  { label: "Download icon", category: "Icons", path: "M 42 12 H 58 V 60 H 72 L 50 82 L 28 60 H 42 Z" },
+  { label: "User avatar", category: "Icons", path: "M 50 12 A 18 18 0 1 1 49.9 12 Z M 18 88 C 20 62 35 52 50 52 C 65 52 80 62 82 88 Z" },
+  { label: "Shopping bag", category: "Icons", path: "M 24 30 H 76 L 84 92 H 16 Z M 35 35 V 25 A 15 15 0 0 1 65 25 V 35" },
   // UI Elements
   { label: "Checkmark", category: "UI Elements", path: "M 15 50 L 38 73 L 85 27" },
   { label: "Close X", category: "UI Elements", path: "M 20 20 L 80 80 M 80 20 L 20 80" },
@@ -108,6 +117,9 @@ const EXAMPLES: Example[] = [
   { label: "Settings gear", category: "UI Elements", path: "M 50 35 A 15 15 0 1 0 50 65 A 15 15 0 0 0 50 35 Z M 50 10 L 55 22 L 65 18 L 70 28 L 82 28 L 82 38 L 90 45 L 82 52 L 82 62 L 70 62 L 65 72 L 55 68 L 50 80 L 45 68 L 35 72 L 30 62 L 18 62 L 18 52 L 10 45 L 18 38 L 18 28 L 30 28 L 35 18 L 45 22 Z" },
   { label: "Toggle on", category: "UI Elements", path: "M 30 30 H 70 A 20 20 0 0 1 70 70 H 30 A 20 20 0 0 1 30 30 Z M 70 35 A 15 15 0 1 0 70 65 A 15 15 0 0 0 70 35 Z" },
   { label: "Bookmark", category: "UI Elements", path: "M 20 10 H 80 V 95 L 50 75 L 20 95 Z" },
+  { label: "Badge hex", category: "UI Elements", path: "M 25 8 H 75 L 95 50 L 75 92 H 25 L 5 50 Z" },
+  { label: "Chat bubble", category: "UI Elements", path: "M 15 15 H 85 A 10 10 0 0 1 95 25 V 65 A 10 10 0 0 1 85 75 H 50 L 30 92 V 75 H 15 A 10 10 0 0 1 5 65 V 25 A 10 10 0 0 1 15 15 Z" },
+  { label: "Alert circle", category: "UI Elements", path: "M 50 10 A 40 40 0 1 1 49.9 10 Z M 50 30 V 55 M 50 72 L 50 73" },
   // Decorative
   { label: "Wave", category: "Decorative", path: "M 0 50 C 15 20 35 20 50 50 S 85 80 100 50" },
   { label: "Infinity", category: "Decorative", path: "M 50 50 C 50 30 20 10 5 30 C -10 50 20 70 50 50 C 80 30 110 50 95 70 C 80 90 50 70 50 50 Z" },
@@ -117,6 +129,9 @@ const EXAMPLES: Example[] = [
   { label: "Ribbon", category: "Decorative", path: "M 10 30 Q 30 50 10 70 L 50 50 L 90 30 Q 70 50 90 70 L 50 50 Z" },
   { label: "Flower", category: "Decorative", path: "M 50 50 C 50 20 70 5 80 20 C 90 35 75 50 50 50 C 75 50 90 65 80 80 C 70 95 50 80 50 50 C 50 80 30 95 20 80 C 10 65 25 50 50 50 C 25 50 10 35 20 20 C 30 5 50 20 50 50 Z" },
   { label: "Swirl", category: "Decorative", path: "M 80 20 C 95 35 95 65 80 80 C 65 95 35 95 20 80 C 5 65 5 35 20 20 C 35 5 60 8 70 25 C 80 42 72 62 55 65 C 38 68 28 52 38 40" },
+  { label: "Hero wave", category: "Decorative", path: "M 0 62 C 18 22 38 88 58 48 C 75 16 90 42 100 20 V 100 H 0 Z" },
+  { label: "Soft blob", category: "Decorative", path: "M 52 8 C 76 6 94 24 91 47 C 88 71 71 94 46 91 C 20 88 5 70 9 44 C 13 18 28 10 52 8 Z" },
+  { label: "Scallop divider", category: "Decorative", path: "M 0 55 Q 10 35 20 55 T 40 55 T 60 55 T 80 55 T 100 55" },
 ];
 
 const EXAMPLE_CATEGORIES: ExampleCategory[] = ["Shapes", "Arrows", "Icons", "UI Elements", "Decorative"];

@@ -89,8 +89,8 @@ function CopyButton({ value, label = "Copy" }: { value: string; label?: string }
 
 function QuickStartPresets({ setInput }: { setInput: React.Dispatch<React.SetStateAction<FaviconInput>> }) {
   const [showAll, setShowAll] = useState(false);
-  const visiblePresets = showAll ? FAVICON_QUICK_PRESETS : FAVICON_QUICK_PRESETS.slice(0, 4);
-  const badges: Record<string, string> = { "website-launch": "Minimal", "nextjs-app": "Next.js", "installable-pwa": "PWA", "ios-heavy": "iOS", "brand-kit": "Brand" };
+  const visiblePresets = showAll ? FAVICON_QUICK_PRESETS : FAVICON_QUICK_PRESETS.slice(0, 6);
+  const badges: Record<string, string> = { "website-launch": "Web", "nextjs-app": "Next.js", "installable-pwa": "PWA", "ios-heavy": "iOS", "brand-kit": "Brand", "vite-react": "Vite", "astro-site": "Astro", "nuxt-app": "Nuxt", "sveltekit-app": "Svelte", "wordpress-site": "WP", "monogram-brand": "Text", "emoji-project": "Emoji", "maskable-safe": "Safe", "transparent-logo": "Logo" };
 
   return (
     <ControlSection title="What are you creating?" description="Start with a platform preset, then fine-tune only what you need.">
@@ -110,9 +110,9 @@ function QuickStartPresets({ setInput }: { setInput: React.Dispatch<React.SetSta
           </button>
         ))}
       </div>
-      {FAVICON_QUICK_PRESETS.length > 4 ? (
+      {FAVICON_QUICK_PRESETS.length > 6 ? (
         <button type="button" className="text-xs font-bold text-[var(--color-primary-text-strong)] hover:underline" onClick={() => setShowAll((value) => !value)}>
-          {showAll ? "Show less" : "Show more presets"}
+          {showAll ? "Show fewer starters" : `Show all ${FAVICON_QUICK_PRESETS.length} starters`}
         </button>
       ) : null}
     </ControlSection>

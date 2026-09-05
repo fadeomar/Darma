@@ -110,6 +110,7 @@ export default function UuidGeneratorClient() {
   const [inspectorInput, setInspectorInput] = useState("");
   const [activeTab, setActiveTab] = useState<UuidTab>("generator");
   const [error, setError] = useState<string | null>(null);
+  const [showAllPresets, setShowAllPresets] = useState(false);
 
   const config = useMemo<UuidGenerationConfig>(() => ({ version, count, format, outputStyle }), [version, count, format, outputStyle]);
   const current = values[0] ?? "";
@@ -221,7 +222,7 @@ export default function UuidGeneratorClient() {
               <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
             </div>
             <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-              {UUID_PRESETS.map((preset) => (
+              {(showAllPresets ? UUID_PRESETS : UUID_PRESETS.slice(0, 6)).map((preset) => (
                 <button
                   key={preset.id}
                   type="button"
@@ -236,6 +237,11 @@ export default function UuidGeneratorClient() {
                 </button>
               ))}
             </div>
+            {UUID_PRESETS.length > 6 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllPresets((value) => !value)}>
+                {showAllPresets ? "Show fewer workflows" : `Show all ${UUID_PRESETS.length} workflows`}
+              </Button>
+            ) : null}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">

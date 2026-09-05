@@ -42,6 +42,26 @@ export default function Base64Article() {
           Text conversion, file reading, validation, byte inspection, and downloads run locally in the browser. The file limit protects the page from holding too many simultaneous in-memory copies. For large production files, prefer streaming APIs or command-line tools instead of converting the entire payload in one browser tab.
         </p>
       </section>
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Common workflows are different even when the encoding is the same</h2>
+        <p>
+          Use the presets to distinguish jobs such as UTF-8 text, JSON payloads, Basic Auth demos,
+          inline SVG Data URLs, Base64URL token segments, JWT header or payload inspection, MIME-style
+          wrapped blocks, binary-byte review, and validation of malformed input. The underlying
+          alphabet may be similar, but each destination has different expectations around padding,
+          MIME metadata, line wrapping, and whether decoded output should be treated as text.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">JWT decoding does not verify a token</h2>
+        <p>
+          A JWT header or payload segment can be Base64URL-decoded without a secret or public key.
+          That only makes the claims readable. It does not verify the signature, issuer, audience,
+          expiration, or trustworthiness of the token. Use a proper JWT verification library when
+          authenticity matters.
+        </p>
+      </section>
     </div>
   );
 }

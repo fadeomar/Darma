@@ -57,6 +57,18 @@ const TARGET_SPECS: TargetSpec[] = [
   { id: "app-card", label: "App card", width: 640, height: 420, group: "web", hint: "Dashboard or product card preview." },
   { id: "a4", label: "A4 landscape", width: 3508, height: 2480, group: "print", hint: "300 DPI A4 landscape." },
   { id: "poster", label: "Poster portrait", width: 2000, height: 3000, group: "print", hint: "2:3 poster crop." },
+  { id: "linkedin-post", label: "LinkedIn post", width: 1200, height: 1200, group: "social", hint: "Square professional feed artwork." },
+  { id: "linkedin-landscape", label: "LinkedIn landscape", width: 1200, height: 627, group: "social", hint: "Wide feed image and link preview." },
+  { id: "linkedin-cover", label: "LinkedIn cover", width: 1584, height: 396, group: "social", hint: "Personal profile background image." },
+  { id: "x-header", label: "X profile header", width: 1500, height: 500, group: "social", hint: "Wide profile cover artwork." },
+  { id: "facebook-cover", label: "Facebook cover", width: 1640, height: 624, group: "social", hint: "High-resolution page cover starter." },
+  { id: "pinterest-pin", label: "Pinterest pin", width: 1000, height: 1500, group: "social", hint: "2:3 vertical pin artwork." },
+  { id: "blog-card", label: "Blog card", width: 1200, height: 800, group: "web", hint: "3:2 editorial card and featured image." },
+  { id: "product-photo", label: "Product photo", width: 1600, height: 1600, group: "web", hint: "Square e-commerce product image." },
+  { id: "dashboard-shot", label: "Dashboard screenshot", width: 1440, height: 900, group: "web", hint: "16:10 SaaS dashboard capture." },
+  { id: "4k", label: "4K UHD", width: 3840, height: 2160, group: "video", hint: "Standard 4K 16:9 video frame." },
+  { id: "a4-portrait", label: "A4 portrait", width: 2480, height: 3508, group: "print", hint: "300 DPI A4 portrait." },
+  { id: "letter-landscape", label: "US Letter landscape", width: 3300, height: 2550, group: "print", hint: "300 DPI US Letter landscape." },
 ];
 
 function toInput(value: number): string {
@@ -122,6 +134,7 @@ export default function AspectRatioCalculatorClient() {
   const [targetFilter, setTargetFilter] = useState<TargetSpec["group"] | "all">("all");
   const [className, setClassName] = useState("ratio-card");
   const [objectFit, setObjectFit] = useState<"cover" | "contain">("cover");
+  const [showAllTargets, setShowAllTargets] = useState(false);
 
   const width = parsePositive(rawWidth);
   const height = parsePositive(rawHeight);
@@ -350,7 +363,7 @@ export function RatioCard({ src, alt }: RatioCardProps) {
               ))}
             </div>
             <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
-              {filteredTargets.slice(0, 8).map((target) => (
+              {(showAllTargets ? filteredTargets : filteredTargets.slice(0, 8)).map((target) => (
                 <button
                   key={target.id}
                   type="button"
@@ -363,6 +376,11 @@ export function RatioCard({ src, alt }: RatioCardProps) {
                 </button>
               ))}
             </div>
+            {filteredTargets.length > 8 ? (
+              <Button type="button" size="sm" variant="ghost" className="mt-3 w-full" onClick={() => setShowAllTargets((value) => !value)}>
+                {showAllTargets ? "Show fewer targets" : `Show all ${filteredTargets.length} targets`}
+              </Button>
+            ) : null}
           </ControlSection>
 
           <ControlSection title="Ratio and dimensions">

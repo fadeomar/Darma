@@ -106,7 +106,7 @@ function InvalidState({ parsed }: { parsed: Extract<ParsedColorResult, { ok: fal
       <SurfaceCard>
         <h3 className="font-black text-[var(--color-text-primary)]">Try a supported value</h3>
         <div className="mt-3 flex flex-wrap gap-2">
-          {COLOR_EXAMPLES.map((item) => (
+          {COLOR_EXAMPLES.slice(0, 8).map((item) => (
             <Badge key={item.value} variant="outline" className="normal-case">
               {item.value}
             </Badge>
@@ -126,6 +126,7 @@ function ColorInputPanel({
   setInput: (value: string) => void;
   parsed: ParsedColorResult;
 }) {
+  const [showAllExamples, setShowAllExamples] = useState(false);
   const pickerValue = parsed.ok ? parsed.hex : "#3b82f6";
 
   return (
@@ -182,11 +183,16 @@ function ColorInputPanel({
             Try example formats
           </summary>
           <div className="flex flex-wrap gap-2 border-t border-[var(--color-border-subtle)] p-3">
-            {COLOR_EXAMPLES.map((item) => (
+            {(showAllExamples ? COLOR_EXAMPLES : COLOR_EXAMPLES.slice(0, 8)).map((item) => (
               <Button key={item.value} size="sm" variant="secondary" onClick={() => setInput(item.value)}>
                 {item.label}
               </Button>
             ))}
+            {COLOR_EXAMPLES.length > 8 ? (
+              <Button type="button" size="sm" variant="ghost" className="w-full" onClick={() => setShowAllExamples((value) => !value)}>
+                {showAllExamples ? "Show fewer" : `Show all ${COLOR_EXAMPLES.length}`}
+              </Button>
+            ) : null}
           </div>
         </details>
 

@@ -40,8 +40,18 @@ export function ContainerControls({
 }) {
   return (
     <ToolControlPanel title="Container query settings" description="Build component-level responsive rules without making the control panel too long.">
-      <ControlSection title="Quick presets">
-        <PresetGallery presets={CONTAINER_QUERY_PRESETS.slice(0, 6)} selectedId={state.presetId} onSelect={(id) => onLoadPreset(id as ComponentPresetId)} getId={(preset) => preset.id} getLabel={(preset) => preset.name} getDescription={(preset) => preset.description} />
+      <ControlSection title="Quick presets" description="Start from a real component pattern, then tune its breakpoints and rules.">
+        <PresetGallery
+          presets={CONTAINER_QUERY_PRESETS}
+          selectedId={state.presetId}
+          onSelect={(id) => onLoadPreset(id as ComponentPresetId)}
+          getId={(preset) => preset.id}
+          getLabel={(preset) => preset.name}
+          getDescription={(preset) => preset.description}
+          initialVisibleCount={6}
+          showMoreLabel="Show all component patterns"
+          showLessLabel="Show fewer component patterns"
+        />
       </ControlSection>
 
       <ControlSection title="Project summary">

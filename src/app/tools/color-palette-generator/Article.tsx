@@ -33,6 +33,20 @@ export default function Article() {
         resulting swatches with the CSS Gradient Generator or Animated Background Generator when you want a more visual UI treatment.
       </p>
 
+      <h3>Start from the interface you are designing</h3>
+      <p>
+        The preset library is organized around real design situations such as SaaS dashboards, commerce, healthcare, editorial, travel,
+        dark developer tools, and data visualization. Pick the closest use case first, then change the base hue or harmony instead of
+        building a palette from an empty state. A preset is a starting direction, not a claim that every generated swatch is ready for text.
+      </p>
+
+      <h3>Turn a palette into roles, not just swatches</h3>
+      <p>
+        After choosing a palette, assign concrete roles such as page background, surface, primary action, text, muted text, border, success,
+        warning, and chart series. Recheck contrast on the actual role pairs because an attractive palette can still fail when a light swatch
+        is used for small text or when two neighboring tones are placed together.
+      </p>
+
       <h3>Privacy</h3>
       <p>
         Palette generation, contrast checks, and exports run in your browser. No server route is used for this tool, and your colors are not sent

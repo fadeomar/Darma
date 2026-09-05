@@ -11,6 +11,14 @@ export default function Article() {
         Media queries are great for page-level layout changes. Container queries are better for reusable components because the same card, product tile, widget, or article preview can adapt differently depending on where it is placed.
       </p>
 
+      <h2>Start from the component, not a generic breakpoint</h2>
+      <p>
+        The preset library covers cards, search results, checkout summaries, notification panels, team directories, video rows, filters, comments, comparison tables, calendar events, and CTA banners. Pick the component closest to the real interface first, then edit its thresholds instead of starting from an empty rule list.
+      </p>
+      <p>
+        Similar-looking components may still deserve separate starters because their useful responsive decisions are different: a checkout summary compresses totals and spacing, while a search result may hide metadata and add columns as space grows.
+      </p>
+
       <h2>Production setup</h2>
       <p>
         The usual production pattern is to set <code>container-type: inline-size</code> on a wrapper, optionally add <code>container-name</code>, then write <code>@container</code> rules for descendant elements. This generator also includes fallback CSS and an optional <code>@supports</code> guard.

@@ -20,7 +20,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Can I use templates?",
-    a: "Yes. The Template gallery has 20+ ready-made lists across Personal, Student, Work, Design, Developer, Teacher, NGO/Proposal, Content Creator, Travel, and Home. Preview a template, then create a new list from it in one click — the original template is never changed.",
+    a: "Yes. The Template gallery has 30+ ready-made lists across Personal, Student, Work, Design, Developer, Teacher, NGO/Proposal, Content Creator, Travel, and Home. Preview a template, then create a new list from it in one click — the original template is never changed.",
   },
   {
     q: "What is the difference between List view and Board view?",
@@ -57,7 +57,7 @@ export default function TodoListArticle() {
           <li><strong>Private by default</strong> — your tasks never leave your browser.</li>
           <li><strong>Six views, one set of tasks</strong> — switch between List, Table, Board, Week, Checklist, and Print without copying anything.</li>
           <li><strong>Fast capture</strong> — add a task with one keystroke and organize it later.</li>
-          <li><strong>Real templates</strong> — 20+ ready-made workflows for students, teams, designers, developers, creators, and home life.</li>
+          <li><strong>Real templates</strong> — 30+ ready-made workflows for students, teams, designers, developers, creators, and home life.</li>
           <li><strong>Yours to keep</strong> — export and import JSON, copy as Markdown or text, and print clean A4 sheets.</li>
           <li><strong>No lock-in</strong> — works offline, with a storage layer designed so cloud sync can be added later.</li>
         </ul>
@@ -81,10 +81,10 @@ export default function TodoListArticle() {
           <li><strong>Students</strong> — weekly study planner, exam prep, and assignment tracking by due date.</li>
           <li><strong>Teachers</strong> — lesson preparation checklists and class admin.</li>
           <li><strong>Designers</strong> — design project boards, UI review checklists, and Figma handoff.</li>
-          <li><strong>Developers</strong> — bug-fixing boards and release checklists.</li>
+          <li><strong>Developers</strong> — bug-fixing boards, sprint planning, PR review, incident response, and release checklists.</li>
           <li><strong>Teams</strong> — client onboarding, meeting agendas, and shared process checklists.</li>
-          <li><strong>Personal life</strong> — daily routines, grocery lists, travel packing, and home cleaning.</li>
-          <li><strong>NGOs &amp; proposals</strong> — proposal submission and donor requirement checklists.</li>
+          <li><strong>Personal life</strong> — daily routines, job applications, grocery lists, meal prep, moving, travel packing, and home cleaning.</li>
+          <li><strong>NGOs &amp; proposals</strong> — proposal submission, donor requirements, and fundraising campaign checklists.</li>
         </ul>
       </section>
 
@@ -95,8 +95,10 @@ export default function TodoListArticle() {
           Design, Developer, Teacher, NGO/Proposal, Content Creator, Travel, and Home — including a
           daily routine, weekly study planner, exam preparation, assignment and UI review checklists,
           a Figma handoff checklist, developer bug-fixing and release checklists, client onboarding,
-          meeting agenda, YouTube publishing and content calendar checklists, proposal and donor
-          checklists, and grocery, travel-packing, and home-cleaning lists. Preview the tasks first,
+          meeting agenda, sprint planning, PR review, incident response, job application and research
+          workflows, YouTube publishing, content calendar and content launch checklists, proposal, donor
+          and fundraising checklists, plus grocery, meal-prep, moving, travel-packing, event-day, and
+          home-cleaning lists. Preview the tasks first,
           then create a new list in one click — the original template is never modified.
         </p>
       </section>

@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { Button } from "@/components/ui";
 import { PreviewToolbar, SegmentedControl } from "@/features/tools/components";
 import { cn } from "@/lib/cn";
@@ -6,6 +7,8 @@ import type { TransformGeneratorState, TransformPreset } from "../types";
 import { getPreviewStyle, getPreviewTransform, getTransformProductionChecks, getTransformSummary } from "../transform";
 
 type PreviewState = TransformGeneratorState["previewState"];
+
+const PRESET_PREVIEW_COUNT = 6;
 
 function toneClass(tone?: "good" | "warn" | "info") {
   if (tone === "good") return "border-emerald-400/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200";
@@ -71,6 +74,17 @@ export function TransformPreview({ state, onPatch, onLoadPreset }: { state: Tran
   const checks = getTransformProductionChecks(state);
   const originLeft = markerPosition(state.origin.x, "x");
   const originTop = markerPosition(state.origin.y, "y");
+  const [showAllPresets, setShowAllPresets] = useState(false);
+
+  // Collapsed by default, but never hide the preset the user currently has loaded.
+  const visiblePresets = useMemo(() => {
+    if (showAllPresets || TRANSFORM_PRESETS.length <= PRESET_PREVIEW_COUNT) return TRANSFORM_PRESETS;
+    const first = TRANSFORM_PRESETS.slice(0, PRESET_PREVIEW_COUNT);
+    if (first.some((preset) => preset.id === state.presetId)) return first;
+    const selected = TRANSFORM_PRESETS.find((preset) => preset.id === state.presetId);
+    if (!selected) return first;
+    return [...first.slice(0, PRESET_PREVIEW_COUNT - 1), selected];
+  }, [showAllPresets, state.presetId]);
 
   return (
     <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-xs)]">
@@ -131,10 +145,20 @@ export function TransformPreview({ state, onPatch, onLoadPreset }: { state: Tran
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-5">
-            {TRANSFORM_PRESETS.map((preset) => (
+            {visiblePresets.map((preset) => (
               <PresetCard key={preset.id} preset={preset} selected={state.presetId === preset.id} onSelect={() => onLoadPreset(preset)} />
             ))}
           </div>
+          {TRANSFORM_PRESETS.length > PRESET_PREVIEW_COUNT ? (
+            <button
+              type="button"
+              className="mt-2 w-full rounded-[var(--radius-sm)] border border-dashed border-[var(--color-border-default)] px-3 py-2 text-xs font-bold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-soft)]"
+              onClick={() => setShowAllPresets((value) => !value)}
+              aria-expanded={showAllPresets}
+            >
+              {showAllPresets ? "Show fewer transform use cases" : `Show all transform use cases (${TRANSFORM_PRESETS.length})`}
+            </button>
+          ) : null}
         </div>
 
         <details className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">

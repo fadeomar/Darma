@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Lock, RefreshCw, Shuffle, Unlock } from "lucide-react";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   CodeOutputPanel,
   ColorField,

@@ -15,7 +15,7 @@ import PreviewPanel from "./components/PreviewPanel";
 import ControlPanel from "./components/ControlPanel";
 import CodeOutput from "./components/CodeOutput";
 import ProductionPanel from "./components/ProductionPanel";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 
 const initialState = presetToState(presets[0]);
 

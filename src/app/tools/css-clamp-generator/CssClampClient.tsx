@@ -19,7 +19,7 @@ import {
   validateClampInput,
 } from "./clamp";
 import { DEFAULT_CLAMP_INPUT, DEFAULT_TOKENS, PRESET_INPUTS, PROPERTY_PRESETS, SPACING_TOKENS, TYPOGRAPHY_TOKENS } from "./presets";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import type { ClampExportTab, ClampInput, ClampPropertyPreset, ClampToken, ClampUnit } from "./types";
 
 type Mode = "single" | "tokens";

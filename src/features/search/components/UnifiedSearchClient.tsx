@@ -2,12 +2,12 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Gamepad2, GraduationCap, Layers3, Search, Wrench } from "lucide-react";
+import { ArrowRight, BookOpen, Code2, Gamepad2, GraduationCap, Layers3, ListChecks, Search, Wrench } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
 import { CoreCategoryChips, CoreEmptyState, CoreEntityCard, CoreSearchInput, CoreSectionHeader, type CoreEntity, type CoreEntityKind } from "@/core";
 import { cn } from "@/lib/cn";
 import { SearchConstellationArtwork } from "@/components/visuals";
-import { getUnifiedSearchSummary, searchUnifiedEntities, type UnifiedSearchKind } from "../lib";
+import { getUnifiedSearchSummary, searchUnifiedEntities, type UnifiedSearchKind } from "../lib/unifiedSearchQuery";
 import "../styles/unified-search.css";
 
 type UnifiedSearchClientProps = {
@@ -19,6 +19,8 @@ const KIND_FILTERS: { value: UnifiedSearchKind; label: string; icon: typeof Sear
   { value: "all", label: "All", icon: Search },
   { value: "tool", label: "Tools", icon: Wrench },
   { value: "game", label: "Games", icon: Gamepad2 },
+  { value: "project", label: "Projects", icon: Code2 },
+  { value: "workflow", label: "Workflows", icon: ListChecks },
   { value: "collection", label: "Collections", icon: Layers3 },
   { value: "resource", label: "Resources", icon: BookOpen },
   { value: "learning", label: "Atlas", icon: GraduationCap },
@@ -27,6 +29,8 @@ const KIND_FILTERS: { value: UnifiedSearchKind; label: string; icon: typeof Sear
 const KIND_LABELS: Record<CoreEntityKind, string> = {
   tool: "Tools",
   game: "Games",
+  project: "Projects",
+  workflow: "Workflows",
   collection: "Collections",
   template: "Templates",
   component: "Components",
@@ -66,17 +70,17 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
           <div>
             <div className="mb-5 flex flex-wrap gap-2">
               <Badge variant="accent">One search box</Badge>
-              <Badge variant="soft">Tools + Games + Tech Atlas</Badge>
+              <Badge variant="soft">Tools + Games + Projects + Workflows + Tech Atlas</Badge>
             </div>
             <h1 className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
               Search everything Darma can do.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              Search tools, games, resources, learning paths, careers, workflows, and collections from one place.
+              Search tools, projects, workflows, games, resources, learning paths, careers, and collections from one place.
             </p>
 
             <div className="mt-6 max-w-2xl">
-              <CoreSearchInput value={query} onChange={setQuery} placeholder="Search React, careers, Agile, tools, games…" label="Search Darma" />
+              <CoreSearchInput value={query} onChange={setQuery} placeholder="Search tools, projects, workflows, games, React…" label="Search Darma" />
             </div>
 
             {suggestedQueries.length ? (

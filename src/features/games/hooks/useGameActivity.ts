@@ -1,12 +1,26 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
+import {
+  clearCoreActivityKinds,
+  isCoreFavorite,
+  recordCoreActivity,
+  toCoreActivityRef,
+  toggleCoreFavorite,
+  useCoreActivity,
+} from "@/core";
 import type { GameDefinition } from "../domain/game";
+import { toGameCoreEntity } from "../lib/gameCoreAdapter";
 
-const STORAGE_KEY = "darma:games:activity:v1";
 const MAX_RECENT = 8;
-const MAX_FAVORITES = 50;
+const GAME_KINDS = ["game"] as const;
 
+/**
+ * Games activity is now one slice of the shared Core activity store, so a game
+ * opened from global search and a game played from the games hub are the same
+ * event. The stored shape below is derived for the existing games UI, which
+ * still reads slug-keyed favorites, recents, play counts, and timestamps.
+ */
 type StoredGameActivity = {
   favorites: string[];
   recentlyPlayed: string[];
@@ -14,160 +28,69 @@ type StoredGameActivity = {
   lastPlayedAt: Record<string, string>;
 };
 
-const EMPTY_ACTIVITY: StoredGameActivity = {
-  favorites: [],
-  recentlyPlayed: [],
-  playCounts: {},
-  lastPlayedAt: {},
-};
-
-function canUseStorage() {
-  return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
-}
-
-function uniqueSlugs(value: unknown, limit: number) {
-  if (!Array.isArray(value)) return [];
-  return Array.from(new Set(value.filter((item): item is string => typeof item === "string" && item.length > 0))).slice(0, limit);
-}
-
-function normalizeRecord(value: unknown): Record<string, number> {
-  if (!value || typeof value !== "object") return {};
-  return Object.fromEntries(
-    Object.entries(value as Record<string, unknown>)
-      .filter(([key, item]) => key.length > 0 && typeof item === "number" && Number.isFinite(item) && item > 0)
-      .map(([key, item]) => [key, item as number]),
-  );
-}
-
-function normalizeDateRecord(value: unknown): Record<string, string> {
-  if (!value || typeof value !== "object") return {};
-  return Object.fromEntries(
-    Object.entries(value as Record<string, unknown>)
-      .filter(([key, item]) => key.length > 0 && typeof item === "string" && item.length > 0)
-      .map(([key, item]) => [key, item as string]),
-  );
-}
-
-function normalizeActivity(value: Partial<StoredGameActivity> | null | undefined): StoredGameActivity {
-  return {
-    favorites: uniqueSlugs(value?.favorites, MAX_FAVORITES),
-    recentlyPlayed: uniqueSlugs(value?.recentlyPlayed, MAX_RECENT),
-    playCounts: normalizeRecord(value?.playCounts),
-    lastPlayedAt: normalizeDateRecord(value?.lastPlayedAt),
-  };
-}
-
-function readActivity(): StoredGameActivity {
-  if (!canUseStorage()) return EMPTY_ACTIVITY;
-
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return EMPTY_ACTIVITY;
-    return normalizeActivity(JSON.parse(raw) as Partial<StoredGameActivity>);
-  } catch {
-    return EMPTY_ACTIVITY;
-  }
-}
-
-function writeActivity(activity: StoredGameActivity) {
-  if (!canUseStorage()) return;
-
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(activity));
-  } catch {
-    // LocalStorage can be blocked or full. The games UI should keep working.
-  }
-}
-
-function byLastPlayed(activity: StoredGameActivity) {
-  return (a: GameDefinition, b: GameDefinition) => {
-    const aTime = activity.lastPlayedAt[a.slug] ?? "";
-    const bTime = activity.lastPlayedAt[b.slug] ?? "";
-    return bTime.localeCompare(aTime);
-  };
-}
-
-function byPlayCount(activity: StoredGameActivity) {
-  return (a: GameDefinition, b: GameDefinition) => {
-    const countDiff = (activity.playCounts[b.slug] ?? 0) - (activity.playCounts[a.slug] ?? 0);
-    if (countDiff !== 0) return countDiff;
-    return byLastPlayed(activity)(a, b);
-  };
-}
-
 export function useGameActivity(games: GameDefinition[] = []) {
-  const [activity, setActivity] = useState<StoredGameActivity>(EMPTY_ACTIVITY);
-  const [hydrated, setHydrated] = useState(false);
+  const { state, hydrated } = useCoreActivity(GAME_KINDS);
 
-  useEffect(() => {
-    setActivity(readActivity());
-    setHydrated(true);
+  const bySlug = useMemo(() => new Map(games.map((game) => [game.slug, game])), [games]);
+  const slugById = useMemo(() => new Map(games.map((game) => [game.id, game.slug])), [games]);
 
-    const handleStorage = (event: StorageEvent) => {
-      if (event.key === STORAGE_KEY) {
-        setActivity(readActivity());
-      }
-    };
-
-    window.addEventListener("storage", handleStorage);
-    return () => window.removeEventListener("storage", handleStorage);
-  }, []);
-
-  const updateActivity = useCallback((updater: (current: StoredGameActivity) => StoredGameActivity) => {
-    setActivity((current) => {
-      const next = normalizeActivity(updater(current));
-      writeActivity(next);
-      return next;
-    });
-  }, []);
-
-  const isFavorite = useCallback(
-    (slug: string) => activity.favorites.includes(slug),
-    [activity.favorites],
+  const entityRefForSlug = useCallback(
+    (slug: string) => {
+      const game = bySlug.get(slug);
+      return game ? toCoreActivityRef(toGameCoreEntity(game)) : null;
+    },
+    [bySlug],
   );
+
+  const activity = useMemo<StoredGameActivity>(() => {
+    const playEvents = state.events
+      .filter((event) => event.entityKind === "game" && event.type === "play")
+      .sort((a, b) => b.at - a.at);
+
+    const recentlyPlayed: string[] = [];
+    const playCounts: Record<string, number> = {};
+    const lastPlayedAt: Record<string, string> = {};
+
+    for (const event of playEvents) {
+      const slug = slugById.get(event.entityId) ?? state.entities[`game:${event.entityId}`]?.href.split("/").pop();
+      if (!slug) continue;
+      playCounts[slug] = (playCounts[slug] ?? 0) + 1;
+      if (!lastPlayedAt[slug]) lastPlayedAt[slug] = new Date(event.at).toISOString();
+      if (!recentlyPlayed.includes(slug) && recentlyPlayed.length < MAX_RECENT) recentlyPlayed.push(slug);
+    }
+
+    const favorites = state.favorites
+      .map((key) => state.entities[key])
+      .filter((entity) => entity?.kind === "game")
+      .map((entity) => slugById.get(entity.id) ?? entity.href.split("/").pop() ?? "")
+      .filter(Boolean);
+
+    return { favorites, recentlyPlayed, playCounts, lastPlayedAt };
+  }, [slugById, state]);
+
+  const isFavorite = useCallback((slug: string) => {
+    const game = bySlug.get(slug);
+    return game ? isCoreFavorite(state, { id: game.id, kind: "game" }) : false;
+  }, [bySlug, state]);
 
   const toggleFavorite = useCallback(
     (slug: string) => {
-      updateActivity((current) => {
-        const favoriteSet = new Set(current.favorites);
-        if (favoriteSet.has(slug)) favoriteSet.delete(slug);
-        else favoriteSet.add(slug);
-
-        return {
-          ...current,
-          favorites: Array.from(favoriteSet).slice(0, MAX_FAVORITES),
-        };
-      });
+      const ref = entityRefForSlug(slug);
+      if (ref) toggleCoreFavorite(ref);
     },
-    [updateActivity],
+    [entityRefForSlug],
   );
 
   const recordPlay = useCallback(
     (slug: string) => {
-      updateActivity((current) => {
-        const recent = [slug, ...current.recentlyPlayed.filter((item) => item !== slug)].slice(0, MAX_RECENT);
-        return {
-          ...current,
-          recentlyPlayed: recent,
-          playCounts: {
-            ...current.playCounts,
-            [slug]: (current.playCounts[slug] ?? 0) + 1,
-          },
-          lastPlayedAt: {
-            ...current.lastPlayedAt,
-            [slug]: new Date().toISOString(),
-          },
-        };
-      });
+      const ref = entityRefForSlug(slug);
+      if (ref) recordCoreActivity(ref, "play");
     },
-    [updateActivity],
+    [entityRefForSlug],
   );
 
-  const clearActivity = useCallback(() => {
-    updateActivity(() => EMPTY_ACTIVITY);
-  }, [updateActivity]);
-
-  const bySlug = useMemo(() => new Map(games.map((game) => [game.slug, game])), [games]);
+  /** Clears games only — never the rest of the visitor's Darma history. */
+  const clearActivity = useCallback(() => clearCoreActivityKinds(GAME_KINDS), []);
 
   const favoriteGames = useMemo(
     () => activity.favorites.map((slug) => bySlug.get(slug)).filter((game): game is GameDefinition => Boolean(game)),
@@ -180,7 +103,15 @@ export function useGameActivity(games: GameDefinition[] = []) {
   );
 
   const mostPlayedGames = useMemo(
-    () => games.filter((game) => (activity.playCounts[game.slug] ?? 0) > 0).sort(byPlayCount(activity)).slice(0, 6),
+    () =>
+      games
+        .filter((game) => (activity.playCounts[game.slug] ?? 0) > 0)
+        .sort((a, b) => {
+          const countDiff = (activity.playCounts[b.slug] ?? 0) - (activity.playCounts[a.slug] ?? 0);
+          if (countDiff !== 0) return countDiff;
+          return (activity.lastPlayedAt[b.slug] ?? "").localeCompare(activity.lastPlayedAt[a.slug] ?? "");
+        })
+        .slice(0, 6),
     [activity, games],
   );
 

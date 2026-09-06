@@ -1,12 +1,21 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight, Clock3, Command, Gamepad2, Layers3, Search, Sparkles, Wrench, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { ArrowRight, Clock3, Code2, Command, Gamepad2, Layers3, ListChecks, Search, Sparkles, Wrench, X } from "lucide-react";
 import { Badge } from "@/components/ui";
-import { CoreEmptyState, CoreSearchInput, type CoreEntity, type CoreEntityKind } from "@/core";
+import {
+  CoreEmptyState,
+  CoreSearchInput,
+  migrateLegacyCoreActivity,
+  recordCoreActivity,
+  toCoreActivityRef,
+  useCoreActivity,
+  type CoreEntity,
+  type CoreEntityKind,
+} from "@/core";
 import { cn } from "@/lib/cn";
-import { searchUnifiedEntities } from "../lib";
+import { searchUnifiedEntities } from "../lib/unifiedSearchQuery";
 import "../styles/global-search.css";
 
 type GlobalSearchContextValue = {
@@ -21,20 +30,15 @@ type GlobalSearchProviderProps = {
   children: ReactNode;
 };
 
-type RecentItem = {
-  href: string;
-  title: string;
-  kind: CoreEntityKind;
-  visitedAt: number;
-};
-
 const GlobalSearchContext = createContext<GlobalSearchContextValue | null>(null);
-const RECENT_ITEMS_KEY = "darma:global-search:recent-items";
+/* Recent *queries* stay search-specific; visited entities live in Core activity. */
 const RECENT_QUERIES_KEY = "darma:global-search:recent-queries";
 
 const KIND_LABELS: Record<CoreEntityKind, string> = {
   tool: "Tool",
   game: "Game",
+  project: "Project",
+  workflow: "Workflow",
   collection: "Collection",
   template: "Template",
   component: "Component",
@@ -46,6 +50,8 @@ const KIND_LABELS: Record<CoreEntityKind, string> = {
 const KIND_ICONS: Record<CoreEntityKind, typeof Search> = {
   tool: Wrench,
   game: Gamepad2,
+  project: Code2,
+  workflow: ListChecks,
   collection: Layers3,
   template: Sparkles,
   component: Layers3,
@@ -77,18 +83,6 @@ function writeJsonArray<T>(key: string, value: readonly T[]) {
   } catch {
     // Ignore storage errors. Search should remain fully usable without persistence.
   }
-}
-
-function normaliseRecentItems(items: readonly RecentItem[]) {
-  const byHref = new Map<string, RecentItem>();
-
-  for (const item of items) {
-    if (!item.href || !item.title || !item.kind) continue;
-    const previous = byHref.get(item.href);
-    if (!previous || item.visitedAt > previous.visitedAt) byHref.set(item.href, item);
-  }
-
-  return [...byHref.values()].sort((a, b) => b.visitedAt - a.visitedAt).slice(0, 6);
 }
 
 function getEntitySubtitle(entity: CoreEntity) {
@@ -134,10 +128,11 @@ function GlobalSearchResult({ entity, active, onSelect }: { entity: CoreEntity; 
 
 export function GlobalSearchProvider({ entities, children }: GlobalSearchProviderProps) {
   const router = useRouter();
+  const pathname = usePathname();
+  const { recent } = useCoreActivity();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
-  const [recentItems, setRecentItems] = useState<RecentItem[]>([]);
   const [recentQueries, setRecentQueries] = useState<string[]>([]);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -148,9 +143,30 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
   const toggle = useCallback(() => setIsOpen((value) => !value), []);
 
   useEffect(() => {
-    setRecentItems(normaliseRecentItems(readJsonArray<RecentItem>(RECENT_ITEMS_KEY)));
     setRecentQueries(readJsonArray<string>(RECENT_QUERIES_KEY).filter(Boolean).slice(0, 6));
-  }, []);
+    /*
+     * Carries pre-Core search and game history forward instead of dropping it.
+     * Migration only runs while the Core store is still empty, so this effect
+     * must stay declared above the `view` recorder below.
+     */
+    migrateLegacyCoreActivity(entities);
+  }, [entities]);
+
+  const recentEntities = useMemo(
+    () =>
+      recent
+        .map((ref) => entities.find((entity) => entity.id === ref.id && entity.kind === ref.kind))
+        .filter((entity): entity is CoreEntity => Boolean(entity))
+        .slice(0, 6),
+    [entities, recent],
+  );
+
+  /* One `view` event per visited entity route; the store dedupes rapid repeats. */
+  useEffect(() => {
+    if (!pathname) return;
+    const match = entities.find((entity) => entity.href === pathname);
+    if (match) recordCoreActivity(toCoreActivityRef(match), "view");
+  }, [entities, pathname]);
 
   const contextValue = useMemo(() => ({ open, close, toggle, isOpen }), [close, isOpen, open, toggle]);
 
@@ -222,14 +238,11 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
   const selectEntity = useCallback(
     (entity: CoreEntity) => {
       persistQuery(query);
-      const item: RecentItem = { href: entity.href, title: entity.title, kind: entity.kind, visitedAt: Date.now() };
-      const nextRecent = normaliseRecentItems([item, ...recentItems]);
-      setRecentItems(nextRecent);
-      writeJsonArray(RECENT_ITEMS_KEY, nextRecent);
+      recordCoreActivity(toCoreActivityRef(entity), "open");
       close();
       router.push(entity.href);
     },
-    [close, persistQuery, query, recentItems, router],
+    [close, persistQuery, query, router],
   );
 
   const onDialogKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -306,7 +319,7 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
               </div>
 
               <div className="border-b border-[var(--color-border-subtle)] p-4 sm:p-5">
-                <CoreSearchInput value={query} onChange={setQuery} placeholder="Search tools, games, collections…" label="Search Darma" autoFocus />
+                <CoreSearchInput value={query} onChange={setQuery} placeholder="Search tools, projects, workflows, games…" label="Search Darma" autoFocus />
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-semibold text-[var(--color-text-tertiary)]">
                   <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] px-2 py-1">{shortcutLabel}</span>
                   <span>Open search</span>
@@ -320,18 +333,16 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
               </div>
 
               <div className="global-search-scroll min-h-0 flex-1 overflow-y-auto p-4 sm:p-5">
-                {!query.trim() && recentItems.length ? (
+                {!query.trim() && recentEntities.length ? (
                   <section className="mb-5" aria-labelledby="global-search-recent-title">
                     <div className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
                       <Clock3 className="h-3.5 w-3.5" aria-hidden />
                       <h3 id="global-search-recent-title">Recently opened</h3>
                     </div>
                     <div className="grid gap-2 sm:grid-cols-2">
-                      {recentItems.slice(0, 4).map((item) => {
-                        const entity = entities.find((candidate) => candidate.href === item.href);
-                        if (!entity) return null;
-                        return <GlobalSearchResult key={`recent-${item.href}`} entity={entity} active={false} onSelect={selectEntity} />;
-                      })}
+                      {recentEntities.slice(0, 4).map((entity) => (
+                        <GlobalSearchResult key={`recent-${entity.kind}-${entity.id}`} entity={entity} active={false} onSelect={selectEntity} />
+                      ))}
                     </div>
                   </section>
                 ) : null}
@@ -375,7 +386,7 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
               </div>
 
               <div className="flex flex-col gap-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-4 py-3 text-xs font-semibold text-[var(--color-text-tertiary)] sm:flex-row sm:items-center sm:justify-between sm:px-5">
-                <span>Searches tools, games, resources, paths, and careers.</span>
+                <span>Searches tools, projects, workflows, games, resources, paths, and careers.</span>
                 <button type="button" onClick={() => { close(); router.push(`/search${query.trim() ? `?q=${encodeURIComponent(query.trim())}` : ""}`); }} className="self-start font-bold text-[var(--color-primary-text-strong)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
                   Open full search page
                 </button>

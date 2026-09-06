@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, type ChangeEvent, type ReactNode 
 import { AlertTriangle, CheckCircle2, Copy, Download, FileArchive, FileJson, ImageIcon, Loader2, RotateCcw, Sparkles, Upload, UploadCloud, XCircle } from "lucide-react";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { CodeOutputPanel, ColorField, CompactField, ControlSection, SegmentedControl, SliderNumberField, WarningPanel, type WarningMessage } from "@/features/tools/components";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { cn } from "@/lib/cn";

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Copy, Layers3, Plus, RefreshCcw, Shuffle, Trash2 } from "lucide-react";
 import { Badge, Button, CopyButton } from "@/components/ui";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   CodeOutputPanel,
   ColorField,

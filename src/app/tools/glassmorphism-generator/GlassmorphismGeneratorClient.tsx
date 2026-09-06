@@ -3,7 +3,7 @@
 import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Download, RefreshCcw, Shuffle } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select } from "@/components/ui";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   CodeOutputPanel,
   ColorField,

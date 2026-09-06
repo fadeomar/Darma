@@ -11,7 +11,7 @@ import {
   WarningPanel,
 } from "@/features/tools/components";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
-import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
+import { ToolLayoutSingleUtility } from "@/features/tools/layouts/ToolLayoutSingleUtility";
 import type { ConvertedImage, ImageExportFormat, ImageFitMode, ImageWorkbenchPreset } from "./types";
 import {
   IMAGE_CONVERTER_PRESETS,

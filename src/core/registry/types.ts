@@ -1,4 +1,4 @@
-export type CoreEntityKind = "tool" | "game" | "template" | "component" | "resource" | "ai" | "learning" | "collection";
+export type CoreEntityKind = "tool" | "game" | "project" | "workflow" | "template" | "component" | "resource" | "ai" | "learning" | "collection";
 
 export type CoreEntityStatus = "live" | "planned" | "experimental" | "deprecated";
 

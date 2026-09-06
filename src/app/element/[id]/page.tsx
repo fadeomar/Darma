@@ -3,6 +3,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ElementPreviewShell from "@/components/element/ElementPreviewShell";
+import { getDiscoveryRecommendations } from "@/features/discovery/server/getDiscoveryRecommendations";
+import { toElementCoreEntity } from "@/features/elements/lib/elementCoreAdapter";
 import { getPublicElementByIdDTO } from "@/server/services/element.service";
 import {
   buildElementMetadata,
@@ -33,5 +35,10 @@ export default async function ElementByIdPage({
   const element = await getPublicElementByIdDTO(id);
   if (!element) notFound();
 
-  return <ElementPreviewShell element={element} />;
+  const recommendations = getDiscoveryRecommendations(toElementCoreEntity(element), {
+    limit: 6,
+    kinds: ["tool", "workflow", "project"],
+  });
+
+  return <ElementPreviewShell element={element} recommendations={recommendations} />;
 }

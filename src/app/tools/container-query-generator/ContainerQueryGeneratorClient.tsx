@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   createBreakpoint,
   createDefaultContainerQueryState,

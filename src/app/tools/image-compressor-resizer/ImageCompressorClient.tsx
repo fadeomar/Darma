@@ -30,7 +30,7 @@ import {
   WarningPanel,
 } from "@/features/tools/components";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
-import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
+import { ToolLayoutSingleUtility } from "@/features/tools/layouts/ToolLayoutSingleUtility";
 import { COMPRESSION_PRESETS, QUICK_PRESETS } from "./presets";
 import type { QuickPresetSettings } from "./presets";
 import {

@@ -28,7 +28,7 @@ import {
 } from "@/features/tools/components";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
-import { ToolLayoutTextWorkbench } from "@/features/tools/layouts";
+import { ToolLayoutTextWorkbench } from "@/features/tools/layouts/ToolLayoutTextWorkbench";
 import { TEXT_CLEANER_PRESETS } from "./presets";
 import {
   SAMPLE_TEXT,

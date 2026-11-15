@@ -12,7 +12,8 @@ import { getUnifiedSearchEntities } from "@/features/search/lib";
 import { absoluteUrl, getSiteUrl } from "@/features/tools/seo";
 import { RouteMotion } from "@/components/motion";
 
-const googleVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+const googleVerification =
+  process.env.GOOGLE_SITE_VERIFICATION?.trim() || "rEiVLI5Ko5lbIeRn63YUMdilwf543vpO02W96psPbfs";
 const bingVerification = process.env.BING_SITE_VERIFICATION?.trim();
 
 export const metadata: Metadata = {

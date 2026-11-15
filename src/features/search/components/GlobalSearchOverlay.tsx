@@ -144,11 +144,7 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
 
   useEffect(() => {
     setRecentQueries(readJsonArray<string>(RECENT_QUERIES_KEY).filter(Boolean).slice(0, 6));
-    /*
-     * Carries pre-Core search and game history forward instead of dropping it.
-     * Migration only runs while the Core store is still empty, so this effect
-     * must stay declared above the `view` recorder below.
-     */
+    // Import legacy history once before recording the current route.
     migrateLegacyCoreActivity(entities);
   }, [entities]);
 

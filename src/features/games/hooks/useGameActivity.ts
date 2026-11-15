@@ -54,9 +54,16 @@ export function useGameActivity(games: GameDefinition[] = []) {
     for (const event of playEvents) {
       const slug = slugById.get(event.entityId) ?? state.entities[`game:${event.entityId}`]?.href.split("/").pop();
       if (!slug) continue;
-      playCounts[slug] = (playCounts[slug] ?? 0) + 1;
+
       if (!lastPlayedAt[slug]) lastPlayedAt[slug] = new Date(event.at).toISOString();
       if (!recentlyPlayed.includes(slug) && recentlyPlayed.length < MAX_RECENT) recentlyPlayed.push(slug);
+    }
+
+    for (const [key, count] of Object.entries(state.playCounts ?? {})) {
+      const entity = state.entities[key];
+      if (entity?.kind !== "game") continue;
+      const slug = slugById.get(entity.id) ?? entity.href.split("/").pop();
+      if (slug) playCounts[slug] = count;
     }
 
     const favorites = state.favorites

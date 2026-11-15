@@ -24,6 +24,8 @@ export type CoreActivityState = {
   events: StoredCoreActivityEvent[];
   favorites: string[];
   entities: Record<string, CoreActivityEntityRef>;
+  playCounts?: Record<string, number>;
+  legacyMigrated?: boolean;
 };
 
 const EMPTY_STATE: CoreActivityState = { version: 2, events: [], favorites: [], entities: {} };
@@ -32,7 +34,11 @@ let hydrated = false;
 const listeners = new Set<() => void>();
 
 function canUseStorage() {
-  return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
+  try {
+    return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
+  } catch {
+    return false;
+  }
 }
 
 function entityKey(entity: Pick<CoreActivityEntityRef, "kind" | "id">) {
@@ -73,7 +79,18 @@ function normalizeState(value: unknown): CoreActivityState {
   const favorites = Array.from(
     new Set(Array.isArray(candidate.favorites) ? candidate.favorites.filter((item): item is string => typeof item === "string") : []),
   ).slice(0, MAX_FAVORITES);
-  return { version: 2, events, favorites, entities };
+  const playCounts = Object.fromEntries(
+    Object.entries(candidate.playCounts ?? {}).filter(([, count]) => Number.isSafeInteger(count) && count > 0),
+  );
+  if (!candidate.playCounts) {
+    for (const event of events) {
+      if (event.type === "play") {
+        const key = `${event.entityKind}:${event.entityId}`;
+        playCounts[key] = (playCounts[key] ?? 0) + 1;
+      }
+    }
+  }
+  return { version: 2, events, favorites, entities, playCounts, legacyMigrated: candidate.legacyMigrated === true };
 }
 
 function readState() {
@@ -125,7 +142,7 @@ function attachStorageListener() {
   if (storageListenerAttached || !canUseStorage()) return;
   storageListenerAttached = true;
   window.addEventListener("storage", (event) => {
-    if (event.key !== CORE_ACTIVITY_STORAGE_KEY) return;
+    if (event.key !== null && event.key !== CORE_ACTIVITY_STORAGE_KEY) return;
     memoryState = readState();
     hydrated = true;
     listeners.forEach((listener) => listener());
@@ -148,7 +165,9 @@ export function recordCoreActivity(entity: CoreActivityEntityRef, type: CoreActi
   const events = dedupe
     ? memoryState.events
     : [{ entityId: entity.id, entityKind: entity.kind, type, at }, ...memoryState.events].slice(0, MAX_EVENTS);
-  persist({ ...memoryState, events, entities: { ...memoryState.entities, [key]: entity } });
+  const playCounts = { ...memoryState.playCounts };
+  if (type === "play" && !dedupe) playCounts[key] = (playCounts[key] ?? 0) + 1;
+  persist({ ...memoryState, events, playCounts, entities: { ...memoryState.entities, [key]: entity } });
 }
 
 export function toggleCoreFavorite(entity: CoreActivityEntityRef) {
@@ -192,19 +211,25 @@ export function clearCoreActivityKinds(kinds: readonly CoreEntityKind[]) {
     const entity = memoryState.entities[key];
     return !entity || !removed.has(entity.kind);
   });
-  persist({ ...memoryState, events: memoryState.events.filter((event) => !removed.has(event.entityKind)), favorites, entities });
+  const playCounts = Object.fromEntries(
+    Object.entries(memoryState.playCounts ?? {}).filter(([key]) => !kinds.some((kind) => key.startsWith(`${kind}:`))),
+  );
+  if (removed.has("game") && canUseStorage()) {
+    try { window.localStorage.removeItem(LEGACY_GAMES_ACTIVITY_KEY); } catch {}
+  }
+  persist({ ...memoryState, events: memoryState.events.filter((event) => !removed.has(event.entityKind)), favorites, entities, playCounts });
 }
 
 export function migrateLegacyCoreActivity(entities: readonly CoreEntity[]) {
   if (!canUseStorage()) return;
   ensureHydrated();
-  if (memoryState.events.length || memoryState.favorites.length) return;
+  if (memoryState.legacyMigrated) return;
   const byHref = new Map(entities.map((entity) => [entity.href, entity]));
   const gamesBySlug = new Map(entities.filter((entity) => entity.kind === "game").map((entity) => [entity.slug, entity]));
   let next = memoryState;
   try {
     const recent = JSON.parse(window.localStorage.getItem(LEGACY_SEARCH_RECENTS_KEY) ?? "[]") as Array<{ href?: string; visitedAt?: number }>;
-    for (const item of recent) {
+    for (const item of Array.isArray(recent) ? recent : []) {
       const entity = item.href ? byHref.get(item.href) : undefined;
       if (!entity) continue;
       const ref = toCoreActivityRef(entity);
@@ -220,27 +245,33 @@ export function migrateLegacyCoreActivity(entities: readonly CoreEntity[]) {
     const legacy = JSON.parse(window.localStorage.getItem(LEGACY_GAMES_ACTIVITY_KEY) ?? "null") as null | {
       favorites?: string[];
       recentlyPlayed?: string[];
+      playCounts?: Record<string, number>;
       lastPlayedAt?: Record<string, string>;
     };
-    for (const slug of legacy?.favorites ?? []) {
+    for (const slug of Array.isArray(legacy?.favorites) ? legacy.favorites : []) {
       const entity = gamesBySlug.get(slug);
       if (!entity) continue;
       const ref = toCoreActivityRef(entity);
       const key = entityKey(ref);
       next = { ...next, favorites: [...new Set([...next.favorites, key])], entities: { ...next.entities, [key]: ref } };
     }
-    for (const slug of legacy?.recentlyPlayed ?? []) {
+    const recentSlugs = Array.isArray(legacy?.recentlyPlayed) ? legacy.recentlyPlayed : [];
+    const slugs = new Set([...recentSlugs, ...Object.keys(legacy?.playCounts ?? {}), ...Object.keys(legacy?.lastPlayedAt ?? {})]);
+    for (const slug of slugs) {
       const entity = gamesBySlug.get(slug);
       if (!entity) continue;
       const ref = toCoreActivityRef(entity);
       const key = entityKey(ref);
       const parsedAt = Date.parse(legacy?.lastPlayedAt?.[slug] ?? "");
+      const legacyCount = legacy?.playCounts?.[slug];
+      const count = Number.isSafeInteger(legacyCount) && legacyCount! > 0 ? legacyCount! : 1;
       next = {
         ...next,
-        events: [{ entityId: ref.id, entityKind: ref.kind, type: "play", at: Number.isFinite(parsedAt) ? parsedAt : Date.now() }, ...next.events],
+        playCounts: { ...next.playCounts, [key]: Math.max(next.playCounts?.[key] ?? 0, count) },
+        events: [...next.events, { entityId: ref.id, entityKind: ref.kind, type: "play", at: Number.isFinite(parsedAt) ? parsedAt : Date.now() }],
         entities: { ...next.entities, [key]: ref },
       };
     }
   } catch {}
-  persist(normalizeState(next));
+  persist({ ...next, legacyMigrated: true });
 }

@@ -7,14 +7,18 @@ export default function ToolPageShell({
   intro,
   children,
   sidebar,
+  description,
+  eyebrow,
 }: {
   tool: ToolDefinition;
   intro?: ReactNode;
   children: ReactNode;
   sidebar?: ReactNode;
+  description?: string;
+  eyebrow?: ReactNode;
 }) {
   return (
-    <ToolPage tool={tool} intro={intro} maxWidth="wide">
+    <ToolPage tool={tool} intro={intro} description={description} eyebrow={eyebrow} maxWidth="wide">
       {sidebar ? (
         <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
           <div className="min-w-0 space-y-6">{children}</div>

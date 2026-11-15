@@ -17,7 +17,10 @@ export default function GoogleAnalytics() {
           window.gtag = window.gtag || function gtag(){window.dataLayer.push(arguments);}
           window.gtag('js', new Date());
           window.gtag('config', '${GA_MEASUREMENT_ID}', {
-            send_page_view: false
+            send_page_view: false,
+            ...(['/tools/contrast-checker', '/tools/contrast-checker/'].includes(window.location.pathname)
+              ? {page_location: window.location.origin + window.location.pathname, page_path: window.location.pathname}
+              : {})
           });
         `}
       </Script>

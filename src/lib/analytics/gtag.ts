@@ -1,3 +1,5 @@
+import { analyticsLocation } from "./location";
+
 export const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "";
 
@@ -32,10 +34,14 @@ export const pageview = (url: string) => {
 
   ensureGtagQueue();
 
+  const location = analyticsLocation(window.location.href);
+  const path = location !== window.location.href ? window.location.pathname : url;
+  window.gtag("set", { page_location: location, page_path: path });
   window.gtag("event", "page_view", {
     send_to: GA_MEASUREMENT_ID,
-    page_path: url,
-    page_location: window.location.href,
+    page_path: path,
+    page_location: location,
+    page_referrer: analyticsLocation(document.referrer),
     page_title: document.title,
   });
 };

@@ -32,10 +32,11 @@ export function ToolLayoutSingleUtility({
   const hasControls = Boolean(controlsSlot || presetsSlot);
 
   return (
-    <div data-tool-layout="single-utility" className="mx-auto max-w-6xl space-y-5 sm:space-y-6">
+    <div data-tool-layout="single-utility" data-tool-flow={layout} className="mx-auto max-w-6xl space-y-5 sm:space-y-6">
       <div
         className={cn(
           "grid gap-5 lg:items-start",
+          layout === "stacked" && "grid-cols-1",
           hasControls && layout === "columns" && "lg:grid-cols-[minmax(300px,var(--tool-controls-width))_minmax(0,1fr)]",
         )}
       >

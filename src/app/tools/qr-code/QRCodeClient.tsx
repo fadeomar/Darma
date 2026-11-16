@@ -351,14 +351,14 @@ export default function QRCodeClient() {
         <div className="grid min-w-0 gap-5">
           <ToolControlPanel title="Create your QR code" description="Choose a type and enter your content. Your QR code updates automatically." sticky={false}>
             <ControlSection title="QR type">
-              <div role="group" aria-label="QR type" className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+              <div role="group" aria-label="QR type" className="flex flex-wrap gap-2">
                 {qrTypes.map((type) => (
                   <button
                     key={type.value}
                     type="button"
                     aria-pressed={form.type === type.value}
                     onClick={() => patchForm({ type: type.value })}
-                    className={`flex min-h-11 min-w-0 items-center gap-2 rounded-[var(--radius-md)] border px-3 py-2 text-left transition focus:outline-none focus:shadow-[var(--focus-ring)] ${form.type === type.value ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"}`}
+                    className={`flex min-h-11 min-w-0 items-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] border px-3 py-2 text-left transition focus:outline-none focus:shadow-[var(--focus-ring)] ${form.type === type.value ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"}`}
                   >
                     <span className="shrink-0 text-[var(--color-primary-text-strong)]">{type.icon}</span>
                     <span className="min-w-0 text-sm font-bold text-[var(--color-text-primary)]">{type.label}</span>

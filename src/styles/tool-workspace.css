@@ -155,29 +155,29 @@
 
 /* A second legacy pattern uses a generic result wrapper plus a controls
    <aside>. Keep the same controls-first behavior and laptop split. */
-[data-tool-workspace] > div > :where(.grid):has(> aside) > aside {
+[data-tool-workspace] > div:not([data-tool-flow="stacked"]) > :where(.grid):has(> aside) > aside {
   order: 1;
   min-width: 0;
 }
 
-[data-tool-workspace] > div > :where(.grid):has(> aside) > :first-child:not(aside) {
+[data-tool-workspace] > div:not([data-tool-flow="stacked"]) > :where(.grid):has(> aside) > :first-child:not(aside) {
   order: 2;
   min-width: 0;
 }
 
-[data-tool-workspace] > div > :where(.grid):has(> aside) > aside > :where(section, div)[class*="rounded-"] {
+[data-tool-workspace] > div:not([data-tool-flow="stacked"]) > :where(.grid):has(> aside) > aside > :where(section, div)[class*="rounded-"] {
   border-color: var(--color-tool-controls-border);
   background-color: var(--color-tool-controls-bg);
   box-shadow: var(--shadow-tool-controls);
 }
 
 @media (min-width: 1024px) {
-  [data-tool-workspace] > div > :where(.grid):has(> aside) {
+  [data-tool-workspace] > div:not([data-tool-flow="stacked"]) > :where(.grid):has(> aside) {
     grid-template-columns: minmax(300px, var(--tool-controls-width)) minmax(0, 1fr) !important;
     align-items: start;
   }
 
-  [data-tool-workspace] > div > :where(.grid):has(> aside) > aside {
+  [data-tool-workspace] > div:not([data-tool-flow="stacked"]) > :where(.grid):has(> aside) > aside {
     position: sticky;
     top: 6.75rem;
     max-height: calc(100vh - 7.75rem);

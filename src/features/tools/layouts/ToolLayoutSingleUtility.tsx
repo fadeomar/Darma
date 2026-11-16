@@ -19,6 +19,7 @@ export function ToolLayoutSingleUtility({
   presetsSlot,
   infoSlot,
   articleSlot,
+  layout = "columns",
 }: {
   resultSlot: ReactNode;
   controlsSlot?: ReactNode;
@@ -26,6 +27,7 @@ export function ToolLayoutSingleUtility({
   presetsSlot?: ReactNode;
   infoSlot?: ReactNode;
   articleSlot?: ReactNode;
+  layout?: "columns" | "stacked";
 }) {
   const hasControls = Boolean(controlsSlot || presetsSlot);
 
@@ -34,11 +36,11 @@ export function ToolLayoutSingleUtility({
       <div
         className={cn(
           "grid gap-5 lg:items-start",
-          hasControls && "lg:grid-cols-[minmax(300px,var(--tool-controls-width))_minmax(0,1fr)]",
+          hasControls && layout === "columns" && "lg:grid-cols-[minmax(300px,var(--tool-controls-width))_minmax(0,1fr)]",
         )}
       >
         {hasControls ? (
-          <aside data-tool-region="controls" className="order-1 min-w-0 space-y-4 lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-1">
+          <aside data-tool-region="controls" className={cn("order-1 min-w-0 space-y-4", layout === "columns" && "lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-1")}>
             <RegionLabel label="Controls" hint="Enter values or choose a preset" />
             {controlsSlot ? <section className="min-w-0">{controlsSlot}</section> : null}
             {presetsSlot ? <section className="min-w-0">{presetsSlot}</section> : null}

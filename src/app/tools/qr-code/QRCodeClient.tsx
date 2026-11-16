@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import QRCode from "qrcode";
 import {
@@ -81,48 +81,6 @@ const qrTypes: Array<{ value: QRContentType; label: string; description: string;
 const primaryFieldClass =
   "border-[var(--color-border-strong)] bg-[var(--color-surface-inset)] font-medium shadow-[var(--shadow-sm)]";
 
-type PrimaryField = HTMLInputElement | HTMLTextAreaElement;
-
-/** Nearest ancestor that actually scrolls, stopping before the page itself. */
-function findScrollableAncestor(node: HTMLElement) {
-  let current = node.parentElement;
-  while (current && current !== document.body) {
-    const overflowY = window.getComputedStyle(current).overflowY;
-    if ((overflowY === "auto" || overflowY === "scroll" || overflowY === "overlay") && current.scrollHeight > current.clientHeight + 1) {
-      return current;
-    }
-    current = current.parentElement;
-  }
-  return null;
-}
-
-/**
- * Scrolls only the Controls panel so the active field's section is in view.
- * Never touches page scroll: no scrollIntoView, and focus uses preventScroll.
- * Returns false when the panel is not measurable yet, so the caller can retry.
- */
-function revealInControlsPanel(node: PrimaryField, behavior: ScrollBehavior) {
-  const container = findScrollableAncestor(node);
-  if (!container) return false;
-
-  // Leaves a sliver of the previous section on screen so the panel still reads
-  // as scrollable and the QR type list is obviously just above.
-  const headroom = 56;
-  const containerRect = container.getBoundingClientRect();
-  const section = node.closest("section") ?? node;
-  const sectionOffset = section.getBoundingClientRect().top - containerRect.top;
-  const nodeRect = node.getBoundingClientRect();
-
-  let top = container.scrollTop + sectionOffset - headroom;
-  // If the section header pushes the field itself below the fold, prefer the field.
-  if (nodeRect.bottom - containerRect.top - (sectionOffset - headroom) > container.clientHeight) {
-    top = container.scrollTop + (nodeRect.bottom - containerRect.top) - container.clientHeight + 16;
-  }
-
-  container.scrollTo({ top: Math.max(0, top), behavior });
-  return true;
-}
-
 function normalizeHex(value: string) {
   if (/^#[0-9a-fA-F]{3}$/.test(value)) {
     const [, r, g, b] = value;
@@ -174,8 +132,6 @@ function auditVariant(severity: QRAuditCheck["severity"]): "danger" | "warning" 
 
 export default function QRCodeClient() {
   const importInputRef = useRef<HTMLInputElement>(null);
-  const primaryFieldRef = useRef<PrimaryField | null>(null);
-  const hasRevealedRef = useRef(false);
   const [form, setForm] = useState<QRFormState>(DEFAULT_QR_FORM);
   const [options, setOptions] = useState<QROptions>(DEFAULT_QR_OPTIONS);
   const [pngUrl, setPngUrl] = useState("");
@@ -199,49 +155,6 @@ export default function QRCodeClient() {
   const auditCounts = useMemo(() => summarizeQRAudit(auditChecks), [auditChecks]);
   const projectJson = useMemo(() => JSON.stringify(createQRProject(form, options), null, 2), [form, options]);
   const markdownReport = useMemo(() => buildQRMarkdownReport(form, options, auditChecks), [auditChecks, form, options]);
-
-  const setPrimaryField = useCallback((node: PrimaryField | null) => {
-    primaryFieldRef.current = node;
-  }, []);
-
-  // On load, and whenever the QR type changes, bring that type's primary field
-  // into view inside the Controls panel and hand it the caret so a paste works
-  // straight away. Desktop only: on narrow screens the panel is not a separate
-  // scroll area and stealing focus would open the on-screen keyboard.
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!window.matchMedia("(min-width: 1024px)").matches) return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const behavior: ScrollBehavior = hasRevealedRef.current && !reduceMotion ? "smooth" : "auto";
-    let attempts = 0;
-    let frame = 0;
-    let cancelled = false;
-
-    const run = () => {
-      if (cancelled) return;
-      const node = primaryFieldRef.current;
-      if (!node) return;
-
-      const revealed = revealInControlsPanel(node, attempts === 0 ? behavior : "auto");
-      if (document.activeElement !== node) node.focus({ preventScroll: true });
-      attempts += 1;
-
-      // During hydration the panel can still be unmeasured; retry a few frames.
-      if (!revealed && attempts < 6) {
-        frame = window.requestAnimationFrame(run);
-        return;
-      }
-      hasRevealedRef.current = true;
-    };
-
-    run();
-
-    return () => {
-      cancelled = true;
-      window.cancelAnimationFrame(frame);
-    };
-  }, [form.type]);
 
   const patchForm = (patch: Partial<QRFormState>) => {
     setImportMessage("");
@@ -309,7 +222,7 @@ export default function QRCodeClient() {
   }
 
   function sample() {
-    const preset = QR_PRESETS.find((item) => item.id === "restaurant-menu") ?? QR_PRESETS[0];
+    const preset = QR_PRESETS.find((item) => item.values.type === form.type) ?? QR_PRESETS[0];
     setForm({ ...DEFAULT_QR_FORM, ...preset.values });
     setOptions(DEFAULT_QR_OPTIONS);
     setImportMessage("");
@@ -365,36 +278,27 @@ export default function QRCodeClient() {
 
   return (
     <ToolLayoutSingleUtility
+      layout="stacked"
       resultSlot={
         <div className="space-y-4">
           <ResultPanel
-            title="Live QR preview"
+            title="Preview & download"
             description="Your QR updates instantly in the browser. Scan-test the exported file before printing or publishing."
-            actions={
-              <div className="flex flex-wrap gap-2">
-                <Badge variant={readinessVariant}>{auditCounts.error ? "Blocked" : auditCounts.warning ? "Review" : "Scan ready"}</Badge>
-                <Button size="sm" disabled={!pngUrl} onClick={() => downloadDataUrl(pngUrl, "darma-qr-code.png")} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>
-                  Download PNG
-                </Button>
-                <Button size="sm" variant="secondary" disabled={!svgText} onClick={() => downloadTextFile({ content: svgText, filename: "darma-qr-code.svg", mimeType: "image/svg+xml;charset=utf-8" })} leftIcon={<Download className="h-4 w-4" aria-hidden />}>
-                  SVG
-                </Button>
-              </div>
-            }
+            actions={<Badge variant={readinessVariant}>{!canGenerate ? "Waiting for content" : auditCounts.error ? "Blocked" : auditCounts.warning ? "Review" : "Scan ready"}</Badge>}
             value={
-              <div className="grid gap-5 lg:grid-cols-[minmax(240px,380px)_minmax(0,1fr)] lg:items-center">
-                <div className="flex min-h-[300px] items-center justify-center rounded-[var(--radius-xl)] bg-[var(--color-surface-subtle)] p-4 sm:p-6">
+              <div className="grid gap-5 sm:grid-cols-[minmax(160px,220px)_minmax(0,1fr)] sm:items-center">
+                <div className="flex min-h-[200px] items-center justify-center rounded-[var(--radius-xl)] bg-[var(--color-surface-subtle)] p-4 sm:p-6">
                   {isGenerating ? (
-                    <div className="flex aspect-square w-full max-w-[340px] flex-col items-center justify-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-sm text-[var(--color-text-tertiary)]">
+                    <div className="flex aspect-square w-full max-w-[220px] flex-col items-center justify-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-sm text-[var(--color-text-tertiary)]">
                       <LoaderCircle className="h-7 w-7 animate-spin" aria-hidden />
                       Generating preview…
                     </div>
                   ) : pngUrl ? (
                     <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-[var(--shadow-md)]" style={{ background: options.transparentBackground ? "var(--color-surface-base)" : options.background }}>
-                      <Image src={pngUrl} alt={`Generated ${QR_TYPE_LABELS[form.type]} QR code`} width={options.size} height={options.size} className="h-auto max-h-[380px] w-full max-w-[380px]" unoptimized />
+                      <Image src={pngUrl} alt={`Generated ${QR_TYPE_LABELS[form.type]} QR code`} width={options.size} height={options.size} className="h-auto max-h-[220px] w-full max-w-[220px]" unoptimized />
                     </div>
                   ) : (
-                    <div className="flex aspect-square w-full max-w-[340px] items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-6 text-center text-sm leading-6 text-[var(--color-text-tertiary)]">
+                    <div className="flex aspect-square w-full max-w-[220px] items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-6 text-center text-sm leading-6 text-[var(--color-text-tertiary)]">
                       Complete the required {activeType.label.toLowerCase()} fields to generate your QR code.
                     </div>
                   )}
@@ -414,8 +318,8 @@ export default function QRCodeClient() {
                   </div>
 
                   <div className="grid gap-2 sm:grid-cols-2">
-                    <Button disabled={!pngUrl} onClick={() => downloadDataUrl(pngUrl, "darma-qr-code.png")} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>Download PNG</Button>
-                    <Button variant="secondary" disabled={!svgText} onClick={() => downloadTextFile({ content: svgText, filename: "darma-qr-code.svg", mimeType: "image/svg+xml;charset=utf-8" })} leftIcon={<Download className="h-4 w-4" aria-hidden />}>Download SVG</Button>
+                    <Button disabled={!canGenerate || isGenerating || !pngUrl} onClick={() => downloadDataUrl(pngUrl, "darma-qr-code.png")} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>Download PNG</Button>
+                    <Button variant="secondary" disabled={!canGenerate || isGenerating || !svgText} onClick={() => downloadTextFile({ content: svgText, filename: "darma-qr-code.svg", mimeType: "image/svg+xml;charset=utf-8" })} leftIcon={<Download className="h-4 w-4" aria-hidden />}>Download SVG</Button>
                   </div>
 
                   <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
@@ -441,61 +345,47 @@ export default function QRCodeClient() {
         <ToolActionBar
           copyText={canGenerate ? payload : ""}
           onReset={reset}
-          onSample={sample}
         />
       }
       controlsSlot={
         <div className="grid min-w-0 gap-5">
-          <ToolControlPanel title="Create your QR code" description="Choose what happens when someone scans, then enter only the fields that matter." sticky={false}>
+          <ToolControlPanel title="Create your QR code" description="Choose a type and enter your content. Your QR code updates automatically." sticky={false}>
             <ControlSection title="QR type">
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+              <div role="group" aria-label="QR type" className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
                 {qrTypes.map((type) => (
                   <button
                     key={type.value}
                     type="button"
                     aria-pressed={form.type === type.value}
                     onClick={() => patchForm({ type: type.value })}
-                    className={`flex min-w-0 items-start gap-3 rounded-[var(--radius-md)] border p-3 text-left transition focus:outline-none focus:shadow-[var(--focus-ring)] ${form.type === type.value ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"}`}
+                    className={`flex min-h-11 min-w-0 items-center gap-2 rounded-[var(--radius-md)] border px-3 py-2 text-left transition focus:outline-none focus:shadow-[var(--focus-ring)] ${form.type === type.value ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]"}`}
                   >
-                    <span className={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-sm)] ${form.type === type.value ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-surface-subtle)] text-[var(--color-text-secondary)]"}`}>{type.icon}</span>
-                    <span className="min-w-0">
-                      <span className="block truncate text-sm font-black text-[var(--color-text-primary)]">{type.label}</span>
-                      <span className="mt-0.5 block text-xs leading-5 text-[var(--color-text-secondary)]">{type.description}</span>
-                    </span>
+                    <span className="shrink-0 text-[var(--color-primary-text-strong)]">{type.icon}</span>
+                    <span className="min-w-0 text-sm font-bold text-[var(--color-text-primary)]">{type.label}</span>
                   </button>
                 ))}
               </div>
             </ControlSection>
-            <ControlSection title={`${activeType.label} details`}>
-              <QRFields form={form} patchForm={patchForm} primaryFieldRef={setPrimaryField} />
+            <ControlSection title={`${activeType.label} details`} action={<Button size="sm" variant="ghost" onClick={sample}>Try an example</Button>}>
+              <QRFields form={form} patchForm={patchForm} />
+              <p className="text-xs text-[var(--color-text-secondary)]" role="status" aria-live="polite">
+                {isGenerating ? "Generating preview…" : canGenerate ? "Your QR code updates automatically below." : "Complete the fields above to generate your QR code automatically."}
+              </p>
+              {!canGenerate ? <ul className="space-y-1 text-xs text-[var(--color-text-secondary)]" aria-label="Required QR fields">
+                {validationMessages.map((message) => <li key={message}>{message}</li>)}
+              </ul> : null}
+              {generationError ? <p role="alert" className="text-sm text-[var(--color-danger-text)]">{generationError}</p> : null}
             </ControlSection>
+            <Field label="Quick starts">
+              <Select value="" onChange={(event) => applyPreset(event.target.value)} size="sm">
+                <option value="" disabled>Choose a use case (optional)</option>
+                {QR_PRESETS.map((preset) => <option key={preset.id} value={preset.id}>{preset.title}</option>)}
+              </Select>
+            </Field>
           </ToolControlPanel>
 
-          <div className="space-y-5">
-            <ToolControlPanel title="Quick starts" description="Pick the closest use case, then replace every sample value with your real destination." sticky={false}>
-              <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
-                {QR_PRESETS.slice(0, 4).map((preset) => (
-                  <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]">
-                    <span className="block text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
-                    <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
-                  </button>
-                ))}
-              </div>
-              {QR_PRESETS.length > 4 ? (
-                <details className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)]">
-                  <summary className="cursor-pointer list-none px-3 py-2 text-xs font-bold text-[var(--color-text-secondary)]">Show all {QR_PRESETS.length} use cases</summary>
-                  <div className="grid gap-2 border-t border-[var(--color-border-default)] p-2">
-                    {QR_PRESETS.slice(4).map((preset) => (
-                      <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-sm)] p-2 text-left hover:bg-[var(--color-surface-subtle)]">
-                        <span className="block text-sm font-bold text-[var(--color-text-primary)]">{preset.title}</span>
-                        <span className="mt-0.5 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
-                      </button>
-                    ))}
-                  </div>
-                </details>
-              ) : null}
-            </ToolControlPanel>
-
+          <details className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
+            <summary className="cursor-pointer px-4 py-3 text-sm font-bold text-[var(--color-text-primary)]">Appearance & advanced options</summary>
             <ToolControlPanel title="Appearance" description="Keep strong contrast and enough breathing room for reliable scanning." sticky={false}>
               <ControlSection title="Size and colors">
                 <Field label={`Size: ${options.size}px`}><Slider min={160} max={1024} step={16} value={options.size} onChange={(event) => patchOptions({ size: Number(event.target.value) })} /></Field>
@@ -524,7 +414,7 @@ export default function QRCodeClient() {
                 </div>
               </details>
             </ToolControlPanel>
-          </div>
+          </details>
         </div>
       }
       infoSlot={
@@ -581,17 +471,14 @@ export default function QRCodeClient() {
 function QRFields({
   form,
   patchForm,
-  primaryFieldRef,
 }: {
   form: QRFormState;
   patchForm: (patch: Partial<QRFormState>) => void;
-  primaryFieldRef: (node: PrimaryField | null) => void;
 }) {
   if (form.type === "url") {
     return (
       <Field label="Website URL" hint="Paste a full link, including https://">
         <Input
-          ref={primaryFieldRef}
           value={form.url}
           onChange={(event) => patchForm({ url: event.target.value })}
           placeholder="Paste your website URL here"
@@ -608,7 +495,7 @@ function QRFields({
   if (form.type === "text") {
     return (
       <Field label="Text">
-        <Textarea ref={primaryFieldRef} value={form.text} onChange={(event) => patchForm({ text: event.target.value })} minRows={6} placeholder="Type the note, code, or message to encode." className={primaryFieldClass} />
+        <Textarea value={form.text} onChange={(event) => patchForm({ text: event.target.value })} minRows={3} placeholder="Type the note, code, or message to encode." className={primaryFieldClass} />
       </Field>
     );
   }
@@ -617,7 +504,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="WhatsApp phone">
-          <Input ref={primaryFieldRef} value={form.whatsappPhone} onChange={(event) => patchForm({ whatsappPhone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
+          <Input value={form.whatsappPhone} onChange={(event) => patchForm({ whatsappPhone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
         </Field>
         <Field label="Message">
           <Textarea value={form.whatsappMessage} onChange={(event) => patchForm({ whatsappMessage: event.target.value })} minRows={4} placeholder="Hi, I would like to..." />
@@ -630,7 +517,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="Email address">
-          <Input ref={primaryFieldRef} value={form.emailTo} onChange={(event) => patchForm({ emailTo: event.target.value })} placeholder="hello@example.com" className={primaryFieldClass} />
+          <Input value={form.emailTo} onChange={(event) => patchForm({ emailTo: event.target.value })} placeholder="hello@example.com" className={primaryFieldClass} />
         </Field>
         <Field label="Subject">
           <Input value={form.emailSubject} onChange={(event) => patchForm({ emailSubject: event.target.value })} placeholder="Question about..." />
@@ -645,7 +532,7 @@ function QRFields({
   if (form.type === "phone") {
     return (
       <Field label="Phone number">
-        <Input ref={primaryFieldRef} value={form.phone} onChange={(event) => patchForm({ phone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
+        <Input value={form.phone} onChange={(event) => patchForm({ phone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
       </Field>
     );
   }
@@ -654,7 +541,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="SMS phone number">
-          <Input ref={primaryFieldRef} value={form.smsPhone} onChange={(event) => patchForm({ smsPhone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
+          <Input value={form.smsPhone} onChange={(event) => patchForm({ smsPhone: event.target.value })} placeholder="+15551234567" className={primaryFieldClass} />
         </Field>
         <Field label="Message">
           <Textarea value={form.smsMessage} onChange={(event) => patchForm({ smsMessage: event.target.value })} minRows={4} placeholder="Optional SMS message." />
@@ -667,7 +554,7 @@ function QRFields({
     return (
       <div className="grid gap-3">
         <Field label="Network name">
-          <Input ref={primaryFieldRef} value={form.wifiSsid} onChange={(event) => patchForm({ wifiSsid: event.target.value })} placeholder="Guest WiFi" className={primaryFieldClass} />
+          <Input value={form.wifiSsid} onChange={(event) => patchForm({ wifiSsid: event.target.value })} placeholder="Guest WiFi" className={primaryFieldClass} />
         </Field>
         <ControlGrid columns={2}>
           <Field label="Security">
@@ -694,7 +581,7 @@ function QRFields({
       <div className="grid gap-3">
         <ControlGrid columns={2}>
           <Field label="First name">
-            <Input ref={primaryFieldRef} value={form.contactFirstName} onChange={(event) => patchForm({ contactFirstName: event.target.value })} className={primaryFieldClass} />
+            <Input value={form.contactFirstName} onChange={(event) => patchForm({ contactFirstName: event.target.value })} className={primaryFieldClass} />
           </Field>
           <Field label="Last name">
             <Input value={form.contactLastName} onChange={(event) => patchForm({ contactLastName: event.target.value })} />
@@ -731,7 +618,7 @@ function QRFields({
       <div className="grid gap-3">
         <ControlGrid columns={2}>
           <Field label="Latitude">
-            <Input ref={primaryFieldRef} value={form.latitude} onChange={(event) => patchForm({ latitude: event.target.value })} placeholder="31.7683" className={primaryFieldClass} />
+            <Input value={form.latitude} onChange={(event) => patchForm({ latitude: event.target.value })} placeholder="31.7683" className={primaryFieldClass} />
           </Field>
           <Field label="Longitude">
             <Input value={form.longitude} onChange={(event) => patchForm({ longitude: event.target.value })} placeholder="35.2137" />
@@ -747,7 +634,7 @@ function QRFields({
   return (
     <div className="grid gap-3">
       <Field label="Event title">
-        <Input ref={primaryFieldRef} value={form.eventTitle} onChange={(event) => patchForm({ eventTitle: event.target.value })} placeholder="Open Studio" className={primaryFieldClass} />
+        <Input value={form.eventTitle} onChange={(event) => patchForm({ eventTitle: event.target.value })} placeholder="Open Studio" className={primaryFieldClass} />
       </Field>
       <ControlGrid columns={2}>
         <Field label="Start">

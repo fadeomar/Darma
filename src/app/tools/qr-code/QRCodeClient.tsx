@@ -7,6 +7,7 @@ import {
   Archive,
   CalendarDays,
   Code2,
+  ChevronDown,
   ContactRound,
   Download,
   FileJson,
@@ -286,19 +287,19 @@ export default function QRCodeClient() {
             description="Your QR updates instantly in the browser. Scan-test the exported file before printing or publishing."
             actions={<Badge variant={readinessVariant}>{!canGenerate ? "Waiting for content" : auditCounts.error ? "Blocked" : auditCounts.warning ? "Review" : "Scan ready"}</Badge>}
             value={
-              <div className="grid gap-5 sm:grid-cols-[minmax(160px,220px)_minmax(0,1fr)] sm:items-center">
-                <div className="flex min-h-[200px] items-center justify-center rounded-[var(--radius-xl)] bg-[var(--color-surface-subtle)] p-4 sm:p-6">
+              <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-center">
+                <div className="flex min-h-[280px] w-full max-w-[400px] items-center justify-center justify-self-center rounded-[var(--radius-xl)] bg-[var(--color-surface-subtle)] p-4 sm:p-6">
                   {isGenerating ? (
-                    <div className="flex aspect-square w-full max-w-[220px] flex-col items-center justify-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-sm text-[var(--color-text-tertiary)]">
+                    <div className="flex aspect-square w-full max-w-[320px] flex-col items-center justify-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-sm text-[var(--color-text-tertiary)]">
                       <LoaderCircle className="h-7 w-7 animate-spin" aria-hidden />
                       Generating preview…
                     </div>
                   ) : pngUrl ? (
-                    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-[var(--shadow-md)]" style={{ background: options.transparentBackground ? "var(--color-surface-base)" : options.background }}>
-                      <Image src={pngUrl} alt={`Generated ${QR_TYPE_LABELS[form.type]} QR code`} width={options.size} height={options.size} className="h-auto max-h-[220px] w-full max-w-[220px]" unoptimized />
+                    <div className="w-full max-w-[352px] rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4 shadow-[var(--shadow-md)]" style={{ background: options.transparentBackground ? "var(--color-surface-base)" : options.background }}>
+                      <Image src={pngUrl} alt={`Generated ${QR_TYPE_LABELS[form.type]} QR code`} width={options.size} height={options.size} className="h-auto max-h-[320px] w-full max-w-[320px]" unoptimized />
                     </div>
                   ) : (
-                    <div className="flex aspect-square w-full max-w-[220px] items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-6 text-center text-sm leading-6 text-[var(--color-text-tertiary)]">
+                    <div className="flex aspect-square w-full max-w-[320px] items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-6 text-center text-sm leading-6 text-[var(--color-text-tertiary)]">
                       Complete the required {activeType.label.toLowerCase()} fields to generate your QR code.
                     </div>
                   )}
@@ -317,15 +318,18 @@ export default function QRCodeClient() {
                     <Badge variant="outline">EC {options.errorCorrectionLevel}</Badge>
                   </div>
 
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    <Button disabled={!canGenerate || isGenerating || !pngUrl} onClick={() => downloadDataUrl(pngUrl, "darma-qr-code.png")} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>Download PNG</Button>
-                    <Button variant="secondary" disabled={!canGenerate || isGenerating || !svgText} onClick={() => downloadTextFile({ content: svgText, filename: "darma-qr-code.svg", mimeType: "image/svg+xml;charset=utf-8" })} leftIcon={<Download className="h-4 w-4" aria-hidden />}>Download SVG</Button>
+                  <div className="flex flex-wrap gap-2">
+                    <Button size="sm" disabled={!canGenerate || isGenerating || !pngUrl} onClick={() => downloadDataUrl(pngUrl, "darma-qr-code.png")} leftIcon={<ImageDown className="h-4 w-4" aria-hidden />}>Download PNG</Button>
+                    <Button size="sm" variant="secondary" disabled={!canGenerate || isGenerating || !svgText} onClick={() => downloadTextFile({ content: svgText, filename: "darma-qr-code.svg", mimeType: "image/svg+xml;charset=utf-8" })} leftIcon={<Download className="h-4 w-4" aria-hidden />}>Download SVG</Button>
                   </div>
 
-                  <details className="group rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
-                    <summary className="cursor-pointer list-none px-3 py-2.5 text-sm font-bold text-[var(--color-text-primary)]">What will scanners receive?</summary>
+                  <details open className="group rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-2.5 text-sm font-bold text-[var(--color-text-primary)]">
+                      What will scanners receive?
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden />
+                    </summary>
                     <div className="border-t border-[var(--color-border-default)] p-3">
-                      <Textarea value={payload} readOnly minRows={6} variant="output" placeholder="The encoded payload will appear here." />
+                      <Textarea value={payload} readOnly minRows={3} variant="output" placeholder="The encoded payload will appear here." />
                     </div>
                   </details>
                 </div>

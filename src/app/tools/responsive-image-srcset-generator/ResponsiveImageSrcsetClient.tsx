@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   createDefaultResponsiveImageState,
   createImageCandidate,

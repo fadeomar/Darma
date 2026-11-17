@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Button, CopyButton } from "@/components/ui";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import { analyzeBeam } from "./lib/beamAnalysis";
 import { validateBeam } from "./lib/beamValidation";
 import {

@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FlaskConical } from "lucide-react";
 import BackButton from "@/components/BackButton";
+import { DiscoveryRecommendations } from "@/components/discovery";
+import type { ResolvedCoreRelation } from "@/core";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import CodeTabs from "@/components/element/CodeTabs";
 import ElementSidebar from "@/components/element/ElementSidebar";
@@ -16,9 +18,11 @@ import { markWorkflowStepComplete, writeCodePreviewHandoff } from "@/features/to
 
 type Props = {
   element: ElementDTO;
+  /** Metadata-only cross-product suggestions resolved on the server. */
+  recommendations?: readonly ResolvedCoreRelation[];
 };
 
-export default function ElementPreviewShell({ element }: Props) {
+export default function ElementPreviewShell({ element, recommendations = [] }: Props) {
   const router = useRouter();
   const [htmlCode, setHtmlCode] = useState(element?.html || "");
   const [cssCode, setCssCode] = useState(element?.css || "");
@@ -122,6 +126,8 @@ export default function ElementPreviewShell({ element }: Props) {
               <Editor content={element.description || "No description"} onUpdate={() => {}} previewMode={true} className="max-w-none" />
             </div>
           </section>
+
+          {recommendations.length ? <DiscoveryRecommendations items={recommendations} /> : null}
         </div>
 
         <ElementSidebar element={element} />

@@ -93,7 +93,7 @@ describe("search and collections explain user value", () => {
   const collections = readFileSync(join(SRC, "app/collections/page.tsx"), "utf8");
 
   it("search says what a visitor can find", () => {
-    expect(search).toContain("Search tools, games, resources, learning paths, careers, workflows, and collections from one place.");
+    expect(search).toContain("Search tools, projects, workflows, games, resources, learning paths, careers, and collections from one place.");
   });
 
   it("collections says what is available and what is next", () => {

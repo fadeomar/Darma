@@ -2,6 +2,9 @@ import Link from "next/link";
 import { ArrowLeft, ChevronDown, SlidersHorizontal } from "lucide-react";
 import { type ReactNode } from "react";
 import { Badge } from "@/components/ui";
+import { DiscoveryRecommendations } from "@/components/discovery";
+import { getDiscoveryRecommendations } from "@/features/discovery/server/getDiscoveryRecommendations";
+import { toToolCoreEntity } from "@/features/tools/lib/toolCoreAdapter";
 import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
 import { RelatedToolsGrid } from "@/features/tools/components/RelatedToolsGrid";
 import { RecentToolTracker } from "@/features/tools/components/RecentToolTracker";
@@ -54,6 +57,14 @@ export function ToolPage({
   const pageTitle = title ?? tool?.title;
   const pageDescription = description ?? tool?.description;
   const relatedContent = related ?? (tool ? <RelatedToolsGrid tool={tool} /> : null);
+  /*
+   * Cross-product discovery sits beside the tool-to-tool Related Tools grid
+   * rather than replacing it, and a page that passes its own `related` node
+   * keeps that override untouched below.
+   */
+  const crossProductRecommendations = tool
+    ? getDiscoveryRecommendations(toToolCoreEntity(tool), { limit: 4, kinds: ["workflow", "project"] })
+    : [];
   const privacy = privacyLabel(tool?.privacy);
   const primaryCategory = tool?.mainCategory?.[0] ?? tool?.secondaryCategory?.[0];
   const profile = resolveToolProfile(tool);
@@ -162,6 +173,11 @@ export function ToolPage({
         {children}
       </main>
       {article ? <div className="mt-8">{article}</div> : null}
+      {crossProductRecommendations.length ? (
+        <div className="mt-8">
+          <DiscoveryRecommendations items={crossProductRecommendations} />
+        </div>
+      ) : null}
       {relatedContent ? <div className="mt-8">{relatedContent}</div> : null}
     </div>
   );

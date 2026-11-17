@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Button, CopyButton, Input, Select } from "@/components/ui";
 import { ControlGrid, ControlSection, ToolControlPanel, WarningPanel } from "@/features/tools/components";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   closestPreset,
   cropToRatio,

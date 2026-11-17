@@ -17,7 +17,7 @@ import { buildShareUrl, copyText } from "@/lib/tools/screens/url-state";
 import { SCREEN_SAFETY_NOTE } from "@/lib/tools/screens/presets";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
-import { ToolLayoutFullscreenStudio } from "@/features/tools/layouts";
+import { ToolLayoutFullscreenStudio } from "@/features/tools/layouts/ToolLayoutFullscreenStudio";
 import { DEFAULT_FAKE_SCREEN_STATE, FAKE_SCREEN_PRESETS, MODE_LABELS } from "./presets";
 import { FakeScreenProductionPanel, FakeScreenSummaryGrid } from "./components/FakeScreenProductionPanel";
 import {

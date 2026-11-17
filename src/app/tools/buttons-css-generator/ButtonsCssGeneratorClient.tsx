@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from
 import { BookOpen, ChevronDown, Columns2, Link2, Redo2, RotateCcw, ScanSearch, Search, Sparkles, Undo2, Upload, Wand2 } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select, Textarea } from "@/components/ui";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import {
   CodeOutputPanel,
   ColorField,

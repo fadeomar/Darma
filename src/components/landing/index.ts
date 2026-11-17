@@ -5,5 +5,7 @@ export { ToolPreviewArtwork } from "./ToolPreviewArtwork";
 export { LandingIntentNavigator } from "./LandingIntentNavigator";
 export { LandingProofWorkflow } from "./LandingProofWorkflow";
 export { LandingSectionRail } from "./LandingSectionRail";
+export { LandingPersonalDiscovery } from "./LandingPersonalDiscovery";
+export { LandingDynamicDiscovery } from "./LandingDynamicDiscovery";
 
 export * from "./ModernWebRadar";

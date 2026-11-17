@@ -22,7 +22,7 @@ import {
 } from "@/features/tools/components";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
-import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
+import { ToolLayoutSingleUtility } from "@/features/tools/layouts/ToolLayoutSingleUtility";
 import { generateMetaTags, getPreviewModel } from "./meta";
 import {
   DEFAULT_META_INPUT,

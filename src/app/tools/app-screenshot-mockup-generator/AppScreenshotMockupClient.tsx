@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, type ChangeEvent, type Dispatch, type Dra
 import { CheckCircle2, ChevronDown, Copy, Download, FileArchive, ImageIcon, Loader2, MonitorSmartphone, Sparkles, UploadCloud } from "lucide-react";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { CodeOutputPanel, ColorField, CompactField, ControlSection, SegmentedControl, SliderNumberField, WarningPanel, type WarningMessage } from "@/features/tools/components";
-import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts/ToolLayoutVisualGenerator";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { cn } from "@/lib/cn";

@@ -12,12 +12,14 @@ import {
 import { MotionSection, SplitTextReveal } from "@/components/motion";
 import { Badge } from "@/components/ui";
 import { DarmaSymbol, type DarmaSymbolName } from "@/components/visuals";
-import { ConnectedAtlasVisual, DarmaHeroExperience, LandingIntentNavigator, LandingProofWorkflow, LandingSectionRail, LandingWorkbenchDemo, ModernWebRadar, ToolPreviewArtwork } from "@/components/landing";
+import { ConnectedAtlasVisual, DarmaHeroExperience, LandingDynamicDiscovery, LandingIntentNavigator, LandingPersonalDiscovery, LandingProofWorkflow, LandingSectionRail, LandingWorkbenchDemo, ModernWebRadar, ToolPreviewArtwork } from "@/components/landing";
 import { getPublicTools } from "@/features/tools";
 import { getEditorialPagesByKind } from "@/features/editorial";
 import { getLearningPaths } from "@/features/learning-paths";
 import { getResourceCatalog } from "@/features/resources";
 import { getGames } from "@/features/games";
+import { getUnifiedSearchEntities } from "@/features/search/lib/unifiedSearchRegistry";
+import { selectPopularDiscoveryEntities, selectRecentlyImprovedEntities } from "@/core";
 import { GameThumbnail } from "@/features/games/components/GameThumbnail";
 import { absoluteUrl } from "@/features/tools/seo";
 import "@/features/games/styles/games-theme.css";
@@ -62,6 +64,9 @@ export default function LandingPage() {
   const resources = getResourceCatalog();
   const games = getGames();
   const featuredGames = games.filter((game) => game.featured || game.popular).slice(0, 3);
+  const discoveryEntities = getUnifiedSearchEntities();
+  const popularDiscovery = selectPopularDiscoveryEntities(discoveryEntities, 8, ["tool", "game", "project", "workflow"]);
+  const improvedDiscovery = selectRecentlyImprovedEntities(discoveryEntities, 6);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -74,10 +79,12 @@ export default function LandingPage() {
       "@type": "ItemList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Browser tools", url: absoluteUrl("/tools") },
-        { "@type": "ListItem", position: 2, name: "Technology atlas", url: absoluteUrl("/tech-atlas") },
-        { "@type": "ListItem", position: 3, name: "Learning paths", url: absoluteUrl("/learning-paths") },
-        { "@type": "ListItem", position: 4, name: "Browser games", url: absoluteUrl("/games") },
-        { "@type": "ListItem", position: 5, name: "Career Pathfinder", url: absoluteUrl("/career-pathfinder") },
+        { "@type": "ListItem", position: 2, name: "Explore front-end projects", url: absoluteUrl("/explore") },
+        { "@type": "ListItem", position: 3, name: "Tool workflows", url: absoluteUrl("/workflows") },
+        { "@type": "ListItem", position: 4, name: "Technology atlas", url: absoluteUrl("/tech-atlas") },
+        { "@type": "ListItem", position: 5, name: "Learning paths", url: absoluteUrl("/learning-paths") },
+        { "@type": "ListItem", position: 6, name: "Browser games", url: absoluteUrl("/games") },
+        { "@type": "ListItem", position: 7, name: "Career Pathfinder", url: absoluteUrl("/career-pathfinder") },
       ],
     },
   };
@@ -151,8 +158,11 @@ export default function LandingPage() {
             </div>
           </div>
           <LandingIntentNavigator />
+          <LandingPersonalDiscovery />
         </div>
       </section>
+
+      <LandingDynamicDiscovery popular={popularDiscovery} improved={improvedDiscovery} />
 
       <section id="workbench" className="landing-workbench-section scroll-mt-24">
         <div className="relative mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">

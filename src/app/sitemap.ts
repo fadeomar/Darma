@@ -7,6 +7,8 @@ import { getTechCareers } from "@/features/tech-careers";
 import { getWaysOfWorking } from "@/features/ways-of-working";
 import { getEditorialPages, getResourceHubs } from "@/features/editorial";
 import { CSS_LOADERS_PATH, getLoaderHubPath, LOADER_HUB_SLUGS } from "@/app/tools/css-loaders/loader-hubs";
+import { coreDiscoverySitemapEntries } from "@/core";
+import { getUnifiedSearchEntities } from "@/features/search/lib/unifiedSearchRegistry";
 
 const ORIGINAL_CONTENT_DATE = new Date("2026-07-22T00:00:00.000Z");
 const ATLAS_DATE = new Date("2026-07-29T00:00:00.000Z");
@@ -15,6 +17,7 @@ const STATIC_ROUTES: Array<{ route: string; modified: Date; priority: number; fr
   { route: "/", modified: ATLAS_DATE, priority: 1, frequency: "weekly" },
   { route: "/tools", modified: ORIGINAL_CONTENT_DATE, priority: 0.9, frequency: "weekly" },
   { route: "/games", modified: ORIGINAL_CONTENT_DATE, priority: 0.8, frequency: "monthly" },
+  { route: "/workflows", modified: ORIGINAL_CONTENT_DATE, priority: 0.8, frequency: "monthly" },
   { route: "/collections", modified: ORIGINAL_CONTENT_DATE, priority: 0.7, frequency: "monthly" },
   { route: "/explore", modified: ORIGINAL_CONTENT_DATE, priority: 0.8, frequency: "weekly" },
   { route: "/categories", modified: ORIGINAL_CONTENT_DATE, priority: 0.7, frequency: "monthly" },
@@ -53,7 +56,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...LOADER_HUB_SLUGS.map((slug) => ({ url: absoluteUrl(getLoaderHubPath(slug)), lastModified: ORIGINAL_CONTENT_DATE, changeFrequency: "monthly" as const, priority: 0.75 })),
   ];
 
+  /*
+   * Workflows and Explore projects come from the unified discovery registry,
+   * which only carries public entities: pending and deleted Explorer records
+   * never reach it, so they can never reach the sitemap either.
+   */
+  const discoveryEntries: MetadataRoute.Sitemap = coreDiscoverySitemapEntries(
+    getUnifiedSearchEntities(),
+    ["project", "workflow"],
+    ORIGINAL_CONTENT_DATE,
+  ).map((entry) => ({ ...entry, url: absoluteUrl(entry.url) }));
+
   const byUrl = new Map<string, MetadataRoute.Sitemap[number]>();
-  for (const entry of [...staticEntries, ...toolEntries, ...gameEntries, ...pathEntries, ...careerEntries, ...wayEntries, ...editorialEntries, ...resourceHubEntries, ...loaderEntries]) byUrl.set(entry.url, entry);
+  for (const entry of [...staticEntries, ...toolEntries, ...gameEntries, ...pathEntries, ...careerEntries, ...wayEntries, ...editorialEntries, ...resourceHubEntries, ...loaderEntries, ...discoveryEntries]) byUrl.set(entry.url, entry);
   return [...byUrl.values()];
 }
